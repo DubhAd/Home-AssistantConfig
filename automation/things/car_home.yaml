@@ -17,3 +17,7 @@ condition:
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.car_home
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.car
+      value: "Home"
