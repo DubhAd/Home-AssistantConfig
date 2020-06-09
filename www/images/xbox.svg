@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="7.4023862mm"
+   height="2.3114505mm"
+   viewBox="0 0 7.4023862 2.3114505"
+   version="1.1"
+   id="svg2565"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="xbox.svg">
+  <defs
+     id="defs2559" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="46.733441"
+     inkscape:cy="-20.169426"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2562">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(235.02262,75.328345)">
+    <g
+       id="sensor.stinkbomb222"
+       transform="matrix(0.01319482,0,0,0.01325183,-235.02262,-77.889804)"
+       style="display:inline;fill:#b381c9;fill-opacity:1"
+       inkscape:label="#g5500">
+      <g
+         id="g5434"
+         style="fill:#b381c9;fill-opacity:1">
+        <g
+           id="g5432"
+           style="fill:#b381c9;fill-opacity:1">
+          <rect
+             id="rect5412"
+             height="51.529999"
+             width="277.43799"
+             y="215.733"
+             x="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <rect
+             id="rect5414"
+             height="54.571999"
+             width="277.43799"
+             y="290.703"
+             x="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <path
+             id="path5416"
+             d="M 561.002,215.733 H 283.559 V 345.275 H 560.997 V 215.733 Z m -74.609,34.682 c 5.588,0 10.68,1.934 14.811,5.074 -8.285,-1.689 -13.922,1.928 -15.012,2.711 -1.072,-0.765 -6.512,-4.223 -14.518,-2.785 4.113,-3.097 9.174,-5 14.719,-5 z m -24.59,24.59 c 0,-7.154 3.104,-13.531 7.975,-18.03 1.518,0.973 9.621,3.929 10.232,7.283 0,0 -16.438,16.01 -10.838,28.275 -4.535,-4.462 -7.369,-10.661 -7.369,-17.528 z m 24.59,24.585 c -6.549,0 -12.467,-2.602 -16.873,-6.781 0.129,-2.197 1.604,-11.354 16.672,-22.981 16.041,12.387 16.676,21.958 16.684,23.311 -4.372,3.972 -10.118,6.451 -16.483,6.451 z m 16.591,-6.543 c 6.316,-12.326 -10.619,-28.789 -10.619,-28.789 0.668,-3.66 10.166,-6.817 10.404,-7.479 5.006,4.498 8.213,10.961 8.213,18.226 0,7.161 -3.113,13.55 -7.998,18.042 z"
+             inkscape:connector-curvature="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <path
+             id="path5418"
+             d="m 559.852,206.553 -1.15,-3.06 -1.678,-4.468 c -1.188,-3.164 -4.889,-5.728 -8.268,-5.728 H 283.559 v 10.196 3.06 3.06 h 277.438 z"
+             inkscape:connector-curvature="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <path
+             id="path5420"
+             d="m 277.438,206.553 v -3.06 -10.202 H 12.24 c -3.378,0 -7.081,2.564 -8.269,5.728 l -1.677,4.474 -1.145,3.06 -1.149,3.06 h 277.438 z"
+             inkscape:connector-curvature="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <path
+             id="path5422"
+             d="m 557.029,361.982 1.678,-4.467 1.15,-3.061 1.15,-3.061 H 283.559 v 3.061 3.061 10.201 h 265.197 c 3.385,-0.005 7.088,-2.57 8.273,-5.734 z"
+             inkscape:connector-curvature="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <path
+             id="path5424"
+             d="m 2.295,357.516 1.677,4.467 c 1.188,3.164 4.89,5.729 8.269,5.729 h 265.198 v -10.202 -3.061 -3.061 H 0 l 1.15,3.061 z"
+             inkscape:connector-curvature="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <path
+             id="path5426"
+             d="m 22.65,273.873 c -3.378,0 -6.12,2.289 -6.12,5.11 0,2.821 2.742,5.11 6.12,5.11 h 215.571 c 3.378,0 6.12,-2.289 6.12,-5.11 0,-2.821 -2.742,-5.11 -6.12,-5.11 z"
+             inkscape:connector-curvature="0"
+             style="fill:#b381c9;fill-opacity:1" />
+          <polygon
+             id="polygon5428"
+             points="267.114,281.48 260.645,271.083 254.176,281.48 "
+             style="fill:#b381c9;fill-opacity:1" />
+          <rect
+             id="rect5430"
+             height="3.1570001"
+             width="12.944"
+             y="283.72101"
+             x="254.17"
+             style="fill:#b381c9;fill-opacity:1" />
+        </g>
+      </g>
+      <g
+         id="g5436"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5438"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5440"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5442"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5444"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5446"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5448"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5450"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5452"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5454"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5456"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5458"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5460"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5462"
+         style="fill:#b381c9;fill-opacity:1" />
+      <g
+         id="g5464"
+         style="fill:#b381c9;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+sequence:
+  - service: light.turn_on
+    data_template:
+      entity_id: light.master_bedroom_bedhead
+      color_temp: >-
+        {% set current = states.light.master_bedroom_bedhead.attributes.color_temp|default(0)|int %}
+        {% set step = states('input_number.light_step_colour')|int %}
+        {% set next = current + step %}
+        {% if next > states.light.master_bedroom_bedhead.attributes.max_mireds|int %}
+          {% set next = states.light.master_bedroom_bedhead.attributes.max_mireds|int %}
+        {% endif %}
+        {{ next }}
+
+  - service_template: >
+      {% if states.light.master_bedroom_bedhead.attributes.color_temp|default(0)|int < states.light.master_bedroom_bedhead.attributes.max_mireds|int %}
+        script.turn_on
+      {% else %}
+        script.turn_off
+      {% endif %}
+    data:
+      entity_id: script.bedhead_light_warm_pause

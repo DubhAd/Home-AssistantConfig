@@ -1,0 +1,58 @@
+alias: 'person2 in bed'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: light.master_bedroom_bedhead
+    to: 'on'
+    for: 
+      minutes: 2
+  - platform: state
+    entity_id: 
+      - media_player.master_bedroom_speaker
+      - media_player.person2
+    to: 'playing'
+  - platform: state
+    entity_id: 
+      - input_boolean.person2_tablet_charging
+      - input_boolean.person2_phone_charging
+    to: 'on'
+  - platform: time
+    at: '22:05:00'
+condition:
+  # I'm home, and the mobile is charging
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_phone_charging
+    state: 'on'
+  - condition: or
+    conditions:
+    # One of... the tablet charging, the light is on, or I'm listening to music
+    - condition: state
+      entity_id: input_boolean.person2_tablet_charging
+      state: 'on'
+    - condition: state
+      entity_id: light.master_bedroom_bedhead
+      state: 'on'
+    - condition: state
+      entity_id: media_player.master_bedroom_speaker
+      state: 'playing'
+    - condition: state
+      entity_id: media_player.person2
+      state: 'playing'
+  # In the time window for bed
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: time
+      before: '04:00:00'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person2_in_bed
+  - condition: state
+    entity_id: input_boolean.person2_driving
+    state: 'on'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person2_driving

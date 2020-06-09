@@ -1,0 +1,11 @@
+sequence:
+  - wait_template: "{{ is_state('script.scan_bt_depart', 'off') }}"
+  - service: mqtt.publish
+    data:
+      topic: monitor/scan/arrive
+      payload: ''
+  - delay: '00:00:15'
+  - service: mqtt.publish
+    data:
+      topic: monitor/scan/arrive
+      payload: ''

@@ -1,0 +1,166 @@
+#!/usr/bin/zsh
+
+## This is the sanitised of the script I use to sanitise the files I upload.
+
+MASTER=/home/homeassistant/.homeassistant
+STAGING=/home/pi/homeassistant-git
+
+HA_VERSION=$(/srv/homeassistant/homeassistant_venv/bin/hass --version)
+
+function renameFile()
+	{
+	echo "${1}" | sed -e "s/adam/person1/g" \
+		-e "s/alistair/person2/g" \
+		-e "s/arabella/person3/g" \
+		-e "s/alison/person4/g" \
+		-e "s/ali/person4/g" \
+		-e "s/glasgow/work/gi" \
+		-e "s/paisley/work/gi" \
+		-e "s/greenock/home/gi" \
+		-e "s/bcn/ack/g" \
+		-e "s/glc/kgx/g"\
+		-e "s/hass.example.org/myhost.dynamic.dom/" 
+}
+
+function parseNGINX()
+	{
+	cat "${1}" | sed \
+		-e "s/hass.example.org/myhost.dynamic.dom/" \
+		-e "s/garage.camera.smith/192.168.0.10/" \
+		-e "s/front.camera.smith/192.168.0.11/" \
+		-e "s/10\.16\.7\./192.168.0./" \		# My LAN IP range, to a generic one
+		-e "s/192\.0\.2\.4/203.0.114.42/" \		# My "public" IP to a documentation example one
+		-e 's/"Bearer .*"/"Bearer SuperSecretString"/' \
+		| grep -v "^#" | uniq
+}
+
+function parseSVG()
+	{
+	cat "${1}" | sed \
+		-e "s/adam/person1/gi" \
+		-e "s/alistair/person2/gi" \
+		-e "s/arabella/person3/gi" \
+		-e "s/alison/person4/gi" \
+		-e "s/ali/person4/gi" \
+		-e "s/adamtag/person1/gi" \
+		-e "s/adamtag2/person1_xbox/gi" \
+		-e "s/alistairtag/person2_xbox/gi" 
+}
+
+function parseFile()
+	{
+	cat "${1}" | sed \
+		-e "s/adam/person1/gi" \
+		-e "s/label:A/label:1/gi" \
+		-e "s/alistair.smith@example.com/person2@work/g" \	# Work calendars
+		-e "s/alistairsmithexamplecom/person2@work/g" \
+		-e "s/_handle_adamtag//" \
+		-e "s/adamtag/person1/gi" \
+		-e "s/alison/person4/gi" \
+		-e "s/ali/person4/gi" \
+		-e "s/abc_/person4_/gi" \
+		-e "s/adamtag2/person1_xbox/gi" \
+		-e "s/tom/friend1/gi" \
+		-e "s/terry/friend2/gi" \
+		-e "s/tracy/friend3/gi" \
+		-e "s/alistairtag/person2_xbox/gi" \
+		-e "s/alistair/person2/gi" \
+		-e "s/label:B/label:2/gi" \
+		-e "s/arabella/person3/gi" \
+		-e "s/label:C/label:3/gi" \
+		-e "s/Greenock/home/gi" \
+		-e "s/bcn/ack/gi" \
+		-e "s/glc/kgx/gi" \
+		-e "s/Glasgow Central/station/gi" \
+		-e "s/Glasgow/work/gi" \
+		-e "s/Paisley/other/gi" \
+		-e "s/hass.example.org/myhost.dynamic.dom/" \
+		-e "s/example.org/myhost.dynamic.dom/" \
+		-e "s/garage.camera.smith/192.168.0.10/" \
+		-e "s/front.camera.smith/192.168.0.11/" \
+		-e "s/PA16 /POST CODE/g" \
+		-e "s/Smith/family/gi" \
+		-e "s/ he / they /gi" \
+		-e "s/ she / they /gi" \
+		-e "s/win458/laptop/gi" \
+		-e "s/hass/pi3/gi" \
+                -e 's/aria-label="39"/aria-label="XY"/' \
+                -e "s/lat=[0-9.-]*&lon=[0-9.-]*&/lat=51.4768\&lon=0\&/" \
+		-e "s/\(unique_id: [0-9a-f][0-9a-f]:\)[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]\(:[0-9a-f][0-9a-f]\)/\1de:ad:be:ef\2/" \
+		-e "s/\(unique_id: RINCON_[0-9A-F][0-9A-F][0-9A-F]\)[0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F]\([0-9A-F][0-9A-F][0-9][0-9][0-9][0-9][0-9]\)/\1DEADBEEF\2/" \
+		-e "s/cal_id: .*/cal_id: REDACTED@group.calendar.google.com/" \
+		| egrep -v "^#\s" | uniq
+}
+
+function parseScript()
+	{
+	cat "${1}" | sed \
+		-e "s/^\(APP_ID=\)[^&]*/\1secret/" \
+		-e "s/^\(API_KEY=\)[^&]*/\1nottelling/" \
+		-e "s/PA16 /POST CODE/g" \
+		-e "s/BCN/ACK/" \
+		-e "s/GLC/KGX/" \
+		-e "s/DFR/STP/" \
+                -e "s/bw.printer.smith/192.168.0.150/g" \
+		| grep -v "^# " | uniq
+}
+
+################################################################################
+
+# Tidy up old files
+find ${STAGING} -type f -name "*.yaml" -exec rm {} \;
+
+# Create directories if required
+find ${MASTER} -mindepth 1 -type d -print | egrep -v "/apps|deps|TEST" | cut -d"/" -f5- | while read DIR
+	do
+	if [ ! -d ${STAGING}/${DIR} ]; then
+		mkdir -p ${STAGING}/${DIR}
+	fi
+done
+
+# Find the files
+find ${MASTER} \( -name "*.yaml" -o -name "*.css" -o -name "*.svg" -o -name "*.html" \) -a \( ! -name "secrets.yaml" -a ! -name "known_devices.yaml" -a ! -name "netdata.yaml" -a ! -name "google.yaml" -a ! -name "google_calendars.yaml" -a ! -name "zones.yaml" \) -print | cut -d"/" -f5- | while read FILE
+	do
+	newNAME=$(renameFile ${FILE})
+	case ${FILE:e} in
+		svg )	echo "Skipping real ${STAGING}/${newNAME}"
+			parseSVG ~/floorplan-sanitised.svg > ${STAGING}/${newNAME}
+			;;
+		* )	echo "Creating ${STAGING}/${newNAME}"
+			parseFile ${MASTER}/${FILE} > ${STAGING}/${newNAME}
+			;;
+	esac
+done
+
+for FILE in /local/bin/parse-email /local/bin/*train-status* /local/bin/printer-info
+	do
+	newNAME=$(renameFile ${FILE})
+	echo "Creating ${STAGING}${newNAME}"
+	mkdir -p ${STAGING}${newNAME:h}
+	parseScript ${FILE} > ${STAGING}${newNAME}
+done
+
+# For other files
+for FILE in /etc/nginx/conf.d/hass.example.org.conf /etc/nginx/conf.d/proxy.conf
+	do
+	newNAME=$(renameFile ${FILE})
+	echo "Creating ${STAGING}${newNAME}"
+	mkdir -p ${STAGING}${newNAME:h}
+	parseNGINX ${FILE} > ${STAGING}${newNAME}
+done
+
+# HA Dashboard
+for FILE in /home/homeassistant/appdaemon_dashboard/appdaemon/conf/dashboards/*
+	do
+	newNAME=$(renameFile ${FILE})
+	echo "Creating ${STAGING}/hadashboard/${newNAME:t}"
+	mkdir -p ${STAGING}/hadashboard/
+	parseFile ${FILE} > ${STAGING}/hadashboard/${newNAME:t}
+done
+
+# Now the README
+cat ~/README.md | sed "s/##HA_VERSION##/${HA_VERSION}/g" > ${STAGING}/README.md
+
+# Sync done, time to push
+cd ${STAGING}
+git add -A && git commit -am "Automated update at $(date +'%Y-%m-%d %H:%M')" && git push -u origin master

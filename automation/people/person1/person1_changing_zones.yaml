@@ -1,0 +1,21 @@
+initial_state: 'on'
+alias: 'person1 changing zones'
+trigger:
+  # Been away for a few minutes
+  - platform: state
+    entity_id: device_tracker.person1_mobile
+    to: 'not_home'
+    for: '00:05:00'
+  # Arrived in a zone
+  - platform: state
+    entity_id: device_tracker.person1_mobile
+    from: 'not_home'
+condition:
+  # Been at least 5 minutes
+  - condition: template
+    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person1_travel_time','last_triggered'))|float)|float > 300 }}"
+action:
+  - service: notify.logfile
+    data:
+      message: "Updating travel time for person1 due to entering a zone, or leaving one 5 minutes ago"
+  - service: script.person1_travel_time

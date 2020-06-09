@@ -1,0 +1,39 @@
+- platform: mqtt
+  state_topic: 'monitor/first floor rear/person2_mobile'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'person2 mobile first floor rear'
+  json_attributes_topic: 'monitor/first floor rear/person2_mobile'
+
+- platform: mqtt
+  state_topic: 'monitor/first floor front/person2_mobile'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'person2 mobile first floor front'
+  json_attributes_topic: 'monitor/first floor front/person2_mobile'
+
+- platform: mqtt
+  state_topic: 'monitor/first floor rear/person2_mobile/rssi'
+  unit_of_measurement: 'dBm'
+  name: 'person2 mobile rssi first floor rear'
+
+- platform: mqtt
+  state_topic: 'monitor/first floor front/person2_mobile/rssi'
+  unit_of_measurement: 'dBm'
+  name: 'person2 mobile rssi first floor front'
+
+- platform: min_max
+  name: "Home Occupancy confidence for person2 mobile BT"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.person2_mobile_first_floor_rear
+    - sensor.person2_mobile_first_floor_front
+
+- platform: min_max
+  name: "person2 mobile BT rssi"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.person2_mobile_rssi_first_floor_rear
+    - sensor.person2_mobile_rssi_first_floor_front

@@ -1,0 +1,25 @@
+alias: 'Bedhead light left on'
+initial_state: 'on'
+trigger:
+  platform: state
+  entity_id: light.yeelight_strip1_286c07afc307
+  to: 'on'
+  for: 
+    minutes: 30
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: above_horizon
+    - condition: state
+      entity_id: media_player.person2
+      state: 'off'
+    - condition: state
+      entity_id: media_player.cast_master_bedroom_speaker
+      state: 'off'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.yeelight_strip1_286c07afc307
+      transition: 30

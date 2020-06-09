@@ -1,0 +1,8 @@
+initial_state: 'on'
+alias: 'Front camera motion detected'
+trigger:
+  - platform: state
+    entity_id: input_boolean.front_camera_motion
+    to: 'on'
+action:
+  - service: script.snapshot_front_camera

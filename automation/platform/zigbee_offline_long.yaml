@@ -1,0 +1,12 @@
+initial_state: 'on'
+alias: 'Zigbee offline long'
+trigger:
+  - platform: state
+    entity_id: sensor.zigbee2mqtt_bridge_state
+    to: 'offline'
+    for: '00:05:00'
+action:
+  - service: notify.person2_telegram
+    data_template:
+      message: >-
+        The Zigbee bridge has been {{ trigger.to_state.state }} for five minutes. Time to reset the stick again.

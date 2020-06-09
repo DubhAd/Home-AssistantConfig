@@ -1,0 +1,108 @@
+title: Z-Wave
+id: zwave
+path: zwave
+icon: mdi:z-wave
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: Zigbee
+  show_header_toggle: false
+  entities:
+  - entity: switch.zigbee2mqtt_enable_join
+    name: Join
+    icon: mdi:toggle-switch
+  - entity: sensor.zigbee2mqtt_bridge_state
+    secondary_info: last-changed
+    name: Bridge
+  - entity: binary_sensor.zigbee2mqtt_router_1
+    secondary_info: last-changed
+    state_color: true
+    name: Router
+- type: glance
+  title: Zigbee links
+  show_header_toggle: false
+  columns: 5
+  entities:
+  - sensor.living_room_table_switch_linkquality
+  - sensor.dimmer_switch_linkquality
+  - sensor.patio_window_left_linkquality
+  - sensor.patio_window_right_linkquality
+  - sensor.family_window_left_linkquality
+  - sensor.family_window_right_linkquality
+  - sensor.downstairs_hall_light_link
+  - sensor.downstairs_hall_motion_linkquality 
+  - sensor.vestibule_motion_linkquality
+  - sensor.vestibule_window_side_linkquality
+  - sensor.vestibule_window_front_linkquality
+  - sensor.bathroom_environment_linkquality
+  - sensor.bathroom_window_linkquality
+  - sensor.guest_bedroom_window_left_linkquality
+  - sensor.guest_bedroom_window_right_linkquality
+  - sensor.office_button_linkquality
+  - sensor.office_window_linkquality
+  - sensor.spare_bedroom_window_left_linkquality
+  - sensor.spare_bedroom_window_right_linkquality
+  - sensor.second_bedroom_ensuite_environment_linkquality
+  - sensor.second_bedroom_window_ensuite_linkquality
+  - sensor.second_bedroom_window_left_linkquality
+  - sensor.second_bedroom_window_right_linkquality
+  - sensor.master_window_left_linkquality
+  - sensor.master_window_right_linkquality
+  - sensor.master_ensuite_environment_linkquality
+  - sensor.master_window_ensuite_linkquality
+  - sensor.zigbee_router1_linkquality
+  - sensor.router_masterbedroom_linkquality
+  - sensor.router_sparebed_linkquality
+- type: glance
+  title: Z-Wave battery devices
+  show_header_toggle: false
+  columns: 4
+  entities:
+    - entity: zwave.pi3_garage_closed_bike
+      name: Garage left
+    - entity: zwave.pi3_garage_closed_car
+      name: Garage car
+    - zwave.pi3_front_door
+    - zwave.pi3_patio_door_left
+    - zwave.pi3_utility_door_exterior
+    - zwave.pi3_living_room_multi
+    - zwave.pi3_nodon_crc3100_octan_remote
+    - zwave.pi3_green_remote
+    - zwave.pi3_utility
+- type: glance
+  title: Z-Wave mains
+  show_header_toggle: false
+  entities:
+  - zwave.pi3_zwaveme_razberry_controller_2016_zwave
+  - zwave.pi3_table_light
+  - zwave.pi3_cabinet_light
+  - zwave.pi3_tv_light
+  - zwave.pi3_number_sign
+  - zwave.pi3_garden_lights
+  - zwave.pi3_spare_socket
+  - zwave.pi3_master_bedroom_socket
+  - zwave.pi3_office_multi
+  - zwave.pi3_second_bedroom
+  - zwave.pi3_family_room_socket
+  - zwave.pi3_hall_downstairs
+  - zwave.pi3_livingroom_socket
+  - zwave.pi3_vestibule
+  - zwave.pi3_front_bedroom
+- type: custom:html-template-card
+  title: 'Link status times'
+  ignore_line_breaks: true
+  content: |-
+    Zigbee:<BR>
+    {% for state in states.sensor -%}
+      {%- if state.attributes.linkquality %}
+        {%- if "link" in state.name %}
+          {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor %}
+    <HR>
+    Z-Wave:<BR>
+    {% for state in states.zwave -%}
+       {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
+    {%- endfor %}

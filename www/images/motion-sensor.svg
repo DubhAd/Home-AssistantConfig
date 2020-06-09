@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3.4395833mm"
+   height="3.439301mm"
+   viewBox="0 0 3.4395833 3.439301"
+   version="1.1"
+   id="svg2732"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="motion-sensor.svg">
+  <defs
+     id="defs2726" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="15.470254"
+     inkscape:cy="-13.178632"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2729">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(77.31503,19.951794)">
+    <path
+       style="display:inline;opacity:0.95999995;fill:#81c9a7;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.07001588;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="binary_sensor.living_room_motion"
+       sodipodi:type="arc"
+       sodipodi:cx="-73.875717"
+       sodipodi:cy="-19.951794"
+       sodipodi:rx="3.4393189"
+       sodipodi:ry="3.439301"
+       sodipodi:start="1.5707178"
+       sodipodi:end="3.1397678"
+       d="m -73.875447,-16.512493 a 3.4393189,3.439301 0 0 1 -3.439583,-3.433024 l 3.439313,-0.0063 z"
+       inkscape:label="#path1030" />
+  </g>
+</svg>

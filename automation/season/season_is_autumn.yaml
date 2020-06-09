@@ -1,0 +1,15 @@
+alias: 'Season is autumn'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '03:00:00'
+condition:
+  - condition: template
+    value_template: '{{ 12 > now().month > 8  }}'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.season
+      option: Autumn

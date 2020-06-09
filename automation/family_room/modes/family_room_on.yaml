@@ -1,0 +1,29 @@
+initial_state: 'on'
+alias: 'family room mode on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.family_room_occupied
+    to: 'on'
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    below: 5
+condition:
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ not is_state('input_select.family_room','On') }}"
+    - condition: state
+      entity_id: input_boolean.family_room_occupied
+      state: 'on'
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      below: 5
+  # Only turn them on at Christmas
+  - condition: state
+    entity_id: input_select.season
+    state: 'Christmas'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.family_room
+      option: 'On'

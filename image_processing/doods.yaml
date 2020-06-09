@@ -1,0 +1,26 @@
+platform: doods
+scan_interval: 86400
+url: !secret doods_url
+timeout: 30
+detector: default
+confidence: 70
+source:
+  - entity_id: camera.front_camera
+  - entity_id: camera.front_camera_snapshot
+file_out:
+  - "/data/homeassistant/cameras/{{ camera_entity.split('.')[1] }}_latest.jpg"
+  - "/data/homeassistant/cameras/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
+area:
+  # Exclude top and left
+  top: 0.5
+  right: 0.6
+  covers: false
+labels:
+  - person
+  - car
+  - truck
+  - cat
+  - bird
+  - dog
+  - motorcycle
+  - bicycle

@@ -1,0 +1,31 @@
+alias: 'person1 Up'
+initial_state: 'on'
+trigger:
+  # Something gets unplugged
+  - platform: state
+    entity_id: input_boolean.person1_phone_charging
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.person1_tablet_charging
+    to: 'off'
+condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.person1_home
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.person1_in_bed
+      state: 'on'
+    - condition: time
+      after: '04:00:00'
+      before: '21:00:00'
+action:
+  - service: input_boolean.turn_off
+    entity_id: 
+      - input_boolean.person1_in_bed
+      - input_boolean.person1_alarm_sounded
+  - service: notify.logfile
+    data_template:
+      message: >
+        Turned off person1 in bed because the {{ trigger.to_state.name }} was {{ trigger.to_state.state }} at {{ now() }}

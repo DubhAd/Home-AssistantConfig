@@ -1,0 +1,32 @@
+initial_state: 'on'
+alias: 'family room lights to On'
+trigger:
+  - platform: state
+    entity_id: input_select.family_room
+    to: 'On'
+  - platform: state
+    entity_id: input_select.house
+    to: 'On'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.family_room
+      state: 'On'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.family_room
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'On'
+  - condition: state
+    entity_id: switch.pi3_family_room_socket_switch
+    state: 'off'
+action:
+  - service: switch.turn_on
+    entity_id: switch.pi3_family_room_socket_switch

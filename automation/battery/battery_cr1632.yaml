@@ -1,0 +1,88 @@
+initial_state: 'on'
+alias: 'Battery CR1632'
+trigger:
+  - platform: numeric_state
+    entity_id: 
+    - sensor.bathroom_window_battery
+    - sensor.dimmer_switch_battery
+    - sensor.family_window_left_battery
+    - sensor.family_window_right_battery
+    - sensor.guestbedroom_window_left_battery
+    - sensor.guestbedroom_window_right_battery
+    - sensor.hall_downstairs_motion_battery
+    - sensor.master_window_ensuite_battery
+    - sensor.master_window_left_battery
+    - sensor.master_window_right_battery
+    - sensor.office_button_battery
+    - sensor.office_window_battery
+    - sensor.patio_window_left_battery
+    - sensor.patio_window_right_battery
+    - sensor.second_bedroom_window_ensuite_battery
+    - sensor.second_bedroom_window_left_battery
+    - sensor.second_bedroom_window_right_battery
+    - sensor.spare_bedroom_window_left_battery
+    - sensor.spare_bedroom_window_right_battery
+    - sensor.vestibule_motion_battery
+    - sensor.vestibule_window_front_battery
+    - sensor.vestibule_window_side_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.bathroom_window_battery
+    - sensor.dimmer_switch_battery
+    - sensor.family_window_left_battery
+    - sensor.family_window_right_battery
+    - sensor.guestbedroom_window_left_battery
+    - sensor.guestbedroom_window_right_battery
+    - sensor.hall_downstairs_motion_battery
+    - sensor.master_window_ensuite_battery
+    - sensor.master_window_left_battery
+    - sensor.master_window_right_battery
+    - sensor.office_button_battery
+    - sensor.office_window_battery
+    - sensor.patio_window_left_battery
+    - sensor.patio_window_right_battery
+    - sensor.second_bedroom_window_ensuite_battery
+    - sensor.second_bedroom_window_left_battery
+    - sensor.second_bedroom_window_right_battery
+    - sensor.spare_bedroom_window_left_battery
+    - sensor.spare_bedroom_window_right_battery
+    - sensor.vestibule_motion_battery
+    - sensor.vestibule_window_front_battery
+    - sensor.vestibule_window_side_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.bathroom_window_battery
+    - sensor.dimmer_switch_battery
+    - sensor.family_window_left_battery
+    - sensor.family_window_right_battery
+    - sensor.guestbedroom_window_left_battery
+    - sensor.guestbedroom_window_right_battery
+    - sensor.hall_downstairs_motion_battery
+    - sensor.master_window_ensuite_battery
+    - sensor.master_window_left_battery
+    - sensor.master_window_right_battery
+    - sensor.office_button_battery
+    - sensor.office_window_battery
+    - sensor.patio_window_left_battery
+    - sensor.patio_window_right_battery
+    - sensor.second_bedroom_window_ensuite_battery
+    - sensor.second_bedroom_window_left_battery
+    - sensor.second_bedroom_window_right_battery
+    - sensor.spare_bedroom_window_left_battery
+    - sensor.spare_bedroom_window_right_battery
+    - sensor.vestibule_motion_battery
+    - sensor.vestibule_window_front_battery
+    - sensor.vestibule_window_side_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.logfile
+  data_template:
+    message: "SENDME The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR1632 coin cell"

@@ -1,0 +1,14 @@
+alias: 'House mode auto'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.house
+      option: 'Auto'

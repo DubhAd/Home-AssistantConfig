@@ -1,0 +1,24 @@
+alias: 'person3 asleep'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person3_in_bed
+    to: 'on'
+    for:
+      minutes: 5
+condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.person3_is_awake
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.person3_home
+      state: 'on'
+    - condition: time
+      after: '22:00:00'
+      before: '03:00:00'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person3_is_awake
+  - service: script.person3_travel_sensor

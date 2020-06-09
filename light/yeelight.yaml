@@ -1,0 +1,8 @@
+- platform: yeelight
+  devices:
+    192.168.0.150:
+      name: Master Bedroom bedhead
+      transition: 1000
+    192.168.0.151:
+      name: person1 bedroom bedside
+      transition: 1000

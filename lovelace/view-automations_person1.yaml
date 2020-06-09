@@ -1,0 +1,83 @@
+title: Automations person1
+id: automations_person1
+path: automations_person1
+icon: mdi:account-circle
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: People driven automations - person1
+  show_header_toggle: false
+  entities:
+  - entity: automation.person1_next_alarm
+    secondary_info: last-triggered
+  - entity: automation.person1_asleep
+    secondary_info: last-triggered
+  - entity: automation.person1_in_bed
+    secondary_info: last-triggered
+  - entity: automation.person1_at_work
+    secondary_info: last-triggered
+  - entity: automation.person1_away
+    secondary_info: last-triggered
+  - entity: automation.person1_home
+    secondary_info: last-triggered
+  - entity: automation.person1_home_after_work
+    secondary_info: last-triggered
+  - entity: automation.person1_up
+    secondary_info: last-triggered
+  - entity: automation.person1_awake
+    secondary_info: last-triggered
+  - entity: automation.person1_up_reminder
+    secondary_info: last-triggered
+  - entity: automation.person1_mobile_low_battery
+    secondary_info: last-triggered
+  - entity: automation.person1_tablet_away
+    secondary_info: last-triggered
+  - entity: automation.person1_tablet_home
+    secondary_info: last-triggered
+- type: entities
+  title: People driven automations - Tablet
+  show_header_toggle: false
+  entities:
+  - entity: automation.person1_tablet_plugged
+    secondary_info: last-triggered
+  - entity: automation.person1_tablet_unplugged
+    secondary_info: last-triggered
+  - entity: automation.person1_phone_plugged
+    secondary_info: last-triggered
+  - entity: automation.person1_phone_unplugged
+    secondary_info: last-triggered
+- type: entities
+  title: Automations for travel - person1
+  show_header_toggle: false
+  entities:
+  - entity: automation.person1_returning
+    secondary_info: last-triggered
+  - entity: automation.person1_travelling
+    secondary_info: last-triggered
+  - entity: automation.person1_is_travelling
+    secondary_info: last-triggered
+  - entity: automation.person1_is_not_travelling
+    secondary_info: last-triggered
+  - entity: automation.person1_on_the_move
+    secondary_info: last-triggered
+  - entity: automation.person1_location_update
+    secondary_info: last-triggered
+  - entity: automation.person1_changing_zones
+    secondary_info: last-triggered
+- type: entities
+  title: Automations changing inputs
+  show_header_toggle: false
+  entities:
+  - entity: automation.work_day_for_person1
+    secondary_info: last-triggered
+  - entity: automation.not_work_day_for_person1
+    secondary_info: last-triggered
+- type: entities
+  title: Automations for alarms - person1
+  show_header_toggle: false
+  entities:
+  - entity: automation.person1_on_holiday
+    secondary_info: last-triggered
+  - entity: automation.person1_off_holiday
+    secondary_info: last-triggered

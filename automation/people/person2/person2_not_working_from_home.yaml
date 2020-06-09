@@ -1,0 +1,27 @@
+alias: 'person2 not working from home'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: calendar.person2_wfh
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.workday_sensor
+    to: 'on'
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '00:30:00'
+condition:
+  condition: and
+  conditions:
+  - condition: state
+    entity_id: calendar.person2_wfh
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.notify_train_status_work
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person2_work_home

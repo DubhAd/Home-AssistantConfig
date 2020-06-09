@@ -1,0 +1,12 @@
+title: Our Home
+custom_header: !include lovelace/custom_header.yaml
+views:
+  - !include lovelace/view-home.yaml
+  - !include lovelace/view-floorplan.yaml
+  - !include lovelace/view-floor-ground.yaml
+  - !include lovelace/view-floor-first.yaml
+  - !include lovelace/view-surveillance.yaml
+  - !include lovelace/view-media.yaml
+  - !include lovelace/view-spacer2.yaml
+  - !include lovelace/view-overview.yaml
+  - !include lovelace/view-cast.yaml

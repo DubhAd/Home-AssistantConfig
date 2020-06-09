@@ -1,0 +1,11 @@
+alias: 'House mode holiday'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.holiday_mode
+    to: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.house
+      option: 'Holiday'

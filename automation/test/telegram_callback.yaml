@@ -1,0 +1,11 @@
+alias: 'Telegram callback'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_callback
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Received callback: {{ trigger.event.data.data }} with message {{ trigger.event.data.message }}
+        From: {{ trigger.event.data.from_first }} {{ trigger.event.data.from_last }} aka {{ trigger.event.data.user_id }} in {{ trigger.event.data.chat_id }}/{{ trigger.event.data.chat }}

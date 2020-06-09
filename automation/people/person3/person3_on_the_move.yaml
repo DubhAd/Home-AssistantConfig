@@ -1,0 +1,71 @@
+initial_state: 'on'
+alias: 'person3 on the move'
+trigger:
+  # I've moved
+  - platform: state
+    entity_id: device_tracker.person3_mobile
+condition:
+  # Been at least 5 minutes
+  - condition: template
+    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 300 }}"
+  # Not home 
+  - condition: state
+    entity_id: input_boolean.person3_home
+    state: 'off'
+  - condition: or
+    conditions:
+    # It's been at least 5 minutes, and I'm close
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 300 }}"
+      - condition: numeric_state
+        entity_id: proximity.person3_home
+        above: 10
+        below: 20000
+    # It's been at least 10 minutes, and I'm closeish
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 600 }}"
+      - condition: numeric_state
+        entity_id: proximity.person3_home
+        above: 19999
+        below: 40000 
+    # It's been at least 15 minutes, and I'm a moderate distance away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 900 }}"
+      - condition: numeric_state
+        entity_id: proximity.person3_home
+        above: 39999 
+        below: 60000
+    # It's been at least an hour, and I'm far away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 3600 }}"
+      - condition: numeric_state
+        entity_id: proximity.person3_home
+        above: 59999
+        below: 100000
+    # It's been at least three hours, and I'm far, far away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 10800 }}"
+      - condition: numeric_state
+        entity_id: proximity.person3_home
+        above: 99999
+        below: 199999
+    # It's been at least a day, and I'm far, far, far away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 86400 }}"
+      - condition: numeric_state
+        entity_id: proximity.person3_home
+        above: 200000
+action:
+  - service: script.person3_traveltime

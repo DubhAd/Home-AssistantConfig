@@ -1,0 +1,6 @@
+alias: person2 notify_test
+sequence:
+  - service: script.notify_person2_at_home
+    data:
+      message: "Test message"
+      title: "Test title"

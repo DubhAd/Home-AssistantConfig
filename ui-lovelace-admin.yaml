@@ -1,0 +1,12 @@
+title: Admin
+custom_header: !include lovelace/custom_header.yaml
+views:
+  - !include lovelace/view-inputs.yaml
+  - !include lovelace/view-information.yaml
+  - !include lovelace/view-devices.yaml
+  - !include lovelace/view-zwave.yaml
+  - !include lovelace/view-spacer2.yaml
+  - !include lovelace/view-cameras.yaml
+  - !include lovelace/view-weather.yaml
+  - !include lovelace/view-train_status.yaml
+  - !include lovelace/view-cast.yaml

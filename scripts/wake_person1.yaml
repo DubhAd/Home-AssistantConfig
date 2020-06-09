@@ -1,0 +1,63 @@
+sequence:
+  # Light goes on
+  - service: light.turn_on
+    data:
+      entity_id: light.person1_bedroom_bedside
+      transition: 30
+      color_temp: 394
+      brightness_pct: 100
+  # Gently first, sound the alarm and give a nudge
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.cast_second_bedroom_speaker
+      volume_level: 0.3
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.cast_second_bedroom_speaker
+      media_content_id: https://myhost.dynamic.dom:12345/local/sounds/sub_alert.mp3
+      media_content_type: music
+  - delay: 00:00:03
+  # Light goes on (just in case it didn't catch the first message)
+  - service: light.turn_on
+    data:
+      entity_id: light.person1_bedroom_bedside
+      transition: 30
+      color_temp: 394
+      brightness_pct: 100
+  - service: tts.google_cloud_say
+    entity_id: media_player.cast_second_bedroom_speaker
+    data:
+      message: "Time to get up"
+  # Brief pause
+  - delay: 00:00:10
+  # A little louder now, alarm and nudge
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.cast_second_bedroom_speaker
+      volume_level: 0.4
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.cast_second_bedroom_speaker
+      media_content_id: https://myhost.dynamic.dom:12345/local/sounds/sub_alert.mp3
+      media_content_type: music
+  - delay: 00:00:03
+  # Disco lights
+  - service: light.turn_on
+    data:
+      entity_id: light.person1_bedroom_bedside
+      effect: "Disco"
+  - service: tts.google_cloud_say
+    entity_id: media_player.cast_second_bedroom_speaker
+    data:
+      message: "Time to get up"
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.cast_second_bedroom_speaker
+      media_content_id: http://vis.media-ice.musicradio.com/CapitalUKMP3
+      media_content_type: 'audio/mp3'
+  - delay: 00:00:10
+  # Lights to normal
+  - service: light.turn_on
+    data:
+      entity_id: light.person1_bedroom_bedside
+      effect: "Stop"

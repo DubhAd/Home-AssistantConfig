@@ -1,0 +1,12 @@
+name: Living room
+options:
+  - 'Auto'
+  - 'Away'
+  - 'Motion'
+  - 'Dim'
+  - 'Wake'
+  - 'Bedtime'
+  - 'Day on'
+  - 'Night on'
+  - 'On'
+  - 'Off'

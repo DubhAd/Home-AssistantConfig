@@ -1,0 +1,254 @@
+title: First floor
+id: first-floor
+path: first-floor
+icon: mdi:numeric-1-box
+cards:
+- type: glance
+  title: Master bedroom
+  columns: 5
+  entities:
+    - entity: light.master_bedroom_bedhead
+      name: Bedhead
+    - entity: media_player.person2
+      name: Squeezebox
+    - entity: media_player.cast_master_bedroom_speaker
+      name: Home Mini
+    - entity: media_player.master_bedroom_display
+      name: "Home Hub"
+    - entity: switch.radio_person2
+      icon: mdi:alarm
+      tap_action: 
+        action: toggle
+      name: Alarms
+    - entity: switch.pi3_master_bedroom_socket_switch
+      tap_action: 
+        action: toggle
+      name: Socket
+    - entity: binary_sensor.master_window_left
+      name: Left window
+    - entity: binary_sensor.master_window_right
+      name: Right window
+- type: glance
+  title: Master ensuite
+  columns: 4
+  entities:
+    - entity: sensor.master_ensuite_humidity
+      name: Humidity
+    - entity: sensor.master_ensuite_temperature
+      name: Temperature
+    - entity: sensor.master_ensuite_pressure
+      name: Pressure
+    - entity: binary_sensor.master_window_ensuite
+      name: Ensuite
+- type: glance
+  title: Second bedroom
+  #column_width: 25%
+  columns: 5
+  entities:
+    - entity: light.person1_bedroom_bedside
+      name: Bedhead
+    - entity: media_player.person1
+      name: Squeezebox
+    - entity: media_player.cast_second_bedroom_speaker
+      name: Home Mini
+    - entity: switch.radio_person1
+      icon: mdi:alarm
+      tap_action: 
+        action: toggle
+      name: Alarms
+    - entity: switch.pi3_second_bedroom_switch
+      tap_action: 
+        action: toggle
+      name: Socket
+    - entity: binary_sensor.second_bedroom_window_left
+      name: Left
+    - entity: binary_sensor.second_bedroom_window_right
+      name: Right
+- type: glance
+  title: Second bedroom ensuite
+  columns: 4
+  entities:
+    - entity: sensor.second_bedroom_ensuite_humidity
+      name: Humidity
+    - entity: sensor.second_bedroom_ensuite_temperature
+      name: Temperature
+    - entity: sensor.second_bedroom_ensuite_pressure
+      name: Pressure
+    - entity: binary_sensor.second_bedroom_window_ensuite
+      name: Ensuite
+- type: glance
+  title: Guest bedroom
+  columns: 4
+  entities:
+    - entity: media_player.cast_master_bedroom_display
+      name: Home Mini
+    - entity: switch.pi3_front_bedroom_switch
+      tap_action: 
+        action: toggle
+      name: Socket
+    - entity: binary_sensor.guest_bedroom_window_left
+      name: Left
+    - entity: binary_sensor.guest_bedroom_window_right
+      name: Right
+- type: glance
+  title: Bathroom
+  columns: 4
+  entities:
+    - entity: sensor.bathroom_humidity
+      name: Humidity
+    - entity: sensor.bathroom_temperature
+      name: Temperature
+    - entity: sensor.bathroom_pressure
+      name: Pressure
+    - entity: binary_sensor.bathroom_window
+      name: Bathroom
+- type: glance
+  title: Office
+  columns: 6
+  entities:
+    - entity: sensor.pi3_office_multi_temperature
+      name: Temperature
+    - entity: sensor.pi3_office_multi_luminance
+      name: Light level
+    - entity: sensor.pi3_office_multi_relative_humidity
+      name: Humidity
+    - entity: binary_sensor.office_window
+      name: Window
+    - entity: media_player.office
+      name: Sonos
+    - entity: media_player.office_smart_display
+      name: "Home Hub"
+- type: glance
+  title: Spare bedroom
+  columns: 3
+  entities:
+    - entity: binary_sensor.spare_bedroom_window_left
+      name: Left
+    - entity: binary_sensor.spare_bedroom_window_right
+      name: Right
+    - entity: switch.pi3_spare_socket_switch
+      tap_action: 
+        action: toggle
+- type: custom:mini-graph-card
+  title: Humidity
+  hours_to_show: 12
+  points_per_hour: 6
+  line_width: 2
+  show:
+    extrema: true
+    average: true
+    fill: false
+    labels: true
+  hour24: true
+  animate: true
+  entities:
+    - entity: sensor.master_ensuite_humidity
+      name: Master ensuite
+      color: "#9E69AF"
+    - entity: sensor.second_bedroom_ensuite_humidity
+      name: Second bedroom ensuite
+      color: "#33B679"
+    - entity: sensor.bathroom_humidity
+      name: Bathroom
+      color: "#E4C441"
+    - entity: sensor.pi3_office_multi_relative_humidity
+      name: Office
+      color: "#4285F4"
+- type: custom:mini-graph-card
+  title: Temperature
+  hours_to_show: 12
+  points_per_hour: 6
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    labels: true
+    fill: false
+  entities:
+    - entity: sensor.master_ensuite_temperature
+      name: Master ensuite
+      color: "#9E69AF"
+    - entity: sensor.second_bedroom_ensuite_temperature
+      name: Second bedroom ensuite
+      color: "#33B679"
+    - entity: sensor.bathroom_temperature
+      name: Bathroom
+      color: "#E4C441"
+    - entity: sensor.pi3_office_multi_temperature
+      name: Office
+      color: "#4285F4"
+    - entity: sensor.dark_sky_temperature
+      name: Outside
+      color: 'silver'
+- type: custom:mini-graph-card
+  title: Pressure
+  points_per_hour: 3
+  hours_to_show: 12
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    fill: false
+    labels: true
+  entities:
+    - entity: sensor.master_ensuite_pressure
+      name: Master ensuite
+      color: "#9E69AF"
+    - entity: sensor.second_bedroom_ensuite_pressure
+      name: Second bedroom ensuite
+      color: "#33B679"
+    - entity: sensor.bathroom_pressure
+      name: Bathroom
+      color: "#E4C441"
+- type: custom:mini-graph-card
+  title: Master en-suite change
+  points_per_hour: 60
+  hours_to_show: 4
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    fill: false
+    labels: true
+  entities:
+    - entity: sensor.master_ensuite_change
+      name: Change
+      color: "#9E69AF"
+- type: custom:mini-graph-card
+  title: Master en-suite change rate
+  points_per_hour: 60
+  hours_to_show: 4
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    fill: false
+    labels: true
+  entities:
+    - entity: sensor.master_ensuite_change_rate
+      name: Change rate
+      color: "#33B679"
+- type: custom:mini-graph-card
+  title: Master en-suite Humidity
+  points_per_hour: 60
+  hours_to_show: 4
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    fill: false
+    labels: true
+  entities:
+    - entity: sensor.master_ensuite_humidity
+      name: Master ensuite
+      color: "#9E69AF"

@@ -1,0 +1,10 @@
+sequence:
+  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - service: switch.turn_off
+    entity_id: switch.circadian_lighting_circadian_hall
+  - service: light.turn_on
+    data:
+      entity_id: light.hall
+      brightness_pct: 2
+      rgb_color: [ 255, 128, 0 ]
+      transition: 30

@@ -1,0 +1,13 @@
+initial_state: 'on'
+alias: 'Printer low'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.printer
+    below: 100
+  - platform: numeric_state
+    entity_id: sensor.printer
+    below: 20
+action:
+  - service: notify.logfile
+    data:
+      message: "SENDME The printer is running low on consumables, time to buy something."

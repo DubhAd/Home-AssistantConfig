@@ -1,0 +1,70 @@
+initial_state: 'on'
+alias: 'Living room lights off'
+trigger:
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Off'
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Night off'
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Away'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Night on'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Off'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Away'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Night on'
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Off'
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Away'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.living_room
+        state: 'Auto'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.house
+          state: 'Night on'
+        - condition: state
+          entity_id: input_select.house
+          state: 'Off'
+        - condition: state
+          entity_id: input_select.house
+          state: 'Away'
+action:
+  - service: notify.logfile
+    data:
+      message: "Turning off the living room table light"
+  - service: light.turn_off
+    data:
+      entity_id: light.living_room_table
+      transition: 15
+  - service: switch.turn_off
+    entity_id: 
+      - switch.pi3_tv_light_switch
+      - switch.pi3_table_light_switch
+      - switch.pi3_livingroom_socket_switch
+  - condition: template
+    value_template: "{{ not is_state('input_select.season', 'Christmas') }}"
+  - service: switch.turn_off
+    entity_id: switch.pi3_cabinet_light_switch

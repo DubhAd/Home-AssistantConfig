@@ -1,0 +1,5 @@
+person4_home:
+  zone: home
+  devices:
+    - device_tracker.person4_mobile
+  unit_of_measurement: mi

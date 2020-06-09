@@ -1,0 +1,3 @@
+- platform: switch
+  name: "Living room corner"
+  entity_id: switch.pi3_cabinet_light_switch

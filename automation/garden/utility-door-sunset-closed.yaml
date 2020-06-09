@@ -1,0 +1,25 @@
+alias: 'Utility door open after sunset closed'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.pi3_utility_door_exterior_sensor
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.pi3_patio_door_left_sensor
+    to: 'off'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.lighting_automations
+      state: 'on'
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      below: -4
+    - condition: state
+      entity_id: switch.pi3_garden_lights_switch
+      state: 'on'
+action:
+  - delay: 00:00:01
+  - service: homeassistant.turn_on
+    entity_id: automation.utility_door_open_after_sunset_turn_off

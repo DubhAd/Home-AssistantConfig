@@ -1,0 +1,13 @@
+alias: 'Telegram callback trains'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      data: "/trains"
+action:
+  - service: script.train_message
+  - service: telegram_bot.answer_callback_query
+    data_template:
+      message: "{{ states('input_text.train_message') }}"
+      callback_query_id: "{{ trigger.event.data.id }}"

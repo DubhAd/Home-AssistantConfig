@@ -1,0 +1,251 @@
+device_tracker.person1_mobile:
+  friendly_name: person1's Mobile
+device_tracker.person1_mobile_wifi:
+  friendly_name: person1 WiFi
+  icon: mdi:wifi
+device_tracker.person3_mobile:
+  friendly_name: person3's Mobile
+device_tracker.person3_mobile_wifi:
+  friendly_name: person3 WiFi
+  icon: mdi:wifi
+sensor.person1s_time_to_home_2:
+  friendly_name: person1's travel time to home
+sensor.person2s_time_to_home_2:
+  friendly_name: person2's travel time to home
+sensor.person3s_time_to_home_2:
+  friendly_name: person3's travel time to home
+sensor.person1s_time_to_home:
+  friendly_name: person1's travel time to home
+sensor.person1s_time_to_home_by_transit:
+  friendly_name: person1's bus time to home
+sensor.person2s_time_to_home:
+  friendly_name: person2's travel time to home
+sensor.person3s_time_to_home:
+  friendly_name: person3's travel time to home
+device_tracker.001d29a549ae:
+  friendly_name: person4
+  icon: mdi:bluetooth
+device_tracker.person4_mobile:
+  friendly_name: person4
+sensor.person4s_time_to_home:
+  friendly_name: person4's travel time to home
+sensor.person4_travel:
+  friendly_name: person4
+  entity_picture: /local/person4Thumb.jpg
+sensor.person2_travel:
+  friendly_name: person2
+  entity_picture: /local/person2Thumb.jpg
+sensor.person3_travel:
+  friendly_name: person3
+  entity_picture: /local/person3Thumb.jpg
+sensor.person1_travel:
+  friendly_name: person1
+  entity_picture: /local/person1Thumb.jpg
+input_number.garden_time:
+  icon: mdi:timer
+input_number.door_delay:
+  icon: mdi:clock-fast
+calendar.person3:
+  icon: mdi:calendar
+calendar.birthdays_and_anniversaries:
+  icon: mdi:calendar-check
+calendar.person1:
+  icon: mdi:calendar
+calendar.person2:
+  icon: mdi:calendar
+calendar.person2_family_tripit:
+  icon: mdi:calendar-clock
+calendar.person2_work:
+  icon: mdi:calendar-multiple
+switch.pi3_cabinet_light_switch:
+  friendly_name: Bear light
+  icon: mdi:lamp
+switch.pi3_tv_light_switch:
+  friendly_name: TV light
+  icon: mdi:television
+switch.pi3_number_sign_switch:
+  friendly_name: House number
+  icon: mdi:home-variant
+switch.pi3_garden_lights_switch:
+  friendly_name: Garden lights
+  icon: mdi:flower
+device_tracker.tv_living_room:
+  friendly_name: TV in the lounge
+  icon: mdi:television
+media_player.samsung_tv_remote:
+  friendly_name: Samsung TV in the lounge
+  icon: mdi:television
+media_player.living_room_tv:
+  friendly_name: Chromecast in the lounge
+  icon: mdi:google-chrome
+media_player.living_room:
+  friendly_name: Sonos in the lounge
+  icon: mdi:speaker
+media_player.family_room:
+  friendly_name: Sonos in the family room
+  icon: mdi:speaker
+media_player.office:
+  friendly_name: Sonos in the office
+  icon: mdi:speaker
+device_tracker.livingroom_chromecast:
+  friendly_name: Chromecast in the lounge
+  icon: mdi:google-chrome
+device_tracker.family_tv:
+  friendly_name: TV in the family room
+  icon: mdi:television
+device_tracker.livingroom_tv:
+  icon: mdi:television
+binary_sensor.bathroom_window_contact:
+  device_class: window
+binary_sensor.family_window_left_contact:
+  device_class: window
+binary_sensor.family_window_right_contact:
+  device_class: window
+binary_sensor.guestbedroom_window_left_contact:
+  device_class: window
+binary_sensor.guestbedroom_window_right_contact:
+  device_class: window
+binary_sensor.master_window_ensuite_contact:
+  device_class: window
+binary_sensor.master_window_left_contact:
+  device_class: window
+binary_sensor.master_window_right_contact:
+  device_class: window
+binary_sensor.office_window_contact:
+  device_class: window
+binary_sensor.patio_window_left_contact:
+  device_class: window
+binary_sensor.second_bedroom_window_ensuite_contact:
+  device_class: window
+binary_sensor.second_bedroom_window_left_contact:
+  device_class: window
+binary_sensor.second_bedroom_window_right_contact:
+  device_class: window
+binary_sensor.spare_bedroom_window_left_contact:
+  device_class: window
+binary_sensor.spare_bedroom_window_right_contact:
+  device_class: window
+binary_sensor.vestibule_window_front_contact:
+  device_class: window
+binary_sensor.vestibule_window_side_contact:
+  device_class: window
+binary_sensor.patio_window_right_contact:
+  device_class: window
+input_boolean.person2_driving:
+  icon: mdi:car-estate
+binary_sensor.bathroom_window:
+  device_class: window
+light.yeelight_strip1_286c07afc307:
+  friendly_name: Master bedrom bedhead
+light.yeelight_strip1_7811dca22b87:
+  friendly_name: Second bedroom bedside
+binary_sensor.vestibule_window_side:
+  device_class: window
+binary_sensor.vestibule_window_front:
+  device_class: window
+binary_sensor.patio_window_left:
+  device_class: window
+binary_sensor.patio_window_right:
+  device_class: window
+binary_sensor.family_window_left:
+  device_class: window
+binary_sensor.family_window_right:
+  device_class: window
+binary_sensor.office_window:
+  device_class: window
+binary_sensor.guest_bedroom_window_left:
+  device_class: window
+binary_sensor.guest_bedroom_window_right:
+  device_class: window
+binary_sensor.second_bedroom_window_left:
+  device_class: window
+binary_sensor.second_bedroom_window_right:
+  device_class: window
+binary_sensor.second_bedroom_window_ensuite:
+  device_class: window
+binary_sensor.spare_bedroom_window_left:
+  device_class: window
+binary_sensor.spare_bedroom_window_right:
+  device_class: window
+binary_sensor.master_window_ensuite:
+  device_class: window
+binary_sensor.master_window_left:
+  device_class: window
+binary_sensor.master_window_right:
+  device_class: window
+switch.livingroom_socket_switch:
+  friendly_name: Living room socket
+  icon: mdi:power-socket-uk
+light.hall:
+  icon: mdi:led-strip
+switch.hall_downstairs_switch:
+  icon: mdi:power-socket-uk
+device_tracker.person2_mobile_gps:
+  friendly_name: person2 Mobile
+device_tracker.car_gps:
+  friendly_name: Car
+input_text.person_person3:
+  entity_picture: /local/person3Thumb.jpg
+input_text.person_person4:
+  entity_picture: /local/person4Thumb.jpg
+input_text.person_person1:
+  entity_picture: /local/person1Thumb.jpg
+input_text.person_person2:
+  entity_picture: /local/person2Thumb.jpg
+light.living_room_table:
+  friendly_name: Living room table light
+binary_sensor.first_floor_front:
+  device_class: connectivity
+binary_sensor.first_floor_rear:
+  device_class: connectivity
+zone.lightning: {}
+switch.pi3_living_room_table:
+  icon: mdi:power-socket-uk
+binary_sensor.vestibule_socket_switch: {}
+switch.pi3_family_room_socket_switch:
+  icon: mdi:power-socket-uk
+switch.pi3_vestibule_switch:
+  icon: mdi:power-socket-uk
+sensor.dark_sky_pressure: {}
+device_tracker.person2_bt_front_laptop:
+  source_type: bluetooth
+device_tracker.person2_bt_front_mobile:
+  source_type: bluetooth
+device_tracker.person2_bt_front_tablet:
+  source_type: bluetooth
+device_tracker.person2_bt_front_work:
+  source_type: bluetooth
+device_tracker.person2_bt_laptop:
+  source_type: bluetooth
+device_tracker.person2_bt_mobile:
+  source_type: bluetooth
+device_tracker.person2_bt_tablet:
+  source_type: bluetooth
+device_tracker.person2_bt_work:
+  source_type: bluetooth
+device_tracker.person1_bt_front_mobile:
+  source_type: bluetooth
+device_tracker.person1_bt_front_tablet:
+  source_type: bluetooth
+device_tracker.person1_bt_mobile:
+  source_type: bluetooth
+device_tracker.person1_bt_tablet:
+  source_type: bluetooth
+device_tracker.car_front:
+  source_type: bluetooth
+device_tracker.car_rear:
+  source_type: bluetooth
+device_tracker.person4_bt_front_mobile:
+  source_type: bluetooth
+device_tracker.person4_bt_mobile:
+  source_type: bluetooth
+device_tracker.person3_bt_front_mobile:
+  source_type: bluetooth
+device_tracker.person3_bt_mobile:
+  source_type: bluetooth
+zwave.pi3_zwaveme_razberry_controller_2016_zwave:
+  icon: mdi:raspberry-pi
+switch.living_room_table:
+  icon: mdi:spotlight
+media_player.samsung_tv:
+  icon: mdi:television

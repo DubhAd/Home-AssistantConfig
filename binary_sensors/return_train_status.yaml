@@ -1,0 +1,22 @@
+- platform: template
+  sensors: 
+    return_train_status:
+      device_class: moving
+      entity_id: sensor.next_train_to_abc
+      friendly_name: 'Return train status'
+      value_template: >-
+        {%- macro getTrainStatus() -%}
+  
+        {%- for train in state_attr('sensor.next_train_to_abc', 'next_trains') -%}
+        {%- if train.status == "ON TIME" -%}
+          X
+        {%- endif -%}
+        {%- endfor -%}
+        {%- endmacro -%}
+  
+        {%- if getTrainStatus()[1,4] == "XXXX" -%}
+        true
+        {%- else -%}
+        false
+        {%- endif -%}
+  

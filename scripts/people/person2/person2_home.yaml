@@ -1,0 +1,20 @@
+alias: person2 home
+sequence:
+  # Should wait for sensor.last_opened to have been updated in the last few minutes
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person2_home
+  - service: mqtt.publish
+    data:
+      topic: location/person2
+      payload: 'home'
+  - service: automation.turn_on
+    entity_id: automation.person2_at_station
+  - service: automation.turn_off
+    entity_id: 
+    - automation.person2_returning_home
+    - automation.return_train_watcher
+  - service: input_boolean.turn_off
+    entity_id: 
+    - input_boolean.person2_travelling
+    - input_boolean.person2_driving
+  - service: script.person2_traveltime

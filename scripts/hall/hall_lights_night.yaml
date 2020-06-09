@@ -1,0 +1,12 @@
+alias: Hall lights night
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.hall
+      brightness_pct: 1
+      color_name: red
+  - condition: state
+    entity_id: switch.pi3_hall_downstairs_switch
+    state: 'on'
+  - service: switch.turn_off
+    entity_id: switch.pi3_hall_downstairs_switch

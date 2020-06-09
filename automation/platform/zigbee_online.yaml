@@ -1,0 +1,13 @@
+initial_state: 'on'
+alias: 'Zigbee online'
+trigger:
+  - platform: state
+    entity_id: sensor.zigbee2mqtt_bridge_state
+    from: 'offline'
+    to: 'online'
+    for: '00:01:00'
+action:
+  - service: notify.person2_telegram
+    data_template:
+      message: >-
+        The Zigbee bridge is online again

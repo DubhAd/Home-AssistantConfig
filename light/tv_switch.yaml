@@ -1,0 +1,3 @@
+- platform: switch
+  name: "Living room TV"
+  entity_id: switch.pi3_tv_light_switch

@@ -1,0 +1,9 @@
+name: Bathroom
+options:
+  - 'Auto'
+  - 'Away'
+  - 'Wake'
+  - 'Bedtime'
+  - 'Dim'
+  - 'On'
+  - 'Off'

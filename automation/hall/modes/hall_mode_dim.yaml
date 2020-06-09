@@ -1,0 +1,35 @@
+initial_state: 'on'
+alias: 'Hall mode dim'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person2_in_bed
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.person3_in_bed
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.living_room_occupied
+    to: 'off'
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.hall','Dim') }}"
+  # Family room occupied
+  - condition: state
+    entity_id: input_boolean.family_room_occupied
+    state: 'on'
+  # Living room not
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'off'
+  # Adults in bed
+  - condition: state
+    entity_id: input_boolean.person2_in_bed
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person3_in_bed
+    state: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hall
+      option: 'Dim'

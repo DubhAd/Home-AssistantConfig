@@ -1,0 +1,3 @@
+name: Enable updates of the Z-Wave mesh diagram
+initial: off
+icon: mdi:webhook

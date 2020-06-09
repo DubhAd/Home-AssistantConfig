@@ -1,0 +1,21 @@
+initial_state: 'on'
+alias: 'person2 location update'
+trigger:
+  # I've moved
+  - platform: state
+    entity_id: 
+      - device_tracker.person2_mobile_gps
+      - input_boolean.person2_home
+      - input_select.person2_status_dropdown
+      - sensor.person2s_time_to_home
+      - sensor.person2s_time_to_home_waze
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Location for person2 updated at {{ now() }}
+  - service: script.person2_travel_sensor
+  - condition: state
+    entity_id: input_boolean.person2_driving
+    state: 'on'
+  - service: script.update_car_location

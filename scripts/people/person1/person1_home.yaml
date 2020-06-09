@@ -1,0 +1,13 @@
+alias: person1 home
+sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_travelling
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person1_home
+  - service: mqtt.publish
+    data:
+      topic: location/person1
+      payload: 'home'
+  - service: automation.turn_on
+    entity_id: automation.person1_at_work
+  - service: script.person1_travel_time

@@ -1,0 +1,37 @@
+alias: 'Garden lights left on'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.garden_lights_left_on
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.garden_lights_left_on
+    to: 'on'
+    for:
+      minutes: 10
+condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.lighting_automations
+      state: 'on'
+    - condition: or
+      conditions:
+      # Door is closed
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.pi3_utility_door_exterior_sensor
+          state: 'off'
+        - condition: state
+          entity_id: binary_sensor.pi3_patio_door_left_sensor
+          state: 'off'
+      # It's been more than 9 minutes
+      - condition: state
+        entity_id: binary_sensor.garden_lights_left_on
+        state: 'on'
+        for:
+          minutes: 9
+action:
+  - service: switch.turn_off
+    entity_id: switch.pi3_garden_lights_switch

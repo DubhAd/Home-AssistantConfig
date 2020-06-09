@@ -1,0 +1,125 @@
+title: Bedroom automations
+id: automations_bedrooms
+path: automations_bedrooms
+icon: mdi:hotel
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: Master bedroom
+  show_header_toggle: false
+  entities:
+  - entity: automation.person2_up_bedhead_light_on
+    secondary_info: last-triggered
+  - entity: automation.person2_up_bedhead_light_off
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_left_on
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_on_night
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_sunset
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_sunset_off
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_off
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_late
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_late_off
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_midnight
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_dim_midnight_off
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_bright_sunrise
+    secondary_info: last-triggered
+  - entity: automation.bedhead_light_on_morning
+    secondary_info: last-triggered
+  - entity: automation.late_disable_fluxer
+    secondary_info: last-triggered
+  - entity: automation.alarm_monitor_person2
+    secondary_info: last-triggered
+- type: entities
+  title: Remote automations for the bedhead light
+  show_header_toggle: false
+  entities:
+  - entity: automation.bedhead_turn_on
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_off
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_on_min
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_on_max
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_on_cool
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_on_warm
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_white
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_white_max
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_on_red
+    secondary_info: last-triggered
+  - entity: automation.bedhead_turn_red
+    secondary_info: last-triggered
+- type: entities
+  title: Master en-suite
+  show_header_toggle: false
+  entities:
+  - entity: automation.extractor_notification
+    secondary_info: last-triggered
+- type: entities
+  title: 2nd bedroom light
+  show_header_toggle: false
+  entities:
+  - entity: automation.person1_up_bedhead_light_on
+    secondary_info: last-triggered
+  - entity: automation.person1_up_bedhead_light_off
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_left_on
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_on
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_off
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_on_min
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_on_max
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_on_cool
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_on_warm
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_white
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_white_max
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_on_red
+    secondary_info: last-triggered
+  - entity: automation.person1_bedside_turn_red
+    secondary_info: last-triggered
+- type: entities
+  title: Second bedroom
+  show_header_toggle: false
+  entities:
+  - entity: automation.person1_alarm_on
+    secondary_info: last-triggered
+  - entity: automation.person1_alarm_off
+    secondary_info: last-triggered
+  - entity: automation.person1_radio_on
+    secondary_info: last-triggered
+  - entity: automation.person1_radio_on_late
+    secondary_info: last-triggered
+  - entity: automation.person1_radio_on_night
+    secondary_info: last-triggered
+  - entity: automation.person1_radio_off
+    secondary_info: last-triggered
+  - entity: automation.person1_radio_off_late
+    secondary_info: last-triggered
+  - entity: automation.alarm_monitor_person1
+    secondary_info: last-triggered
+  - entity: automation.person1_alarm_playing
+    secondary_info: last-triggered

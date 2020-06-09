@@ -1,0 +1,17 @@
+alias: 'Bedhead turn on cool'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      scene_id: 43
+      entity_id: zwave.nodon_crc3100_octan_remote
+condition:
+  - condition: state
+    entity_id: light.yeelight_strip1_286c07afc307
+    state: 'off'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_286c07afc307
+      color_temp: 154

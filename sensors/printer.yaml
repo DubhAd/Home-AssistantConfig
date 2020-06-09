@@ -1,0 +1,46 @@
+- platform: file
+  name: Printer toner remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.toner }}'
+  unit_of_measurement: 'Pages'
+- platform: file
+  name: Printer imaging unit remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.imaging }}'
+  unit_of_measurement: 'Pages'
+- platform: file
+  name: Printer transfer roller remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.transfer_roller }}'
+  unit_of_measurement: 'Pages'
+- platform: file
+  name: Printer fuser life remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.fuser }}'
+  unit_of_measurement: 'Pages'
+- platform: file
+  name: Printer pick up roller remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.pickup_roller }}'
+  unit_of_measurement: 'Pages'
+- platform: file
+  name: Printer retard roller remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.retard_roller }}'
+  unit_of_measurement: 'Pages'
+- platform: file
+  name: Printer forward roller remaining
+  file_path: /data/homeassistant/printer-info.json
+  value_template: '{{ value_json.forward_roller }}'
+  unit_of_measurement: 'Pages'
+- platform: min_max
+  name: Printer
+  type: min
+  entity_ids:
+    - sensor.printer_toner_remaining
+    - sensor.printer_imaging_unit_remaining
+    - sensor.printer_forward_roller_remaining
+    - sensor.printer_pick_up_roller_remaining
+    - sensor.printer_retard_roller_remaining
+    - sensor.printer_transfer_roller_remaining
+    - sensor.printer_fuser_life_remaining

@@ -1,0 +1,11 @@
+name: Vestibule
+options:
+  - 'Auto'
+  - 'Away'
+  - 'Dim'
+  - 'Wake'
+  - 'Bedtime'
+  - 'Day on'
+  - 'Night on'
+  - 'On'
+  - 'Off'

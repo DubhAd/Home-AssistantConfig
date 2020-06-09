@@ -1,0 +1,28 @@
+title: Cameras
+id: cameras
+path: cameras
+icon: mdi:camera-burst
+cards:
+  - type: picture-entity
+    entity: camera.front_camera_motion
+    show_name: false
+    show_state: false
+  - type: picture-glance
+    title: Front
+    camera_image: camera.front_camera
+    #aspect_ratio: "15:10"
+    entities:
+      - input_boolean.front_camera_motion_interesting
+      - input_boolean.stream_front_camera_motion
+  - type: picture-entity
+    entity: camera.front_camera_from_doods
+    show_name: false
+    show_state: false
+  - type: picture-entity
+    entity: camera.front_camera_lowres
+    show_name: false
+    show_state: false
+  - type: picture-entity
+    entity: camera.garage_camera
+    show_name: false
+    show_state: false

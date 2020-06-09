@@ -1,0 +1,11 @@
+initial_state: 'on'
+alias: 'Plex hook'
+trigger:
+  - platform: webhook
+    webhook_id: !secret plex_token
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        {{ trigger.data }}
+

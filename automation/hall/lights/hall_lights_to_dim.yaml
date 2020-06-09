@@ -1,0 +1,33 @@
+initial_state: 'on'
+alias: 'Hall lights to dim'
+trigger:
+  - platform: state
+    entity_id: input_select.hall
+    to: 'Dim'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Dim'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.hall
+      state: 'Dim'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Dim'
+action:
+  - service_template: >-
+      {% if is_state('input_select.season', 'Christmas') %}
+        script.hall_string_on
+      {% else %}
+        script.hall_strip_dim
+      {% endif %}

@@ -1,0 +1,12 @@
+title: Automations
+custom_header: !include lovelace/custom_header.yaml
+views:
+  - !include lovelace/view-automations.yaml
+  - !include lovelace/view-automations_bedrooms.yaml
+  - !include lovelace/view-automations_person2.yaml
+  - !include lovelace/view-automations_person3.yaml
+  - !include lovelace/view-automations_person1.yaml
+  - !include lovelace/view-automations_group.yaml
+  - !include lovelace/view-automations_more.yaml
+  - !include lovelace/view-automations_notifications.yaml
+  - !include lovelace/view-scripts.yaml

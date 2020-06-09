@@ -1,0 +1,20 @@
+alias: 'Telegram command help'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/help'
+action:
+  - service: telegram_bot.send_message
+    data_template:
+      message: >
+        The following commands are supported:
+
+        /check - returns an overview of everything relevant in HA, including who's where
+        /lights - lists the lights that are on
+        /lights on - turns on the lights
+        /lights off - turns off the lights
+        /status - lists the open doors and windows
+        /trains - provides the status of the trains between here and there
+        /where - says where the others are

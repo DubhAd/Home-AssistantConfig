@@ -1,0 +1,5 @@
+alias: Hall string on
+sequence:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.pi3_hall_downstairs_switch

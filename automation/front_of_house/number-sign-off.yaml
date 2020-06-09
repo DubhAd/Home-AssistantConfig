@@ -1,0 +1,16 @@
+initial_state: 'on'
+alias: 'Number sign off'
+trigger:
+  - platform: time
+    at: '23:59:00'
+  - platform: sun
+    event: sunrise
+action:
+  - service: switch.turn_off
+    entity_id: switch.pi3_number_sign_switch
+  - delay: 00:00:30
+  - condition: state
+    entity_id: switch.pi3_number_sign_switch
+    state: 'on'
+  - service: switch.turn_off
+    entity_id: switch.number_sign_switch

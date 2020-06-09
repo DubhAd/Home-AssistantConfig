@@ -1,0 +1,40 @@
+initial_state: 'on'
+alias: 'Battery CR2032'
+trigger:
+  - platform: numeric_state
+    entity_id: 
+    - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
+    - sensor.pi3_zwave_battery_green_remote
+    - sensor.pi3_zwave_battery_utility
+    - sensor.bathroom_environment_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
+    - sensor.pi3_zwave_battery_green_remote
+    - sensor.pi3_zwave_battery_utility
+    - sensor.bathroom_environment_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
+    - sensor.pi3_zwave_battery_green_remote
+    - sensor.pi3_zwave_battery_utility
+    - sensor.bathroom_environment_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.logfile
+  data_template:
+    message: "SENDME The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2032 coin cell"

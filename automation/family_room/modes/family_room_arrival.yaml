@@ -1,0 +1,21 @@
+alias: family room arrival
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_select.person2_status_dropdown
+    to: 'Just Arrived'
+  - platform: state
+    entity_id: input_select.person3_status_dropdown
+    to: 'Just Arrived'
+  - platform: state
+    entity_id: input_select.person1_status_dropdown
+    to: 'Just Arrived'
+condition:
+  - condition: state
+    entity_id: input_boolean.family_room_occupied
+    state: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.family_room
+      option: 'Dim'

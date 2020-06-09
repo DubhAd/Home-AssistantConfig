@@ -1,0 +1,11 @@
+name: Family room
+options:
+  - 'Auto'
+  - 'Away'
+  - 'Dim'
+  - 'Day on'
+  - 'Night on'
+  - 'Bedtime'
+  - 'Wake'
+  - 'On'
+  - 'Off'

@@ -1,0 +1,33 @@
+initial_state: 'on'
+alias: 'Bin notification'
+trigger:
+  - platform: time_pattern
+    minutes: '/5'
+    seconds: '30'
+condition:
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'on'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.bin_brown
+        state: 'tomorrow'
+      - condition: state
+        entity_id: sensor.bin_blue
+        state: 'tomorrow'
+      - condition: state
+        entity_id: sensor.bin_grey
+        state: 'tomorrow'
+action:
+  - delay: '00:02:00'
+  - service: notify.lm_notify
+    data_template:
+      message: >-
+        {% if is_state('sensor.bin_brown', 'tomorrow') %}
+           Tomorrow the brown bin is being collected
+        {% elif is_state('sensor.bin_blue', 'tomorrow') %}
+           Tomorrow the blue bin is being collected
+        {% else %}
+           Tomorrow the grey bin is being collected
+        {% endif %}

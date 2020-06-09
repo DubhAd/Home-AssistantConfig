@@ -1,0 +1,26 @@
+initial_state: 'on'
+alias: 'family room mode bedtime'
+trigger:
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.family_room_occupied
+    to: 'off'
+condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.home_occupied
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.family_room_occupied
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.bedtime
+      state: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.family_room
+      option: 'Bedtime'

@@ -1,0 +1,14 @@
+initial_state: 'on'
+alias: 'Office button pushed'
+trigger:
+  - platform: state
+    entity_id: sensor.office_button_click
+condition:
+  - condition: template
+    value_template: >
+      {{ trigger.to_state.attributes.click == 'single' }}
+action:
+  - service_template: >-
+      media_player.media_play{{ "_pause" if is_state('media_player.office','playing') }}
+    data:
+      entity_id: media_player.office

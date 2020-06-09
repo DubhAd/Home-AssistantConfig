@@ -1,0 +1,8 @@
+alias: 'Late disable fluxer'
+initial_state: 'off'
+trigger:
+  - platform: time
+    at: '23:01:00'
+action:
+  - service: switch.turn_off
+    entity_id: switch.fluxer

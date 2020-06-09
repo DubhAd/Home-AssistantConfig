@@ -1,0 +1,5 @@
+- name: adults
+  platform: group
+  services:
+    - service: person2
+    - service: person3

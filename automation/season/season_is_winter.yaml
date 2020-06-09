@@ -1,0 +1,29 @@
+alias: 'Season is winter'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '03:00:00'
+condition:
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ ( now().month == 12 ) or ( now().month < 3 ) }}'
+    - condition: or
+      conditions:
+      # Either after the 7th of January
+      - condition: template
+        value_template: '{{ now().month == 1 and now().day >= 7 }}'
+      - condition: and
+        conditions:
+        # before the 12th of January and we've not turned it on early
+        - condition: template
+          value_template: '{{ now().month == 12 and now().day < 12 }}'
+        - condition: template
+          value_template: '{{ states("input_select.season") != "Christmas" }}'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.season
+      option: Winter

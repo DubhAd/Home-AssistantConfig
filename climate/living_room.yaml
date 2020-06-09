@@ -1,0 +1,9 @@
+- platform: generic_thermostat
+  name: Living room
+  heater: input_boolean.living_room_heater
+  target_sensor: sensor.pi3_living_room_multi_temperature
+  cold_tolerance: 10
+  initial_operation_mode: auto
+  min_temp: 16
+  max_temp: 25
+  target_temp: 20

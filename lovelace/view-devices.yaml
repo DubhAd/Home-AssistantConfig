@@ -1,0 +1,112 @@
+title: Devices
+id: devices
+path: devices
+icon: mdi:engine
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: conditional
+  conditions:
+  - entity: binary_sensor.updater
+    state: 'on'
+  card:
+    type: entities
+    entities: 
+    - entity: binary_sensor.updater
+      state_color: true
+- type: glance
+  title: Devices
+  show_header_toggle: false
+  entities:
+  - entity: device_tracker.family_tv
+    name: Family room
+  - entity: device_tracker.livingroom_chromecast
+    name: Living room chromecast
+  - entity: media_player.cast_living_room_tv
+    name: Living room chromecast
+  - entity: media_player.samsung_tv
+    name: Living room TV
+  - entity: switch.pi3_table_light_switch
+    name: Table light switch
+- type: glance
+  title: Things
+  show_header_toggle: false
+  show_state: false
+  columns: 4
+  entities:
+  - entity: binary_sensor.fritzbox_connectivity
+    name: Internet
+  - binary_sensor.remote_ui
+  - entity: binary_sensor.first_floor_front
+    name: BT Front
+  - entity: binary_sensor.first_floor_rear
+    name: BT Rear
+- type: glance
+  title: Power consumption
+  show_header_toggle: false
+  entities:
+    - entity: sensor.living_room_table_switch_power
+- type: custom:battery-state-card
+  title: Battery devices
+  sort_by_level: "asc"
+  collapse: 8
+  color_gradient:
+    - "#ff0000" # red
+    - "#ffff00" # yellow
+    - "#00ff00" # green
+  entities:
+    - sensor.patio_window_left_battery
+    - sensor.patio_window_right_battery
+    - sensor.dimmer_switch_battery
+    - sensor.family_window_left_battery
+    - sensor.family_window_right_battery
+    - sensor.hall_downstairs_motion_battery
+    - sensor.vestibule_motion_battery
+    - sensor.vestibule_window_side_battery
+    - sensor.vestibule_window_front_battery
+    - sensor.bathroom_environment_battery
+    - sensor.bathroom_window_battery
+    - sensor.guestbedroom_window_left_battery
+    - sensor.guestbedroom_window_right_battery
+    - sensor.office_button_battery
+    - sensor.office_window_battery
+    - sensor.spare_bedroom_window_left_battery
+    - sensor.spare_bedroom_window_right_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.second_bedroom_window_ensuite_battery
+    - sensor.second_bedroom_window_right_battery
+    - sensor.second_bedroom_window_left_battery
+    - sensor.master_window_left_battery
+    - sensor.master_window_right_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.master_window_ensuite_battery
+    - entity: zwave.pi3_garage_closed_bike
+      name: Garage left
+    - entity: zwave.pi3_garage_closed_car
+      name: Garage car
+    - zwave.pi3_front_door
+    - zwave.pi3_patio_door_left
+    - zwave.pi3_utility_door_exterior
+    - zwave.pi3_living_room_multi
+    - zwave.pi3_nodon_crc3100_octan_remote
+    - zwave.pi3_green_remote
+    - zwave.pi3_utility
+- type: glance
+  title: Printer status
+  show_header_toggle: false
+  columns: 4
+  entities:
+  - entity: sensor.printer_toner_remaining
+    name: Toner
+  - entity: sensor.printer_imaging_unit_remaining
+    name: Imaging unit
+  - entity: sensor.printer_forward_roller_remaining
+    name: Forward
+  - entity: sensor.printer_pick_up_roller_remaining
+    name: Pick up
+  - entity: sensor.printer_retard_roller_remaining
+    name: Retard
+  - entity: sensor.printer_transfer_roller_remaining
+    name: Transfer
+  - entity: sensor.printer_fuser_life_remaining
+    name: Fuser

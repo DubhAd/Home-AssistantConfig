@@ -1,0 +1,11 @@
+broker: !secret mqtt_host
+username: !secret mqtt_user
+password: !secret mqtt_pass
+discovery: true
+discovery_prefix: homeassistant
+birth_message:
+  topic: 'hass/status'
+  payload: 'online'
+will_message:
+  topic: 'hass/status'
+  payload: 'offline'

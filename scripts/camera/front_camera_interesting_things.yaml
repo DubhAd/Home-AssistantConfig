@@ -1,0 +1,64 @@
+sequence:
+  # I want to know if we've anything interesting, it'll change what we do
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.front_camera_interesting_things
+      value: >-
+        {#- Set the scene - extract the things we care about, and prepare some defaults -#}
+        {%- set totalPeople = state_attr('image_processing.doods_front_camera_snapshot','summary').person|default(0) -%}
+        {%- set totalCars = state_attr('image_processing.doods_front_camera_snapshot','summary').car|default(0) -%}
+        {%- set totalTrucks = state_attr('image_processing.doods_front_camera_snapshot','summary').truck|default(0) -%}
+        {%- set totalMotorcycles = state_attr('image_processing.doods_front_camera_snapshot','summary').motorcycle|default(0) -%}
+        {%- set totalBicycles = state_attr('image_processing.doods_front_camera_snapshot','summary').bicycle|default(0) -%}
+        {%- set parkedCars = 0 -%}
+        {%- set otherCars = 0 -%}
+        {%- set parkedTrucks = 0 -%}
+        {%- set otherTrucks = 0 -%}
+        {%- set relevantPeople = 0 -%}
+        {%- set otherPeople = 0 -%}
+        {%- macro isParked(box) -%}
+  
+        {{- True if (
+            ((0.715 < box[0] < 0.754) and (0.340 < box[1] < 0.508) and (0.820 < box[2] < 0.862) and (0.500 < box[3] < 0.580))
+             or
+            ((0.740 < box[0] < 0.766) and (0.317 < box[1] < 0.400) and (0.830 < box[2] < 0.854) and (0.380 < box[3] < 0.550))
+          ) else X -}}
+        {%- endmacro -%}
+  
+        {#- Split out parked cars from the rest - don't care about the parked ones -#}
+        {%- if totalCars > 0 -%}
+          {%- macro getParkedCars() -%}
+          {%- for state in state_attr('image_processing.doods_front_camera_snapshot','matches').car -%}{{- "X" if isParked(state.box) -}}{%- endfor -%}
+          {%- endmacro -%}
+          {%- set parkedCars = getParkedCars()|length -%}
+          {%- set otherCars = state_attr('image_processing.doods_front_camera_snapshot','summary').car - parkedCars -%}
+        {%- endif -%}
+  
+        {%- if totalTrucks > 0 -%}
+          {%- macro getParkedTrucks() -%}
+          {%- for state in state_attr('image_processing.doods_front_camera_snapshot','matches').truck -%}{{- "X" if isParked(state.box) -}}{%- endfor -%}
+          {%- endmacro -%}
+          {%- set parkedTrucks = getParkedTrucks()|length -%}
+          {%- set otherTrucks = state_attr('image_processing.doods_front_camera_snapshot','summary').truck - parkedTrucks -%}
+        {%- endif -%}
+  
+        {%- set parkedVehicles = parkedCars+parkedTrucks -%}
+        {%- set otherVehicles = otherCars+otherTrucks -%}
+  
+        {#- Split out people on the path/in the garden, from those on the road -#}
+        {%- if totalPeople > 0 -%}
+          {%- macro personOnPath(box) -%}
+          {{- True if (
+              ( 0.885 < box[2] )
+            ) else X -}}
+          {%- endmacro -%}
+          {%- macro getPeopleOnPath() -%}
+          {%- for state in state_attr('image_processing.doods_front_camera_snapshot','matches').person -%}{{- "X" if personOnPath(state.box) -}}{%- endfor -%}
+          {%- endmacro -%}
+          {%- set relevantPeople = getPeopleOnPath()|length -%}
+          {%- set otherPeople = state_attr('image_processing.doods_front_camera_snapshot','summary').person - relevantPeople -%}
+        {%- endif -%}
+  
+        {#- total up the things into different categories -#}
+        {%- set importantThings = otherCars + otherTrucks + totalMotorcycles + totalBicycles + relevantPeople -%}
+        {{ importantThings }}

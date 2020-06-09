@@ -1,0 +1,77 @@
+homeassistant: !include homeassistant.yaml
+
+logger:
+  default: info
+
+default_config:
+person:
+mobile_app:
+ssdp:
+system_health:
+updater:
+zeroconf:
+config:
+
+cloud:
+
+frontend: !include frontend.yaml
+map:
+lovelace: !include lovelace.yaml
+
+http: !include http.yaml
+
+discovery: 
+
+history:
+logbook:
+recorder: !include recorder.yaml
+influxdb: !include influxdb.yaml
+
+tts: !include tts.yaml
+
+group: !include_dir_named groups/
+
+script: !include_dir_named scripts/
+automation: !include automations.yaml
+automation mine: !include_dir_list automation/
+scene: !include scenes.yaml
+scene mine: !include_dir_list scenes/
+shell_command: !include_dir_merge_named shell_commands/
+
+device_tracker: !include_dir_list device_tracker/
+proximity: !include_dir_merge_named proximity/
+sensor: !include_dir_merge_list sensors/
+binary_sensor: !include_dir_merge_list binary_sensors/
+google: !include google.yaml
+sun:
+weather: !include_dir_merge_list weather/
+zone: !include zones.yaml
+
+input_number: !include_dir_named input_number/
+input_boolean: !include_dir_named input_boolean/
+input_select: !include_dir_named input_select/
+input_datetime: !include_dir_named input_datetime/
+input_text: !include_dir_named input_text/
+timer: !include_dir_named timers/
+
+light: !include_dir_merge_list light/
+switch: !include_dir_merge_list switch/
+samsungtv: !include samsung_tv.yaml
+rest_command: !include_dir_named rest_command/
+
+alarm_control_panel: !include_dir_list alarm/
+
+alert: !include_dir_named alerts/
+notify: !include_dir_merge_list notify/
+telegram_bot: !include telegram.yaml
+
+camera: !include_dir_list camera/
+ffmpeg: !include ffmpeg.yaml
+stream:
+
+image_processing: !include_dir_list image_processing/
+
+mqtt: !include mqtt.yaml
+
+circadian_lighting: !include circadian.yaml
+remote_homeassistant: !include remote_ha.yaml

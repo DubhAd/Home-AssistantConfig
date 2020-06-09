@@ -1,0 +1,13 @@
+initial_state: 'on'
+alias: 'Office not occupied'
+trigger:
+  - platform: state
+    entity_id: group.work_laptop
+    to: 'not_home'
+    for:
+      minutes: 2
+action:
+  - service: input_boolean.turn_off
+    entity_id: 
+      - input_boolean.office_occupied
+      - input_boolean.stream_front_camera_motion

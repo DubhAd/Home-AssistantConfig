@@ -1,0 +1,6 @@
+- platform: command_line
+  switches:
+    zigbee2mqtt_service:
+      friendly_name: "Zigbee2MQTT service"
+      command_on: "ssh automation@192.168.0.13 /bin/systemctl start zigbee2mqtt"
+      command_off: "ssh automation@192.168.0.13 /bin/systemctl stop zigbee2mqtt"

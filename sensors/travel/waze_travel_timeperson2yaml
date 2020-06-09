@@ -1,0 +1,6 @@
+- platform: waze_travel_time
+  scan_interval: 604800
+  name: 'Robs time to home waze'
+  origin: device_trackerperson2mobile_gps
+  destination: zone.home
+  region: 'EU'

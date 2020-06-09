@@ -1,0 +1,3 @@
+platform: local_file
+name: "Garage camera"
+file_path: "/data/homeassistant/cameras/garage.jpg"

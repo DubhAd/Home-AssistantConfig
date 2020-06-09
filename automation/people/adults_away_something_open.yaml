@@ -1,0 +1,32 @@
+alias: 'Adults away something open'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.adults_away
+    from: 'off'
+    to: 'on'
+condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: group.my_exterior_doors
+      state: 'on'
+    - condition: state
+      entity_id: group.my_downstairs_windows
+      state: 'on'
+    - condition: state
+      entity_id: group.my_upstairs_windows
+      state: 'on'
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'off'
+action:
+  # Notify the last person to leave
+  - service: notify.logfile
+    data_template: 
+      message: >-
+        {% if as_timestamp(states.input_boolean.person2_home.last_updated) > as_timestamp(states.input_boolean.person3_home.last_updated) %}
+          SENDME The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        {% else %}
+          SENDperson3 The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        {% endif %}

@@ -1,0 +1,7 @@
+name: camera_stream_target
+icon: mdi:camera-enhance
+options:
+  - media_player.office_smart_display
+  - media_player.living_room_display
+  - media_player.master_bedroom_display
+  - media_player.family_room_display

@@ -1,0 +1,5 @@
+title: People
+custom_header: !include lovelace/custom_header.yaml
+views:
+  - !include lovelace/view-people.yaml
+  - !include lovelace/view-map.yaml

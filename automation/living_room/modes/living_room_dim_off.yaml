@@ -1,0 +1,25 @@
+initial_state: 'on'
+alias: 'Living room dim off'
+trigger:
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Dim'
+    for: '00:30:00'
+condition:
+  condition: and
+  conditions:
+    # Lighting automations are enabled
+    - condition: state
+      entity_id: input_boolean.lighting_automations
+      state: 'on'
+    # Room isn't in use
+    - condition: state
+      entity_id: input_boolean.living_room_occupied
+      state: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.living_room
+      option: 'Off'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto

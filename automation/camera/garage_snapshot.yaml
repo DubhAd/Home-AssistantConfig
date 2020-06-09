@@ -1,0 +1,13 @@
+initial_state: 'off'
+alias: 'Garage snapshot'
+trigger:
+  - platform: time_pattern
+    minutes: "/2"
+action:
+  - condition: state
+    entity_id: device_tracker.b8_27_eb_44_5b_1a
+    state: 'home'
+  - service: camera.snapshot
+    data:
+      entity_id: camera.garage_camera
+      filename: "/data/homeassistant/cameras/garage.jpg"

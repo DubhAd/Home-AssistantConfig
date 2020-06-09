@@ -1,0 +1,4 @@
+name: 'Front camera interesting things'
+min: 0
+max: 100
+step: 1

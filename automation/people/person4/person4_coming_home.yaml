@@ -1,0 +1,21 @@
+alias: 'person4 coming home'
+initial_state: 'on'
+trigger:
+  - platform: numeric_state
+    entity_id: proximity.person4_home
+    below: 10
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.person4_home
+      state: 'off'
+    - condition: template
+      value_template: "{{ is_state_attr('proximity.person4_home', 'dir_of_travel', 'towards') }}"
+action:
+  - service: notify.logfile
+    data_template:
+      message: "SENDperson3 person4 will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
+  - service: notify.lametric_info
+    data_template:
+      message: "person4 will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"

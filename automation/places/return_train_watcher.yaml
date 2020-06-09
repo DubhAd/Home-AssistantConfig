@@ -1,0 +1,44 @@
+initial_state: 'off'
+alias: 'Return train watcher'
+trigger:
+  - platform: time_pattern
+    minutes: '/10'
+condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: or
+    conditions: 
+    - condition: numeric_state
+      entity_id: proximity.person2_work
+      below: 5
+    - condition: numeric_state
+      entity_id: proximity.person2_work_2
+      below: 5
+  # Alert no more than once an hour
+  - condition: template
+    value_template: >-
+      {{ as_timestamp(state_attr('automation.return_train_watcher','last_triggered')) + 3600 < as_timestamp(now()) }}
+action:
+  - wait_template: >-
+      {{ (as_timestamp(now()) - as_timestamp(states.input_text.train_message.last_updated))|int < 30 }}
+  # Less than 5 out of 8 trains are on time or early
+  - condition: template
+    value_template: >-
+      {%- macro getTrainStatus() -%}
+      
+      {%- for train in state_attr('sensor.next_train_to_abc', 'next_trains') -%}
+      {%- if ( train.status == "ON TIME" or train.status == "EARLY" ) -%}
+        X
+      {%- endif -%}
+      {%- endfor -%}
+      {%- endmacro -%}
+      
+      {%- if getTrainStatus()[0:5] == "XXXXX" -%}
+      true
+      {%- else -%}
+      false
+      {%- endif -%}
+  - service: notify.logfile
+    data_template: 
+      message: "SENDME You need to check the trains, they're looking a bit messed up. {{ states('input_text.train_message') }}"

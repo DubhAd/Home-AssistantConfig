@@ -1,0 +1,4 @@
+platform: mjpeg
+name: 'Front camera motion'
+still_image_url: !secret motion_front_image
+mjpeg_url: !secret motion_front_mjpeg

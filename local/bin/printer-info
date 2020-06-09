@@ -1,0 +1,10 @@
+#!/usr/bin/zsh
+
+## For my printer (Samsung) the current values are in iso.3.6.1.2.1.43.11.1.1.9.1, the maximum values are in iso.3.6.1.2.1.43.11.1.1.8.1, and the names are in iso.3.6.1.2.1.43.11.1.1.6.1
+##
+## I call it from cron twice an hour (the printer is used rarely):
+## 31 * * * *      /local/bin/printer-info 
+
+cat << EOM >> /data/homeassistant/printer-info.json
+{ "toner":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.1|awk '{ print $NF }'), "imaging":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.2|awk '{ print $NF }'), "transfer_roller":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.3|awk '{ print $NF }'), "fuser":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.4|awk '{ print $NF }'), "pickup_roller":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.5|awk '{ print $NF }'), "retard_roller":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.6|awk '{ print $NF }'), "forward_roller":$(snmpwalk -v 2c -c public 192.168.0.150 iso.3.6.1.2.1.43.11.1.1.9.1.7|awk '{ print $NF }') }
+EOM

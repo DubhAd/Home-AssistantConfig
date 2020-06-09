@@ -1,0 +1,3 @@
+platform: local_file
+name: "Front camera snapshot"
+file_path: "/data/homeassistant/cameras/front_camera_snapshot.jpg"

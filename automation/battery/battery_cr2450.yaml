@@ -1,0 +1,28 @@
+initial_state: 'on'
+alias: 'Battery CR2450'
+trigger:
+  - platform: numeric_state
+    entity_id: 
+    - sensor.vestibule_motion_battery
+    - sensor.hall_downstairs_motion_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.vestibule_motion_battery
+    - sensor.hall_downstairs_motion_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.vestibule_motion_battery
+    - sensor.hall_downstairs_motion_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.logfile
+  data_template:
+    message: "SENDME The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2450 coin cell"

@@ -1,0 +1,14 @@
+initial_state: 'on'
+alias: 'Motion stopped'
+trigger:
+  - platform: event
+    event_type: motion_webhook
+    event_data:
+      action: "end"
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Motion detection event ends on {{ trigger.event.data.camera }}
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.front_camera_motion

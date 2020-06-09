@@ -1,0 +1,9 @@
+- platform: circadian_lighting
+  name: hall
+  lights_ct:
+    - light.hall
+  disable_brightness_adjust: true
+  sleep_entity: input_boolean.bedtime
+  sleep_state: 'on'
+  sleep_brightness: 1
+  sleep_colortemp: 2000

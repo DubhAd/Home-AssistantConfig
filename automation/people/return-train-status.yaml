@@ -1,0 +1,24 @@
+initial_state: 'on'
+alias: 'Return train status'
+trigger:
+  platform: time
+  at: '16:35:00'
+condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: or
+    conditions: 
+    - condition: numeric_state
+      entity_id: proximity.person2_work
+      below: 5
+    - condition: numeric_state
+      entity_id: proximity.person2_work_2
+      below: 5
+action:
+  - service: notify.logfile
+    data_template: 
+      message: "SENDME {{ states('input_text.train_message') }}"
+  - service: notify.lm_notify
+    data_template: 
+      message: "{{ states('input_text.train_message') }}"

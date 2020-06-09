@@ -1,0 +1,20 @@
+initial_state: 'on'
+alias: 'person2 coming home'
+trigger:
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    to: 'home Station'
+condition:
+  - condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+      - condition: state
+        entity_id: input_boolean.home_occupied
+        state: 'off'
+action:
+  - service: notify.logfile
+    data:
+      message: "SENDME Nobody's home right now"
+  - service: homeassistant.turn_off
+    entity_id: automation.person2_coming_home

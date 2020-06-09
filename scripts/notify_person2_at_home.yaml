@@ -1,0 +1,9 @@
+alias: Notify person2 at home
+sequence:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+  - service: notify.discord_webhook
+    data_template:
+      title: "{{ title|default('Notification') }}"
+      message: "<@Tinkerer0042> {{ message|default('A message should have been here') }}"

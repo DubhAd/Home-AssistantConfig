@@ -1,0 +1,9 @@
+alias: 'HA started'
+initial_state: 'on'
+trigger:
+  platform: homeassistant
+  event: start
+action:
+  - service: script.notify_person2
+    data_template:
+      message: "Home Assistant {{ states('sensor.hass_installed') }} has started on Vision ({{ as_timestamp(utcnow())|timestamp_utc }})"

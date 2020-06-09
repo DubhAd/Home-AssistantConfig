@@ -1,0 +1,21 @@
+initial_state: 'on'
+alias: 'Alarm armed trigger night'
+trigger:
+  - platform: state
+    entity_id:
+      - group.my_exterior_doors
+      - group.my_downstairs_windows
+      - group.my_upstairs_windows
+    to: 'on'
+condition:
+  # Alarm is armed home
+  - condition: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: armed_night
+  # We're home
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
+action:
+  - service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm

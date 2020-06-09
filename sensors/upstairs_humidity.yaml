@@ -1,0 +1,8 @@
+- platform: min_max
+  name: "Upstairs humidity"
+  type: mean
+  round_digits: 1
+  entity_ids:
+    - sensor.bathroom_humidity
+    - sensor.master_ensuite_humidity
+    - sensor.second_bedroom_ensuite_humidity

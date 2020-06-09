@@ -1,0 +1,28 @@
+initial_state: 'on'
+alias: 'Train status'
+trigger:
+  platform: time
+  at: '07:10:00'
+condition:
+  condition: and
+  conditions:
+    # Notifications for the train status are enabled
+    - condition: state
+      entity_id: input_boolean.notify_train_status_work
+      state: 'on'
+    # Is awake
+    - condition: state
+      entity_id: input_boolean.person2_is_awake
+      state: 'on'
+    # Is home
+    - condition: state
+      entity_id: input_boolean.person2_home
+      state: 'on'
+action:
+  - service: script.train_message
+  - service: notify.logfile
+    data_template: 
+      message: "SENDME {{ states('input_text.train_message') }}"
+  - service: notify.lm_notify
+    data_template: 
+      message: "{{ states('input_text.train_message') }}"

@@ -1,0 +1,65 @@
+alias: 'Bedtime something open'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: 
+      - input_boolean.person3_is_awake
+      - input_boolean.person2_is_awake
+    to: 'off'
+condition:
+  condition: and
+  conditions:
+    # We're both in bed
+    - condition: state
+      entity_id: input_boolean.person3_is_awake
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.person2_is_awake
+      state: 'off'
+    - condition: or
+      conditions:
+      # Either a downstairs window is open, or a door is open
+      - condition: state
+        entity_id: group.my_downstairs_windows
+        state: 'on'
+      - condition: state
+        entity_id: group.my_exterior_doors
+        state: 'on'
+action:
+  - service: media_player.turn_on
+    data_template:
+      entity_id: >-
+        {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
+          media_player.cast_master_bedroom_speaker
+        {% else %}
+          media_player.cast_master_bedroom_display
+        {% endif %}
+  - service: media_player.volume_set
+    data_template:
+      volume_level: 0.15
+      entity_id: >-
+        {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
+          media_player.cast_master_bedroom_speaker
+        {% else %}
+          media_player.cast_master_bedroom_display
+        {% endif %}
+  - service: tts.google_cloud_say
+    data_template:
+      entity_id: >-
+        {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
+          media_player.cast_master_bedroom_speaker
+        {% else %}
+          media_player.cast_master_bedroom_display
+        {% endif %}
+      message: >-
+        The following are open:
+        {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+  - delay: '00:01:00'
+  - service: media_player.turn_off
+    data_template:
+      entity_id: >-
+        {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
+          media_player.cast_master_bedroom_speaker
+        {% else %}
+          media_player.cast_master_bedroom_display
+        {% endif %}

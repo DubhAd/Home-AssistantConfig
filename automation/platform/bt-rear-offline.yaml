@@ -1,0 +1,48 @@
+initial_state: 'on'
+alias: 'BT rear offline'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.first_floor_rear
+    to: 'off'
+    for: '00:00:30'
+action:
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person2_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person2_tablet/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person2_laptop/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person2_work_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/work_laptop/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person3_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person1_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person1_tablet/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/person4_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor rear/car/device_tracker
+      payload: unknown

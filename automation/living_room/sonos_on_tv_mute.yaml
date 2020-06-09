@@ -1,0 +1,20 @@
+initial_state: 'on'
+alias: 'Sonos on TV mute'
+trigger:
+  - platform: state
+    entity_id: media_player.living_room
+    from: 'paused'
+    to: 'playing'
+  - platform: state
+    entity_id: media_player.living_room
+    from: 'idle'
+    to: 'playing'
+condition:
+  - condition: state
+    entity_id: media_player.samsung_tv
+    state: 'on'
+action:
+  - service: media_player.volume_mute
+    data:
+      entity_id: media_player.samsung_tv
+      is_volume_muted: true

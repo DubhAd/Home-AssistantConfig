@@ -1,0 +1,32 @@
+initial_state: 'on'
+alias: 'Vestibule lights to away'
+trigger:
+  - platform: state
+    entity_id: input_select.vestibule
+    to: 'Away'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Away'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.vestibule
+      state: 'Away'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.vestibule
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Away'
+  - condition: state
+    entity_id: switch.pi3_vestibule_switch
+    state: 'on'
+action:
+  - service: switch.turn_off
+    entity_id: switch.pi3_vestibule_switch

@@ -1,0 +1,6 @@
+- platform: min_max
+  type: mean
+  name: "Downstairs temperature"
+  round_digits: 1
+  entity_ids:
+    - sensor.pi3_living_room_multi_temperature

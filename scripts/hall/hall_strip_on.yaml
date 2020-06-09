@@ -1,0 +1,27 @@
+alias: Hall strip on
+sequence:
+  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - service: switch.turn_on
+    entity_id: switch.circadian_lighting_circadian_hall
+  - service: light.turn_on
+    data_template:
+      entity_id: light.hall
+      brightness_pct: >-
+        {% if is_state('input_boolean.guest_mode','off') %}
+          4
+        {% else %}
+          15
+        {% endif %}
+      color_name: white
+  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - service: light.turn_on
+    data_template:
+      entity_id: light.hall
+      brightness_pct: >-
+        {% if is_state('input_boolean.guest_mode','off') %}
+          4
+        {% else %}
+          15
+        {% endif %}
+      transition: 5
+      kelvin: "{{ state_attr('sensor.circadian_values','colortemp')|round|int }}"

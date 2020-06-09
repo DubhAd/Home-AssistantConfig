@@ -1,0 +1,43 @@
+title: Automations person3
+id: automations_person3
+path: automations_person3
+icon: mdi:account-heart
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: People driven automations - person3
+  show_header_toggle: false
+  entities:
+  - entity: automation.person3_next_alarm
+    secondary_info: last-triggered
+  - entity: automation.person3_asleep
+    secondary_info: last-triggered
+  - entity: automation.person3_in_bed
+    secondary_info: last-triggered
+  - entity: automation.person3_away
+    secondary_info: last-triggered
+  - entity: automation.person3_home
+    secondary_info: last-triggered
+  - entity: automation.person3_up
+    secondary_info: last-triggered
+  - entity: automation.person3_awake
+    secondary_info: last-triggered
+  - entity: automation.person3_phone_unplugged
+    secondary_info: last-triggered
+  - entity: automation.person3_phone_plugged
+    secondary_info: last-triggered
+- type: entities
+  title: Automations for travel - person3
+  show_header_toggle: false
+  entities:
+  - entity: automation.person3_travelling
+    secondary_info: last-triggered
+  - entity: automation.person3_coming_home
+    secondary_info: last-triggered
+  - entity: automation.person3_on_the_move
+    secondary_info: last-triggered
+  - entity: automation.person3_location_update
+    secondary_info: last-triggered
+  - entity: automation.person3_changing_zones
+    secondary_info: last-triggered

@@ -1,0 +1,113 @@
+title: Information
+id: information
+path: info
+icon: mdi:information-outline
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: Downstairs rooms
+  show_header_toggle: false
+  entities:
+  - input_select.living_room
+  - entity: input_boolean.living_room_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.family_room
+  - entity: input_boolean.family_room_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.kitchen
+  - entity: input_boolean.kitchen_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.utility
+  - entity: input_boolean.utility_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.toilet
+  - entity: input_boolean.toilet_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.garage
+  - entity: input_boolean.garage_occupied
+    secondary_info: last-changed
+    state_color: true
+- type: entities
+  title: Upstairs rooms
+  show_header_toggle: false
+  entities:
+  - input_select.office
+  - entity: input_boolean.office_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.master_bedroom
+  - entity: input_boolean.master_bedroom_occupied
+    secondary_info: last-changed
+    state_color: true
+  - input_select.master_ensuite
+  - entity: input_boolean.master_ensuite_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.second_bedroom
+  - entity: input_boolean.second_bedroom_occupied
+    secondary_info: last-changed
+    state_color: true
+  - input_select.second_ensuite
+  - entity: input_boolean.second_ensuite_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.guest_bedroom
+  - entity: input_boolean.guest_bedroom_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.spare_bedroom
+  - entity: input_boolean.spare_bedroom_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.bathroom
+  - entity: input_boolean.bathroom_occupied
+    secondary_info: last-changed
+    state_color: true
+- type: entities
+  title: House
+  show_header_toggle: false
+  entities:
+  - input_select.house
+  - entity: input_boolean.home_occupied
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
+  - input_select.hall
+  - input_select.vestibule
+- type: entities
+  title: Sensors
+  show_header_toggle: false
+  entities:
+  - sun.sun
+  - sensor.sun_elevation
+  - sensor.pi3_sun_elevation
+  - entity: sensor.last_opened
+    secondary_info: last-changed
+    icon: mdi:door
+  - entity: sensor.last_motion
+    secondary_info: last-changed
+    icon: mdi:run
+  - entity: binary_sensor.trend_living_room_light
+    secondary_info: last-changed
+    name: Living room getting brighter
+    state_color: true
+  - entity: binary_sensor.trend_sun_elevation
+    secondary_info: last-changed
+    name: Sun rising
+    state_color: true

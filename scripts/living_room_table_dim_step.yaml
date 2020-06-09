@@ -1,0 +1,13 @@
+sequence:
+  - service: light.turn_on
+    data_template:
+      entity_id: light.living_room_table
+      transition: 2
+      brightness: >-
+        {% set current = state_attr('light.living_room_table','brightness')|int %}
+        {% set step = states('input_number.light_step')|int %}
+        {% set next = current - step %}
+        {% if next < states('input_number.light_minimum')|int %}
+          {% set next = states('input_number.light_minimum')|int %}
+        {% endif %}
+        {{ next|int }}

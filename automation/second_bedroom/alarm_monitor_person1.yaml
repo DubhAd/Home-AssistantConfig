@@ -1,0 +1,19 @@
+alias: 'Alarm monitor person1'
+trigger:
+    # Alarm scheduled for "now"
+  - platform: template
+    value_template: "{{ as_timestamp(states('input_datetime.person1_next_alarm')) - as_timestamp(states.sensor.date_time.last_updated) < 10 }}"
+condition:
+    # Currently off
+  - condition: state
+    entity_id: media_player.person1
+    state: 'off'
+    # And not just changed state (eg we didn't just turn it off)
+  - condition: template
+    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.sensor.date_time.last_updated)) < 10 }}"
+action:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.person1
+      media_content_id: http://vis.media-ice.musicradio.com/CapitalUKMP3
+      media_content_type: 'audio/mp3'

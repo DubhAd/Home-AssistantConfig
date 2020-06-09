@@ -1,0 +1,43 @@
+initial_state: 'on'
+alias: 'Family room occupied'
+trigger:
+  - platform: state
+    entity_id: device_tracker.family_tv
+    to: 'home'
+  - platform: state
+    entity_id: media_player.family_room
+    to: 'playing'
+  - platform: state
+    entity_id: media_player.cast_kitchen_speaker
+    to: 'playing'
+  - platform: template
+    value_template: "{{ is_state('calendar.person2', 'on') and is_state_attr('calendar.person2', 'message', 'Game night') and is_state('input_boolean.person2_home', 'on') }}"
+condition:
+  - condition: state
+    entity_id: input_boolean.family_room_occupied
+    state: 'off'
+  # TV or music on or game night
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: device_tracker.family_tv
+      state: 'home'
+    - condition: state
+      entity_id: media_player.family_room
+      state: 'playing'
+    - condition: state
+      entity_id: media_player.cast_kitchen_speaker
+      state: 'playing'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: calendar.person2
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.person2_home
+        state: 'on'
+      - condition: template
+        value_template: "{{ is_state_attr('calendar.person2', 'message', 'Game night') and is_state('input_boolean.person2_home', 'on') }}"
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.family_room_occupied

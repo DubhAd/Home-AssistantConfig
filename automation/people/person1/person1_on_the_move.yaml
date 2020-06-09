@@ -1,0 +1,44 @@
+initial_state: 'on'
+alias: 'person1 on the move'
+trigger:
+  # I've moved
+  - platform: state
+    entity_id: device_tracker.person1_mobile
+condition:
+  # Been at least 5 minutes
+  - condition: template
+    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person1_travel_time','last_triggered'))|float)|float > 300 }}"
+  # Not home 
+  - condition: state
+    entity_id: input_boolean.person1s_home
+    state: 'off'
+  - condition: or
+    conditions:
+    # It's been at least 10 minutes, and I'm close
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person1_travel_time','last_triggered'))|float)|float > 600 }}"
+      - condition: numeric_state
+        entity_id: proximity.person1s_home
+        above: 10
+        below: 20000
+    # It's been at least 15 minutes, and I'm a moderate distance away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person1_travel_time','last_triggered'))|float)|float > 900 }}"
+      - condition: numeric_state
+        entity_id: proximity.person1s_home
+        above: 19999 
+        below: 40000
+    # It's been at least an hour, and I'm far away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person1_travel_time','last_triggered'))|float)|float > 3600 }}"
+      - condition: numeric_state
+        entity_id: proximity.person1s_home
+        above: 39999
+action:
+  - service: script.person1_travel_time

@@ -1,0 +1,33 @@
+initial_state: 'on'
+alias: 'Living room lights motion'
+trigger:
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Motion'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Motion'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Motion'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.living_room
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Motion'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.living_room_table
+      brightness_pct: 5
+      transition: 15

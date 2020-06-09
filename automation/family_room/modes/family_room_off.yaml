@@ -1,0 +1,33 @@
+initial_state: 'on'
+alias: 'family room mode off'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
+  - platform: state
+    entity_id: input_boolean.family_room_occupied
+    to: 'off'
+condition:
+  # Home occupied
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
+  # Not currently Off
+  - condition: template
+    value_template: "{{ not is_state('input_select.family_room','Off') }}"
+  # Either not in use, or bright
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_boolean.family_room_occupied
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.pi3_family_room_multi_luminance
+      above: 5
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.family_room
+      option: 'Off'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.familyroom_lights_auto

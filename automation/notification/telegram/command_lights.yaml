@@ -1,0 +1,15 @@
+alias: 'Telegram command lights'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/lights'
+condition:
+  - condition: template
+    value_template: "{{ trigger.event.data.args|length == 0 }}"
+action:
+  - service: telegram_bot.send_message
+    data_template:
+      message: >
+        The following lights are on: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_lights', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}

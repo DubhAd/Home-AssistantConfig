@@ -1,0 +1,83 @@
+initial_state: 'on'
+alias: 'Family room not occupied'
+trigger:
+  - platform: state
+    entity_id: device_tracker.family_tv
+    to: 'not_home'
+    for: '00:03:00'
+  - platform: state
+    entity_id: media_player.family_room
+    to: 'paused'
+    for: '00:03:00'
+  - platform: state
+    entity_id: media_player.family_room
+    to: 'idle'
+    for: '00:03:00'
+  - platform: state
+    entity_id: media_player.family_room
+    to: 'off'
+    for: '00:03:00'
+  - platform: state
+    entity_id: media_player.cast_kitchen_speaker
+    to: 'off'
+    for: '00:03:00'
+  - platform: state
+    entity_id: media_player.cast_kitchen_speaker
+    to: 'idle'
+    for: '00:03:00'
+  - platform: state
+    entity_id: media_player.cast_kitchen_speaker
+    to: 'paused'
+    for: '00:03:00'
+  - platform: state
+    entity_id: calendar.person2
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.family_room_occupied
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.person2_home
+        state: 'on'
+      - condition: template
+        value_template: >-
+          {% if trigger.entity_id == calendar.person2 %}
+            {{ trigger.from_state.state == 'on' and trigger.from_state.attributes.message == 'Game night' }}
+          {% else %}
+            False
+          {% endif %}
+    # TV and music off
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: device_tracker.family_tv
+        state: 'not_home'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: media_player.family_room
+          state: 'paused'
+        - condition: state
+          entity_id: media_player.family_room
+          state: 'idle'
+        - condition: state
+          entity_id: media_player.family_room
+          state: 'off'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: media_player.cast_kitchen_speaker
+          state: 'idle'
+        - condition: state
+          entity_id: media_player.cast_kitchen_speaker
+          state: 'off'
+        - condition: state
+          entity_id: media_player.cast_kitchen_speaker
+          state: 'paused'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.family_room_occupied

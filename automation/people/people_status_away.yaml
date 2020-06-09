@@ -1,0 +1,26 @@
+alias: Mark person as away
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+      - input_select.person2_status_dropdown
+      - input_select.person3_status_dropdown
+      - input_select.person1_status_dropdown
+      - input_select.person4_status_dropdown
+    to: 'Just Left'
+    for:
+      minutes: 5
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'input_select.person2_status_dropdown' %}
+          input_select.person2_status_dropdown
+        {% elif trigger.entity_id == 'input_select.person3_status_dropdown' %}
+          input_select.person3_status_dropdown
+        {% elif trigger.entity_id == 'input_select.person1_status_dropdown' %}
+          input_select.person1_status_dropdown
+        {% else %}
+          input_select.person4_status_dropdown
+        {% endif %}
+      option: Away

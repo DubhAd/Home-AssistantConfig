@@ -1,0 +1,24 @@
+initial_state: 'on'
+alias: 'Living room table light unavailable on'
+trigger:
+  - platform: state
+    entity_id: light.living_room_table
+    from: 'unavailable'
+    to: 'on'
+condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Off'
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Away'
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Day on'
+action:
+  - service: light.turn_off
+    data_template:
+      entity_id: light.living_room_table
+      transition: 30

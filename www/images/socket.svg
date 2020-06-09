@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2.6458299mm"
+   height="2.645833mm"
+   viewBox="0 0 2.6458299 2.645833"
+   version="1.1"
+   id="svg2709"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="socket.svg">
+  <defs
+     id="defs2703" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-739.28571"
+     inkscape:cy="-775"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2706">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-188.42113,58.864583)">
+    <path
+       style="display:inline;fill:#b381c9;fill-opacity:1;stroke-width:0.02939815"
+       inkscape:connector-curvature="0"
+       d="m 190.90234,-58.864583 h -2.31659 c -0.0911,0 -0.16462,0.07349 -0.16462,0.164629 v 2.316572 c 0,0.09114 0.0735,0.164632 0.16462,0.164632 h 2.31659 c 0.0911,0 0.16462,-0.0735 0.16462,-0.164632 v -2.316572 c 0,-0.09114 -0.0735,-0.164629 -0.16462,-0.164629 z m -1.52577,1.987314 c 0,0.01471 -0.0116,0.0294 -0.0294,0.0294 H 189.062 c -0.0148,0 -0.0294,-0.01175 -0.0294,-0.0294 v -0.152871 c 0,-0.01471 0.0116,-0.0294 0.0294,-0.0294 h 0.28517 c 0.0148,0 0.0294,0.01175 0.0294,0.0294 z m 0.48506,-0.973079 c 0,0.01471 -0.0116,0.0294 -0.0294,0.0294 h -0.18227 c -0.0148,0 -0.0294,-0.01175 -0.0294,-0.0294 v -0.355719 c 0,-0.01469 0.0116,-0.0294 0.0294,-0.0294 h 0.18227 c 0.0148,0 0.0294,0.01177 0.0294,0.0294 z m 0.59092,0.973079 c 0,0.01471 -0.0116,0.0294 -0.0294,0.0294 h -0.28514 c -0.0146,0 -0.0294,-0.01175 -0.0294,-0.0294 v -0.152871 c 0,-0.01471 0.0116,-0.0294 0.0294,-0.0294 h 0.28514 c 0.0148,0 0.0294,0.01175 0.0294,0.0294 z"
+       id="switch.second_bedroom_switch"
+       inkscape:label="#path5573" />
+  </g>
+</svg>

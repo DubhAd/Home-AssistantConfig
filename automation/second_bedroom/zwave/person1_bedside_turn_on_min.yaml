@@ -1,0 +1,13 @@
+alias: 'person1 bedside turn on min'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      scene_id: 33
+      entity_id: zwave.green_remote
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      brightness: 5

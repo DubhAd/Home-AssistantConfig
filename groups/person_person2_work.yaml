@@ -1,0 +1,5 @@
+name: person2's work phone
+entities:
+- device_tracker.80_b0_3d_e2_3b_a2
+- device_tracker.person2_bt_work
+- device_tracker.person2_bt_front_work

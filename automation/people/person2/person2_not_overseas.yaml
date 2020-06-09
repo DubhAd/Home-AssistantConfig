@@ -1,0 +1,19 @@
+initial_state: 'on'
+alias: 'person2 not overseas'
+trigger:
+  - platform: event
+    event_type: tasker_webhook
+    event_data:
+      who: person2
+condition: 
+  # Phone is roaming
+  - condition: template
+    value_template: >-
+      {{ trigger.event.data.roaming == "off" }}
+  # Not overseas
+  - condition: state
+    entity_id: input_boolean.person2_overseas
+    state: 'on'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person2_overseas

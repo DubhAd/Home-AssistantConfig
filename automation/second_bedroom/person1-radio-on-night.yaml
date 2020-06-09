@@ -1,0 +1,29 @@
+alias: 'person1 radio on night'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: media_player.person1
+    to: 'playing'
+  - platform: time
+    at: '22:00:00'
+condition:
+  - condition: state
+    entity_id: media_player.person1
+    state: 'playing'
+  - condition: time
+    after: '21:59:59'
+    before: '04:00:00'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 30
+      color_name: "red"
+      brightness_pct: 5
+  - delay: '00:30:00'
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 30
+      color_name: "red"
+      brightness_pct: 5

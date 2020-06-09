@@ -1,0 +1,85 @@
+alias: 'person2 up'
+initial_state: 'on'
+trigger:
+  # Music is playing
+  - platform: state
+    entity_id: 
+      - media_player.master_bedroom_speaker
+      - media_player.person2
+    to: 'playing'
+  # Phone or tablet is unplugged
+  - platform: state
+    entity_id: 
+      - input_boolean.person2_phone_charging
+      - input_boolean.person2_tablet_charging
+    to: 'off'
+  # Bedhead light is on
+  - platform: state
+    entity_id: 
+      - light.master_bedroom_bedhead
+      - light.yeelight_strip1_286c07afc307
+    to: 'on'
+    for:
+      minutes: 1
+condition:
+  - condition: state
+    entity_id: input_boolean.person2_in_bed
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+  - condition: time
+    after: '03:00:00'
+    before: '21:00:00'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person2_in_bed
+  - service: notify.logfile
+    data_template:
+      message: >
+        Turned off person2 in bed because the {{ trigger.to_state.name }} was {{ trigger.to_state.state }} at {{ now() }}
+  - condition: and
+    conditions:
+    # Working, but not from home, and the alarm got me up
+    - condition: state
+      entity_id: calendar.person2_holiday
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.person2_work_home
+      state: 'off'
+    - condition: state
+      entity_id: media_player.person2
+      state: 'playing'
+  - service: notify.logfile
+    data_template:
+      message: "Not on holiday, not working from home, alarm is playing..."
+  # Update the trains
+  - service: script.train_message
+  - service: notify.logfile
+    data_template:
+      message: "Waiting up to 30 seconds for the radio to turn off"
+  # And wait for the radio to be turned off (that is, I'm actually awake)
+  - wait_template: "{{ is_state('media_player.person2','off') or is_state('media_player.person2','paused') }}"
+    timeout: '00:02:00'
+    continue_on_timeout: 'true'
+  - service: notify.logfile
+    data_template:
+      message: "Announcing state of the trains"
+  # Now tell me about it
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.cast_master_bedroom_speaker
+  - service: media_player.volume_set
+    data_template:
+      volume_level: 0.3
+      entity_id: media_player.cast_master_bedroom_speaker
+  - delay: '00:00:01'
+  - service: tts.google_cloud_say
+    data_template:
+      entity_id: media_player.cast_master_bedroom_speaker
+      message: "{{ states('input_text.train_message') }}"
+  - wait_template: "{{ is_state('media_player.cast_master_bedroom_speaker','playing') }}"
+  - wait_template: "{{ is_state('media_player.cast_master_bedroom_speaker','idle') }}"
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.cast_master_bedroom_speaker

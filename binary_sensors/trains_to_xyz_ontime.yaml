@@ -1,0 +1,14 @@
+- platform: template
+  sensors: 
+    trains_to_xyz_ontime:
+      device_class: moving
+      entity_id: sensor.next_train_to_xyz
+      friendly_name: 'Trains from home to station are on time'
+      value_template: >- 
+        {% if ( states.sensor.next_train_to_xyz.attributes.next_trains[0].status == 'ON TIME' or states.sensor.next_train_to_xyz.attributes.next_trains[0].status == 'EARLY' ) and
+          ( states.sensor.next_train_to_xyz.attributes.next_trains[1].status == 'ON TIME' or states.sensor.next_train_to_xyz.attributes.next_trains[1].status == 'EARLY' ) and
+          ( states.sensor.next_train_to_xyz.attributes.next_trains[2].status == 'ON TIME' or states.sensor.next_train_to_xyz.attributes.next_trains[2].status == 'EARLY' ) %}
+          true
+        {% else %}
+          false
+        {% endif %}

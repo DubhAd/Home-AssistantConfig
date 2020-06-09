@@ -1,0 +1,4 @@
+name: HA shutdown at
+icon: mdi:clock-end
+has_date: true
+has_time: true

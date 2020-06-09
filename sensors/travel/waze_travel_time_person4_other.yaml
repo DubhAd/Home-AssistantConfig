@@ -1,0 +1,6 @@
+- platform: waze_travel_time
+  scan_interval: 604800
+  name: 'person4s time to person4_o'
+  origin: device_tracker.person4_mobile
+  destination: zone.person4_o
+  region: 'EU'

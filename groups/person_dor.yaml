@@ -1,0 +1,4 @@
+name: person4
+entities:
+- device_tracker.00_1d_29_a5_49_ae
+- device_tracker.person4_mobile

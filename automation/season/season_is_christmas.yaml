@@ -1,0 +1,15 @@
+alias: 'Season is Christmas'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '02:00:00'
+condition:
+  - condition: template
+    value_template: '{{ ( now().month == 1 and now().day < 7 ) or ( now().month == 12 and now().day >= 12 ) }}'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.season
+      option: Christmas

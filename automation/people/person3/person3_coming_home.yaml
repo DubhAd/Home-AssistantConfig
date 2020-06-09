@@ -1,0 +1,21 @@
+alias: 'person3 coming home'
+initial_state: 'on'
+trigger:
+  - platform: numeric_state
+    entity_id: proximity.person3_home
+    below: 701
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.person3_home
+      state: 'off'
+    - condition: template
+      value_template: '{{ states.proximity.person3_home.attributes.dir_of_travel == "towards"  }}'
+    - condition: state
+      entity_id: input_select.person2_status_dropdown
+      state: 'Home'
+action:
+  - service: notify.logfile
+    data:
+      message: "SENDME person3's nearly home"

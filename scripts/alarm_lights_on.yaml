@@ -1,0 +1,20 @@
+sequence:
+  - service: media_player.sonos_snapshot
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.office, media_player.family_room, media_player.living_room
+      volume_level: 1
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.office, media_player.family_room, media_player.living_room
+      media_content_id: http://pi3.family:8123/local/sounds/wind_chime.mp3
+      media_content_type: music
+  - service: media_player.sonos_restore
+  - condition: template
+    value_template: "{{ state('alarm_control_panel.ha_alarm') != 'disarmed' }}"
+  - delay: '00:00:10'
+  - condition: template
+    value_template: "{{ state('alarm_control_panel.ha_alarm') != 'disarmed' }}"
+  - service: script.turn_on
+    data:
+      entity_id: script.alarm_lights_on

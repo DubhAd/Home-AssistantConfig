@@ -1,0 +1,27 @@
+alias: 'person1 radio off late'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: media_player.person1
+    to: 'off'
+    for:
+      minutes: 2
+condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: light.yeelight_strip1_7811dca22b87
+      state: 'on'
+    - condition: time
+      after: '21:00:00'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      brightness_pct: 5
+      transition: 10
+  - delay: '00:02:00'
+  - service: light.turn_off
+    data:
+      entity_id: light.master_bedroom_bedhead
+      transition: 10

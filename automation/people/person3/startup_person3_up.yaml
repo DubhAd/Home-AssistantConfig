@@ -1,0 +1,17 @@
+alias: 'Startup person3 up'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: or
+    conditions:
+    - condition: time
+      after: '06:00:00'
+      before: '22:00:00'
+    - condition: state
+      entity_id: input_boolean.person3_home
+      state: 'off'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person3_is_awake

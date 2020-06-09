@@ -1,0 +1,16 @@
+alias: 'person2 at gym'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    to: 'Gym'
+    for:
+      minutes: 15
+action:
+  - service: homeassistant.turn_on
+    entity_id: automation.person2_returning_home
+  - condition: state
+    entity_id: input_boolean.person2_driving
+    state: 'on'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person2_driving

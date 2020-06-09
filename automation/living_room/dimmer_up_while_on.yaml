@@ -1,0 +1,14 @@
+alias: Dimmer up while on
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.dimmer_switch_action
+    to: 'up-press'
+condition:
+  - condition: template
+    value_template: "{{ is_state_attr('sensor.dimmer_switch_action','action','up-press') }}"
+  - condition: state
+    entity_id: light.living_room_table
+    state: 'on'
+action:
+  - service: script.living_room_table_bright_step

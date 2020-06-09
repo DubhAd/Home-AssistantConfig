@@ -1,0 +1,11 @@
+alias: 'House mode bedtime'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.house
+      option: 'Bedtime'

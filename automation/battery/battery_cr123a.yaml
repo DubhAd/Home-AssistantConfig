@@ -1,0 +1,22 @@
+initial_state: 'on'
+alias: 'Battery CR123A'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.pi3_zwave_battery_living_room_multi
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: sensor.pi3_zwave_battery_living_room_multi
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: sensor.pi3_zwave_battery_living_room_multi
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.logfile
+  data_template:
+    message: "SENDME The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR123A lithium battery"

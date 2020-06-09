@@ -1,0 +1,24 @@
+mode: yaml
+resources: !include lovelace/resources.yaml
+dashboards:
+  lovelace-people:
+    mode: yaml
+    filename: ui-lovelace-people.yaml
+    title: People
+    icon: mdi:account-group
+    show_in_sidebar: true
+    require_admin: false
+  lovelace-admin:
+    mode: yaml
+    filename: ui-lovelace-admin.yaml
+    title: Admin
+    icon: mdi:view-carousel
+    show_in_sidebar: true
+    require_admin: true
+  lovelace-automations:
+    mode: yaml
+    filename: ui-lovelace-automations.yaml
+    title: Automations
+    icon: mdi:robot
+    show_in_sidebar: true
+    require_admin: true

@@ -1,0 +1,9 @@
+name: Master bedroom
+options:
+  - 'Auto'
+  - 'Away'
+  - 'Wake'
+  - 'Bedtime'
+  - 'Dim'
+  - 'On'
+  - 'Off'

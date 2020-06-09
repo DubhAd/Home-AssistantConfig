@@ -1,0 +1,39 @@
+initial_state: 'on'
+alias: 'person1 returning'
+trigger:
+  platform: state
+  entity_id: device_tracker.person1_mobile
+  from: 'work'
+  to: 'not_home'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.adults_away
+      state: 'off'
+    - condition: or
+      conditions: 
+      - condition: time
+        after: '15:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+      - condition: time
+        after: '12:00:00'
+        weekday:
+          - fri
+    - condition: state
+      entity_id: input_boolean.person1_home
+      state: 'off'
+action:
+  - service: notify.lametric_info
+    data:
+      message: "person1 should be home from work shortly"
+  - service: script.notify_person3_at_home
+    data:
+      message: "person1 should be home from work shortly"
+  - service: script.notify_person2_at_home
+    data:
+      message: "person1 should be home from work shortly"

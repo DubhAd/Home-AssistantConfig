@@ -1,0 +1,20 @@
+initial_state: 'on'
+alias: 'device unavailable'
+trigger:
+  - platform: state
+    entity_id:
+      - light.hall
+      - light.living_room_table
+      - binary_sensor.zigbee2mqtt_router_1
+    to: 'unavailable'
+  - platform: state
+    entity_id:
+      - light.hall
+      - light.living_room_table
+      - binary_sensor.zigbee2mqtt_router_1
+    from: 'unavailable'
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Device {{ trigger.entity_id }} just went from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}

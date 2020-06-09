@@ -1,0 +1,15 @@
+platform: manual
+name: "HA Alarm"
+code: !secret alarm_code
+arming_time: 60
+trigger_time: 120
+delay_time: 30
+disarm_after_trigger: false
+disarmed:
+  trigger_time: 0
+armed_home:
+  arming_time: 0
+  delay_time: 0
+armed_night:
+  arming_time: 0
+  delay_time: 0

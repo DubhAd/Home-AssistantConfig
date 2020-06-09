@@ -1,0 +1,10 @@
+alias: Update car location
+sequence:
+  - service: device_tracker.see
+    data_template:
+      dev_id: "car_gps"
+      location_name: "{{ states('device_tracker.person2_mobile_gps') }}"
+      gps_accuracy: "{{ state_attr('device_tracker.person2_mobile_gps','gps_accuracy')|int }}"
+      gps:
+        - "{{ state_attr('device_tracker.person2_mobile_gps','latitude')|float }}"
+        - "{{ state_attr('device_tracker.person2_mobile_gps','longitude')|float }}"

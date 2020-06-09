@@ -1,0 +1,23 @@
+initial_state: 'on'
+alias: 'family room mode away'
+trigger:
+  - platform: state
+    entity_id: input_boolean.family_room_occupied
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.family_room_occupied
+    to: 'off'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.family_room
+      option: 'Away'

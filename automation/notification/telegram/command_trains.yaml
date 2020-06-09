@@ -1,0 +1,13 @@
+alias: 'Telegram command trains'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/trains'
+action:
+  - service: script.train_message
+  - service: telegram_bot.send_message
+    data_template:
+      inline_keyboard: [[[ "Recheck", "/trains" ]]]
+      message: "{{ states('input_text.train_message') }}"

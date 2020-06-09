@@ -1,0 +1,5 @@
+name: 'No dimmer than this'
+min: 1
+max: 255
+step: 1
+mode: slider

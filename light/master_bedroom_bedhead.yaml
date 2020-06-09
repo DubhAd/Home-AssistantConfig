@@ -1,0 +1,4 @@
+- platform: group
+  name: 'Master bedroom bedhead'
+  entities:
+    - light.yeelight_strip1_286c07afc307

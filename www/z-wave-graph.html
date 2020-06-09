@@ -1,0 +1,86 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        #mynetwork {
+            border: 1px solid lightgray;
+            height: 75%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+    // https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
+    function loadJSON(file, callback) {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', file + '?ts=' + new Date().getTime(), true);
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                callback(xobj.responseText);
+            }
+        };
+        xobj.send(null);
+    }
+
+    loadJSON("/local/z-wave-graph.json",
+        function (response) {
+            // Parse JSON string into object
+            var json = JSON.parse(response);
+
+            var data = {
+                nodes: json['nodes'],
+                edges: json['edges']
+            };
+
+            var options = {
+                configure: {
+                    enabled: true,
+                    filter: 'physics, layout',
+                    showButton: true
+                },
+
+                layout: {
+                    hierarchical: {
+                        enabled: true,
+                        direction: "DU",
+                        nodeSpacing: 25,
+                        sortMethod: "directed"
+                    },
+                },
+                physics: {
+                    hierarchicalRepulsion: {
+                        centralGravity: 0,
+                        springLength: 100,
+                        springConstant: 0.01,
+                        nodeDistance: 100
+                    },
+                    minVelocity: 0.75,
+                    solver: "hierarchicalRepulsion"
+                },
+
+                edges: {
+                    color: {
+                        inherit: "to"
+                    },
+                    scaling: {
+                        min: 2,
+                        max: 5
+                    }
+                }
+            };
+
+            // create a network
+            var container = document.getElementById('mynetwork');
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        });
+</script>
+</body>

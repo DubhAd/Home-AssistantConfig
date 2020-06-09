@@ -1,0 +1,54 @@
+alias: 'Home occupied'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+      - input_boolean.person3_home
+      - input_boolean.person2_home
+      - input_boolean.person1_home
+      - input_boolean.person1_tablet_home
+      - input_boolean.person4_home
+      - input_boolean.guest_mode
+      - input_boolean.living_room_occupied
+      - input_boolean.family_room_occupied
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_boolean.person3_home
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.person2_home
+      state: 'on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.person1_home
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.person1_tablet_home
+        state: 'on'
+    - condition: state
+      entity_id: input_boolean.person4_home
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'on'
+    # Rooms occupied
+    - condition: state
+      entity_id: input_boolean.living_room_occupied
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.family_room_occupied
+      state: 'on'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.home_occupied
+  - service: automation.turn_off
+    data:
+      entity_id: automation.garage_open_nobody_home
+

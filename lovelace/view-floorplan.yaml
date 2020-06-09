@@ -1,0 +1,471 @@
+title: Floorplan
+id: floorplan
+path: floorplan
+icon: mdi:floor-plan
+panel: true
+cards:
+  - type: custom:floorplan-card
+    config:
+      image: /local/floorplan/config/home/floorplan.svg
+      stylesheet: /local/floorplan/config/home/floorplan.css
+      rules:
+        - entities:
+            - input_boolean.person3_in_bed
+            - input_boolean.person1_in_bed
+            - input_boolean.person2_in_bed
+          states:
+            - state: 'on'
+              class: in-bed
+            - state: 'off'
+              class: out-of-bed
+
+        - entities:
+            - input_boolean.person3_is_awake
+            - input_boolean.person1_is_awake
+            - input_boolean.person2_is_awake
+          states:
+            - state: 'on'
+              class: awake
+            - state: 'off'
+              class: sleeping
+
+        - entities:
+            - input_boolean.living_room_occupied
+            - input_boolean.family_room_occupied
+            - input_boolean.office_occupied
+            - input_boolean.bathroom_occupied
+            - input_boolean.garage_occupied
+            - input_boolean.guest_bedroom_occupied
+            - input_boolean.kitchen_occupied
+            - input_boolean.master_bedroom_occupied
+            - input_boolean.master_ensuite_occupied
+            - input_boolean.second_bedroom_occupied
+            - input_boolean.second_ensuite_occupied
+            - input_boolean.spare_bedroom_occupied
+            - input_boolean.toilet_occupied
+            - input_boolean.utility_occupied
+          states:
+            - state: 'on'
+              class: room-occupied
+            - state: 'off'
+              class: room-empty
+
+        - entities:
+            - sensor.bin_blue
+            - sensor.bin_grey
+            - sensor.bin_brown
+          states:
+            - state: 'today'
+              class: bin-today
+            - state: 'tomorrow'
+              class: bin-tomorrow
+            - state: 'future'
+              class: bin-future
+            - state: 'false'
+              class: bin-false
+          propagate: true
+
+        - entities:
+            - input_boolean.car_home
+          states:
+            - state: 'on'
+              class: 'car-home'
+            - state: 'off'
+              class: 'car-away'
+
+        - entities:
+            - input_boolean.person2_home
+            - input_boolean.person1_home
+            - input_boolean.person1_tablet_home
+            - input_boolean.person3_home
+            - group.work_laptop
+            - group.person_person2_work
+          states:
+            - state: 'on'
+              class: 'tracker-home'
+            - state: 'off'
+              class: 'tracker-away'
+            - state: 'home'
+              class: 'tracker-home'
+            - state: 'not_home'
+              class: 'tracker-away'
+            - state: 'Work'
+              class: 'tracker-work'
+            - state: 'other'
+              class: 'tracker-work'
+            - state: 'London'
+              class: 'tracker-work'
+            - state: 'London 2'
+              class: 'tracker-work'
+            - state: 'At work'
+              class: 'tracker-other'
+            - state: 'home Station'
+              class: 'tracker-travel'
+            - state: 'station Train Station'
+              class: 'tracker-travel'
+            - state: 'work Airport'
+              class: 'tracker-travel'
+            - state: 'London City Airport'
+              class: 'tracker-travel'
+            - state: 'London Heathrow Airport'
+              class: 'tracker-travel'
+          propagate: true
+
+        - entities:
+            - input_boolean.guest_mode
+          states:
+            - state: 'on'
+              class: 'tracker-home'
+            - state: 'off'
+              class: 'tracker-away'
+          propagate: true
+
+        - entities:
+            - media_player.office
+            - media_player.family_room
+            - media_player.living_room
+          states:
+            - state: 'playing'
+              class: 'squeezebox-on'
+            - state: 'paused'
+              class: 'squeezebox-off'
+            - state: 'idle'
+              class: 'squeezebox-off'
+          propagate: true
+
+        - entities:
+            - media_player.person2
+            - media_player.person1
+          states:
+            - state: 'playing'
+              class: 'squeezebox-on'
+            - state: 'paused'
+              class: 'squeezebox-paused'
+            - state: 'off'
+              class: 'squeezebox-off'
+          propagate: true
+
+        - entities:
+            - media_player.living_room_display
+            - media_player.family_room_display
+            - media_player.office_display
+          states:
+            - state: 'playing'
+              class: 'homehub-on'
+            - state: 'paused'
+              class: 'homehub-paused'
+            - state: 'off'
+              class: 'homehub-off'
+            - state: 'idle'
+              class: 'homehub-off'
+          propagate: true
+
+        - entities:
+            - media_player.cast_master_bedroom_speaker
+            - media_player.cast_second_bedroom_speaker
+            - media_player.cast_kitchen_speaker
+            - media_player.cast_master_bedroom_display
+          states:
+            - state: 'playing'
+              class: 'squeezebox-on'
+            - state: 'paused'
+              class: 'squeezebox-paused'
+            - state: 'off'
+              class: 'squeezebox-off'
+            - state: 'idle'
+              class: 'squeezebox-off'
+          propagate: true
+
+        - entities:
+            # Chromecast
+            - media_player.cast_living_room_tv
+          states:
+            - state: 'on'
+              class: 'tv-on'
+            - state: 'playing'
+              class: 'tv-on'
+            - state: 'off'
+              class: 'tv-off'
+          propagate: true
+
+        - entities:
+            - device_tracker.family_tv
+            - device_tracker.livingroom_chromecast
+            - media_player.samsung_tv
+            - sensor.person1
+          states:
+            - state: 'on'
+              class: 'squeezebox-on'
+            - state: 'home'
+              class: 'squeezebox-on'
+            - state: 'Online'
+              class: 'squeezebox-on'
+            - state: 'off'
+              class: 'squeezebox-off'
+            - state: 'not home'
+              class: 'squeezebox-off'
+            - state: 'not_home'
+              class: 'squeezebox-off'
+            - state: 'Offline'
+              class: 'squeezebox-off'
+            - state: 'unknown'
+              class: 'squeezebox-unknown'
+          propagate: true
+
+        - entities:
+            - sensor.printer
+          class_template: '
+            var health = parseFloat(entity.state.replace("°", ""));
+            if (health < 50)
+              return "health-critical";
+            else if (health < 100)
+              return "health-warning";
+            else if (health < 250)
+              return "health-info";
+            else if (health >= 25)
+              return "health-good";
+            else
+              return "health-unknown";
+            '
+          propagate: true
+
+        # Indoors should be moderate
+        - entities:
+            - sensor.pi3_living_room_multi_temperature
+            - sensor.pi3_office_multi_temperature
+            - sensor.master_ensuite_temperature
+            - sensor.bathroom_temperature
+            - sensor.second_bedroom_ensuite_temperature
+          text_template: '${entity.state ? entity.state : "unknown"} C'
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          # text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 5)
+              return "temp-freeze";
+            else if (temp < 15)
+              return "temp-low";
+            else if (temp < 25)
+              return "temp-medium";
+            else if (temp >= 25)
+              return "temp-high";
+            else
+              return "temp-unknown";
+            '
+          propagate: true
+
+        # Outside is expected to be colder/hotter
+        - entities:
+            - sensor.dark_sky_temperature
+          text_template: '${entity.state ? entity.state : "unknown"} C'
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          # text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 5)
+              return "temp-freeze";
+            else if (temp < 10)
+              return "temp-low";
+            else if (temp < 25)
+              return "temp-medium";
+            else if (temp >= 25)
+              return "temp-high";
+            else
+              return "temp-unknown";
+            '
+          propagate: true
+
+        # Bathrooms are expected to be a bit more humid
+        - entities:
+            - sensor.master_ensuite_humidity
+            - sensor.second_bedroom_ensuite_humidity
+            - sensor.bathroom_humidity
+          text_template: '${entity.state ? entity.state : "unknown"} %'
+          class_template: '
+            var humid = parseFloat(entity.state.replace("%", ""));
+            if (humid < 30)
+              return "humid-low";
+            else if (humid < 45)
+              return "humid-med-low";
+            else if (humid < 60)
+              return "humid-medium";
+            else if (humid < 70)
+              return "humid-med-high";
+            else
+              return "humid-high";
+            '
+          propagate: true
+
+        - entities:
+            - sensor.dark_sky_humidity
+            - sensor.pi3_office_multi_relative_humidity
+          text_template: '${entity.state ? entity.state : "unknown"} %'
+          class_template: '
+            var humid = parseFloat(entity.state.replace("%", ""));
+            if (humid < 30)
+              return "humid-low";
+            else if (humid < 45)
+              return "humid-med-low";
+            else if (humid < 55)
+              return "humid-medium";
+            else if (humid < 65)
+              return "humid-med-high";
+            else
+              return "humid-high";
+            '
+          propagate: true
+
+        - entities:
+            - sensor.pi3_living_room_multi_luminance
+            - sensor.pi3_office_multi_luminance
+            - sensor.hall_downstairs_illuminance
+          text_template: '${entity.state ? entity.state : "unknown"} lux'
+          class_template: '
+            var light = parseFloat(entity.state.replace("°", ""));
+            if (light < 10)
+              return "light-low";
+            else if (light < 100)
+              return "light-medium-low";
+            else if (light < 400)
+              return "light-medium";
+            else
+              return "light-high";
+            '
+          propagate: true
+
+        - entities:
+            - input_text.person_person3
+            - input_text.person_person1
+            - input_text.person_person2
+          text_template: '${entity.state ? entity.state : "unknown"}'
+          class_template: '
+              return "info-text";
+            '
+          propagate: true
+
+        - entities:
+            - switch.pi3_number_sign_switch
+          states:
+            - state: 'on'
+              class: 'indicator-on'
+            - state: 'off'
+              class: 'light-off'
+          propagate: true
+
+        - entities:
+            - switch.pi3_cabinet_light_switch
+            - switch.pi3_tv_light_switch
+            - switch.pi3_livingroom_socket_switch
+            - light.living_room_table
+          states:
+            - state: 'on'
+              class: 'light-on'
+            - state: 'off'
+              class: 'light-off'
+            - state: 'unavailable'
+              class: 'light-unavailable'
+          propagate: true
+
+        - entities:
+            - switch.pi3_garden_lights_switch
+            - light.master_bedroom_bedhead
+            - light.person1_bedroom_bedside
+            - light.hall
+          states:
+            - state: 'on'
+              class: 'light-strip-on'
+            - state: 'off'
+              class: 'light-off'
+            - state: 'unavailable'
+              class: 'light-unavailable'
+          propagate: true
+
+        - entities:
+            - switch.pi3_spare_socket_switch
+            - switch.pi3_second_bedroom_switch
+            - switch.pi3_family_room_socket_switch
+            - switch.pi3_hall_downstairs_switch
+            - switch.pi3_vestibule_switch
+          states:
+            - state: 'on'
+              class: 'doorbell-on'
+            - state: 'off'
+              class: 'doorbell-off'
+          propagate: true
+
+        - entities:
+            - switch.pi3_master_bedroom_socket_switch
+            - switch.pi3_front_bedroom_switch
+          states:
+            - state: 'on'
+              class: 'switch-on'
+            - state: 'off'
+              class: 'switch-off'
+          propagate: true
+
+        - entities:
+            - binary_sensor.pi3_living_room_motion
+            - binary_sensor.pi3_office_multi_sensor
+            - binary_sensor.hall_downstairs_occupancy
+          states:
+            - state: 'off'
+              class: 'motion-background'
+            - state: 'on'
+              class: 'warning-background'
+          propagate: true
+
+        - entities:
+            - binary_sensor.pi3_utility_door_exterior_sensor
+            - binary_sensor.pi3_patio_door_left_sensor
+            - binary_sensor.patio_window_left
+            - binary_sensor.patio_window_right
+            - binary_sensor.pi3_front_door_sensor
+            - binary_sensor.vestibule_window_front
+            - binary_sensor.vestibule_window_side
+            - binary_sensor.family_window_right
+            - binary_sensor.family_window_left
+            - binary_sensor.guest_bedroom_window_left
+            - binary_sensor.guest_bedroom_window_right
+            - binary_sensor.master_window_left
+            - binary_sensor.master_window_right
+            - binary_sensor.master_window_ensuite
+            - binary_sensor.office_window
+            - binary_sensor.spare_bedroom_window_left
+            - binary_sensor.spare_bedroom_window_right
+            - binary_sensor.second_bedroom_window_ensuite
+            - binary_sensor.second_bedroom_window_left
+            - binary_sensor.second_bedroom_window_right
+            - binary_sensor.bathroom_window
+          states:
+            - state: 'off'
+              class: 'door-closed'
+            - state: 'on'
+              class: 'door-open'
+          propagate: true
+
+        - entities:
+            - binary_sensor.pi3_garage_closed_bike_sensor
+            - binary_sensor.pi3_garage_closed_car_sensor
+          states:
+            - state: 'off'
+              class: 'closed-background'
+            - state: 'on'
+              class: 'open-background'
+          propagate: true
+
+        - entities:
+            - alarm_control_panel.ha_alarm
+          states:
+            - state: 'disarmed'
+              class: 'alarm-disarmed'
+            - state: 'triggered'
+              class: 'alarm-triggered'
+            - state: 'armed_night'
+              class: 'alarm-armed_night'
+            - state: 'armed_away'
+              class: 'alarm-armed_away'
+            - state: 'armed_home'
+              class: 'alarm-armed_home'
+            - state: 'armed_custom_bypass'
+              class: 'alarm-armed_custom_bypass'
+          propagate: true

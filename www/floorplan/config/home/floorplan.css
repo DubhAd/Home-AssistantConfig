@@ -1,0 +1,489 @@
+/* SVG shapes */
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+  pointer-events: all !important;
+  background-color: var(--primary-background-color);
+}
+
+background-color: var(--primary-background-color);
+
+/* Hover over */
+
+.entity:hover {
+  stroke: #FFFFFF !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Bootstrap succsss */
+
+.success-text {
+  fill: #3c763d !important;
+}
+
+.success-background, .success-text-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+  stroke: #d6e9c6 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap info */
+
+.info-text {
+  fill: #d4d4d4 !important;
+}
+
+.hidden {
+  visibility: hidden !important;
+}
+
+.transparent {
+  fill-opacity: 0.5 !important;
+}
+
+.visible {
+  visibility: hidden !important;
+}
+
+.awake {
+  fill: #949494 !important;
+}
+
+.sleeping {
+  fill: #0e0e6e !important;
+}
+
+.in-bed {
+  fill: #504c66 !important;
+}
+
+.out-of-bed {
+  fill: #57565c !important;
+}
+
+.room-empty {
+  fill: #5d5b5b !important;
+}
+
+.room-occupied {
+  fill: #596170 !important;
+  /* fill: #5d5d6f !important;*/
+}
+
+.door-closed {
+  /* fill: #77FF77 !important; */
+  /* fill: #81c9a7 !important; */
+  fill: #81D9a7 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important;  
+  animation-duration: 4s;
+  animation-name: rotateReset90; */
+}
+
+.door-open  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+/*  animation-duration: 4s;
+  animation-name: rotate90;
+  animation-fill-mode: forwards;  */
+}
+
+.alarm-disarmed {
+  fill: #81D9a7 !important;
+  fill-opacity: 0.5 !important;
+}
+
+.alarm-triggered {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+}
+
+.alarm-armed_night {
+  fill: #FF8A0D; !important;
+}
+
+.alarm-armed_away {
+  fill: #FFCC66; !important;
+}
+
+.alarm-armed_home {
+  fill: #FF8A0D; !important;
+}
+
+.alarm-armed_custom_bypass {
+  fill: #FFCC66; !important;
+}
+
+.closed-background, .closed-text-background {
+  /* fill: #77FF77 !important; */
+  fill: #81D9a7 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+.open-background, .open-text-background  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
+.interior-closed-background, .interior-closed-text-background {
+  fill: #81c9a7 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+.interior-open-background, .interior-open-text-background  {
+  fill: #5fd3eb !important;
+  fill-opacity: 1 !important;
+  stroke: #6fE3Fb !important;
+  stroke-dasharray: 4,4 !important; 
+  stroke-width: 1px !important; 
+  stroke-opacity: 0.5 !important; 
+}
+
+.window-closed-background, .window-closed-text-background {
+  fill: #83DFF3 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+.window-open-background, .window-open-text-background  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
+.motion-background, .motion-text-background {
+  fill: #81c9a7 !important;
+  /* fill-opacity: 1 !important; */
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+/* .info-background, .info-text-background { */
+.info-background {
+  /* fill: #D2D0ED !important; */
+   fill: #81c9a7 !important; 
+  /* fill-opacity: 1 !important; */
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+/* Bootstrap warning */
+
+.warning-text {
+  fill: #8a6d3b !important;
+}
+
+.warning-background, .warning-text-background  {
+  fill: #FFFF00 !important;
+  fill-opacity: 1 !important;
+  stroke: #FF0000 !important;
+  stroke-width: 4px !important;
+  stroke-opacity: 0.5 !important;
+}
+
+/* Bootstrap danger */
+
+.danger-text {
+  fill: #a94442 !important;
+}
+
+.danger-background, .danger-text-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+  stroke: #ebccd1 !important;
+  stroke-width: 1px !important;
+}
+
+/* Last motion entity */
+
+.last-motion {
+  stroke: #808080 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Alarm Panel */
+
+.alarm-disarmed {
+  fill: #3c763d !important;
+}
+
+.alarm-armed {
+  fill: #8a6d3b !important;
+}
+
+/* Camera */
+
+.camera-idle {
+/*  fill: #B9CEF7 !important; */
+/*  fill: #6FAECE !important; */
+  fill: #8270A2 !important;
+}
+
+/* Light */
+
+.light-unavailable {
+  fill: #8270A2 !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 1px !important;
+}
+
+.light-off {
+  fill: #4d4d3e !important;
+}
+
+.light-on {
+  fill: #FFF27F !important;
+  stroke: #FFF27F !important;
+  stroke-width: 20px !important;
+  stroke-opacity: 0.25 !important;
+}
+
+.light-strip-on {
+  fill: #FFF27F !important;
+  stroke: #FFF27F !important;
+  stroke-width: 10px !important;
+  stroke-opacity: 0.25 !important;
+}
+
+.indicator-on {
+  fill: #FFE500 !important;
+/*  stroke: #FFE500 !important;
+  stroke-width: 20px !important;
+  stroke-opacity: 0.25 !important; */
+}
+
+/* Doorbell */
+
+.doorbell-off {
+  /* fill: #92C0AD !important; */
+  fill: #4d4d3e !important;
+}
+
+.doorbell-on {
+  fill: #FFE500 !important;
+}
+
+.switch-on {
+  fill: #6F7500 !important;
+}
+
+.switch-off {
+  /* fill: #92C0AD !important; */
+  fill: #5d3d3e !important;
+}
+
+/* Temperature sensor */
+
+.temp-very-low-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-below-average-background {
+  fill: #dcefe8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-average-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-very-high-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+}
+
+/* Media player */
+
+.homehub-off {
+  fill: #515151 !important;
+}
+
+.homehub-paused {
+  fill: #518151 !important;
+}
+
+.homehub-on {
+  fill: #F1F1F1 !important;
+}
+
+.squeezebox-off {
+  fill: #8270A2 !important;
+}
+
+.squeezebox-paused {
+  /* fill: #B9C999 !important; */
+  fill: #8da6c9 !important;
+}
+
+.squeezebox-on {
+  /* fill: #2baaa6 !important; */
+  /* fill: #E0E276 !important; */
+  /* fill: #A7B349 !important; */
+  /* fill: #03a9f4 !important; */
+  fill: #40a2cf !important;
+}
+
+.squeezebox-unknown {
+  fill: #A99999 !important;
+}
+
+/* People */
+
+.car-away {
+  fill: #585858 !important;
+}
+
+.car-home {
+ fill: #181818 !important;
+}
+
+.tracker-away {
+  fill: #585858 !important;
+}
+
+.tracker-travel {
+  fill: #88a9b8 !important;
+}
+
+.tracker-work {
+  fill: #9963a6 !important;
+}
+
+.tracker-other {
+  fill: #6993a6 !important;
+}
+
+.tracker-home {
+  /* fill: #2baaa6 !important; */
+ /*  fill: #D0D266 !important; */
+ /*  fill: #77FF77 !important;  */
+   fill: #40a2cf !important; 
+}
+
+.temp-freeze {
+  fill: #FFFFFF !important;
+}
+
+.temp-low {
+  fill: #7777FF !important;
+}
+
+.temp-medium {
+  fill: #77FF77 !important;
+}
+
+.temp-high {
+  fill: #FF0000 !important;
+}
+
+.temp-unknown {
+  fill: #777777 !important;
+}
+
+.health-critical {
+  fill: #FF0000 !important;
+}
+
+.health-warning {
+  fill: #ffa500 !important;
+}
+
+.health-info {
+  fill: #ffff00 !important;
+}
+
+.health-good {
+  fill: #77FF77 !important;
+}
+
+.health-unknown {
+  fill: #0000FF !important;
+}
+
+.humid-low {
+  fill: #C200C2 !important;
+}
+
+.humid-med-low {
+  fill: #67AF47 !important;
+}
+
+.humid-medium {
+  fill: #77FF77 !important;
+}
+
+.humid-med-high {
+  fill: #C8AB37 !important;
+}
+
+.humid-high {
+  fill: #FF0000 !important;
+}
+
+.light-low {
+  /* fill: #000083 !important; */
+  fill: #1D2375 !important;
+}
+
+.light-medium-low {
+  fill: #A7B349 !important;
+}
+
+.light-medium {
+  fill: #e4ff24 !important;
+}
+
+.light-high {
+  fill: #FFFFFF !important;
+}
+
+.tv-on {
+  /* fill: #DFDFDF !important; */
+  fill: #B0B0D0 !important;
+}
+
+.tv-off {
+  fill: #505050 !important;
+}
+
+.bin-today {
+  fill: #FF0000 !important;
+}
+
+.bin-tomorrow {
+  fill: #FFFF00 !important;
+}
+
+.bin-future {
+  fill: #00FF00 !important;
+}
+
+.bin-false {
+  fill: #000000 !important;
+}
+
+.hidden {
+  visibility: hidden;
+}

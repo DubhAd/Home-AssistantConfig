@@ -1,0 +1,32 @@
+initial_state: 'on'
+alias: 'Zigbee router offline'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.zigbee2mqtt_router_1
+    to: 'off'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: binary_sensor.zigbee2mqtt_router_1
+    to: 'unavailable'
+    for:
+      minutes: 10
+condition:
+  - condition: state
+    entity_id: light.hall
+    state: 'unavailable'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.zigbee2mqtt_router_1
+        state: 'unavailable'
+      - condition: state
+        entity_id: binary_sensor.zigbee2mqtt_router_1
+        state: 'off'
+action:
+  - service: notify.person2_telegram
+    data_template:
+      message: >-
+        The Zigbee router has been {{ trigger.to_state.state }} for 10 minutes, and the lights are offline too. Time to reset the stick again.
+  - service: homeassistant.turn_on
+    entity_id: automation.zigbee_router_online

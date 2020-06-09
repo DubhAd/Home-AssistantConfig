@@ -1,0 +1,9 @@
+initial_state: 'on'
+alias: 'Zigbee offline'
+trigger:
+  - platform: state
+    entity_id: sensor.zigbee2mqtt_bridge_state
+    to: 'offline'
+action:
+  - service: switch.turn_off
+    entity_id: switch.zigbee2mqtt_enable_join

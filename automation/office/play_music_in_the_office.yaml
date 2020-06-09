@@ -1,0 +1,23 @@
+initial_state: 'on'
+alias: 'Play music in the office'
+trigger:
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
+condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: media_player.office
+      state: 'paused'
+    - condition: state
+      entity_id: media_player.office
+      state: 'idle'
+    - condition: state
+      entity_id: media_player.office
+      state: 'off'
+action:
+  - service: media_player.media_play
+    data:
+      entity_id: media_player.office
+

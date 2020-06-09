@@ -1,0 +1,18 @@
+alias: 'Season is Easter'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '02:00:00'
+  - platform: state
+    entity_id: calendar.holidays_in_the_united_kingdom
+    to: 'on'
+condition:
+  - condition: template
+    value_template: '{{ states.calendar.holidays_in_the_united_kingdom.attributes.message in "Good Friday" "Easter Sunday" "Easter Monday" }}'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.season
+      option: Easter

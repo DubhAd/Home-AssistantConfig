@@ -1,0 +1,1 @@
+catt: '/local/bin/catt-cast.zsh -d {{ target }} -u {{ url }}'

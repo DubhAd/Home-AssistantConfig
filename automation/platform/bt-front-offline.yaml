@@ -1,0 +1,48 @@
+initial_state: 'on'
+alias: 'BT front offline'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.first_floor_front
+    to: 'off'
+    for: '00:00:30'
+action:
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person2_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person2_tablet/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person2_laptop/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person2_work_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/work_laptop/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person3_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person1_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person1_tablet/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/person4_mobile/device_tracker
+      payload: unknown
+  - service: mqtt.publish
+    data:
+      topic: monitor/first floor front/car/device_tracker
+      payload: unknown

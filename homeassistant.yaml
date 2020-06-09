@@ -1,0 +1,13 @@
+name: Our home
+latitude: !secret latitude
+longitude: !secret longitude
+elevation: !secret elevation
+unit_system: metric
+time_zone: Europe/London
+customize: !include customize.yaml
+whitelist_external_dirs:
+  - /data/homeassistant
+  - /home/homeassistant/maps
+auth_providers: !include auth_providers.yaml
+external_url: !secret remote_base
+internal_url: !secret local_base

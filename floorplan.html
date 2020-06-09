@@ -1,0 +1,64 @@
+<link rel="import" href="/local/custom_ui/floorplan/ha-floorplan.html" async>
+
+<dom-module id="ha-panel-floorplan">
+
+  <template>
+    <style include="ha-style">
+      .container {
+        height: calc(100% - 64px);
+        vertical-align: top;
+        position: relative;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+
+    <app-toolbar hidden$='{{!showAppToolbar}}'>
+      <ha-menu-button narrow='[[narrow]]' show-menu='[[showMenu]]'></ha-menu-button>
+      <div main-title>[[panel.title]]</div>
+    </app-toolbar>
+
+    <div class="container">
+      <ha-floorplan hass=[[hass]] config=[[panel.config]] is-panel></ha-floorplan>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'ha-panel-floorplan',
+
+    properties: {
+      hass: {
+        type: Object,
+      },
+      narrow: {
+        type: Boolean,
+        value: false,
+      },
+      showMenu: {
+        type: Boolean,
+        value: true,
+      },
+      showAppToolbar: {
+        type: Boolean,
+        value: false,
+      },
+      panel: {
+        type: Object,
+        observer: 'panelChanged',
+      }
+    },
+
+    panelChanged: function() {
+      var hideAppToolbar = ((this.panel.config.hide_app_toolbar === null) ||
+        (this.panel.config.hide_app_toolbar !== undefined));
+      this.showAppToolbar = !hideAppToolbar;
+    },
+
+  });
+
+</script>

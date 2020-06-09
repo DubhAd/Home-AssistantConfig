@@ -1,0 +1,11 @@
+alias: 'House mode away'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.house
+      option: 'Away'

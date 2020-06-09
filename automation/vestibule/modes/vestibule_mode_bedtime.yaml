@@ -1,0 +1,18 @@
+alias: 'Vestibule mode bedtime'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'on'
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.vestibule','Bedtime') }}"
+  # Christmas!
+  - condition: state
+    entity_id: input_select.season
+    state: 'Christmas'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.vestibule
+      option: 'Bedtime'

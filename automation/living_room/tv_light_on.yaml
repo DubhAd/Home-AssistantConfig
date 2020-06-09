@@ -1,0 +1,13 @@
+initial_state: 'on'
+alias: 'TV light on'
+trigger:
+  - platform: state
+    entity_id: switch.pi3_tv_light_switch
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.livingroom_lights_auto
+    state: 'on'
+action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.livingroom_lights_auto

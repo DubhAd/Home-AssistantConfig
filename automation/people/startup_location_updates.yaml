@@ -1,0 +1,15 @@
+initial_state: 'on'
+alias: 'Startup location update'
+trigger:
+  # I've moved
+  - platform: homeassistant
+    event: start
+action:
+  - delay: '00:00:30'
+  - service: script.person3_traveltime
+  - delay: '00:00:30'
+  - service: script.person1_travel_time
+  - delay: '00:00:30'
+  - service: script.person2_traveltime
+  - delay: '00:01:00'
+  - service: script.person4_traveltime

@@ -1,0 +1,4 @@
+name: person2 next alarm
+icon: mdi:human-male
+has_date: true
+has_time: true

@@ -1,0 +1,134 @@
+title: scripts
+id: scripts
+path: scripts
+icon: mdi:script
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards: 
+- type: entities
+  title: person3
+  entities:
+  - entity: script.person3_traveltime
+    secondary_info: last-triggered
+  - entity: script.person3_travel_sensor
+    secondary_info: last-triggered
+  - entity: script.notify_person3_at_home
+    secondary_info: last-triggered
+  - entity: script.person3_home
+    secondary_info: last-triggered
+  - entity: script.person3_away
+    secondary_info: last-triggered
+- type: entities
+  title: person4
+  entities:
+  - entity: script.person4_traveltime
+    secondary_info: last-triggered
+  - entity: script.person4_travel_sensor
+    secondary_info: last-triggered
+  - entity: script.person4_home
+    secondary_info: last-triggered
+  - entity: script.person4_away
+    secondary_info: last-triggered
+- type: entities
+  title: person1
+  entities:
+  - entity: script.person1_travel_time
+    secondary_info: last-triggered
+  - entity: script.person1_travel_sensor
+    secondary_info: last-triggered
+  - entity: script.wake_person1
+    secondary_info: last-triggered
+  - entity: script.person1_home
+    secondary_info: last-triggered
+  - entity: script.person1_away
+    secondary_info: last-triggered
+- type: entities
+  title: person2
+  entities:
+  - entity: script.person2_traveltime
+    secondary_info: last-triggered
+  - entity: script.person2_travel_sensor
+    secondary_info: last-triggered
+  - entity: script.notify_person2_at_home
+    secondary_info: last-triggered
+  - entity: script.person2_home
+    secondary_info: last-triggered
+  - entity: script.person2_away
+    secondary_info: last-triggered
+  - entity: script.notify_person2
+    secondary_info: last-triggered
+  - entity: script.person2_notify_test
+    secondary_info: last-triggered
+- type: entities
+  title: Lights
+  entities:
+  - entity: script.bedhead_light_bright_pause
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_bright
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_cool_pause
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_cool
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_dim_pause
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_dim
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_warm_pause
+    secondary_info: last-triggered
+  - entity: script.bedhead_light_warm
+    secondary_info: last-triggered
+  - entity: script.bedtime_slow_off
+    secondary_info: last-triggered
+- type: entities
+  Title: Misc
+  entities:
+  - entity: script.alarm_lights_enable
+    secondary_info: last-triggered
+  - entity: script.alarm_lights_on
+    secondary_info: last-triggered
+  - entity: script.garden_door_after_sunset
+    secondary_info: last-triggered
+  - entity: script.garden_door_before_sunrise
+    secondary_info: last-triggered
+  - entity: script.house_alert
+    secondary_info: last-triggered
+  - entity: script.update_car_location
+    secondary_info: last-triggered
+  - entity: script.train_message
+    secondary_info: last-triggered
+- type: entities
+  title: Presence
+  entities:
+  - entity: script.scan_bt_arrive
+    secondary_info: last-triggered
+  - entity: script.scan_bt_depart
+    secondary_info: last-triggered
+  - entity: script.scan_bt_restart
+    secondary_info: last-triggered
+- type: entities
+  title: Hall
+  entities:
+  - entity: script.hall_lights_night
+    secondary_info: last-triggered
+  - entity: script.hall_string_off
+    secondary_info: last-triggered
+  - entity: script.hall_string_on
+    secondary_info: last-triggered
+  - entity: script.hall_strip_off
+    secondary_info: last-triggered
+  - entity: script.hall_strip_on
+    secondary_info: last-triggered
+  - entity: script.hall_strip_night
+    secondary_info: last-triggered
+  - entity: script.hall_strip_dim
+    secondary_info: last-triggered
+- type: entities
+  title: Camera
+  entities:
+  - entity: script.snapshot_front_camera
+    secondary_info: last-triggered
+  - entity: script.front_camera_notify
+    secondary_info: last-triggered
+  - entity: script.front_camera_notify_nothing
+    secondary_info: last-triggered

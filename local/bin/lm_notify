@@ -1,0 +1,90 @@
+#!/usr/bin/zsh
+
+MESSAGE=$(cat)
+CYCLES=1
+ICON=i620
+SOUND="notification"
+
+case "${MESSAGE:l}" in
+	*train* )
+		case ${MESSAGE} in
+			Good* ) ICON=i59
+				CYCLES=1
+				SOUND="notification"
+				;;
+			Delays* ) ICON=i9183
+				CYCLES=2
+				SOUND="positive1"
+				;;
+			Cancel* ) ICON=i555
+				CYCLES=3
+				SOUND="lose1"
+				;;
+		esac
+		;;
+	garage* )
+		TIME=$(echo ${MESSAGE} | sed "s/.*open for //" | awk '{ print $1 }')
+
+		if [ ${TIME} -lt 15 ]; then
+			CYCLES=1
+			SOUND="notification"
+		elif [ ${TIME} -lt 30 ]; then
+			CYCLES=3
+			SOUND="positive1"
+		else
+			CYCLES=5
+			SOUND="lose1"
+		fi
+
+		case ${MESSAGE} in 
+			*freezer* ) ICON=i2857
+				;;
+			*car* ) ICON=i7421
+				;;
+		esac
+		;;
+	*collected* )
+		WHICH=$(echo ${MESSAGE} | sed "s/.* the \(.*\) bin .*/\1/")
+		case ${WHICH} in
+			brown ) ICON=i12442
+				;;
+			blue ) ICON=i12154
+				;;
+			grey ) ICON=i12155
+				;;
+			* ) ICON=i12212
+				;;
+		esac
+		CYCLES=2
+		unset SOUND
+		;;
+	lightning* )
+		ICON=i95
+		;;
+	* ) 	# Might be weather? i2151 for snow, i2441 for hail, i11428 for lightning/thunder, i72 for rain, i2440 for wind, i2283 for cloudy
+			# i2286 for party cloudy, 
+			# i962 for moon, i2155 for sunny
+			# i676 for fog, i2221 for ice
+		case ${MESSAGE:l} in
+			*alert* ) ICON=i1237 ;;
+			*thunder*|*lightning* ) ICON=i11428 ;;
+			*rain*|*drizzle* ) ICON=i72 ;;
+			*hail* ) ICON=i2441 ;;
+			*snow* ) ICON=i2151 ;;
+			*sleet* ) ICON=i12198 ;;
+			*partly*|*overcast* ) ICON=i2286 ;;
+			*cloudy* ) ICON=i2283 ;;
+			*wind* ) ICON=i2440 ;;
+			*breeze* ) ICON=i19514 ;;
+			*fog* ) ICON=i676;;
+			* ) ICON=i73;;
+		esac
+		unset SOUND
+		;;
+esac
+
+if [ -n "${SOUND}" ]; then
+	/local/bin/lm_notify.py --icon ${ICON} --cycles ${CYCLES} --sound ${SOUND} "${MESSAGE}"
+else
+	/local/bin/lm_notify_silent.py --icon ${ICON} --cycles ${CYCLES} "${MESSAGE}"
+fi

@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<head>
+    <title>Home Assistant Control Panel</title>
+    <meta name="description" content="A tablet based Control Panel for Home Assistant. Simple home automation software - download or hook in today">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel=”apple-touch-icon” href=”/apple-touch-icon.png”/>
+    <link rel=”apple-touch-icon-precomposed” href=”/apple-touch-icon.png”/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <style>
+        html{width:100%;padding:0;margin:0;text-align:center;position:relative;font-size:1vw;line-height: 1.5em}
+body{width:100%;min-height:100vh;padding:0;margin:0;text-align:center;overflow-y:scroll;position:relative;-ms-overflow-style:none;-webkit-backface-visibility: hidden;color: #222;}
+body::-webkit-scrollbar{width:0px}
+img{border-width:0;}
+*, *:before, *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;min-height:1px;}
+a{text-decoration:none;cursor:pointer;}
+a:hover{}
+a h1{display:inline-block;}
+h1,h2,h3,h4{margin:0;padding:0; line-height: 1em}
+h1 {font-size: 3rem;font-weight: 700;}
+h2 {font-size: 2.5rem;font-weight: 700;}
+h3 {font-size: 2rem;font-weight: 700;}
+h4,h1.small {font-size: 1.5rem;font-weight: 700;}
+h1.big:not(.small), .big h1:not(.small) {font-size: 6rem;font-weight: 700;}
+h2.big, .big h2 {font-size: 4.5rem;font-weight: 700;}
+h3.big, .big h3 {font-size: 3rem;font-weight: 700;}
+h4.big, .big h4 {font-size: 2.5rem;font-weight: 700;}
+.biggest{font-size:8vw}
+h1.underline:after,h2.underline:after,h3.underline:after,h4.underline:after {background: none repeat scroll 0 0 rgba(18, 194, 222, 1);bottom: -10px;content: "";display: block;height: 5px;position: relative;width: 50px;margin-bottom:1em;}
+highlight{padding:0.3rem;background:#FFF886;}
+img:not(.inline){position:relative;max-width:100%;z-index:2;}
+img.inline{vertical-align: middle;}
+background{padding:0.3rem;background:#ccc;}
+p{position:relative;padding:0.5rem 0 0.5rem 0;margin:0;-webkit-margin-before:0;-webkit-margin-after:0;z-index:50;word-wrap:break-word;text-align:inherit}
+p:last-child{padding-top:0.5rem;padding-right:0;padding-bottom:0;padding-left:0;}
+p:first-child{padding-top:0;padding-right:0;padding-bottom:0.5rem;padding-left:0;}
+p + li, p + ul, p + ol{padding-top:0;margin-top:0;}
+p.spaced{line-height: 1.8em; margin-bottom:0; padding-bottom:0;}
+sup{color:#aaa; padding-left:0.2em; font-size: 0.7em}
+pre{text-align:left;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap; white-space: -o-pre-wrap;word-wrap: break-word; }
+xmp{padding:2rem;}
+strikethrough,.strikethrough{text-decoration:line-through;}
+span{}
+ul,ol{padding-left: 2em;list-style-position: outside;}
+li, ol li{text-indent:0rem;margin-left:0;padding-left: 0; padding-bottom:1.25em}
+li.no-bullet{list-style-type:none;text-indent: 0rem;}
+li.selectable{margin:0;list-style-type:none;text-indent: 0rem;}
+li.selectable:hover{cursor:pointer;}
+ul.selectable{position:absolute;left:0px;width:100%;padding:0;margin:0;border:1px solid #ccc;max-height:40rem;overflow-y:auto;z-index:999;}
+ul.selectable li.title{margin:0;list-style-type:none;padding:1rem;font-weight:bold;}
+*:focus{outline:none;-webkit-box-shadow:none;box-shadow:none;}
+[contenteditable]:hover{background-color: rgba(200,200,200,0.1)}
+input[type=text],input[type=password],input[type=email],input[type=file],input[type=date],input[type=color],input[type=number],input[type=month],input[type=search],input[type=tel],input[type=time],input[type=url],input[type=week],input[type=range]{position:relative;width:100%;font:inherit;padding:0.55rem;border:none;border:1px solid #ccc;margin-bottom:1%;}
+input.no-border{border: none;padding:0.55rem;margin-bottom:1%;}
+input.no-margin{margin:0;}
+input.no-padding{padding:0}
+input.inline{width:80%;}
+input.bold{font-weight:bold;}
+.content input[type=text] + a{position:relative;top:-1.5rem;margin-left:0.5rem;}
+textarea{width:100%;font:inherit;color:inherit;padding:0.7rem;border:1px solid #ccc;resize:none;}
+select{border:none;font:inherit;color:inherit;}
+input[type=radio].styled, input[type=checkbox].styled{display:none;}
+input[type=radio] + label:before{border-radius:1rem;}
+input[type=radio]:checked + label:before{border-radius:1rem;background:#aaa;}
+input[type=checkbox]:checked + label:before{background:#aaa;}
+select.valid,input.valid,textarea.valid{border:1px solid rgb(72, 222, 72)}
+select.invalid,input.invalid,textarea.invalid{border:1px solid rgb(222, 72, 72)}
+button{position:relative;cursor:pointer;margin-bottom:1%;background-color:#ccc;color:white;font-size:0.9em;padding:0.8rem 1.2rem 0.8rem 1.2rem; border-radius:2px;border:none; text-transform: uppercase;}
+button a{color:white !important}
+button:after {content: '';position: absolute;width: 100%; height:100%;top:0; left:0;background-color:rgba(255,255,255,0.3);opacity: 0;transition: all 0.2s;-webkit-transition: all 0.2s;}
+button:hover:after {opacity: 1;}
+button.shadow{-webkit-box-shadow: 0px 15px 9px -12px rgba(0,0,0,0.38);-moz-box-shadow: 0px 15px 9px -12px rgba(0,0,0,0.38);box-shadow: 0px 15px 9px -12px rgba(0,0,0,0.38);}
+input[type=text].inline + button{position:relative;width:20%;box-shadow:none;margin:0;padding:calc(0.7rem + 0.5px);top:1px;}
+input[type=submit]{padding:1rem;border:0 none;cursor:pointer;-webkit-border-radius:5px;border-radius:5px;margin-bottom:0.2rem;}
+input[type=submit].red{background:#c40000;}
+input[type=submit].blue{background:#0000c4;}
+input[type=submit].green{background:#00c400;}
+input[type=submit].grey{background:#ccc;}
+select{-webkit-appearance: none;-moz-appearance: none;appearance: none;background: rgb(255,255,255) url('data:image/png;base64,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') no-repeat 100% 0;background-size: contain;padding: 0.55rem; border: 1px solid #ccc;width: 100%; border-radius:0;}
+input.disabled{pointer-events:none;color:#ccc;}
+.validation{background:#ddd;position:relative;top:0.2rem;float:right;width:20%;border:1px solid #ccc;border-left:none;border-top-right-radius:1rem;border-bottom-right-radius:1rem;padding:0.7rem;text-align:center;font-size:inherit;color:#aaa;}
+ul.dropdown{position:relative;margin:0.7rem 0 0.7rem 0;top:-0.5rem;padding:0.7rem;font:inherit;color:inherit;border:1px solid #ccc;background:white;z-index:999;cursor:pointer;}
+ul.dropdown li{list-style-type:none;margin:0;padding:1rem;width:100%;background:#fff;cursor:pointer;}
+ul.dropdown li:hover{}
+ul.dropdown li a{color:inherit;}
+ul.dropdown .arrow{position:absolute;float:right;}
+ul.dropdown .pulldown{position:absolute;left:-1px;top:2.7rem;width:100.5%;display:none;background:#fff;margin-bottom:3rem;border-right:1px solid #ccc;border-bottom:1px solid #ccc;border-left:1px solid #ccc;z-index:999;max-height:30rem;overflow-y:auto;}
+form .text-right p{margin-top:0.6rem;}
+.arrow{position:relative;top:50%;width:0.5rem;height:0.5rem;margin:1%;display:inline-block;border-right:0.2rem solid rgba(40,40,40,0.7);border-bottom:0.2rem solid rgba(40,40,40,0.7);}
+.arrow.white{border-right:0.2rem solid rgba(255,255,255,1);border-bottom:0.2rem solid rgba(255,255,255,1);}
+.arrow.up{margin-top:-0.6rem;-ms-transform:rotate(225deg);-webkit-transform:rotate(225deg);transform:rotate(225deg);}
+.arrow.right{-ms-transform:rotate(315deg);-webkit-transform:rotate(315deg);transform:rotate(315deg);top:0.5rem;}
+.arrow.down{top:0rem;left:0rem;-ms-transform:rotate(45deg);-webkit-transform:rotate(45deg);transform:rotate(45deg);}
+.arrow.left{-ms-transform:rotate(135deg);-webkit-transform:rotate(135deg);transform:rotate(135deg);top:0.5rem;}
+.square{height:0;padding-bottom:100%;width:100%;}
+.ar169{height:0;padding-bottom:45%;width:100%;}
+.icon{max-height:150px;margin:0 0.5rem 0 0.5rem;width:auto;vertical-align:middle;}
+.table-icon{max-height:1rem;display:inline-block;}
+.tick, .cross, .next, .dot{display:inline-block;}
+.tick:after{content:"\2713";}
+.cross{position:relative;top:-0.05rem;}
+.cross:after{content:"\2297";}
+.next:after{content:"\232a";}
+.dot:before{content:"\00b7";}
+.container,.row{display: block;font-size:0;max-width:100%;margin:auto;}
+div[class^=w],a[class^=w],.card,.image-card{font-size: 1rem;margin:auto;}
+div[class^=w].small,a[class^=w].small,.card.small,.image-card.small{font-size: 0.8rem;}
+.menu{}
+.menu > a, .menu > span, .menu > p{display:block;width:100%;padding:1rem;}
+.menu.no-padding-children a,.menu.no-padding-children span,.menu.no-padding-children p{padding:0;}
+.menu a:hover{}
+.menu a.active{}
+.menu a.hidden{display:none}
+.menu ul.dropdown{background:none;border:none;position:relative;margin:0;padding:0.3rem;}
+.menu ul.dropdown .arrow{margin-top:0.8rem;}
+.menu ul.dropdown span{padding:1.1rem 0.7rem 1.1rem 0.7rem;}
+.menu ul.dropdown .pulldown{border:none;top:3.7rem;background-color:inherit;}
+.menu ul.dropdown .pulldown a{position:relative;}
+.menu ul.dropdown .pulldown a:hover{}
+.relative{position:relative;}
+.absolute{position:absolute;}
+img.absolute{position: absolute};
+.fixed{position:fixed;}
+.fixed.top.left{position:fixed;top:0px;left:0px;}
+.fixed.top.right{position:fixed;top:0px;right:0px;}
+.fixed.bottom.left{position:fixed;bottom:0px;left:0px;}
+.fixed.bottom.right{position:fixed;bottom:0px;right:0px;}
+.absolute.bottom.left{position:absolute;bottom:0px;left:0px;}
+.absolute.bottom.right{position:absolute;bottom:0px;right:0px;}
+.absolute.left{position:absolute;left:0px;}
+.absolute.top.left{position:absolute;top:0px;left:0px;}
+.absolute.top.right{position:absolute;top:0px;right:0px;}
+.layer0{position:relative;z-index:-1;}
+.layer1{position:relative;z-index:0;}
+.layer2{position:relative;z-index:100;}
+.layer3{position:relative;z-index:200;}
+.layer4{position:relative;z-index:300;}
+.layer5{position:relative;z-index:400;}
+.layer6{position:relative;z-index:500;}
+.layer-top{position:relative;z-index:800;}
+.absolute.layer0, .absolute .layer0{position:absolute;z-index:-1;}
+.absolute.layer1, .absolute .layer1{position:absolute;z-index:0;}
+.absolute.layer2, .absolute .layer2{position:absolute;z-index:10;}
+.absolute.layer3, .absolute .layer3{position:absolute;z-index:20;}
+.absolute.layer-top, .absolute .layer-top{position:absolute;z-index:800;}
+.fixed.layer0, .fixed .layer0{position:fixed;z-index:-1;}
+.fixed.layer1, .fixed .layer1{position:fixed;z-index:0;}
+.fixed.layer2, .fixed .layer2{position:fixed;z-index:10;}
+.fixed.layer3, .fixed .layer3{position:fixed;z-index:20;}
+.fixed.layer-top, .fixed .layer-top{position:fixed;z-index:999;}
+.clear{clear:both;}
+.clear-after:after{clear:both;}
+.clear-before:before{clear:both;}
+.clear-right{clear:right;}
+.clear-left{clear:left;}
+.no-wrap{white-space: nowrap;text-overflow: ellipsis;}
+.inline{display:inline;}
+.block{display:block;}
+.inline-block{display:inline-block;vertical-align:middle;}
+.inline-block.top{display:inline-block;vertical-align:top;}
+.hidden{display:none;}
+.flex{display:flex;text-align:left;}
+.flex-all *{display:flex;}
+.flex-none{flex:none;}
+.inline-flex{display:inline-flex;text-align:left;}
+.flex.row, .inline-flex.row{-webkit-flex-direction:row;flex-direction:row;}
+.flex.reverse, .inline-flex.reverse{-webkit-flex-direction:row-reverse;flex-direction:row-reverse;}
+.flex.column, .inline-flex.column{-webkit-flex-direction:column;flex-direction:column;justify-content:flex-start;align-items:stretch;align-content:stretch;}
+.flex.column-reverse, .inline-flex.column-reverse{-webkit-flex-direction:column-reverse;flex-direction:column-reverse;}
+.flex.nowrap, .inline-flex.nowrap{-webkit-flex-wrap:nowrap;flex-wrap:nowrap;}
+.flex.wrap, .inline-flex.wrap{-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.flex.wrap-reverse, .inline-flex.wrap-reverse{-webkit-flex-wrap:wrap-reverse;flex-wrap:wrap-reverse;}
+.flex.left, .inline-flex.left{-webkit-justify-content:flex-start;justify-content:flex-start;}
+.flex.center, .inline-flex.center{-webkit-justify-content:center;justify-content:center;}
+.flex.right, .inline-flex.right{-webkit-justify-content:flex-end;justify-content:flex-end;}
+.flex.justify, .inline-flex.justify{-webkit-justify-content:space-between;justify-content:space-between;}
+.flex.justify-center, .inline-flex.justify-center{-webkit-justify-content:space-around;justify-content:space-around;}
+.flex.bottom, .inline-flex.bottom{-webkit-align-items:flex-end;align-items:flex-end;}
+.flex.middle, .inline-flex.middle{-webkit-align-items:center;align-items:center;}
+.flex.middle-justify, .inline-flex.middle-justify{-webkit-align-items:space-between;align-items:space-between;}
+.flex.middle-justify-center, .inline-flex.middle-justify-center{-webkit-align-items:space-around;align-items:space-around;}
+.flex.baseline, .inline-flex.baseline{-webkit-align-items:baseline;align-items:baseline;}
+.fill-area{display:flex;flex-direction:row;justify-content:flex-start;align-items:stretch;align-content:stretch;}
+.fill-area-content{overflow:auto;}
+.flex .flex-basis0{-webkit-flex-basis:0;flex-grow:0;}
+.flex .flex-basis1{-webkit-flex-basis:1;flex-grow:1;}
+.flex .flex-basis2{-webkit-flex-basis:2;flex-grow:2;}
+.flex .flex-basis3{-webkit-flex-basis:3;flex-grow:3;}
+.flex .flex-grow1{-webkit-flex-grow:1;flex-grow:1;}
+.flex .flex-grow2{-webkit-flex-grow:2;flex-grow:2;}
+.flex .flex-grow3{-webkit-flex-grow:3;flex-grow:3;}
+.flex-grow4{-webkit-flex-grow:4;flex-grow:4;}
+.flexbox-itrem-grow{flex:1;}
+.flex-shrink0{-webkit-flex-shrink:0;flex-grow:0;}
+.flex-shrink1{-webkit-flex-shrink:1;flex-grow:1;}
+.flex-shrink2{-webkit-flex-shrink:2;flex-grow:2;}
+.flex-shrink3{-webkit-flex-shrink:3;flex-grow:3;}
+.flex-shrink4{-webkit-flex-shrink:4;flex-grow:4;}
+.indent{position:relative;left:2rem;}
+.cell.indent{position:relative;left:0;padding-left:2rem;}
+.float-left{float:left;}
+.float-right{float:right;}
+.width-auto, .wa{width:auto;}
+.width-full, .w100{width:100%;}
+.height-full, .h100, .fh100{height:100%;}
+.width-half, {width:50%;}
+.height-auto, .ha{height:auto;}
+.height-half, .h50{height:50%;}
+div[class^='w'],a[class^='w']{display:inline-block;vertical-align: top; background-size: cover;background-position: center center;position:relative;}
+div[class^='w'].middle,a[class^='w'].middle{vertical-align: middle}
+div[class^='w'].top,a[class^='w'].top{vertical-align: top}
+div[class^='w'].bottom,a[class^='w'].bottom{vertical-align: bottom}
+
+.w100{width:100%}
+.w90{width:90%;margin:auto;}
+.w90.margin-right{width:calc(90% - 0.5rem);margin-right:1rem;}
+
+.w80{width:80% ;margin:auto}
+.w80.margin-right{width:calc(80% - 0.5rem);margin-right:1rem;}
+.w80.margin{width:calc(80% - 0.5rem); margin: 0 1rem 1rem 0;}
+.w20.margin + .w80.margin,.w20.margin-right + .w80.margin-right{width:calc(80% - 0.25rem);margin-right:0;}
+
+.w75{width:75%;margin:auto}
+.w75.margin-right{width:calc(75% - 0.5rem); margin-right: 1rem;}
+.w75.margin{width:calc(75% - 0.5rem); margin: 0 1rem 1rem 0;}
+.w25.margin + .w75.margin,.w25.margin-right + .w75.margin-right{width:calc(75% - 0.25rem);margin-right:0;}
+
+.w70{width:70%;margin:auto}
+.w70.margin-right{width:calc(70% - 0.5rem); margin-right: 1rem;}
+.w70.margin{width:calc(70% - 0.5rem); margin: 0 1rem 1rem 0;}
+
+.w66{width:66.67%;margin:auto}
+.w66.margin-right{width:calc(66.83% - 0.5rem); margin-right: 1rem;}
+.w66.margin{width:calc(66.83% - 0.5rem); margin: 0 1rem 1rem 0;}
+.w33.margin-right + .w66.margin-right,.w33.margin + .w66.margin{width:calc(66.83% - 0.5rem);margin-right:0;}
+
+.w60{width:60%;margin:auto}
+.w60.margin-right{width:calc(60% - 0.5rem); margin-right: 1rem;}
+.w60.margin{width:calc(60% - 0.5rem); margin: 0 1rem 1rem 0;}
+.w40.margin-right + .w60.margin-right,.w40.margin + .w60.margin{width:calc(60% - 0.5rem);margin-right:0;}
+
+.w50{width:50%;margin:auto}
+.w50.margin-right{width:calc(50% - 0.5rem); margin-right: 1rem;}
+.w50.margin{width:calc(50% - 0.5rem); margin: 0 1rem 1rem 0;}
+.w50.margin-right:nth-of-type(2n+2),.w50.margin:nth-of-type(2n+2){margin-right:0}
+
+.w40{width:40%;margin:auto}
+.w40.margin-right{width:calc(40% - 1rem); margin-right: 1rem;}
+.w40.margin{width:calc(40% - (1rem / 2)) ; margin: 0 1rem 1rem 0;}
+.w60.margin-right + .w40.margin-right,.w60.margin + .w40.margin{width:calc(40% - 0.5rem);margin-right:0;}
+
+.w33{width:33.3%;margin:auto}
+.w33.margin-right{width:calc(33.3% - 0.66rem); margin-right: 1rem;}
+.w33.margin{width:calc(33.3% - 0.66rem); margin: 0 1rem 1rem 0;}
+.w33.margin-right:nth-of-type(3n+3),.w33.margin:nth-of-type(3n+3){margin-right:0}
+.w66.margin-right + .w33.margin-right,.w66.margin + .w33.margin{width:calc(33.17% - 0.5rem);margin-right:0;}
+
+.w30{width:30%;margin:auto}
+.w30.margin-right{width:calc(30% - 0.5rem); margin-right: 1rem;}
+.w30.margin{width:calc(30% - 0.5rem); margin: 0 1rem 1rem 0;}
+.w70.margin + .w30.margin,.w70.margin-right + .w30.margin-right{width:calc(30% - 0.5rem);margin-right:0;}
+
+.w25{width:25%;margin:auto}
+.w25.square{height:0;padding-bottom:25%}
+.w25.margin-right{width:calc(25% - 0.75rem); margin-right: 1rem;}
+.w25.margin{width:calc(25% - 0.75rem); margin: 0 1rem 1rem 0;}
+.w25.margin-right:nth-of-type(4n+4),.w25.margin:nth-of-type(4n+4){margin-right:0}
+.overflow-x .w25.margin-right:nth-of-type(4n+4){margin-right: 1rem;}
+.overflow-x .w25.margin:nth-of-type(4n+4){margin: 0 1rem 1rem 0;}
+.w75.margin + .w25.margin,.w75.margin-right + .w25.margin-right{width:calc(25% - 0.5rem);margin-right:0;}
+
+.w20{width:20%;margin:auto}
+.w20.square{height:0;padding-bottom:20%;}
+.w20.margin-right{width:calc(20% - 0.8rem); margin-right: 1rem;}
+.w20.margin{width:calc(20% - 0.8rem); margin: 0 1rem 1rem 0;}
+.w20.square.margin{height:0;padding-bottom:calc(20% - 0.8rem) !important;}
+.w20.margin-right:nth-of-type(5n+5),.w20.margin:nth-of-type(5n+5){margin-right:0}
+
+.w10{width:10%;margin:auto}
+.w10.margin-right{width:calc(10% - 0.9rem); margin-right: 1rem;}
+.w10.margin{width:calc(10% - 0.9rem); margin: 0 1rem 1rem 0;}
+.w10.margin-right:nth-of-type(10n+10),.w10.margin:nth-of-type(10n+10){margin-right:0}
+
+.h10{height:10rem;}
+.h15{height:15rem;}
+.h20{height:20rem;}
+.h25{height:25%;}
+.h30{height:30%;}
+.h40{height:40%;}
+.h100{height:100%;}
+.vh100{height:100vh;}
+.vw100{width:100vw;}
+.vh90{height:90vh;}
+.vh75{height:75vh;}
+.vh50{height:50vh;}
+.vw50{width:50vw;}
+.vh25{height:25vh;}
+.vw25{width:25vw;}
+.r45{-ms-transform:rotate(-45deg);-webkit-transform:rotate(-45deg);transform:rotate(-45deg);}
+.r90{-ms-transform:rotate(-90deg);-webkit-transform:rotate(-90deg);transform:rotate(-90deg);}
+
+.card,.image-card {display:inline-block; position:relative;top:0px;vertical-align: top; width:calc(25% - (3em / 3));margin:0 1em 1em 0;background-color: #fff;transition: all .3s ease-out;}
+.image-card{background-color: rgba(0,0,0,0.6);background-blend-mode:multiply;background-position: center center; background-size: cover;height:50vh;color:#fff;}
+.card:nth-child(4n+4),.image-card:nth-child(4n+4){margin:0 0 1em 0;}
+.card .header,.modal .header{padding:2em;background-color: rgba(18, 194, 222, 1);color:white;background-position: center center; background-size: cover;}
+.card .body,.modal .body,.image-card .body{display:block;padding:2em;}
+.image-card .body{position: absolute;bottom:0px;left:0px;}
+.card .footer,.modal .footer{display:block;padding:0em 2em;background-color: white;min-height: 5em;color:#aaa;}
+.card .footer a{color:rgba(18, 194, 222, 1)}
+.card .footer a:hover{color:rgba(18, 194, 250, 1)}
+.card.rounded{border-radius:5px}
+.card.rounded .header{border-top-left-radius:5px;border-top-right-radius:5px}
+.card.rounded .body, .card.rounded .footer{border-bottom-left-radius:5px;border-bottom-right-radius:5px}
+a.card.hover:hover,a.image-card.hover:hover{top:-5px;-webkit-box-shadow:0px 30px 20px -20px rgba(0,0,0,0.4);-moz-box-shadow:0px 30px 20px -20px rgba(0,0,0,0.4);box-shadow:0px 30px 20px -20px rgba(0,0,0,0.4);}
+.modal{z-index:999;font-size: 1rem;position:fixed;top:0px;left:0px;height:100%;width:100%;display:none;align-items: center;justify-content: center;flex-direction: column;background-color:rgba(255,255,255,0.5)}
+.modal > div{width: 50vw}
+.modal .body{background-color:#fff;-webkit-box-shadow:0px 100px 150px -20px rgba(0,0,0,0.6);-moz-box-shadow:0px 100px 150px -20px rgba(0,0,0,0.6);box-shadow:0px 100px 150px -20px rgba(0,0,0,0.6);}
+.modal .footer{background-color:#fff;-webkit-box-shadow:0px 21px 15px -20px rgba(0,0,0,0.6);-moz-box-shadow:0px 21px 15px -20px rgba(0,0,0,0.6);box-shadow:0px 21px 15px -20px rgba(0,0,0,0.6);}
+.code{white-space: pre;font-family: monospace;background-color:  rgba(120, 120, 130, 0.1);color:#363636; padding:0.5rem 2rem 0.5rem 2rem; overflow-x: auto}
+.overflow-x:not(.mobile){overflow-x:scroll;overflow-y:hidden;white-space: nowrap;-webkit-overflow-scrolling: touch;}
+.overflow-x:not(.mobile) > * {white-space: normal;}
+.overflow-x:not(.mobile) .card:nth-of-type(4n+4){margin:0 1em 1em 0;}
+.overflow-y{max-height:100%;overflow-y:scroll;overflow-x:hidden;-webkit-overflow-scrolling: touch;}
+.overflow-x.scroll:not(.mobile){overflow-x:scroll;-webkit-overflow-scrolling:touch;-webkit-backface-visibility: hidden;}
+.overflow-y.scroll{max-height:100%;overflow-y:scroll;-webkit-overflow-scrolling:touch;-webkit-backface-visibility: hidden;}
+.overflow-hidden{overflow:hidden;}
+.scroll-hide{-ms-overflow-style:none;-webkit-backface-visibility: hidden;}
+.scroll-hide::-webkit-scrollbar{width:0px}
+table{width:100%;margin:2rem auto 2rem auto;border-spacing:0;border-top:2px solid #fff;border-left:2px solid #fff;table-layout:fixed;}
+td{vertical-align:middle;padding:1rem;text-align:center;border-bottom:2px solid #fff;border-right:2px solid #fff;word-wrap:break-word}
+table .title{background:#888;color:white;}
+table .even{background:#ddd;}
+table.no-style{margin:0;padding:0%;border:none;text-align:left;}
+table.no-style td{border:none;padding:0%;text-align:left;}
+.table{display:table;width:100%;table-layout:fixed;border-collapse:collapse;word-wrap: break-word;}
+.table.small{font-size:0.8rem;}
+.table .row{display:table-row;font-size: 1rem;margin:0 1rem 1rem 0;width:100%;word-wrap: break-word;}
+.table .row.title, .table .row.header, .table .row.heading{font-weight:bold;background:#888;color:white;}
+.table .row.odd,.cell.odd{background:#ddd;}
+.table .row .cell{vertical-align:top;display:table-cell;margin:0 1rem 1rem 0;padding:0.7rem;overflow:hidden;word-wrap:break-word;}
+.table .row .cell.middle{vertical-align:middle;}
+.table .row .cell.no-break{word-wrap:normal;}
+.table.no-padding-children .cell{padding:0}
+tr.selectable:hover, td.selectable:hover{background:#ddd;cursor:pointer;}
+.background{position:absolute;top:0px;left:0px;width:100%;height:auto;z-index:0;}
+.background.middle{position:absolute;top:-100%;}
+div.background{height:100%;}
+.nav{cursor:pointer;display:inline-block;position:relative;min-height:40px;height:100%;width:100%;background-size:40px 40px;background-repeat:no-repeat;background-position:top left;text-align: left;padding-top:50px;z-index:5; overflow-y:auto;-webkit-overflow-scrolling:touch;-webkit-backface-visibility: hidden;}
+.nav.right{background-position:top right; text-align: right}
+.nav{background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjE2NzM2LDAsMCwxLjE2NzM2LC04LjM2Nzk4LC04LjM2Nzk4KSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjI5Nyw4LjE2QzQ4LjU4OSw2LjgzOCA1MS40MTEsNi44MzggNTMuNzAzLDguMTZDNjAuOTg2LDEyLjM2NiA3Ny4wOTksMjEuNjY4IDg0LjM4MywyNS44NzRDODYuNjc0LDI3LjE5NiA4OC4wODUsMjkuNjQxIDg4LjA4NSwzMi4yODdDODguMDg1LDQwLjY5NyA4OC4wODUsNTkuMzAzIDg4LjA4NSw2Ny43MTNDODguMDg1LDcwLjM1OSA4Ni42NzQsNzIuODA0IDg0LjM4Myw3NC4xMjZDNzcuMDk5LDc4LjMzMiA2MC45ODYsODcuNjM0IDUzLjcwMyw5MS44NEM1MS40MTEsOTMuMTYyIDQ4LjU4OSw5My4xNjIgNDYuMjk3LDkxLjg0QzM5LjAxNCw4Ny42MzQgMjIuOTAxLDc4LjMzMiAxNS42MTcsNzQuMTI2QzEzLjMyNiw3Mi44MDQgMTEuOTE1LDcwLjM1OSAxMS45MTUsNjcuNzEzQzExLjkxNSw1OS4zMDMgMTEuOTE1LDQwLjY5NyAxMS45MTUsMzIuMjg3QzExLjkxNSwyOS42NDEgMTMuMzI2LDI3LjE5NiAxNS42MTcsMjUuODc0QzIyLjkwMSwyMS42NjggMzkuMDE0LDEyLjM2NiA0Ni4yOTcsOC4xNlpNNjYuNzU1LDY1Ljk0TDY2Ljc1NSw1OS41ODdMMzMuMjQ1LDU5LjU4N0wzMy4yNDUsNjUuOTRMNjYuNzU1LDY1Ljk0Wk02Ni43NTUsNTMuMTc3TDY2Ljc1NSw0Ni44MjNMMzMuMjQ1LDQ2LjgyM0wzMy4yNDUsNTMuMTc3TDY2Ljc1NSw1My4xNzdaTTY2Ljc1NSw0MC40MTNMNjYuNzU1LDM0LjA2TDMzLjI0NSwzNC4wNkwzMy4yNDUsNDAuNDEzTDY2Ljc1NSw0MC40MTNaIiBzdHlsZT0iZmlsbDp3aGl0ZTsiLz4KICAgIDwvZz4KPC9zdmc+Cg==);
+}
+.nav.dark{background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjE2NzM2LDAsMCwxLjE2NzM2LC04LjM2Nzk4LC04LjM2Nzk4KSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjI5Nyw4LjE2QzQ4LjU4OSw2LjgzOCA1MS40MTEsNi44MzggNTMuNzAzLDguMTZDNjAuOTg2LDEyLjM2NiA3Ny4wOTksMjEuNjY4IDg0LjM4MywyNS44NzRDODYuNjc0LDI3LjE5NiA4OC4wODUsMjkuNjQxIDg4LjA4NSwzMi4yODdDODguMDg1LDQwLjY5NyA4OC4wODUsNTkuMzAzIDg4LjA4NSw2Ny43MTNDODguMDg1LDcwLjM1OSA4Ni42NzQsNzIuODA0IDg0LjM4Myw3NC4xMjZDNzcuMDk5LDc4LjMzMiA2MC45ODYsODcuNjM0IDUzLjcwMyw5MS44NEM1MS40MTEsOTMuMTYyIDQ4LjU4OSw5My4xNjIgNDYuMjk3LDkxLjg0QzM5LjAxNCw4Ny42MzQgMjIuOTAxLDc4LjMzMiAxNS42MTcsNzQuMTI2QzEzLjMyNiw3Mi44MDQgMTEuOTE1LDcwLjM1OSAxMS45MTUsNjcuNzEzQzExLjkxNSw1OS4zMDMgMTEuOTE1LDQwLjY5NyAxMS45MTUsMzIuMjg3QzExLjkxNSwyOS42NDEgMTMuMzI2LDI3LjE5NiAxNS42MTcsMjUuODc0QzIyLjkwMSwyMS42NjggMzkuMDE0LDEyLjM2NiA0Ni4yOTcsOC4xNlpNNjYuNzU1LDY1Ljk0TDY2Ljc1NSw1OS41ODdMMzMuMjQ1LDU5LjU4N0wzMy4yNDUsNjUuOTRMNjYuNzU1LDY1Ljk0Wk02Ni43NTUsNTMuMTc3TDY2Ljc1NSw0Ni44MjNMMzMuMjQ1LDQ2LjgyM0wzMy4yNDUsNTMuMTc3TDY2Ljc1NSw1My4xNzdaTTY2Ljc1NSw0MC40MTNMNjYuNzU1LDM0LjA2TDMzLjI0NSwzNC4wNkwzMy4yNDUsNDAuNDEzTDY2Ljc1NSw0MC40MTNaIiBzdHlsZT0iZmlsbDpyZ2IoMjgsMjgsMjgpOyIvPgogICAgPC9nPgo8L3N2Zz4K);
+}
+.nav *{display:block}
+.nav:not(.no-padding-children) * {padding:1rem 1rem 1rem 0}
+.nav.right:not(.no-padding-children) * {padding:1rem 0 1rem 1rem}
+.nav:not(.open) *{display: none}
+.nav-bar{font-size: 1rem}
+.nav-bar a{padding:1em; display:inline-block;}
+.nav-bar a.no-padding{padding:0;}
+.fold{position:relative;display:block;width:100vw;min-height:100vh;text-align:center;vertical-align:middle;overflow:hidden;}
+.videoWrapper {position: relative;padding-bottom: 56.25%;height: 0;}
+.videoWrapper iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.website-preview-wrap{position: relative;background-image: url('/images/display.svg');background-position: center center;background-size: 100%;background-repeat: no-repeat;height:0px;padding-bottom:70%;}
+.website-preview{position:absolute;top:12%;left:9%;width:82%;height:64.5%;mix-blend-mode:screen;overflow-y:auto;-webkit-overflow-scrolling:touch;-webkit-backface-visibility: hidden;-ms-overflow-style:none;-webkit-backface-visibility: hidden;}
+.content,.fold,.header {position: relative;background-size: cover;background-position: 50% 50%;}
+.text-reverse{unicode-bidi:bidi-override;direction:rtl;}
+.text-feature{font-size:1.3rem}
+.popup{padding:10px;display:block;position:absolute;top:0;left:0;height:30px;width:200px;background:#efefef;}
+.text-left{text-align:left;}
+.text-center{text-align:center;}
+.text-right{text-align:right;}
+.text-middle{display:flex !important;align-items: center;justify-content: center;flex-direction: column;text-align: center;}
+.text-middle-left{display:flex !important;align-items: flex-start;justify-content: center;flex-direction: column;text-align: left;}
+.text-middle-right{display:flex !important;align-items: flex-end;justify-content: center;flex-direction: column;align-self: flex-end;text-align: right;}
+.text-bottom{display:flex !important;align-items: center;justify-content: flex-end;flex-direction: column;text-align: center;}
+.text-bottom-left{display:flex !important;align-items: flex-start;justify-content: flex-end;flex-direction: column;text-align: left;}
+.text-bottom-right{display:flex !important;align-items: flex-end;justify-content: flex-end;flex-direction: column;text-align: right;}
+*[class^=w].text-middle-left,*[class^=w].text-middle,*[class^=w].text-middle-right,*[class^=w].text-bottom-left,*[class^=w].text-bottom,*[class^=w].text-bottom-right{display:inline-flex !important}
+.text-justify{text-align:justify;}
+.text-justify:after{content:"";display:inline-block;width:100%;}
+.text-col p{margin-bottom:1.5rem;}
+.text-col{min-height:initial;-webkit-column-gap:2rem;-moz-column-gap:2rem;column-gap:2rem;-webkit-column-break-inside:avoid;page-break-inside:avoid;break-inside:avoid;}
+.text-col.span{-webkit-column-span:all;column-span:all;}
+.text-col.span2{-webkit-column-span:2;column-span:2;}
+.text-col.x1{-webkit-columns:1;-moz-columns:1;columns:1;}
+.text-col.x2{-webkit-columns:2;-moz-columns:2;columns:2;}
+.text-col.x3{-webkit-columns:3;-moz-columns:3;columns:3;}
+.text-col.x4{-webkit-columns:4;-moz-columns:4;columns:4;}
+.vertical-align{vertical-align:middle;}
+.vertical-align-top{vertical-align:top;}
+.bold{font-weight:600;}
+.bold300{font-weight:300;}
+.bold400{font-weight:400;}
+.bold600{font-weight:600;}
+.bold700{font-weight:700;}
+.bold800{font-weight:800;}
+.lh1{line-height:1em !important}
+.lh125{line-height:1.25em !important}
+.lh15{line-height:1.5em !important}
+.lh175{line-height:1.75em !important}
+.lh2{line-height:2em !important}
+.normal, .text-normal{font-weight:normal;}
+.scale.big, .font-scale.big{font-size:1vw;}
+.scale, .font-scale{font-size:0.8vw;}
+.light, .light *{font-weight:300;}
+.italic{font-style:italic;}
+.uppercase{text-transform:uppercase;}
+.lowercase{text-transform:lowercase;}
+.capitalize,.capitalise{text-transform:capitalize;}
+.clear{clear:both;}
+.clear-after:after{clear:both;}
+.clear-before:before{clear:both;}
+.large, .big{font-size:1.2rem;}
+.big button{font-size:0.9rem;}
+.fa, .big .fa{font-size:1em}
+.small{font-size:0.8rem !important;}
+.skew-y{transform: skewY(-9deg);}
+.skew-x{transform: skewX(-9deg);}
+table.small{font-size:0.8rem;}
+.float-left{float:left;}
+.float-right{float:right;}
+.bg-none{background:none}
+.bg-cover{background-position:center center;background-size:cover;background-repeat:no-repeat;}
+.bg-contain{background-position:center center;background-size:contain;background-repeat:no-repeat;}
+.underline:not(h1):not(h2):not(h3):not(h4){text-decoration: underline;}
+img.icon{position:relative;display:inline;}
+.transparent{opacity:0.2;}
+.transparent1{opacity:0.4;}
+.transparent2{opacity:0.6;}
+.transparent3{opacity:0.8;}
+.transparent4{opacity:0.9;}
+.no-border{border:none;}
+.no-border-top{border-top:none;}
+.no-border-left{border-left:none;}
+.no-border-bottom{border-bottom:none;}
+.no-border-right{border-right:none;}
+.border{border:1px solid #ddd;}
+.border-top{border-top:1px solid #ddd;}
+.border-right{border-right:1px solid #ddd;}
+.border-bottom{border-bottom:1px solid #ddd;}
+.border-left{border-left:1px solid #ddd;}
+[class^="border"].white{border-color:#fff;}
+[class^="border"].grey{border-color:#444;}
+.thick{border-width:5px;}
+.inner-border{-webkit-box-shadow:inset 0px 0px 0px 1px #ddd;-moz-box-shadow:inset 0px 0px 0px 1px #ddd;box-shadow:inset 0px 0px 0px 1px #ddd;}
+.inner-border-top{-webkit-box-shadow:inset 0px 1px 0px 0px #ddd;-moz-box-shadow:inset 0px 1px 0px 0px #ddd;box-shadow:inset 0px 1px 0px 0px #ddd;}
+.inner-border-right{-webkit-box-shadow:inset -1px 0px 0px 0px #ddd;-moz-box-shadow:inset -1px 0px 0px 0px #ddd;box-shadow:inset -1px 0px 0px 0px #ddd;}
+.inner-border-bottom{-webkit-box-shadow:inset 0px -1px 0px 0px #ddd;-moz-box-shadow:inset 0px -1px 0px 0px #ddd;box-shadow:inset 0px -1px 0px 0px #ddd;}
+.inner-border-left{-webkit-box-shadow:inset 1px 0px 0px 0px #ddd;-moz-box-shadow:inset 1px 0px 0px 0px #ddd;box-shadow:inset 1px 0px 0px 0px #ddd;}
+p.highlight{padding:0.3rem;background:#FFF886;}
+h1.highlight, h2.highlight, h3.highlight, h4.highlight{padding:1rem;background:#549ead;color:white;}
+.rounded{border-radius:5px;}
+.rounded-tl{border-top-left-radius:5px;}
+.rounded-tr{border-top-right-radius:5px;}
+.rounded-br{border-bottom-right-radius:5px;}
+.rounded-bl{border-bottom-left-radius:5px;}
+.circle{border-radius:50%;}
+.no-padding-children .padding, .padding{padding-top:3rem;padding-bottom:3rem;padding-left:3rem;padding-right:3rem;}
+.padding-children *{padding-top:3rem;padding-bottom:3rem;padding-left:3rem;padding-right:3rem;}
+.padding-children img, .padding-children p a, .padding-children li a{padding:0rem;}
+.padding-children p, .padding-children li{padding-top:0;}
+.padding-children h1, .padding-children h2, .padding-children h3, .padding-children h4{margin:0;}
+.no-padding-children .padding-top, .padding-top{padding-top:3rem;}
+.no-padding-children .padding-right, .padding-right{padding-right:3rem;}
+.no-padding-children .padding-bottom, .padding-bottom{padding-bottom:3rem;}
+.no-padding-children .padding-left, .padding-left{padding-left:3rem;}
+.no-padding-children .padding-x, .padding-x{padding-left:3rem;padding-right:3rem;}
+.no-padding-children .padding-y, .padding-y{padding-top:3rem;padding-bottom:3rem;}
+.no-padding-children .padding05, .padding05{padding:0.5rem;}
+.no-padding-children .padding05-children *, .padding05-children *{padding:0.5rem;}
+.no-padding-children .padding05-top, .padding05-top{padding-top:0.5rem;}
+.no-padding-children .padding05-right, .padding05-right{padding-right:0.5rem;}
+.no-padding-children .padding05-bottom, .padding05-bottom{padding-bottom:0.5rem;}
+.no-padding-children .padding05-left, .padding05-left{padding-left:0.5rem;}
+.no-padding-children .padding05-x, .padding05-x{padding-left:0.5rem;padding-right:0.5rem;}
+.no-padding-children .padding05-y, .padding05-y{padding-top:0.5rem;padding-bottom:0.5rem;}
+.no-padding-children .padding1, .padding1{padding:1rem;}
+.no-padding-children .padding1-children *, .padding1-children *{padding:1rem;}
+.no-padding-children .padding1-top, .padding1-top{padding-top:1rem;}
+.no-padding-children .padding1-right, .padding1-right{padding-right:1rem;}
+.no-padding-children .padding1-bottom, .padding1-bottom{padding-bottom:1rem;}
+.no-padding-children .padding1-left, .padding1-left{padding-left:1rem;}
+.no-padding-children .padding1-x, .padding1-x{padding-left:1rem;padding-right:1rem;}
+.no-padding-children .padding1-y, .padding1-y{padding-top:1rem;padding-bottom:1rem;}
+.no-padding-children .padding2, .padding2{padding:2rem;}
+.no-padding-children .padding2-children *, .padding2-children *{padding:2rem;}
+.no-padding-children .padding2-top, .padding2-top{padding-top:2rem;}
+.no-padding-children .padding2-right, .padding2-right{padding-right:2rem;}
+.no-padding-children .padding2-bottom, .padding2-bottom{padding-bottom:2rem;}
+.no-padding-children .padding2-left, .padding2-left{padding-left:2rem;}
+.no-padding-children .padding2-x, .padding2-x{padding-left:2rem;padding-right:2rem;}
+.no-padding-children .padding2-y, .padding2-y{padding-top:2rem;padding-bottom:2rem;}
+.no-padding-children .padding4-left, .padding4-left{padding-left:4rem;}
+.no-padding-children .padding4, .padding4{padding-top:4rem;padding-right:4rem;padding-bottom:4rem;padding-left:4rem;}
+.no-padding-children .padding4-children * , .padding4-children *{padding-top:4rem;padding-left:4rem;padding-bottom:4rem;padding-left:4rem;}
+.no-padding-children .padding4-top, .padding4-top{padding-top:4rem;}
+.no-padding-children .padding4-right, .padding4-right{padding-right:4rem;}
+.no-padding-children .padding4-bottom, .padding4-bottom{padding-bottom:4rem;}
+.no-padding-children .padding4-left, .padding4-left{padding-left:4rem;}
+.no-padding-children .padding4-x, .padding4-x{padding-left:4rem;padding-right:4rem;}
+.no-padding-children .padding4-y, .padding4-y{padding-top:4rem;padding-bottom:4rem;}
+.no-padding-children .padding5, .padding5{padding-top:5rem;padding-right:5rem;padding-bottom:5rem;padding-left:5rem;}
+.no-padding-children .padding5-children * , .padding5-children *{padding-top:5rem;padding-left:5rem;padding-bottom:5rem;padding-left:5rem;}
+.no-padding-children .padding5-top, .padding5-top{padding-top:5rem;}
+.no-padding-children .padding5-right, .padding5-right{padding-right:5rem;}
+.no-padding-children .padding5-left, .padding5-left{padding-left:5rem;}
+.no-padding-children .padding5-bottom, .padding5-bottom{padding-bottom:5rem;}
+.no-padding-children .padding5-x, .padding5-x{padding-left:5rem;padding-right:5rem;}
+.no-padding-children .padding5-y, .padding5-y{padding-top:5rem;padding-bottom:5rem;}
+.no-padding{padding-top:0;padding-bottom:0;padding-left:0;padding-right:0}
+.no-padding-all *{padding-top:0;padding-bottom:0;padding-left:0;padding-right:0}
+.no-padding-children > *{padding-top:0;padding-bottom:0;padding-left:0;padding-right:0}
+.no-padding-top{padding-top:0;}
+.no-padding-top-children > *{padding-top:0%;}
+.no-padding-right{padding-right:0;}
+.no-padding-bottom{padding-bottom:0;}
+.no-padding-left{padding-left:0;}
+.margin{margin-top:1rem;margin-bottom:1rem;margin-left:1rem;margin-right:1rem}
+.margin-top{margin-top:1rem;}
+.margin-right{margin-right:1rem;}
+.margin-bottom{margin-bottom:1rem;}
+.margin-left{margin-left:1rem;}
+.margin-fixed{margin:0.5rem;}
+.margin-fixed-top{margin-top:0.5rem;}
+.margin-fixed-right{margin-right:0.5rem;}
+.margin-fixed-bottom{margin-bottom:0.5rem;}
+.margin-fixed-left{margin-left:0.5rem;}
+.no-margin{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0}
+.margin-auto{margin-left:auto;margin-right:auto;}
+.margin-bottom-children *{margin-bottom:1%;}
+.margin-right-children *{margin-right:1%;}
+.margin-right-children *:last-of-type{margin-right:0;}
+.no-margin-children > div *{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0}
+.no-margin-top{margin-top:0;}
+.no-margin-right{margin-right:0;}
+.no-margin-bottom{margin-bottom:0;}
+.no-margin-left{margin-left:0;}
+.mobile-hide{display: block;}
+.mobile-hide.table{display: table;}
+[class^=w].mobile-hide,.inline-block.mobile-hide{display: inline-block;}
+a.mobile-hide,span.mobile-hide{display:inline}
+.mobile-show{display: none !important;}
+.selectable, .clickable{cursor:pointer;}
+.selectable:hover{cursor:pointer;background:#ddd;}
+.outline{text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;}
+.skew{    -webkit-transform: rotate(-4deg) skew(-4deg, 0);
+       -moz-transform: rotate(-4deg) skew(-4deg, 0);
+        -ms-transform: rotate(-4deg) skew(-4deg, 0);
+         -o-transform: rotate(-4deg) skew(-4deg, 0);
+            transform: rotate(-4deg) skew(-4deg, 0);}
+.text-shadow{text-shadow:3px 3px 5px rgba(0, 0, 0, 0.3);}
+.shadow{-webkit-box-shadow:0px 21px 15px -20px rgba(0,0,0,0.6);-moz-box-shadow:0px 21px 15px -20px rgba(0,0,0,0.6);box-shadow:0px 21px 15px -20px rgba(0,0,0,0.6);}
+.shadow-top{-webkit-box-shadow: 0px -15px 12px -18px rgba(0,0,0,0.75);-moz-box-shadow: 0px -15px 12px -18px rgba(0,0,0,0.75);box-shadow: 0px -15px 12px -18px rgba(0,0,0,0.75);}
+.glow{-webkit-box-shadow: 0px 0px 17px 0px rgba(138,180,209,1);-moz-box-shadow: 0px 0px 17px 0px rgba(138,180,209,1);box-shadow: 0px 0px 17px 0px rgba(138,180,209,1);z-index:999}
+.vignette{box-shadow: 0 0 20vw rgba(0,0,0,0.7) inset;}
+.magnify{-moz-transition:all 0.3s;-webkit-transition:all 0.3s;transition:all 0.3s;z-index:98;}
+.magnify:hover{-moz-transform:scale(2);-webkit-transform:scale(2);transform:scale(2);z-index:99;}
+.screen-door::before {content: " ";display: block;position: absolute;top: 0;left: 0;bottom: 0;right: 0;background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));z-index: 2;background-size: 100% 2px, 3px 100%;pointer-events: none;}
+.disable-hover,.disable-hover *{pointer-events:none !important;}
+[class*='move'] {transition: all 0.5s ease-in-out}
+.blur-in {transition: all 1s ease-out;-webkit-filter: blur(50px);-moz-filter: blur(50px);-o-filter: blur(50px);-ms-filter: blur(50px);filter: blur(50px);opacity:0}
+.hover {position: relative;overflow: hidden;cursor: pointer; margin-bottom:-5px}
+.hover-title {margin: 0;position: absolute;width: 100%;left: 0;right: 0;top: 50%;transform: translateY(-20%);text-align: center;transition: 0.3s;color: #fff;z-index: 10;}
+.hover-sub {margin: 0;line-height: 1.5em;position: absolute;width: 100%;left: 0;right: 0;top: 50%;opacity: 0;text-align: center;transition: 0.3s;color: #fff;z-index: 10;font-size: 16px;}
+.hover-bg {position:absolute;top:0px;left:0px;width:100%;height:100%;opacity: 0.2;transition: 0.3s;}
+.hover:hover .hover-title {transform: translateY(-70%);}
+.hover:hover .hover-sub, .hover:hover .hover-bg {opacity: 0.8;}
+/* animations */
+/*.move-up{opacity: 0;transform: translate(0px, 20px)}.move-left {opacity: 0;transform: translate(20px, 0px)}.move-right {opacity: 0;transform: translate(-20px, 0px)}*/
+.in-view.move-up,.in-view.move-down,.in-view.move-left,.in-view.move-right{opacity: 1;transform: translate(0px, 0px);-webkit-transition-delay: 0.7s;transition-delay: 0.7s;}
+.rotate{-webkit-animation-name:spin;-webkit-animation-duration:4000ms;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;-moz-animation-name:spin;-moz-animation-duration:4000ms;-moz-animation-iteration-count:infinite;-moz-animation-timing-function:linear;-ms-animation-name:spin;-ms-animation-duration:4000ms;-ms-animation-iteration-count:infinite;-ms-animation-timing-function:linear;animation-name:spin;animation-duration:4000ms;animation-iteration-count:infinite;animation-timing-function:linear;}
+@-ms-keyframes spin{from{-ms-transform:rotate(0deg);}
+to{-ms-transform:rotate(360deg);}
+}
+@-moz-keyframes spin{from{-moz-transform:rotate(0deg);}
+to{-moz-transform:rotate(360deg);}
+}
+@-webkit-keyframes spin{from{-webkit-transform:rotate(0deg);}
+to{-webkit-transform:rotate(360deg);}
+}
+@keyframes spin{from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+.bob{animation: MoveUpDown 2s ease infinite;}
+@keyframes MoveUpDown {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+.no-style, .no-style a, a.no-style{padding:0;margin:0;background:none;border:0;text-transform:none;color:inherit;}
+.no-style:hover, .no-style a:hover, a.no-style:hover{padding:0;margin:0;background:none;border:0;text-transform:none;color:inherit;}
+.no-flicker{-webkit-transform:translate3d(0,0,0);}
+/* colors */
+.text-white{color:#fff;}
+.text-blue{color: rgba(18, 194, 222, 1)}
+.text-red{color: rgba(222, 34, 88, 1)}
+.text-green{color: rgba(18, 222, 173, 1)}
+.text-light-grey{color:#ccc;}
+.text-grey{color:#aaa;}
+.text-dark-grey{color:#555;}
+.text-black{color:#222;}
+.bg-black{background-color: rgba(20,20,20,1) !important}
+.bg-blue{background-color: rgba(18, 194, 222, 1) !important}
+.bg-red{background-color: rgba(222, 34, 88, 1) !important}
+.bg-purple{background-color: rgba(122, 34, 222, 1) !important}
+.bg-green{background-color: rgba(18, 222, 173, 1) !important}
+.bg-yellow{background-color: rgba(222, 195, 18, 1) !important}
+.bg-orange{background-color: rgba(222, 116, 18, 1) !important}
+.bg-pink{background-color: rgba(222, 18, 128, 1) !important}
+.bg-dark-grey{background-color: rgba(50,50,50,1) !important}
+.bg-grey{background-color: rgba(120,120,120,1) !important}
+.bg-light-grey{background-color: rgba(240,240,240,1) !important}
+.bg-white{background-color: rgba(255,255,255,1) !important}
+.bg-transparent-black{background-color: rgba(20,20,20,0.7)}
+.bg-transparent-blue{background-color: rgba(18, 194, 222, 0.7)}
+.bg-transparent-red{background-color: rgba(222, 34, 88, 0.7)}
+.bg-transparent-purple{background-color: rgba(122, 34, 222, 0.7)}
+.bg-transparent-green{background-color: rgba(18, 222, 173, 0.7)}
+.bg-transparent-yellow{background-color: rgba(222, 195, 18, 0.7)}
+.bg-transparent-orange{background-color: rgba(222, 116, 18, 0.7)}
+.bg-transparent-pink{background-color: rgba(222, 18, 128, 0.7)}
+.bg-transparent-dark-grey{background-color: rgba(50,50,50,0.7)}
+.bg-transparent-grey{background-color: rgba(200,200,200,0.7)}
+.bg-transparent-light-grey{background-color: rgba(200,200,200,0.7)}
+.bg-transparent-white{background-color: rgba(250,250,250,0.7)}
+.bg-topaz{background: rgba(4,213,220,1);
+background: -moz-linear-gradient(-45deg, rgba(4,213,220,1) 0%, rgba(0,64,138,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(4,213,220,1)), color-stop(100%, rgba(0,64,138,1)));
+background: -webkit-linear-gradient(-45deg, rgba(4,213,220,1) 0%, rgba(0,64,138,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(4,213,220,1) 0%, rgba(0,64,138,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(4,213,220,1) 0%, rgba(0,64,138,1) 100%);
+background: linear-gradient(135deg, rgba(4,213,220,1) 0%, rgba(0,64,138,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#04d5dc', endColorstr='#00408a', GradientType=1 );}
+.bg-ruby{background: rgba(168,3,124,1);
+background: -moz-linear-gradient(-45deg, rgba(168,3,124,1) 0%, rgba(109,0,25,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(168,3,124,1)), color-stop(100%, rgba(109,0,25,1)));
+background: -webkit-linear-gradient(-45deg, rgba(168,3,124,1) 0%, rgba(109,0,25,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(168,3,124,1) 0%, rgba(109,0,25,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(168,3,124,1) 0%, rgba(109,0,25,1) 100%);
+background: linear-gradient(135deg, rgba(168,3,124,1) 0%, rgba(109,0,25,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8037c', endColorstr='#6d0019', GradientType=1 );}
+.bg-sapphire{background: rgba(148,3,170,1);
+background: -moz-linear-gradient(-45deg, rgba(148,3,170,1) 0%, rgba(107,0,68,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(148,3,170,1)), color-stop(100%, rgba(107,0,68,1)));
+background: -webkit-linear-gradient(-45deg, rgba(148,3,170,1) 0%, rgba(107,0,68,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(148,3,170,1) 0%, rgba(107,0,68,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(148,3,170,1) 0%, rgba(107,0,68,1) 100%);
+background: linear-gradient(135deg, rgba(148,3,170,1) 0%, rgba(107,0,68,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9403aa', endColorstr='#6b0044', GradientType=1 );}
+.bg-pearl{background: rgba(255,255,255,1);
+background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+color:#444 !important;
+}
+.bg-emerald{background: rgba(4,220,123,1);
+background: -moz-linear-gradient(-45deg, rgba(4,220,123,1) 0%, rgba(0,131,138,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(4,220,123,1)), color-stop(100%, rgba(0,131,138,1)));
+background: -webkit-linear-gradient(-45deg, rgba(4,220,123,1) 0%, rgba(0,131,138,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(4,220,123,1) 0%, rgba(0,131,138,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(4,220,123,1) 0%, rgba(0,131,138,1) 100%);
+background: linear-gradient(135deg, rgba(4,220,123,1) 0%, rgba(0,131,138,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#04dc7b', endColorstr='#00838a', GradientType=1 );}
+.bg-puse{background: rgba(166,3,166,1);
+background: -moz-linear-gradient(-45deg, rgba(166,3,166,1) 0%, rgba(255,0,166,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(166,3,166,1)), color-stop(100%, rgba(255,0,166,1)));
+background: -webkit-linear-gradient(-45deg, rgba(166,3,166,1) 0%, rgba(255,0,166,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(166,3,166,1) 0%, rgba(255,0,166,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(166,3,166,1) 0%, rgba(255,0,166,1) 100%);
+background: linear-gradient(135deg, rgba(166,3,166,1) 0%, rgba(255,0,166,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a603a6', endColorstr='#ff00a6', GradientType=1 );
+}
+.multiply{background-blend-mode:multiply;}
+.screen{background-blend-mode:screen;}
+.overlay{background-blend-mode:overlay;}
+.darken{background-blend-mode:darken;}
+.lighten{background-blend-mode:lighten;}
+.color{background-blend-mode:screen;}
+.color-dodge{background-blend-mode:color-dodge;}
+.color-burn{background-blend-mode:color-burn;}
+.saturation{background-blend-mode:saturation;}
+.luminosity{background-blend-mode:luminosity;}
+.grad-white-top{background: linear-gradient(to top, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-bottom{background: linear-gradient(to bottom, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-left{background: linear-gradient(to left, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-right{background: linear-gradient(to right, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-top-right{background: linear-gradient(to top right, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-top-left{background: linear-gradient(to top left, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-bottom-right{background: linear-gradient(to bottom right, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-white-bottom-left{background: linear-gradient(to bottom left, rgba(255,255,255,0) 30%, rgba(255,255,255,1));}
+.grad-black-top{background: linear-gradient(to top, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-bottom{background: linear-gradient(to bottom, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-left{background: linear-gradient(to left, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-right{background: linear-gradient(to right, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-top-right{background: linear-gradient(to top right, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-top-left{background: linear-gradient(to top left, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-bottom-right{background: linear-gradient(to bottom right, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.grad-black-bottom-left{background: linear-gradient(to bottom left, rgba(2,2,2,0) 30%, rgba(2,2,2,1));}
+.sidebar-green{border-left: 5px solid rgba(18, 222, 173, 1); padding-left:1.5em;}
+.sidebar-green > p{padding-bottom:0}
+
+/* responsive adjustments */
+@media all and (max-width: 1180px) and (min-width: 851px) {
+html{font-size: 1.3vw;}
+body > .container, body > section{width:100vw;padding-left:2rem;padding-right:2rem}
+.biggest{font-size:10vw}
+
+.m100{width:100% !important}
+.m90{width:90% !important}
+.m90.margin-right{width:calc(90% - 0.5rem) !important;margin-right:1rem !important;}
+.m80{width:80% !important}
+.m80.margin-right{width:calc(80% - 0.5rem) !important;margin-right:1rem !important;}
+
+.m75{width:75% !important}
+.m75.margin-right{width:calc(75% - 0.5rem) !important; margin-right: 1rem !important;}
+.m75.margin{width:calc(75% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m25.margin-right + .m75.margin-right,.m25.margin + .m75.margin{width:calc(75% - 0.25rem) !important;margin-right:0 !important;}
+
+.m70{width:70% !important}
+.m70.margin-right{width:calc(70% - 0.5rem) !important; margin-right: 1rem !important;}
+.m70.margin{width:calc(70% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+
+.m66{width:66.83% !important}
+.m66.margin-right{width:calc(66.83% - 0.5rem) !important; margin-right: 1rem !important;}
+.m66.margin{width:calc(66.83% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m33.margin-right + .m66.margin-right,.m33.margin + .m66.margin{width:calc(66.83% - 0.5rem) !important;margin-right:0 !important;}
+
+.m60{width:60% !important}
+.m60.margin-right{width:calc(60% - 0.5rem) !important; margin-right: 1rem !important;}
+.m60.margin{width:calc(60% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m40.margin-right + .m60.margin-right,.m40.margin + .m60.margin{width:calc(60% - 0.5rem) !important;margin-right:0 !important;}
+
+.m50{width:50% !important}
+.m50.margin-right{width:calc(50% - 0.5rem) !important; margin-right: 1rem !important;}
+.m50.margin{width:calc(50% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m50.margin-right:nth-of-type(2n+2),.m50.margin:nth-of-type(2n+2){margin-right:0 !important}
+
+.m40{width:40% !important}
+.m40.margin-right{width:calc(40% - 1rem) !important; margin-right: 1rem !important;}
+.m40.margin{width:calc(40% - (1rem / 2)) !important; margin: 0 1rem 1rem 0 !important;}
+.m60.margin-right + .m40.margin-right,.m60.margin + .m40.margin{width:calc(40% - 0.5rem) !important;margin-right:0 !important;}
+
+.m33{width:33.32% !important}
+.m33.margin-right{width:calc(33.32% - 0.66rem) !important; margin-right: 1rem !important;}
+.m33.margin{width:calc(33.32% - 0.66rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m33.margin-right:nth-of-type(3n+3),.m33.margin:nth-of-type(3n+3){margin-right:0 !important}
+.m66.margin-right + .m33.margin-right,.m66.margin + .m33.margin{width:calc(33.17% - 0.5rem) !important;margin-right:0 !important;}
+
+.m30{width:30% !important}
+.m30.margin-right{width:calc(30% - 0.5rem) !important; margin-right: 1rem !important;}
+.m30.margin{width:calc(30% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m70.margin-right + .m30.margin-right,.m70.margin + .m30.margin{width:calc(30% - 0.5rem) !important;margin-right:0 !important;}
+
+.m25{width:25% !important}
+.m25.margin-right{width:calc(25% - 0.75rem) !important; margin-right: 1rem !important;}
+.m25.margin{width:calc(25% - 0.75rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m25.margin-right:nth-of-type(4n+4),.m25.margin:nth-of-type(4n+4){margin-right:0 !important}
+.m75.margin-right + .m25.margin-right,.m75.margin + .m25.margin{width:calc(25% - 0.5rem) !important;margin-right:0 !important;}
+
+.m20{width:20% !important}
+.m20.margin-right{width:calc(20% - 0.8rem) !important; margin-right: 1rem !important;}
+.m20.margin{width:calc(20% - 0.8rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m20.margin-right:nth-of-type(5n+5),.m20.margin:nth-of-type(5n+5){margin-right:0 !important}
+
+.m10{width:10% !important}
+.m10.margin-right{width:calc(10% - 0.9rem) !important; margin-right: 1rem !important;}
+.m10.margin{width:calc(10% - 0.9rem) !important; margin: 0 1rem 1rem 0 !important;}
+.m10.margin-right:nth-of-type(10n+10),.m10.margin:nth-of-type(10n+10){margin-right:0 !important}
+
+.padding5,.padding4,.padding{padding-top:3rem;padding-right:3rem;padding-bottom:3rem;padding-left:3rem;}
+.nav *,.nav.right *{padding:1rem 1rem 1rem 1rem}
+.nav.open {background:none; background-color: rgba(255,255,255,0.8); position:fixed; top:0px; left:0px; width:33vw; height:100vh;}
+.nav.open.text-white {background-color: rgba(20,20,20,0.8);}
+.nav.open.right{left:calc(100% - 33vw);}
+.card,.image-card {width:calc(33.33% - (2em / 3));}
+.card:nth-of-type(4n+4),.image-card:nth-of-type(4n+4){margin:0 1em 1em 0;}
+.card:nth-of-type(3n+3),.image-card:nth-of-type(3n+3){margin:0 0 1em 0;}
+}
+@media all and (max-width: 850px) {
+html{font-size: 3vw;}
+p,li,span{font-size: 3.6vw;}
+h1 span,h2 span,h3 span,h4 span {font-size:inherit}
+p.big{font-size: 4vw;}
+.biggest{font-size:14vw}
+img.w100{width:100vw;max-width:100vw;margin-left: -2rem;}
+.overflow-x{width:100%}
+.overflow-x.mobile{overflow-x:scroll;overflow-y:hidden;white-space: nowrap;-webkit-overflow-scrolling: touch;}
+.overflow-x.mobile > * {white-space: normal;}
+body > .container, body > section{width:100vw;padding-left:2rem;padding-right:2rem}
+body > .container.overflow-x, body > section.overflow-x{width:100vw;padding-left:0;padding-right:0}
+.container.no-padding,.row.no-padding{padding:0;}
+
+.s100{width:100% !important}
+.s90{width:90% !important}
+.s90.margin-right{width:calc(90% - 0.5rem) !important;margin-right:1rem !important;}
+.s80{width:80% !important}
+.s80.margin-right{width:calc(80% - 0.5rem) !important;margin-right:1rem !important;}
+
+.s75{width:75% !important}
+.s75.margin-right{width:calc(75% - 0.5rem) !important; margin-right: 1rem !important;}
+.s75.margin{width:calc(75% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s25.margin-right + .s75.margin-right.s25.margin + .s75.margin{width:calc(75% - 0.25rem) !important;margin-right:0 !important;}
+
+.s70{width:70% !important}
+.s70.margin-right{width:calc(70% - 0.5rem) !important; margin-right: 1rem !important;}
+.s70.margin{width:calc(70% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+
+.s66{width:66.83% !important}
+.s66.margin-right{width:calc(66.83% - 0.5rem) !important; margin-right: 1rem !important;}
+.s66.margin{width:calc(66.83% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s33.margin-right + .s66.margin-right,.s33.margin + .s66.margin{width:calc(66.83% - 0.5rem) !important;margin-right:0 !important;}
+
+.s60{width:60% !important}
+.s60.margin-right{width:calc(60% - 0.5rem) !important; margin-right: 1rem !important;}
+.s60.margin{width:calc(60% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s40.margin-right + .s60.margin-right,.s40.margin + .s60.margin{width:calc(60% - 0.5rem) !important;margin-right:0 !important;}
+
+.s50{width:50% !important}
+.s50.square{height:0;padding-bottom:50% !important}
+.s50.margin-right{width:calc(50% - 0.5rem) !important; margin-right: 1rem !important;}
+.s50.margin{width:calc(50% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s50.margin-right:nth-of-type(2n+2),.s50.margin:nth-of-type(2n+2){margin-right:0 !important}
+
+.s40{width:40% !important}
+.s40.margin-right{width:calc(40% - 1rem) !important; margin-right: 1rem !important;}
+.s40.margin{width:calc(40% - (1rem / 2)) !important; margin: 0 1rem 1rem 0 !important;}
+.s60.margin-right + .s40.margin-right,.s60.margin + .s40.margin{width:calc(40% - 0.5rem) !important;margin-right:0 !important;}
+
+.s33{width:33.32% !important}
+.s33.margin-right{width:calc(33.32% - 0.66rem) !important; margin-right: 1rem !important;}
+.s33.margin{width:calc(33.32% - 0.66rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s33.margin-right:nth-of-type(3n+3),.s33.margin:nth-of-type(3n+3){margin-right:0 !important}
+.s66.margin-right + .s33.margin-right,.s66.margin + .s33.margin{width:calc(33.17% - 0.5rem) !important;margin-right:0 !important;}
+
+.s30{width:30% !important}
+.s30.margin-right{width:calc(30% - 0.5rem) !important; margin-right: 1rem !important;}
+.s30.margin{width:calc(30% - 0.5rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s70.margin-right + .s30.margin-right,.s70.margin + .s30.margin{width:calc(30% - 0.5rem) !important;margin-right:0 !important;}
+
+.s25{width:25% !important}
+.s25.margin-right{width:calc(25% - 0.75rem) !important; margin-right: 1rem !important;}
+.s25.margin{width:calc(25% - 0.75rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s25.margin-right:nth-of-type(4n+4),.s25.margin:nth-of-type(4n+4){margin-right:0 !important}
+.s75.margin-right + .s25.margin-right,.s75.margin + .s25.margin{width:calc(25% - 0.5rem) !important;margin-right:0 !important;}
+
+.s20{width:20% !important}
+.s20.margin-right{width:calc(20% - 0.8rem) !important; margin-right: 1rem !important;}
+.s20.margin{width:calc(20% - 0.8rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s20.margin-right:nth-of-type(5n+5),.s20.margin:nth-of-type(5n+5){margin-right:0 !important}
+
+.s10{width:10% !important}
+.s10.margin-right{width:calc(10% - 0.9rem) !important; margin-right: 1rem !important;}
+.s10.margin{width:calc(10% - 0.9rem) !important; margin: 0 1rem 1rem 0 !important;}
+.s10.margin-right:nth-of-type(10n+10),.s10.margin:nth-of-type(10n+10){margin-right:0 !important}
+
+.overflow-x *[class^='w'].responsive{width:80%}
+.mobile-hide,.mobile-show.hidden{display: none !important;}
+.mobile-show{display: block !important;}
+*[class^='w'].mobile-show,button.mobile-show{display: inline-block !important;}
+a.mobile-show,span.mobile-show,svg.mobile-show{display:inline !important;}
+.table.mobile-show{display: table !important;}
+*[class^='w'].padding1-left,*[class^='w'].padding2-left,*[class^='w'].padding-left,*[class^='w'].padding4-left,*[class^='w'].padding5-left{padding-left:0;}
+*[class^='w'].padding1-right,*[class^='w'].padding2-right,*[class^='w'].padding-right,*[class^='w'].padding4-right,*[class^='w'].padding5-right{padding-right:0}
+.padding5{padding-top:5rem;padding-right:2rem;padding-bottom:5rem;padding-left:2rem;}
+.padding4{padding-top:4rem;padding-right:2rem;padding-bottom:4rem;padding-left:2rem;}
+.padding{padding-top:3rem;padding-right:2rem;padding-bottom:3rem;padding-left:2rem;}
+.nav *,.nav.right *{padding:1rem 1rem 1rem 1rem}
+.nav.open {background:none; background-color: rgba(255,255,255,0.8); position:fixed; top:0px; left:0px; width:50vw; height:100vh;}
+.nav.open.text-white {background-color: rgba(20,20,20,0.8);}
+.nav.open.right{left:calc(100% - 50vw);}
+.nav-bar a{display:none; text-align: left;}
+.nav-bar .text-right a, .nav-bar a.text-right, .nav-bar.text-right a{text-align: left;}
+.nav-bar.open a{padding:1em; display:block; width:100%}
+.card,.image-card {width:calc(100vw - 4em);margin-bottom: 1rem}
+.card:nth-of-type(4n+4),.image-card:nth-of-type(4n+4){margin:0 1em 1em 0;}
+.overflow-x .card,.overflow-x .image-card{width:calc(80vw - 2em);}
+.overflow-x .card:first-child,.overflow-x .image-card:first-child{margin-left:2rem}
+.overflow-x .card:last-child,.overflow-x .image-card:last-child{margin-right:2rem}
+.modal > div{width: 90vw}
+.grad-white-top{background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-bottom{background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-left{background: linear-gradient(to left, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-right{background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-top-right{background: linear-gradient(to top right, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-top-left{background: linear-gradient(to top left, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-bottom-right{background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-white-bottom-left{background: linear-gradient(to bottom left, rgba(255,255,255,0) 0%, rgba(255,255,255,1));}
+.grad-black-top{background: linear-gradient(to top, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-bottom{background: linear-gradient(to bottom, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-left{background: linear-gradient(to left, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-right{background: linear-gradient(to right, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-top-right{background: linear-gradient(to top right, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-top-left{background: linear-gradient(to top left, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-bottom-right{background: linear-gradient(to bottom right, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+.grad-black-bottom-left{background: linear-gradient(to bottom left, rgba(2,2,2,0) 0%, rgba(2,2,2,1));}
+
+}
+
+        /* This comment need to fix syntax highlighting */
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,700" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
+
+    <script>
+
+    var hassApp = angular.module('hassApp', ['pr.longpress','ngSanitize']);
+
+    hassApp.controller('hassCtrl', ['$scope', '$http','$location', function($scope, $http, $location) {
+
+        if (localStorage.getItem('settings')){
+            $scope.settings = JSON.parse(localStorage.getItem('settings'));
+        } else {
+            $scope.settings = {};
+            $scope.settings.background_color = 'bg-topaz';
+        }
+
+        if (localStorage.getItem('schedule')){
+            $scope.schedule = JSON.parse(localStorage.getItem('schedule'));
+        } else {
+            $scope.schedule = {};
+        }
+
+        if (localStorage.getItem('schedule_index')){
+            $scope.schedule_index = JSON.parse(localStorage.getItem('schedule_index'));
+        } else {
+            $scope.schedule_index = {};
+        }
+
+        if (localStorage.getItem('custom_pages')){
+            $scope.custom_pages = JSON.parse(localStorage.getItem('custom_pages'));
+        } else {
+            $scope.custom_pages = {};
+        }
+
+        $scope.view = {};
+        $scope.view.page = '';
+        $scope.view.edit_mode = 0;
+
+        if ($scope.settings && $scope.settings.debug){
+            $scope.view.top_right = 'debug';
+        } else {
+            $scope.view.top_right = 'weather';
+        }
+
+        $scope.last_called = 0;
+        $scope.this_call = 0;
+        $scope.clock = 0;
+        $scope.states = {};
+        $scope.events = {};
+        $scope.notification = {};
+        $scope.local_notification = {};
+        $scope.debug_notification = {};
+
+        // sounds
+        var bell_chime = new Audio('/sounds/Doorbell-ringtone.mp3');
+        var notify_sound = new Audio('/sounds/sms-tone.mp3');
+
+        $scope.connect = function(test){
+            $http({
+                method: 'GET',
+                url: $scope.settings.server_url+'/api/states?api_password='+$scope.settings.server_api_password,
+                timeout:6000
+            }).then(function (data, status, headers, config) {
+                if (!test){
+                    $scope.states = data.data;
+                //    console.log('1. Received states from API');
+                //    console.log($scope.states);
+                    $scope.pages = {};
+                    $scope.entity = {};
+                    $scope.getEntities(0);
+                }
+            }).catch(function(res){
+                var new_url = prompt('Unable to connect to Home Assistant. Please check the Server URL is accessible from this device or change the URL below:',$scope.settings.server_url);
+                if (new_url){
+                    $scope.settings.server_url = new_url;
+                    $scope.connect();
+                }
+            });
+
+            if (!test){
+
+                // start WebSocket connection for pushed event updates
+
+                var ws_url = $scope.settings.server_url.replace(/http|https/i,'ws');
+                ws = new WebSocket(ws_url+'/api/websocket?api_password='+$scope.settings.server_api_password);
+
+                ws.addEventListener('open', function (event) {
+                    ws.send('{"id": 1, "type": "subscribe_events", "event_type": "state_changed"}\n');
+                });
+
+                ws.onmessage = function(event) {
+                    var data = JSON.parse(event.data);
+                    if (data && data.event && data.event.data && data.event.data.new_state){
+
+                        if ($scope.settings.debug === true){
+
+                            if (data.event.data.new_state.entity_id != 'sun.sun' || $scope.settings.debug_sun_events === true && data.event.data.new_state.entity_id == 'sun.sun'){
+                                notify_sound.play();
+                                $scope.debug_notification = {};
+                                if (data.event.data.new_state.attributes && data.event.data.new_state.attributes.entity_id){
+                                    if (typeof data.event.data.new_state.attributes.entity_id == 'object'){
+                                        $scope.debug_notification.title = data.event.data.new_state.attributes.entity_id.join(', ');
+                                    } else {
+                                        $scope.debug_notification.title = data.event.data.new_state.attributes.entity_id;
+                                    }
+
+                                } else {
+                                    $scope.debug_notification.title = data.event.data.new_state.entity_id;
+                                }
+
+                                $scope.debug_notification.message = "State: "+data.event.data.new_state.state;
+                                if (data.event.data.new_state.attributes.azimuth){
+                                    $scope.debug_notification.message += ",  Azimuth: "+data.event.data.new_state.attributes.azimuth;
+                                }
+                                if (data.event.data.new_state.attributes.elevation){
+                                    $scope.debug_notification.message += ", Elevation: "+data.event.data.new_state.attributes.elevation;
+                                }
+                                $scope.debug_notification.time = data.event.time_fired;
+                            }
+
+                            $scope.entity[data.event.data.entity_id] = data.event.data.new_state;
+
+                            // auto off trigger
+                            if ($scope.schedule_index[data.event.data.entity_id]){
+                                if (data.event.data.new_state.state && data.event.data.new_state.state == 'on'){
+                                    for (var i in $scope.schedule_index[data.event.data.entity_id]){
+                                        if ($scope.schedule_index[data.event.data.entity_id][i].action && $scope.schedule_index[data.event.data.entity_id][i].action == 'auto_off'){
+                                            $scope.addSchedule($scope.entity[data.event.data.entity_id],$scope.schedule_index[data.event.data.entity_id][i].time,'light.turn_off',false)
+                                        }
+                                    }
+                                }
+                            }
+
+                            // entity trigger
+                            if ($scope.schedule[data.event.data.entity_id]){
+                                if (data.event.data.new_state.state && data.event.data.new_state.state.match(/on|home|true|playing|paused/)){
+                                    for (var i in $scope.schedule[data.event.data.entity_id]){
+                                        if ($scope.schedule[data.event.data.entity_id][i].action){
+                                            if (data.event.data.new_state.state == 'playing'){
+                                                $scope.toggle($scope.schedule[data.event.data.entity_id][i].entity,'light.turn_on/brightness');
+                                            } else if (data.event.data.new_state.state == 'paused'){
+                                                var temp_entity = angular.copy($scope.schedule[data.event.data.entity_id][i].entity);
+                                                temp_entity.attributes.brightness = 255;
+                                                $scope.toggle(temp_entity,'light.turn_on/brightness');
+                                            } else {
+                                                $scope.toggle($scope.schedule[data.event.data.entity_id][i].entity,'light.turn_on')
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+
+                        } else if (data.event.data.entity_id.match(/^persistent_notification/) && $scope.settings.notifications.show === true){
+
+                            $scope.view.top_right = 'notification';
+                            $scope.notification = {};
+                            $scope.notification.title = data.event.data.new_state.attributes.title;
+                            $scope.notification.message = data.event.data.new_state.attributes.message;
+                            $scope.notification.time = data.event.time_fired;
+
+                            if ($scope.notification.title.match(/bell/i)){
+                                bell_chime.play();
+                            }
+
+                            if ($scope.settings.notifications.auto_dismiss === true){
+                                var url = $scope.settings.server_url+'/api/services/persistent_notification/dismiss?api_password='+$scope.settings.server_api_password;
+                                var data = {"notification_id": data.event.data.entity_id.replace(/persistent_notification\./,'')}
+                                setTimeout(function(){
+                                    $scope.$apply(function(){
+                                        $http({
+                                            method: 'POST',
+                                            url: url,
+                                            data:data
+                                        }).then(function (data, status, headers, config) {
+                                            $scope.notification = {};
+                                            $scope.view.top_right = 'weather';
+                                        });
+                                    });
+                                },$scope.settings.notifications.timeout);
+                            }
+
+                        } else {
+                            $scope.entity[data.event.data.entity_id] = data.event.data.new_state;
+
+                            // auto off trigger
+                            if ($scope.schedule_index[data.event.data.entity_id]){
+                                if (data.event.data.new_state.state && data.event.data.new_state.state == 'on'){
+                                    for (var i in $scope.schedule_index[data.event.data.entity_id]){
+                                        if ($scope.schedule_index[data.event.data.entity_id][i].action && $scope.schedule_index[data.event.data.entity_id][i].action == 'auto_off'){
+                                            $scope.addSchedule($scope.entity[data.event.data.entity_id],$scope.schedule_index[data.event.data.entity_id][i].time,'light.turn_off',false)
+                                        }
+                                    }
+                                }
+                            }
+
+                            // entity trigger, but only at night
+                            if ($scope.schedule[data.event.data.entity_id] && $scope.events.day_night != 'daytime'){
+                                if (data.event.data.new_state.state && data.event.data.new_state.state.match(/on|home|true|playing|paused/)){
+                                    for (var i in $scope.schedule[data.event.data.entity_id]){
+                                        if ($scope.schedule[data.event.data.entity_id][i].action){
+                                            if (data.event.data.new_state.state == 'playing'){
+                                                $scope.toggle($scope.schedule[data.event.data.entity_id][i].entity,'light.turn_on/brightness');
+                                            } else if (data.event.data.new_state.state == 'paused'){
+                                                var temp_entity = angular.copy($scope.schedule[data.event.data.entity_id][i].entity);
+                                                temp_entity.attributes.brightness = 255;
+                                                $scope.toggle(temp_entity,'light.turn_on/brightness');
+                                            } else {
+                                                $scope.toggle($scope.schedule[data.event.data.entity_id][i].entity,'light.turn_on')
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                        if (data.event.data.new_state.entity_id == 'sun.sun'){
+                            var hours = new Date().getHours();
+                            if (data.event.data.new_state.attributes && data.event.data.new_state.attributes.elevation){
+
+                                if (data.event.data.new_state.attributes.elevation < 0){
+                                    if ($scope.events.day_night != 'nighttime'){
+                                        if ($scope.schedule && $scope.schedule.sunset){
+                                            $scope.runSchedule('nighttime');
+                                        }
+                                    }
+                                    $scope.events.day_night = 'nighttime';
+                                } else if (data.event.data.new_state.attributes.elevation > 0 && data.event.data.new_state.attributes.elevation < 30){
+                                    if (hours >= 0 && hours < 12){
+                                        if ($scope.events.day_night != 'sunrise'){
+                                            if ($scope.schedule && $scope.schedule.sunrise){
+                                                $scope.runSchedule('sunrise');
+                                            }
+                                        }
+                                        $scope.events.day_night = 'sunrise';
+                                    } else {
+                                        if ($scope.events.day_night != 'sunset'){
+                                            if ($scope.schedule && $scope.schedule.sunset){
+                                                $scope.runSchedule('sunset');
+                                            }
+                                        }
+                                        $scope.events.day_night = 'sunset';
+                                    }
+                                } else {
+                                    if ($scope.events.day_night != 'daytime'){
+                                        if ($scope.schedule && $scope.schedule.sunset){
+                                            $scope.runSchedule('daytime');
+                                        }
+                                    }
+                                    $scope.events.day_night = 'daytime';
+                                }
+                            }
+                        }
+
+                    }
+                };
+                ws.onclose = function() {
+                    if (!$scope.debug_notification){
+                        $scope.debug_notification = {};
+                    }
+                    $scope.debug_notification.title = 'Socket connection closed';
+                    $scope.debug_notification.message = '';
+                    $scope.debug_notification.time = Date.now();
+                };
+                ws.onopen = function() {
+                    if (!$scope.debug_notification){
+                        $scope.debug_notification = {};
+                    }
+                    $scope.debug_notification.title = 'Socket connection open';
+                    $scope.debug_notification.message = '';
+                    $scope.debug_notification.time = Date.now();
+                };
+            }
+        }
+
+        if ($scope.settings.server_url){
+            $scope.view.page = 'loading';
+            $scope.connect();
+        } else {
+            $scope.view.message = '<h4>Welcome to the Control Panel Setup</h4><br>Click the button below to search for your Home Automation server. ';
+            if (document.location.href.match(/reformedreality\.com/)){
+                if (!document.location.protocol.match(/https/i)){
+                    $scope.view.message += 'If your Home Automation server is using HTTPS, click <a href="https://reformedreality.com/hass">here</a> to use the secure Control Panel.'
+                } else if (document.location.protocol.match(/https/i)){
+                    $scope.view.message += "If your Home Automation server doesn't use HTTPS, click <a href='http://reformedreality.com/hass'>here</a> to use the HTTP Control Panel."
+                }
+            }
+            $scope.view.page = 'initsettings';
+        }
+
+        // connect to the API to get the groups and entities.
+        // Asynchronously loop through each one and build the data - pages (contains the groups which is only used to initially layout the page) and entity (contains all the entity data)
+
+        $scope.getEntities = function(i){
+
+            if ($scope.states[i] && $scope.states[i].attributes && $scope.states[i].attributes.entity_id && $scope.states[i].attributes.entity_id.length>0){ // get group entities and create a page
+
+                $scope.pages[$scope.states[i].entity_id] = {};
+                $scope.pages[$scope.states[i].entity_id].entities = [];
+                if ($scope.states[i].attributes && $scope.states[i].attributes.friendly_name){
+                    $scope.pages[$scope.states[i].entity_id].name = $scope.states[i].attributes.friendly_name;
+                } else {
+                    $scope.pages[$scope.states[i].entity_id].name = $scope.states[i].entity_id;
+                }
+                $scope.pages[$scope.states[i].entity_id].view = true;
+                if ($scope.states[i].attributes && $scope.states[i].attributes.view){
+                    $scope.pages[$scope.states[i].entity_id].view = $scope.states[i].attributes.view;
+                }
+                $scope.pages[$scope.states[i].entity_id].id = $scope.states[i].entity_id;
+
+                // once the page has been built, get the initial entity data from the API. Updates are performed via the websocket connection
+
+                $scope.getEntityData(i,0, function(data){
+                    if (data){
+                        i++;
+                        $scope.getEntities(i);
+                    }
+                });
+
+            } else if ($scope.states[i] && $scope.states[i].entity_id){ // get single entity and create the default page if it doesn't exist
+
+                if (!$scope.pages.default_group){
+                    $scope.pages.default_group = {};
+                    $scope.pages.default_group.entities = [];
+                    $scope.pages.default_group.name = 'Controls';
+                    $scope.pages.default_group.view = false;
+                    $scope.pages.default_group.id = 'group.default_group';
+                }
+
+                $scope.getEntityData(i,0, function(data){
+                    if (data){
+                        i++;
+                        $scope.getEntities(i);
+                    }
+                });
+
+            } else { // if neither group or single entity, continue with the loop
+
+                i++;
+                if ($scope.states[i]){
+                    $scope.getEntities(i);
+                } else {
+
+                    // this is the end of the loop - all of the pages have been created and the entity data has been fetched
+                    // console.log('2. Entity data fetched:');
+                    // console.log($scope.entity);
+                    // console.log('3. Parsed the following pages:');
+                    // console.log($scope.pages);
+                    $scope.view.page = 'control';
+                    $scope.pages = angular.extend($scope.pages,$scope.pages,$scope.custom_pages);
+                    $scope.view.no_groups = true;
+                    $scope.view.edit_mode = 1;
+                    for (var i in $scope.pages){
+                        if ($scope.pages[i].view == true){
+                            $scope.view.no_groups = false;
+                            $scope.view.edit_mode = 0;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        $scope.getEntityData = function(i,ii,callback){
+
+            if ($scope.states[i].attributes && typeof $scope.states[i].attributes.entity_id == 'object' && $scope.states[i].attributes.entity_id[ii]){ // add entity data in current group
+                $http({
+                    method: 'GET',
+                    url: $scope.settings.server_url+'/api/states/'+$scope.states[i].attributes.entity_id[ii]+'?api_password='+$scope.settings.server_api_password
+                }).then(function (data, status, headers, config) {
+                    $scope.entity[data.data.entity_id] = data.data;
+                    $scope.pages[$scope.states[i].entity_id].entities.push(data.data);
+                    ii++;
+                    $scope.getEntityData(i,ii,callback);
+                }).catch(function (data, status, headers, config) {
+                    ii++;
+                    $scope.getEntityData(i,ii,callback);
+                });
+
+            } else if ($scope.states[i].entity_id){ // single entity, add to default group
+
+                $http({
+                    method: 'GET',
+                    url: $scope.settings.server_url+'/api/states/'+$scope.states[i].entity_id+'?api_password='+$scope.settings.server_api_password
+                }).then(function (data, status, headers, config) {
+                    $scope.entity[data.data.entity_id] = data.data;
+                    $scope.pages.default_group.entities.push(data.data);
+                    callback('done');
+                }).catch(function (data, status, headers, config) {
+                    callback('done');
+
+                });
+
+            } else {
+                callback('done');
+            }
+
+        }
+
+        $scope.searchHA = function(url){
+
+            if (!url){
+                $scope.settings.server_url = "https://hassio.local:8123";
+            } else {
+                $scope.settings.server_url = url;
+            }
+
+            $http({
+                method: 'GET',
+                url: $scope.settings.server_url,
+                timeout:6000
+            }).then(function (data, status, headers, config) {
+                // test ok
+                $scope.view.page = 'setup1';
+                $scope.view.message = 'Found a Home Assistant server at '+$scope.settings.server_url+'. Click Next to check API access.';
+
+            }).catch(function(res){
+
+                if ($scope.settings.server_url == "https://hassio.local:8123"){
+                    $scope.searchHA("http://hassio.local:8123");
+                } else if ($scope.settings.server_url == "http://hassio.local:8123" && !document.location.origin.match(/reformedreality\.com/)){
+                    $scope.searchHA(document.location.origin);
+                } else if ($scope.settings.server_url == document.location.origin && !document.location.origin.match(/reformedreality\.com/) && $scope.view.page == 'initsettings') {
+                    $scope.view.page = 'setup2';
+                    $scope.view.message = "We couldn't auto detect your server, please enter your Home Assistant server address below";
+                } else {
+                    $scope.view.page = 'setup2';
+                    if (!document.location.protocol.match(/https/i)){
+                        var https_mess = 'HTTPS version of the Control Panel: <a href="https://reformedreality.com/hass">here</a>.';
+                    } else if (document.location.protocol.match(/https/i)){
+                        var https_mess = 'HTTP version of the Control Panel: <a href="http://reformedreality.com/hass">here</a>.';
+                    }
+                    $scope.view.message = 'Unable to connect. You may need to enable CORS access on your Home Assistant server, or you may need to use the '+http_mess+'<br><br>Please goto the following URL for more information:<br><a href="http://reformedreality.com/home-assistant-control-panel#troubleshooting" target="other">http://reformedreality.com/home-assistant-control-panel#troubleshooting</a>';
+                }
+
+            });
+
+        }
+
+        $scope.testAPI = function(pass){
+
+            if (!pass){
+                pass = '';
+            } else {
+                $scope.settings.server_api_password = pass;
+                pass = '?api_password='+pass;
+            }
+
+            $http({
+                method: 'GET',
+                url: $scope.settings.server_url+'/api/'+pass,
+                timeout:6000
+            }).then(function (data, status, headers, config) {
+                // test ok
+                $scope.view.page = 'control';
+                $scope.settings.background = '';
+                $scope.settings.background_color = 'bg-topaz bg-color';
+                localStorage.setItem('settings',JSON.stringify($scope.settings));
+                $scope.connect();
+
+            }).catch(function(data, status, headers, config){
+                if (!pass){
+                    // var new_pass = prompt('Enter your API password');
+                    // if (new_pass !== false){
+                    //     $scope.testAPI(new_pass);
+                    // } else {
+                    //     alert('Unable to connect to your Home Assistant API. Please goto the following URL for more information: https://www.home-assistant.io/components/http/');
+                    // }
+                    $scope.view.page = 'setup3';
+                    $scope.view.message = 'Please enter your API password';
+
+                } else {
+                    // var new_pass = prompt('Unable to connect to your Home Assistant API. Please retry your API password, or visit the following URL for more information: https://www.home-assistant.io/components/http/');
+                    // if (new_pass !== false){
+                    //     $scope.testAPI(new_pass);
+                    // } else {
+                    //     alert('Unable to connect to your Home Assistant API. Please goto the following URL for more information: https://www.home-assistant.io/components/http/');
+                    // }
+                    $scope.view.page = 'setup3';
+                    $scope.view.message = 'Unable to connect to your Home Assistant API. Please goto the following URL for more information:<br><a href="http://reformedreality.com/home-assistant-control-panel#troubleshooting" target="other">http://reformedreality.com/home-assistant-control-panel#troubleshooting</a>';
+                }
+
+            });
+        }
+
+        // toggle a switch - conditional api request depending on the data from the switch
+
+        $scope.toggle = function(entity,attribute,page){
+
+            if ($scope.view.edit_mode == 1 && page){
+
+                var conf = confirm('Are you sure you want to remove '+entity.entity_id+' from the '+page+' page?');
+                if (conf){
+                    if ($scope.pages[page] && $scope.pages[page].entities){
+                        for (var i in $scope.pages[page].entities){
+                            if ($scope.pages[page].entities[i].entity_id && $scope.pages[page].entities[i].entity_id == entity.entity_id){
+                                $scope.pages[page].entities.splice(i,1);
+                                $scope.custom_pages[page] = {};
+                                $scope.custom_pages[page].entities = $scope.pages[page].entities;
+                                $scope.custom_pages[page].name = $scope.pages[page].name;
+                                $scope.custom_pages[page].view = true;
+                                localStorage.setItem('custom_pages',JSON.stringify($scope.custom_pages));
+                            }
+                        }
+                    }
+                }
+
+            } else {
+
+                if (entity.entity_id.match(/group\./) && $scope.entity[entity.entity_id] && $scope.entity[entity.entity_id].attributes && $scope.entity[entity.entity_id].attributes.entity_id){
+                    attribute = $scope.entity[entity.entity_id].attributes.entity_id[0].split('.')[0]+'.toggle';
+                    if (attribute == 'group.toggle'){ // fall back to the light service for unknown groups
+                        attribute = 'light.toggle';
+                    }
+                }
+
+                url = false;
+                var data = {};
+
+                if (attribute){ // set values
+
+                    if (attribute.match(/_/)){
+                        var service = attribute.split('/')[0].replace(/\./,'/');
+                        attribute = attribute.split('/')[1];
+                    } else {
+                        var service = attribute.replace(/\./,'/');
+                    }
+
+                    data.entity_id = entity.entity_id;
+
+                    if (entity.entity_id.split('.')[0].match(/light|group/)){
+                        var url = $scope.settings.server_url+'/api/services/'+service+'?api_password='+$scope.settings.server_api_password;
+                        if (attribute == 'brightness'){
+                            if (entity.attributes.brightness){
+                                data.brightness = entity.attributes.brightness;
+                            }
+                        } else if (attribute == 'color_temp'){
+                            if (entity.attributes.color_temp){
+                                data.color_temp = entity.attributes.color_temp;
+                            }
+                        }
+
+                    }
+
+                } else if (!attribute) { // toggle switch
+
+                    if (entity.entity_id.split('.')[0].match(/light|group/)){
+                        var url = $scope.settings.server_url+'/api/services/light/toggle?api_password='+$scope.settings.server_api_password;
+                        var data = {"entity_id": entity.entity_id}
+                    } else if (entity.entity_id.split('.')[0].match(/scene/)){
+                        var url = $scope.settings.server_url+'/api/services/scene/toggle?api_password='+$scope.settings.server_api_password;
+                        var data = {"entity_id": entity.entity_id}
+                    } else if (entity.entity_id.split('.')[0].match(/switch/)){
+                        var url = $scope.settings.server_url+'/api/services/switch/toggle?api_password='+$scope.settings.server_api_password;
+                        var data = {"entity_id": entity.entity_id}
+                    } else if (entity.entity_id.split('.')[0] == 'media_player'){
+                        var url = $scope.settings.server_url+'/api/services/media_player/media_play_pause?api_password='+$scope.settings.server_api_password;
+                        var data = {"entity_id": entity.entity_id}
+                    }
+
+                }
+
+                if (data && data.entity_id){
+                    $scope.local_notification = {};
+                    $scope.local_notification.title = data.entity_id;
+                    if (data.brightness){
+                        $scope.local_notification.title += ", Brightness: "+data.brightness;
+                    }
+                    if (data.color_temp){
+                        $scope.local_notification.title += ", Color: "+data.color_temp;
+                    }
+                    $scope.local_notification.message = url;
+                    $scope.local_notification.time = Date.now();
+                    $scope.local_notification.status = "Submitting...";
+
+                    if (url){
+
+                        $http({
+                            method: 'POST',
+                            url: url,
+                            data:data
+                        }).then(function (data, status, headers, config) {
+                            $scope.calling = false;
+                            $scope.local_notification.time = Date.now();
+                            $scope.local_notification.status = "Completed";
+                        });
+
+                    }
+                }
+
+            }
+        }
+
+        $scope.toggleEditMode = function(){
+            if ($scope.view.edit_mode == 0){
+                $scope.view.edit_mode = 1;
+            } else {
+                $scope.view.edit_mode = 0;
+            }
+        
+        }
+
+        $scope.newPage = function(){
+            $scope.view.no_groups = false;
+            var name = prompt("Enter a name for your new group. This could something like 'Living Room' or 'Bedroom 1'");
+            if (name){
+                var name_parse = name.replace(/\s/g,'_').toLowerCase();
+                $scope.custom_pages[name_parse] = {};
+                $scope.custom_pages[name_parse].entities = [];
+                $scope.custom_pages[name_parse].name = name;
+                $scope.custom_pages[name_parse].view = true;
+                $scope.pages = angular.extend($scope.pages,$scope.pages,$scope.custom_pages);
+                localStorage.setItem('custom_pages',JSON.stringify($scope.custom_pages));
+            }
+
+        }
+
+        $scope.addEntity = function(page, entity){
+        //    $scope.pages[page].entities.push(entity);
+
+            if (!$scope.custom_pages[page]){
+                if ($scope.pages[page]){
+                    $scope.custom_pages[page] = {};
+                    $scope.custom_pages[page].entities = $scope.pages[page].entities;
+                    $scope.custom_pages[page].name = $scope.pages[page].name;
+                    $scope.custom_pages[page].view = true;
+                } else {
+                    $scope.custom_pages[page] = {};
+                    $scope.custom_pages[page].entities = [];
+                }
+
+            }
+            $scope.custom_pages[page].entities.push(entity);
+            localStorage.setItem('custom_pages',JSON.stringify($scope.custom_pages));
+            $scope.view.page = 'control';
+        }
+
+        $scope.deletePage = function(page){
+            if (!$scope.custom_pages[page]){
+                if ($scope.pages[page]){
+                    $scope.custom_pages[page] = {};
+                    $scope.custom_pages[page].entities = $scope.pages[page].entities;
+                    $scope.custom_pages[page].name = $scope.pages[page].name;
+                    $scope.custom_pages[page].view = false;
+                } else {
+                    $scope.custom_pages[page] = {};
+                    $scope.custom_pages[page].entities = [];
+                    $scope.custom_pages[page].view = false;
+                }
+
+            }
+            $scope.custom_pages[page].view = false;
+            $scope.pages[page].view = false;
+            localStorage.setItem('custom_pages',JSON.stringify($scope.custom_pages));
+        }
+
+        // $scope.
+
+        $scope.addSchedule = function(entity, time, action, repeat){
+
+            if (typeof time == 'number' && time <= 999 && action != 'auto_off'){
+                console.log('adding time')
+                var gettime = new Date();
+                gettime.setMinutes(gettime.getMinutes() + time);
+                if (gettime.getHours() < 10){
+                    time = '0'+gettime.getHours();
+                } else {
+                    time = gettime.getHours()+'';
+                }
+                if (gettime.getMinutes() < 10){
+                    time += '0'+gettime.getMinutes();
+                } else {
+                    time += gettime.getMinutes()+'';
+                }
+            }
+
+            var data = {};
+            data.entity = entity;
+            data.action = action;
+            data.repeat = repeat;
+            data.time = time;
+            data.entity_id = entity.entity_id;//.replace(/\./g,'_');
+
+            if (!$scope.schedule[time]){
+                $scope.schedule[time] = [];
+            }
+            $scope.schedule[time].push(data);
+
+            if (!$scope.schedule_index[data.entity_id]){
+                $scope.schedule_index[data.entity_id] = [];
+            }
+            $scope.schedule_index[data.entity_id].push(data);
+
+            localStorage.setItem('schedule',JSON.stringify($scope.schedule));
+            localStorage.setItem('schedule_index',JSON.stringify($scope.schedule_index));
+
+            $scope.local_notification.message = 'Set '+entity.entity_id+' to '+action.split('.')[1].replace(/\_/,' ')+' at '+time;
+            $scope.local_notification.time = Date.now();
+            $scope.local_notification.status = "Added";
+        }
+
+        $scope.runSchedule = function(time){
+            if ($scope.schedule && $scope.schedule[time]){
+                for (var i in $scope.schedule[time]){
+                    $scope.toggle($scope.schedule[time][i].entity, $scope.schedule[time][i].action);
+                    if ($scope.schedule[time][i].repeat == false){
+                        $scope.delScheduleIndex($scope.schedule[time][i].entity_id,time);
+                        $scope.schedule[time].splice(i,1);
+                    }
+                }
+            }
+        }
+
+        $scope.save = function(){
+            localStorage.setItem('settings',JSON.stringify($scope.settings));
+            $scope.saved = true;
+            setTimeout(function(){
+                $scope.$apply(function(){
+                    $scope.saved = false;
+                })
+            },1000)
+        }
+
+        $scope.resetSettings = function(type){
+            var conf = confirm('This will erase the stored '+type+', are you sure?');
+            if (conf){
+                if (type == 'automations'){
+                    localStorage.setItem('schedule','{}');
+                    localStorage.setItem('schedule_index','{}');
+                } else {
+                    localStorage.setItem(type,'{}');
+                }
+                location.reload();
+            }
+        }
+
+        $scope.closeSettings = function(){
+            $scope.view.page = 'control';
+            if ($scope.settings && $scope.settings.debug === true){
+                $scope.view.top_right = 'debug';
+            } else {
+                $scope.view.top_right = 'weather';
+            }
+        }
+
+        $scope.delSchedule = function(entity_id, time){
+            for (var i in $scope.schedule[time]){
+                if ($scope.schedule[time][i].entity_id == entity_id){
+                    $scope.delScheduleIndex($scope.schedule[time][i].entity_id,time);
+                    $scope.schedule[time].splice(i,1);
+                }
+            }
+        }
+
+        $scope.delScheduleIndex = function(entity_id, time){
+            for (var i in $scope.schedule_index[entity_id]){
+                if ($scope.schedule_index[entity_id][i].time == time){
+                    $scope.schedule_index[entity_id].splice(i,1);
+                    localStorage.setItem('schedule',JSON.stringify($scope.schedule));
+                    localStorage.setItem('schedule_index',JSON.stringify($scope.schedule_index));
+                }
+            }
+        }
+
+        $scope.refreshBgImgs = function(){
+            $scope.events.bg_refresh = Math.round(+new Date()/1000);
+            if (!$scope.events.last_bg_refresh){
+                $scope.events.last_bg_refresh = 0;
+            }
+            if ($scope.events.bg_refresh - $scope.events.last_bg_refresh > 5){
+                $scope.events.last_bg_refresh = $scope.events.bg_refresh;
+                for (var i in $scope.entity){
+                    if ($scope.entity[i].attributes && $scope.entity[i].attributes.entity_picture){
+                        if ($scope.entity[i].attributes.entity_picture.match(/\&\&ts\=/)){
+                            $scope.entity[i].attributes.entity_picture = $scope.entity[i].attributes.entity_picture.substring(0, $scope.entity[i].attributes.entity_picture.length - 10)+$scope.events.last_bg_refresh;
+                        } else {
+                            $scope.entity[i].attributes.entity_picture = $scope.entity[i].attributes.entity_picture+'&&ts='+$scope.events.last_bg_refresh;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        $scope.getHourList = function() {
+            var arr = [];
+            for (var i=0;i<24;i++){
+                var ii = i;
+                if (i<10){
+                    ii = '0'+i;
+                }
+                arr.push(ii);
+                if (i == 23){
+                    return arr;
+                }
+            }
+        }
+        $scope.getMinuteList = function() {
+            var arr = [];
+            for (var i=0;i<60;i++){
+                var ii = i;
+                if (i<10){
+                    ii = '0'+i;
+                }
+                arr.push(ii);
+                if (i == 59){
+                    return arr;
+                }
+            }
+        }
+
+        $scope.showEntity = function(entity){
+            if (entity.entity_id.match(/light\.|group\./)){
+                $scope.popup = entity;
+                $scope.view.page = 'entity';
+            }
+        }
+
+        $scope.match = function(input, match){
+            var re = RegExp(match);
+            if (input && input.match(match)){
+                return true;
+            }
+        }
+
+        // simple clock functionality
+
+        setInterval(function(){
+            $scope.$apply(function(){
+                $scope.clock = Date.now();
+
+                var hours = new Date().getHours();
+                if (hours >= 0 && hours < 12) {
+                    $scope.events.time_of_day = 'morning';
+                } else if (hours >= 12 && hours < 17) {
+                    $scope.events.time_of_day = 'afternoon';
+                } else if (hours >= 17 && hours < 24) {
+                    $scope.events.time_of_day = 'evening';
+                }
+
+            })
+        }, 1000);
+
+        setInterval(function(){
+            $scope.$apply(function(){
+                var gettime = new Date();
+                var time = '';
+                if (gettime.getHours() < 10){
+                    time = '0'+gettime.getHours();
+                } else {
+                    time = gettime.getHours()+'';
+                }
+                if (gettime.getMinutes() < 10){
+                    time += '0'+gettime.getMinutes();
+                } else {
+                    time += gettime.getMinutes()+'';
+                }
+
+                if ($scope.schedule && $scope.schedule[time]){
+                    $scope.runSchedule(time);
+                }
+
+            })
+        }, 60000);
+
+    }]).filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]).filter('mdi', function(){
+        return function(input) {
+            if (input && typeof input == 'string'){
+                return input.replace('mdi:','');
+            }
+        }
+    }).filter('parse_name', function(){
+        return function(input) {
+            if (input && typeof input == 'string'){
+                return input.replace('_',' ');
+            }
+        }
+    }).filter('parse_time', function(){
+        return function(input) {
+            if (isNaN(input) || input <=60){
+                return input;
+            } else {
+                var time = input.split('');
+                return time[0]+time[1]+":"+time[2]+time[3];
+            }
+
+        }
+    }).filter('match', function(){
+        return function(input, match) {
+            if (input && typeof input == 'string'){
+                var re = RegExp(match);
+                return input.match(match);
+            }
+        }
+    }).filter('getType', function(){
+        return function(input) {
+            if (input){
+                return input.split('.')[0];
+            }
+        }
+    }).filter('ordinal', function() {
+        return function(number){
+            if (isNaN(number) || number < 1){
+                return '';
+            } else if (number % 100 == 11 || number % 100 == 12) {
+                return 'th';
+            } else {
+                var lastDigit = number % 10;
+                if (lastDigit === 1) {
+                    return 'st';
+                } else if (lastDigit === 2) {
+                    return 'nd';
+                } else if (lastDigit === 3) {
+                    return 'rd';
+                } else if (lastDigit > 3) {
+                    return 'th';
+                }
+            }
+        }
+    }).directive('backImg', function(){
+        return function(scope, element, attrs){
+            attrs.$observe('backImg', function(value) {
+                if (scope.settings.background!=""){
+                    element.css({
+                        'background-image': 'url(' + value +')',
+                        'background-size' : 'cover'
+                    });
+                }
+            });
+        };
+    }).directive('myTouchend', [function() {
+            return function(scope, element, attr) {
+
+                element.on('touchend', function(event) {
+                    scope.$apply(function() {
+                        scope.$eval(attr.myTouchend);
+                    });
+                });
+            };
+        }]);;
+
+    angular.module('pr.longpress', [])
+    .directive('onLongPress', ['$parse', '$timeout', function ($parse, $timeout) {
+        return {
+            restrict: 'A',
+            link: function ($scope, $elm, $attrs) {
+                var timer;
+                var timerDuration = (!isNaN($attrs.longPressDuration) && parseInt($attrs.longPressDuration)) || 600;
+                // By default we prevent long press when user scrolls
+                var preventLongPressOnScroll = ($attrs.preventOnscrolling ? $attrs.preventOnscrolling === 'true' : true)
+                // Variable used to prevent long press while scrolling
+                var touchStartY;
+                var touchStartX;
+                var MAX_DELTA = 15;
+                // Bind touch, mouse and click event
+                $elm.bind('touchstart', onEnter);
+                $elm.bind('touchend', onExit);
+
+                $elm.bind('mousedown', onEnter);
+                $elm.bind('mouseup', onExit);
+
+                $elm.bind('click', onClick);
+                // For windows mobile browser
+                $elm.bind('pointerdown', onEnter);
+                $elm.bind('pointerup', onExit);
+                if (preventLongPressOnScroll) {
+                    // Bind touchmove so that we prevent long press when user is scrolling
+                    $elm.bind('touchmove', onMove);
+                }
+
+                function onEnter(evt) {
+                    var functionHandler = $parse($attrs.onLongPress);
+                    // For tracking scrolling
+                    if ((evt.originalEvent || evt).touches) {
+                        touchStartY = (evt.originalEvent || evt).touches[0].screenY;
+                        touchStartX = (evt.originalEvent || evt).touches[0].screenX;
+                    }
+                    //Cancel existing timer
+                    $timeout.cancel(timer);
+                    //To handle click event properly
+                    $scope.longPressSent = false;
+                    // We'll set a timeout for 600 ms for a long press
+                    timer = $timeout(function () {
+                        $scope.longPressSent = true;
+                        // If the touchend event hasn't fired,
+                        // apply the function given in on the element's on-long-press attribute
+                        $scope.$apply(function () {
+                            functionHandler($scope, {
+                                $event: evt
+                            });
+                        });
+                    }, timerDuration);
+
+                }
+
+                function onExit(evt) {
+                    var functionHandler = $parse($attrs.onTouchEnd);
+                    // Prevent the onLongPress event from firing
+                    $timeout.cancel(timer);
+                    // If there is an on-touch-end function attached to this element, apply it
+                    if ($attrs.onTouchEnd) {
+                        $scope.$apply(function () {
+                            functionHandler($scope, {
+                                $event: evt
+                            });
+                        });
+                    }
+
+                }
+
+                function onClick(evt) {
+                    //If long press is handled then prevent click
+                    if ($scope.longPressSent && (!$attrs.preventClick || $attrs.preventClick === "true")) {
+                        evt.preventDefault();
+                        evt.stopPropagation();
+                        evt.stopImmediatePropagation();
+                    }
+
+                }
+
+                function onMove(evt) {
+                    var yPosition = (evt.originalEvent || evt).touches[0].screenY;
+                    var xPosition = (evt.originalEvent || evt).touches[0].screenX;
+
+                    // If we scrolled, prevent long presses
+                    if (touchStartY !== undefined && touchStartX !== undefined &&
+                        (Math.abs(yPosition - touchStartY) > MAX_DELTA) || Math.abs(xPosition - touchStartX) > MAX_DELTA) {
+                        $timeout.cancel(timer);
+                    }
+
+                }
+            }
+        };
+    }]);
+
+</script>
+
+    <style>
+        body {
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Muli;
+    font-weight:300;
+    color: #fff;
+    width:100vw;
+    height:100vh;
+    padding: 0 2rem;
+    overflow: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none;
+}
+h1,h2,h3,h4 {
+    color:#fff;
+}
+a {
+    color:rgb(95, 200, 223)
+}
+label {
+    font-weight: 700;
+    margin-bottom:2vw;
+}
+select {
+    border:2px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    background: none;
+    color:#fff;
+    margin:none;
+    width:100%;
+}
+input[type="text"],input[type="password"] {
+    border:2px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    background: none;
+    color:#fff;
+    margin:none;
+}
+input[type="range"] {
+    margin: auto;
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0;
+}
+::-webkit-slider-runnable-track {
+    background: #636463;
+}
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0; /* 1 */
+    height: 100px;
+    background: #fff;
+    box-shadow: -100vw 0 0 100vw #fff;
+}
+::-moz-range-track {
+    height: 200px;
+    background: #636463;
+}
+::-moz-range-thumb {
+    background: #fff;
+    height: 0;
+    width: 20px;
+    border: 3px solid #999;
+    border-radius: 0 !important;
+    box-shadow: -100vw 0 0 100vw #fff;
+    box-sizing: border-box;
+}
+::-ms-fill-lower {
+    background: #fff;
+}
+::-ms-thumb {
+    background: #fff;
+    border: 2px solid #999;
+    height: 40px;
+    width: 0;
+    box-sizing: border-box;
+}
+::-ms-ticks-after {
+    display: none;
+}
+::-ms-ticks-before {
+    display: none;
+}
+::-ms-track {
+    background: #ddd;
+    color: transparent;
+    height: 40px;
+    border: none;
+}
+::-ms-tooltip {
+    display: none;
+}
+.switches .w25,
+.switches .w33,
+.switches .w50,
+.switches .w75 {
+    vertical-align: top;
+}
+.entity {
+    position:relative;
+    display:inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-position: center center;
+    background-size: cover;
+    vertical-align: top;
+    font-size: 1vw;
+    background-color: rgba(255, 250, 250, 0.3);
+    width:8vw;
+    height:8vw;
+    margin: 0 0.5vw 0.5vw 0;
+    color:#fff;
+    overflow:hidden;
+}
+
+.entity.large-buttons {
+    font-size: 1.4vw;
+    width:12vw;
+    height:12vw;
+    margin: 0 0.5vw 0.5vw 0;
+}
+
+.entity.light,
+.entity.media_player {
+    cursor: pointer;
+}
+
+.entity.on,
+.entity.home {
+    background-color: rgba(255, 250, 250, 0.4);
+    color:#fff;
+}
+
+/* .bg-color .entity.on,
+.bg-color .entity.home {
+    background-color: rgba(255, 250, 250, 0.4);
+    color:#fff;
+} */
+
+.entity.off,
+.entity.away,
+.entity.not_home,
+.entity.media_player,
+.entity.unknown,
+button.disabled {
+    background-color: rgba(0, 0, 0, 0.5);
+    color:#eee;
+}
+
+.bg-color .entity.off,
+.bg-color .entity.away,
+.bg-color .entity.not_home,
+.bg-color .entity.media_player,
+.bg-color .entity.unknown,
+.bg-color button.disabled {
+    background-color: rgba(0, 0, 0, 0.2);
+    color:#eee;
+}
+
+.entity.sensor,
+.entity.sun,
+.entity.zwave,
+.entity.zone,
+.entity.persistent_notification {
+    background-color: rgba(225, 220, 220, 0.3);
+    color:#fff;
+}
+
+.entity.media_player img.stream {
+    display:none;
+}
+
+/* .bg-color .entity.sensor,
+.bg-color .entity.sun,
+.bg-color .entity.zwave,
+.bg-color .entity.zone,
+.bg-color .entity.persistent_notification {
+    background-color: rgba(255, 250, 250, 0.2);
+    color:#eee;
+} */
+
+.entity .value,
+.entity .name  {
+    padding:0;
+}
+.entity .controls {
+    display:none;
+}
+.entity.media_player .controls {
+    display:block;
+    color:white;
+    font-size: 2vw;
+}
+
+.entity.sensor .name,
+.entity:not(.sensor) .value  {
+    display:block;
+    width:100%;
+    position:absolute;
+    bottom:0.8vw;
+    left:0;
+    text-align: center;
+    font-size:0.7vw;
+    line-height: 0.8vw;
+}
+.entity.sensor.large-buttons .name,
+.entity.large-buttons:not(.sensor) .value {
+    font-size:1vw;
+}
+
+.entity.media_player .name,
+.entity.camera .name {
+    display:none;
+}
+.entity.sensor .value {
+    font-size:1.4vw;
+    text-transform: capitalize;
+}
+.entity.sensor.large-buttons .value {
+    font-size:1.8vw;
+}
+
+.entity.unknown .name {
+    color:rgba(255,255,255,0.5);
+}
+
+.header {
+    position: relative;
+    height:27vh;
+    padding:2vw;
+}
+.switches {
+    position: relative;
+    height:73vh;
+    bottom:0;
+    left:0;
+    padding:0 2vw 2vw 2vw;
+}
+.switches h4 {
+    font-size: 1.3vw;
+}
+
+.switch-header {
+    position:relative;
+    height:3em
+}
+
+.switch-header.edit {
+    position:relative;
+    height:4em
+}
+
+.switch-header .edit-control {
+    display:inline-block;
+    width:33%;
+    vertical-align: middle;
+}
+
+.edit-control i.fas {
+    color:rgba(255,255,255,0.5) !important;
+}
+
+.switches div[class^=w] {
+    display: inline-block;
+    vertical-align: top;
+    width:100vw;
+    height:100%;
+    margin-right: 1em;
+}
+
+.switches .container {
+    height:100%;
+    max-height: 70vh;
+}
+.switches .w0,.switches .w1,.switches .w2,.switches .w3,.switches .w4 {
+    display: inline-block;
+    vertical-align: top;
+    width:calc(8.5vw + 1vw) !important;
+}
+.switches .w5,.switches .w6,.switches .w7,.switches .w8 {
+    display: inline-block;
+    vertical-align: top;
+    width:calc((8.5vw * 2) + 1vw) !important;
+}
+.switches .w9,.switches .w10,.switches .w11,.switches .w12 {
+    display: inline-block;
+    vertical-align: top;
+    width:calc((8.5vw * 3) + 1vw) !important;
+}
+.switches .w13,.switches .w14,.switches .w15,.switches .w16 {
+    display: inline-block;
+    vertical-align: top;
+    width:calc((8.5vw * 4) + 1vw) !important;
+}
+.switches .w17,.switches .w18,.switches .w19,.switches .w20 {
+    display: inline-block;
+    vertical-align: top;
+    width:calc((8.5vw * 5) + 1vw) !important;
+}
+.switches .w1.large-buttons,.switches .w2.large-buttons,.switches .w3.large-buttons {
+    width:calc(12.5vw + 1vw) !important;
+}
+.switches .w4.large-buttons,.switches .w5.large-buttons,.switches .w6.large-buttons {
+    width:calc((12.5vw * 2) + 1vw) !important;
+}
+.switches .w7.large-buttons,.switches .w8.large-buttons,.switches .w9.large-buttons {
+    width:calc((12.5vw * 3) + 1vw) !important;
+}
+.switches .w10.large-buttons,.switches .w11.large-buttons,.switches .w12.large-buttons {
+    width:calc((12.5vw * 4) + 1vw) !important;
+}
+.switches .w13.large-buttons,.switches .w14.large-buttons,.switches .w15.large-buttons {
+    width:calc((12.5vw * 5) + 1vw) !important;
+}
+.switches .w16.large-buttons,.switches .w17.large-buttons,.switches .w18.large-buttons,.switches .w19.large-buttons,.switches .w20.large-buttons {
+    width:calc((12.5vw * 6) + 1vw) !important;
+}
+.modal {
+    display:flex;
+    background-color: rgba(0,0,0,0.5)
+}
+.settings-icon {
+    display:block;
+    position:fixed;
+    bottom:0;
+    right:0;
+    padding:2vw;
+    font-size:1.3rem;
+}
+.debug {
+    overflow-wrap: break-word;
+}
+.debug h1,.debug h2, .debug h3, .debug h4 {
+    font-size:1vw;
+}
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #fff;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  }
+}
+@media only screen and (max-width: 900px) {
+
+    .header {
+        padding:6vw;
+    }
+    .header .w50 {
+        width:100%;
+        padding-bottom:2em;
+    }
+    .header .w50.text-right{
+        text-align: left
+    }
+    h1 {
+        font-size: 7vw;
+        line-height: 1em;
+    }
+    h2 {
+        font-size: 6vw;
+        line-height: 1em;
+    }
+    h3 {
+        font-size: 5vw;
+        line-height: 1em;
+    }
+    p,li,span {
+        font-size: inherit;
+    }
+    .entity {
+        width:18vw;
+        height:18vw;
+        margin: 0 0.5vw 0.5vw 0;
+    }
+    .entity.large-buttons {
+        font-size: 2vw;
+        width:24vw;
+        height:24vw;
+        margin: 0 0.5vw 0.5vw 0;
+    }
+    .entity.sensor .name,.entity:not(.sensor) .value  {
+        font-size:1rem;
+        line-height: 1rem;
+    }
+    .entity.sensor.large-buttons .name,.entity.large-buttons:not(.sensor) .value {
+        font-size:1rem;
+    }
+    .entity.sensor .value {
+        font-size:1rem;
+    }
+    .entity.sensor.large-buttons .value {
+        font-size:1.4rem;
+    }
+    .entity.media_player .controls {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size:1rem;
+    }
+    .switches {
+        padding:6vw;
+    }
+    .switches h4 {
+        font-size: 3vw;
+    }
+    .switches div[class^=w] {
+        display: inline-block;
+        vertical-align: top;
+        width:100vw;
+        height: calc((8.5vw * 4) + 120vw);
+    }
+    .switches .w0,.switches .w1,.switches .w2,.switches .w3,.switches .w4 {
+        width:calc(18.5vw + 1vw) !important;
+    }
+    .switches .w5,.switches .w6,.switches .w7,.switches .w8 {
+        width:calc((18.5vw * 2) + 1vw) !important;
+    }
+    .switches .w9,.switches .w10,.switches .w11,.switches .w12 {
+        width:calc((18.5vw * 3) + 1vw) !important;
+    }
+    .switches .w13,.switches .w14,.switches .w15,.switches .w16 {
+        width:calc((18.5vw * 4) + 1vw) !important;
+    }
+    .switches .w17,.switches .w18,.switches .w19,.switches .w20 {
+        width:calc((18.5vw * 5) + 1vw) !important;
+    }
+
+    .switches .w1.large-buttons,.switches .w2.large-buttons,.switches .w3.large-buttons,.switches .w4.large-buttons {
+        width:calc(24.5vw + 1vw) !important;
+    }
+    .switches .w5.large-buttons,.switches .w6.large-buttons,.switches .w7.large-buttons,.switches .w8.large-buttons {
+        width:calc((24.5vw * 2) + 1vw) !important;
+    }
+    .switches .w9.large-buttons,.switches .w10.large-buttons,.switches .w11.large-buttons,.switches .w12.large-buttons {
+        width:calc((24.5vw * 3) + 1vw) !important;
+    }
+    .switches .w13.large-buttons,.switches .w14.large-buttons,.switches .w15.large-buttons,.switches .w16.large-buttons {
+        width:calc((24.5vw * 4) + 1vw) !important;
+    }
+    .switches .w17.large-buttons,.switches .w18.large-buttons,.switches .w19.large-buttons,.switches .w20.large-buttons {
+        width:calc((24.5vw * 5) + 1vw) !important;
+    }
+    .settings-icon {
+        display:block;
+        position:fixed;
+        top:0;
+        right:0;
+        padding:6vw;
+        font-size:1.6rem;
+    }
+}
+
+        /* This comment need to fix syntax highlighting */
+    </style>
+
+</head>
+
+<body class="{{settings.background_color}} bold300 no-padding" ng-app="hassApp" ng-controller="hassCtrl" ng-style="settings.background != '' && {'background-image':'url('+settings.background+')'}">
+    <div class="background layer0" style="background-color:rgba(0,0,0,0.6)" ng-show="settings.background != ''"></div>
+    <div class="background layer0" style="background-color:rgba(0,0,0,0.3)" ng-show="settings.background == ''"></div>
+    <div ng-show="view.page == 'loading'" class="vh100 vw100 text-middle">
+        <div class="sk-cube-grid">
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
+        </div>
+    </div>
+
+    <div ng-show="view.page == 'initsettings'" class="vh100 vw100 overflow-y text-middle">
+    <div class="w50 responsive">
+        <p class="big" ng-bind-html="view.message"></p><br>
+        <button class="bg-topaz" ng-click="searchHA()" ng-hide="view.searching">Auto Detect Home Assistant Server</button>
+        <p ng-show="view.searching"><i class="fas fa-sync-alt big rotate"></i></p>
+        <p ng-click="view.page = 'settings'" class="clickable">Manual Setup</p>
+    </div>
+</div>
+
+<div ng-show="view.page == 'setup1'" class="vh100 vw100 text-middle">
+    <div class="w50 responsive">
+        <p class="big" ng-bind-html="view.message"></p><br>
+        <button ng-click="testAPI();" class="bg-topaz">Next ></button>
+        <p ng-click="view.page = 'settings'" class="clickable">Manual Setup</p>
+    </div>
+</div>
+
+<div ng-show="view.page == 'setup2'" class="vh100 vw100 text-middle">
+    <div class="w50 responsive">
+        <p class="big" ng-bind-html="view.message"></p><br>
+        <input type="text" ng-model="settings.server_url"><br><br>
+        <button ng-click="searchHA(settings.server_url);" class="bg-topaz">Connect</button>
+        <p ng-click="view.page = 'settings'" class="clickable">Manual Setup</p>
+    </div>
+</div>
+
+<div ng-show="view.page == 'setup3'" class="vh100 vw100 text-middle">
+    <div class="w50 responsive">
+        <p class="big" ng-bind-html="view.message"></p><br>
+        <input type="text" ng-model="settings.server_api_password"><br><br>
+        <button ng-click="testAPI(settings.server_api_password);" class="bg-topaz">Connect</button>
+        <p ng-click="view.page = 'settings'" class="clickable">Manual Setup</p>
+    </div>
+</div>
+
+    <div ng-show="view.page == 'control'">
+    <div class="header container vw100 text-left text-white layer1">
+        <div class="w50 top text-left">
+
+            <h1 class="capitalize padding1-bottom"><span ng-bind="clock | date:'EEE, d'"></span><span ng-bind="clock | date:'d' | ordinal"></span> <span ng-bind="clock | date:'MMMM'"></span></h1>
+            <h3 ng-bind="clock | date:'HH:mm'"></h3>
+        </div><div class="w50 top text-right" ng-show="view.top_right == 'weather'">
+            <h1 class="capitalize padding1-bottom" ng-show="entity[settings.weather.temp].state"><span ng-bind="entity[settings.weather.temp].state"></span><span ng-bind="entity[settings.weather.temp].attributes.unit_of_measurement"></span> <span ng-show="settings.weather.condition" ng-bind="entity[settings.weather.condition].state"></span></h1>
+            <h3 ng-show="settings.weather.precipitation && settings.weather.condition">
+                <span ng-show="entity[settings.weather.precipitation].state > 75">If it's not <span ng-show="match(entity[settings.weather.condition].state,'snow')">snowing</span><span ng-hide="match(entity[settings.weather.condition].state,'snow')">raining</span> now, it will be later</span>
+                <span ng-show="entity[settings.weather.precipitation].state > 50 && entity[settings.weather.precipitation].state <= 75">Good chance of <span ng-show="match(entity[settings.weather.condition].state,'snow')">snow</span><span ng-hide="match(entity[settings.weather.condition].state,'snow')">rain</span></span>
+                <span ng-show="entity[settings.weather.precipitation].state > 25 && entity[settings.weather.precipitation].state <= 50">Possibility of <span ng-show="match(entity[settings.weather.condition].state,'snow')">snow</span><span ng-hide="match(entity[settings.weather.condition].state,'snow')">rain</span></span>
+                <span ng-show="entity[settings.weather.precipitation].state > 5 && entity[settings.weather.precipitation].state <= 25">Looks like it'll be dry</span>
+                <span ng-show="entity[settings.weather.precipitation].state <= 5">Mostly Dry</span>
+            </h3>
+        </div>
+        <div class="w50 top text-right" ng-show="view.top_right == 'notification'">
+            <h1 class="capitalize padding1-bottom"><span ng-bind="notification.title"></span></h1>
+            <h3 ng-bind="notification.message"></h3>
+            <h3 ng-bind="notification.time | date:'HH:mm:ss'"></h3>
+        </div>
+        <div class="w50 top text-right debug" ng-show="view.top_right == 'debug'">
+            <div class="container">
+                <div class="w50 top text-left margin-right">
+
+                    <h3 class="float-right"><span ng-bind="local_notification.time | date:'HH:mm:ss'"></span> <span ng-bind="local_notification.status"></span></h3>
+                    <h1 class="margin-bottom border-bottom padding1-bottom">Local Events</h1>
+                    <h1 class="padding1-bottom"><span ng-bind="local_notification.title"></span></h1>
+                    <h3 class="padding1-bottom" ng-bind="local_notification.message"></h3>
+                </div>
+                <div class="w50 top text-left margin-right">
+                    <h3 class="float-right" ng-bind="debug_notification.time | date:'HH:mm:ss'"></h3>
+                    <h1 class="margin-bottom border-bottom padding1-bottom">WebSocket Events</h1>
+                    <h1 class="padding1-bottom"><span ng-bind="debug_notification.title"></span></h1>
+                    <h3 class="padding1-bottom" ng-bind="debug_notification.message"></h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="switches container vw100 text-left overflow-x">
+        <div class="w16" ng-show="view.no_groups">
+            <p class="bold600">Looks like you need to add some groups.</p>
+            <p class="padding-bottom">Groups hold entities and entities make the tiles you need to control your home. When you're done creating your groups, long press on the Settings icon to exit 'Edit Mode'.</p>
+            <p>Click the + icon to add a new group</p>
+        </div>
+        <div class="w{{page.entities.length+view.edit_mode}} {{settings.buttons}}" ng-repeat="(key,page) in pages" ng-if="page.view">
+            <div class="switch-header" ng-class="{'edit':view.edit_mode==1}">
+                <h4 class="capitalize" ng-bind="page.name | parse_name"></h4>
+                <div ng-show="view.edit_mode == 1">
+                    <div class="edit-control text-left clickable" ng-click="deletePage(key)">
+                        Delete
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="entity padding1 {{settings.buttons}} {{entity[ent.entity_id].state}} {{entity[ent.entity_id].entity_id | getType}}" ng-repeat="ent in page.entities track by $index" ng-click="toggle(entity[ent.entity_id],false,key)" on-long-press="showEntity(entity[ent.entity_id])" style="background-image:url({{settings.server_url+entity[ent.entity_id].attributes.entity_picture}})">
+                    <p class="name" ng-show="entity[ent.entity_id].attributes.friendly_name"><span ng-bind="entity[ent.entity_id].attributes.friendly_name | limitTo: 20"></span><span ng-show="entity[ent.entity_id].attributes.friendly_name.length>20">...</span></p>
+                    <p class="name" ng-bind="entity[ent.entity_id].entity_id" ng-hide="entity[ent.entity_id].attributes.friendly_name"></p>
+                    <p class="value" class="capitalize" ng-show="match(entity[ent.entity_id].entity_id,'sensor')"><span ng-bind="entity[ent.entity_id].state"></span><span ng-bind="entity[ent.entity_id].attributes.unit_of_measurement"></span></p>
+                    <div class="controls"><i class="fas fa-pause" ng-show="entity[ent.entity_id].state == 'playing'"></i><i class="fas fa-play" ng-show="entity[ent.entity_id].state == 'paused' || entity[ent.entity_id].state == 'idle'"></i></div>
+                </div>
+                <div class="entity padding1 {{settings.buttons}} sensor" ng-click="view.page = 'select_entity';view.selected_page = key" ng-show="view.edit_mode == 1">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="settings-icon layer-top">
+        <a ng-show="view.edit_mode == 1" ng-click="newPage()" style="margin-right:2em"><i class="fas fa-plus"></i></a> <a ng-click="view.page = 'settings'" on-long-press="toggleEditMode()"><i class="fas fa-cog"></i></a>
+    </div>
+</div>
+
+<div class="vh100 vw100 padding2 text-left overflow-y" ng-show="view.page == 'select_entity'">
+    <div class="w50 responsive padding1-bottom">
+        <h3>Add an Entity</h3>
+        <p>Use the search below and select an entity to add it to {{view.selected_page}}</p>
+        <input type="text" ng-model="view.entity_search" placeholder="Quick Search">
+    </div><div class="w50 responsive padding1-bottom text-right">
+        <button class="bg-topaz" ng-click="view.page = 'control'">Close</button>
+    </div>
+    <div>
+        <div class="entity padding1 {{settings.buttons}} {{entity[ent.entity_id].state}} {{entity[ent.entity_id].entity_id | getType}}" ng-repeat="ent in pages.default_group.entities | filter:view.entity_search | orderBy:'entity_id'" ng-click="addEntity(view.selected_page, ent)" style="background-image:url({{settings.server_url+entity[ent.entity_id].attributes.entity_picture}})">
+            <p class="name" ng-show="entity[ent.entity_id].attributes.friendly_name"><span ng-bind="entity[ent.entity_id].attributes.friendly_name | limitTo: 20"></span><span ng-show="entity[ent.entity_id].attributes.friendly_name.length>20">...</span></p>
+            <p class="name" ng-bind="entity[ent.entity_id].entity_id" ng-hide="entity[ent.entity_id].attributes.friendly_name"></p>
+            <p class="value" class="capitalize" ng-show="match(entity[ent.entity_id].entity_id,'sensor')"><span ng-bind="entity[ent.entity_id].state"></span><span ng-bind="entity[ent.entity_id].attributes.unit_of_measurement"></span></p>
+            <div class="controls"><i class="fas fa-pause" ng-show="entity[ent.entity_id].state == 'playing'"></i><i class="fas fa-play" ng-show="entity[ent.entity_id].state == 'paused' || entity[ent.entity_id].state == 'idle'"></i></div>
+        </div>
+    </div>
+</div>
+
+    
+    <div ng-if="view.page == 'entity'" class="vh100 vw100 text-left text-white padding2 layer2 overflow-y">
+        <div class="w100">
+            <div class="container">
+                <div class="w40 top">
+                    <h2 class="padding-bottom"><span ng-bind="popup.entity_id" ng-hide="popup.attributes.friendly_name"></span><span  ng-bind="popup.attributes.friendly_name" ng-show="popup.attributes.friendly_name"></span> <span class="capitalise" ng-bind="popup.entity_id | getType"></span> Settings</h2>
+                </div>
+                <div class="w60 top text-right">
+                    <button class="bg-black text-white" ng-click="view.page = 'control'">&times;</button>
+                </div>
+                <div class="w40 top responsive padding2-bottom">
+
+                    <p class="margin-top">Brightness</p>
+                    <input type="range" min="0" max="255" ng-model="popup.attributes.brightness" ng-mouseup="toggle(popup,'light/turn_on')" my-touchend="toggle(popup,'light/turn_on')"><br><br>
+
+                    <p>Color Temperature</p>
+                    <input type="range" min="{{popup.attributes.min_mireds}}" max="{{popup.attributes.max_mireds}}" ng-model="popup.attributes.color_temp" ng-mouseup="toggle(popup,'light/turn_on')" my-touchend="toggle(popup,'light/turn_on')">
+
+                    <div class="debug padding-top" ng-show="view.top_right == 'debug'">
+                        <div class="container">
+                            <div class="w50 top text-left margin-right">
+
+                                <h3 class="float-right"><span ng-bind="local_notification.time | date:'HH:mm:ss'"></span> <span ng-bind="local_notification.status"></span></h3>
+                                <h1 class="margin-bottom border-bottom padding1-bottom">Local Events</h1>
+                                <h1 class="padding1-bottom"><span ng-bind="local_notification.title"></span></h1>
+                                <h3 class="padding1-bottom" ng-bind="local_notification.message"></h3>
+                            </div>
+                            <div class="w50 top text-left margin-right">
+                                <h3 class="float-right" ng-bind="debug_notification.time | date:'HH:mm:ss'"></h3>
+                                <h1 class="margin-bottom border-bottom padding1-bottom">WebSocket Events</h1>
+                                <h1 class="padding1-bottom"><span ng-bind="debug_notification.title"></span></h1>
+                                <h3 class="padding1-bottom" ng-bind="debug_notification.message"></h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w60 top padding-left responsive">
+                    <div class="padding2-bottom container">
+                        <div class="w33 responsive middle margin-right">
+                            <p class="margin-top">Turn On at Time</p>
+                            <div class="container">
+                                <div class="w33 margin-right">
+                                    <select ng-model="view.schedule_hours" class="time">
+                                        <option ng-repeat="hours in getHourList()" ng-bind="hours" value="{{hours}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w33 margin-right">
+                                    <select ng-model="view.schedule_mins" class="time">
+                                        <option ng-repeat="mins in getMinuteList()" ng-bind="mins" value="{{mins}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w33 margin-right">
+                                    <button class="bg-topaz" ng-click="addSchedule(popup,view.schedule_hours+view.schedule_mins,'light/turn_on',true)" style="width:100%; padding:0.8rem 0 0.8rem 0;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w33 responsive middle margin-right">
+                            <p class="margin-top">Turn On at Time of Day</p>
+                            <div class="container">
+                                <div class="w75 margin-right">
+                                    <select ng-model="view.schedule_day_night">
+                                        <option ng-repeat="auto in ['sunrise','daytime','sunset','nighttime']" ng-bind="auto" value="{{auto}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w25 margin-right">
+                                    <button class="bg-topaz" ng-click="addSchedule(popup,view.schedule_day_night,'light/turn_on',true)" style="width:100%; padding:0.8rem 0 0.8rem 0;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w33 responsive middle margin-right">
+                            <p class="margin-top">Turn On with Entity</p>
+                            <div class="container">
+                                <div class="w75 margin-right">
+                                    <select ng-model="view.schedule_entity">
+                                        <option ng-repeat="ent in entity" ng-bind="ent.entity_id" value="{{ent.entity_id}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w25 margin-right">
+                                    <button class="bg-topaz" ng-click="addSchedule(popup,view.schedule_entity,popup.entity_id,true)" style="width:100%; padding:0.8rem 0 0.8rem 0;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding2-bottom container">
+                        <div class="w33 responsive middle margin-right">
+                            <p class="margin-top">Turn Off at Time</p>
+                            <div class="container">
+                                <div class="w33 margin-right">
+                                    <select ng-model="view.schedule_hours_off" class="time">
+                                        <option ng-repeat="hours in getHourList()" ng-bind="hours" value="{{hours}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w33 margin-right">
+                                    <select ng-model="view.schedule_mins_off" class="time">
+                                        <option ng-repeat="mins in getMinuteList()" ng-bind="mins" value="{{mins}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w33 margin-right">
+                                    <button class="bg-topaz" ng-click="addSchedule(popup,view.schedule_hours_off+view.schedule_mins_off,'light/turn_off',true)" style="width:100%; padding:0.8rem 0 0.8rem 0;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w33 responsive middle margin-right">
+                            <p class="margin-top">Turn Off at Time of Day</p>
+                            <div class="container">
+                                <div class="w75 margin-right">
+                                    <select ng-model="view.schedule_day_night_off">
+                                        <option ng-repeat="auto in ['sunrise','daytime','sunset','nighttime']" ng-bind="auto" value="{{auto}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w25 margin-right">
+                                    <button class="bg-topaz" ng-click="addSchedule(popup,view.schedule_day_night_off,'light/turn_off',true)" style="width:100%; padding:0.8rem 0 0.8rem 0;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w33 responsive middle margin-right">
+                            <p class="margin-top">Auto Turn off</p>
+                            <div class="container">
+                                <div class="w75 margin-right">
+                                    <select ng-model="view.schedule_auto_off">
+                                        <option ng-repeat="auto in ['1','5','10','15','20','30','40','50','60']" ng-bind="auto" value="{{auto}}"></option>
+                                    </select>
+                                </div>
+                                <div class="w25 margin-right">
+                                    <button class="bg-topaz" ng-click="addSchedule(popup,view.schedule_auto_off,'auto_off',true)" style="width:100%; padding:0.8rem 0 0.8rem 0;">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding1-bottom">
+                        <div class="table">
+                            <div class="row border-bottom">
+                                <div class="cell">Trigger</div>
+                                <div class="cell">Action</div>
+                                <div class="cell" style="width:15%">Brightness</div>
+                                <div class="cell" style="width:15%">Color</div>
+                                <div class="cell text-right" style="width:15%">Remove</div>
+                            </div>
+                            <div class="row" ng-repeat="event in schedule_index[popup.entity_id] | orderBy:'time' track by $index" ng-click="toggle(event.entity,event.action)">
+                                <div class="cell" ng-bind="event.time | parse_time"></div>
+                                <div class="cell" ng-bind="event.action"></div>
+                                <div class="cell" ng-bind="event.entity.attributes.brightness"></div>
+                                <div class="cell" ng-bind="event.entity.attributes.color_temp"></div>
+                                <div class="cell text-right clickable" ng-click="delSchedule(event.entity_id,event.time)">&times;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="view.page == 'camera'" class="vh100 vw100 text-left text-white layer2 overflow-y">
+        <div class="w100">
+            <img class="stream" ng-src="{{popup.attributes.entity_picture}}&t=" onload='setTimeout(function() {src = src.substring(0, (src.lastIndexOf("t=")+2))+(new Date()).getTime()}, 250)' onerror="setTimeout(function() {src = src.substring(0, (src.lastIndexOf('t='')+2))+(new Date()).getTime()}, 5000)" ng-click="popup = {}; view.page = 'control'" />
+            <!-- <img class="stream" ng-src="{{popup.attributes.entity_picture}}?t=" ng-click="popup = {}; view.page = 'control'" /> -->
+        </div>
+        <div class="padding2">
+            <div class="container padding-bottom">
+                <div class="w50 top responsive">
+                    <h2 class="margin-bottom"><span class="capitalise" ng-bind="popup.attributes.friendly_name"></span> Settings</h2>
+                </div>
+                <div class="w50 top responsive text-right">
+                    <button class="bg-emerald" ng-show="saved">&#10003;</button> <button class="bg-topaz" ng-click="addCustomEntity(popup)">Update</button> <button class="bg-black" ng-click="popup = {};view.page = 'control'">&times;</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="w50 top responsive margin-right">
+                    <label>Camera Still Image Address</label><br>
+                    <input type="text" ng-model="popup.attributes.entity_picture">
+                </div>
+                <div class="w50 top responsive margin-right">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="view.page == 'settings'" class="vh100 vw100 overflow-y">
+    <div class="w100 text-left padding2 padding-bottom">
+        <div class="w50 responsive top margin-right">
+            <h2>Settings</h2>
+            <p>Use the options below to connect to your Home Assistant Server and configure the options for this control panel. If you'd like to run this app locally, or from your HA web server, click the download button below and copy to: &lt;config-dir&gt;/www. You can then access it via https://hostname/local/hass.html</p>
+            <a href="https://reformedreality.com/hass-download.html" download="hass.html"><button class="bg-topaz">Download</button></a>
+        </div><div class="w50 responsive top margin-right text-right">
+            <button class="bg-emerald" ng-show="saved">&#10003;</button> <button class="bg-emerald" ng-click="save()">Save</button> <button class="bg-topaz" ng-click="connect();view.page='loading'">Connect</button> <button class="bg-dark-grey" ng-click="closeSettings()" ng-if="settings.server_url">&times;</button><button class="bg-dark-grey" ng-if="!settings || !settings.server_url" ng-click="view.page = 'initsettings'">&times;</button>
+        </div>
+    </div>
+    <div class="w100 text-left fixed-height">
+        <div class="w33 top responsive padding2">
+            <h3 class="margin-bottom">Connect</h3>
+            <label>Server URL</label>
+            <input type="text" ng-model="settings.server_url">
+            <label>API Password</label>
+            <input type="password" ng-model="settings.server_api_password">
+
+            <h3 class="padding-top margin-top margin-bottom">Weather</h3>
+            <label>Condition Entity</label>
+            <input type="text" ng-model="settings.weather.condition">
+            <label>Temperature Entity</label>
+            <input type="text" ng-model="settings.weather.temp">
+            <label>Precipitation Entity</label>
+            <input type="text" ng-model="settings.weather.precipitation">
+        </div><div class="w33 top responsive padding2">
+            <h3 class="margin-bottom">Notifications</h3>
+            <div class="container margin-bottom">
+                <div class="w50 responsive margin-right">
+                    <label>Notifications</label><br>
+                    <input id="check-notification" type="checkbox" ng-model="settings.notifications.show" class="switch off-on"><label for="check-notification"></label>
+                </div>
+                <div class="w50 responsive margin-right">
+                    <label>Auto Dismiss</label><br>
+                    <input id="check-dismiss" type="checkbox" ng-model="settings.notifications.auto_dismiss" class="switch off-on"><label for="check-dismiss"></label>
+                </div>
+            </div>
+            <label>Auto Dismiss Timeout</label>
+            <input type="text" ng-model="settings.notifications.timeout">
+
+            <h3 class="padding-top margin-top margin-bottom">Background</h3>
+            <label>Background Image URL</label>
+            <input type="text" ng-model="settings.background" ng-keyup="settings.background_color=''">
+            <label>Background Color</label>
+            <div class="container">
+                <div class="w20 square margin-right bg-topaz clickable" ng-click="settings.background_color = 'bg-topaz bg-color';settings.background = ''">
+                </div>
+                <div class="w20 square margin-right bg-emerald clickable" ng-click="settings.background_color = 'bg-emerald bg-color';settings.background = ''">
+                </div>
+                <div class="w20 square margin-right bg-puse clickable" ng-click="settings.background_color = 'bg-puse bg-color';settings.background = ''">
+                </div>
+                <div class="w20 square margin-right bg-ruby clickable" ng-click="settings.background_color = 'bg-ruby bg-color';settings.background = ''">
+                </div>
+                <div class="w20 square margin-right bg-dark-grey clickable" ng-click="settings.background_color = 'bg-dark-grey bg-color';settings.background = ''">
+                </div>
+            </div>
+        </div><div class="w33 top responsive padding2">
+            <h3 class="margin-top margin-bottom">Panel Buttons</h3>
+            <div class="container mobile-hide">
+                <div class="w50 responsive margin-right">
+                    <input id="radio-reg" type="radio" name="buttons" ng-click="buttonSize('8vw')" ng-checked="settings.button_size == '8vw'"><label for="radio-reg">Regular</label>
+                </div>
+                <div class="w50 responsive margin-right">
+                    <input id="radio-large" type="radio" name="buttons" ng-click="buttonSize('9.5vw')" ng-checked="settings.button_size == '9.5vw'"><label for="radio-large">Large</label>
+                </div>
+            </div>
+            <div class="container mobile-show">
+                <div class="w50 responsive margin-right">
+                    <input id="radio-mob-reg" type="radio" name="buttons" ng-click="buttonSize('25vw')" ng-checked="settings.button_size == '25vw'"><label for="radio-mob-reg">Regular</label>
+                </div>
+                <div class="w50 responsive margin-right">
+                    <input id="radio-mob-large" type="radio" name="buttons" ng-click="buttonSize('29vw')" ng-checked="settings.button_size == '29vw'"><label for="radio-mob-large">Large</label>
+                </div>
+            </div>
+            <h3 class="padding-top margin-bottom">Debug Mode</h3>
+            <div class="container">
+                <div class="w50 responsive margin-right">
+                    <label>Debug Mode</label><br>
+                    <input id="check-debug" type="checkbox" ng-model="settings.debug" ng-click="notification = {};" class="switch off-on"><label for="check-debug"></label>
+                </div>
+                <div class="w50 responsive margin-right">
+                    <label>Sun Events</label><br>
+                    <input id="check-sun-events" type="checkbox" ng-model="settings.debug_sun_events" class="switch off-on"><label for="check-sun-events"></label><br>
+                </div>
+            </div>
+            <p class="margin-top">Enable this option to show events and logs in the notification area</p>
+
+            <h3 class="padding-top margin-top margin-bottom">Reset</h3>
+            <button class="w100 bg-ruby" ng-click="resetSettings('settings')">Reset Settings</button><br>
+            <button class="w100 bg-ruby" ng-click="resetSettings('custom_pages')">Reset Groups</button><br>
+            <button class="w100 bg-ruby" ng-click="resetSettings('automations')">Reset Automations</button>
+        </div>
+    </div>
+    <div class="w100 text-left fixed-height">
+
+        <div class="w100 padding2 padding5-bottom">
+            <h3 class="margin-bottom">All Automations</h3>
+            <div class="table">
+                <div class="row border-bottom">
+                    <div class="cell">Trigger</div>
+                    <div class="cell">
+                        <div class="table">
+                            <div class="row">
+                                <div class="cell no-padding">Entity ID</div>
+                                <div class="cell no-padding">Action</div>
+                                <div class="cell no-padding text-right">Brightness</div>
+                                <div class="cell no-padding text-right">Color Temp</div>
+                                <div class="cell no-padding text-right">Delete</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="(key, val) in schedule track by $index" style="border-bottom:1px solid rgba(255,255,255,0.2)">
+                    <div class="cell bold" ng-bind="key"></div>
+                    <div class="cell">
+                        <div class="table">
+                            <div class="row" ng-repeat="item in val | orderBy:'time'">
+                                <div class="cell no-padding" ng-bind="item.entity_id"></div>
+                                <div class="cell no-padding" ng-bind="item.action"></div>
+                                <div class="cell no-padding text-right" ng-bind="item.entity.attributes.brightness"></div>
+                                <div class="cell no-padding text-right" ng-bind="item.entity.attributes.color_temp"></div>
+                                <div class="cell no-padding bold text-right clickable" ng-click="delSchedule(item.entity_id,key)">&times;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <script>
+        document.write('<style>.move-up{opacity: 0;transform: translate(0px, 20px)}.move-left {opacity: 0;transform: translate(20px, 0px)}.move-right {opacity: 0;transform: translate(-20px, 0px)}</style>');
+{"use strict";let StickyStack={mobileBreak:768,list:[],number:0,stackTop:0,init:function(){StickyStack.stopObserving();for(let i=0;i<StickyStack.number;i++){let placeholder=StickyStack.list[i].placeholder;let currElement=StickyStack.list[i].element;placeholder.parentNode.removeChild(placeholder);StickyStack.removeClass(currElement,'stickystack-stuck');currElement.style.position=null;currElement.style.top=null;currElement.style.left=null;currElement.style.width=null;currElement.style.marginTop=null;currElement.style.marginBottom=null;}
+StickyStack.number=0
+let elementList=document.getElementsByClassName('js-stickystack');if(window.innerWidth<=StickyStack.mobileBreak){let newElementList=[];for(let i=0;i<elementList.length;i++){if(!StickyStack.hasClass(elementList[i],'js-stickystack-nomobile')){newElementList.push(elementList[i]);}}
+elementList=newElementList;}
+StickyStack.number=elementList.length;StickyStack.list=[];StickyStack.stackTop=0;for(let i=0;i<StickyStack.number;i++){let style=window.getComputedStyle(elementList[i]);let placeholderElement=document.createElement('div');placeholderElement.style.width=style.getPropertyValue("width");placeholderElement.style.height=style.getPropertyValue("height");placeholderElement.style.top=style.getPropertyValue("top");placeholderElement.style.right=style.getPropertyValue("right");placeholderElement.style.bottom=style.getPropertyValue("bottom");placeholderElement.style.left=style.getPropertyValue("left");placeholderElement.style.margin=style.getPropertyValue("margin");placeholderElement.style.padding=style.getPropertyValue("padding");placeholderElement.style.border=style.getPropertyValue("border");placeholderElement.style.float=style.getPropertyValue("float");placeholderElement.style.clear=style.getPropertyValue("clear");placeholderElement.style.position=style.getPropertyValue("position");placeholderElement.style.display='none';placeholderElement.style.visibility='hidden';elementList[i].parentNode.insertBefore(placeholderElement,elementList[i]);let coords=StickyStack.getCoords(elementList[i]);StickyStack.list.push({element:elementList[i],top:coords.top,left:coords.left- parseFloat(style.getPropertyValue("margin-left")),width:parseFloat(style.getPropertyValue("width")),placeholder:placeholderElement,semistuck:StickyStack.hasClass(elementList[i],'js-stickystack-semi'),zIndex:100- i});}
+StickyStack.list.sort(StickyStack.sortByTop);StickyStack.stackTop=0;elementList=document.getElementsByClassName('js-stickystack-top');for(let i=0;i<elementList.length;i++){let top=StickyStack.getCoords(elementList[i]).top;if(i==0){StickyStack.stackTop=top;}else{StickyStack.stackTop=Math.min(StickyStack.stackTop,top);}}
+StickyStack.update();StickyStack.startObserving();},update:function(){let stack=[[StickyStack.stackTop,0,document.body.offsetWidth]];let pageOffset=window.pageYOffset;for(let i=0;i<StickyStack.number;i++){let curr=StickyStack.list[i];let currElement=curr.element;let currPlaceholder=curr.placeholder;let currLeft=curr.left;let currTop=curr.top- pageOffset;let currWidth=curr.width;let overlapData=StickyStack.getOverlap([currTop,currLeft,currWidth],stack);if(overlapData.overlap>0){currPlaceholder.style.display='inline-block';StickyStack.addClass(currElement,'stickystack-stuck');let scrollback=0;if(StickyStack.list[i].semistuck&&(i+1)<StickyStack.number){let tempStack=[[overlapData.absolute+ currElement.offsetHeight,currLeft,currWidth]];for(let j=i+ 1;j<StickyStack.number;j++){let testBlock=[StickyStack.list[j].top- pageOffset,StickyStack.list[j].left,StickyStack.list[j].width];let overlapSemiData=StickyStack.getOverlap(testBlock,tempStack);if(overlapSemiData.overlap>0){scrollback=overlapSemiData.overlap;break;}}}
+currElement.style.position='fixed';currElement.style.top=overlapData.absolute- scrollback+'px';currElement.style.left=currLeft+'px';currElement.style.width=currWidth+'px';currElement.style.zIndex=curr.zIndex;currElement.style.marginTop=0;currElement.style.marginBottom=0;stack.push([overlapData.absolute+ currElement.offsetHeight- scrollback,currElement.offsetLeft,currElement.offsetWidth]);}else{StickyStack.removeClass(currElement,'stickystack-stuck');currElement.style.position=null;currElement.style.top=null;currElement.style.left=null;currElement.style.width=null;currElement.style.zIndex=null;currElement.style.marginTop=null;currElement.style.marginBottom=null;currPlaceholder.style.display='none';}}},startObserving:function(){if(!StickyStack.observer){let MutationObserver=window.MutationObserver||window.WebKitMutationObserver;StickyStack.observer=new MutationObserver(StickyStack.init);}else{StickyStack.observer.disconnect();}
+StickyStack.observer.observe(document.body,{attributes:true,characterData:true,subtree:true});},stopObserving:function(){if(StickyStack.observer){StickyStack.observer.disconnect();}},getOverlap:function(block,stack){let overlap=0;let absolute=0;for(let i=0;i<stack.length;i++){if(block[0]<stack[i][0]&&(block[1]+ block[2]>stack[i][1]&&stack[i][1]+ stack[i][2]>block[1])){overlap=Math.max(overlap,stack[i][0]- block[0]);absolute=Math.max(absolute,stack[i][0]);}}
+return{overlap:overlap,absolute:absolute};},sortByTop:function(a,b){return(a.top- b.top);},getCoords:function(el){let box=el.getBoundingClientRect();let body=document.body;let docEl=document.documentElement;let scrollTop=window.pageYOffset||docEl.scrollTop||body.scrollTop;let scrollLeft=window.pageXOffset||docEl.scrollLeft||body.scrollLeft;let clientTop=docEl.clientTop||body.clientTop||0;let clientLeft=docEl.clientLeft||body.clientLeft||0;let top=box.top+ scrollTop- clientTop;let left=box.left+ scrollLeft- clientLeft;return{top:Math.round(top),left:Math.round(left)};},hasClass:function(el,className){if(el.classList){return el.classList.contains(className);}else{return!!el.className.match(new RegExp('(\\s|^)'+ className+'(\\s|$)'));}},addClass:function(el,className){if(el.classList){el.classList.add(className);}else if(!StickyStack.hasClass(el,className)){el.className+=" "+ className;}},removeClass:function(el,className){if(el.classList){el.classList.remove(className);}else if(StickyStack.hasClass(el,className)){var reg=new RegExp('(\\s|^)'+ className+'(\\s|$)');el.className=el.className.replace(reg,' ');}}};window.addEventListener('DOMContentLoaded',StickyStack.init);window.addEventListener('load',StickyStack.init);window.addEventListener('resize',StickyStack.init);window.addEventListener('scroll',StickyStack.update);window.addEventListener('DOMContentLoaded',function(){setTimeout(function(){StickyStack.update();},500);});window.addEventListener('load',function(){setTimeout(function(){StickyStack.update();},500);});}
+function setCookie(cname, cvalue, exdays) {var d = new Date();d.setTime(d.getTime() + (exdays*24*60*60*1000));var expires = "expires="+ d.toUTCString();document.cookie = cname + "=" + cvalue + "; " + expires;}
+function getCookie(cname) {var name = cname + "=";var ca = document.cookie.split(';');for(var i = 0; i <ca.length; i++) {var c = ca[i];while (c.charAt(0)==' ') {c = c.substring(1);}if (c.indexOf(name) == 0) {return c.substring(name.length,c.length);}}return "";}
+var document_containers = document.querySelectorAll("[class*='move']");var viewport_h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);for(var i = 0; i < document_containers.length; i++){if (document_containers[i].getBoundingClientRect().top<viewport_h){if (document_containers[i].classList && document_containers[i].classList.value && !document_containers[i].classList.value.match(/in-view/)){document_containers[i].className += " in-view";}}};window.addEventListener('scroll', function() {for(var i = 0; i < document_containers.length; i++){if (document_containers[i].getBoundingClientRect().top<viewport_h-150){if (document_containers[i].classList && document_containers[i].classList.value && !document_containers[i].classList.value.match(/in-view/)){document_containers[i].className += " in-view";}}}});
+var document_navs = document.getElementsByClassName("nav");for (var i = 0; i < document_navs.length; i++) {document_navs[i].addEventListener('click', showNavLinks, false);};function showNavLinks() {this.classList.toggle("open");};
+var document_nav_bars = document.getElementsByClassName("nav-bar");for (var i = 0; i < document_nav_bars.length; i++) {document_nav_bars[i].addEventListener('click', showNavBarLinks, false);};function showNavBarLinks() {this.classList.toggle("open");};
+document.onclick = function(event){var hasParent = false;for(var node = event.target; node != document.body; node = node.parentNode){if(node.classList.contains('nav') || node.classList.contains('nav-bar')){hasParent = true;break;}}if(hasParent){} else {for (var i = 0; i < document_navs.length; i++) {document_navs[i].classList.remove('open');}for (var i = 0; i < document_nav_bars.length; i++) {document_nav_bars[i].classList.remove('open');}}}
+function initFH(){
+    var fh_containers = document.querySelectorAll(".container.fixed-height");for (var i = 0; i < fh_containers.length; i++) {setHeight(fh_containers[i].children,fh_containers[i].offsetHeight);};
+    var ch_height = 0;var card_headers = document.querySelectorAll(".card .header");for (var i = 0; i < card_headers.length; i++) {if(card_headers[i]&&card_headers[i].offsetHeight&&card_headers[i].offsetHeight>ch_height){ch_height=card_headers[i].offsetHeight} if(i>=card_headers.length-1){setHeight(card_headers,ch_height)}};
+    var cb_height = 0;var card_bodies = document.querySelectorAll(".card .body");for (var i = 0; i < card_bodies.length; i++) {if(card_bodies[i]&&card_bodies[i].offsetHeight&&card_bodies[i].offsetHeight>cb_height){cb_height=card_bodies[i].offsetHeight} if(i>=card_bodies.length-1){setHeight(card_bodies,cb_height)}};
+}
+initFH();
+function setHeight(nodes,height){for (var i=0;i<nodes.length;i++){console.log(document.documentElement.clientWidth);if(document.documentElement.clientWidth>850){nodes[i].style.height=height+'px';}}};
+window.onresize = function(event) {
+    var ch_height = 0;var card_headers = document.querySelectorAll(".card .header");for (var i = 0; i < card_headers.length; i++) {if(card_headers[i]&&card_headers[i].offsetHeight&&card_headers[i].offsetHeight>ch_height){ch_height=card_headers[i].offsetHeight} if(i>=card_headers.length-1){setHeight(card_headers,ch_height)}};
+    var cb_height = 0;var card_bodies = document.querySelectorAll(".card .body");for (var i = 0; i < card_bodies.length; i++) {if(card_bodies[i]&&card_bodies[i].offsetHeight&&card_bodies[i].offsetHeight>cb_height){cb_height=card_bodies[i].offsetHeight} if(i>=card_bodies.length-1){setHeight(card_bodies,cb_height)}};
+    var fh_containers = document.querySelectorAll(".container.fixed-height");for (var i = 0; i < fh_containers.length; i++) {setHeight(fh_containers[i].children,fh_containers[i].offsetHeight);};
+};
+
+        /* This comment need to fix syntax highlighting */
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+initial_state: 'on'
+alias: 'person1 at work'
+trigger:
+  platform: state
+  entity_id: device_tracker.person1_mobile
+  to: 'work'
+action:
+  - service: automation.turn_on
+    entity_id: automation.person1_home_after_work

@@ -1,0 +1,259 @@
+title: Overview
+id: home
+path: home
+icon: mdi:home
+cards:
+  - type: custom:simple-weather-card
+    entity: weather.dark_sky
+    name: in current location
+    backdrop: 
+      fade: true
+      day: '#666677'
+      night: '#444466'
+    primary_info:
+      - extrema
+      - precipitation
+      - precipitation_probability
+    secondary_info:
+      - wind_speed
+      - wind_bearing
+  - type: horizontal-stack
+    cards:
+    - type: entity
+      entity: weather.dark_sky
+      attribute: 'temperature'
+      name: Outside
+      icon: 'mdi:thermometer'
+      unit: '°C'
+    - type: entity
+      entity: sensor.pi3_living_room_multi_temperature
+      name: Downstairs
+      icon: 'mdi:thermometer'
+    - type: entity
+      entity: sensor.upstairs_temperature
+      name: Upstairs
+      icon: 'mdi:thermometer'
+  - type: entity-filter
+    entities:
+      - entity: alert.garage_door_l
+        name: Garage door, bike
+      - entity: alert.garage_door_r
+        name: Garage door, car
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: entities
+      title: Alerts
+
+  - type: glance
+    columns: 5
+    show_name: false
+    entities:
+      - alarm_control_panel.ha_alarm
+      - input_text.person_person3
+      - input_text.person_person1
+      - input_text.person_person2
+      - input_text.person_person4
+        
+  - type: picture-entity
+    entity: camera.front_camera_motion
+    camera_view: live
+    show_name: false
+    show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: input_boolean.family_room_occupied
+        name: Family room
+      - entity: input_boolean.living_room_occupied
+        name: Living room
+        icon: mdi:seat
+      - entity: input_boolean.office_occupied
+        name: Office
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      title: Occupied rooms
+      show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: device_tracker.family_tv
+        name: Family room
+      - entity: media_player.family_room
+        name: Family room
+      - entity: media_player.cast_kitchen_speaker
+        name: Kitchen
+      - entity: media_player.family_room_display
+        name: Family room hub
+      - entity: media_player.living_room
+        name: Living room Sonos
+      - entity: media_player.living_room_display
+        name: Living room hub
+      - entity: media_player.cast_living_room_tv
+        name: Living room
+      - entity: media_player.samsung_tv
+        name: Living room
+      - entity: media_player.office
+        name: Office
+      - entity: media_player.office_display
+        name: Office hub
+      - entity: media_player.person2
+        name: Master bedroom
+      - entity: media_player.cast_master_bedroom_speaker
+        name: Master bedroom
+      - entity: media_player.person1
+        name: Second bedroom
+      - entity: media_player.cast_second_bedroom_speaker
+        name: Second bedroom
+      - entity: media_player.cast_master_bedroom_display
+        name: Guest bedroom
+    show_empty: false
+    state_filter:
+      - 'on'
+      - 'playing'
+      - 'idle'
+      - 'home'
+    card:
+      type: glance
+      title: Media players
+      show_state: false
+      
+  - type: entity-filter
+    entities:
+      - entity: binary_sensor.pi3_living_room_motion
+        name: Living room
+      - entity: binary_sensor.hall_downstairs_occupancy
+        name: Hall
+      - entity: binary_sensor.vestibule_occupancy
+        name: Vestibule
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      title: Motion
+      show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: binary_sensor.pi3_front_door_sensor
+        name: Front
+      - entity: binary_sensor.vestibule_window_front
+        name: Vestibule Front
+      - entity: binary_sensor.vestibule_window_side
+        name: Vestibule Side
+      - entity: binary_sensor.family_window_left
+        name: Family left
+      - entity: binary_sensor.family_window_right
+        name: Family right
+      - entity: binary_sensor.pi3_garage_closed_bike_sensor
+        name: Garage - bike
+      - entity: binary_sensor.pi3_garage_closed_car_sensor
+        name: Garage - car
+      - entity: binary_sensor.patio_window_left
+        name: Patio left
+      - entity: binary_sensor.patio_window_right
+        name: Patio right
+      - entity: binary_sensor.pi3_patio_door_left_sensor
+        name: Patio
+      - entity: binary_sensor.pi3_utility_door_exterior_sensor
+        name: Utility
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      columns: 4
+      title: Downstairs doors and windows
+      show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: binary_sensor.office_window
+        name: Office
+      - entity: binary_sensor.spare_bedroom_window_left
+        name: L Spare bedroom 
+      - entity: binary_sensor.spare_bedroom_window_right
+        name: R Spare bedroom
+      - entity: binary_sensor.second_bedroom_window_ensuite
+        name: 2nd ensuite
+      - entity: binary_sensor.second_bedroom_window_left
+        name: 2nd bed left
+      - entity: binary_sensor.second_bedroom_window_right
+        name: 2nd bed right
+      - entity: binary_sensor.bathroom_window
+        name: Bathroom
+      - entity: binary_sensor.guest_bedroom_window_left
+        name: Guest left
+      - entity: binary_sensor.guest_bedroom_window_right
+        name: Guest right
+      - entity: binary_sensor.master_window_left
+        name: Master left
+      - entity: binary_sensor.master_window_right
+        name: Master right
+      - entity: binary_sensor.master_window_ensuite
+        name: Master ensuite
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      columns: 4
+      title: Upstairs windows
+      show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: switch.pi3_garden_lights_switch
+        name: Garden
+        tap_action: 
+          action: toggle
+      - entity: light.master_bedroom_bedhead
+        name: Master bedhead
+      - entity: light.person1_bedroom_bedside
+        name: person1's Bedhead
+      - entity: switch.pi3_family_room_socket_switch
+        name: Family room
+        tap_action: 
+          action: toggle
+      - entity: light.hall
+        name: "Hall"
+      - entity: switch.pi3_hall_downstairs_switch
+        name: "Hall socket"
+        tap_action: 
+          action: toggle
+      - entity: switch.pi3_vestibule_switch
+        name: "Vestibule socket"
+        tap_action: 
+          action: toggle
+      - entity: switch.living_room_table
+        name: Table
+      - entity: switch.pi3_tv_light_switch
+        tap_action: 
+          action: toggle
+      - entity: switch.pi3_cabinet_light_switch
+        name: "Corner"
+        tap_action: 
+          action: toggle
+      - entity: switch.pi3_livingroom_socket_switch
+        name: "Cabinet"
+        tap_action: 
+          action: toggle
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      columns: 4
+      title: Lights
+      show_state: false
+
+  - type: custom:weather-card
+    entity: weather.dark_sky
+    current: true
+    details: true
+    forecast: true

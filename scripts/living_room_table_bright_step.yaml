@@ -1,0 +1,13 @@
+sequence:
+  - service: light.turn_on
+    data_template:
+      entity_id: light.living_room_table
+      transition: 2
+      brightness: >-
+        {% set current = states.light.living_room_table.attributes.brightness|default(0)|int %}
+        {% set step = states('input_number.light_step')|int %}
+        {% set next = current + step %}
+        {% if next > states('input_number.light_maximum')|int %}
+          {% set next = states('input_number.light_maximum')|int %}
+        {% endif %}
+        {{ next|int }}

@@ -1,0 +1,25 @@
+initial_state: 'on'
+alias: 'Alarm armed away trigger'
+trigger:
+  - platform: state
+    entity_id:
+    # doors
+      - binary_sensor.pi3_garage_closed_bike_sensor
+      - binary_sensor.pi3_garage_closed_car_sensor
+      - binary_sensor.pi3_patio_door_left_sensor
+    # Windows:
+      - group.my_downstairs_windows
+      - group.my_upstairs_windows
+    to: 'on'
+condition:
+  # Alarm is armed
+  - condition: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: armed_away
+  # Nobody's home
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
+action:
+  - service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm

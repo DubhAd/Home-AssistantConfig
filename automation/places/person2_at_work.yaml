@@ -1,0 +1,22 @@
+alias: 'person2 at Work'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    to: 'Work'
+    for: '00:30:00'
+  - platform: numeric_state
+    entity_id: proximity.person2_work
+    below: 2
+    for: '00:30:00'
+  - platform: numeric_state
+    entity_id: proximity.person2_work_2
+    below: 2
+    for: '00:30:00'
+condition:
+  - condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+action:
+  - service: homeassistant.turn_on
+    entity_id: automation.return_train_watcher

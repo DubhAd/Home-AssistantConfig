@@ -1,0 +1,17 @@
+initial_state: 'on'
+alias: 'person1 phone plugged'
+trigger:
+  - platform: event
+    event_type: tasker_webhook
+    event_data:
+      who: person1
+condition: 
+  - condition: template
+    value_template: >-
+      {{ 'Plugged' in trigger.event.data.what }}
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_phone_charging
+  - delay: '00:00:02'
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person1_phone_charging

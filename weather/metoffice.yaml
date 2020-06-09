@@ -1,0 +1,2 @@
+- platform: metoffice
+  api_key: !secret met_office

@@ -1,0 +1,6 @@
+name: person2
+options:
+  - Home
+  - Just Arrived
+  - Just Left
+  - Away

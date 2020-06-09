@@ -1,0 +1,9 @@
+alias: 'person1 is not travelling'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person1_travelling
+    to: 'off'
+action:
+  - service: switch.turn_on
+    entity_id: switch.radio_person1

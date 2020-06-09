@@ -1,0 +1,42 @@
+initial_state: 'on'
+alias: 'Vestibule mode on'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    below: 2.5
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'off'
+  - platform: state
+    to: 'Just Arrived'
+    entity_id: 
+      - input_select.person2_status_dropdown
+      - input_select.person3_status_dropdown
+      - input_select.person1_status_dropdown
+      - input_select.person4_status_dropdown
+condition:
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ not is_state('input_select.vestibule','On') }}"
+    # Christmas!
+    - condition: state
+      entity_id: input_select.season
+      state: 'Christmas'
+    # We're awake
+    - condition: state
+      entity_id: input_boolean.bedtime
+      state: 'off'
+    # Sun is relatively low
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      below: 2.5
+    # We're not away
+    - condition: state
+      entity_id: input_boolean.holiday_mode
+      state: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.vestibule
+      option: 'On'

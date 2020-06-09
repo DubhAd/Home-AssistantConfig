@@ -1,0 +1,17 @@
+alias: 'person1 on holiday'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: calendar.person1_holiday
+    to: 'on'
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '01:00:00'
+condition:
+  - condition: state
+    entity_id: calendar.person1_holiday
+    state: 'on'
+action:
+  - service: switch.turn_off
+    entity_id: switch.radio_person1

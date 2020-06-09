@@ -1,0 +1,32 @@
+initial_state: 'on'
+alias: 'person2 in the car'
+trigger:
+  - platform: event
+    event_type: tasker_webhook
+    event_data:
+      who: person2
+condition: 
+  # In, or leaving, the car
+  - condition: template
+    value_template: >-
+      {{ 'BT Car' in trigger.event.data.what }}
+  # Not home
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'off'
+action:
+  # Update 
+  - service: notify.logfile
+    data_template:
+      message: >
+         Location last updated within last 60 seconds? {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated)|float)|float < 60 }}
+         Location last updated {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated)|float)|float }} seconds ago
+  # Location was updated in the last minute
+  - condition: template
+    value_template: >-
+      {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated)|float)|float < 60 }}
+  - service: script.person2_traveltime
+  - service: notify.logfile
+    data_template:
+      message: >
+        Updated travel time because person2 has entered or exited the car, and we received a location update in the last minute

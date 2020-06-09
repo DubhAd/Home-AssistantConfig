@@ -1,0 +1,35 @@
+alias: 'person1 up reminder'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: "/10"
+  - platform: state
+    entity_id: input_boolean.person1_alarm_sounded
+    to: 'on'
+    for:
+      minutes: 5
+condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.person1_alarm_sounded
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.person1_in_bed
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.person1_home
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+    - condition: state
+      entity_id: calendar.person1_holiday
+      state: 'off'
+    - condition: time
+      after: '04:00:00'
+    - condition: time
+      before: '10:00:00'
+action:
+  - service: script.turn_on
+    entity_id: script.wake_person1

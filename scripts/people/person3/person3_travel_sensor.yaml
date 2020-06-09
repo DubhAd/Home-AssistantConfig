@@ -1,0 +1,21 @@
+alias: person3 travel sensor
+sequence:
+  - service: input_text.set_value
+    data_template:
+      entity_id: input_text.person_person3
+      value: >-
+        {% if is_state("input_boolean.person3_home", "on") %}
+          {% if is_state('input_boolean.person3_is_awake','off') %}
+            Sleeping
+          {% elif is_state('input_boolean.person3_in_bed','on') %}
+            In bed
+          {% else %}
+            {{ states("input_select.person3_status_dropdown") }} 
+          {% endif %}
+        {% elif is_state("device_tracker.person3_mobile", "home") and is_state("input_boolean.person3_home", "off") %}
+          Near home ({{ states("input_select.person3_status_dropdown") }})
+        {% elif not is_state("device_tracker.person3_mobile", "not_home") %}
+          At {{ states("device_tracker.person3_mobile") }}
+        {% else %}
+          {{ state_attr('sensor.person3s_time_to_home_by_bus', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person3s_time_to_home_by_bus', 'unit_of_measurement') }} to home
+        {% endif %}

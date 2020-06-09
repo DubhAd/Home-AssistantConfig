@@ -1,0 +1,19 @@
+alias: 'Trains from work'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: '/10'
+condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: or
+    conditions: 
+    - condition: numeric_state
+      entity_id: proximity.person2_work
+      below: 5
+    - condition: numeric_state
+      entity_id: proximity.person2_work_2
+      below: 5
+action:
+  - service: script.train_message

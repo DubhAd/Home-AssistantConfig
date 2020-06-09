@@ -1,0 +1,10 @@
+alias: 'person2 at Amsterdam Airport'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    to: 'Amsterdam Airport'
+action:
+  - service: notify.logfile
+    data_template:
+      message: "SENDperson3 person2's arrived at Amsterdam Airport"

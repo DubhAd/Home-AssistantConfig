@@ -1,0 +1,18 @@
+initial_state: 'on'
+alias: 'person3 home'
+trigger:
+  - platform: state
+    entity_id:
+      - device_tracker.person3_mobile
+      - device_tracker.person3_bt_mobile
+      - device_tracker.person3_bt_front_mobile
+    to: 'home'
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: numeric_state
+    entity_id: group.person_person3
+    above: 0
+    value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person3', 'entity_id'))|list)|groupby('state'))['home']|count }}"
+action:
+  - service: script.person3_home

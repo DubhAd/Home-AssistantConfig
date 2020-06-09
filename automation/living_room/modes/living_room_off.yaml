@@ -1,0 +1,58 @@
+initial_state: 'on'
+alias: 'Living room off'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 70
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 50
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 35
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: input_boolean.living_room_occupied
+    to: 'off'
+condition:
+  # Home occupied
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
+  # Not currently Off
+  - condition: template
+    value_template: "{{ not is_state('input_select.living_room','Off') }}"
+  # Either not in use, or bright
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_boolean.living_room_occupied
+      state: 'off'
+      # Bright, or...
+    - condition: numeric_state
+      entity_id: sensor.pi3_living_room_multi_luminance
+      above: 50
+    - condition: and
+      conditions:
+      # Sun is rising and not so bright
+      - condition: state
+        entity_id: binary_sensor.trend_sun_elevation
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.pi3_living_room_multi_luminance
+        above: 25
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+          Light level is {{ states('sensor.pi3_living_room_multi_luminance') }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.living_room
+      option: 'Off'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto

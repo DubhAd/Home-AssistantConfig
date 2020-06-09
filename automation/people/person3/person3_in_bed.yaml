@@ -1,0 +1,43 @@
+initial_state: 'on'
+alias: 'person3 in bed'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person3_phone_charging
+    to: 'on'
+  - platform: time
+    at: '23:00:00'
+condition:
+  - condition: state
+    entity_id: input_boolean.person3_is_awake
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person3_home
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: time
+        after: '22:00:00'
+        before: '04:00:00'
+      - condition: state
+        entity_id: input_boolean.person3_phone_charging
+        state: 'on'
+    - condition: and
+      conditions:
+      - condition: time
+        after: '22:59:00'
+        before: '04:00:00'
+      - condition: state
+        entity_id: input_boolean.living_room_occupied
+        state: 'off'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person3_in_bed
+  - condition: state
+    entity_id: input_boolean.person3_phone_charging
+    state: 'on'
+  - service: notify.logfile
+    data_template:
+      message: >
+        Marked person3 as being in bed because the phone was plugged in at {{ now() }}

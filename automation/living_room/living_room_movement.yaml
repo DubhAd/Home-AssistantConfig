@@ -1,0 +1,22 @@
+initial_state: 'on'
+alias: 'Living room movement'
+trigger:
+  platform: state
+  entity_id: binary_sensor.pi3_living_room_motion
+  to: 'on'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.livingroom_lights_auto
+      state: 'on'
+    - condition: state
+      entity_id: timer.living_room_motion
+      state: 'active'
+action:
+  - service: timer.cancel
+    entity_id: timer.living_room_motion
+  - service: timer.start
+    data:
+      entity_id: timer.living_room_motion
+      duration: '00:02:00'

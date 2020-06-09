@@ -1,0 +1,18 @@
+initial_state: 'on'
+alias: 'Guest mode on'
+trigger:
+  - platform: state
+    entity_id: group.guests
+    to: 'on'
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: state
+    entity_id: input_boolean.guest_mode
+    state: 'off'
+  - condition: state
+    entity_id: group.guests
+    state: 'on'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.guest_mode

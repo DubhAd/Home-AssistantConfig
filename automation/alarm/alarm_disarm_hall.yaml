@@ -1,0 +1,20 @@
+initial_state: 'on'
+alias: 'Alarm disarm hall'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.vestibule_occupancy
+    to: 'on'
+condition:
+  - condition: or
+    conditions:
+    # Hall sensor is on, or has just turned off
+    - condition: state
+      entity_id: binary_sensor.hall_downstairs_occupancy
+      state: 'on'
+    - condition: template
+      value_template: "{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.hall_downstairs_occupancy.last_updated)) | int < 120 }}"
+action:
+  - service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.ha_alarm
+    data:
+      code: !secret alarm_code

@@ -1,0 +1,3 @@
+name: Guests
+entities:
+- input_boolean.person4_home

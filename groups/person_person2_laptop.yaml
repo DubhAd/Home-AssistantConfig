@@ -1,0 +1,6 @@
+name: person2's laptop
+icon: mdi:laptop-windows
+entities:
+- device_tracker.a4_c3_f0_88_fa_2c
+- device_tracker.person2_bt_laptop
+- device_tracker.person2_bt_front_laptop

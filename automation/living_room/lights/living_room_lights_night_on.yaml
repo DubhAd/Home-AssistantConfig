@@ -1,0 +1,46 @@
+initial_state: 'on'
+alias: 'Living room lights night on'
+trigger:
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Night on'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Night on'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Night on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.living_room
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Night on'
+action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
+  - service: notify.logfile
+    data:
+      message: "Turning on the living room table light"
+  - service: light.turn_on
+    data:
+      entity_id: light.living_room_table
+      brightness_pct: 75
+      transition: 15
+  - service: switch.turn_on
+    entity_id: 
+      - switch.pi3_livingroom_socket_switch
+      - switch.pi3_tv_light_switch
+  - condition: template
+    value_template: '{{ states("input_select.season") != "Christmas" }}'
+  - service: switch.turn_on
+    entity_id: switch.pi3_cabinet_light_switch

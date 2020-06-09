@@ -1,0 +1,5 @@
+- platform: group
+  name: 'Bedroom lights'
+  entities:
+    - light.person1_bedroom_bedside
+    - light.master_bedroom_bedhead

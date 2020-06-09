@@ -1,0 +1,25 @@
+alias: 'Trains to work'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: '/5'
+condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_is_awake
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.notify_train_status_work
+    state: 'on'
+  - condition: time
+    before: '12:00:00'
+action:
+  - service: notify.logfile
+    data:
+      message: "Updating train times to work"
+  - service: script.train_message

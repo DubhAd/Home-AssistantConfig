@@ -1,0 +1,25 @@
+initial_state: 'on'
+alias: 'Vestibule mode off'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.vestibule_downstairs_occupancy
+    to: 'on'
+  # When the sun goes above 5 degrees
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.vestibule','Off') }}"
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
+  # Sun above 5 degrees
+  - condition: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.vestibule
+      option: 'Off'

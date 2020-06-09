@@ -1,0 +1,8 @@
+alias: person3 away
+sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person3_home
+  - service: mqtt.publish
+    data:
+      topic: location/person3
+      payload: 'not_home'

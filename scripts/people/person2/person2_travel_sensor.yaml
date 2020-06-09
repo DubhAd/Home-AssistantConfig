@@ -1,0 +1,24 @@
+alias: person2 travel sensor
+sequence:
+  - service: input_text.set_value
+    data_template:
+      entity_id: input_text.person_person2
+      value: >-
+        {% if is_state("input_boolean.person2_home", "on") %}
+          {% if is_state('input_boolean.person2_is_awake','off') %}
+            Sleeping
+          {% elif is_state('input_boolean.person2_in_bed','on') %}
+            In bed
+          {% else %}
+            {{ states("input_select.person2_status_dropdown") }} 
+          {% endif %}
+        {% elif is_state("device_tracker.person2_mobile_gps", "home") and is_state("input_boolean.person2_home", "off") %}
+          Near home ({{ states("input_select.person2_status_dropdown") }})
+        {% elif not is_state("device_tracker.person2_mobile_gps", "not_home") %}
+          At {{ states("device_tracker.person2_mobile_gps") }}
+        {% elif (states('proximity.person2_home')|int) > 670000 %}
+          Overseas
+        {% else %}
+          {{ state_attr('sensor.person2s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home', 'unit_of_measurement') }} to home
+        {% endif %}
+

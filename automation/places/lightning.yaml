@@ -1,0 +1,21 @@
+initial_state: 'off'
+alias: 'Lightning'
+trigger:
+  - platform: geo_location
+    source: wwlln
+    zone: zone.lightning
+    event: enter
+action:
+  - service: notify.person2_telegram
+    data_template:
+      message: "{{ trigger.to_state.name }} - {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }} away"
+      title: "Lightning Alert"
+  - service: notify.logfile
+    data_template:
+      message: "Lightning strike: {{ trigger.to_state.state }} - {{ trigger.to_state.attributes }}"
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'on'
+  - service: notify.lm_notify
+    data_template:
+      message: "Lighting strike {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }} away"

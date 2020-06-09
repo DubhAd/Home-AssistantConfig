@@ -1,0 +1,57 @@
+initial_state: 'on'
+alias: 'Hall mode off'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.hall_downstairs_occupancy
+    to: 'on'
+  # When the sun goes above 5 degrees
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
+  - platform: numeric_state
+    entity_id: sensor.hall_downstairs_illuminance
+    above: 15
+  # When it gets bright in the living room
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 40
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 25
+    for:
+      minutes: 5
+  - platform: state
+    entity_id: input_boolean.living_room_occupied
+    to: 'off'
+    for:
+      minutes: 5
+  - platform: state
+    entity_id: input_boolean.family_room_occupied
+    to: 'off'
+    for:
+      minutes: 5
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.hall','Off') }}"
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
+  # Sun above 5 degrees
+  - condition: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
+  - condition: or
+    conditions:
+    # Bright in the living room
+    - condition: numeric_state
+      entity_id: sensor.pi3_living_room_multi_luminance
+      above: 25
+    # or here
+    - condition: numeric_state
+      entity_id: sensor.hall_downstairs_illuminance
+      above: 15
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hall
+      option: 'Off'

@@ -1,0 +1,45 @@
+title: Notification automations
+id: notifications
+path: notifications
+icon: mdi:telegram
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  show_header_toggle: false
+  title: Telegram
+  entities:
+  - entity: automation.telegram_callback
+    secondary_info: last-triggered
+  - entity: automation.telegram_callback_trains
+    secondary_info: last-triggered
+  - entity: automation.telegram_command
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_check
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_lights
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_lights_on
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_lights_off
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_status
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_trains
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_where
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_help
+    secondary_info: last-triggered
+  - entity: automation.telegram_text
+    secondary_info: last-triggered
+- type: entities
+  show_header_toggle: false
+  title: Text
+  entities:
+  - entity: input_text.camera_message
+    secondary_info: last-updated
+  - entity: input_text.telegram_message
+    secondary_info: last-updated
+  - entity: input_text.train_message
+    secondary_info: last-updated

@@ -1,0 +1,21 @@
+alias: 'person2 left Work'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    from: 'Work'
+    to: 'not_home'
+    for: '00:10:00'
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    to: 'station Train Station'
+  - platform: state
+    entity_id: device_tracker.person2_mobile_gps
+    to: 'other station Station'
+condition:
+  - condition: state
+    entity_id: automation.return_train_watcher
+    state: 'on'
+action:
+  - service: homeassistant.turn_off
+    entity_id: automation.return_train_watcher

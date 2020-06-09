@@ -1,0 +1,5 @@
+name: 'No brighter than this'
+min: 50
+max: 255
+step: 1
+mode: slider

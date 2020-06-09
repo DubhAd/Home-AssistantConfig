@@ -1,0 +1,22 @@
+initial_state: 'on'
+alias: 'person3 up'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person3_phone_charging
+condition:
+  - condition: state
+    entity_id: input_boolean.person3_in_bed
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person3_home
+    state: 'on'
+  - condition: time
+    after: '03:00:00'
+    before: '21:00:00'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person3_in_bed
+  - service: notify.logfile
+    data_template:
+      message: >
+        Turned off person3 in bed because the phone was unplugged at {{ now() }}

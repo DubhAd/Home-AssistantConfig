@@ -1,0 +1,25 @@
+ # No longer used
+alias: Bedtime slow off
+sequence:
+  - service: light.turn_off
+    data:
+      entity_id: light.living_room_table
+      transition: 30
+  - service: switch.turn_off
+    entity_id: 
+      - switch.pi3_tv_light_switch
+      - switch.pi3_cabinet_light_switch
+      - switch.pi3_livingroom_socket_switch
+      - switch.pi3_vestibule_switch
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person3_is_awake
+  - condition: state
+    entity_id: input_boolean.guest_mode
+    state: 'off'
+  - service: switch.turn_off
+    entity_id: switch.pi3_hall_downstairs_switch
+  - wait_template: "{{ states('light.hall') != 'unavailable' }}"
+  - service: light.turn_off
+    data:
+      entity_id: light.hall
+      transition: 30

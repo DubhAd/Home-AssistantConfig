@@ -1,0 +1,22 @@
+initial_state: 'on'
+alias: 'Guest mode off'
+trigger:
+  - platform: state
+    entity_id: group.guests
+    to: 'off'
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: state
+    entity_id: input_boolean.guest_mode
+    state: 'on'
+  - condition: state
+    entity_id: group.guests
+    state: 'off'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.guest_mode
+  - condition: state
+    entity_id: light.hall
+    state: 'on'
+  - service: script.hall_strip_on

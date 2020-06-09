@@ -1,0 +1,2 @@
+compact_mode: true
+header_text: '{{ time }}'

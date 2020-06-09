@@ -1,0 +1,18 @@
+initial_state: 'on'
+alias: 'person3 phone unplugged'
+trigger:
+  - platform: event
+    event_type: tasker_webhook
+    event_data:
+      who: person3
+condition: 
+  - condition: template
+    value_template: >-
+      {{ 'Unplugged' in trigger.event.data.what }}
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person3_phone_charging
+  - service: notify.logfile
+    data_template:
+      message: >
+        person3 phone unplugged in at {{ now() }}

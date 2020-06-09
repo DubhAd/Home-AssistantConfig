@@ -1,0 +1,23 @@
+initial_state: 'on'
+alias: 'BT front offline too long'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.first_floor_front
+    to: 'off'
+    for: '00:10:00'
+action:
+  - service: switch.turn_off
+    entity_id: switch.pi3_master_bedroom_socket_switch
+  - delay: '00:01:00'
+  - service: switch.turn_on
+    entity_id: switch.pi3_master_bedroom_socket_switch
+  - wait_template: >-
+      {{ is_state('input_boolean.person2_is_awake','on') }}
+  - service: notify.person2_telegram
+    data:
+      message: "Front Bluetooth node was a zombie, and we power cycled it"
+  - wait_template: >-
+      {{ is_state('binary_sensor.first_floor_front','on') }}
+  - service: notify.person2_telegram
+    data:
+      message: "Front Bluetooth node is alive again!"

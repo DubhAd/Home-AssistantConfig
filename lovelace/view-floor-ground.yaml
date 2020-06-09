@@ -1,0 +1,148 @@
+title: Ground floor
+id: ground-floor
+path: ground-floor
+icon: mdi:alpha-g-box
+cards:
+- type: glance
+  title: Living room
+  columns: 4
+  entities:
+    - entity: switch.pi3_tv_light_switch
+      tap_action: 
+        action: toggle
+    - entity: switch.pi3_cabinet_light_switch
+      tap_action: 
+        action: toggle
+    - entity: light.living_room_table
+      name: "Table"
+    - entity: switch.pi3_livingroom_socket_switch
+      name: "Socket"
+      tap_action: 
+        action: toggle 
+    - entity: binary_sensor.patio_window_left
+      name: "Left"
+    - entity: binary_sensor.pi3_patio_door_left_sensor
+      name: "Patio door"
+    - entity: binary_sensor.patio_window_right
+      name: "Right"
+    - entity: binary_sensor.pi3_living_room_motion
+      name: "Motion"
+    - entity: sensor.pi3_living_room_multi_temperature
+      name: "Temperature"
+    - entity: sensor.pi3_living_room_multi_luminance
+      name: "Light level"
+    - entity: media_player.samsung_tv
+      name: TV
+    - entity: media_player.cast_living_room_tv
+      name: Chromecast
+    - entity: media_player.living_room_display
+      name: "Home Hub"
+    - entity: media_player.living_room
+      name: "Sonos"
+- type: glance
+  title: Hall
+  columns: 4
+  entities:
+    - entity: light.hall
+      name: Hall light
+    - entity: switch.pi3_hall_downstairs_switch
+      name: Hall socket
+      tap_action: 
+        action: toggle
+    - entity: binary_sensor.hall_downstairs_occupancy
+      name: Motion
+    - entity: sensor.hall_downstairs_illuminance
+      name: "Light level"
+- type: glance
+  title: Vestibule
+  columns: 3
+  entities:
+    - entity: binary_sensor.pi3_front_door_sensor
+      name: Front door
+    - entity: binary_sensor.vestibule_window_front
+      name: Front
+    - entity: binary_sensor.vestibule_window_side
+      name: Side
+    - entity: binary_sensor.vestibule_occupancy
+      name: Motion
+    - entity: sensor.vestibule_illuminance
+      name: "Light level"
+    - entity: switch.pi3_vestibule_switch
+      name: Socket
+      tap_action: 
+        action: toggle
+- type: glance
+  title: Front of house
+  columns: 3
+  entities:
+    - entity: binary_sensor.pi3_garage_closed_bike_sensor
+      name: bike
+    - entity: binary_sensor.pi3_garage_closed_car_sensor
+      name: Car
+    - entity: switch.pi3_number_sign_switch
+      tap_action: 
+        action: toggle
+- type: glance
+  title: Family room & Kitchen
+  columns: 4
+  entities:
+    - entity: binary_sensor.family_window_left
+      name: Left
+    - entity: binary_sensor.family_window_right
+      name: Right
+    - entity: switch.pi3_family_room_socket_switch
+      name: Socket
+      tap_action: 
+        action: toggle
+    - entity: device_tracker.family_tv
+      name: TV
+    - entity: media_player.family_room
+      name: Sonos
+    - entity: media_player.cast_kitchen_speaker
+      name: Mini
+    - entity: media_player.family_room_display
+      name: Hub
+- type: glance
+  title: Utility room & back
+  columns: 2
+  entities:
+    - entity: binary_sensor.pi3_utility_door_exterior_sensor
+      name: Door
+    - entity: switch.pi3_garden_lights_switch
+      tap_action: 
+        action: toggle
+- type: custom:mini-graph-card
+  title: Light level
+  points_per_hour: 6
+  hours_to_show: 12
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    fill: true
+    labels: true
+  entities:
+    - entity: sensor.pi3_living_room_multi_luminance
+      name: Living room
+      color: darkgoldenrod
+- type: custom:mini-graph-card
+  title: Temperature
+  points_per_hour: 6
+  hours_to_show: 12
+  line_width: 2
+  hour24: true
+  animate: true
+  show:
+    extrema: true
+    average: true
+    fill: false
+    labels: true
+  entities:
+    - entity: sensor.pi3_living_room_multi_temperature
+      name: Living room
+      color: darkgoldenrod
+    - entity: sensor.dark_sky_temperature
+      name: Outside
+      color: 'silver'

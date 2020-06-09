@@ -1,0 +1,167 @@
+title: Cast
+id: cast
+path: cast
+icon: mdi:cast
+cards:
+  - type: glance
+    columns: 4
+    show_name: false
+    entities:
+      - input_text.person_person3
+      - input_text.person_person1
+      - input_text.person_person2
+      - input_text.person_person4
+
+  - type: entity-filter
+    entities:
+      - entity: light.living_room
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: entity-button
+      title: Living room
+      entity: light.living_room
+      icon: mdi:lightbulb
+      tap_action:
+        action: toggle
+
+  - type: entity-filter
+    entities:
+      - entity: switch.pi3_livingroom_socket_switch
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: entity-button
+      icon: mdi:power-socket-uk
+      title: Living room socket
+      entity: switch.pi3_livingroom_socket_switch
+      tap_action:
+        action: toggle
+
+  - type: entity-filter
+    entities:
+      - entity: light.hall
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: entity-button
+      title: Hall light
+      entity: light.hall
+      tap_action:
+        action: toggle
+
+  - type: entity-filter
+    entities:
+      - entity: input_boolean.family_room_occupied
+        name: Family room
+      - entity: input_boolean.living_room_occupied
+        name: Living room
+        icon: mdi:seat
+      - entity: input_boolean.office_occupied
+        name: Office
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      title: Occupied rooms
+      show_state: false
+      
+  - type: entity-filter
+    entities:
+      - entity: binary_sensor.pi3_front_door_sensor
+        name: Front
+      - entity: binary_sensor.vestibule_window_front
+        name: Vestibule Front
+      - entity: binary_sensor.vestibule_window_side
+        name: Vestibule Side
+      - entity: binary_sensor.family_window_left
+        name: Family left
+      - entity: binary_sensor.family_window_right
+        name: Family right
+      - entity: binary_sensor.pi3_garage_closed_bike_sensor
+        name: Garage - bike
+      - entity: binary_sensor.pi3_garage_closed_car_sensor
+        name: Garage - car
+      - entity: binary_sensor.patio_window_left
+        name: Patio left
+      - entity: binary_sensor.patio_window_right
+        name: Patio right
+      - entity: binary_sensor.pi3_patio_door_left_sensor
+        name: Patio
+      - entity: binary_sensor.pi3_utility_door_exterior_sensor
+        name: Utility
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      columns: 4
+      title: Downstairs doors and windows
+      show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: binary_sensor.office_window
+        name: Office
+      - entity: binary_sensor.spare_bedroom_window_left
+        name: L Spare bedroom 
+      - entity: binary_sensor.spare_bedroom_window_right
+        name: R Spare bedroom
+      - entity: binary_sensor.second_bedroom_window_ensuite
+        name: 2nd ensuite
+      - entity: binary_sensor.second_bedroom_window_left
+        name: 2nd bed left
+      - entity: binary_sensor.second_bedroom_window_right
+        name: 2nd bed right
+      - entity: binary_sensor.bathroom_window
+        name: Bathroom
+      - entity: binary_sensor.guest_bedroom_window_left
+        name: Guest left
+      - entity: binary_sensor.guest_bedroom_window_right
+        name: Guest right
+      - entity: binary_sensor.master_window_left
+        name: Master left
+      - entity: binary_sensor.master_window_right
+        name: Master right
+      - entity: binary_sensor.master_window_ensuite
+        name: Master ensuite
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      columns: 4
+      title: Upstairs windows
+      show_state: false
+
+  - type: entity-filter
+    entities:
+      - entity: switch.pi3_garden_lights_switch
+        name: Garden
+        tap_action: 
+          action: toggle
+      - entity: light.master_bedroom_bedhead
+        name: Master bedhead
+      - entity: light.person1_bedroom_bedside
+        name: person1's Bedhead
+      - entity: switch.pi3_family_room_socket_switch
+        name: Family room
+        tap_action: 
+          action: toggle
+      - entity: switch.pi3_hall_downstairs_switch
+        name: Hall socket
+        tap_action: 
+          action: toggle
+    show_empty: false
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      columns: 4
+      title: Lights
+      show_state: false
+

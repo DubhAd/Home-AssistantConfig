@@ -1,0 +1,57 @@
+initial_state: 'on'
+alias: 'Bedtime'
+trigger:
+  - platform: state
+    entity_id:
+      - input_boolean.person3_in_bed
+      - input_boolean.person2_in_bed
+      - input_boolean.person1_in_bed
+    to: 'on'
+condition:
+  - condition: and
+    conditions:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.person3_home
+        state: 'off'
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_boolean.person3_in_bed
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.person3_home
+          state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.person2_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.person2_travelling
+        state: 'on'
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_boolean.person2_in_bed
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.person2_home
+          state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.person1_home
+        state: 'off'
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_boolean.person1_in_bed
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.person1_home
+          state: 'on'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.bedtime

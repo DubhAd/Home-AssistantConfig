@@ -1,0 +1,16 @@
+name: Room status
+entities:
+- input_boolean.bathroom_occupied
+- input_boolean.family_room_occupied
+- input_boolean.garage_occupied
+- input_boolean.guest_bedroom_occupied
+- input_boolean.kitchen_occupied
+- input_boolean.living_room_occupied
+- input_boolean.master_bedroom_occupied
+- input_boolean.master_ensuite_occupied
+- input_boolean.office_occupied
+- input_boolean.second_bedroom_occupied
+- input_boolean.second_ensuite_occupied
+- input_boolean.spare_bedroom_occupied
+- input_boolean.toilet_occupied
+- input_boolean.utility_occupied

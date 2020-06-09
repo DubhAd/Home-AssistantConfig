@@ -1,0 +1,6 @@
+menu: overflow
+options: clock
+voice: hide
+clock_format: 24
+swipe: true
+swipe_skip: 6,10

@@ -1,0 +1,32 @@
+initial_state: 'on'
+alias: 'Vestibule lights to Night on'
+trigger:
+  - platform: state
+    entity_id: input_select.vestibule
+    to: 'Night on'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Night on'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.vestibule
+      state: 'Night on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.vestibule
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Night on'
+  - condition: state
+    entity_id: switch.pi3_vestibule_switch
+    state: 'off'
+action:
+  - service: switch.turn_on
+    entity_id: switch.pi3_vestibule_switch

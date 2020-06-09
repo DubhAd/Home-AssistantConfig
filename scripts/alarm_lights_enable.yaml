@@ -1,0 +1,16 @@
+sequence:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      effect: 'Police2'
+  - delay: '00:00:05'
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      effect: 'Police2'
+  - delay: '00:00:05'
+  - condition: template
+    value_template: "{{ state('alarm_control_panel.ha_alarm') != 'disarmed' }}"
+  - service: script.turn_on
+    data:
+      entity_id: script.alarm_lights_on

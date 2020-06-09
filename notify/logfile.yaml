@@ -1,0 +1,4 @@
+- name: logfile
+  platform: file
+  filename: /data/homeassistant/notify.log
+  timestamp: true

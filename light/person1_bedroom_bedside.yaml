@@ -1,0 +1,4 @@
+- platform: group
+  name: 'person1 bedroom bedside'
+  entities:
+    - light.yeelight_strip1_7811dca22b87

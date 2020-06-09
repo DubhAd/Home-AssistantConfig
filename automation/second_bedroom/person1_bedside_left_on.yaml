@@ -1,0 +1,40 @@
+alias: 'person1 bedside left on'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: light.yeelight_strip1_7811dca22b87
+    to: 'on'
+    for: 
+      minutes: 30
+  - platform: state
+    entity_id: light.yeelight_strip1_7811dca22b87
+    to: 'on'
+    for: 
+      hours: 1
+  - platform: time
+    at: '23:00:00'
+  - platform: time
+    at: '23:30:00'
+  - platform: time
+    at: '23:59:59'
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      after: '09:59:59'
+    - condition: state
+      entity_id: media_player.person1
+      state: 'off'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 30
+  - delay: '00:01:00'
+  - condition: state
+    entity_id: light.yeelight_strip1_7811dca22b87
+    state: 'on'
+  - service: light.turn_off
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 30

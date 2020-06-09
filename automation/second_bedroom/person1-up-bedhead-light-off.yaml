@@ -1,0 +1,21 @@
+alias: 'person1 up bedhead light off'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: media_player.person1
+    to: 'off'
+    for: '00:15:00'
+condition:
+  - condition: state
+    entity_id: light.yeelight_strip1_7811dca22b87
+    state: 'on'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 10
+  - delay: '00:10:00'
+  - service: light.turn_off
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 10

@@ -1,0 +1,4 @@
+name: Car
+entities:
+- device_tracker.car_front
+- device_tracker.car_rear

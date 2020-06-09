@@ -1,0 +1,15 @@
+alias: 'Season is summer'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '03:00:00'
+condition:
+  - condition: template
+    value_template: '{{ 9 > now().month > 5  }}'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.season
+      option: Summer

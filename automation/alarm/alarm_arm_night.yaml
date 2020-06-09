@@ -1,0 +1,11 @@
+initial_state: 'on'
+alias: 'Alarm arm at night'
+trigger:
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'on'
+action:
+  - service: alarm_control_panel.alarm_arm_night
+    entity_id: alarm_control_panel.ha_alarm
+    data:
+      code: !secret alarm_code

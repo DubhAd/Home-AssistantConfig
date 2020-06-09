@@ -1,0 +1,30 @@
+initial_state: 'on'
+alias: 'Hall lights unavailable off'
+trigger:
+  - platform: state
+    entity_id: light.hall
+    from: 'unavailable'
+    to: 'on'
+condition:
+  - condition: and
+    conditions:
+    # Lighting automations are enabled
+    - condition: state
+      entity_id: input_boolean.lighting_automations
+      state: 'on'
+    # Bedtime or away
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Bedtime'
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Off'
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Away'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.hall

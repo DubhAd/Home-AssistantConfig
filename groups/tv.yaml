@@ -1,0 +1,4 @@
+name: TVs
+entities:
+- media_player.samsung_tv
+- media_player.cast_living_room_tv

@@ -1,0 +1,22 @@
+initial_state: 'on'
+alias: 'person2 up early'
+trigger:
+  - platform: state
+    entity_id: media_player.person2
+    to: 'playing'
+  - platform: state
+    entity_id: media_player.master_bedroom_speaker
+    to: 'playing'
+condition:
+  - condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+      - condition: time
+        after: '02:00:00'
+      - condition: state
+        entity_id: switch.pi3_number_sign_switch
+        state: 'off'
+action:
+  - service: switch.turn_on
+    entity_id: switch.pi3_number_sign_switch

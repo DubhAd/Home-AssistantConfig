@@ -1,0 +1,15 @@
+alias: 'Bedhead light dim sunset'
+initial_state: 'on'
+trigger:
+  - platform: sun
+    event: sunset
+condition:
+  - condition: state
+    entity_id: light.yeelight_strip1_286c07afc307
+    state: 'on'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_286c07afc307
+      brightness: 255
+      transition: 30

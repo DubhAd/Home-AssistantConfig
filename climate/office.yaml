@@ -1,0 +1,9 @@
+- platform: generic_thermostat
+  name: Office
+  heater: input_boolean.office_heater
+  target_sensor: sensor.pi3_office_multi_temperature
+  cold_tolerance: 10
+  initial_operation_mode: auto
+  min_temp: 16
+  max_temp: 25
+  target_temp: 20

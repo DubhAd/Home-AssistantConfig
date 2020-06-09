@@ -1,0 +1,24 @@
+initial_state: 'on'
+alias: 'Alarm armed trigger frontdoor'
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.pi3_front_door_sensor
+    to: 'on'
+condition:
+  # Alarm is armed
+  - condition: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: armed_away
+  # Nobody's home
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
+action:
+  # Wait for up to 10 seconds for the motion sensor to trigger before continuing to execute.
+  - wait_template: "{{ is_state('binary_sensor.vestibule_occupancy', 'on') }}"
+    timeout: '00:00:10'
+    continue_on_timeout: 'false'
+  # We do that because sometimes extreme wind can cause the front door sensor to flip on and off
+  - service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm

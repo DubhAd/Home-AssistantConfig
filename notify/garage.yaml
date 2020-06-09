@@ -1,0 +1,4 @@
+- name: garage
+  platform: group
+  services:
+    - service: logfile

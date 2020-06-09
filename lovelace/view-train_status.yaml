@@ -1,0 +1,84 @@
+title: Train status
+id: train_status
+path: trains
+icon: mdi:train
+panel: true
+cards:
+- type: vertical-stack
+  cards:
+  - type: glance
+    columns: 2
+    entities:
+    - entity: binary_sensor.trains_to_xyz_ontime
+      name: To work
+    - entity: binary_sensor.trains_to_abc_ontime
+      name: To home
+  - type: horizontal-stack
+    cards:
+    - type: vertical-stack
+      cards:
+      - type: glance
+        title: 1st home to station
+        columns: 3
+        entities:
+        - entity: sensor.next_train_xyz_status
+          name: Status
+        - entity: sensor.next_train_xyz_scheduled
+          name: Scheduled
+        - entity: sensor.next_train_xyz_estimated
+          name: Expected
+      - type: glance
+        title: 2nd home to station
+        #column_width: 33%
+        columns: 3
+        entities:
+        - entity: sensor.second_train_xyz_status
+          name: Status
+        - entity: sensor.second_train_xyz_scheduled
+          name: Scheduled
+        - entity: sensor.second_train_xyz_estimated
+          name: Expected
+      - type: glance
+        title: 3rd home to station
+        columns: 3
+        entities:
+        - entity: sensor.third_train_xyz_status
+          name: Status
+        - entity: sensor.third_train_xyz_scheduled
+          name: Scheduled
+        - entity: sensor.third_train_xyz_estimated
+          name: Expected
+    - type: vertical-stack
+      cards:
+      - type: glance
+        title: 1st station to home
+        columns: 3
+        entities:
+        - entity: sensor.next_train_abc_status
+          name: Status
+        - entity: sensor.next_train_abc_scheduled
+          name: Scheduled
+        - entity: sensor.next_train_abc_estimated
+          name: Expected
+      - type: glance
+        title: 2nd station to home
+        #column_width: 33%
+        columns: 3
+        entities:
+        - entity: sensor.second_train_abc_status
+          name: Status
+        - entity: sensor.second_train_abc_scheduled
+          name: Scheduled
+        - entity: sensor.second_train_abc_estimated
+          name: Expected
+      - type: glance
+        title: 3rd station to home
+        #column_width: 33%
+        columns: 3
+        entities:
+        - entity: sensor.third_train_abc_status
+          name: Status
+        - entity: sensor.third_train_abc_scheduled
+          name: Scheduled
+        - entity: sensor.third_train_abc_estimated
+          name: Expected

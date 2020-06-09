@@ -1,0 +1,15 @@
+- platform: template
+  sensors:
+    last_motion:
+      friendly_name: 'Last Motion'
+      entity_id:
+        - binary_sensor.pi3_living_room_motion
+        - binary_sensor.hall_downstairs_occupancy
+        - binary_sensor.vestibule_occupancy
+      value_template: >-
+        {%- set sensors = [states.binary_sensor.pi3_living_room_motion, states.binary_sensor.hall_downstairs_occupancy, states.binary_sensor.vestibule_occupancy] %}
+        {% for sensor in sensors %}
+          {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
+            {{ sensor.name }}
+          {% endif %}
+        {% endfor %}

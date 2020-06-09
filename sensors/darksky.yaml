@@ -1,0 +1,55 @@
+- platform: darksky
+  api_key: !secret darksky_api_key
+  scan_interval: '00:05:00'
+  units: uk2
+  forecast:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  hourly_forecast:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+  monitored_conditions:
+    - summary
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - precip_type
+    - precip_intensity
+    - precip_intensity_max
+    - precip_probability
+    - precip_accumulation
+    - temperature
+    - temperature_high
+    - temperature_low
+    - apparent_temperature
+    - apparent_temperature_high
+    - apparent_temperature_low
+    - wind_speed
+    - wind_gust
+    - wind_bearing
+    - cloud_cover
+    - dew_point
+    - visibility
+    - icon
+    - humidity
+    - pressure
+    - ozone
+    - uv_index
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - alerts

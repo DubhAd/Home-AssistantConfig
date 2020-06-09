@@ -1,0 +1,14 @@
+initial_state: 'on'
+alias: 'Hall mode away'
+trigger:
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'off'
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.hall','Away') }}"
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: 'input_select.hall'
+      option: 'Away'

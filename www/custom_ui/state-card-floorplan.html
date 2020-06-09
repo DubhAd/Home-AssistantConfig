@@ -1,0 +1,30 @@
+<link rel="import" href="floorplan/ha-floorplan.html">
+
+<dom-module id="state-card-floorplan">
+
+  <template>
+    <ha-floorplan hass=[[hass]] config=[[stateObj.attributes.config]]></ha-floorplan>
+  </template>
+</dom-module>
+
+<script>
+
+class StateCardFloorplan extends Polymer.Element {
+  static get is() { return 'state-card-floorplan'; }
+
+  static get properties() {
+    return {
+      hass: Object,
+
+      inDialog: {
+        type: Boolean,
+        value: false,
+      },
+
+      stateObj: Object,
+    };
+  }
+}
+customElements.define(StateCardFloorplan.is, StateCardFloorplan);
+
+</script>

@@ -1,0 +1,8 @@
+- platform: trend
+  sensors:
+    trend_living_room_light:
+      entity_id: sensor.pi3_living_room_multi_luminance
+      friendly_name: Living room light level trend
+      device_class: light
+      max_samples: 5
+      sample_duration: 3600

@@ -1,0 +1,5 @@
+name: 'Garden lights turned off after'
+min: 2
+max: 120
+step: 1
+mode: slider

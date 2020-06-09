@@ -1,0 +1,37 @@
+initial_state: 'on'
+alias: 'Hall lights to off'
+trigger:
+  - platform: state
+    entity_id: input_select.hall
+    to: 'Off'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Off'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.hall
+      state: 'Off'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Off'
+action:
+  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - service: light.turn_off
+    data:
+      entity_id: light.hall
+  - service: switch.turn_off
+    entity_id: switch.pi3_hall_downstairs_switch
+  - delay: '00:01:00'
+  - service: light.turn_off
+    data:
+      entity_id: light.hall

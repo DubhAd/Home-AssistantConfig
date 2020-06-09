@@ -1,0 +1,17 @@
+initial_state: 'on'
+alias: 'Number on in the morning'
+trigger:
+  - platform: time
+    at: '06:30:00'
+condition: 
+  - condition: sun
+    before: sunrise
+action:
+  - service: switch.turn_on
+    entity_id: switch.pi3_number_sign_switch
+  - delay: 00:00:30
+  - condition: state
+    entity_id: switch.pi3_number_sign_switch
+    state: 'off'
+  - service: switch.turn_on
+    entity_id: switch.pi3_number_sign_switch

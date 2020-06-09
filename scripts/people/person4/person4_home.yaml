@@ -1,0 +1,9 @@
+alias: person4 home
+sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.person4_home
+  - service: mqtt.publish
+    data:
+      topic: location/person4
+      payload: 'home'
+  - service: script.person4_traveltime

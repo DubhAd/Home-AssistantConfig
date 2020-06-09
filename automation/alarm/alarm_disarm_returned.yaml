@@ -1,0 +1,11 @@
+initial_state: 'on'
+alias: 'Alarm disarm upon return'
+trigger:
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'on'
+action:
+  - service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.ha_alarm
+    data:
+      code: !secret alarm_code

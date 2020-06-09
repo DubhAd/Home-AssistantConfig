@@ -1,0 +1,6 @@
+- platform: group
+  name: 'Living room'
+  entities:
+    - light.living_room_corner
+    - light.living_room_tv
+    - light.living_room_table
