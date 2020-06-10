@@ -51,7 +51,7 @@ cards:
         name: Living room
       - entity: media_player.office
         name: Office
-      - entity: media_player.office_display
+      - entity: media_player.office_smart_display
         name: Office hub
       - entity: media_player.person2
         name: Master bedroom
