@@ -1,0 +1,9 @@
+alias: 'person1 up reminder off'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person1_alarm_sounded
+    to: 'off'
+action:
+  - service: script.turn_off
+    entity_id: script.wake_person1

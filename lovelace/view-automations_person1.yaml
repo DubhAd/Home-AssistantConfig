@@ -29,6 +29,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person1_up_reminder
     secondary_info: last-triggered
+  - entity: automation.person1_up_reminder_off
+    secondary_info: last-triggered
   - entity: automation.person1_mobile_low_battery
     secondary_info: last-triggered
   - entity: automation.person1_tablet_away
