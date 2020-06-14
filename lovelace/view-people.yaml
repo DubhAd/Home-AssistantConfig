@@ -428,7 +428,7 @@ cards:
   cards:
   - type: picture-entity
     name: Car
-    entity: group.car
+    entity: input_text.car
     image: /local/images/car.jpg
     tap_action:
       action: call-service
@@ -436,8 +436,8 @@ cards:
       service_data:
         entity_id: input_boolean.lovelace_car_more
     state_image:
-      "home": /local/images/car.jpg
-      "not_home": /local/images/CarAway.png
+      "Home": /local/images/car.jpg
+      "Away": /local/images/CarAway.png
   - type: conditional
     conditions:
       - entity: input_boolean.lovelace_car_more
