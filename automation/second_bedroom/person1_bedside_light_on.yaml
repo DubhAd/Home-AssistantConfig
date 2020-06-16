@@ -1,0 +1,28 @@
+alias: 'person1 bedside light on'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person1_tablet_charging
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.person1_phone_charging
+    to: 'on'
+condition:
+  - condition: time
+    after: '22:00:00'
+  - condition: state
+    entity_id: input_boolean.person1_in_bed
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.person1_tablet_charging
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.person1_phone_charging
+    state: 'on'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 30
+      brightness_pct: 100
+      color_name: white
