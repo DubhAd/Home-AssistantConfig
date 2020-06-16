@@ -1,0 +1,43 @@
+alias: 'person1 bedtime reminder'
+initial_state: 'on'
+trigger:
+  - platform: time
+    at: '23:00:00'
+condition:
+  - condition: state
+    entity_id: input_boolean.person1_in_bed
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person1_tablet_charging
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.person1_phone_charging
+    state: 'on'
+  - condition: time
+    weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+  # Not a holiday tomorrow
+  - condition: template
+    value_template: >-
+      {{ not (is_state_attr('calendar.person1_holiday','message','Holiday') and
+         (as_timestamp(now())+(6*60*60) - as_timestamp(state_attr('calendar.person1_holiday','start_time'))) > 0) }}
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      effect: "Police2"
+  - delay: '00:00:05'
+  - service: light.turn_on
+    data_template:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      brightness_pct: 100
+      kelvin: >-
+        {{ state_attr('sensor.circadian_values','colortemp')|int }}
+  - service: light.turn_off
+    data:
+      entity_id: light.yeelight_strip1_7811dca22b87
+      transition: 30

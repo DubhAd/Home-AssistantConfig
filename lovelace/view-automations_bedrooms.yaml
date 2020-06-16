@@ -101,6 +101,10 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person1_bedside_turn_red
     secondary_info: last-triggered
+  - entity: automation.person1_bedside_light_on
+    secondary_info: last-triggered
+  - entity: automation.person1_bedtime_reminder
+    secondary_info: last-triggered
 - type: entities
   title: Second bedroom
   show_header_toggle: false

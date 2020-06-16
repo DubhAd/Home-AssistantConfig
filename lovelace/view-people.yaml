@@ -119,17 +119,22 @@ cards:
   cards:
   - type: picture-entity
     entity: input_text.person_person2
-    image: /local/people/person2_Away.png
+    image: /local/people/person2/Away.png
     tap_action:
       action: call-service
       service: input_boolean.toggle
       service_data:
         entity_id: input_boolean.lovelace_person2_more
     state_image:
-      "Home": /local/people/person2.png
-      "Sleeping": /local/people/person2.png
-      "In bed": /local/people/person2.png
-      "Just Arrived": /local/people/person2.png
+      "Home": /local/people/person2/Home.png
+      "Sleeping": /local/people/person2/Sleeping.png
+      "In bed": /local/people/person2/Sleeping.png
+      "Just Arrived": /local/people/person2/Home.png
+      "Working from home": /local/people/person2/WFH.png
+      "On holiday": /local/people/person2/Holiday.png
+      "Overseas": /local/people/person2/Overseas.png
+      "Travelling": /local/people/person2/Travelling.png
+      "At Gym": /local/people/person2/Gym.png
   - type: conditional
     conditions:
       - entity: input_boolean.lovelace_person2_more

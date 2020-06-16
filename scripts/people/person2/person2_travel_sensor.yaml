@@ -4,20 +4,26 @@ sequence:
     data_template:
       entity_id: input_text.person_person2
       value: >-
-        {% if is_state("input_boolean.person2_home", "on") %}
+        {% if is_state('input_boolean.person2_home', 'on') %}
           {% if is_state('input_boolean.person2_is_awake','off') %}
             Sleeping
           {% elif is_state('input_boolean.person2_in_bed','on') %}
             In bed
+          {% elif is_state('input_boolean.office_occupied','on') and is_state('group.person_person2_work','home') and is_state('input_boolean.person2_work_home','on') %}
+            Working from home
           {% else %}
-            {{ states("input_select.person2_status_dropdown") }} 
+            {{ states('input_select.person2_status_dropdown') }} 
           {% endif %}
-        {% elif is_state("device_tracker.person2_mobile_gps", "home") and is_state("input_boolean.person2_home", "off") %}
-          Near home ({{ states("input_select.person2_status_dropdown") }})
-        {% elif not is_state("device_tracker.person2_mobile_gps", "not_home") %}
-          At {{ states("device_tracker.person2_mobile_gps") }}
-        {% elif (states('proximity.person2_home')|int) > 670000 %}
+        {% elif is_state('device_tracker.person2_mobile_gps', 'home') and is_state('input_boolean.person2_home', 'off') %}
+          Near home ({{ states('input_select.person2_status_dropdown') }})
+        {% elif not is_state('device_tracker.person2_mobile_gps', 'not_home') %}
+          At {{ states('device_tracker.person2_mobile_gps') }}
+        {% elif is_state('calendar.person2_holiday', 'on') and is_state('input_boolean.person2_travelling','on') %}
+          On holiday
+        {% elif is_state('input_boolean.person2_overseas', 'on') %}
           Overseas
+        {% elif is_state('input_boolean.person2_travelling', 'on') %}
+          Travelling
         {% else %}
           {{ state_attr('sensor.person2s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home', 'unit_of_measurement') }} to home
         {% endif %}
