@@ -43,25 +43,6 @@ cards:
       current: true
       details: true
       forecast: true
-  - type: vertical-stack
-    cards:
-    - type: custom:simple-weather-card
-      entity: weather.home
-      name: by MetNo
-      backdrop: 
-        fade: true
-      primary_info:
-        - extrema
-        - precipitation
-        - precipitation_probability
-      secondary_info:
-        - wind_speed
-        - wind_bearing
-    - type: custom:weather-card
-      entity: weather.home
-      name: MetNo
-      current: true
-      details: true
   - type: custom:weather-card
     entity: weather.met_office_home
     name: Met Office
