@@ -9,6 +9,7 @@ trigger:
       - input_boolean.person3_home
       - sensor.person3s_time_to_home
       - sensor.person3s_time_to_home_by_bus
+      - sensor.person3s_time_to_home_by_foot
 action:
   - service: notify.logfile
     data_template:
