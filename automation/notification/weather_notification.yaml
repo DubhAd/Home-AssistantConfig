@@ -19,7 +19,7 @@ action:
         {% else %}
           {{ states.weather.dark_sky.attributes.forecast[0].temperature }}C outside and {{ states.weather.dark_sky.attributes.forecast[0].condition }}
         {% endif %}
-        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %} There are weather alerts {% endif %}
+        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %} {{ state_attr('sensor.dark_sky_alerts','title') }} {% endif %}
   - service: notify.logfile
     data_template:
       message: >-
@@ -28,4 +28,4 @@ action:
         {% else %}
           SENDLIVING {{ states.weather.dark_sky.attributes.forecast[0].temperature }}C outside and {{ states.weather.dark_sky.attributes.forecast[0].condition }}
         {% endif %}
-        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %} There are weather alerts {% endif %}
+        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %} {{ state_attr('sensor.dark_sky_alerts','title') }} {% endif %}

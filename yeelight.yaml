@@ -1,0 +1,7 @@
+devices:
+  192.168.0.150:
+    name: Master bedroom bedhead
+    model: strip1
+  192.168.0.151:
+    name: Second bedroom bedside
+    model: strip1
