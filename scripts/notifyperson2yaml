@@ -1,6 +1,0 @@
-alias: Notify Rob
-sequence:
-  - service: notify.discord_webhook
-    data_template:
-      title: "{{ title }}"
-      message: "<@Tinkerer0042> {{ message }}"

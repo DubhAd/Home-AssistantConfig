@@ -1,9 +1,0 @@
-- platform: here_travel_time
-  name: "Robs time to home"
-  scan_interval: 604800
-  app_id: !secret  here_app_id
-  app_code: !secret here_app_code
-  origin_entity_id: device_trackerperson2mobile_gps
-  destination_entity_id: zone.home
-  mode: car
-  traffic_mode: true
