@@ -3,6 +3,9 @@ initial_state: 'on'
 trigger:
   - platform: numeric_state
     entity_id: proximity.person2_home
+    above: 200
+  - platform: numeric_state
+    entity_id: proximity.person2_home
     above: 300
   - platform: numeric_state
     entity_id: proximity.person2_home
@@ -13,6 +16,9 @@ trigger:
       - device_tracker.person2_bt_mobile
       - device_tracker.person2_bt_front_mobile
     to: 'not_home'
+  - platform: state
+    entity_id: input_boolean.person2_driving
+    to: 'on'
   - platform: homeassistant
     event: start
 condition:
@@ -20,11 +26,26 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
-  # As long as at least two trackers mark as away, they're away
-  - condition: numeric_state
-    entity_id: group.person_person2
-    below: 2
-    value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['home']|count }}"
+  - condition: or
+    conditions:
+    # As long as at least two trackers mark as away, they're away
+    - condition: numeric_state
+      entity_id: group.person_person2
+      above: 1
+      value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
+    - condition: and
+      conditions:
+      # As long as at least one tracker marks as away, and they're driving, they're away
+      - condition: state
+        entity_id: input_boolean.person2_driving
+        state: 'on'
+      - condition: numeric_state
+        entity_id: group.person_person2
+        above: 0
+        value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
+      - condition: numeric_state
+        entity_id: proximity.person2_home
+        above: 200
   # Either a door just opened/closed, all are away and we're not near, or we're far, far away
   - condition: or
     conditions:
