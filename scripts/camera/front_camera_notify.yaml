@@ -51,6 +51,7 @@ sequence:
         {%- set otherCars = 0 -%}
         {%- set parkedTrucks = 0 -%}
         {%- set otherTrucks = 0 -%}
+        {%- set falseDetections = 0 -%}
         {%- set relevantPeople = 0 -%}
         {%- set otherPeople = 0 -%}
 
@@ -59,6 +60,14 @@ sequence:
             ((0.700 < box[0] < 0.755) and (0.340 < box[1] < 0.508) and (0.800 < box[2] < 0.862) and (0.490 < box[3] < 0.580))
              or
             ((0.740 < box[0] < 0.775) and (0.317 < box[1] < 0.400) and (0.830 < box[2] < 0.854) and (0.380 < box[3] < 0.550))
+          ) else X -}}
+        {%- endmacro -%}
+
+        {%- macro isFalseDetection(box) -%}
+        {{- True if (
+            ((box[3]-box[1] > 0.6) and (box[2]-box[0] > 0.6))
+             and 
+            ((0.48 < box[0] < 0.52) and (0.23 < box[1] < 0.32) and (0.80 < box[2] < 0.84) and (0.57 < box[3] < 0.59))
           ) else X -}}
         {%- endmacro -%}
 
@@ -80,7 +89,14 @@ sequence:
         {%- endif -%}
 
         {%- set parkedVehicles = parkedCars+parkedTrucks -%}
-        {%- set otherVehicles = otherCars+otherTrucks -%}
+        {%- if parkedVehicles > 0 -%}
+          {%- macro getFalseDetections() -%}
+          {%- for state in state_attr('image_processing.doods_front_camera_snapshot','matches').truck -%}{{- "X" if isFalseDetection(state.box) -}}{%- endfor -%}
+          {%- for state in state_attr('image_processing.doods_front_camera_snapshot','matches').car -%}{{- "X" if isFalseDetection(state.box) -}}{%- endfor -%}
+          {%- endmacro -%}
+          {%- set falseDetections = getFalseDetections()|length -%}
+        {%- endif -%}
+        {%- set otherVehicles = otherCars+otherTrucks-falseDetections -%}
 
         {#- Split out people on the path/in the garden, from those on the road -#}
         {%- if totalPeople > 0 -%}
