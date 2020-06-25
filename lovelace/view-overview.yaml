@@ -17,6 +17,22 @@ cards:
       - input_text.person_person1
       - input_text.person_person2
       - input_text.person_person4
+  - type: horizontal-stack
+    cards:
+    - type: entity
+      entity: weather.dark_sky
+      attribute: 'temperature'
+      name: Outside
+      icon: 'mdi:thermometer'
+      unit: '°C'
+    - type: entity
+      entity: sensor.pi3_living_room_multi_temperature
+      name: Downstairs
+      icon: 'mdi:thermometer'
+    - type: entity
+      entity: sensor.upstairs_temperature
+      name: Upstairs
+      icon: 'mdi:thermometer'
         
   - type: entity-filter
     entities:
