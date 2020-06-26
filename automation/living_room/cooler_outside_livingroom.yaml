@@ -5,11 +5,11 @@ trigger:
     entity_id: sensor.pi3_living_room_multi_temperature
     above: 23
   - platform: numeric_state
-    entity_id: sensor.dark_sky_temperature
+    entity_id: sensor.owm_temperature
     below: 22
   - platform: template
     value_template: >
-      {{ states('sensor.dark_sky_temperature')|int < states('sensor.pi3_living_room_multi_temperature')|int }}
+      {{ states('sensor.owm_temperature')|int < states('sensor.pi3_living_room_multi_temperature')|int }}
 condition:
   - condition: state
     entity_id: input_boolean.living_room_occupied
@@ -18,14 +18,14 @@ condition:
     entity_id: sensor.pi3_living_room_multi_temperature
     above: 23
   - condition: numeric_state
-    entity_id: sensor.dark_sky_temperature
+    entity_id: sensor.owm_temperature
     below: 22
   - condition: numeric_state
-    entity_id: sensor.dark_sky_temperature
+    entity_id: sensor.owm_temperature
     above: 5
   - condition: template
     value_template: >
-      {{ states('sensor.dark_sky_temperature')|int < states('sensor.pi3_living_room_multi_temperature')|int }}
+      {{ states('sensor.owm_temperature')|int < states('sensor.pi3_living_room_multi_temperature')|int }}
   - condition: state
     entity_id: binary_sensor.patio_window_left
     state: 'off'

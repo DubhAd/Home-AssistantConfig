@@ -18,5 +18,5 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_driving
   - wait_template: >-
-      {{ (now() - states.device_tracker.person2_mobile_gps.last_updated).seconds < 5 }}
+      {{ (now() - states.device_tracker.person2_mobile_gps.last_updated).seconds < 1 }}
   - service: script.update_car_location

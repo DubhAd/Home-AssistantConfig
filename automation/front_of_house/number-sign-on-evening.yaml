@@ -34,7 +34,7 @@ condition:
           entity_id: sensor.sun_elevation
           below: 3
         - condition: numeric_state
-          entity_id: sensor.dark_sky_cloud_coverage
+          entity_id: sensor.owm_cloud_coverage
           above: 75
       # Sun at 2 degrees and cover above 50%
       - condition: and
@@ -43,7 +43,7 @@ condition:
           entity_id: sensor.sun_elevation
           below: 2
         - condition: numeric_state
-          entity_id: sensor.dark_sky_cloud_coverage
+          entity_id: sensor.owm_cloud_coverage
           above: 50
       # Sun at 1 degrees and cover above 25%
       - condition: and
@@ -52,7 +52,7 @@ condition:
           entity_id: sensor.sun_elevation
           below: 1
         - condition: numeric_state
-          entity_id: sensor.dark_sky_cloud_coverage
+          entity_id: sensor.owm_cloud_coverage
           above: 25
 action:
   - service: switch.turn_on

@@ -13,7 +13,7 @@ condition:
   condition: and
   conditions:
     - condition: numeric_state
-      entity_id: sensor.dark_sky_apparent_temperature
+      entity_id: sensor.owm_temperature
       below: 5
 action:
   - service: media_player.turn_on
@@ -53,7 +53,7 @@ action:
         {%- else -%}
           media_player.office_smart_display
         {%- endif -%}
-      message: "The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.dark_sky_temperature') }} {{ state_attr('sensor.dark_sky_temperature','unit_of_measurement') }} outside"
+      message: "The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.owm_temperature') }} {{ state_attr('sensor.owm_temperature','unit_of_measurement') }} outside"
   - delay: '00:00:10'
   - service: media_player.turn_off
     data_template:

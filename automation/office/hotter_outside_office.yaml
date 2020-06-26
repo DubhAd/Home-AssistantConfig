@@ -5,18 +5,18 @@ trigger:
     entity_id: binary_sensor.office_window
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.dark_sky_temperature
+    entity_id: sensor.owm_temperature
     above: 23
   - platform: template
     value_template: >
-      {{ states('sensor.dark_sky_temperature')|int > states('sensor.pi3_office_multi_temperature')|int }}
+      {{ states('sensor.owm_temperature')|int > states('sensor.pi3_office_multi_temperature')|int }}
 condition:
   - condition: numeric_state
-    entity_id: sensor.dark_sky_temperature
+    entity_id: sensor.owm_temperature
     above: 23
   - condition: template
     value_template: >
-      {{ states('sensor.dark_sky_temperature')|int > states('sensor.pi3_office_multi_temperature')|int }}
+      {{ states('sensor.owm_temperature')|int > states('sensor.pi3_office_multi_temperature')|int }}
   - condition: or
     conditions:
     - condition: state
