@@ -117,6 +117,7 @@ cards:
   hours_to_show: 12
   line_width: 2
   hour24: true
+  decimals: 0
   animate: true
   show:
     extrema: true
@@ -133,6 +134,7 @@ cards:
   hours_to_show: 12
   line_width: 2
   hour24: true
+  decimals: 1
   animate: true
   show:
     extrema: true
@@ -143,6 +145,6 @@ cards:
     - entity: sensor.pi3_living_room_multi_temperature
       name: Living room
       color: darkgoldenrod
-    - entity: sensor.dark_sky_temperature
+    - entity: sensor.owm_temperature
       name: Outside
       color: 'silver'
