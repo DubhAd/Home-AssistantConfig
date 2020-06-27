@@ -16,11 +16,9 @@ sequence:
           Near home ({{ states('input_select.person1_status_dropdown') }})
         {% elif not is_state('device_tracker.person1_mobile', 'not_home') %}
           At {{ states('device_tracker.person1_mobile') }}
-        {% elif not is_state('device_tracker.person1_mobile', 'not_home') %}
-          At {{ states('device_tracker.person1_mobile') }}
-        {% elif state_attr('sensor.person1s_time_to_home', 'duration')|int > 20 %}
+        {% elif states('proximity.person1_home')|int > 4000 %}
           {{ state_attr('sensor.person1s_time_to_home', 'duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_by_bus', 'unit_of_measurement') }} to home by car
-        {% elif state_attr('sensor.person1s_time_to_home_by_bus', 'duration')|int > 20 %}
+        {% elif states('proximity.person1_home')|int > 2000 %}
           {{ state_attr('sensor.person1s_time_to_home_by_bus', 'duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_by_bus', 'unit_of_measurement') }} to home by bus
         {% else %}
           {{ state_attr('sensor.person1s_time_to_home_by_foot', 'duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_by_foot', 'unit_of_measurement') }} to home on foot
