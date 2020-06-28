@@ -1,4 +1,3 @@
-initial_state: 'on'
 alias: 'Zigbee online'
 trigger:
   - platform: state

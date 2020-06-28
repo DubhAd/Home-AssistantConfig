@@ -9,4 +9,4 @@ action:
   - service: notify.person2_telegram
     data_template:
       message: >-
-        The Zigbee bridge has been {{ trigger.to_state.state }} for five minutes. Time to reset the stick again.
+        The Zigbee bridge is offline again
