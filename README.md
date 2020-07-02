@@ -1,5 +1,5 @@
 # Home Assistant (0.111.4) configuration
-This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 0.111.4 on a VM, using an old laptop (Intel Core i5-3230M), with a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
+This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 0.111.4 on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
 
@@ -44,17 +44,18 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
   * NodOn [Soft Remote](https://nodon.fr/en/nodon/z-wave-soft-remote/) in the second bedroom, to also provide manual control of that room's Yeelight.
   * Z-Wave.me [WALLC-S](http://eng.z-wave.me/index.php?id=30) wall controller, to provide a wall switch for the garden lights
 * Zigbee, using [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
+  * A CC2531 coordinator bought [from here](https://zigbee2mqtt.discourse.group/t/ad-buy-ready2use-zigbee2mqtt-stick-flashed-antenna-mod-and-printed-case/22/)
+  * A [Zig-A-Zig-Ah!](https://electrolama.com/projects/zig-a-zig-ah/) for a new Zigbee 3.0 mesh
   * Xiaomi Aqara [door/window sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-window-door-sensor/) - one on every external window (yes, that's a lot)
   * Xiaomi Aqara [motion and light sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-human-body-sensor/)
   * Xiaomi Aqara [temperature and humidity sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-temperature-and-humidity-sensor/) in the bathrooms
-  * Gledopto [GL-C-008 RGB+CCT](https://www.aliexpress.com/item/32858603964.html) LED controller (along with some RGB-CCT LED tape)
+  * Gledopto [GL-C-008 RGB+CCT](https://www.aliexpress.com/item/32858603964.html) LED controller (along with some RGB-CCT LED tape and a 24V power supplly)
   * A Hive [active smart plug](https://smile.amazon.co.uk/gp/product/B01N7L53TB/)
   * A Salus [SP600 smart plug](https://smile.amazon.co.uk/gp/product/B0743CTGJ6/)
 * Lighting
   * [Yeelight](https://home-assistant.io/integrations/yeelight/) integration and [led strips](https://www.yeelight.com/en_US/product/pitaya), one mounted behind the headboard in the master bedroom, and one along the wall side of the bed frame in the second bedroom. These provide good enough lighting to read by at night, and also to help wake us in the morning.
   * Outdoor mains [240V LED strip](https://www.lightingever.co.uk/220-240-v-ac-led-strip-multicolour-5050-50m.html) which we turn on and off with one of the wall plugs
   * A [Flux LED](https://www.home-assistant.io/integrations/flux_led/) compatible [RGBW controller](https://smile.amazon.co.uk/gp/product/B07BFPWZNJ/), a roll of RGB-CCT LED tape, and a 24V power supply.
-* [Nabu Casa cloud](https://www.nabucasa.com/config/), which is a paid service, instead of the previous [Google Assistant](https://home-assistant.io/integrations/google_assistant/) integration. 
   I use this with a bunch of [Google Home Minis](https://store.google.com/product/google_home_mini), a couple of [Google Home Hubs](https://store.google.com/product/google_home_hub), 
   and a [Lenovo Smart Display](https://www.lenovo.com/gb/en/consumer-tablet-and-smart-device/lenovo-smart-device/smart-core-device/Smart-Display-10/p/ZA3N0006GB)
 * Media
@@ -77,7 +78,7 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
 * [Here Travel Time](https://www.home-assistant.io/integrations/here_travel_time/) integration, replacing my previous use of the [Google Travel Time integration](https://home-assistant.io/integrations/google_travel_time/) (which uses the Google [Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/)) to provide estimated time to home
 * [Getmail](http://pyropus.ca/software/getmail/) with [a script](local/bin/parse-email) that acts as the message delivery agent, to parse the recycling collection emails
   * I gave up on the the [IMAP email content](https://home-assistant.io/integrations/imap_email_content/) sensor since it doesn't keep state through restarts (which isn't unique to it, Home Assistant doesn't have a persistence mechanism other than for the `input_*` entities)
-* A HiWatch IPC-T140 dome camera, using the generic camera integration.
+* A HiWatch IPC-T140 dome camera, using the generic camera integration. I use [MotionEye](https://github.com/ccrisan/motioneye/) for motion detection and [Doods](https://www.home-assistant.io/integrations/doods/) (in another VM) for object detection.
 
 ### Custom integrations
 
