@@ -5,14 +5,14 @@ icon: mdi:home-analytics
 cards:
 
   - type: glance
-    columns: 5
+    columns: 4
     show_name: false
     style: |
       ha-card {
-        background: {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %} #4c5c4c {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %} #6c4c4c {% else %} amber {% endif %};
+        background: {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %} #4c5c4c {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %} #6c3c3c {% else %} #6c4c1c {% endif %};
       }
     entities:
-      - alarm_control_panel.ha_alarm
+      #- alarm_control_panel.ha_alarm
       - input_text.person_person3
       - input_text.person_person1
       - input_text.person_person2

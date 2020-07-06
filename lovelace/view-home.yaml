@@ -51,7 +51,7 @@ cards:
     show_name: false
     style: |
       ha-card {
-        background: {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %} #4c5c4c {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %} #6c4c4c {% else %} #4c4c4c {% endif %};
+        background: {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %} #4c5c4c {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %} #6c3c3c {% else %} #6c4c1c {% endif %};
       }
     entities:
       - alarm_control_panel.ha_alarm
