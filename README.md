@@ -67,7 +67,7 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes
 * Presence detection:
   * Back to using [Nmap](https://nmap.org/) for [device tracking](https://home-assistant.io/integrations/nmap_tracker/). While I did switch to [Fritz!Box](https://en.avm.de/) [device tracking](https://www.home-assistant.io/integrations/fritz/) when I upgraded my router, the router ran out of memory
-  * [Monitor](https://github.com/andrewjfreyer/monitor) on another Pi3, and a Pi Zero W. This has completely replaced the use of the built in Bluetooth device tracker, and more than halved the startup time of HA.
+  * [Monitor](https://github.com/andrewjfreyer/monitor) on another Pi3, and an Orange Pi Zero LTS with a CSR 4.0 USB dongle. This has completely replaced the use of the built in Bluetooth device tracker, and more than halved the startup time of HA.
     * This works with our mobile phones, tablets, and beacons
   * [GPS Logger](https://home-assistant.io/integrations/gpslogger/) for remote device tracking
     * I used to use [OwnTracks](http://owntracks.org/) for device tracking, using the [HTTP interface](https://home-assistant.io/integrations/owntracks_http/), but not only did it have an [annoying bug](https://github.com/owntracks/android/issues/508) that caused it to randomly disable reporting, but it had been abandoned by the developer. Version 2.0 of the app solved both of those, but I've seen no reason to go back.
