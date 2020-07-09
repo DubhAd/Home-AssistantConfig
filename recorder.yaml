@@ -2,6 +2,7 @@ db_url: !secret mysql_url
 purge_keep_days: 14
 exclude:
   entities:
+    - automation.remote_ping
     - sun.sun
     - sensor.sun_elevation
     - sensor.date_time

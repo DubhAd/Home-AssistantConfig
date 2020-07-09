@@ -1,5 +1,5 @@
-# Home Assistant (0.111.4) configuration
-This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 0.111.4 on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
+# Home Assistant (0.112.4) configuration
+This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 0.112.4 on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
 
