@@ -13,7 +13,7 @@ trigger:
 condition:
   # Been at least 5 minutes
   - condition: template
-    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person1_travel_time','last_triggered'))|float)|float > 300 }}"
+    value_template: "{{ (now() - state_attr('script.person1_travel_time','last_triggered')).seconds > 300 }}"
 action:
   - service: notify.logfile
     data:

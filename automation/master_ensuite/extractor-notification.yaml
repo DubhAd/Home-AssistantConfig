@@ -10,7 +10,8 @@ condition:
     entity_id: input_boolean.office_occupied
     state: 'on'
   - condition: template
-    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.extractor_notification','last_triggered'))|float)|float > 600 }}"
+    value_template: "{{ (now() - state_attr('automation.extractor_notification','last_triggered')).seconds > 600 }}"
+    #value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.extractor_notification','last_triggered'))|float)|float > 600 }}"
 action:
   # Wait for it to go back down, or an hour to pass
   - wait_template: >-

@@ -18,7 +18,8 @@ condition:
   # Alert no more than once an hour
   - condition: template
     value_template: >-
-      {{ as_timestamp(state_attr('automation.return_train_watcher','last_triggered')) + 3600 < as_timestamp(now()) }}
+      {{ (now() - state_attr('automation.return_train_watcher','last_triggered')).seconds > 3600 }}
+      #{{ as_timestamp(state_attr('automation.return_train_watcher','last_triggered')) + 3600 < as_timestamp(now()) }}
 action:
   - wait_template: >-
       {{ (as_timestamp(now()) - as_timestamp(states.input_text.train_message.last_updated))|int < 30 }}

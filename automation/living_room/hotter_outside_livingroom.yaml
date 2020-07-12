@@ -40,7 +40,7 @@ condition:
       state: 'on'
   # Been at least 30 minutes
   - condition: template
-    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.automation.hotter_outside_livingroom','last_triggered'))|float)|float > 1800 }}"
+    value_template: "{{ (now() - state_attr('automation.hotter_outside_livingroom','last_triggered')).seconds > 1800 }}"
 action:
   - service: automation.turn_on
     entity_id: automation.cooler_outside_livingroom

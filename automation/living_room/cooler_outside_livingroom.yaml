@@ -36,7 +36,7 @@ condition:
     entity_id: binary_sensor.pi3_patio_door_left_sensor
     state: 'off'
   - condition: template
-    value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.automation.cooler_outside_livingroom','last_triggered'))|float)|float > 1800 }}"
+    value_template: "{{ (now() - state_attr('automation.cooler_outside_livingroom','last_triggered')).seconds > 1800 }}"
 action:
   - service: tts.google_cloud_say
     entity_id: media_player.living_room_display
