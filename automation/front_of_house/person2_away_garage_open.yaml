@@ -16,3 +16,4 @@ action:
         priority: '1'
         sound: 'siren'
         device: 'MyPhone'
+        attachment: '/data/homeassistant/cameras/garage.jpg'
