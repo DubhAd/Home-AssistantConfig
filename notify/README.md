@@ -24,6 +24,8 @@ When I first got my [LaMetric device](https://lametric.com/) there wasn't a comp
 
 Sometimes it's been useful to spit things out to logs so I can see what's happening, I keep this around for that.
 
+Also, any time you see a notification starting with `SEND`, for example `SENDME` then this comes into play. I monitor the file with [swatchdog](https://github.com/ToddAtkins/swatchdog) and pass anything starting with certain key phrases (including `SEND`) to a shell script. That shell script parses the notification, and can use [Home Assistant CLI](https://github.com/home-assistant-ecosystem/home-assistant-cli) to pull further information from Home Assistant, to decide what to do next. This gives me adaptive notifications, something that's hard to do within Home Assistant itself.
+
 ## People
 
 Individual notifiers for different methods for different people. I'm using a combination of Pushover and REST currently.
