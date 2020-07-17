@@ -404,6 +404,17 @@ cards:
           propagate: true
 
         - entities:
+            - binary_sensor.fritzbox_connectivity
+          states:
+            - state: 'on'
+              class: 'motion-background'
+            - state: 'off'
+              class: 'warning-background'
+            - state: 'unavailable'
+              class: 'warning-background'
+          propagate: true
+
+        - entities:
             - binary_sensor.pi3_living_room_motion
             - binary_sensor.pi3_office_multi_sensor
             - binary_sensor.hall_downstairs_occupancy
