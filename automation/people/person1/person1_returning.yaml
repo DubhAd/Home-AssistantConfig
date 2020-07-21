@@ -31,9 +31,11 @@ action:
   - service: notify.lametric_info
     data:
       message: "person1 should be home from work shortly"
-  - service: script.notify_person3_at_home
+  - service: script.turn_on
+    entity_id: script.notify_person3_at_home
     data:
       message: "person1 should be home from work shortly"
-  - service: script.notify_person2_at_home
+  - service: script.turn_on
+    entity_id: script.notify_person2_at_home
     data:
       message: "person1 should be home from work shortly"

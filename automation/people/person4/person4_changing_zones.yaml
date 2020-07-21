@@ -18,4 +18,5 @@ action:
   - service: notify.logfile
     data:
       message: "Updating travel time for person4 due to entering a zone, or leaving one 5 minutes ago"
-  - service: script.person4_traveltime
+  - service: script.turn_on
+    entity_id: script.person4_traveltime

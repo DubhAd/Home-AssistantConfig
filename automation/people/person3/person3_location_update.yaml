@@ -15,4 +15,5 @@ action:
     data_template:
       message: >
         Location for person3 updated at {{ now() }}
-  - service: script.person3_travel_sensor
+  - service: script.turn_on
+    entity_id: script.person3_travel_sensor

@@ -7,4 +7,5 @@ trigger:
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_is_awake
-  - service: script.person2_travel_sensor
+  - service: script.turn_on
+    entity_id: script.person2_travel_sensor

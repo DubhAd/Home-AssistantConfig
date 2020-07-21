@@ -13,4 +13,5 @@ action:
     entity_id: input_boolean.person1_is_awake
   - service: input_boolean.turn_off
     entity_id: input_boolean.person1_alarm_sounded
-  - service: script.person1_travel_sensor
+  - service: script.turn_on
+    entity_id: script.person1_travel_sensor

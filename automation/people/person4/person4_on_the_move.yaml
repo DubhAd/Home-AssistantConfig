@@ -41,4 +41,5 @@ condition:
         entity_id: proximity.person4_home
         above: 39999
 action:
-  - service: script.person4_traveltime
+  - service: script.turn_on
+    entity_id: script.person4_traveltime

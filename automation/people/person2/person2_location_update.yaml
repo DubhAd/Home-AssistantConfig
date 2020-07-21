@@ -18,4 +18,5 @@ action:
   - condition: state
     entity_id: input_boolean.person2_driving
     state: 'on'
-  - service: script.update_car_location
+  - service: script.turn_on
+    entity_id: script.update_car_location

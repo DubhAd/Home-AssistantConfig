@@ -22,4 +22,5 @@ action:
   - service: notify.logfile
     data:
       message: "Updating train times to work"
-  - service: script.train_message
+  - service: script.turn_on
+    entity_id: script.train_message

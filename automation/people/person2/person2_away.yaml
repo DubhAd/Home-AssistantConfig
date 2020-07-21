@@ -70,4 +70,5 @@ condition:
       entity_id: proximity.person2_home
       above: 600
 action:
-  - service: script.person2_away
+  - service: script.turn_on
+    entity_id: script.person2_away

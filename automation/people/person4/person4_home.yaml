@@ -15,4 +15,5 @@ condition:
     above: 0
     value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person4', 'entity_id'))|list)|groupby('state'))['home']|count }}"
 action:
-  - service: script.person4_home
+  - service: script.turn_on
+    entity_id: script.person4_home

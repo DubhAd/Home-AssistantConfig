@@ -54,7 +54,8 @@ action:
     data_template:
       message: "Not on holiday, not working from home, alarm is playing..."
   # Update the trains
-  - service: script.train_message
+  - service: script.turn_on
+    entity_id: script.train_message
   - service: notify.logfile
     data_template:
       message: "Waiting up to 30 seconds for the radio to turn off"

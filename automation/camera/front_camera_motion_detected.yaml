@@ -5,4 +5,5 @@ trigger:
     entity_id: input_boolean.front_camera_motion
     to: 'on'
 action:
-  - service: script.snapshot_front_camera
+  - service: script.turn_on
+    entity_id: script.snapshot_front_camera

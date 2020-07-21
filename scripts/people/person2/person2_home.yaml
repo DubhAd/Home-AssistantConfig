@@ -17,4 +17,5 @@ sequence:
     entity_id: 
     - input_boolean.person2_travelling
     - input_boolean.person2_driving
-  - service: script.person2_traveltime
+  - service: script.turn_on
+    entity_id: script.person2_traveltime

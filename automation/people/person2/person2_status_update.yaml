@@ -15,4 +15,5 @@ action:
     data_template:
       message: >
         Status for person2 updated at {{ now() }}
-  - service: script.person2_travel_sensor
+  - service: script.turn_on
+    entity_id: script.person2_travel_sensor

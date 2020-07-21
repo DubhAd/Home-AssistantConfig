@@ -16,4 +16,5 @@ condition:
       entity_id: proximity.person2_work_2
       below: 5
 action:
-  - service: script.train_message
+  - service: script.turn_on
+    entity_id: script.train_message
