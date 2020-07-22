@@ -14,6 +14,25 @@ cards:
     entities: 
     - entity: binary_sensor.updater
       state_color: true
+
+- type: entity
+  name: "WAN IP"
+  entity: binary_sensor.fritzbox_connectivity
+  attribute: external_ip
+- type: glance
+  title: Things
+  show_header_toggle: false
+  show_state: false
+  columns: 4
+  entities:
+  - entity: binary_sensor.fritzbox_connectivity
+    name: Internet
+  - binary_sensor.remote_ui
+  - entity: binary_sensor.first_floor_front
+    name: BT Front
+  - entity: binary_sensor.first_floor_rear
+    name: BT Rear
+
 - type: glance
   title: Devices
   show_header_toggle: false
@@ -28,19 +47,6 @@ cards:
     name: Living room TV
   - entity: switch.pi3_table_light_switch
     name: Table light switch
-- type: glance
-  title: Things
-  show_header_toggle: false
-  show_state: false
-  columns: 4
-  entities:
-  - entity: binary_sensor.fritzbox_connectivity
-    name: Internet
-  - binary_sensor.remote_ui
-  - entity: binary_sensor.first_floor_front
-    name: BT Front
-  - entity: binary_sensor.first_floor_rear
-    name: BT Rear
 - type: glance
   title: Power consumption
   show_header_toggle: false
