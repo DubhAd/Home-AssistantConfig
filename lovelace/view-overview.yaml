@@ -20,7 +20,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity
-      entity: weather.home
+      entity: weather.dark_sky
       attribute: 'temperature'
       name: Outside
       icon: 'mdi:thermometer'
