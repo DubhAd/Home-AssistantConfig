@@ -4,10 +4,11 @@ trigger:
   - platform: state
     entity_id: calendar.person2_away
     to: 'off'
+  - platform: numeric_state
+    entity_id: sensor.person2s_time_to_home
+    below: '180'
   - platform: homeassistant
     event: start
-  - platform: time
-    at: '01:00:00'
 condition:
   condition: and
   conditions:

@@ -4,13 +4,26 @@ trigger:
   - platform: state
     entity_id: binary_sensor.workday_sensor
     to: 'on'
+  - platform: state
+    entity_id: input_boolean.notify_person2_working
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.person2_travelling
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.person2_home
+    to: 'on'
+  - platform: state
+    entity_id: calendar.person2_wfh
+    to: 'off'
   - platform: homeassistant
     event: start
-  - platform: time
-    at: '02:00:00'
 condition:
   condition: and
   conditions:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
   - condition: state
     entity_id: input_boolean.notify_person2_working
     state: 'on'

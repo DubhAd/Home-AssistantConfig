@@ -9,8 +9,6 @@ trigger:
     to: 'on'
   - platform: homeassistant
     event: start
-  - platform: time
-    at: '00:30:00'
 condition:
   condition: and
   conditions:
