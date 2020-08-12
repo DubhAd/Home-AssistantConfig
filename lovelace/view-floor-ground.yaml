@@ -145,6 +145,6 @@ cards:
     - entity: sensor.pi3_living_room_multi_temperature
       name: Living room
       color: darkgoldenrod
-    - entity: sensor.dark_sky_temperature
+    - entity: sensor.metno_temperature
       name: Outside
       color: 'silver'

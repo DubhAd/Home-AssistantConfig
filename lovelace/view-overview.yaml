@@ -3,7 +3,6 @@ id: overview
 path: overview
 icon: mdi:home-analytics
 cards:
-
   - type: glance
     columns: 4
     show_name: false
@@ -20,7 +19,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity
-      entity: weather.dark_sky
+      entity: weather.home
       attribute: 'temperature'
       name: Outside
       icon: 'mdi:thermometer'
@@ -87,7 +86,6 @@ cards:
     state_filter:
       - 'on'
       - 'playing'
-      - 'idle'
       - 'home'
     card:
       type: glance
@@ -223,4 +221,3 @@ cards:
       columns: 4
       title: Lights
       show_state: false
-
