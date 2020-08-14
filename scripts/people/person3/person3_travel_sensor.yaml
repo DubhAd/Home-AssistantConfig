@@ -17,7 +17,7 @@ sequence:
         {% elif not is_state("device_tracker.person3_mobile", "not_home") %}
           At {{ states("device_tracker.person3_mobile") }}
         {% elif (state_attr('sensor.person3s_time_to_home', 'duration')|int > 20) and is_state('input_boolean.person2_home','off') %}
-          {{ state_attr('sensor.person3s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person3s_time_to_home_by_bus', 'unit_of_measurement') }} to home by car
+          {{ state_attr('sensor.person3s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person3s_time_to_home', 'unit_of_measurement') }} to home by car
         {% elif states('proximity.person3_home')|int > 2000 %}
           {{ state_attr('sensor.person3s_time_to_home_by_bus', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person3s_time_to_home_by_bus', 'unit_of_measurement') }} to home by bus
         {% else %}
