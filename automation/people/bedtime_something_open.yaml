@@ -3,8 +3,8 @@ initial_state: 'on'
 trigger:
   - platform: state
     entity_id: 
-      - input_boolean.person3_is_awake
-      - input_boolean.person2_is_awake
+      - input_boolean.person3_in_bed
+      - input_boolean.person2_in_bed
     to: 'off'
 condition:
   condition: and
@@ -26,6 +26,10 @@ condition:
         entity_id: group.my_exterior_doors
         state: 'on'
 action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        {{ "SENDME" if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) else "SENDperson3" }} The following are open downstairs: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - service: media_player.turn_on
     data_template:
       entity_id: >-
