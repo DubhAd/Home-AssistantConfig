@@ -116,3 +116,52 @@ cards:
     name: Transfer
   - entity: sensor.printer_fuser_life_remaining
     name: Fuser
+
+- type: entity-filter
+  show_header_toggle: false
+  entities:
+    - media_player.cast_master_bedroom_display
+    - media_player.cast_kitchen_speaker
+    - media_player.cast_living_room_tv
+    - media_player.cast_master_bedroom_speaker
+    - media_player.cast_second_bedroom_speaker
+    - media_player.person2
+    - media_player.family_room
+    - media_player.family_room_display
+    - media_player.person1
+    - media_player.living_room
+    - media_player.living_room_display
+    - media_player.master_bedroom
+    - media_player.master_bedroom_display
+    - media_player.office
+    - media_player.office_smart_display
+    - media_player.samsung_tv
+    - switch.pi3_cabinet_light_switch
+    - switch.pi3_family_room_socket_switch
+    - switch.pi3_front_bedroom_switch
+    - switch.pi3_garden_lights_switch
+    - switch.pi3_hall_downstairs_switch
+    - switch.pi3_livingroom_socket_switch
+    - switch.pi3_master_bedroom_socket_switch
+    - switch.pi3_number_sign_switch
+    - switch.pi3_second_bedroom_switch
+    - switch.pi3_spare_socket_switch
+    - switch.pi3_table_light_switch
+    - switch.pi3_tv_light_switch
+    - switch.pi3_vestibule_switch
+    - switch.living_room_table
+    - light.hall
+    - light.person1_bedroom_bedside
+    - light.living_room
+    - light.living_room_corner
+    - light.living_room_table
+    - light.living_room_tv
+    - light.master_bedroom_bedhead
+    - light.yeelight_strip1_286c07afc307
+    - light.yeelight_strip1_7811dca22b87
+  state_filter:
+    - unavailable
+  card:
+    type: glance
+    title: Unavailable entities
+    show_state: false
