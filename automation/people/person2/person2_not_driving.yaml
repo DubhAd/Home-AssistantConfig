@@ -18,6 +18,6 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_driving
   - wait_template: >-
-      {{ as_timestamp(states('sensor.date_time_iso')) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated) < 30 }}
+      {{ (states.device_tracker.car_gps.last_updated - states.device_tracker.person2_mobile_gps.last_updated).seconds > 10 }}
   - service: script.turn_on
     entity_id: script.update_car_location

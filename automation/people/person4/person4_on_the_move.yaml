@@ -7,7 +7,7 @@ trigger:
 condition:
   # Been at least 5 minutes
   - condition: template
-    value_template: "{{ (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 300 }}"
+    value_template: "{{ state_attr('script.person4_traveltime','last_triggered') == None or (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 300 }}"
   # GPS says away
   - condition: state
     entity_id: device_tracker.person4_mobile
@@ -18,7 +18,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 600 }}"
+        value_template: "{{ state_attr('script.person4_traveltime','last_triggered') == None or (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 600 }}"
       - condition: numeric_state
         entity_id: proximity.person4_home
         above: 10
@@ -27,7 +27,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 900 }}"
+        value_template: "{{ state_attr('script.person4_traveltime','last_triggered') == None or (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 900 }}"
       - condition: numeric_state
         entity_id: proximity.person4_home
         above: 19999 
@@ -36,7 +36,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 3600 }}"
+        value_template: "{{ state_attr('script.person4_traveltime','last_triggered') == None or (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 3600 }}"
       - condition: numeric_state
         entity_id: proximity.person4_home
         above: 39999
