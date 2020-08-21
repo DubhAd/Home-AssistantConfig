@@ -11,34 +11,4 @@ condition:
   - condition: template
     value_template: "{{ states('sensor.dark_sky_temperature') != 'unknown' }}"
 action:
-  - service: notify.lm_notify
-    data_template:
-      message: >-
-        {% if states('sensor.dark_sky_temperature') != 'unknown' %}
-          {{ states('sensor.dark_sky_temperature')|round(0) }}C outside and {{ states('sensor.dark_sky_minutely_summary')|lower }} {{ states('sensor.dark_sky_hourly_summary') }}
-        {% else %}
-          {{ states.weather.dark_sky.attributes.forecast[0].temperature }}C outside and {{ states.weather.dark_sky.attributes.forecast[0].condition }}
-        {% endif %}
-        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %}
-          {% if states('sensor.dark_sky_alerts') == 1 %}
-            {{ state_attr('sensor.dark_sky_alerts','title') }} until {{ state_attr('sensor.dark_sky_alerts','time')|timestamp_local }}
-          {% else %}
-            {{ state_attr('sensor.dark_sky_alerts','title_0') }} until {{ state_attr('sensor.dark_sky_alerts','time_0')|timestamp_local }}
-          {% endif %}
-        {% endif %}
-  - service: notify.logfile
-    data_template:
-      message: >-
-        {% if states('sensor.dark_sky_temperature') != 'unknown' %}
-          SENDLIVING {{ states('sensor.dark_sky_temperature')|round(0) }}C outside and {{ states('sensor.dark_sky_minutely_summary')|lower }} {{ states('sensor.dark_sky_hourly_summary') }}
-        {% else %}
-          SENDLIVING {{ states.weather.dark_sky.attributes.forecast[0].temperature }}C outside and {{ states.weather.dark_sky.attributes.forecast[0].condition }}
-        {% endif %}
-        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %}
-          {% if states('sensor.dark_sky_alerts') == 1 %}
-            {{ state_attr('sensor.dark_sky_alerts','title') }} until {{ state_attr('sensor.dark_sky_alerts','time')|timestamp_local }}
-          {% else %}
-            {{ state_attr('sensor.dark_sky_alerts','title_0') }} until {{ state_attr('sensor.dark_sky_alerts','time_0')|timestamp_local }}
-          {% endif %}
-        {% endif %}
-
+  - service: script.weather_notification

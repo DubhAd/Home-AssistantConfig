@@ -20,7 +20,7 @@ condition:
         entity_id: sensor.bin_grey
         state: 'tomorrow'
 action:
-  - delay: '00:02:00'
+  - delay: '00:01:00'
   - service: notify.lm_notify
     data_template:
       message: >-
