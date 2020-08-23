@@ -2,11 +2,7 @@ initial_state: 'on'
 alias: 'Alarm armed home trigger'
 trigger:
   - platform: state
-    entity_id:
-      - group.my_exterior_doors
-      - group.my_downstairs_windows
-      - group.my_upstairs_windows
-    to: 'on'
+    entity_id: sensor.last_opened
 condition:
   # Alarm is armed home
   - condition: state
