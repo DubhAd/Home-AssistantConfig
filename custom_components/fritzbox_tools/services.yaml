@@ -1,2 +1,5 @@
 reconnect:
   description: Reconnects your FRITZ!Box internet connection.
+
+reboot:
+  description: Reboots your FRITZ!Box.
