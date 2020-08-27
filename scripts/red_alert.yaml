@@ -1,0 +1,31 @@
+alias: Red alert
+sequence:
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.all
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.all
+      volume_level: 0.5
+  - repeat:
+      count: 2
+      sequence:
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.all
+          media_content_id: http://192.168.0.12:8123/local/sounds/alert.mp3
+          media_content_type: music
+      - delay: '00:00:08'
+      - service: tts.google_cloud_say
+        data_template:
+          entity_id: media_player.all
+          message: "This is not a drill. Please leave the house immediately."
+      - delay: '00:00:02'
+      # Wait for it to stop playing (2 minute timeout)
+      - wait_template: "{{ is_state('media_player.cast_kitchen_speaker','idle') }}"
+        timeout: '00:02:00'
+        continue_on_timeout: 'true'
+  # Turn off the media players
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.all
