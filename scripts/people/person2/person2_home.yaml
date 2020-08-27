@@ -10,9 +10,11 @@ sequence:
   - service: automation.turn_on
     entity_id: automation.person2_at_station
   - service: automation.turn_off
-    entity_id: 
-    - automation.person2_returning_home
-    - automation.return_train_watcher
+    data:
+      entity_id: 
+      - automation.person2_returning_home
+      - automation.return_train_watcher
+      #stop_actions: false
   - service: input_boolean.turn_off
     entity_id: 
     - input_boolean.person2_travelling

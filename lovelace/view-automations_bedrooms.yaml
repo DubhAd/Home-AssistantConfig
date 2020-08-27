@@ -1,7 +1,7 @@
 title: Bedroom automations
 id: automations_bedrooms
 path: automations_bedrooms
-icon: mdi:hotel
+icon: mdi:bed
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:

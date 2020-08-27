@@ -14,4 +14,6 @@ action:
     data_template:
       message: "SENDperson3 person2's landed at work Aiport"
   - service: automation.turn_off
-    entity_id: automation.person2_at_work_airport_returning
+    data:
+      entity_id: automation.person2_at_work_airport_returning
+      #stop_actions: false

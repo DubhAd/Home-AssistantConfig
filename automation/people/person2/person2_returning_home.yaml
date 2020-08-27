@@ -23,7 +23,9 @@ condition:
         {{ not is_state('device_tracker.person2_mobile_gps','not_home') }}
 action:
   - service: automation.turn_off
-    entity_id: automation.person2_returning_home
+    data:
+      entity_id: automation.person2_returning_home
+      #stop_actions: false
   - service: script.person2_traveltime
   # Wait 30 seconds for the update
   - delay: '00:00:30'

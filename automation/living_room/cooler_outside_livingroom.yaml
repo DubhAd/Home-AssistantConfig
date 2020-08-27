@@ -43,7 +43,9 @@ action:
     data_template:
       message: "It's now cooler outside than inside, you should open some windows or doors."
   - service: automation.turn_off
-    entity_id: automation.cooler_outside_livingroom
+    data:
+      entity_id: automation.cooler_outside_livingroom
+      #stop_actions: false
   - wait_template: "{{ is_state('media_player.living_room_display','playing') }}"
   - wait_template: "{{ is_state('media_player.living_room_display','idle') }}"
   - service: media_player.turn_off

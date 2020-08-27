@@ -1,7 +1,7 @@
 title: More Automations
 id: automations_more
 path: automations_more
-icon: mdi:settings
+icon: mdi:cog
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:

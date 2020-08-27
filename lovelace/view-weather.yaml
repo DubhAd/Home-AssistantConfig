@@ -62,6 +62,24 @@ cards:
       name: MetNo
       current: true
       details: true
+  - type: vertical-stack
+    cards:
+    - type: custom:simple-weather-card
+      entity: weather.accuhome
+      name: by AccuWeather
+      backdrop: 
+        fade: true
+      primary_info:
+        - precipitation
+        - precipitation_probability
+      secondary_info:
+        - wind_speed
+        - wind_bearing
+    - type: custom:weather-card
+      entity: weather.accuhome
+      name: AccuWeather
+      current: true
+      details: true
   - type: custom:weather-card
     entity: weather.met_office_home
     name: Met Office
