@@ -5,7 +5,7 @@ elevation: !secret elevation
 unit_system: metric
 time_zone: Europe/London
 customize: !include customize.yaml
-whitelist_external_dirs:
+allowlist_external_dirs:
   - /data/homeassistant
   - /home/homeassistant/maps
 auth_providers: !include auth_providers.yaml
