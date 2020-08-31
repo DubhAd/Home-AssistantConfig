@@ -70,14 +70,11 @@ cards:
         entities:
         - entity: input_datetime.person3_next_alarm
           name: Next alarm
-      - type: custom:google-calendar-card
-        entities: 
-          - calendar.person3
       - type: "custom:atomic-calendar-revive"
+        name: "Calendar"
         entities:
           - entity: calendar.person3
-            titleColor: red
-            whitelist: 'word1,word2'
+            maxDaysToShow: 1
 - type: picture-entity
   entity: input_text.person_person4
   image: /local/people/person4_Away.png
@@ -241,14 +238,21 @@ cards:
         - entity: sensor.person2_tablet_rssi_first_floor_rear
           name: Rear
           icon: mdi:signal-cellular-2
-      - type: custom:google-calendar-card
+      - type: "custom:atomic-calendar-revive"
+        name: "Calendar"
         entities:
-          - calendar.person2
-          - calendar.person2_work
-          - calendar.person2_holiday
-          - calendar.person2_wfh
-          - calendar.person2_away
-          - calendar.birthdays_and_anniversaries
+          - entity: calendar.person2
+            maxDaysToShow: 1
+          - entity: calendar.person2_work
+            maxDaysToShow: 1
+          - entity: calendar.person2_holiday
+            maxDaysToShow: 1
+          - entity: calendar.person2_wfh
+            maxDaysToShow: 1
+          - entity: calendar.person2_away
+            maxDaysToShow: 1
+          - entity: calendar.birthdays_and_anniversaries
+            maxDaysToShow: 1
   - type: picture-entity
     entity: group.person_person2_work
     image: /local/people/person2_Work.png
@@ -431,9 +435,11 @@ cards:
         - entity: sensor.person1_tablet_rssi_first_floor_rear
           name: Rear
           icon: mdi:signal-cellular-2
-      - type: custom:google-calendar-card
+      - type: "custom:atomic-calendar-revive"
+        name: "Calendar"
         entities:
-          - calendar.person1
+          - entity: calendar.person1
+            maxDaysToShow: 1
 - type: vertical-stack
   cards:
   - type: picture-entity
