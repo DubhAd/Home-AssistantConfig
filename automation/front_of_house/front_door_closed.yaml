@@ -4,5 +4,10 @@ trigger:
   - platform: state
     entity_id: binary_sensor.pi3_front_door_sensor
     to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
+    for: '00:02:00'
 action:
   - service: script.scan_bt_depart

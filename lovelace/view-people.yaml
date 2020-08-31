@@ -73,6 +73,11 @@ cards:
       - type: custom:google-calendar-card
         entities: 
           - calendar.person3
+      - type: "custom:atomic-calendar-revive"
+        entities:
+          - entity: calendar.person3
+            titleColor: red
+            whitelist: 'word1,word2'
 - type: picture-entity
   entity: input_text.person_person4
   image: /local/people/person4_Away.png

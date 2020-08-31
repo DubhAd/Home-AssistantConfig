@@ -7,13 +7,31 @@ trigger:
       - device_tracker.person1_bt_mobile
       - device_tracker.person1_bt_front_mobile
     to: 'home'
+  - platform: state
+    entity_id: binary_sensor.pi3_front_door_sensor
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.pi3_front_door_sensor
+    to: 'on'
   - platform: homeassistant
     event: start
 condition:
-  - condition: numeric_state
-    entity_id: group.person_person1
-    above: 0
-    value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person1', 'entity_id'))|list)|groupby('state'))['home']|count }}"
+  # Either the door just opened/closed, or multiple trackers show home
+  - condition: or
+    conditions:
+    - condition: numeric_state
+      entity_id: group.person_person1
+      above: 1
+      value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person1', 'entity_id'))|list)|groupby('state'))['home']|count }}"
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: >-
+          {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60 ) }}
+      - condition: numeric_state
+        entity_id: group.person_person1
+        above: 0
+        value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person1', 'entity_id'))|list)|groupby('state'))['home']|count }}"
 action:
   - service: script.turn_on
     entity_id: script.person1_home
