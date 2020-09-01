@@ -12,4 +12,4 @@ action:
   - service: telegram_bot.send_message
     data_template:
       message: >
-        The following lights are on: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_lights', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        The following lights are on: {{ expand('group.my_lights')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}

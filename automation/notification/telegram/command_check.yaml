@@ -13,22 +13,22 @@ action:
         
         The zigbee bridge is {{ states('sensor.zigbee2mqtt_bridge_state') }} and router is {{ states('binary_sensor.zigbee2mqtt_router_1') }}
 
-        {% set rooms_occupied = dict((states|selectattr('entity_id', 'in', state_attr('group.my_room_status', 'entity_id'))|list)|groupby('state'))['on']|length -%}
+        {% set rooms_occupied = expand('group.my_room_status')|selectattr('state', 'eq', 'on')|list|count -%}
         {%- if rooms_occupied > 0 -%}
-          The following rooms are occupied: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_room_status', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+          The following rooms are occupied: {{ expand('group.my_room_status')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}
         {%- else -%}
           No rooms are occupied
         {%- endif %}
 
-        {%- set lights_on = dict(states|selectattr('entity_id', 'in', state_attr('group.my_lights', 'entity_id')|list)|groupby('state'))['on']|length -%}
-        {%- set doors_open = dict(states|selectattr('entity_id', 'in', state_attr('group.my_exterior_doors', 'entity_id')|list)|groupby('state'))['on']|length -%}
-        {%- set windows_upstairs = dict(states|selectattr('entity_id', 'in', state_attr('group.my_upstairs_windows', 'entity_id')|list)|groupby('state'))['on']|length -%}
-        {%- set windows_downstairs = dict(states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id')|list)|groupby('state'))['on']|length %}
+        {% set lights_on = expand('group.my_lights')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count -%}
+        {%- set doors_open = expand('group.my_exterior_doors')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count -%}
+        {%- set windows_upstairs = expand('group.my_upstairs_windows')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count -%}
+        {%- set windows_downstairs = expand('group.my_downstairs_windows')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count -%}
 
-        There are {{ lights_on }} lights on{% if lights_on != 0 %} ({{ dict(states|selectattr('entity_id', 'in', state_attr('group.my_lights', 'entity_id')|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}){%- endif -%},
-        {{ doors_open }} doors open{% if doors_open != 0 %} ({{ dict(states|selectattr('entity_id', 'in', state_attr('group.my_exterior_doors', 'entity_id')|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}){%- endif -%},
-        {{ windows_downstairs }} windows open downstairs{% if windows_downstairs != 0 %} ({{ dict(states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id')|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}){%- endif -%}, and
-        {{ windows_upstairs }} windows open upstairs{% if windows_upstairs != 0 %} ({{ dict(states|selectattr('entity_id', 'in', state_attr('group.my_upstairs_windows', 'entity_id')|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}){%- endif %}
+        There are {% if lights_on != 0 %}{{ lights_on }} lights on ({{ expand('group.my_lights')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}){%- else -%}no lights on{%- endif -%},
+        {%- if doors_open != 0 %} {{ doors_open }} doors open ({{ expand('group.my_exterior_doors')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}){%- else %} no doors open{%- endif -%},
+        {%- if windows_downstairs != 0 %} {{ windows_downstairs }} windows open downstairs ({{ expand('group.my_downstairs_windows')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}){%- else %} no windows open downstairs{%- endif -%},
+        {%- if windows_upstairs != 0 %} {{ windows_upstairs }} windows open upstairs ({{ expand('group.my_upstairs_windows')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}){%- else %} no windows open upstairs{%- endif -%}.
 
         {% if is_state('input_boolean.person3_in_bed','on') -%}
           person3 has been in bed for {{ relative_time(states.input_boolean.person3_in_bed.last_changed) }}
