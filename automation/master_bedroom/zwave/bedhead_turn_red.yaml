@@ -12,7 +12,7 @@ condition:
     state: 'on'
 action:
   - service: switch.turn_off
-    entity_id: switch.circadian_lighting_circadian_master_bedroom
+    entity_id: switch.circadian_lighting_master_bedroom
   - service: light.turn_on
     data:
       entity_id: light.yeelight_strip1_286c07afc307

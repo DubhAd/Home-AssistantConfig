@@ -12,7 +12,7 @@ condition:
     before: '10:00:00'
 action:
   - service: switch.turn_on
-    entity_id: switch.circadian_lighting_circadian_master_bedroom
+    entity_id: switch.circadian_lighting_master_bedroom
   - service: light.turn_on
     data:
       entity_id: light.yeelight_strip1_286c07afc307

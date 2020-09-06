@@ -2,7 +2,7 @@ alias: Hall strip on
 sequence:
   - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
   - service: switch.turn_on
-    entity_id: switch.circadian_lighting_circadian_hall
+    entity_id: switch.circadian_lighting_hall
   - service: light.turn_on
     data_template:
       entity_id: light.hall
