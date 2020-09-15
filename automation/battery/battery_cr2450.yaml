@@ -5,6 +5,7 @@ trigger:
     entity_id: 
     - sensor.vestibule_motion_battery
     - sensor.hall_downstairs_motion_battery
+    - sensor.dimmer_switch_battery
     below: 25
     for:
       minutes: 5
@@ -12,6 +13,7 @@ trigger:
     entity_id: 
     - sensor.vestibule_motion_battery
     - sensor.hall_downstairs_motion_battery
+    - sensor.dimmer_switch_battery
     below: 10
     for:
       minutes: 5
@@ -19,6 +21,7 @@ trigger:
     entity_id: 
     - sensor.vestibule_motion_battery
     - sensor.hall_downstairs_motion_battery
+    - sensor.dimmer_switch_battery
     below: 5
     for:
       minutes: 5
