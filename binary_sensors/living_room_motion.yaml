@@ -2,6 +2,5 @@
   sensors: 
     living_room_motion:
       device_class: motion
-      entity_id: sensor.pi3_living_room_multi_burglar
       friendly_name: 'Living room motion'
       value_template: "{{ is_state('sensor.pi3_living_room_multi_burglar', '8') }}"

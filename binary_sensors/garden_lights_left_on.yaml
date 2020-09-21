@@ -2,10 +2,9 @@
   sensors: 
     garden_lights_left_on:
       friendly_name: 'Garden lights left on'
-      entity_id: switch.pi3_garden_lights_switch, input_number.garden_time, sensor.time
       value_template: >-
         {% if is_state("switch.pi3_garden_lights_switch", "on" ) %} 
-          {{ ( as_timestamp(now()) - as_timestamp(states.switch.pi3_garden_lights_switch.last_changed)|float ) > ( states('input_number.garden_time')|float * 60 ) }}
+          {{ (states.sensor.time.last_updated - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds > ( states('input_number.garden_time')|float * 60 ) }}
         {% else %}
           False
         {% endif %}

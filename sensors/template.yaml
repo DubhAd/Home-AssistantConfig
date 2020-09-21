@@ -1,7 +1,6 @@
 - platform: template
   sensors:
     next_train_xyz_status:
-      entity_id: sensor.next_train_to_xyz
       friendly_name: 'Train status'
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[0].status}}'
       icon_template: >
@@ -15,16 +14,13 @@
 
     next_train_xyz_estimated:
       friendly_name: 'Estimated departure'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[0].estimated}}'
     next_train_xyz_scheduled:
       friendly_name: 'Scheduled departure'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[0].scheduled}}'
 
     second_train_xyz_status:
       friendly_name: 'Train status'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[1].status}}'
       icon_template: >
         {% if states.sensor.next_train_to_xyz.attributes.next_trains[1].status == 'ON TIME' %}
@@ -37,16 +33,13 @@
 
     second_train_xyz_estimated:
       friendly_name: 'Estimated departure'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[1].estimated}}'
     second_train_xyz_scheduled:
       friendly_name: 'Scheduled departure'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[1].scheduled}}'
 
     third_train_xyz_status:
       friendly_name: 'Train status'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[2].status}}'
       icon_template: >
         {% if states.sensor.next_train_to_xyz.attributes.next_trains[2].status == 'ON TIME' %}
@@ -59,16 +52,13 @@
 
     third_train_xyz_estimated:
       friendly_name: 'Estimated departure'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[2].estimated}}'
     third_train_xyz_scheduled:
       friendly_name: 'Scheduled departure'
-      entity_id: sensor.next_train_to_xyz
       value_template: '{{states.sensor.next_train_to_xyz.attributes.next_trains[2].scheduled}}'
 
     next_train_abc_status:
       friendly_name: 'Train status'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[0].status}}'
       icon_template: >
         {% if states.sensor.next_train_to_xyz.attributes.next_trains[0].status == 'ON TIME' %}
@@ -81,16 +71,13 @@
 
     next_train_abc_estimated:
       friendly_name: 'Estimated departure'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[0].estimated}}'
     next_train_abc_scheduled:
       friendly_name: 'Scheduled departure'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[0].scheduled}}'
 
     second_train_abc_status:
       friendly_name: 'Train status'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[1].status}}'
       icon_template: >
         {% if states.sensor.next_train_to_abc.attributes.next_trains[1].status == 'ON TIME' %}
@@ -103,16 +90,13 @@
 
     second_train_abc_estimated:
       friendly_name: 'Estimated departure'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[1].estimated}}'
     second_train_abc_scheduled:
       friendly_name: 'Scheduled departure'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[1].scheduled}}'
 
     third_train_abc_status:
       friendly_name: 'Train status'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[2].status}}'
       icon_template: >
         {% if states.sensor.next_train_to_abc.attributes.next_trains[2].status == 'ON TIME' %}
@@ -125,9 +109,7 @@
 
     third_train_abc_estimated:
       friendly_name: 'Estimated departure'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[2].estimated}}'
     third_train_abc_scheduled:
       friendly_name: 'Scheduled departure'
-      entity_id: sensor.next_train_to_abc
       value_template: '{{states.sensor.next_train_to_abc.attributes.next_trains[2].scheduled}}'

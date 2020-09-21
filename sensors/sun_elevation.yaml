@@ -1,7 +1,6 @@
 - platform: template
   sensors:
     sun_elevation:
-      entity_id: sun.sun
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
       unit_of_measurement: "degrees"
       icon_template: >

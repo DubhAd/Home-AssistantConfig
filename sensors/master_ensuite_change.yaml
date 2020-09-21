@@ -1,6 +1,5 @@
 - platform: template
   sensors:
     master_ensuite_change:
-      entity_id: sensor.master_ensuite_humidity_stats
       value_template: "{{ state_attr('sensor.master_ensuite_humidity_stats', 'change') }}"
       unit_of_measurement: "%"
