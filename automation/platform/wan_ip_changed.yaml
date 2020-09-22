@@ -7,6 +7,9 @@ condition:
   - condition: template
     value_template: >-
       {{ trigger.from_state.attributes.external_ip != trigger.to_state.attributes.external_ip }}
+  - condition: template
+    value_template: >-
+      {{ trigger.to_state.attributes.external_ip != "None" }}
 action:
   - wait_template: >-
       {{ is_state('input_boolean.person2_is_awake','on') }}
