@@ -2,4 +2,4 @@
   name: Master ensuite humidity stats
   entity_id: sensor.master_ensuite_humidity
   precision: 1
-  sampling_size: 4
+  sampling_size: 8

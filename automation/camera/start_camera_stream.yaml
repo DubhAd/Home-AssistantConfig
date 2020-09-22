@@ -24,6 +24,6 @@ action:
         {%- endif -%}
   - service: camera.play_stream
     data_template:
-      entity_id: "camera.front_camera"
+      entity_id: "camera.front_camera_lowres"
       format: "hls"
       media_player: "{{ states('input_select.camera_stream_target') }}"
