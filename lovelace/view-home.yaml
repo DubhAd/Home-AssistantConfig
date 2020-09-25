@@ -4,7 +4,7 @@ path: home
 icon: mdi:home
 cards:
   - type: custom:simple-weather-card
-    entity: weather.home
+    entity: weather.accuhome
     name: in current location
     backdrop: 
       fade: true
@@ -20,7 +20,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity
-      entity: weather.home
+      entity: weather.accuhome
       attribute: 'temperature'
       name: Outside
       icon: 'mdi:thermometer'
@@ -256,7 +256,7 @@ cards:
       show_state: false
 
   - type: custom:weather-card
-    entity: weather.home
+    entity: weather.accuhome
     current: true
     details: true
     forecast: true
