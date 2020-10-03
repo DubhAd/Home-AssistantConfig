@@ -32,6 +32,10 @@ trigger:
     entity_id: binary_sensor.pi3_living_room_motion
     to: 'off'
     for: '00:01:00'
+  - platform: state
+    entity_id: binary_sensor.pi3_living_room_motion
+    to: 'on'
+    for: '00:10:00'
 condition:
   - condition: and
     conditions:
@@ -57,10 +61,16 @@ condition:
       - condition: state
         entity_id: media_player.living_room
         state: 'idle'
-    # And no motion
-    - condition: state
-      entity_id: binary_sensor.pi3_living_room_motion
-      state: 'off'
+    # And no motion or jammed
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.pi3_living_room_motion
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.pi3_living_room_motion
+        state: 'on'
+        for: '00:10:00'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.living_room_occupied
