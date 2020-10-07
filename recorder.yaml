@@ -3,8 +3,7 @@ purge_keep_days: 14
 exclude:
   entities:
     - automation.remote_ping
-    - sun.sun
-    - sensor.sun_elevation
+    - sensor.pi3_sun_elevation
     - sensor.date_time
     - sensor.internet_time
     - sensor.time
