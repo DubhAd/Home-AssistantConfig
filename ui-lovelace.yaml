@@ -1,5 +1,4 @@
 title: Our Home
-custom_header: !include lovelace/custom_header.yaml
 views:
   - !include lovelace/view-home.yaml
   - !include lovelace/view-floorplan.yaml

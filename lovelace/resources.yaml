@@ -1,6 +1,6 @@
   # https://maykar.github.io/compact-custom-header/
-- url: /hacsfiles/custom-header/custom-header.js
-  type: module
+  #- url: /hacsfiles/custom-header/custom-header.js
+  #  type: module
 - url: /hacsfiles/weather-card/weather-card.js
   type: module 
   # https://github.com/kalkih/mini-media-player

@@ -2,9 +2,9 @@
   sensors:
     bin_grey:
       friendly_name: 'Grey bin collection'
-      entity_id:
-        - sensor.grey_collection_date
-        - sun.sun
+      #      entity_id:
+      #  - sensor.grey_collection_date
+      #  - sun.sun
       value_template: >-
         {% if (as_timestamp(now()) + ( 60 * 60 * 24 )) | timestamp_custom("%Y-%m-%d 00:00:00") == states('sensor.grey_collection_date') %}
           tomorrow 
