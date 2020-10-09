@@ -2,9 +2,6 @@
   sensors:
     bin_blue:
       friendly_name: 'Blue bin collection'
-      #      entity_id:
-      #  - sensor.blue_collection_date
-      #  - sun.sun
       value_template: >-
         {% if (as_timestamp(now()) + ( 60 * 60 * 24 )) | timestamp_custom("%Y-%m-%d 00:00:00") == states('sensor.blue_collection_date') %}
           tomorrow 
@@ -12,8 +9,7 @@
           past
         {% elif (as_timestamp(now()) | timestamp_custom("%Y-%m-%d 00:00:00")) == states('sensor.blue_collection_date') %}
           today
-        {% elif states('sun.sun') != None %}
-          future
         {% else %}
           future
         {% endif %}
+        {{ "" if states('sensor.time') != "test" }}

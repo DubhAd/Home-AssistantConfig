@@ -12,8 +12,7 @@
           past
         {% elif (as_timestamp(now()) | timestamp_custom("%Y-%m-%d 00:00:00")) == states('sensor.brown_collection_date') %}
           today
-        {% elif states('sun.sun') != None %}
-          future
         {% else %}
           future
         {% endif %}
+        {{ "" if states('sensor.time') != "test" }}
