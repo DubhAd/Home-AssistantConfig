@@ -66,7 +66,7 @@ if [ ! -d ${VENV_BASE}/venv_${PY_VER} ]; then
 	# This installs a bunch of relevant packages automatically, speeding up first startup
 	hass --script check_config
 	# Now we install requirements
-	wget --quiet https://raw.githubusercontent.com/home-assistant/docker/master/base/requirements.txt -O - | while read LINE
+	wget --quiet https://raw.githubusercontent.com/home-assistant/docker/master/requirements.txt -O - | while read LINE
 	do
 		pip3 install --upgrade ${LINE}
 	done
