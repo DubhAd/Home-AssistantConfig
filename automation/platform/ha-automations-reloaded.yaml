@@ -1,0 +1,9 @@
+alias: 'HA automations reloaded'
+initial_state: 'on'
+trigger:
+  platform: event
+  event: automation_reloaded 
+action:
+  - service: script.notify_person2
+    data:
+      message: "Automations on Vision have been reloaded at {{ as_timestamp(now())|timestamp_local }} local"
