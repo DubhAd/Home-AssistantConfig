@@ -2,10 +2,18 @@
   alias: A New Automation
   description: ''
   trigger:
-  - platform: template
-    value_template: '{{ states(''sensor.time'') == states(''input_datetime.ha_shutdown'')|as_timestamp()|timestamp_custom(''%H:%M'')  }}'
+  - platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    from: banana
+    to: kipper
+  - type: not_connected
+    platform: device
+    device_id: dcd0d096babb4d24b9992141becae071
+    entity_id: binary_sensor.fritzbox_connectivity
+    domain: binary_sensor
   condition: []
   action:
   - data: {}
     entity_id: light.yeelight_strip1_286c07afc307
     service: light.turn_off
+  mode: single
