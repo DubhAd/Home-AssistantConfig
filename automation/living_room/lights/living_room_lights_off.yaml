@@ -11,6 +11,9 @@ trigger:
     entity_id: input_select.living_room
     to: 'Away'
   - platform: state
+    entity_id: input_select.living_room
+    to: 'Auto'
+  - platform: state
     entity_id: input_select.house
     to: 'Night on'
   - platform: state
@@ -19,6 +22,9 @@ trigger:
   - platform: state
     entity_id: input_select.house
     to: 'Away'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
 condition:
   # Lighting automations must be enabled
   - condition: state

@@ -13,6 +13,9 @@ cards:
   - entity: input_boolean.living_room_occupied
     secondary_info: last-changed
     state_color: true
+  - entity: input_boolean.lighting_living_room
+    secondary_info: last-changed
+    state_color: true
   - type: divider
   - input_select.family_room
   - entity: input_boolean.family_room_occupied

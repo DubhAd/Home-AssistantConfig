@@ -37,6 +37,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.living_room_off_empty
     secondary_info: last-triggered
+  - entity: automation.living_room_override
+    secondary_info: last-triggered
   - type: divider
   - entity: automation.living_room_movement
     secondary_info: last-triggered

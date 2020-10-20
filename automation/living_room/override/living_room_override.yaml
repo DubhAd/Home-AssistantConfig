@@ -1,0 +1,55 @@
+initial_state: 'on'
+alias: 'Living room override'
+trigger:
+  - platform: state
+    entity_id:
+    - light.living_room_table
+    - switch.pi3_livingroom_socket_switch
+    - switch.pi3_tv_light_switch
+    - switch.pi3_cabinet_light_switch
+    to: 'off'
+condition:
+  - condition: and
+    conditions:
+    # day or night on
+    - condition: or
+      conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_select.living_room
+          state: 'Night on'
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: light.living_room_table
+            state: 'off'
+          - condition: state
+            entity_id: switch.pi3_livingroom_socket_switch
+            state: 'off'
+          - condition: state
+            entity_id: switch.pi3_tv_light_switch
+            state: 'off'
+          - condition: state
+            entity_id: switch.pi3_cabinet_light_switch
+            state: 'off'
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_select.living_room
+          state: 'Day on'
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: switch.pi3_livingroom_socket_switch
+            state: 'off'
+          - condition: state
+            entity_id: switch.pi3_tv_light_switch
+            state: 'off'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.living_room
+      option: 'Off'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.lighting_living_room

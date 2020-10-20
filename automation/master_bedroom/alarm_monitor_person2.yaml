@@ -1,8 +1,8 @@
 alias: 'Alarm monitor person2'
 trigger:
     # Alarm scheduled for "now"
-  - platform: template
-    value_template: "{{ state_attr('input_datetime.person2_next_alarm','timestamp')|timestamp_custom('%Y-%m-%d %H:%M', true) == as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M'))|timestamp_custom('%Y-%m-%d %H:%M', true) }}"
+  - platform: time
+    at: input_datetime.person2_next_alarm
 condition:
     # Alarm is enabled
   - condition: state

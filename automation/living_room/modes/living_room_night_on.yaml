@@ -4,6 +4,10 @@ trigger:
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'on'
+  # Lights aren't on override
+  - platform: state
+    entity_id: input_boolean.living_room_override
+    to: 'on'
   - platform: state
     entity_id: switch.pi3_cabinet_light_switch
     to: 'on'
@@ -26,6 +30,10 @@ trigger:
 condition:
   - condition: and
     conditions:
+    # Lighting in the room is under automatic control
+    - condition: state
+      entity_id: input_boolean.lighting_living_room
+      state: 'on'
     - condition: template
       value_template: "{{ not is_state('input_select.living_room','Night on') }}"
     - condition: state

@@ -7,6 +7,12 @@ trigger:
   - platform: state
     entity_id: input_select.house
     to: 'Dim'
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Auto'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
 condition:
   # Lighting automations must be enabled
   - condition: state
