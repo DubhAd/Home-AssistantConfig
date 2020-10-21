@@ -26,7 +26,5 @@
   type: module 
 - url: /hacsfiles/button-card/button-card.js
   type: module 
-- url: /hacsfiles/lovelace-card-mod/card-mod.js
-  type: module 
 - url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
   type: module
