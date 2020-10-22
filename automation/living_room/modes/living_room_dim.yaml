@@ -4,10 +4,6 @@ trigger:
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
-  # Home and the room is getting dark
-  - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    below: 5
 condition:
   - condition: state
     entity_id: input_boolean.living_room_occupied

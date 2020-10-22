@@ -5,6 +5,14 @@ trigger:
     entity_id: input_select.living_room
     to: 'Dim'
     for: '00:30:00'
+  - platform: state
+    entity_id: binary_sensor.pi3_living_room_motion
+    to: 'off'
+    for: '00:30:00'
+  - platform: state
+    entity_id: binary_sensor.pi3_living_room_motion
+    to: 'on'
+    for: '00:30:00'
 condition:
   condition: and
   conditions:
@@ -16,6 +24,18 @@ condition:
     - condition: state
       entity_id: input_boolean.living_room_occupied
       state: 'off'
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Dim'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.pi3_living_room_motion
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.pi3_living_room_motion
+        state: 'on'
+        for: '00:30:00'
 action:
   - service: input_select.select_option
     data:
