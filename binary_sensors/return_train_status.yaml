@@ -3,6 +3,7 @@
     return_train_status:
       device_class: moving
       friendly_name: 'Return train status'
+      unique_id: 'return_train_status'
       value_template: >-
         {%- macro getTrainStatus() -%}
   

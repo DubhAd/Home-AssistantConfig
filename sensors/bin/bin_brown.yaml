@@ -5,6 +5,7 @@
       #      entity_id:
       #  - sensor.brown_collection_date
       #  - sun.sun
+      unique_id: 'brown_bin_collection'
       value_template: >-
         {% if (as_timestamp(now()) + ( 60 * 60 * 24 )) | timestamp_custom("%Y-%m-%d 00:00:00") == states('sensor.brown_collection_date') %}
           tomorrow 

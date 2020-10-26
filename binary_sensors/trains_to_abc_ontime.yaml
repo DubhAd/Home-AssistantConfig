@@ -3,6 +3,7 @@
     trains_to_abc_ontime:
       device_class: moving
       friendly_name: 'Trains from station to home are on time'
+      unique_id: 'trains_to_abc_ontime'
       value_template: >- 
         {% if ( states.sensor.next_train_to_abc.attributes.next_trains[0].status == 'ON TIME' or states.sensor.next_train_to_abc.attributes.next_trains[0].status == 'EARLY' ) and
           ( states.sensor.next_train_to_abc.attributes.next_trains[1].status == 'ON TIME' or states.sensor.next_train_to_abc.attributes.next_trains[1].status == 'EARLY' ) and

@@ -2,6 +2,7 @@
   sensors:
     sun_elevation:
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+      unique_id: 'sun_elevation'
       unit_of_measurement: "degrees"
       icon_template: >
         {% set elevation = state_attr('sun.sun', 'elevation')|default(0) %}

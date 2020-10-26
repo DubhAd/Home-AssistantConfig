@@ -2,4 +2,5 @@
   sensors:
     master_ensuite_change:
       value_template: "{{ state_attr('sensor.master_ensuite_humidity_stats', 'change') }}"
+      unique_id: 'master_ensuite_change'
       unit_of_measurement: "%"

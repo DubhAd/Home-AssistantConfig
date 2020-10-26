@@ -2,6 +2,7 @@
   sensors: 
     garden_lights_left_on:
       friendly_name: 'Garden lights left on'
+      unique_id: 'garden_lights_left_on'
       value_template: >-
         {% if is_state("switch.pi3_garden_lights_switch", "on" ) %} 
           {{ (states.sensor.time.last_updated - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds > ( states('input_number.garden_time')|float * 60 ) }}
