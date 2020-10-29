@@ -17,7 +17,7 @@ cards:
 
 - type: entity
   name: "WAN IP"
-  entity: binary_sensor.fritzbox_connectivity
+  entity: binary_sensor.fritzbox_7530_connectivity
   attribute: external_ip
 - type: glance
   title: Things
@@ -25,7 +25,7 @@ cards:
   show_state: false
   columns: 4
   entities:
-  - entity: binary_sensor.fritzbox_connectivity
+  - entity: binary_sensor.fritzbox_7530_connectivity
     name: Internet
   - binary_sensor.remote_ui
   - entity: binary_sensor.first_floor_front

@@ -2,7 +2,7 @@ alias: 'WAN IP changed'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: binary_sensor.fritzbox_connectivity
+    entity_id: binary_sensor.fritzbox_7530_connectivity
 condition:
   - condition: template
     value_template: >-
