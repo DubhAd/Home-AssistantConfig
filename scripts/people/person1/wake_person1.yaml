@@ -11,11 +11,6 @@ sequence:
     data:
       entity_id: media_player.cast_second_bedroom_speaker
       volume_level: 0.3
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.cast_second_bedroom_speaker
-      media_content_id: https://myhost.dynamic.dom:12345/local/sounds/sub_alert.mp3
-      media_content_type: music
   - delay: 00:00:03
   # Light goes on (just in case it didn't catch the first message)
   - service: light.turn_on
@@ -35,11 +30,6 @@ sequence:
     data:
       entity_id: media_player.cast_second_bedroom_speaker
       volume_level: 0.4
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.cast_second_bedroom_speaker
-      media_content_id: https://myhost.dynamic.dom:12345/local/sounds/sub_alert.mp3
-      media_content_type: music
   - delay: 00:00:03
   # Disco lights
   - service: light.turn_on
@@ -50,11 +40,6 @@ sequence:
     entity_id: media_player.cast_second_bedroom_speaker
     data:
       message: "Time to get up"
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.cast_second_bedroom_speaker
-      media_content_id: http://vis.media-ice.musicradio.com/CapitalUKMP3
-      media_content_type: 'audio/mp3'
   - delay: 00:00:10
   # Lights to normal
   - service: light.turn_on
