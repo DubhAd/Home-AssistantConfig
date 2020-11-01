@@ -1,8 +1,8 @@
 alias: 'HA automations reloaded'
 initial_state: 'on'
 trigger:
-  platform: event
-  event: automation_reloaded 
+  - platform: event
+    event_type: automation_reloaded 
 action:
   - service: script.notify_person2
     data:
