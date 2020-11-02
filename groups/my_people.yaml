@@ -1,0 +1,5 @@
+name: My people
+entities:
+- input_boolean.person1_home
+- input_boolean.person2_home
+- input_boolean.person3_home

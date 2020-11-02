@@ -4,5 +4,9 @@ trigger:
   - platform: state
     entity_id: binary_sensor.pi3_garage_closed_car_sensor
     to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
 action:
   - service: script.scan_bt_depart

@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    home_count:
+      friendly_name: 'Home count'
+      unique_id: 'home_count'
+      value_template: >-
+        {{ ((expand('group.my_people')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count)/(expand('group.my_people')|map(attribute='name')|list|count))|round(2) }}
+
