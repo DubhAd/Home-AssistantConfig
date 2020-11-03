@@ -6,20 +6,44 @@ sequence:
       topic: monitor/scan/depart
       payload: ''
   - delay: '00:00:35'
+  # Stop if everybody is away
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.home_count
+      state: "0"
   - service: mqtt.publish
     data:
       topic: monitor/scan/depart
       payload: ''
   - delay: '00:01:05'
+  # Stop if everybody is away
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.home_count
+      state: "0"
   - service: mqtt.publish
     data:
       topic: monitor/scan/depart
       payload: ''
+  # Stop if everybody is away
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.home_count
+      state: "0"
   - delay: '00:02:05'
   - service: mqtt.publish
     data:
       topic: monitor/scan/depart
       payload: ''
+  # Stop if everybody is away
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.home_count
+      state: "0"
   - delay: '00:01:05'
   - service: mqtt.publish
     data:

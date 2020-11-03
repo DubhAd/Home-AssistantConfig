@@ -5,11 +5,23 @@ sequence:
       topic: monitor/scan/arrive
       payload: ''
   - delay: '00:00:15'
+  # Stop if everybody is home
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.home_count
+      state: "1"
   - service: mqtt.publish
     data:
       topic: monitor/scan/arrive
       payload: ''
   - delay: '00:00:15'
+  # Stop if everybody is home
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.home_count
+      state: "1"
   - service: mqtt.publish
     data:
       topic: monitor/scan/arrive
