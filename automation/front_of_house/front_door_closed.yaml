@@ -18,17 +18,5 @@ condition:
   - condition: template
     value_template: >
       {{ (expand('group.people_status')|selectattr('state', 'eq', 'Just Arrived')|map(attribute='name')|list|count) == 0 }}
-  # There was movement in the vestibule already
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: binary_sensor.vestibule_occupancy
-      state: 'on'
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.vestibule_occupancy
-        state: 'off'
-        for: '00:01:00'
 action:
   - service: script.scan_bt_depart

@@ -21,54 +21,51 @@ trigger:
     to: 'on'
   - platform: homeassistant
     event: start
+variables:
+  away_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
+  door_recent: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300) }}"
+  is_home: "{{ is_state('input_boolean.person2_home','on') }}"
+  is_driving: "{{ is_state('input_boolean.person2_driving','on') }}"
+  proximity_home: "{{ states('proximity.person2_home') }}"
+  away_script: script.person2_away
 condition:
   # currently home
-  - condition: state
-    entity_id: input_boolean.person2_home
-    state: 'on'
+  - condition: template
+    value_template: "{{ is_home == 'True' }}"
   - condition: or
     conditions:
-    # As long as at least two trackers mark as away, they're away
-    - condition: numeric_state
-      entity_id: group.person_person2
-      above: 1
-      value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
+    # Two or more trackers mark as away, door opened/closed in the last 5 minutes
     - condition: and
       conditions:
-      # As long as at least one tracker marks as away, and they're driving, they're away
-      - condition: state
-        entity_id: input_boolean.person2_driving
-        state: 'on'
-      - condition: numeric_state
-        entity_id: group.person_person2
-        above: 0
-        value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
-      - condition: numeric_state
-        entity_id: proximity.person2_home
-        above: 200
-  # Either a door just opened/closed, all are away and we're not near, or we're far, far away
-  - condition: or
-    conditions:
-    # An exit door recently opened or closed, or motion in the vestibule
-    - condition: template
-      value_template: >-
-        {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300)
-          or
-           ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300)
-        }}
+      # More than one tracker shows away
+      - condition: template
+        value_template: "{{ away_count|int > 1 }}"
+      # An exit door recently opened or closed
+      - condition: template
+        value_template: "{{ door_recent == 'True' }}"
+    # One or more trackers mark away, driving, not _that_ near
+    - condition: and
+      conditions:
+      # Driving
+      - condition: template
+        value_template: "{{ is_driving == 'True' }}"
+      # Something shows away
+      - condition: template
+        value_template: "{{ away_count|int > 0 }}"
+      # At least a short distance away
+      - condition: template
+        value_template: "{{ proximity_home|int > 200 }}"
     # All away, and not near
     - condition: and
       conditions:
-      - condition: state
-        entity_id: group.person_person2
-        state: 'not_home'
-      - condition: numeric_state
-        entity_id: proximity.person2_home
-        above: 300
+      - condition: template
+        value_template: "{{ away_count|int == 0 }}"
+      - condition: template
+        value_template: "{{ proximity_home|int > 300 }}"
     # Far away
-    - condition: numeric_state
-      entity_id: proximity.person2_home
-      above: 600
+    - condition: template
+      value_template: "{{ proximity_home|int > 600 }}"
 action:
   - service: script.turn_on
-    entity_id: script.person2_away
+    data:
+      entity_id: "{{ away_script }}"
