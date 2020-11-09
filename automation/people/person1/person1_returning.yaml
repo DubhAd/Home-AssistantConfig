@@ -28,11 +28,21 @@ condition:
       entity_id: input_boolean.person1_home
       state: 'off'
 action:
-  - service: script.turn_on
-    entity_id: script.notify_person3_at_home
-    data:
-      message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
-  - service: script.turn_on
-    entity_id: script.notify_person2_at_home
-    data:
-      message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.person3_home
+            state: 'on'
+        sequence:
+          - service: notify.person3
+            data:
+              message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.person2_home
+            state: 'on'
+        sequence:
+          - service: notify.discord_webhook
+            data:
+              title: "person1 returning"
+              message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
