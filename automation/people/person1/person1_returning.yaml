@@ -28,14 +28,11 @@ condition:
       entity_id: input_boolean.person1_home
       state: 'off'
 action:
-  - service: notify.lametric_info
-    data:
-      message: "person1 should be home from work shortly"
   - service: script.turn_on
     entity_id: script.notify_person3_at_home
     data:
-      message: "person1 should be home from work shortly"
+      message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
   - service: script.turn_on
     entity_id: script.notify_person2_at_home
     data:
-      message: "person1 should be home from work shortly"
+      message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
