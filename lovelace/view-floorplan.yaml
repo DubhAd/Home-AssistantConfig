@@ -404,10 +404,10 @@ cards:
           propagate: true
 
         - entities:
-            - binary_sensor.fritzbox_connectivity
+            - binary_sensor.fritzbox_7530_connectivity
           states:
             - state: 'on'
-              class: 'motion-background'
+              class: 'squeezebox-on'
             - state: 'off'
               class: 'warning-background'
             - state: 'unavailable'
