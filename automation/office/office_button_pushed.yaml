@@ -8,7 +8,16 @@ condition:
     value_template: >
       {{ trigger.to_state.attributes.click == 'single' }}
 action:
-  - service_template: >-
-      media_player.media_play{{ "_pause" if is_state('media_player.office','playing') }}
-    data:
-      entity_id: media_player.office
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: media_player.office
+        state: 'playing'
+      sequence:
+      - service: media_player.media_pause
+        data:
+          entity_id: media_player.office
+    default:
+    - service: media_player.media_play
+      data:
+        entity_id: media_player.office
