@@ -1,5 +1,6 @@
 initial_state: 'on'
 alias: 'person2 location update'
+mode: single
 trigger:
   # I've moved
   - platform: state
@@ -15,8 +16,12 @@ action:
       message: >
         Location for person2 updated at {{ now() }}
   - service: script.person2_travel_sensor
-  - condition: state
-    entity_id: input_boolean.person2_driving
-    state: 'on'
-  - service: script.turn_on
-    entity_id: script.update_car_location
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.person2_driving
+        state: 'on'
+      sequence:
+      - service: script.turn_on
+        entity_id: script.update_car_location
+  - delay: '00:01:00'
