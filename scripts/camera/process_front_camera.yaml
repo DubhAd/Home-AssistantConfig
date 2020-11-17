@@ -16,6 +16,6 @@ sequence:
     data:
       message: "Waiting for Doods"
   - wait_template: >-
-      {{ -3 < ((as_timestamp(now()) - as_timestamp(states.image_processing.doods_front_camera_snapshot.last_updated)) < 2 ) }}
+      {{ -3 < (as_timestamp(now()) - as_timestamp(states.image_processing.doods_front_camera_snapshot.last_updated)) < 2 }}
     timeout: '00:00:15'
     continue_on_timeout: 'true'
