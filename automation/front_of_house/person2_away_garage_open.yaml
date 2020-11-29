@@ -17,3 +17,5 @@ action:
         sound: 'siren'
         device: 'MyPhone'
         attachment: '/data/homeassistant/cameras/garage.jpg'
+  - service: automation.turn_off
+    entity_id: automation.person2_away_garage_open
