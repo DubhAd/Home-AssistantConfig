@@ -44,7 +44,6 @@ sensor: !include_dir_merge_list sensors/
 binary_sensor: !include_dir_merge_list binary_sensors/
 google: !include google.yaml
 sun:
-weather: !include_dir_merge_list weather/
 zone: !include zones.yaml
 
 input_number: !include_dir_named input_number/
