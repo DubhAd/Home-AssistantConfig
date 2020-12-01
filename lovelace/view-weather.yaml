@@ -6,26 +6,6 @@ cards:
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
-      entity: weather.dark_sky
-      name: by DarkSky
-      backdrop: 
-        fade: true
-      primary_info:
-        - extrema
-        - precipitation
-        - precipitation_probability
-      secondary_info:
-        - wind_speed
-        - wind_bearing
-    - type: custom:weather-card
-      name: Dark Sky
-      entity: weather.dark_sky
-      current: true
-      details: true
-      forecast: true
-  - type: vertical-stack
-    cards:
-    - type: custom:simple-weather-card
       entity: weather.home
       name: by MetNo
       backdrop: 
