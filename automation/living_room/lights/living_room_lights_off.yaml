@@ -6,16 +6,10 @@ trigger:
     to: 'Off'
   - platform: state
     entity_id: input_select.living_room
-    to: 'Night off'
-  - platform: state
-    entity_id: input_select.living_room
     to: 'Away'
   - platform: state
     entity_id: input_select.living_room
     to: 'Auto'
-  - platform: state
-    entity_id: input_select.house
-    to: 'Night on'
   - platform: state
     entity_id: input_select.house
     to: 'Off'
@@ -34,9 +28,6 @@ condition:
     conditions:
     - condition: state
       entity_id: input_select.living_room
-      state: 'Night on'
-    - condition: state
-      entity_id: input_select.living_room
       state: 'Off'
     - condition: state
       entity_id: input_select.living_room
@@ -48,9 +39,6 @@ condition:
         state: 'Auto'
       - condition: or
         conditions:
-        - condition: state
-          entity_id: input_select.house
-          state: 'Night on'
         - condition: state
           entity_id: input_select.house
           state: 'Off'
@@ -70,7 +58,8 @@ action:
       - switch.pi3_tv_light_switch
       - switch.pi3_table_light_switch
       - switch.pi3_livingroom_socket_switch
-  - condition: template
-    value_template: "{{ not is_state('input_select.season', 'Christmas') }}"
+  - condition: state
+    entity_id: input_boolean.living_room_christmas
+    state: 'off'
   - service: switch.turn_off
     entity_id: switch.pi3_cabinet_light_switch

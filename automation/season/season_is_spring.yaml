@@ -12,7 +12,11 @@ condition:
       value_template: '{{ 6 > now().month > 2  }}'
     - condition: template
       value_template: '{{ states.calendar.holidays_in_the_united_kingdom.attributes.message not in "Good Friday" "Easter Sunday" "Easter Monday" }}'
-
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.season
+      state: 'Spring'
 action:
   - service: input_select.select_option
     data:

@@ -8,6 +8,11 @@ trigger:
 condition:
   - condition: template
     value_template: '{{ 12 > now().month > 8  }}'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.season
+      state: 'Autumn'
 action:
   - service: input_select.select_option
     data:

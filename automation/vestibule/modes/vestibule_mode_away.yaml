@@ -9,8 +9,8 @@ condition:
     value_template: "{{ not is_state('input_select.vestibule','Away') }}"
   # Christmas!
   - condition: state
-    entity_id: input_select.season
-    state: 'Christmas'
+    entity_id: input_boolean.vestibule_christmas
+    state: 'on'
 action:
   - service: input_select.select_option
     data:

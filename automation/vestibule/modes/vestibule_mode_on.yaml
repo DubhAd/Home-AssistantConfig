@@ -21,8 +21,8 @@ condition:
       value_template: "{{ not is_state('input_select.vestibule','On') }}"
     # Christmas!
     - condition: state
-      entity_id: input_select.season
-      state: 'Christmas'
+      entity_id: input_boolean.vestibule_christmas
+      state: 'on'
     # We're awake
     - condition: state
       entity_id: input_boolean.bedtime

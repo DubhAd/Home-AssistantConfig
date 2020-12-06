@@ -20,8 +20,8 @@ condition:
       below: 5
   # Only turn them on at Christmas
   - condition: state
-    entity_id: input_select.season
-    state: 'Christmas'
+    entity_id: input_boolean.family_room_christmas
+    state: 'on'
 action:
   - service: input_select.select_option
     data:

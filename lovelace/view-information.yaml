@@ -16,9 +16,17 @@ cards:
   - entity: input_boolean.lighting_living_room
     secondary_info: last-changed
     state_color: true
+  - entity: input_boolean.living_room_christmas
+    name: Christmas lighting
+    secondary_info: last-changed
+    state_color: true
   - type: divider
   - input_select.family_room
   - entity: input_boolean.family_room_occupied
+    secondary_info: last-changed
+    state_color: true
+  - entity: input_boolean.family_room_christmas
+    name: Christmas lighting
     secondary_info: last-changed
     state_color: true
   - type: divider
@@ -92,7 +100,16 @@ cards:
     state_color: true
   - type: divider
   - input_select.hall
+  - entity: input_boolean.hall_christmas
+    name: Christmas lighting
+    secondary_info: last-changed
+    state_color: true
+  - type: divider
   - input_select.vestibule
+  - entity: input_boolean.vestibule_christmas
+    name: Christmas lighting
+    secondary_info: last-changed
+    state_color: true
 - type: entities
   title: Sensors
   show_header_toggle: false

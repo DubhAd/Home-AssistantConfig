@@ -25,9 +25,12 @@ condition:
         entity_id: input_select.house
         state: 'Night on'
 action:
-  - service_template: >-
-      {% if is_state('input_select.season', 'Christmas') %}
-        script.hall_string_on
-      {% else %}
-        script.hall_strip_on
-      {% endif %}
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.hall_christmas
+        state: 'on'
+      sequence:
+      - service: script.hall_string_on
+    default:
+    - service: script.hall_strip_dim

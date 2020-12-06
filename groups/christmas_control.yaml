@@ -1,0 +1,6 @@
+name: Christmas
+entities:
+- input_boolean.family_room_christmas
+- input_boolean.hall_christmas
+- input_boolean.living_room_christmas
+- input_boolean.vestibule_christmas

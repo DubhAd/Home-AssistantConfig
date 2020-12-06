@@ -11,6 +11,11 @@ trigger:
 condition:
   - condition: template
     value_template: '{{ states.calendar.holidays_in_the_united_kingdom.attributes.message in "Good Friday" "Easter Sunday" "Easter Monday" }}'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.season
+      state: 'Easter'
 action:
   - service: input_select.select_option
     data:

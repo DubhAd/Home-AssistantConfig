@@ -42,11 +42,26 @@ action:
     data:
       entity_id: light.living_room_table
       transition: 10
-  - condition: state
-    entity_id: switch.pi3_cabinet_light_switch
-    state: 'on'
-  - condition: template
-    value_template: '{{ states("input_select.season") != "Christmas" }}'
-  - service: switch.turn_off
-    entity_id:
-      - switch.pi3_cabinet_light_switch
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.pi3_cabinet_light_switch
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.living_room_christmas
+        state: 'off'
+      sequence:
+      - service: switch.turn_off
+        entity_id:
+          - switch.pi3_cabinet_light_switch
+    - conditions:
+      - condition: state
+        entity_id: switch.pi3_cabinet_light_switch
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.living_room_christmas
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        entity_id:
+          - switch.pi3_cabinet_light_switch

@@ -46,7 +46,5 @@ action:
     entity_id: 
       - switch.pi3_livingroom_socket_switch
       - switch.pi3_tv_light_switch
-  - condition: template
-    value_template: '{{ states("input_select.season") != "Christmas" }}'
   - service: switch.turn_on
     entity_id: switch.pi3_cabinet_light_switch
