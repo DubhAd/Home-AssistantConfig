@@ -35,10 +35,6 @@ trigger:
 condition:
   - condition: and
     conditions:
-    # Christmas!
-    - condition: state
-      entity_id: input_boolean.vestibule_christmas
-      state: 'on'
     - condition: template
       value_template: "{{ not is_state('input_select.vestibule','Night on') }}"
     # We're awake

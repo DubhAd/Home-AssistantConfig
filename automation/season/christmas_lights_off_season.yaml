@@ -1,5 +1,4 @@
 alias: 'Christmas lights off season'
-initial_state: 'on'
 trigger:
   - platform: state
     entity_id: input_select.season

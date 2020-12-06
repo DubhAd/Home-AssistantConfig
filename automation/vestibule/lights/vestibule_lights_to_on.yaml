@@ -27,6 +27,10 @@ condition:
   - condition: state
     entity_id: switch.pi3_vestibule_switch
     state: 'off'
+  # Christmas!
+  - condition: state
+    entity_id: input_boolean.vestibule_christmas
+    state: 'on'
 action:
   - service: switch.turn_on
     entity_id: switch.pi3_vestibule_switch
