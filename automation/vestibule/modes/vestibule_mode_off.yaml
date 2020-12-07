@@ -2,7 +2,7 @@ initial_state: 'on'
 alias: 'Vestibule mode off'
 trigger:
   - platform: state
-    entity_id: binary_sensor.vestibule_downstairs_occupancy
+    entity_id: input_boolean.home_occupied
     to: 'on'
   # When the sun goes above 5 degrees
   - platform: numeric_state

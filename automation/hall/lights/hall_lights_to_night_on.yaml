@@ -33,4 +33,4 @@ action:
       sequence:
       - service: script.hall_string_on
     default:
-    - service: script.hall_strip_dim
+    - service: script.hall_strip_on
