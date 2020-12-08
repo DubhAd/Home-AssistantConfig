@@ -32,7 +32,9 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
 ## The devices, services, and software I use (with HA)
 
 * [Sandisk Extreme](https://www.sandisk.co.uk/home/memory-cards/microsd-cards/extreme-microsd) micro SD cards (for the Z-Wave Pi)
-* [Z-Wave](https://home-assistant.io/docs/z-wave/)
+
+### [Z-Wave](https://home-assistant.io/docs/z-wave/)
+
   * Z-Wave.me [Razberry](https://razberry.z-wave.me/) Z-Wave board - it has the advantage of not using a USB port, but does require that the onboard Bluetooth is disabled
   * Aeotec [MultiSensor 6](https://aeotec.com/z-wave-sensor)
   * Fibaro [motion sensor](https://www.fibaro.com/en/products/motion-sensor/) in the living room
@@ -43,7 +45,9 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
   * NodOn [Octan Remote](http://nodon.fr/en/z-wave/octan-remote_7-2) in the master bedroom to provide manual control of the Yeelight. It was originally used by the kitchen door, where the next item is now mounted.
   * NodOn [Soft Remote](https://nodon.fr/en/nodon/z-wave-soft-remote/) in the second bedroom, to also provide manual control of that room's Yeelight.
   * Z-Wave.me [WALLC-S](http://eng.z-wave.me/index.php?id=30) wall controller, to provide a wall switch for the garden lights
-* Zigbee, using [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
+
+### Zigbee, using [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
+
   * A CC2531 coordinator bought [from here](https://zigbee2mqtt.discourse.group/t/ad-buy-ready2use-zigbee2mqtt-stick-flashed-antenna-mod-and-printed-case/22/)
   * A [Zig-A-Zig-Ah!](https://electrolama.com/projects/zig-a-zig-ah/) for a new Zigbee 3.0 mesh
   * Xiaomi Aqara [door/window sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-window-door-sensor/) - one on every external window (yes, that's a lot)
@@ -58,27 +62,38 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
   * A [Flux LED](https://www.home-assistant.io/integrations/flux_led/) compatible [RGBW controller](https://smile.amazon.co.uk/gp/product/B07BFPWZNJ/), a roll of RGB-CCT LED tape, and a 24V power supply.
   I use this with a bunch of [Google Home Minis](https://store.google.com/product/google_home_mini), a couple of [Google Home Hubs](https://store.google.com/product/google_home_hub), 
   and a [Lenovo Smart Display](https://www.lenovo.com/gb/en/consumer-tablet-and-smart-device/lenovo-smart-device/smart-core-device/Smart-Display-10/p/ZA3N0006GB)
-* Media
+
+### Media
+
   * [Sonos](https://www.sonos.com/) speakers and [integration](https://home-assistant.io/integrations/sonos/)
   * [Squeezebox Radio](http://support.logitech.com/en_us/product/squeezebox-radio-black) as a smart alarm clock, and [associated integration](https://home-assistant.io/integrations/squeezebox/)
-* Notifications:
+
+### Notifications:
+
   * [Telegram](https://telegram.org) for my notifications, supported by Hangouts Chat using a command line notifier, and the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/) (system status notifications)
   * [LaMetric](https://lametric.com/) for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes
-* Presence detection:
+
+### Presence detection:
+
   * Back to using [Nmap](https://nmap.org/) for [device tracking](https://home-assistant.io/integrations/nmap_tracker/). While I did switch to [Fritz!Box](https://en.avm.de/) [device tracking](https://www.home-assistant.io/integrations/fritz/) when I upgraded my router, the router ran out of memory
   * [Monitor](https://github.com/andrewjfreyer/monitor) on another Pi3, and an Orange Pi Zero LTS with a CSR 4.0 USB dongle. This has completely replaced the use of the built in Bluetooth device tracker, and more than halved the startup time of HA.
     * This works with our mobile phones, tablets, and beacons
   * [GPS Logger](https://home-assistant.io/integrations/gpslogger/) for remote device tracking
     * I used to use [OwnTracks](http://owntracks.org/) for device tracking, using the [HTTP interface](https://home-assistant.io/integrations/owntracks_http/), but not only did it have an [annoying bug](https://github.com/owntracks/android/issues/508) that caused it to randomly disable reporting, but it had been abandoned by the developer. Version 2.0 of the app solved both of those, but I've seen no reason to go back.
-* [TransportAPI](https://developer.transportapi.com/) for information on the local train service with the [UK transport](https://home-assistant.io/integrations/uk_transport/) integration
-* [DarkSky](https://darksky.net/dev/) for weather data, alongside the [Met Office](https://www.metoffice.gov.uk/datapoint), along with the [associated](https://home-assistant.io/integrations/darksky/) sensor [integration](https://home-assistant.io/integrations/metoffice/)
-* [Plex](https://www.plex.tv/sign-in/) for watching media, on TV, tablets and mobiles. I don't currently use [the component](https://home-assistant.io/components/media_player.plex/)
-* [Xbox Live sensor](https://home-assistant.io/integrations/xbox_live/) which uses the [XBoxAPI](https://xboxapi.com/) to track when one of us is on the XBox
-* [Here Travel Time](https://www.home-assistant.io/integrations/here_travel_time/) integration, replacing my previous use of the [Google Travel Time integration](https://home-assistant.io/integrations/google_travel_time/) (which uses the Google [Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/)) to provide estimated time to home
-* [Getmail](http://pyropus.ca/software/getmail/) with [a script](local/bin/parse-email) that acts as the message delivery agent, to parse the recycling collection emails
-  * I gave up on the the [IMAP email content](https://home-assistant.io/integrations/imap_email_content/) sensor since it doesn't keep state through restarts (which isn't unique to it, Home Assistant doesn't have a persistence mechanism other than for the `input_*` entities)
-* A HiWatch IPC-T140 dome camera, using the generic camera integration. I use [MotionEye](https://github.com/ccrisan/motioneye/) for motion detection and [Doods](https://www.home-assistant.io/integrations/doods/) (in another VM) for object detection.
+
+### Integrations and APIs
+
+  * [TransportAPI](https://developer.transportapi.com/) for information on the local train service with the [UK transport](https://home-assistant.io/integrations/uk_transport/) integration
+  * [DarkSky](https://darksky.net/dev/) for weather data, alongside the [Met Office](https://www.metoffice.gov.uk/datapoint), along with the [associated](https://home-assistant.io/integrations/darksky/) sensor [integration](https://home-assistant.io/integrations/metoffice/)
+  * [Plex](https://www.plex.tv/sign-in/) for watching media, on TV, tablets and mobiles. I don't currently use [the component](https://home-assistant.io/components/media_player.plex/)
+  * [Here Travel Time](https://www.home-assistant.io/integrations/here_travel_time/) integration, replacing my previous use of the [Google Travel Time integration](https://home-assistant.io/integrations/google_travel_time/) (which uses the Google [Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/)) to provide estimated time to home
+
+### Other things
+
+  * [Getmail](http://pyropus.ca/software/getmail/) with [a script](local/bin/parse-email) that acts as the message delivery agent, to parse the recycling collection emails
+    * I gave up on the the [IMAP email content](https://home-assistant.io/integrations/imap_email_content/) sensor since it doesn't keep state through restarts (which isn't unique to it, Home Assistant doesn't have a persistence mechanism other than for the `input_*` entities)
+  * A HiWatch IPC-T140 dome camera, using the generic camera integration. I use [MotionEye](https://github.com/ccrisan/motioneye/) for motion detection and [Doods](https://www.home-assistant.io/integrations/doods/) (in another VM) for object detection.
 
 ### Custom integrations
 

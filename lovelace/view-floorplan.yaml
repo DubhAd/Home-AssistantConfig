@@ -256,7 +256,7 @@ cards:
 
         # Outside is expected to be colder/hotter
         - entities:
-            - sensor.owm_temperature
+            - sensor.dark_sky_apparent_temperature
           text_template: '${entity.state ? entity.state : "unknown"} C'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           # text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
@@ -297,7 +297,7 @@ cards:
           propagate: true
 
         - entities:
-            - sensor.owm_humidity
+            - sensor.home_humidity
             - sensor.pi3_office_multi_relative_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '
@@ -418,6 +418,7 @@ cards:
             - binary_sensor.pi3_living_room_motion
             - binary_sensor.pi3_office_multi_sensor
             - binary_sensor.hall_downstairs_occupancy
+            - binary_sensor.vestibule_occupancy
           states:
             - state: 'off'
               class: 'motion-background'
