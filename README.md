@@ -1,4 +1,28 @@
-# Home Assistant (0.117.6) configuration
+# Table of Contents
+   * [Home Assistant configuration](#home-assistant-configuration)
+      * [Z-Wave](#z-wave)
+      * [The key software I run is](#the-key-software-i-run-is)
+      * [The devices, services, and software I use (with HA)](#the-devices-services-and-software-i-use-with-ha)
+         * [Z-Wave](#z-wave-1)
+         * [Zigbee](#zigbee)
+         * [Lighting](#lighting)
+         * [Media](#media)
+         * [Notifications:](#notifications)
+         * [Presence detection:](#presence-detection)
+         * [Integrations and APIs](#integrations-and-apis)
+         * [Other things](#other-things)
+         * [Custom integrations](#custom-integrations)
+            * [Standard integrations](#standard-integrations)
+         * [Other software](#other-software)
+      * [Notes](#notes)
+   * [Future plans](#future-plans)
+      * [Devices](#devices)
+      * [Automation thoughts](#automation-thoughts)
+   * [Useful links](#useful-links)
+   * [Coffee](#coffee)
+##TOC##
+
+# Home Assistant configuration
 This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 0.117.6 (Python 3.8.6 built [with this guide](https://blog.ceard.tech/2017/12/upgrading-python-virtual-environment.html)) on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
@@ -33,7 +57,9 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
 
 * [Sandisk Extreme](https://www.sandisk.co.uk/home/memory-cards/microsd-cards/extreme-microsd) micro SD cards (for the Z-Wave Pi)
 
-### [Z-Wave](https://home-assistant.io/docs/z-wave/)
+### Z-Wave
+
+Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) integration, on a remote system
 
   * Z-Wave.me [Razberry](https://razberry.z-wave.me/) Z-Wave board - it has the advantage of not using a USB port, but does require that the onboard Bluetooth is disabled
   * Aeotec [MultiSensor 6](https://aeotec.com/z-wave-sensor)
@@ -46,7 +72,9 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
   * NodOn [Soft Remote](https://nodon.fr/en/nodon/z-wave-soft-remote/) in the second bedroom, to also provide manual control of that room's Yeelight.
   * Z-Wave.me [WALLC-S](http://eng.z-wave.me/index.php?id=30) wall controller, to provide a wall switch for the garden lights
 
-### Zigbee, using [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
+### Zigbee
+
+I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
 
   * A CC2531 coordinator bought [from here](https://zigbee2mqtt.discourse.group/t/ad-buy-ready2use-zigbee2mqtt-stick-flashed-antenna-mod-and-printed-case/22/)
   * A [Zig-A-Zig-Ah!](https://electrolama.com/projects/zig-a-zig-ah/) for a new Zigbee 3.0 mesh
