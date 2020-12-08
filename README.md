@@ -2,19 +2,18 @@
    * [Home Assistant configuration](#home-assistant-configuration)
       * [Z-Wave](#z-wave)
       * [The key software](#the-key-software)
-      * [The devices, services, and software I use (with HA)](#the-devices-services-and-software-i-use-with-ha)
       * [Floorplan](#floorplan)
-         * [Z-Wave](#z-wave-1)
-         * [Zigbee](#zigbee)
-         * [Lighting](#lighting)
-         * [Media](#media)
-         * [Notifications:](#notifications)
-         * [Presence detection:](#presence-detection)
-         * [Core integrations and APIs](#core-integrations-and-apis)
-         * [Other things](#other-things)
-         * [Custom integrations](#custom-integrations)
-            * [Standard integrations](#standard-integrations)
-         * [Other software](#other-software)
+      * [Z-Wave](#z-wave-1)
+      * [Zigbee](#zigbee)
+      * [Lighting](#lighting)
+      * [Media](#media)
+      * [Notifications:](#notifications)
+      * [Presence detection:](#presence-detection)
+      * [Core integrations and APIs](#core-integrations-and-apis)
+      * [Other things](#other-things)
+      * [Custom integrations](#custom-integrations)
+         * [Standard integrations](#standard-integrations)
+      * [Other software](#other-software)
       * [Notes](#notes)
    * [Future plans](#future-plans)
       * [Devices](#devices)
@@ -42,10 +41,6 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
 * MariaDB for the database
 
-## The devices, services, and software I use (with HA)
-
-* [Sandisk Extreme](https://www.sandisk.co.uk/home/memory-cards/microsd-cards/extreme-microsd) micro SD cards (for the Z-Wave Pi)
-
 ## Floorplan
 
 I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overview
@@ -61,7 +56,7 @@ I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overv
     * Oh, and the printer isn't a little low on consumables.
   * The floorplan was created in [Inkscape](https://inkscape.org/), by importing the image of the house's floorplan from the purchase paperwork, then drawing over it. If you look [at it](www/custom_ui/floorplan/floorplan.svg) you'll see that I built it up in layers, one for the foundation (ground), one for the structure, and one for the sensors. I don't really use those currently, other than to ensure that the right things are on top (sensors).
 
-### Z-Wave
+## Z-Wave
 
 Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) integration, on a remote system
 
@@ -76,7 +71,7 @@ Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) int
   * NodOn [Soft Remote](https://nodon.fr/en/nodon/z-wave-soft-remote/) in the second bedroom, to also provide manual control of that room's Yeelight.
   * Z-Wave.me [WALLC-S](http://eng.z-wave.me/index.php?id=30) wall controller, to provide a wall switch for the garden lights
 
-### Zigbee
+## Zigbee
 
 I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
 
@@ -89,25 +84,25 @@ I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
   * A Hive [active smart plug](https://smile.amazon.co.uk/gp/product/B01N7L53TB/)
   * A Salus [SP600 smart plug](https://smile.amazon.co.uk/gp/product/B0743CTGJ6/)
 
-### Lighting
+## Lighting
 
   * [Yeelight](https://home-assistant.io/integrations/yeelight/) integration and [led strips](https://www.yeelight.com/en_US/product/pitaya), one mounted behind the headboard in the master bedroom, and one along the wall side of the bed frame in the second bedroom. These provide good enough lighting to read by at night, and also to help wake us in the morning.
   * Outdoor mains [240V LED strip](https://www.lightingever.co.uk/220-240-v-ac-led-strip-multicolour-5050-50m.html) which we turn on and off with one of the wall plugs
 
-### Media
+## Media
 
   * [Sonos](https://www.sonos.com/) speakers and [integration](https://home-assistant.io/integrations/sonos/)
   * [Squeezebox Radio](http://support.logitech.com/en_us/product/squeezebox-radio-black) as a smart alarm clock, and [associated integration](https://home-assistant.io/integrations/squeezebox/)
   * [Cast](https://home-assistant.io/integrations/cast) devices - a bunch of [Google Home Minis](https://store.google.com/product/google_home_mini), a couple of [Google Home Hubs](https://store.google.com/product/google_home_hub), 
   and a [Lenovo Smart Display](https://www.lenovo.com/gb/en/consumer-tablet-and-smart-device/lenovo-smart-device/smart-core-device/Smart-Display-10/p/ZA3N0006GB)
 
-### Notifications:
+## Notifications:
 
   * [Telegram](https://telegram.org) for my notifications, supported by Hangouts Chat using a command line notifier, and the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/) (system status notifications)
   * [LaMetric](https://lametric.com/) for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes
 
-### Presence detection:
+## Presence detection:
 
   * Back to using [Nmap](https://nmap.org/) for [device tracking](https://home-assistant.io/integrations/nmap_tracker/). While I did switch to [Fritz!Box](https://en.avm.de/) [device tracking](https://www.home-assistant.io/integrations/fritz/) when I upgraded my router, the router ran out of memory
   * [Monitor](https://github.com/andrewjfreyer/monitor) on another Pi3, and an Orange Pi Zero LTS with a CSR 4.0 USB dongle. This has completely replaced the use of the built in Bluetooth device tracker, and more than halved the startup time of HA.
@@ -117,20 +112,20 @@ I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
 
 You'll note I use three different device trackers, two for home (nmap, bluetooth) and one for away (GPSLogger). I explain more about [this here](https://blog.ceard.tech/2020/04/presence-detection-one-last-time.html) (you can see the journey I took to get there, [starting here](https://blog.ceard.tech/2018/01/home-assistant-and-basic-presence.html), with an update [here](https://blog.ceard.tech/2018/09/a-while-back-i-covered-how-i-was-doing.html), and [another update](https://blog.ceard.tech/2018/10/presence-detection-update-3.html), and then [a fourth update](https://blog.ceard.tech/2019/03/presence-detection-are-we-nearly-there.html)). Short version - I don't merge the trackers (that's going away anyway), but I do use groups again.  I've experimented with the [Bayesian](https://www.home-assistant.io/integrations/bayesian) sensor, but compared to what I can do with the automations, it's not flexible enough for me.
 
-### Core integrations and APIs
+## Core integrations and APIs
 
   * [TransportAPI](https://developer.transportapi.com/) for information on the local train service with the [UK transport](https://home-assistant.io/integrations/uk_transport/) integration
   * [DarkSky](https://darksky.net/dev/) for weather data, alongside the [Met Office](https://www.metoffice.gov.uk/datapoint), along with the [associated](https://home-assistant.io/integrations/darksky/) sensor [integration](https://home-assistant.io/integrations/metoffice/)
   * [Plex](https://www.plex.tv/sign-in/) for watching media, on TV, tablets and mobiles. I don't currently use [the component](https://home-assistant.io/components/media_player.plex/)
   * [Here Travel Time](https://www.home-assistant.io/integrations/here_travel_time/) integration, replacing my previous use of the [Google Travel Time integration](https://home-assistant.io/integrations/google_travel_time/) (which uses the Google [Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/)) to provide estimated time to home
 
-### Other things
+## Other things
 
   * [Getmail](http://pyropus.ca/software/getmail/) with [a script](local/bin/parse-email) that acts as the message delivery agent, to parse the recycling collection emails
     * I gave up on the the [IMAP email content](https://home-assistant.io/integrations/imap_email_content/) sensor since it doesn't keep state through restarts (which isn't unique to it, Home Assistant doesn't have a persistence mechanism other than for the `input_*` entities)
   * A HiWatch IPC-T140 dome camera, using the generic camera integration. I use [MotionEye](https://github.com/ccrisan/motioneye/) for motion detection and [Doods](https://www.home-assistant.io/integrations/doods/) (in another VM) for object detection.
 
-### Custom integrations
+## Custom integrations
 
 Historically I didn't make much use of custom components/integrations, however that's changed. Here are the ones I use, and why:
 
@@ -139,7 +134,7 @@ Historically I didn't make much use of custom components/integrations, however t
 * [Fritzbox tools](https://github.com/mammuth/ha-fritzbox-tools) to allow me to track the status of the Internet connection
 * [Home Assistant Remote](https://github.com/lukas-hetzenecker/home-assistant-remote) for linking my Z-Wave and primary instances. This is more effective than my ugly MQTT hack.
 
-#### Standard integrations
+### Standard integrations
 
 These are all the standard integrations I've enabled (ignoring all the ones that Home Assistant (Core) itself uses internally), when last I checked. Some of these can only be set up in the UI, so you won't find them mentioned in the YAML here.
 
@@ -201,7 +196,7 @@ These are all the standard integrations I've enabled (ignoring all the ones that
 * [`zeroconf`](https://www.home-assistant.io/integrations/zeroconf/)
 * [`zone`](https://www.home-assistant.io/integrations/zone/)
 
-### Other software
+## Other software
 
 * [PiVPN](http://www.pivpn.io/) for remote access to my network
 * [Pi Hole](https://pi-hole.net/) for blocking those pesky adverts
