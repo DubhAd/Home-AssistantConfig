@@ -1,7 +1,7 @@
 alias: 'Vestibule mode Night on'
 trigger:
   - platform: state
-    entity_id: binary_sensor.vestibule_downstairs_occupancy
+    entity_id: binary_sensor.vestibule_occupancy
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.sun_elevation

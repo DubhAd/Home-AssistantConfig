@@ -1,0 +1,10 @@
+name: Upstairs occupied
+entities:
+- input_boolean.bathroom_occupied
+- input_boolean.guest_bedroom_occupied
+- input_boolean.master_bedroom_occupied
+- input_boolean.master_ensuite_occupied
+- input_boolean.office_occupied
+- input_boolean.second_bedroom_occupied
+- input_boolean.second_ensuite_occupied
+- input_boolean.spare_bedroom_occupied

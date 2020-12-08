@@ -1,0 +1,7 @@
+name: Downstairs occupied
+entities:
+- input_boolean.family_room_occupied
+- input_boolean.living_room_occupied
+- input_boolean.kitchen_occupied
+- input_boolean.toilet_occupied
+- input_boolean.utility_occupied
