@@ -1,15 +1,16 @@
 # Table of Contents
    * [Home Assistant configuration](#home-assistant-configuration)
       * [Z-Wave](#z-wave)
-      * [The key software I run is](#the-key-software-i-run-is)
+      * [The key software](#the-key-software)
       * [The devices, services, and software I use (with HA)](#the-devices-services-and-software-i-use-with-ha)
+      * [Floorplan](#floorplan)
          * [Z-Wave](#z-wave-1)
          * [Zigbee](#zigbee)
          * [Lighting](#lighting)
          * [Media](#media)
          * [Notifications:](#notifications)
          * [Presence detection:](#presence-detection)
-         * [Integrations and APIs](#integrations-and-apis)
+         * [Core integrations and APIs](#core-integrations-and-apis)
          * [Other things](#other-things)
          * [Custom integrations](#custom-integrations)
             * [Standard integrations](#standard-integrations)
@@ -34,10 +35,20 @@ To limit the risk brought by SD card corruption (a known risk with Pi3) I store 
 
 This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackable case](https://www.modmypi.com/raspberry-pi/cases-183/multi-pi-stacker/multi-pi-stackable-raspberry-pi-case), to keep the footprint down. They share an HDMI cable to a nearby monitor, and an old USB keyboard I've got kicking around, because having a Pi fail to respond isn't that uncommon.
 
-## The key software I run is
+## The key software
 
 * [Home Assistant](https://home-assistant.io/)
-* [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overview
+* [nginx](https://nginx.org/en/) to provide remote access, in conjunction with [Let's Encrypt](https://letsencrypt.org/)
+* [Mosquitto](https://mosquitto.org/) for the MQTT broker
+* MariaDB for the database
+
+## The devices, services, and software I use (with HA)
+
+* [Sandisk Extreme](https://www.sandisk.co.uk/home/memory-cards/microsd-cards/extreme-microsd) micro SD cards (for the Z-Wave Pi)
+
+## Floorplan
+
+I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overview
   * ![Screenshot of floorplan](https://i.imgur.com/8oe0uTQ.png)
   * Showing: 
     * No bins are due for collection otherwise they'd have a yellow outline (collected tomorrow) or red outline (collected today)
@@ -49,13 +60,6 @@ This is one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackab
     * The office is a bit warm (red temperature), and the humidity in the bathroom and master en-suite is a little high (amber)
     * Oh, and the printer isn't a little low on consumables.
   * The floorplan was created in [Inkscape](https://inkscape.org/), by importing the image of the house's floorplan from the purchase paperwork, then drawing over it. If you look [at it](www/custom_ui/floorplan/floorplan.svg) you'll see that I built it up in layers, one for the foundation (ground), one for the structure, and one for the sensors. I don't really use those currently, other than to ensure that the right things are on top (sensors).
-* [nginx](https://nginx.org/en/) to provide remote access, in conjunction with [Let's Encrypt](https://letsencrypt.org/)
-* [Mosquitto](https://mosquitto.org/) for the MQTT broker
-* MariaDB for the database
-
-## The devices, services, and software I use (with HA)
-
-* [Sandisk Extreme](https://www.sandisk.co.uk/home/memory-cards/microsd-cards/extreme-microsd) micro SD cards (for the Z-Wave Pi)
 
 ### Z-Wave
 
@@ -113,7 +117,7 @@ I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
 
 You'll note I use three different device trackers, two for home (nmap, bluetooth) and one for away (GPSLogger). I explain more about [this here](https://blog.ceard.tech/2020/04/presence-detection-one-last-time.html) (you can see the journey I took to get there, [starting here](https://blog.ceard.tech/2018/01/home-assistant-and-basic-presence.html), with an update [here](https://blog.ceard.tech/2018/09/a-while-back-i-covered-how-i-was-doing.html), and [another update](https://blog.ceard.tech/2018/10/presence-detection-update-3.html), and then [a fourth update](https://blog.ceard.tech/2019/03/presence-detection-are-we-nearly-there.html)). Short version - I don't merge the trackers (that's going away anyway), but I do use groups again.  I've experimented with the [Bayesian](https://www.home-assistant.io/integrations/bayesian) sensor, but compared to what I can do with the automations, it's not flexible enough for me.
 
-### Integrations and APIs
+### Core integrations and APIs
 
   * [TransportAPI](https://developer.transportapi.com/) for information on the local train service with the [UK transport](https://home-assistant.io/integrations/uk_transport/) integration
   * [DarkSky](https://darksky.net/dev/) for weather data, alongside the [Met Office](https://www.metoffice.gov.uk/datapoint), along with the [associated](https://home-assistant.io/integrations/darksky/) sensor [integration](https://home-assistant.io/integrations/metoffice/)
