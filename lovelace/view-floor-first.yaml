@@ -3,43 +3,47 @@ id: first-floor
 path: first-floor
 icon: mdi:numeric-1-box
 cards:
-- type: glance
-  title: Master bedroom
-  columns: 5
-  entities:
-    - entity: light.master_bedroom_bedhead
-      name: Bedhead
-    - entity: media_player.person2
-      name: Squeezebox
-    - entity: media_player.cast_master_bedroom_speaker
-      name: Home Mini
-    - entity: media_player.master_bedroom_display
-      name: "Home Hub"
-    - entity: switch.radio_person2
-      icon: mdi:alarm
-      tap_action: 
-        action: toggle
-      name: Alarms
-    - entity: switch.pi3_master_bedroom_socket_switch
-      tap_action: 
-        action: toggle
-      name: Socket
-    - entity: binary_sensor.master_window_left
-      name: Left window
-    - entity: binary_sensor.master_window_right
-      name: Right window
-- type: glance
-  title: Master ensuite
-  columns: 4
-  entities:
-    - entity: sensor.master_ensuite_humidity
-      name: Humidity
-    - entity: sensor.master_ensuite_temperature
-      name: Temperature
-    - entity: sensor.master_ensuite_pressure
-      name: Pressure
-    - entity: binary_sensor.master_window_ensuite
-      name: Ensuite
+- type: vertical-stack
+  title: Master bedroom and en-suite
+  cards:
+  - type: glance
+    columns: 5
+    entities:
+      - entity: light.master_bedroom_bedhead
+        name: Bedhead
+      - entity: media_player.person2
+        name: Squeezebox
+      - entity: media_player.cast_master_bedroom_speaker
+        name: Home Mini
+      - entity: media_player.master_bedroom_display
+        name: "Home Hub"
+      - entity: switch.radio_person2
+        icon: mdi:alarm
+        tap_action: 
+          action: toggle
+        name: Alarms
+      - entity: switch.pi3_master_bedroom_socket_switch
+        tap_action: 
+          action: toggle
+        name: Socket
+      - entity: binary_sensor.master_window_left
+        show_last_changed: true
+        name: Left window
+      - entity: binary_sensor.master_window_right
+        show_last_changed: true
+        name: Right window
+  - type: glance
+    columns: 4
+    entities:
+      - entity: sensor.master_ensuite_humidity
+        name: Humidity
+      - entity: sensor.master_ensuite_temperature
+        name: Temperature
+      - entity: sensor.master_ensuite_pressure
+        name: Pressure
+      - entity: binary_sensor.master_window_ensuite
+        show_last_changed: true
+        name: Ensuite
 - type: glance
   title: Second bedroom
   #column_width: 25%
@@ -61,8 +65,10 @@ cards:
         action: toggle
       name: Socket
     - entity: binary_sensor.second_bedroom_window_left
+      show_last_changed: true
       name: Left
     - entity: binary_sensor.second_bedroom_window_right
+      show_last_changed: true
       name: Right
 - type: glance
   title: Second bedroom ensuite
@@ -75,6 +81,7 @@ cards:
     - entity: sensor.second_bedroom_ensuite_pressure
       name: Pressure
     - entity: binary_sensor.second_bedroom_window_ensuite
+      show_last_changed: true
       name: Ensuite
 - type: glance
   title: Guest bedroom
@@ -87,8 +94,10 @@ cards:
         action: toggle
       name: Socket
     - entity: binary_sensor.guest_bedroom_window_left
+      show_last_changed: true
       name: Left
     - entity: binary_sensor.guest_bedroom_window_right
+      show_last_changed: true
       name: Right
 - type: glance
   title: Bathroom
@@ -101,6 +110,7 @@ cards:
     - entity: sensor.bathroom_pressure
       name: Pressure
     - entity: binary_sensor.bathroom_window
+      show_last_changed: true
       name: Bathroom
 - type: glance
   title: Office
@@ -113,6 +123,7 @@ cards:
     - entity: sensor.pi3_office_multi_relative_humidity
       name: Humidity
     - entity: binary_sensor.office_window
+      show_last_changed: true
       name: Window
     - entity: media_player.office
       name: Sonos
@@ -123,8 +134,10 @@ cards:
   columns: 3
   entities:
     - entity: binary_sensor.spare_bedroom_window_left
+      show_last_changed: true
       name: Left
     - entity: binary_sensor.spare_bedroom_window_right
+      show_last_changed: true
       name: Right
     - entity: switch.pi3_spare_socket_switch
       tap_action: 

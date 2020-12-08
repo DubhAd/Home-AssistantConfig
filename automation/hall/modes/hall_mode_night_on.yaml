@@ -20,6 +20,7 @@ trigger:
     to: 'off'
   - platform: state
     entity_id:
+      - input_boolean.home_occupied
       - input_boolean.living_room_occupied
       - input_boolean.family_room_occupied
     to: 'on'
@@ -34,37 +35,47 @@ trigger:
     entity_id: binary_sensor.pi3_front_door_sensor
     to: 'on'
 condition:
-  - condition: and
+  # Not already on
+  - condition: not
     conditions:
-    # Dark in the living room
+    - condition: state
+      entity_id: input_select.hall
+      state: 'Night on'
+  # Sun is relatively low
+  - condition: numeric_state
+    entity_id: sensor.sun_elevation
+    below: 15
+  - condition: or
+    conditions:
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
       below: 25
-    # Sun is relatively low
-    - condition: numeric_state
-      entity_id: sensor.sun_elevation
-      below: 15
-    # Dark in the hall
     - condition: numeric_state
       entity_id: sensor.hall_downstairs_illuminance
-      below: 10
-    - condition: or
-      conditions:
-    # We're not away
-      - condition: state
-        entity_id: input_boolean.home_occupied
-        state: 'on'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'on'
-    - condition: or
-      conditions:
-      - condition: template
-        value_template: "{{ states('input_select.hall') in ('Away','Off','Auto') }}"
-      # We're awake
-      - condition: state
-        entity_id: input_boolean.bedtime
-        state: 'off'
+      below: 15
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.pi3_front_door_sensor
+      state: 'on'
+    - condition: state
+      entity_id: group.downstairs_occupied
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.home_occupied
+      state: 'on'
+    - condition: state
+      entity_id: input_select.person2_status_dropdown
+      state: 'Just Arrived'
+    - condition: state
+      entity_id: input_select.person3_status_dropdown
+      state: 'Just Arrived'
+    - condition: state
+      entity_id: input_select.person1_status_dropdown
+      state: 'Just Arrived'
+    - condition: state
+      entity_id: input_select.person4_status_dropdown
+      state: 'Just Arrived'
 action:
   - service: notify.logfile
     data_template:

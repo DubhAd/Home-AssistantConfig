@@ -20,12 +20,16 @@ cards:
       tap_action: 
         action: toggle 
     - entity: binary_sensor.patio_window_left
+      show_last_changed: true
       name: "Left"
     - entity: binary_sensor.pi3_patio_door_left_sensor
+      show_last_changed: true
       name: "Patio door"
     - entity: binary_sensor.patio_window_right
+      show_last_changed: true
       name: "Right"
     - entity: binary_sensor.pi3_living_room_motion
+      show_last_changed: true
       name: "Motion"
     - entity: sensor.pi3_living_room_multi_temperature
       name: "Temperature"
@@ -50,6 +54,7 @@ cards:
       tap_action: 
         action: toggle
     - entity: binary_sensor.hall_downstairs_occupancy
+      show_last_changed: true
       name: Motion
     - entity: sensor.hall_downstairs_illuminance
       name: "Light level"
@@ -58,12 +63,16 @@ cards:
   columns: 3
   entities:
     - entity: binary_sensor.pi3_front_door_sensor
+      show_last_changed: true
       name: Front door
     - entity: binary_sensor.vestibule_window_front
+      show_last_changed: true
       name: Front
     - entity: binary_sensor.vestibule_window_side
+      show_last_changed: true
       name: Side
     - entity: binary_sensor.vestibule_occupancy
+      show_last_changed: true
       name: Motion
     - entity: sensor.vestibule_illuminance
       name: "Light level"
@@ -76,8 +85,10 @@ cards:
   columns: 3
   entities:
     - entity: binary_sensor.pi3_garage_closed_bike_sensor
+      show_last_changed: true
       name: bike
     - entity: binary_sensor.pi3_garage_closed_car_sensor
+      show_last_changed: true
       name: Car
     - entity: switch.pi3_number_sign_switch
       tap_action: 
@@ -87,8 +98,10 @@ cards:
   columns: 4
   entities:
     - entity: binary_sensor.family_window_left
+      show_last_changed: true
       name: Left
     - entity: binary_sensor.family_window_right
+      show_last_changed: true
       name: Right
     - entity: switch.pi3_family_room_socket_switch
       name: Socket
@@ -107,6 +120,7 @@ cards:
   columns: 2
   entities:
     - entity: binary_sensor.pi3_utility_door_exterior_sensor
+      show_last_changed: true
       name: Door
     - entity: switch.pi3_garden_lights_switch
       tap_action: 
