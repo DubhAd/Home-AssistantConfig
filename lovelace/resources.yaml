@@ -6,12 +6,10 @@
   # https://github.com/kalkih/mini-media-player
 - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
   type: module 
-  # https://github.com/pkozul/lovelace-floorplan
-  #- type: module
-  #url: /local/floorplan/floorplan-card.js?v=1.1.8.3.1
+- type: module
+  url: /local/floorplan/floorplan-card.js?v=1.1.8.3.1
   # https://github.com/ExperienceLovelace/ha-floorplan
-- url: /local/floorplan/floorplan.js
-  type: module
+  #type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
   type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
