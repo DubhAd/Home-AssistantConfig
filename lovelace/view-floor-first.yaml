@@ -44,45 +44,48 @@ cards:
       - entity: binary_sensor.master_window_ensuite
         show_last_changed: true
         name: Ensuite
-- type: glance
-  title: Second bedroom
-  #column_width: 25%
-  columns: 5
-  entities:
-    - entity: light.person1_bedroom_bedside
-      name: Bedhead
-    - entity: media_player.person1
-      name: Squeezebox
-    - entity: media_player.cast_second_bedroom_speaker
-      name: Home Mini
-    - entity: switch.radio_person1
-      icon: mdi:alarm
-      tap_action: 
-        action: toggle
-      name: Alarms
-    - entity: switch.pi3_second_bedroom_switch
-      tap_action: 
-        action: toggle
-      name: Socket
-    - entity: binary_sensor.second_bedroom_window_left
-      show_last_changed: true
-      name: Left
-    - entity: binary_sensor.second_bedroom_window_right
-      show_last_changed: true
-      name: Right
-- type: glance
-  title: Second bedroom ensuite
-  columns: 4
-  entities:
-    - entity: sensor.second_bedroom_ensuite_humidity
-      name: Humidity
-    - entity: sensor.second_bedroom_ensuite_temperature
-      name: Temperature
-    - entity: sensor.second_bedroom_ensuite_pressure
-      name: Pressure
-    - entity: binary_sensor.second_bedroom_window_ensuite
-      show_last_changed: true
-      name: Ensuite
+- type: vertical-stack
+  title: Second bedroom & en-suite
+  cards:
+  - type: glance
+    #title: Second bedroom
+    #column_width: 25%
+    columns: 5
+    entities:
+      - entity: light.person1_bedroom_bedside
+        name: Bedhead
+      - entity: media_player.person1
+        name: Squeezebox
+      - entity: media_player.cast_second_bedroom_speaker
+        name: Home Mini
+      - entity: switch.radio_person1
+        icon: mdi:alarm
+        tap_action: 
+          action: toggle
+        name: Alarms
+      - entity: switch.pi3_second_bedroom_switch
+        tap_action: 
+          action: toggle
+        name: Socket
+      - entity: binary_sensor.second_bedroom_window_left
+        show_last_changed: true
+        name: Left
+      - entity: binary_sensor.second_bedroom_window_right
+        show_last_changed: true
+        name: Right
+  - type: glance
+    #title: Second bedroom ensuite
+    columns: 4
+    entities:
+      - entity: sensor.second_bedroom_ensuite_humidity
+        name: Humidity
+      - entity: sensor.second_bedroom_ensuite_temperature
+        name: Temperature
+      - entity: sensor.second_bedroom_ensuite_pressure
+        name: Pressure
+      - entity: binary_sensor.second_bedroom_window_ensuite
+        show_last_changed: true
+        name: Ensuite
 - type: glance
   title: Guest bedroom
   columns: 4
@@ -114,21 +117,28 @@ cards:
       name: Bathroom
 - type: glance
   title: Office
-  columns: 6
+  columns: 5
   entities:
-    - entity: sensor.pi3_office_multi_temperature
-      name: Temperature
-    - entity: sensor.pi3_office_multi_luminance
-      name: Light level
-    - entity: sensor.pi3_office_multi_relative_humidity
-      name: Humidity
-    - entity: binary_sensor.office_window
-      show_last_changed: true
-      name: Window
     - entity: media_player.office
       name: Sonos
     - entity: media_player.office_smart_display
       name: "Home Hub"
+    - entity: binary_sensor.office_motion_konke_occupancy
+      name: Motion
+      show_last_changed: true
+    - entity: sensor.pi3_office_multi_luminance
+      name: Light level
+    - entity: binary_sensor.office_window
+      show_last_changed: true
+      name: Window
+    - entity: sensor.pi3_office_multi_temperature
+      name: Temperature
+    - entity: sensor.office_climate_temperature
+      name: Temperature (Zigbee)
+    - entity: sensor.pi3_office_multi_relative_humidity
+      name: Humidity
+    - entity: sensor.office_climate_humidity
+      name: Humidity (Zigbee)
 - type: glance
   title: Spare bedroom
   columns: 3

@@ -1,4 +1,3 @@
-initial_state: 'on'
 alias: 'Front door closed'
 trigger:
   - platform: state
@@ -8,15 +7,6 @@ condition:
   - condition: state
     entity_id: binary_sensor.pi3_front_door_sensor
     state: 'off'
-  # Need at least one person home
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.home_count
-      state: "0"
-  # Nobody has just arrived
-  - condition: template
-    value_template: >
-      {{ (expand('group.people_status')|selectattr('state', 'eq', 'Just Arrived')|map(attribute='name')|list|count) == 0 }}
 action:
-  - service: script.scan_bt_depart
+  - service: script.turn_on
+    entity_id: script.scan_bt

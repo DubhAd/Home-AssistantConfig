@@ -16,16 +16,10 @@ condition:
       state: 'on'
     - condition: template
       value_template: "{{ true if (trigger and trigger.event) else false }}"
-  # Need at least one person away
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.home_count
-      state: "1"
+  # The garage door isn't open
 action:
-  - service: script.turn_on
-    entity_id: script.scan_bt_arrive
   - service: automation.turn_off
     data:
       entity_id: automation.garage_open_nobody_home
-      #stop_actions: false
+  - service: script.turn_on
+    entity_id: script.scan_bt

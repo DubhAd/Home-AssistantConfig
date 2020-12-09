@@ -1,0 +1,5 @@
+- platform: mqtt
+  name: Zigbee3 Coordinator Version
+  state_topic: "zigbee3mqtt/bridge/config"
+  value_template: "{{ value_json.coordinator }}"
+  icon: mdi:chip
