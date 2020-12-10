@@ -14,11 +14,16 @@ cards:
     icon: mdi:toggle-switch
   - entity: sensor.zigbee2mqtt_bridge_state
     secondary_info: last-changed
-    name: Bridge
+    name: Zigbee Bridge
   - entity: binary_sensor.zigbee2mqtt_router_1
     secondary_info: last-changed
     state_color: true
-    name: Router
+    name: Zigbee Router
+  - entity: sensor.zigbee3_bridge_state
+    secondary_info: last-changed
+    name: Zigbee 3 Bridge
+  - entity: sensor.zigbee3mqtt_version
+    name: Zigbee 3 Version
 - type: glance
   title: Zigbee links
   show_header_toggle: false
