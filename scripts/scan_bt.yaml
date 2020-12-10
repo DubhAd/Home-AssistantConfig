@@ -27,11 +27,14 @@ sequence:
     - condition: state
       entity_id: binary_sensor.pi3_garage_closed_bike_sensor
       state: 'off'
-    # Something happen in the vestibule recently
+    # Something happen in the vestibule or hall recently
     - condition: or
       conditions:
       - condition: state
         entity_id: binary_sensor.vestibule_occupancy
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.hall_downstairs_occupancy
         state: 'on'
       - condition: not
         conditions:
@@ -39,11 +42,15 @@ sequence:
           entity_id: binary_sensor.vestibule_occupancy
           state: 'off'
           for: '00:02:00'
+        - condition: state
+          entity_id: binary_sensor.hall_downstairs_occupancy
+          state: 'off'
+          for: '00:02:00'
     sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
       data_template:
-        message: "Departure (then arrival) scan because of motion in the vestibule"
+        message: "Departure (then arrival) scan because of motion in the vestibule or hall"
     - service: script.scan_bt_depart
     - service: script.scan_bt_arrive
   - conditions:
@@ -52,10 +59,14 @@ sequence:
       entity_id: binary_sensor.vestibule_occupancy
       state: 'off'
       for: '00:02:00'
+    - condition: state
+      entity_id: binary_sensor.hall_downstairs_occupancy
+      state: 'off'
+      for: '00:02:00'
     sequence:
     - service: notify.logfile
       data_template:
-        message: "Arrival scan because there was no motion in the vestibule"
+        message: "Arrival scan because there was no motion in the vestibule or hall"
     - service: script.scan_bt_arrive
   # Mixed bag situation unclear, do it all
   default:
