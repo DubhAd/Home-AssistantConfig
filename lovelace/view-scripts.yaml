@@ -102,6 +102,8 @@ cards:
 - type: entities
   title: Presence
   entities:
+  - entity: script.scan_bt
+    secondary_info: last-triggered
   - entity: script.scan_bt_arrive
     secondary_info: last-triggered
   - entity: script.scan_bt_depart

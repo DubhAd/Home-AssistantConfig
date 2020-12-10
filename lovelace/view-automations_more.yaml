@@ -177,3 +177,7 @@ cards:
     secondary_info: last-triggered
   - entity: automation.nearly_home
     secondary_info: last-triggered
+  - entity: automation.ha_automations_reloaded
+    secondary_info: last-triggered
+  - entity: automation.wan_ip_changed
+    secondary_info: last-triggered

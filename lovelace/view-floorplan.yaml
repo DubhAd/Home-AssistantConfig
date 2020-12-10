@@ -319,6 +319,7 @@ cards:
             - sensor.pi3_living_room_multi_luminance
             - sensor.pi3_office_multi_luminance
             - sensor.hall_downstairs_illuminance
+            - sensor.master_bedroom_light_sensor_illuminance
           text_template: '${entity.state ? entity.state : "unknown"} lux'
           class_template: '
             var light = parseFloat(entity.state.replace("°", ""));
@@ -416,7 +417,7 @@ cards:
 
         - entities:
             - binary_sensor.pi3_living_room_motion
-            - binary_sensor.pi3_office_multi_sensor
+            - binary_sensor.office_motion_konke_occupancy
             - binary_sensor.hall_downstairs_occupancy
             - binary_sensor.vestibule_occupancy
           states:

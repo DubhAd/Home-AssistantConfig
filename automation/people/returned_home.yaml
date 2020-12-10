@@ -35,7 +35,7 @@ condition:
       entity_id: sensor.pi3_living_room_multi_luminance
       below: 15
     # Hall lights are off
-    - condition: or
+    - condition: and
       conditions:
       - condition: state
         entity_id: switch.pi3_hall_downstairs_switch
