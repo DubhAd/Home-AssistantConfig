@@ -246,6 +246,10 @@ cards:
         name: "Cabinet"
         tap_action: 
           action: toggle
+      - entity: light.office_strip
+        name: Office strip
+        tap_action: 
+          action: toggle
     show_empty: false
     state_filter:
       - 'on'
