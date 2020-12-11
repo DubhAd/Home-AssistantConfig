@@ -1,0 +1,27 @@
+initial_state: 'on'
+alias: 'Office no motion'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.office_motion_konke_occupancy
+    to: 'off'
+    for: '00:05:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_office_multi_luminance
+    above: 15
+condition:
+  - condition: state
+    entity_id: input_select.office
+    state: 'Dim'
+  - condition: numeric_state
+    entity_id: sensor.pi3_office_multi_luminance
+    below: 15
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Office Off after motion triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+          Light level is {{ states('sensor.pi3_office_multi_luminance') }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'Off'

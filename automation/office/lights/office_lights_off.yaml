@@ -1,0 +1,54 @@
+initial_state: 'on'
+alias: 'Office lights off'
+trigger:
+  - platform: state
+    entity_id: input_select.office
+    to: 'Off'
+  - platform: state
+    entity_id: input_select.office
+    to: 'Away'
+  - platform: state
+    entity_id: input_select.office
+    to: 'Auto'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Off'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Away'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.office
+      state: 'Off'
+    - condition: state
+      entity_id: input_select.office
+      state: 'Away'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.office
+        state: 'Auto'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.house
+          state: 'Off'
+        - condition: state
+          entity_id: input_select.house
+          state: 'Away'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.office_strip
+      transition: 15
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_office

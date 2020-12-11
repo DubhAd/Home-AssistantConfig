@@ -2,4 +2,4 @@
   name: office
   lights_xy:
     - light.office_strip
-  disable_brightness_adjust: true
+  max_brightness: 20

@@ -1,0 +1,16 @@
+initial_state: 'on'
+alias: 'Office mode no wake'
+trigger:
+  - platform: state
+    entity_id: input_select.office
+    to: 'Wake'
+    for: '01:00:00'
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Office Wake off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'Off'

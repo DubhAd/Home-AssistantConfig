@@ -1,0 +1,34 @@
+initial_state: 'on'
+alias: 'Office mode Wake'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person2_is_awake
+    to: 'on'
+    for: '00:15:00'
+condition:
+  # Awake
+  - condition: state
+    entity_id: input_boolean.person2_is_awake
+    state: 'on'
+  # Working from home
+  - condition: state
+    entity_id: input_boolean.person2_work_home
+    state: 'on'
+  # Haven't started working yet
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'off'
+  # Not very bright in the office
+  - condition: numeric_state
+    entity_id: sensor.pi3_office_multi_luminance
+    below: 10
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Office Wake triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+          Light level is {{ states('sensor.pi3_office_multi_luminance') }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'Wake'

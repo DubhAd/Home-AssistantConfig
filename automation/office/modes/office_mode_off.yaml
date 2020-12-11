@@ -9,7 +9,7 @@ trigger:
     above: 30
 condition:
   - condition: state
-    entity_id: input_select.office'
+    entity_id: input_select.office
     state: 'On'
   - condition: or
     conditions:

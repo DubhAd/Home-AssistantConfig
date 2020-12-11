@@ -1,0 +1,40 @@
+initial_state: 'on'
+alias: 'Office lights on'
+trigger:
+  - platform: state
+    entity_id: input_select.office
+    to: 'On'
+  - platform: state
+    entity_id: input_select.office
+    to: 'Auto'
+  - platform: state
+    entity_id: input_select.house
+    to: 'On'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.office
+      state: 'On'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.office
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'On'
+action:
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_office
+  - service: light.turn_on
+    data:
+      entity_id: light.office_strip
+      transition: 15
