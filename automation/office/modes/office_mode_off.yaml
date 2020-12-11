@@ -1,0 +1,31 @@
+initial_state: 'on'
+alias: 'Office mode off'
+trigger:
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'off'
+  - platform: numeric_state
+    entity_id: sensor.pi3_office_multi_luminance
+    above: 30
+condition:
+  - condition: state
+    entity_id: input_select.office'
+    state: 'On'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.office_occupied
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.pi3_office_multi_luminance
+        below: 20
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Office off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+          Light level is {{ states('sensor.pi3_office_multi_luminance') }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'Off'

@@ -121,6 +121,8 @@ cards:
   title: Office
   columns: 5
   entities:
+    - entity: light.office_strip
+      name: Strip
     - entity: media_player.office
       name: Sonos
     - entity: media_player.office_smart_display

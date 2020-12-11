@@ -1,0 +1,5 @@
+- platform: circadian_lighting
+  name: office
+  lights_xy:
+    - light.office_strip
+  disable_brightness_adjust: true

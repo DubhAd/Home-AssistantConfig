@@ -1,0 +1,28 @@
+initial_state: 'on'
+alias: 'Office mode on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
+  - platform: numeric_state
+    entity_id: sensor.pi3_office_multi_luminance
+    below: 20
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.office','On') }}"
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.pi3_office_multi_luminance
+    below: 20
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Office on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+          Light level is {{ states('sensor.pi3_office_multi_luminance') }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'On'
