@@ -2,6 +2,8 @@ title: Automations
 custom_header: !include lovelace/custom_header.yaml
 views:
   - !include lovelace/view-automations.yaml
+  - !include lovelace/view-automations_downstairs.yaml
+  - !include lovelace/view-automations_upstairs.yaml
   - !include lovelace/view-automations_bedrooms.yaml
   - !include lovelace/view-automations_person2.yaml
   - !include lovelace/view-automations_person3.yaml

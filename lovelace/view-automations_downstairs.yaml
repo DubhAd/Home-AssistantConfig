@@ -1,0 +1,135 @@
+title: Automations downstairs
+id: automations_downstairs
+path: automations-downstairs
+icon: mdi:home-floor-g
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: Living room status
+  show_header_toggle: false
+  entities:
+  - entity: automation.living_room_occupied
+    secondary_info: last-triggered
+  - entity: automation.living_room_not_occupied
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.living_room_mode_motion
+    secondary_info: last-triggered
+  - entity: automation.living_room_mode_motion_off
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.living_room_arrival
+    secondary_info: last-triggered
+  - entity: automation.living_room_away
+    secondary_info: last-triggered
+  - entity: automation.living_room_bedtime
+    secondary_info: last-triggered
+  - entity: automation.living_room_day_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_dim
+    secondary_info: last-triggered
+  - entity: automation.living_room_dim_off
+    secondary_info: last-triggered
+  - entity: automation.living_room_night_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_off
+    secondary_info: last-triggered
+  - entity: automation.living_room_off_empty
+    secondary_info: last-triggered
+  - entity: automation.living_room_override
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.living_room_movement
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.cooler_outside_livingroom
+    secondary_info: last-triggered
+  - entity: automation.hotter_outside_livingroom
+    secondary_info: last-triggered
+- type: entities
+  title: Automations for the living room lights
+  show_header_toggle: false
+  entities:
+  - entity: automation.living_room_lights_bedtime
+    secondary_info: last-triggered
+  - entity: automation.living_room_lights_day_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_lights_dim_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_lights_motion
+    secondary_info: last-triggered
+  - entity: automation.living_room_lights_night_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_lights_off
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.tv_light_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_dark_motion
+    secondary_info: last-triggered
+  - entity: automation.living_room_dark_no_motion
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.living_room_table_light_unavailable_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_table_light_unavailable_off
+    secondary_info: last-triggered
+- type: entities
+  title: Living room media automations
+  show_header_toggle: false
+  entities:
+  - entity: automation.all_away_media_off
+    secondary_info: last-triggered
+  - entity: automation.tv_on_sonos_off
+    secondary_info: last-triggered
+  - entity: automation.sonos_on_tv_mute
+    secondary_info: last-triggered
+  - entity: automation.sonos_off_tv_unmute
+    secondary_info: last-triggered
+- type: entities
+  title: Remote automations
+  show_header_toggle: false
+  entities:
+  - entity: automation.dimmer
+    secondary_info: last-triggered
+  - entity: automation.dimmer_on
+    secondary_info: last-triggered
+  - entity: automation.dimmer_off
+    secondary_info: last-triggered
+  - entity: automation.dimmer_on_while_away
+    secondary_info: last-triggered
+  - entity: automation.dimmer_off_while_off
+    secondary_info: last-triggered
+  - entity: automation.dimmer_up_while_on
+    secondary_info: last-triggered
+  - entity: automation.dimmer_down_while_on
+    secondary_info: last-triggered
+- type: entities
+  title: Family room
+  show_header_toggle: false
+  entities:
+  - entity: automation.family_room_occupied
+    secondary_info: last-triggered
+  - entity: automation.family_room_not_occupied
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.family_room_arrival
+    secondary_info: last-triggered
+  - entity: automation.family_room_mode_away
+    secondary_info: last-triggered
+  - entity: automation.family_room_mode_bedtime
+    secondary_info: last-triggered
+  - entity: automation.family_room_mode_off
+    secondary_info: last-triggered
+  - entity: automation.family_room_mode_on
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.family_room_lights_to_away
+    secondary_info: last-triggered
+  - entity: automation.family_room_lights_to_bedtime
+    secondary_info: last-triggered
+  - entity: automation.family_room_lights_to_off
+    secondary_info: last-triggered
+  - entity: automation.family_room_lights_to_on
+    secondary_info: last-triggered

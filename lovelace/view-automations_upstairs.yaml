@@ -1,0 +1,48 @@
+title: Upstairs automations
+id: automaitons-upstairs
+path: automations-upstairs
+icon: mdi:home-floor-1
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: Automations for the office
+  show_header_toggle: false
+  entities:
+  - entity: automation.play_music_in_the_office
+    secondary_info: last-triggered
+  - entity: automation.pause_music_in_the_office
+    secondary_info: last-triggered
+  - entity: automation.resume_music_in_the_office
+    secondary_info: last-triggered
+  - entity: automation.office_button_pushed
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.office_occupied
+    secondary_info: last-triggered
+  - entity: automation.office_not_occupied
+    secondary_info: last-triggered
+  - entity: automation.office_mode_on
+    secondary_info: last-triggered
+  - entity: automation.office_mode_off
+    secondary_info: last-triggered
+  - entity: automation.office_mode_wake
+    secondary_info: last-triggered
+  - entity: automation.office_mode_no_wake
+    secondary_info: last-triggered
+  - entity: automation.office_motion
+    secondary_info: last-triggered
+  - entity: automation.office_no_motion
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.office_lights_on
+    secondary_info: last-triggered
+  - entity: automation.office_lights_off
+    secondary_info: last-triggered
+  - entity: automation.office_lights_dim
+    secondary_info: last-triggered
+  - entity: automation.office_lights_wake
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.hotter_outside_office
+    secondary_info: last-triggered
