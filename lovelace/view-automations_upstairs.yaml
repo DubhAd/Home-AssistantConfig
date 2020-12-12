@@ -18,10 +18,18 @@ cards:
   - entity: automation.office_button_pushed
     secondary_info: last-triggered
   - type: divider
+  - entity: automation.hotter_outside_office
+    secondary_info: last-triggered
+
+- type: entities
+  title: Lighting automations for the office
+  show_header_toggle: false
+  entities:
   - entity: automation.office_occupied
     secondary_info: last-triggered
   - entity: automation.office_not_occupied
     secondary_info: last-triggered
+  - type: divider
   - entity: automation.office_mode_on
     secondary_info: last-triggered
   - entity: automation.office_mode_off
@@ -42,7 +50,4 @@ cards:
   - entity: automation.office_lights_dim
     secondary_info: last-triggered
   - entity: automation.office_lights_wake
-    secondary_info: last-triggered
-  - type: divider
-  - entity: automation.hotter_outside_office
     secondary_info: last-triggered

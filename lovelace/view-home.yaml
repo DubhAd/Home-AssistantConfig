@@ -133,6 +133,8 @@ cards:
         name: Hall
       - entity: binary_sensor.vestibule_occupancy
         name: Vestibule
+      - entity: binary_sensor.office_motion_konke_occupancy
+        name: Office
     show_empty: false
     state_filter:
       - 'on'

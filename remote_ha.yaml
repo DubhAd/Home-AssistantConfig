@@ -14,7 +14,6 @@ instances:
   include:
     domains:
     - zwave
-    - sun
     entities:
     - switch.cabinet_light_switch
     - switch.family_room_socket_switch
@@ -40,7 +39,6 @@ instances:
     - sensor.zwave_battery_utility_door_exterior
     - sensor.utility_door_exterior_access_control
     - sensor.utility_door_exterior_burglar
-    - sensor.sun_elevation
     - sensor.second_bedroom_power
     - sensor.second_bedroom_previous_reading
     - sensor.second_bedroom_previous_reading_2
