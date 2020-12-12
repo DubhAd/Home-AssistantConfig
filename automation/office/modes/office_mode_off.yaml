@@ -7,18 +7,19 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_office_multi_luminance
     above: 30
-condition:
-  - condition: state
+  - platform: state
     entity_id: input_select.office
-    state: 'On'
+    to: 'Dim'
+    for: '01:00:00'
+condition:
   - condition: or
     conditions:
       - condition: state
         entity_id: input_boolean.office_occupied
-        state: 'on'
+        state: 'off'
       - condition: numeric_state
         entity_id: sensor.pi3_office_multi_luminance
-        below: 20
+        above: 30
 action:
   - service: notify.logfile
     data_template:
