@@ -19,25 +19,13 @@ cards:
     secondary_info: last-triggered
   - entity: automation.bedhead_light_dim_sunset
     secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim_sunset_off
-    secondary_info: last-triggered
   - entity: automation.bedhead_light_dim
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim_off
     secondary_info: last-triggered
   - entity: automation.bedhead_light_dim_late
     secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim_late_off
-    secondary_info: last-triggered
   - entity: automation.bedhead_light_dim_midnight
     secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim_midnight_off
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_bright_sunrise
-    secondary_info: last-triggered
   - entity: automation.bedhead_light_on_morning
-    secondary_info: last-triggered
-  - entity: automation.late_disable_fluxer
     secondary_info: last-triggered
   - entity: automation.alarm_monitor_person2
     secondary_info: last-triggered

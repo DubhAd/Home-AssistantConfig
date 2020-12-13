@@ -127,6 +127,58 @@ cards:
     secondary_info: last-changed
     state_color: true
 - type: entities
+  title: People
+  show_header_toggle: false
+  entities:
+  - entity: input_select.person3_status_dropdown
+  - entity: input_select.person1_status_dropdown
+  - entity: input_select.person2_status_dropdown
+  - entity: input_select.person4_status_dropdown
+- type: entities
+  title: Circadian
+  show_header_toggle: false
+  entities:
+  - entity: switch.circadian_lighting_hall
+    state_color: true
+  - entity: switch.circadian_lighting_living_room
+    state_color: true
+  - entity: switch.circadian_lighting_master_bedroom
+    state_color: true
+  - entity: switch.circadian_lighting_second_bedroom
+    state_color: true
+- type: entities
+  title: Adaptive in the Master Bedroom
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_master_bedroom
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_master_bedroom
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_master_bedroom
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_master_bedroom
+    name: Sleep mode
+    state_color: true
+- type: entities
+  title: Adaptive in the Office
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_office
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_office
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_office
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_office
+    name: Sleep mode
+    state_color: true
+- type: entities
   title: Inputs for automations
   show_header_toggle: false
   entities:
@@ -142,23 +194,3 @@ cards:
   entities:
   - input_select.season
   - sensor.season
-- type: entities
-  title: Switches
-  show_header_toggle: false
-  entities:
-  - entity: switch.circadian_lighting_hall
-    state_color: true
-  - entity: switch.circadian_lighting_living_room
-    state_color: true
-  - entity: switch.circadian_lighting_master_bedroom
-    state_color: true
-  - entity: switch.circadian_lighting_second_bedroom
-    state_color: true
-- type: entities
-  title: People
-  show_header_toggle: false
-  entities:
-  - entity: input_select.person3_status_dropdown
-  - entity: input_select.person1_status_dropdown
-  - entity: input_select.person2_status_dropdown
-  - entity: input_select.person4_status_dropdown

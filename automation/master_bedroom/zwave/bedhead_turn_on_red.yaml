@@ -8,7 +8,7 @@ trigger:
       entity_id: zwave.nodon_crc3100_octan_remote
 action:
   - service: switch.turn_off
-    entity_id: switch.circadian_lighting_master_bedroom
+    entity_id: switch.adaptive_lighting_master_bedroom
   - service: light.turn_on
     data:
       entity_id: light.yeelight_strip1_286c07afc307

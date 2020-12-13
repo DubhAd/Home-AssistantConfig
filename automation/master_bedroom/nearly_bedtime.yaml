@@ -15,8 +15,6 @@ action:
   - service: light.turn_on
     data_template:
       entity_id: light.yeelight_strip1_286c07afc307
-      kelvin: >-
-        {{ state_attr('sensor.circadian_values','colortemp')|round|int }}
       brightness_pct: 100
       transition: 30
 
