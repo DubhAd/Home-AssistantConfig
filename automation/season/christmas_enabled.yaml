@@ -11,6 +11,9 @@ condition:
   - condition: state
     entity_id: input_select.season
     state: 'Christmas'
+  - condition: state
+    entity_id: group.christmas_control
+    state: 'off'
 action:
   - service: group.turn_on
     entity_id: group.christmas_control
