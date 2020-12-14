@@ -34,11 +34,11 @@ condition:
 action:
   - service: light.turn_off
     data:
-      entity_id: light.living_room_table
+      entity_id: light.living_room_tv
   - delay: '00:00:02'
   - service: light.turn_off
     data:
-      entity_id: light.living_room_tv
+      entity_id: light.living_room_table
   - delay: '00:00:02'
   - service: light.turn_off
     data:

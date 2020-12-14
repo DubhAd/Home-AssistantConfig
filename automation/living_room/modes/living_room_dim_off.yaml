@@ -39,9 +39,9 @@ condition:
         state: 'on'
         for: '00:30:00'
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
   - service: input_select.select_option
     data:
       entity_id: input_select.living_room
       option: 'Off'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.livingroom_lights_auto

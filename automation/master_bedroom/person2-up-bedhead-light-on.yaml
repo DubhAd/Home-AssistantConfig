@@ -12,7 +12,9 @@ condition:
     before: '10:00:00'
 action:
   - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
+    entity_id: 
+    - switch.adaptive_lighting_sleep_mode_master_bedroom
+    - switch.adaptive_lighting_adapt_brightness_master_bedroom
   - service: switch.turn_on
     entity_id: switch.adaptive_lighting_adapt_color_master_bedroom
   - service: light.turn_on

@@ -13,6 +13,8 @@ condition:
   - condition: template
     value_template: "{{ not is_state('input_select.living_room','Off') }}"
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
   - service: notify.logfile
     data_template:
       message: >
@@ -22,5 +24,3 @@ action:
     data:
       entity_id: input_select.living_room
       option: 'Off'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.livingroom_lights_auto

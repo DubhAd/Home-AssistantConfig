@@ -72,7 +72,7 @@ condition:
         state: 'on'
         for: '00:10:00'
 action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.living_room_occupied
   - service: input_boolean.turn_on
     entity_id: input_boolean.lighting_living_room
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.living_room_occupied

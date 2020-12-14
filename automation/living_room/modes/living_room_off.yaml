@@ -22,9 +22,9 @@ condition:
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
-  # Not currently Off
+  # Not currently Off or bedtime
   - condition: template
-    value_template: "{{ not is_state('input_select.living_room','Off') }}"
+    value_template: "{{ states('input_select.living_room') not in ('Off','Bedtime') }}"
   # Either not in use, or bright
   - condition: or
     conditions:
@@ -45,6 +45,8 @@ condition:
         entity_id: sensor.pi3_living_room_multi_luminance
         above: 25
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
   - service: notify.logfile
     data_template:
       message: >
@@ -54,5 +56,3 @@ action:
     data:
       entity_id: input_select.living_room
       option: 'Off'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.livingroom_lights_auto

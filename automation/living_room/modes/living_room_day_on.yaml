@@ -45,6 +45,8 @@ condition:
       entity_id: input_boolean.lighting_living_room
       state: 'on'
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
   - service: notify.logfile
     data_template:
       message: >
@@ -54,5 +56,3 @@ action:
     data:
       entity_id: input_select.living_room
       option: 'Day on'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.livingroom_lights_auto

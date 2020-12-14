@@ -62,6 +62,8 @@ condition:
     - condition: template
       value_template: "{{ (as_timestamp(now()) - as_timestamp(states.switch.pi3_cabinet_light_switch.last_updated)) | int > 120 }}"
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
   - service: notify.logfile
     data_template:
       message: >
@@ -71,5 +73,3 @@ action:
     data:
       entity_id: input_select.living_room
       option: 'Night on'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.livingroom_lights_auto

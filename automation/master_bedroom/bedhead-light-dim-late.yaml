@@ -13,7 +13,9 @@ condition:
         value_template: "{{ state_attr('light.yeelight_strip1_286c07afc307', 'brightness')|default(0)|int > 10 }}"
 action:
   - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
+    entity_id:
+    - switch.adaptive_lighting_sleep_mode_master_bedroom
+    - switch.adaptive_lighting_adapt_brightness_master_bedroom
   - service: light.turn_on
     data:
       entity_id: light.yeelight_strip1_286c07afc307

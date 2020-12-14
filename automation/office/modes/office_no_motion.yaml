@@ -9,6 +9,9 @@ trigger:
     entity_id: sensor.pi3_office_multi_luminance
     above: 15
 condition:
+  - condition: state
+    entity_id: input_select.office
+    state: 'Dim'
   - condition: or
     conditions:
     - condition: state

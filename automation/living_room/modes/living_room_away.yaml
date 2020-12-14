@@ -20,9 +20,9 @@ condition:
     entity_id: input_boolean.living_room_occupied
     state: 'off'
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.livingroom_lights_auto
   - service: input_select.select_option
     data:
       entity_id: input_select.living_room
       option: 'Away'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.livingroom_lights_auto
