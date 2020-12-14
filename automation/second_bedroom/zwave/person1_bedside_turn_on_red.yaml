@@ -7,8 +7,8 @@ trigger:
       scene_id: 40
       entity_id: zwave.green_remote
 action:
+  - service: switch.turn_on
+    entity_id: switch.adaptive_lighting_sleep_mode_second_bedroom
   - service: light.turn_on
     data:
       entity_id: light.yeelight_strip1_7811dca22b87
-      color_name: "red"
-      brightness_pct: 5

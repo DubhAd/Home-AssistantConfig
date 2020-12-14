@@ -25,6 +25,8 @@ action:
     entity_id: 
       - input_boolean.person1_in_bed
       - input_boolean.person1_alarm_sounded
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_second_bedroom
   - service: notify.logfile
     data_template:
       message: >

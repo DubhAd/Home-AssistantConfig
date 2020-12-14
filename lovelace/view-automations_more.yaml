@@ -105,8 +105,6 @@ cards:
   title: Misc HA automations
   show_header_toggle: false
   entities:
-  - entity: automation.clear_states
-    secondary_info: last-triggered
   - entity: automation.plex_hook
     secondary_info: last-triggered
   - entity: automation.device_unavailable

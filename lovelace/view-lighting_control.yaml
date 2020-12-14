@@ -1,0 +1,91 @@
+title: Lighting control
+id: lighting_control
+path: lighting_control
+icon: mdi:home-lightbulb
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+- type: entities
+  title: Toggles for automations
+  show_header_toggle: false
+  entities:
+  - entity: input_boolean.lighting_automations
+    secondary_info: last-changed
+    state_color: true
+  - entity: input_boolean.livingroom_lights_auto
+    secondary_info: last-changed
+    state_color: true
+- type: entities
+  title: Adaptive in the Hall
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_hall
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_hall
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_hall
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_hall
+    name: Sleep mode
+    state_color: true
+- type: entities
+  title: Adaptive in the Master Bedroom
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_master_bedroom
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_master_bedroom
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_master_bedroom
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_master_bedroom
+    name: Sleep mode
+    state_color: true
+- type: entities
+  title: Adaptive in the Second Bedroom
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_second_bedroom
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_second_bedroom
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_second_bedroom
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_second_bedroom
+    name: Sleep mode
+    state_color: true
+- type: entities
+  title: Adaptive in the Office
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_office
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_office
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_office
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_office
+    name: Sleep mode
+    state_color: true
+- type: entities
+  title: Inputs for automations
+  show_header_toggle: false
+  entities:
+  - input_number.room_low_light
+  - input_number.room_dark
+  - input_number.light_step
+  - input_number.light_minimum
+  - input_number.light_maximum
+  - input_number.light_step_colour

@@ -1,5 +1,0 @@
-- platform: circadian_lighting
-  name: office
-  lights_xy:
-    - light.office_strip
-  max_brightness: 20

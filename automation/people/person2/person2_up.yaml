@@ -34,6 +34,8 @@ condition:
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_in_bed
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
   - service: notify.logfile
     data_template:
       message: >

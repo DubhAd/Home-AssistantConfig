@@ -1,5 +1,0 @@
-- platform: circadian_lighting
-  name: living room
-  lights_ct:
-    - light.living_room_table
-  disable_brightness_adjust: true

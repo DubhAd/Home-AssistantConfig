@@ -2,6 +2,7 @@ title: Admin
 custom_header: !include lovelace/custom_header.yaml
 views:
   - !include lovelace/view-inputs.yaml
+  - !include lovelace/view-lighting_control.yaml
   - !include lovelace/view-information.yaml
   - !include lovelace/view-devices.yaml
   - !include lovelace/view-zwave.yaml

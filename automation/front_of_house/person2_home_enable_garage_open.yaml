@@ -4,20 +4,20 @@ trigger:
   - platform: state
     entity_id: input_boolean.person2_home
     to: 'on'
-    for: '00:05:00'
+    for: '00:15:00'
   - platform: state
     entity_id: binary_sensor.pi3_garage_closed_car_sensor
     to: 'off'
-    for: '00:05:00'
+    for: '00:15:00'
 condition:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
-    for: '00:05:00'
+    for: '00:15:00'
   - condition: state
     entity_id: binary_sensor.pi3_garage_closed_car_sensor
     state: 'off'
-    for: '00:05:00'
+    for: '00:15:00'
 action:
   - service: automation.turn_on
     entity_id: automation.person2_away_garage_open

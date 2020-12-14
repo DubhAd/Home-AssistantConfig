@@ -11,7 +11,8 @@ condition:
     entity_id: light.yeelight_strip1_7811dca22b87
     state: 'on'
 action:
+  - service: switch.turn_on
+    entity_id: switch.adaptive_lighting_sleep_mode_second_bedroom
   - service: light.turn_on
     data:
       entity_id: light.yeelight_strip1_7811dca22b87
-      color_name: "red"
