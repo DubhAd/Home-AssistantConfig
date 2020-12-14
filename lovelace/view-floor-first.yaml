@@ -119,7 +119,7 @@ cards:
       name: Bathroom
 - type: glance
   title: Office
-  columns: 5
+  columns: 6
   entities:
     - entity: light.office_strip
       name: Strip
@@ -130,11 +130,14 @@ cards:
     - entity: binary_sensor.office_motion_konke_occupancy
       name: Motion
       show_last_changed: true
-    - entity: sensor.pi3_office_multi_luminance
-      name: Light level
+    - entity: binary_sensor.office_door_contact
+      show_last_changed: true
+      name: Door
     - entity: binary_sensor.office_window
       show_last_changed: true
       name: Window
+    - entity: sensor.pi3_office_multi_luminance
+      name: Light level
     - entity: sensor.pi3_office_multi_temperature
       name: Temperature
     - entity: sensor.office_climate_temperature

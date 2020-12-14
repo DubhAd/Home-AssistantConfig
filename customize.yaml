@@ -249,3 +249,5 @@ switch.living_room_table:
   icon: mdi:spotlight
 media_player.samsung_tv:
   icon: mdi:television
+light.office_strip:
+  friendly_name: Office strip

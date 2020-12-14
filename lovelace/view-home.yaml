@@ -213,6 +213,19 @@ cards:
 
   - type: entity-filter
     entities:
+      - entity: binary_sensor.office_door_contact
+        name: Office
+    show_empty: false
+    state_filter:
+      - 'off'
+    card:
+      type: glance
+      columns: 4
+      title: Interior doors
+      show_state: false
+
+  - type: entity-filter
+    entities:
       - entity: switch.pi3_garden_lights_switch
         name: Garden
         tap_action: 

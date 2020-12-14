@@ -71,6 +71,16 @@ background-color: var(--primary-background-color);
   /* fill: #5d5d6f !important;*/
 }
 
+.interior-door-open {
+  fill: #81D9a7 !important;
+  fill-opacity: 1 !important;
+}
+
+.interior-door-closed {
+  fill: #cd9948 !important;
+  fill-opacity: 1 !important;
+}
+
 .door-closed {
   /* fill: #77FF77 !important; */
   /* fill: #81c9a7 !important; */
