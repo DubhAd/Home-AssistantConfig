@@ -426,6 +426,10 @@ cards:
               class: 'motion-background'
             - state: 'on'
               class: 'warning-background'
+          state_transitions:
+            - from_state: 'on'
+              to_state: 'off'
+              duration: 10
           propagate: true
 
         - entities:

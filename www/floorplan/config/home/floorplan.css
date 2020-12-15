@@ -74,6 +74,7 @@ background-color: var(--primary-background-color);
 .interior-door-open {
   fill: #6f9382 !important;
   fill-opacity: 1 !important;
+  /* transform: rotateZ(270deg); */
 }
 
 .interior-door-closed {
@@ -99,9 +100,11 @@ background-color: var(--primary-background-color);
   stroke-dasharray: 10,4 !important; 
   stroke-width: 2px !important; 
   stroke-opacity: 0.8 !important;
-/*  animation-duration: 4s;
+  /*
+  animation-duration: 4s;
   animation-name: rotate90;
-  animation-fill-mode: forwards;  */
+  animation-fill-mode: forwards;  
+  */
 }
 
 .alarm-disarmed {
