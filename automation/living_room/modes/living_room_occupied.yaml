@@ -7,7 +7,9 @@ trigger:
     for:
       minutes: 5
   - platform: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id:
+    - media_player.cast_living_room_tv
+    - media_player.living_room
     to: 'playing'
     for:
       minutes: 5
@@ -20,18 +22,15 @@ trigger:
   - platform: state
     entity_id: device_tracker.livingroom_chromecast
     to: 'home'
-    for:
-      minutes: 5
-  - platform: state
-    entity_id: media_player.living_room
-    to: 'playing'
     for:
       minutes: 5
   - platform: state
     entity_id: media_player.samsung_tv
     to: 'on'
   - platform: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: 
+    - media_player.cast_living_room_tv
+    - media_player.living_room
     to: 'playing'
   - platform: state
     entity_id: media_player.cast_living_room_tv
@@ -39,12 +38,7 @@ trigger:
     from: 'unavailable'
   - platform: state
     entity_id: device_tracker.livingroom_chromecast
-  - platform: state
-    entity_id: device_tracker.livingroom_chromecast
     to: 'home'
-  - platform: state
-    entity_id: media_player.living_room
-    to: 'playing'
   - platform: state
     entity_id: binary_sensor.pi3_living_room_motion
     to: 'on'
@@ -72,21 +66,19 @@ condition:
       - condition: state
         entity_id: media_player.living_room
         state: 'playing'
-      - condition: and
-        conditions:
-        # TV
-        - condition: state
-          entity_id: media_player.samsung_tv
-          state: 'on'
-        # Chromecast
-        - condition: or
-          conditions:
-          - condition: state
-            entity_id: media_player.cast_living_room_tv
-            state: 'playing'
-          - condition: state
-            entity_id: media_player.cast_living_room_tv
-            state: 'off'
+      # TV
+      - condition: state
+        entity_id: media_player.samsung_tv
+        state: 'on'
+      # Chromecast
+      - condition: state
+        entity_id: media_player.cast_living_room_tv
+        state: 
+        - 'playing'
+        - 'off'
+      - condition: state
+        entity_id: device_tracker.livingroom_chromecast
+        state: 'home'
 action:
   - service: input_boolean.turn_on
     entity_id: 

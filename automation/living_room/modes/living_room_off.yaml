@@ -28,16 +28,22 @@ condition:
   # Either not in use, or bright
   - condition: or
     conditions:
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'off'
-      # Bright, or...
+      # Room is very bright
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
       above: 50
+      # Or room not occupied and not bedtime
     - condition: and
       conditions:
-      # Sun is rising and not so bright
+      - condition: state
+        entity_id: input_boolean.living_room_occupied
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.bedtime
+        state: 'off'
+      # or sun is rising and not so bright
+    - condition: and
+      conditions:
       - condition: state
         entity_id: binary_sensor.trend_sun_elevation
         state: 'on'

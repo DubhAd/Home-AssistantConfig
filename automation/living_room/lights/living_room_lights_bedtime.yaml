@@ -34,16 +34,16 @@ condition:
 action:
   - service: light.turn_off
     data:
-      entity_id: light.living_room_tv
-  - delay: '00:00:02'
+      entity_id: light.living_room_table
+  - delay: '00:00:05'
   - service: light.turn_off
     data:
-      entity_id: light.living_room_table
-  - delay: '00:00:02'
+      entity_id: light.living_room_tv
+  - delay: '00:00:05'
   - service: light.turn_off
     data:
       entity_id: light.living_room_corner
-  - delay: '00:00:02'
+  - delay: '00:00:05'
   - service: switch.turn_off
     entity_id:
       - switch.pi3_livingroom_socket_switch 
