@@ -85,7 +85,7 @@ background-color: var(--primary-background-color);
 .door-closed {
   /* fill: #77FF77 !important; */
   /* fill: #81c9a7 !important; */
-  fill: #81D9a7 !important;
+  fill: #81c9a !important;
   fill-opacity: 1 !important;
 /*   stroke: #82caa8 !important;
   stroke-width: 1px !important;  

@@ -25,6 +25,8 @@ condition:
         entity_id: input_select.house
         state: 'Night on'
 action:
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_hall
   - choose:
     - conditions:
       - condition: state

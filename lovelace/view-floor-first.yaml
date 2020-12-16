@@ -182,7 +182,7 @@ cards:
     - entity: sensor.bathroom_humidity
       name: Bathroom
       color: "#E4C441"
-    - entity: sensor.pi3_office_multi_relative_humidity
+    - entity: sensor.office_climate_humidity
       name: Office
       color: "#4285F4"
 - type: custom:mini-graph-card
@@ -208,7 +208,7 @@ cards:
     - entity: sensor.bathroom_temperature
       name: Bathroom
       color: "#E4C441"
-    - entity: sensor.pi3_office_multi_temperature
+    - entity: sensor.office_climate_temperature
       name: Office
       color: "#4285F4"
     - entity: sensor.accuhome_realfeel_temperature

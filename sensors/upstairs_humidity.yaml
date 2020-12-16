@@ -6,3 +6,4 @@
     - sensor.bathroom_humidity
     - sensor.master_ensuite_humidity
     - sensor.second_bedroom_ensuite_humidity
+    - sensor.office_climate_humidity

@@ -232,7 +232,7 @@ cards:
         # Indoors should be moderate
         - entities:
             - sensor.pi3_living_room_multi_temperature
-            - sensor.pi3_office_multi_temperature
+            - sensor.office_climate_temperature
             - sensor.master_ensuite_temperature
             - sensor.bathroom_temperature
             - sensor.second_bedroom_ensuite_temperature
@@ -298,7 +298,7 @@ cards:
 
         - entities:
             - sensor.home_humidity
-            - sensor.pi3_office_multi_relative_humidity
+            - sensor.office_climate_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '
             var humid = parseFloat(entity.state.replace("%", ""));
