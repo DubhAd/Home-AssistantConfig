@@ -4,7 +4,7 @@ sequence:
     data:
       topic: monitor/scan/arrive
       payload: ''
-  - delay: '00:00:15'
+  - delay: '00:00:30'
   # Stop if everybody is home
   - condition: not
     conditions:
@@ -15,7 +15,7 @@ sequence:
     data:
       topic: monitor/scan/arrive
       payload: ''
-  - delay: '00:00:15'
+  - delay: '00:00:30'
   # Stop if everybody is home
   - condition: not
     conditions:

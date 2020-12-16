@@ -24,9 +24,6 @@ condition:
       - condition: state
         entity_id: input_select.house
         state: 'Bedtime'
-  - condition: state
-    entity_id: switch.pi3_vestibule_switch
-    state: 'on'
 action:
   - service: switch.turn_off
     entity_id: switch.pi3_vestibule_switch

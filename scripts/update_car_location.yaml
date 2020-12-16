@@ -1,7 +1,11 @@
 alias: Update car location
 sequence:
+  - service: notify.logfile
+    data:
+      message: >
+        Updating car location at {{ now() }}
   - service: device_tracker.see
-    data_template:
+    data:
       dev_id: "car_gps"
       location_name: "{{ states('device_tracker.person2_mobile_gps') }}"
       gps_accuracy: "{{ state_attr('device_tracker.person2_mobile_gps','gps_accuracy')|int }}"
