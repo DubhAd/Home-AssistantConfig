@@ -116,7 +116,6 @@ cards:
   entities:
   - sun.sun
   - sensor.sun_elevation
-  - sensor.pi3_sun_elevation
   - entity: sensor.last_opened
     secondary_info: last-changed
     icon: mdi:door

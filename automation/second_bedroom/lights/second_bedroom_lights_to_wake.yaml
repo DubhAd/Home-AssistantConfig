@@ -1,0 +1,34 @@
+initial_state: 'on'
+alias: 'Second bedroom lights to wake'
+trigger:
+  - platform: state
+    entity_id: input_select.second_bedroom
+    to: 'Wake'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Wake'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.second_bedroom
+      state: 'Wake'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.second_bedroom
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Wake'
+action:
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_second_bedroom
+  - service: light.turn_on
+    data:
+      entity_id: light.person1_bedroom_bedside
+      color_name: white
+      brightness: 255

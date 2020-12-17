@@ -1,0 +1,16 @@
+initial_state: 'on'
+alias: 'Second bedroom mode wake'
+trigger:
+  - platform: state
+    entity_id: 
+    - input_boolean.person1_alarm_sounded
+    - input_boolean.person1_is_awake
+    to: 'on'
+condition:
+  - condition: time
+    before: '10:00:00'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.second_bedroom
+      option: 'Wake'

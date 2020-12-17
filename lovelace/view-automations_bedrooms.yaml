@@ -63,10 +63,6 @@ cards:
   title: 2nd bedroom light
   show_header_toggle: false
   entities:
-  - entity: automation.person1_up_bedhead_light_on
-    secondary_info: last-triggered
-  - entity: automation.person1_up_bedhead_light_off
-    secondary_info: last-triggered
   - entity: automation.person1_bedside_left_on
     secondary_info: last-triggered
   - entity: automation.person1_bedside_turn_on
@@ -89,29 +85,36 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person1_bedside_turn_red
     secondary_info: last-triggered
-  - entity: automation.person1_bedside_light_on
-    secondary_info: last-triggered
-  - entity: automation.person1_bedtime_reminder
-    secondary_info: last-triggered
 - type: entities
-  title: Second bedroom
+  title: Second bedroom alarm
   show_header_toggle: false
   entities:
   - entity: automation.person1_alarm_on
     secondary_info: last-triggered
   - entity: automation.person1_alarm_off
     secondary_info: last-triggered
-  - entity: automation.person1_radio_on
-    secondary_info: last-triggered
-  - entity: automation.person1_radio_on_late
-    secondary_info: last-triggered
-  - entity: automation.person1_radio_on_night
-    secondary_info: last-triggered
-  - entity: automation.person1_radio_off
-    secondary_info: last-triggered
-  - entity: automation.person1_radio_off_late
-    secondary_info: last-triggered
   - entity: automation.alarm_monitor_person1
     secondary_info: last-triggered
   - entity: automation.person1_alarm_playing
+    secondary_info: last-triggered
+- type: entities
+  title: Second bedroom modes
+  show_header_toggle: false
+  entities:
+  - entity: automation.second_bedroom_mode_on
+    secondary_info: last-triggered
+  - entity: automation.second_bedroom_mode_off
+    secondary_info: last-triggered
+  - entity: automation.second_bedroom_mode_wake
+    secondary_info: last-triggered
+  - entity: automation.second_bedroom_mode_bedtime
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.second_bedroom_lights_to_on
+    secondary_info: last-triggered
+  - entity: automation.second_bedroom_lights_to_off
+    secondary_info: last-triggered
+  - entity: automation.second_bedroom_lights_to_wake
+    secondary_info: last-triggered
+  - entity: automation.second_bedroom_lights_to_bedtime
     secondary_info: last-triggered

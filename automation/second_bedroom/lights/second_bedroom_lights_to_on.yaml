@@ -1,0 +1,30 @@
+initial_state: 'on'
+alias: 'Second bedroom lights to on'
+trigger:
+  - platform: state
+    entity_id: input_select.second_bedroom
+    to: 'On'
+  - platform: state
+    entity_id: input_select.house
+    to: 'On'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.second_bedroom
+      state: 'On'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.second_bedroom
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'On'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.person1_bedroom_bedside

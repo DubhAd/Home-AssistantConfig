@@ -1,0 +1,43 @@
+initial_state: 'on'
+alias: 'Second bedroom mode off'
+trigger:
+  - platform: state
+    entity_id: 
+    - input_boolean.person1_alarm_sounded
+    - input_boolean.person1_in_bed
+    to: 'off'
+    for: '00:15:00'
+  - platform: state
+    entity_id: 
+    - input_boolean.person1_home
+    - input_boolean.second_bedroom_occupied
+    to: 'off'
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
+condition:
+  - condition: template
+    value_template: "{{ not is_state('input_select.second_bedroom','Off') }}"
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_boolean.person1_home
+      state: 'off'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.second_bedroom_occupied
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.person1_in_bed
+        state: 'off'
+        for: '00:15:00'
+      - condition: state
+        entity_id: input_boolean.person1_alarm_sounded
+        state: 'off'
+        for: '00:15:00'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.second_bedroom
+      option: 'Off'
