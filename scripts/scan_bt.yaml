@@ -2,6 +2,8 @@ mode: 'queued'
 description: 'Manages the right kind of BT scan. Departure scan if everybody is home, or there was motion in the vestibule. Arrival scan if nobody is home or there was no motion in the vestibule or hall. Arrival then departure if we are unsure'
 sequence:
 - choose:
+  #################### ####################
+  # Everybody away
   - conditions:
     # Everybody is away - this can only be an arrival
     - condition: numeric_state
@@ -12,6 +14,8 @@ sequence:
       data_template:
         message: "Arrival scan because nobody is home"
     - service: script.scan_bt_arrive
+  #################### ####################
+  # Everybody is home
   - conditions:
     # Nobody is away - this can only be a departure
     - condition: numeric_state
@@ -22,19 +26,21 @@ sequence:
       data_template:
         message: "Departure scan because everybody is home"
     - service: script.scan_bt_depart
+  #################### ####################
+  # Far garage door open, near one closed, motion in the vestibule
   - conditions:
-    # If the far garage door is open, we're probably going to the bike
+    # If the far garage door is open, and the near one is closed, we're likely going to the bike
     - condition: state
       entity_id: binary_sensor.pi3_garage_closed_bike_sensor
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.pi3_garage_closed_car_sensor
       state: 'off'
-    # Something happen in the vestibule or hall recently
+    # Something happen in the vestibule recently
     - condition: or
       conditions:
       - condition: state
         entity_id: binary_sensor.vestibule_occupancy
-        state: 'on'
-      - condition: state
-        entity_id: binary_sensor.hall_downstairs_occupancy
         state: 'on'
       - condition: not
         conditions:
@@ -42,32 +48,65 @@ sequence:
           entity_id: binary_sensor.vestibule_occupancy
           state: 'off'
           for: '00:02:00'
+    sequence:
+    # Check for departure, then check for arrival (just in case)
+    - service: notify.logfile
+      data_template:
+        message: "Do nothing because of motion in the vestibule, and the bike door is open"
+  #################### ####################
+  # Both garage doors closed (going out)
+  - conditions:
+    - condition: state
+      entity_id: binary_sensor.pi3_garage_closed_bike_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.pi3_garage_closed_car_sensor
+      state: 'off'
+    # Something happen in the vestibule recently
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.vestibule_occupancy
+        state: 'on'
+      - condition: not
+        conditions:
         - condition: state
-          entity_id: binary_sensor.hall_downstairs_occupancy
+          entity_id: binary_sensor.vestibule_occupancy
           state: 'off'
           for: '00:02:00'
     sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
       data_template:
-        message: "Departure (then arrival) scan because of motion in the vestibule or hall"
+        message: "Departure (then arrival) scan because of motion in the vestibule (and both garage doors are closed)"
     - service: script.scan_bt_depart
     - service: script.scan_bt_arrive
+  #################### ####################
+  # No motion inside
   - conditions:
     # Nothing happened recently inside 
     - condition: state
       entity_id: binary_sensor.vestibule_occupancy
       state: 'off'
-      for: '00:02:00'
-    - condition: state
-      entity_id: binary_sensor.hall_downstairs_occupancy
-      state: 'off'
-      for: '00:02:00'
     sequence:
     - service: notify.logfile
       data_template:
-        message: "Arrival scan because there was no motion in the vestibule or hall"
+        message: "Arrival scan because there was no motion in the vestibule"
     - service: script.scan_bt_arrive
+  #################### ####################
+  # Car door is open already
+  - conditions:
+    # Garage door is open already
+    - condition: state
+      entity_id: binary_sensor.pi3_garage_closed_car_sensor
+      state: 'on'
+      for: '00:00:01'
+    sequence:
+    - service: notify.logfile
+      data_template:
+        message: "Arrival scan because the garage door is open"
+    - service: script.scan_bt_arrive
+  #################### ####################
   # Mixed bag situation unclear, do it all
   default:
   - service: notify.logfile

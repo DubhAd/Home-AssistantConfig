@@ -1,0 +1,13 @@
+alias: 'person2 home disable Garage open'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person2_home
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+action:
+  - service: automation.turn_off
+    entity_id: automation.person2_away_garage_open

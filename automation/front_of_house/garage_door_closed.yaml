@@ -8,5 +8,6 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
+    for: '00:05:00'
 action:
   - service: script.scan_bt_depart
