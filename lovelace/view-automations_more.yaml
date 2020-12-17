@@ -59,6 +59,11 @@ cards:
   title: Seasonal automations
   show_header_toggle: false
   entities:
+  - entity: automation.christmas_enabled
+    secondary_info: last-triggered
+  - entity: automation.christmas_disabled
+    secondary_info: last-triggered
+  - type: divider
   - entity: automation.season_is_christmas
     secondary_info: last-triggered
   - entity: automation.season_is_easter

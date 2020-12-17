@@ -17,6 +17,11 @@ cards:
     secondary_info: last-triggered
   - entity: automation.house_mode_holiday
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.house_lights_to_bedtime
+    secondary_info: last-triggered
+  - entity: automation.house_lights_from_bedtime
+    secondary_info: last-triggered
 - type: entities
   title: Hall
   show_header_toggle: false

@@ -1,4 +1,4 @@
-alias: 'Christmas lights on'
+alias: 'Christmas enabled'
 trigger:
   - platform: homeassistant
     event: start

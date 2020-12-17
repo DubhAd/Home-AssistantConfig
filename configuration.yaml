@@ -73,5 +73,4 @@ image_processing: !include_dir_list image_processing/
 
 mqtt: !include mqtt.yaml
 
-circadian_lighting: !include circadian.yaml
 remote_homeassistant: !include remote_ha.yaml

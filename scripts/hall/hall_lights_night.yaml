@@ -1,7 +1,5 @@
 alias: Hall lights night
 sequence:
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_sleep_mode_hall
   - service: light.turn_on
     data:
       entity_id: light.hall
