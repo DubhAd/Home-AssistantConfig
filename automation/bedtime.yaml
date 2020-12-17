@@ -1,13 +1,48 @@
 initial_state: 'on'
 alias: 'Bedtime'
 trigger:
+  # Everybody is in bed
   - platform: state
     entity_id:
       - input_boolean.person3_in_bed
       - input_boolean.person2_in_bed
       - input_boolean.person1_in_bed
     to: 'on'
+  # Downstairs rooms are now empty
+  - platform: state
+    entity_id: group.downstairs_occupied
+    to: 'off'
+    for: '00:02:00'
+  # No movement
+  - platform: state
+    entity_id: 
+    - binary_sensor.hall_downstairs_occupancy
+    - binary_sensor.vestibule_occupancy
+    to: 'off'
+    for: '00:02:00'
 condition:
+  - condition: or
+    conditions:
+    # No movement, or things are offline
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.vestibule_occupancy
+        state: 'off'
+        for: '00:02:00'
+      - condition: state
+        entity_id: binary_sensor.vestibule_occupancy
+        state: 'unavailable'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.hall_downstairs_occupancy
+        state: 'off'
+        for: '00:02:00'
+      - condition: state
+        entity_id: binary_sensor.hall_downstairs_occupancy
+        state: 'unavailable'
+  # People are in bed, or away
   - condition: and
     conditions:
     - condition: or
@@ -15,14 +50,12 @@ condition:
       - condition: state
         entity_id: input_boolean.person3_home
         state: 'off'
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: input_boolean.person3_in_bed
-          state: 'on'
-        - condition: state
-          entity_id: input_boolean.person3_home
-          state: 'on'
+      - condition: state
+        entity_id: input_boolean.person3_travelling
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.person3_in_bed
+        state: 'on'
     - condition: or
       conditions:
       - condition: state
@@ -31,27 +64,20 @@ condition:
       - condition: state
         entity_id: input_boolean.person2_travelling
         state: 'on'
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: input_boolean.person2_in_bed
-          state: 'on'
-        - condition: state
-          entity_id: input_boolean.person2_home
-          state: 'on'
+      - condition: state
+        entity_id: input_boolean.person2_in_bed
+        state: 'on'
     - condition: or
       conditions:
       - condition: state
         entity_id: input_boolean.person1_home
         state: 'off'
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: input_boolean.person1_in_bed
-          state: 'on'
-        - condition: state
-          entity_id: input_boolean.person1_home
-          state: 'on'
+      - condition: state
+        entity_id: input_boolean.person1_travelling
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.person1_in_bed
+        state: 'on'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.bedtime

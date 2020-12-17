@@ -1,0 +1,18 @@
+initial_state: 'on'
+alias: 'House lights from bedtime'
+trigger:
+  - platform: state
+    entity_id: input_select.house
+    from: 'Bedtime'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.house
+      state: 'Bedtime'
+action:
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_hall

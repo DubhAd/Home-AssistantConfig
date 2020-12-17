@@ -7,11 +7,11 @@ trigger:
   - platform: state
     entity_id: group.downstairs_occupied
     to: 'off'
-    for: '00:03:00'
+    for: '00:02:00'
   - platform: state
     entity_id: binary_sensor.hall_downstairs_occupancy
     to: 'off'
-    for: '00:03:00'
+    for: '00:01:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Bedtime') }}"
@@ -21,11 +21,11 @@ condition:
   - condition: state
     entity_id: group.downstairs_occupied
     state: 'off'
-    for: '00:03:00'
+    for: '00:02:00'
   - condition: state
     entity_id: binary_sensor.hall_downstairs_occupancy
     state: 'off'
-    for: '00:03:00'
+    for: '00:01:00'
 action:
   - service: input_select.select_option
     data:
