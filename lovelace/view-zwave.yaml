@@ -99,7 +99,7 @@ cards:
   ignore_line_breaks: true
   content: |-
     Zigbee:<BR>
-    {% for state in states.sensor -%}
+    {% for state in states -%}
       {%- if state.attributes.linkquality %}
         {%- if "link" in state.name %}
           {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
