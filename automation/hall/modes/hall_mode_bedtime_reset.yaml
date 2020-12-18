@@ -3,19 +3,11 @@ initial_state: 'on'
 trigger:
   - platform: state
     entity_id: input_select.hall
-    to: 'Night on'
-    for: '00:03:00'
-  - platform: state
-    entity_id: input_select.hall
-    to: 'Dim'
-    for: '00:03:00'
-  - platform: state
-    entity_id: input_select.hall
-    to: 'On'
-    for: '00:03:00'
-  - platform: state
-    entity_id: input_select.hall
-    to: 'Day on'
+    to: 
+    - 'Night on'
+    - 'Dim'
+    - 'On'
+    - 'Day on'
     for: '00:03:00'
 condition:
   - condition: state

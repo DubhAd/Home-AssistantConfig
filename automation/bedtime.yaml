@@ -62,37 +62,37 @@ condition:
       conditions:
       # In bed, or away
       - condition: state
+        entity_id: input_boolean.person3_in_bed
+        state: 'on'
+      - condition: state
         entity_id: input_boolean.person3_home
         state: 'off'
       - condition: state
         entity_id: input_boolean.person3_travelling
         state: 'on'
-      - condition: state
-        entity_id: input_boolean.person3_in_bed
-        state: 'on'
     - condition: or
       conditions:
       # In bed, or away
+      - condition: state
+        entity_id: input_boolean.person2_in_bed
+        state: 'on'
       - condition: state
         entity_id: input_boolean.person2_home
         state: 'off'
       - condition: state
         entity_id: input_boolean.person2_travelling
         state: 'on'
-      - condition: state
-        entity_id: input_boolean.person2_in_bed
-        state: 'on'
     - condition: or
       conditions:
       # In bed, or away
+      - condition: state
+        entity_id: input_boolean.person1_in_bed
+        state: 'on'
       - condition: state
         entity_id: input_boolean.person1_home
         state: 'off'
       - condition: state
         entity_id: input_boolean.person1_travelling
-        state: 'on'
-      - condition: state
-        entity_id: input_boolean.person1_in_bed
         state: 'on'
 action:
   - service: input_boolean.turn_on

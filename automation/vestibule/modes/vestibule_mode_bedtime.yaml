@@ -5,11 +5,10 @@ trigger:
     entity_id: input_boolean.bedtime
     to: 'on'
   - platform: state
-    entity_id: group.downstairs_occupied
-    to: 'off'
-    for: '00:03:00'
-  - platform: state
-    entity_id: binary_sensor.vestibule_occupancy
+    entity_id: 
+    - group.downstairs_occupied
+    - binary_sensor.vestibule_occupancy
+    - binary_sensor.hall_downstairs_occupancy
     to: 'off'
     for: '00:03:00'
 condition:
@@ -19,11 +18,10 @@ condition:
     entity_id: input_boolean.bedtime
     state: 'on'
   - condition: state
-    entity_id: group.downstairs_occupied
-    state: 'off'
-    for: '00:03:00'
-  - condition: state
-    entity_id: binary_sensor.vestibule_occupancy
+    entity_id: 
+    - group.downstairs_occupied
+    - binary_sensor.vestibule_occupancy
+    - binary_sensor.hall_downstairs_occupancy
     state: 'off'
     for: '00:03:00'
 action:

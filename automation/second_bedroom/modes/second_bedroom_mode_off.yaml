@@ -15,14 +15,48 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     above: 5
+  - platform: time
+    at: '23:00:00'
+  - platform: state
+    entity_id: input_select.second_bedroom
+    to: 
+    - 'Bedtime'
+    - 'Wake'
+    for: '00:30:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.second_bedroom','Off') }}"
   - condition: or
     conditions:
+    # Turn it off when he's away
     - condition: state
       entity_id: input_boolean.person1_home
       state: 'off'
+    # Turn it off if it's been bedtime or wake for half an hour
+    - condition: state
+      entity_id: input_select.second_bedroom
+      state: 
+      - 'Bedtime'
+      - 'Wake'
+      for: '00:30:00'
+    # Turn it off if they needs to be up early
+    - condition: and
+      conditions:
+      - condition: time
+        after: '22:59:00'
+        before: '23:01:00'
+        weekday:
+        - sun
+        - mon
+        - tue
+        - wed
+        - thu
+      # Not a holiday tomorrow
+      - condition: template
+        value_template: >-
+          {{ not (is_state_attr('calendar.person1_holiday','message','Holiday') and
+          (as_timestamp(now())+(6*60*60) - as_timestamp(state_attr('calendar.person1_holiday','start_time'))) > 0) }}
+    # Turn it off when he's awake
     - condition: and
       conditions:
       - condition: state
