@@ -18,7 +18,7 @@ condition:
       entity_id: input_boolean.person1_in_bed
       state: 'on'
     - condition: time
-      after: '04:00:00'
+      after: '05:00:00'
       before: '21:00:00'
 action:
   - service: input_boolean.turn_off

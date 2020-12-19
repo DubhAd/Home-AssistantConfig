@@ -30,6 +30,10 @@ action:
     data:
       entity_id: light.hall
       transition: 10
+  - service: switch.turn_on
+    entity_id: 
+    - switch.adaptive_lighting_sleep_mode_hall
+    - switch.adaptive_lighting_adapt_brightness_hall
   - service: switch.turn_off
     entity_id: switch.pi3_hall_downstairs_switch
   - delay: '00:01:00'

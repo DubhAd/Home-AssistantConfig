@@ -10,14 +10,11 @@ condition:
   - condition: and
     conditions:
     - condition: state
-      entity_id: input_boolean.person1_is_awake
-      state: 'on'
-    - condition: state
       entity_id: input_boolean.person1_home
       state: 'on'
     - condition: time
       after: '22:00:00'
-      before: '04:00:00'
+      before: '05:00:00'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person1_is_awake
