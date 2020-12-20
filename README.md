@@ -20,7 +20,6 @@
       * [Automation thoughts](#automation-thoughts)
    * [Useful links](#useful-links)
    * [Coffee](#coffee)
-##TOC##
 
 # Home Assistant configuration
 This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 0.117.6 (Python 3.8.6 built [with this guide](https://blog.ceard.tech/2017/12/upgrading-python-virtual-environment.html)) on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
