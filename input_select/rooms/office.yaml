@@ -2,6 +2,7 @@ name: Office
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Dim'
   - 'Wake'
   - 'Bedtime'

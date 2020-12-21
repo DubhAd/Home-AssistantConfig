@@ -2,6 +2,7 @@ name: Bathroom
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Wake'
   - 'Bedtime'
   - 'Dim'

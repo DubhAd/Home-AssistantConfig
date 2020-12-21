@@ -6,6 +6,8 @@ options:
   - 'Holiday'
   # Turn it all off, arm the alarm, prepare to repel boarders - 'sets all other rooms to Away'
   - 'Away'
+  # For motion triggered lighting
+  - 'Motion'
   # Just enough light to move around by
   - 'Dim'
   # Lighting suitable for waking up

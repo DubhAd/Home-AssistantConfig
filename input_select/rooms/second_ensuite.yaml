@@ -2,6 +2,7 @@ name: Second ensuite
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Wake'
   - 'Bedtime'
   - 'Dim'

@@ -2,6 +2,7 @@ name: Utility room
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Dim'
   - 'Wake'
   - 'Bedtime'

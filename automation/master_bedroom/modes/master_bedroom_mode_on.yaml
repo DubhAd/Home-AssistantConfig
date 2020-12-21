@@ -1,0 +1,18 @@
+alias: 'Master bedroom mode on'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.person2_in_bed
+    to: 'on'
+condition:
+  - condition: time
+    after: '22:00:00'
+    before: '04:00:00'
+  - condition: state
+    entity_id: input_boolean.person2_in_bed
+    state: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.master_bedroom
+      option: 'On'

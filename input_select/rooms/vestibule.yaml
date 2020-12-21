@@ -2,6 +2,7 @@ name: Vestibule
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Dim'
   - 'Wake'
   - 'Bedtime'

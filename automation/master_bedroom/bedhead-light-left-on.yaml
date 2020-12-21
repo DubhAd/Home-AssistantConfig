@@ -1,23 +1,34 @@
 alias: 'Bedhead light left on'
 initial_state: 'on'
 trigger:
-  platform: state
-  entity_id: light.yeelight_strip1_286c07afc307
-  to: 'on'
-  for: 
-    minutes: 30
+  - platform: state
+    entity_id: light.yeelight_strip1_286c07afc307
+    to: 'on'
+    for: '00:30:00'
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'on'
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: sun.sun
-      state: above_horizon
-    - condition: state
-      entity_id: media_player.person2
-      state: 'off'
-    - condition: state
-      entity_id: media_player.cast_master_bedroom_speaker
-      state: 'off'
+  # In the mornings
+  - condition: time
+    after: '03:00:00'
+    before: '12:00:00'
+  # If the alarm is off
+  - condition: state
+    entity_id: media_player.person2
+    state: 'off'
+  - condition: state
+    entity_id: media_player.cast_master_bedroom_speaker
+    state: 'off'
+  # and the door is open
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    state: 'on'
+  # and the light has been on for at least 20 minutes
+  - condition: state
+    entity_id: light.yeelight_strip1_286c07afc307
+    state: 'on'
+    for: '00:20:00'
 action:
   - service: light.turn_off
     data:

@@ -2,6 +2,7 @@ name: Toilet
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Wake'
   - 'Bedtime'
   - 'Dim'

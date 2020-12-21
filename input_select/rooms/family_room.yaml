@@ -2,6 +2,7 @@ name: Family room
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Dim'
   - 'Day on'
   - 'Night on'

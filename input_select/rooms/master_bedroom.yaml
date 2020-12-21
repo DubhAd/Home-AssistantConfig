@@ -2,6 +2,7 @@ name: Master bedroom
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Wake'
   - 'Bedtime'
   - 'Dim'

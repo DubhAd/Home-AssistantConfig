@@ -2,6 +2,7 @@ name: Master ensuite
 options:
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Wake'
   - 'Bedtime'
   - 'Dim'

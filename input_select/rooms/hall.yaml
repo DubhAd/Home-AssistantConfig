@@ -3,6 +3,7 @@ options:
   # Auto mode - follows the mode of the house
   - 'Auto'
   - 'Away'
+  - 'Motion'
   - 'Dim'
   - 'Wake'
   - 'Bedtime'
