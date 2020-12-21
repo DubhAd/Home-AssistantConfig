@@ -434,6 +434,7 @@ cards:
 
         - entities:
             - binary_sensor.office_door_contact
+            - binary_sensor.master_bedroom_door_contact
           states:
             - state: 'off'
               class: 'interior-door-closed'

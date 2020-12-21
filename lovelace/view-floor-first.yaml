@@ -26,6 +26,8 @@ cards:
         tap_action: 
           action: toggle
         name: Socket
+      - entity: binary_sensor.master_bedroom_door_contact
+        show_last_changed: true
       - entity: binary_sensor.master_window_left
         show_last_changed: true
         name: Left window
