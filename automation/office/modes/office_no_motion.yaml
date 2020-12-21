@@ -11,7 +11,7 @@ trigger:
 condition:
   - condition: state
     entity_id: input_select.office
-    state: 'Dim'
+    state: 'Motion'
   - condition: or
     conditions:
     - condition: state

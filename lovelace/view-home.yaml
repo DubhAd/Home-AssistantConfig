@@ -215,13 +215,15 @@ cards:
     entities:
       - entity: binary_sensor.office_door_contact
         name: Office
+      - entity: binary_sensor.master_bedroom_door_contact
+        name: Master bedroom
     show_empty: false
     state_filter:
       - 'off'
     card:
       type: glance
       columns: 4
-      title: Interior doors
+      title: Interior doors (closed)
       show_state: false
 
   - type: entity-filter

@@ -1,0 +1,41 @@
+initial_state: 'on'
+alias: 'Master bedroom occupied'
+trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.master_bedroom_door_contact
+    - light.master_bedroom_bedhead
+    - input_boolean.person2_in_bed
+    to: 'on'
+  - platform: state
+    entity_id: 
+    - media_player.person2
+    - media_player.master_bedroom_speaker
+    to: 'playing'
+condition:
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'off'
+  - condition: state
+    entity_id: 
+    - binary_sensor.master_bedroom_door_contact
+    - input_boolean.person2_in_bed
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: media_player.person2
+      state: 'playing'
+    - condition: state
+      entity_id: media_player.master_bedroom_speaker
+      state: 'playing'
+    - condition: state
+      entity_id: light.master_bedroom_bedhead
+      state: 'on'
+action:
+  - service: notify.logfile
+    data_template:
+      message: >
+        Master bedroom occupied triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.master_bedroom_occupied
