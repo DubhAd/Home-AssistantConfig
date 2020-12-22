@@ -30,4 +30,6 @@ action:
     data:
       entity_id: light.hall
   - service: switch.turn_off
-    entity_id: switch.pi3_hall_downstairs_switch
+    entity_id: 
+    - switch.pi3_hall_downstairs_switch
+    - switch.adaptive_lighting_sleep_mode_hall

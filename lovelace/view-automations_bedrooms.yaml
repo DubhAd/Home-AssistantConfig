@@ -29,6 +29,20 @@ cards:
     secondary_info: last-triggered
   - entity: automation.alarm_monitor_person2
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.master_bedroom_occupied
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_motion
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.master_bedroom_mode_on
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_mode_off
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_mode_bedtime
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_mode_wake
+    secondary_info: last-triggered
 - type: entities
   title: Remote automations for the bedhead light
   show_header_toggle: false

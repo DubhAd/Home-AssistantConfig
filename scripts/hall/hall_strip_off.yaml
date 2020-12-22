@@ -5,3 +5,5 @@ sequence:
     data:
       entity_id: light.hall
       transition: 30
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_hall
