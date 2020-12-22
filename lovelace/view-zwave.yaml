@@ -30,7 +30,7 @@ cards:
   columns: 5
   entities:
   - sensor.living_room_table_switch_linkquality
-  - sensor.dimmer_switch_linkquality
+  - sensor.hue_dimmer_linkquality
   - sensor.patio_window_left_linkquality
   - sensor.patio_window_right_linkquality
   - sensor.family_window_left_linkquality

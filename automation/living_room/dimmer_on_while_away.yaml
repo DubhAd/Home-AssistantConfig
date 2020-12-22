@@ -2,7 +2,7 @@ alias: Dimmer on while away
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: sensor.dimmer_switch_action
+    entity_id: sensor.hue_dimmer_action
     to: 'on-press'
 condition:
   - condition: template

@@ -63,7 +63,7 @@ cards:
   entities:
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery
-    - sensor.dimmer_switch_battery
+    - sensor.hue_dimmer_battery
     - sensor.family_window_left_battery
     - sensor.family_window_right_battery
     - sensor.hall_downstairs_motion_battery
