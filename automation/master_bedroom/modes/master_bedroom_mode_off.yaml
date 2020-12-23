@@ -4,12 +4,18 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     above: 5
+  - platform: numeric_state
+    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    above: 30
   - platform: state
     entity_id: input_select.master_bedroom
     to: 
     - 'Bedtime'
     - 'Wake'
     for: '00:30:00'
+  - platform: state
+    entity_id: input_boolean.master_bedroom_occupied
+    to: 'off'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.master_bedroom','Off') }}"
@@ -18,13 +24,15 @@ condition:
     # Turn it off if it's been bedtime or wake for half an hour
     - condition: state
       entity_id: input_select.master_bedroom
-      state: 
-      - 'Bedtime'
-      - 'Wake'
+      state: 'Bedtime'
       for: '00:30:00'
     # Turn it off when he's awake
     - condition: and
       conditions:
+      - condition: state
+        entity_id: input_select.master_bedroom
+        state: 'Wake'
+        for: '00:30:00'
       - condition: state
         entity_id: input_boolean.master_bedroom_occupied
         state: 'off'

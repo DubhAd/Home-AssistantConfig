@@ -2,10 +2,11 @@ initial_state: 'on'
 alias: 'Master bedroom not occupied'
 trigger:
   - platform: state
-    entity_id: 
-    - binary_sensor.master_bedroom_door_contact
-    - input_boolean.person2_in_bed
+    entity_id: input_boolean.person2_in_bed
     to: 'off'
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'on'
   - platform: state
     entity_id: 
     - media_player.person2
@@ -16,10 +17,11 @@ condition:
     entity_id: input_boolean.master_bedroom_occupied
     state: 'on'
   - condition: state
-    entity_id: 
-    - binary_sensor.master_bedroom_door_contact
-    - input_boolean.person2_in_bed
+    entity_id: input_boolean.person2_in_bed
     state: 'off'
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    state: 'on'
   - condition: not
     conditions:
     - condition: state
