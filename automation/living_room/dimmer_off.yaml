@@ -8,7 +8,7 @@ condition:
   - condition: template
     value_template: "{{ trigger.to_state.state == trigger.to_state.attributes.action }}"
   - condition: template
-    value_template: "{{ is_state_attr('sensor.dimmer_switch_action','action','off-press') }}"
+    value_template: "{{ trigger.to_state.attributes.action == 'off-press' }}"
   - condition: state
     entity_id: input_boolean.living_room_occupied
     state: 'on'
