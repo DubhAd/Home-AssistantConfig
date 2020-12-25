@@ -31,10 +31,6 @@ action:
     data:
       entity_id: input_select.hall
       option: 'Night on'
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.hall
-      option: 'Dim'
   - condition: state
     entity_id: input_select.season
     state: 'Christmas'
