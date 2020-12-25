@@ -15,7 +15,7 @@ condition:
     state: 'off'
   - condition: numeric_state
     entity_id: sensor.pi3_office_multi_luminance
-    below: 5
+    below: 2
 action:
   - service: notify.logfile
     data_template:
