@@ -11,6 +11,7 @@ condition:
     state: 'on'
     entity_id: light.yeelight_strip1_286c07afc307
 action:
-  - service: light.turn_off
+  - service: input_select.select_option
     data:
-      entity_id: light.yeelight_strip1_286c07afc307
+      entity_id: input_select.master_bedroom
+      option: 'Off'

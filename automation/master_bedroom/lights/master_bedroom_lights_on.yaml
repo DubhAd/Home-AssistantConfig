@@ -1,0 +1,35 @@
+initial_state: 'on'
+alias: 'Master bedroom lights on'
+trigger:
+  - platform: state
+    entity_id: input_select.master_bedroom
+    to: 'On'
+  - platform: state
+    entity_id: input_select.house
+    to: 'On'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.master_bedroom
+      state: 'On'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.master_bedroom
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'On'
+action:
+  - service: switch.turn_on
+    entity_id: switch.adaptive_lighting_adapt_brightness_master_bedroom
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
+  - service: light.turn_on
+    data:
+      entity_id: light.master_bedroom_bedhead
+      transition: 10

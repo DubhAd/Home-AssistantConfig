@@ -9,29 +9,16 @@ cards:
   title: Master bedroom
   show_header_toggle: false
   entities:
-  - entity: automation.person2_up_bedhead_light_on
-    secondary_info: last-triggered
-  - entity: automation.person2_up_bedhead_light_off
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_left_on
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_on_night
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim_sunset
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim
-    secondary_info: last-triggered
   - entity: automation.bedhead_light_dim_late
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_dim_midnight
-    secondary_info: last-triggered
-  - entity: automation.bedhead_light_on_morning
     secondary_info: last-triggered
   - entity: automation.alarm_monitor_person2
     secondary_info: last-triggered
   - type: divider
   - entity: automation.master_bedroom_occupied
     secondary_info: last-triggered
+  - entity: automation.master_bedroom_not_occupied
+    secondary_info: last-triggered
+  - type: divider
   - entity: automation.master_bedroom_motion
     secondary_info: last-triggered
   - type: divider
@@ -42,6 +29,17 @@ cards:
   - entity: automation.master_bedroom_mode_bedtime
     secondary_info: last-triggered
   - entity: automation.master_bedroom_mode_wake
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.master_bedroom_lights_on
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_lights_off
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_lights_dim
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_lights_bedtime
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_lights_wake
     secondary_info: last-triggered
 - type: entities
   title: Remote automations for the bedhead light

@@ -3,21 +3,17 @@ initial_state: 'on'
 trigger:
   - platform: time
     at: '23:00:00'
+  - platform: state
+    entity_id: light.master_bedroom_bedhead
+    to: 'on'
 condition:
-  - condition: and
-    conditions:
-      - condition: state
-        entity_id: light.yeelight_strip1_286c07afc307
-        state: 'on'
-      - condition: template
-        value_template: "{{ state_attr('light.yeelight_strip1_286c07afc307', 'brightness')|default(0)|int > 10 }}"
+  - condition: state
+    entity_id: light.master_bedroom_bedhead
+    state: 'on'
+  - condition: time
+    after: '22:59:59'
 action:
-  - service: switch.turn_on
-    entity_id:
-    - switch.adaptive_lighting_sleep_mode_master_bedroom
-    - switch.adaptive_lighting_adapt_brightness_master_bedroom
-  - service: light.turn_on
+  - service: input_select.select_option
     data:
-      entity_id: light.yeelight_strip1_286c07afc307
-      brightness: 10
-      transition: 30
+      entity_id: input_select.master_bedroom
+      option: 'Bedtime'

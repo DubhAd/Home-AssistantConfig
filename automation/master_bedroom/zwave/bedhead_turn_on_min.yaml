@@ -7,7 +7,7 @@ trigger:
       scene_id: 33
       entity_id: zwave.nodon_crc3100_octan_remote
 action:
-  - service: light.turn_on
+  - service: input_select.select_option
     data:
-      entity_id: light.yeelight_strip1_286c07afc307
-      brightness: 5
+      entity_id: input_select.master_bedroom
+      option: 'Dim'

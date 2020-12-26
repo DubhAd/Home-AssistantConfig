@@ -11,12 +11,7 @@ condition:
     entity_id: light.yeelight_strip1_286c07afc307
     state: 'on'
 action:
-  - service: switch.turn_off
-    entity_id: 
-    - switch.adaptive_lighting_master_bedroom
-    - switch.adaptive_lighting_sleep_mode_master_bedroom
-    - switch.adaptive_lighting_adapt_brightness_master_bedroom
-  - service: light.turn_on
+  - service: input_select.select_option
     data:
-      entity_id: light.yeelight_strip1_286c07afc307
-      brightness_pct: 2
+      entity_id: input_select.master_bedroom
+      option: 'Bedtime'
