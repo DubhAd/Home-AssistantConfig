@@ -17,15 +17,18 @@ trigger:
     to: 'off'
     for: '00:02:00'
 condition:
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'on'
     # Downstairs is no longer in use
   - condition: state
     entity_id: group.downstairs_occupied
     state: 'off'
     for: '00:02:00'
-  - condition: or
+  - condition: and
     conditions:
     # No movement or things are offline
-    - condition: and
+    - condition: or
       conditions:
       - condition: state
         entity_id: binary_sensor.vestibule_occupancy
@@ -34,7 +37,7 @@ condition:
       - condition: state
         entity_id: binary_sensor.vestibule_occupancy
         state: 'unavailable'
-    - condition: and
+    - condition: or
       conditions:
       - condition: state
         entity_id: binary_sensor.hall_downstairs_occupancy
@@ -46,18 +49,6 @@ condition:
   # People are in bed, or away
   - condition: and
     conditions:
-    - condition: or
-      conditions:
-      # Somebody is in bed
-      - condition: state
-        entity_id: input_boolean.person1_in_bed
-        state: 'on'
-      - condition: state
-        entity_id: input_boolean.person2_in_bed
-        state: 'on'
-      - condition: state
-        entity_id: input_boolean.person3_in_bed
-        state: 'on'
     - condition: or
       conditions:
       # In bed, or away
