@@ -16,4 +16,8 @@
   - data: {}
     entity_id: light.yeelight_strip1_286c07afc307
     service: light.turn_off
+  - service: light.turn_on
+    data:
+      brightness_step_pct: 10
+    entity_id: light.office_strip
   mode: single
