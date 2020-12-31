@@ -36,6 +36,11 @@ condition:
       - condition: state
         entity_id: input_boolean.master_bedroom_occupied
         state: 'off'
+    # Or if the room just became empty
+    - condition: and
+      conditions:
+      - condition: template 
+        value_template: "{{ trigger.to_state.entity_id == input_boolean.master_bedroom_occupied }}"
 action:
   - service: input_select.select_option
     data:
