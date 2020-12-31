@@ -71,7 +71,7 @@ cards:
   - sensor.guestbedroom_window_left_battery
   - sensor.guestbedroom_window_right_battery
   - sensor.hall_downstairs_motion_battery
-  - sensor.hue_dimmer_battery
+  - sensor.dimmer_switch_battery
   - sensor.master_bedroom_door_battery
   - sensor.master_bedroom_light_sensor_battery
   - sensor.master_ensuite_environment_battery
