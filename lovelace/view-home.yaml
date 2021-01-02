@@ -131,7 +131,7 @@ cards:
         name: Living room
       - entity: binary_sensor.hall_downstairs_occupancy
         name: Hall
-      - entity: binary_sensor.vestibule_occupancy
+      - entity: binary_sensor.vestibule_multi_occupancy
         name: Vestibule
       - entity: binary_sensor.office_motion_konke_occupancy
         name: Office

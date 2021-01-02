@@ -1,7 +1,7 @@
 alias: 'Vestibule mode Night on'
 trigger:
   - platform: state
-    entity_id: binary_sensor.vestibule_occupancy
+    entity_id: binary_sensor.vestibule_multi_occupancy
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.sun_elevation
@@ -12,7 +12,7 @@ trigger:
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: sensor.vestibule_downstairs_illuminance
+    entity_id: sensor.vestibule_multi_illuminance
     below: 10
   - platform: state
     entity_id: input_boolean.bedtime
@@ -53,7 +53,7 @@ condition:
       conditions:
       # Dark in the vestibule
       - condition: numeric_state
-        entity_id: sensor.vestibule_downstairs_illuminance
+        entity_id: sensor.vestibule_multi_illuminance
         below: 5
       # Or sun below 5 degrees
       - condition: numeric_state

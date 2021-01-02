@@ -2,7 +2,7 @@ initial_state: 'on'
 alias: 'Alarm disarm hall'
 trigger:
   - platform: state
-    entity_id: binary_sensor.vestibule_occupancy
+    entity_id: binary_sensor.vestibule_multi_occupancy
     to: 'on'
 condition:
   - condition: or

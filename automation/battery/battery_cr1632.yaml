@@ -4,7 +4,6 @@ trigger:
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_window_battery
-    - sensor.dimmer_switch_battery
     - sensor.family_window_left_battery
     - sensor.family_window_right_battery
     - sensor.guestbedroom_window_left_battery
@@ -31,7 +30,6 @@ trigger:
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_window_battery
-    - sensor.dimmer_switch_battery
     - sensor.family_window_left_battery
     - sensor.family_window_right_battery
     - sensor.guestbedroom_window_left_battery
@@ -58,7 +56,6 @@ trigger:
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_window_battery
-    - sensor.dimmer_switch_battery
     - sensor.family_window_left_battery
     - sensor.family_window_right_battery
     - sensor.guestbedroom_window_left_battery

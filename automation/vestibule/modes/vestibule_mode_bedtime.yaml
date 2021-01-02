@@ -7,7 +7,7 @@ trigger:
   - platform: state
     entity_id: 
     - group.downstairs_occupied
-    - binary_sensor.vestibule_occupancy
+    - binary_sensor.vestibule_multi_occupancy
     - binary_sensor.hall_downstairs_occupancy
     to: 'off'
     for: '00:03:00'
@@ -20,7 +20,7 @@ condition:
   - condition: state
     entity_id: 
     - group.downstairs_occupied
-    - binary_sensor.vestibule_occupancy
+    - binary_sensor.vestibule_multi_occupancy
     - binary_sensor.hall_downstairs_occupancy
     state: 'off'
     for: '00:03:00'

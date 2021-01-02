@@ -60,7 +60,7 @@ cards:
   show_header_toggle: false
   columns: 5
   entities:
-  - sensor.dimmer_switch_linkquality
+  - sensor.hue_dimmer_linkquality
   - sensor.master_bedroom_door_linkquality
   - sensor.master_bedroom_light_sensor_linkquality
   - sensor.master_bedroom_socket_linkquality
@@ -70,7 +70,7 @@ cards:
   - sensor.office_strip_linkquality
   - sensor.spare_bedroom_socket_linkquality
   - sensor.spare_button_linkquality
-  - sensor.vestibule_motion_linkquality
+  - sensor.vestibule_multi_linkquality
   - sensor.cc_router_linkquality
 - type: glance
   title: Z-Wave battery devices

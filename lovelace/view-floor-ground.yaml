@@ -71,10 +71,10 @@ cards:
     - entity: binary_sensor.vestibule_window_side
       show_last_changed: true
       name: Side
-    - entity: binary_sensor.vestibule_occupancy
+    - entity: binary_sensor.vestibule_multi_occupancy
       show_last_changed: true
       name: Motion
-    - entity: sensor.vestibule_illuminance
+    - entity: sensor.vestibule_multi_illuminance
       name: "Light level"
     - entity: switch.pi3_vestibule_switch
       name: Socket

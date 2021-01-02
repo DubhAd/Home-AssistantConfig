@@ -114,6 +114,10 @@ cards:
   title: Sensors
   show_header_toggle: false
   entities:
+  - entity: sensor.date_time
+    name: Vision
+  - entity: sensor.pi3_date_time
+    name: pi3
   - sun.sun
   - sensor.sun_elevation
   - entity: sensor.last_opened

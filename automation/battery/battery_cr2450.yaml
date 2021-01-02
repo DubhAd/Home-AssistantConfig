@@ -3,15 +3,15 @@ alias: 'Battery CR2450'
 trigger:
   - platform: numeric_state
     entity_id: 
-    - sensor.vestibule_motion_battery
+    - sensor.vestibule_multi_battery
     - sensor.hall_downstairs_motion_battery
-    - sensor.dimmer_switch_battery
+    - sensor.hue_dimmer_battery
     below: 25
     for:
       minutes: 5
   - platform: numeric_state
     entity_id: 
-    - sensor.vestibule_motion_battery
+    - sensor.vestibule_multi_battery
     - sensor.hall_downstairs_motion_battery
     - sensor.dimmer_switch_battery
     below: 10
@@ -19,7 +19,7 @@ trigger:
       minutes: 5
   - platform: numeric_state
     entity_id: 
-    - sensor.vestibule_motion_battery
+    - sensor.vestibule_multi_battery
     - sensor.hall_downstairs_motion_battery
     - sensor.dimmer_switch_battery
     below: 5

@@ -16,7 +16,7 @@ condition:
     state: 'off'
 action:
   # Wait for up to 10 seconds for the motion sensor to trigger before continuing to execute.
-  - wait_template: "{{ is_state('binary_sensor.vestibule_occupancy', 'on') }}"
+  - wait_template: "{{ is_state('binary_sensor.vestibule_multi_occupancy', 'on') }}"
     timeout: '00:00:10'
     continue_on_timeout: 'false'
   # We do that because sometimes extreme wind can cause the front door sensor to flip on and off

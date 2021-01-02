@@ -40,12 +40,12 @@ sequence:
     - condition: or
       conditions:
       - condition: state
-        entity_id: binary_sensor.vestibule_occupancy
+        entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'on'
       - condition: not
         conditions:
         - condition: state
-          entity_id: binary_sensor.vestibule_occupancy
+          entity_id: binary_sensor.vestibule_multi_occupancy
           state: 'off'
           for: '00:02:00'
     sequence:
@@ -59,12 +59,12 @@ sequence:
     - condition: or
       conditions:
       - condition: state
-        entity_id: binary_sensor.vestibule_occupancy
+        entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'on'
       - condition: not
         conditions:
         - condition: state
-          entity_id: binary_sensor.vestibule_occupancy
+          entity_id: binary_sensor.vestibule_multi_occupancy
           state: 'off'
           for: '00:02:00'
     sequence:
@@ -79,7 +79,7 @@ sequence:
   - conditions:
     # Nothing happened recently inside 
     - condition: state
-      entity_id: binary_sensor.vestibule_occupancy
+      entity_id: binary_sensor.vestibule_multi_occupancy
       state: 'off'
     sequence:
     - service: notify.logfile

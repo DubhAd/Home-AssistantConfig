@@ -27,7 +27,7 @@ condition:
           or
           ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300)
           or
-          ((now() - states.binary_sensor.vestibule_occupancy.last_changed).seconds < 300)
+          ((now() - states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds < 300)
         }}
     # All away, and not near
     - condition: and
