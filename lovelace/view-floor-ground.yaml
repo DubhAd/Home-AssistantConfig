@@ -43,6 +43,11 @@ cards:
       name: "Home Hub"
     - entity: media_player.living_room
       name: "Sonos"
+  footer:
+    type: graph
+    entity: sensor.pi3_living_room_multi_temperature
+    hours_to_show: 24
+    detail: 2
 - type: glance
   title: Hall
   columns: 4
