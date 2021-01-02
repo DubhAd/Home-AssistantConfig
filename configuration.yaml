@@ -25,7 +25,6 @@ discovery:
 history:
 logbook:
 recorder: !include recorder.yaml
-influxdb: !include influxdb.yaml
 
 tts: !include tts.yaml
 
