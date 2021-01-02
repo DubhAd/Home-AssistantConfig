@@ -58,7 +58,7 @@ echo "Configuring, then making, then installing" \
         LDFLAGS="-Wl,--strip-all" \
         CFLAGS="-fno-semantic-interposition -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -ljemalloc" \
         EXTRA_CFLAGS="-DTHREAD_STACK_SIZE=0x100000" \
-    && sudo make alt install
+    && sudo make altinstall
 
 if [ ! -d ${VENV_BASE} ]; then
 	mkdir ${VENV_BASE}

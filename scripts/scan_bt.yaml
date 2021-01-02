@@ -54,14 +54,7 @@ sequence:
       data_template:
         message: "Do nothing because of motion in the vestibule, and the bike door is open"
   #################### ####################
-  # Both garage doors closed (going out)
   - conditions:
-    - condition: state
-      entity_id: binary_sensor.pi3_garage_closed_bike_sensor
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.pi3_garage_closed_car_sensor
-      state: 'off'
     # Something happen in the vestibule recently
     - condition: or
       conditions:
