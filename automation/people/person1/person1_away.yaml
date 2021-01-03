@@ -36,11 +36,11 @@ condition:
       # An exit door recently opened or closed
       - condition: template
         value_template: "{{ door_recent == 'True' }}"
-    # All away, and not near
+    # Some away, and not near
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ away_count|int == 0 }}"
+        value_template: "{{ away_count|int > 0 }}"
       - condition: template
         value_template: "{{ proximity_home|int > 300 }}"
     # Far away
