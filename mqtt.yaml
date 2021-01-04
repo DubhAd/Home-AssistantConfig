@@ -4,8 +4,8 @@ password: !secret mqtt_pass
 discovery: true
 discovery_prefix: homeassistant
 birth_message:
-  topic: 'hass/status'
+  topic: 'homeassistant/status'
   payload: 'online'
 will_message:
-  topic: 'hass/status'
+  topic: 'homeassistant/status'
   payload: 'offline'
