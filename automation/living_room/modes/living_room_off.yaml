@@ -6,14 +6,36 @@ trigger:
     above: 70
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
+    above: 65
+    for: '00:01:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 60
+    for: '00:02:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 55
+    for: '00:03:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
     above: 50
-    for:
-      minutes: 5
+    for: '00:04:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 45
+    for: '00:05:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 40
+    for: '00:06:00'
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     above: 35
-    for:
-      minutes: 10
+    for: '00:07:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 30
+    for: '00:08:00'
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'off'
