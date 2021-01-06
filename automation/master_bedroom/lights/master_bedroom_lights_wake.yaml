@@ -25,10 +25,15 @@ condition:
         entity_id: input_select.house
         state: 'Wake'
 action:
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_adapt_brightness_master_bedroom
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
+  - service: light.turn_on
+    data:
+      entity_id: light.master_bedroom_bedhead
+      transition: 10
+      brightness_pct: 100
+      color: white
+  - delay: '00:00:10'
   - service: light.turn_on
     data:
       entity_id: light.master_bedroom_bedhead
