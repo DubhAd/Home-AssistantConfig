@@ -32,11 +32,4 @@ action:
       entity_id: light.master_bedroom_bedhead
       transition: 10
       brightness_pct: 100
-      color: white
-  - delay: '00:00:10'
-  - service: light.turn_on
-    data:
-      entity_id: light.master_bedroom_bedhead
-      transition: 10
-      brightness_pct: 100
-      color: white
+      color_name: white
