@@ -14,5 +14,5 @@ condition:
       entity_id: input_select.season
       state: 'Christmas'
 action:
-  - service: group.turn_off
+  - service: homeassistant.turn_off
     entity_id: group.christmas_control

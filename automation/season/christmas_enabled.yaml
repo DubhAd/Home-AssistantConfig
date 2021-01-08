@@ -15,5 +15,5 @@ condition:
     entity_id: group.christmas_control
     state: 'off'
 action:
-  - service: group.turn_on
+  - service: homeassistant.turn_off
     entity_id: group.christmas_control
