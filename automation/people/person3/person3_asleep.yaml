@@ -4,20 +4,20 @@ trigger:
   - platform: state
     entity_id: input_boolean.person3_in_bed
     to: 'on'
-    for:
-      minutes: 5
+    for: '00:05:00'
+  - platform: time
+    at: '23:00:00'
+  - platform: time
+    at: '00:00:00'
+  - platform: time
+    at: '01:00:00'
 condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.person3_is_awake
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.person3_home
-      state: 'on'
-    - condition: time
-      after: '22:00:00'
-      before: '03:00:00'
+  - condition: state
+    entity_id: 
+    - input_boolean.person3_in_bed
+    - input_boolean.person3_is_awake
+    - input_boolean.person3_home
+    state: 'on'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_is_awake
