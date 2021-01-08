@@ -2,7 +2,9 @@ initial_state: 'on'
 alias: 'Hall mode off'
 trigger:
   - platform: state
-    entity_id: binary_sensor.hall_downstairs_occupancy
+    entity_id: 
+    - binary_sensor.hall_downstairs_occupancy
+    - input_boolean.home_occupied
     to: 'on'
   # When the sun goes above 5 degrees
   - platform: numeric_state
@@ -18,24 +20,20 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     above: 25
-    for:
-      minutes: 5
+    for: '00:05:00'
   - platform: state
-    entity_id: input_boolean.living_room_occupied
+    entity_id: group.downstairs_occupied
     to: 'off'
-    for:
-      minutes: 5
-  - platform: state
-    entity_id: input_boolean.family_room_occupied
-    to: 'off'
-    for:
-      minutes: 5
+    for: '00:05:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Off') }}"
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
+  - condition: state
+    entity_id: group.downstairs_occupied
+    state: 'off'
   # Sun above 5 degrees
   - condition: numeric_state
     entity_id: sensor.sun_elevation
@@ -51,6 +49,10 @@ condition:
       entity_id: sensor.hall_downstairs_illuminance
       above: 15
 action:
+  - service: notify.logfile
+    data:
+      message: >-
+        Hall turned off by {{ trigger.entity_id }} - {{ states('sensor.pi3_living_room_multi_luminance') }}/{{ states('sensor.hall_downstairs_illuminance') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.hall

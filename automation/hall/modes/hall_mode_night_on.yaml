@@ -41,18 +41,20 @@ condition:
     - condition: state
       entity_id: input_select.hall
       state: 'Night on'
-  # Sun is relatively low
-  - condition: numeric_state
-    entity_id: sensor.sun_elevation
-    below: 15
   - condition: or
     conditions:
+    # Sun is relatively low
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      below: 15
+    # Dark in the living room
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
-      below: 25
+      below: 15
+    # or hall
     - condition: numeric_state
       entity_id: sensor.hall_downstairs_illuminance
-      below: 15
+      below: 10
   - condition: or
     conditions:
     - condition: state
@@ -79,7 +81,8 @@ condition:
 action:
   - service: notify.logfile
     data_template:
-      message: "Turned the hall light to Night On because of {{ trigger.to_state.entity_id }}, was {{ states('input_select.hall') }}"
+      message: >-
+        Hall turned Night on by {{ trigger.entity_id }} - {{ states('sensor.pi3_living_room_multi_luminance') }}/{{ states('sensor.hall_downstairs_illuminance') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.hall
