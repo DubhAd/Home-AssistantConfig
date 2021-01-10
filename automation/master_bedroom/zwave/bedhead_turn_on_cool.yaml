@@ -7,9 +7,11 @@ trigger:
       scene_id: 43
       entity_id: zwave.nodon_crc3100_octan_remote
 condition:
-  - condition: state
-    entity_id: light.yeelight_strip1_286c07afc307
-    state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.master_bedroom
+      state: 'Wake'
 action:
   - service: input_select.select_option
     data:
