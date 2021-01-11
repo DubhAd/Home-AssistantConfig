@@ -29,7 +29,3 @@ action:
     data:
       entity_id: light.master_bedroom_bedhead
       transition: 10
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_adapt_brightness_master_bedroom
-  - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
