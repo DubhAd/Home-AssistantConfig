@@ -14,7 +14,7 @@ trigger:
       minutes: 5
   - platform: numeric_state
     entity_id: sensor.hall_downstairs_illuminance
-    below: 10
+    below: 5
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
@@ -41,6 +41,10 @@ condition:
     - condition: state
       entity_id: input_select.hall
       state: 'Night on'
+  # Living room mustn't be bright - the light sensor in the hall isn't very sensitive
+  - condition: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    below: 100
   - condition: or
     conditions:
     # Sun is relatively low
@@ -54,7 +58,7 @@ condition:
     # or hall
     - condition: numeric_state
       entity_id: sensor.hall_downstairs_illuminance
-      below: 10
+      below: 5
   - condition: or
     conditions:
     - condition: state
