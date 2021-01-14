@@ -7,7 +7,9 @@ trigger:
     for: '00:00:02'
   # Lights aren't on override
   - platform: state
-    entity_id: input_boolean.living_room_override
+    entity_id: 
+    - input_boolean.livingroom_lights_auto
+    - input_boolean.lighting_living_room
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance

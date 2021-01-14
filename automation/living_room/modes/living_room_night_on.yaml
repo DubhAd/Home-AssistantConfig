@@ -6,7 +6,9 @@ trigger:
     to: 'on'
   # Lights aren't on override
   - platform: state
-    entity_id: input_boolean.living_room_override
+    entity_id: 
+    - input_boolean.livingroom_lights_auto
+    - input_boolean.lighting_living_room
     to: 'on'
   - platform: state
     entity_id: switch.pi3_cabinet_light_switch
@@ -27,13 +29,23 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 1
+  - platform: state
+    entity_id: sensor.hue_dimmer_action
+    to: 'up-press'
 condition:
   - condition: and
     conditions:
-    # Lighting in the room is under automatic control
     - condition: state
-      entity_id: input_boolean.lighting_living_room
+      entity_id: input_boolean.livingroom_lights_auto
       state: 'on'
+    - condition: or
+      conditions:
+      # Lighting in the room is under automatic control, or we pushed the button
+      - condition: state
+        entity_id: input_boolean.lighting_living_room
+        state: 'on'
+      - condition: template
+        value_template: "{{ trigger.entity_id == sensor.hue_dimmer_action }}"
     - condition: template
       value_template: "{{ not is_state('input_select.living_room','Night on') }}"
     - condition: state
@@ -73,3 +85,8 @@ action:
     data:
       entity_id: input_select.living_room
       option: 'Night on'
+  - condition: state
+    entity_id: input_boolean.lighting_living_room
+    state: 'off'
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.lighting_living_room
