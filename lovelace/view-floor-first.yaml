@@ -1,7 +1,7 @@
 title: First floor
 id: first-floor
 path: first-floor
-icon: mdi:numeric-1-box
+icon: mdi:home-floor-1
 cards:
 - type: vertical-stack
   title: Master bedroom and en-suite
