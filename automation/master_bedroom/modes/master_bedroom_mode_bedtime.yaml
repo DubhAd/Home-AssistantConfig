@@ -4,7 +4,7 @@ trigger:
   - platform: state
     entity_id: input_boolean.person2_in_bed
     to: 'on'
-    for: '00:10:00'
+    for: '00:30:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.master_bedroom','Bedtime') }}"
