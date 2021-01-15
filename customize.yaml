@@ -136,7 +136,8 @@ input_boolean.person2_driving:
 binary_sensor.bathroom_window:
   device_class: window
 light.yeelight_strip1_286c07afc307:
-  friendly_name: Master bedrom bedhead
+  friendly_name: Master bedroom bedhead
+  icon: mdi:led-strip-variant
 light.yeelight_strip1_7811dca22b87:
   friendly_name: Second bedroom bedside
 binary_sensor.vestibule_window_side:
@@ -251,3 +252,4 @@ media_player.samsung_tv:
   icon: mdi:television
 light.office_strip:
   friendly_name: Office strip
+  icon: mdi:led-strip-variant

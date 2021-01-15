@@ -70,9 +70,9 @@ cards:
     entities:
       - entity: input_boolean.family_room_occupied
         name: Family room
+        icon: mdi:google-controller
       - entity: input_boolean.living_room_occupied
         name: Living room
-        icon: mdi:seat
       - entity: input_boolean.office_occupied
         name: Office
     show_empty: false

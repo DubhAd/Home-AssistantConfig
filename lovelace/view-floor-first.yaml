@@ -11,6 +11,7 @@ cards:
     entities:
       - entity: light.master_bedroom_bedhead
         name: Bedhead
+        icon: mdi:led-strip-variant
       - entity: media_player.person2
         name: Squeezebox
       - entity: media_player.cast_master_bedroom_speaker
@@ -59,6 +60,7 @@ cards:
     entities:
       - entity: light.person1_bedroom_bedside
         name: Bedhead
+        icon: mdi:led-strip-variant
       - entity: media_player.person1
         name: Squeezebox
       - entity: media_player.cast_second_bedroom_speaker
