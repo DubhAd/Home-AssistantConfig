@@ -36,7 +36,7 @@ condition:
   - condition: and
     conditions:
     - condition: state
-      entity_id: input_boolean.livingroom_lights_auto
+      entity_id: input_boolean.living_room_occupied
       state: 'on'
     - condition: or
       conditions:
@@ -48,9 +48,6 @@ condition:
         value_template: "{{ trigger.entity_id == sensor.hue_dimmer_action }}"
     - condition: template
       value_template: "{{ not is_state('input_select.living_room','Night on') }}"
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'on'
     # Bear light off, and dull, or bear light on and brighter
     - condition: or
       conditions:
