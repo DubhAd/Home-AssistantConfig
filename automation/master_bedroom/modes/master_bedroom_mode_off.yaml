@@ -32,7 +32,7 @@ condition:
       - condition: state
         entity_id: input_select.master_bedroom
         state: 'Wake'
-        for: '00:20:00'
+        for: '00:10:00'
       - condition: state
         entity_id: input_boolean.master_bedroom_occupied
         state: 'off'

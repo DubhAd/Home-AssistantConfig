@@ -1,9 +1,14 @@
 alias: Hall strip off
 sequence:
   - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
-  - service: light.turn_off
-    data:
-      entity_id: light.hall
-      transition: 30
-  - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_sleep_mode_hall
+  - repeat:
+      sequence:
+        - service: light.turn_off
+          data:
+            entity_id: light.hall
+            transition: 10
+        - delay: '00:00:10'
+      until:
+        - condition: state
+          entity_id: light.hall
+          state: 'off'

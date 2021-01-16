@@ -34,6 +34,19 @@ action:
     data:
       entity_id: light.hall
   - delay: '00:01:00'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.hall
+      state: 'Off'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Off'
   - service: light.turn_off
     data:
       entity_id: light.hall

@@ -1,8 +1,15 @@
 sequence:
-  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
-  - service: light.turn_on
-    data:
-      entity_id: light.hall
-      transition: 30
   - service: switch.turn_on
     entity_id: switch.adaptive_lighting_sleep_mode_hall
+  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - repeat:
+      sequence:
+        - service: light.turn_on
+          data:
+            entity_id: light.hall
+            transition: 10
+        - delay: '00:00:10'
+      until:
+        - condition: state
+          entity_id: light.hall
+          state: 'on'

@@ -1,8 +1,17 @@
 alias: Hall lights night
 sequence:
-  - service: light.turn_on
-    data:
-      entity_id: light.hall
+  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - repeat:
+      sequence:
+        - service: light.turn_on
+          data:
+            entity_id: light.hall
+            transition: 5
+        - delay: '00:00:05'
+      until:
+        - condition: state
+          entity_id: light.hall
+          state: 'on'
   - condition: state
     entity_id: switch.pi3_hall_downstairs_switch
     state: 'on'
