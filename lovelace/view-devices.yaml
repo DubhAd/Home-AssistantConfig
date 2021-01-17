@@ -19,6 +19,10 @@ cards:
   name: "WAN IP"
   entity: binary_sensor.fritzbox_7530_connectivity
   attribute: external_ip
+- type: entity
+  name: "Up since"
+  entity: binary_sensor.fritzbox_7530_connectivity
+  attribute: last_reconnect
 - type: glance
   title: Things
   show_header_toggle: false

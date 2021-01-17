@@ -1,20 +1,20 @@
 initial_state: 'on'
 alias: 'Living room mode motion off'
 trigger:
-  platform: state
-  entity_id: binary_sensor.pi3_living_room_motion
-  to: 'off'
-  for:
-    minutes: 2
+  - platform: state
+    entity_id: binary_sensor.pi3_living_room_motion
+    to: 'off'
+    for: '00:02:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 7
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: input_boolean.lighting_automations
-      state: 'on'
-    - condition: state
-      entity_id: input_select.living_room
-      state: 'Motion'
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: state
+    entity_id: input_select.living_room
+    state: 'Motion'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto
