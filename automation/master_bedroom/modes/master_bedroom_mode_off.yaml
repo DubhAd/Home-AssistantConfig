@@ -9,9 +9,7 @@ trigger:
     above: 30
   - platform: state
     entity_id: input_select.master_bedroom
-    to: 
-    - 'Bedtime'
-    - 'Wake'
+    to: 'Wake'
     for: '00:30:00'
   - platform: state
     entity_id: input_boolean.master_bedroom_occupied
@@ -19,23 +17,16 @@ trigger:
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.master_bedroom','Off') }}"
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'off'
   - condition: or
     conditions:
-    # Turn it off if it's been bedtime or wake for half an hour
+    # Turn it off when he's awake
     - condition: state
       entity_id: input_select.master_bedroom
-      state: 'Bedtime'
-      for: '00:30:00'
-    # Turn it off when he's awake
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: input_select.master_bedroom
-        state: 'Wake'
-        for: '00:10:00'
-      - condition: state
-        entity_id: input_boolean.master_bedroom_occupied
-        state: 'off'
+      state: 'Wake'
+      for: '00:10:00'
     # Or if the room just became empty
     - condition: and
       conditions:

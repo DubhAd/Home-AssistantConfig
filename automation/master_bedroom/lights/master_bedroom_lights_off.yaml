@@ -29,6 +29,9 @@ action:
     data:
       entity_id: light.master_bedroom_bedhead
       transition: 10
+  # If we're turning this off after a motion trigger, don't change the settings for the lights
+  - condition: template
+    value_template: "{{ trigger.from_state.state != 'Motion' }}"
   - delay: '00:00:10'
   - service: switch.turn_on
     entity_id: 
