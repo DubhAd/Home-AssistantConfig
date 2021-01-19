@@ -13,31 +13,36 @@ trigger:
     entity_id: binary_sensor.pi3_living_room_motion
     to: 'on'
     for: '00:30:00'
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
 condition:
-  condition: and
-  conditions:
-    # Lighting automations are enabled
-    - condition: state
-      entity_id: input_boolean.lighting_automations
-      state: 'on'
-    # Room isn't in use
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'off'
-    - condition: state
-      entity_id: input_select.living_room
-      state: 'Dim'
-      for: '00:30:00'
-    - condition: or
+  # Lighting automations are enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  # Has been dim for at this long
+  - condition: state
+    entity_id: input_select.living_room
+    state: 'Dim'
+    for: '00:30:00'
+  - condition: or
+    conditions:
+    # Turn it off if the office hasn't been occupied for long, or there's been no motion for a while
+    - condition: not
       conditions:
       - condition: state
-        entity_id: binary_sensor.pi3_living_room_motion
-        state: 'off'
-        for: '00:30:00'
-      - condition: state
-        entity_id: binary_sensor.pi3_living_room_motion
+        entity_id: input_boolean.office_occupied
         state: 'on'
-        for: '00:30:00'
+        for: '00:10:00'
+    - condition: state
+      entity_id: binary_sensor.pi3_living_room_motion
+      state: 'off'
+      for: '00:30:00'
+    - condition: state
+      entity_id: binary_sensor.pi3_living_room_motion
+      state: 'on'
+      for: '00:30:00'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

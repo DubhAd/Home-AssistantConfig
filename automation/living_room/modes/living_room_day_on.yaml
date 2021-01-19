@@ -4,7 +4,6 @@ trigger:
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'on'
-    for: '00:00:02'
   # Lights aren't on override
   - platform: state
     entity_id: 
@@ -27,6 +26,9 @@ trigger:
     for:
       minutes: 10
 condition:
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'on'
   - condition: and
     conditions:
     - condition: template
@@ -36,9 +38,6 @@ condition:
       entity_id: sensor.pi3_living_room_multi_luminance
       below: 25
       above: 11
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'on'
     # Didn't just turn the lights off
     - condition: template
       value_template: "{{ (as_timestamp(now()) - as_timestamp(states.switch.pi3_cabinet_light_switch.last_updated)) | int > 120 }}"
