@@ -16,6 +16,9 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
+  - condition: state
+    entity_id: group.person_person3
+    state: 'home'
   # Either the door just opened/closed, or multiple trackers show home
   - condition: or
     conditions:

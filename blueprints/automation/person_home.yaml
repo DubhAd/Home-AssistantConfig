@@ -1,0 +1,70 @@
+blueprint:
+  name: Mark the person as home
+  description: Blueprint to mark people as home based off their devices
+  domain: automation
+  input:
+    gps_tracker:
+      name: GPS Tracker
+      description: The person's GPS tracker
+      selector:
+        entity:
+          domain: device_tracker
+    bluetooth_tracker_front:
+      name: Bluetooth Tracker Front
+      description: The person's front Bluetooth tracker entity
+      selector:
+        entity:
+          domain: device_tracker
+    bluetooth_tracker_rear:
+      name: Bluetooth Tracker Rear
+      description: The person's rear Bluetooth tracker entity
+      selector:
+        entity:
+          domain: device_tracker
+    person_group:
+      name: Person group
+      description: The person's group holding their device trackers
+      selector:
+        entity:
+          domain: group
+    person_script:
+      name: Person script
+      description: The script for this person
+      selector:
+        entity:
+          domain: script
+trigger:
+  - platform: state
+    entity_id: 
+      - !input gps_tracker
+      - !input bluetooth_tracker_front
+      - !input bluetooth_tracker_rear
+    to: 'home'
+  - platform: state
+    entity_id: binary_sensor.pi3_front_door_sensor
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.pi3_front_door_sensor
+    to: 'on'
+  - platform: homeassistant
+    event: start
+variables:
+  person_group: !input person_group
+  door_recent: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 60) }}"
+  home_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr(person_group, 'entity_id'))|list)|groupby('state'))['home']|count }}"
+condition:
+  # Either multiple trackers show home, or the door just opened/closed
+  - condition: or
+    conditions:
+    - condition: template
+      value_template: "{{ home_count|int > 1 }}"
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ door_recent == 'True' }}"
+      - condition: template
+        value_template: "{{ home_count|int > 0 }}"
+action:
+  - service: script.turn_on
+    data:
+      entity_id: !input person_script
