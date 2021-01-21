@@ -16,7 +16,6 @@
   type: module
 - url: /local/dist/google-calendar-card.js?v=1
   type: module
-  # https://github.com/iammexx/home-assistant-config/tree/master/ui/darksky
 - url: /hacsfiles/Home-Assistant-Lovelace-HTML-Jinja2-Template-card/html-template-card.js
   type: module
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
@@ -28,4 +27,6 @@
 - url: /hacsfiles/button-card/button-card.js
   type: module 
 - url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+  type: module
+- url: /hacsfiles/lovelace-darksky-card/lovelace-darksky-card.js
   type: module

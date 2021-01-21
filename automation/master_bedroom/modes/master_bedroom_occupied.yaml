@@ -9,7 +9,6 @@ trigger:
     to: 'on'
   - platform: state
     entity_id: light.master_bedroom_bedhead
-    to: 'off'
   - platform: state
     entity_id: input_boolean.person2_is_awake
     to: 'off'
@@ -37,11 +36,11 @@ condition:
       entity_id: media_player.master_bedroom_speaker
       state: 'playing'
     - condition: state
-      entity_id: input_boolean.person2_is_awake
-      state: 'off'
-    - condition: state
       entity_id: light.master_bedroom_bedhead
-      state: 'off'
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.person2_tablet_charging
+      state: 'on'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.master_bedroom_occupied

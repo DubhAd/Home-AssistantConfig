@@ -40,8 +40,75 @@ cards:
       name: AccuWeather
       current: true
       details: true
-  - type: custom:weather-card
-    entity: weather.met_office_home
-    name: Met Office
-    current: true
-    details: true
+  - type: vertical-stack
+    cards:
+    - type: custom:simple-weather-card
+      entity: weather.met_office_home
+      name: home (MO)
+      backdrop: 
+        fade: true
+      secondary_info:
+        - wind_speed
+        - wind_bearing
+    - type: custom:weather-card
+      entity: weather.met_office_home
+      name: home (MO)
+      current: true
+      details: true
+  - type: vertical-stack
+    cards:
+    - type: custom:simple-weather-card
+      entity: weather.met_office_bearsden
+      name: Bearsden (MO)
+      backdrop: 
+        fade: true
+      secondary_info:
+        - wind_speed
+        - wind_bearing
+    - type: custom:weather-card
+      entity: weather.met_office_bearsden
+      name: Bearsden (MO)
+      current: true
+      details: true
+
+  - type: 'custom:lovelace-darksky-card'
+    tooltips: true
+    entity_current_conditions: sensor.dark_sky_icon
+    entity_temperature: sensor.dark_sky_temperature
+    entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1d
+    entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2d
+    entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3d
+    entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4d
+    entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5d
+    entity_forecast_icon_1: sensor.dark_sky_icon_1d
+    entity_forecast_icon_2: sensor.dark_sky_icon_2d
+    entity_forecast_icon_3: sensor.dark_sky_icon_3d
+    entity_forecast_icon_4: sensor.dark_sky_icon_4d
+    entity_forecast_icon_5: sensor.dark_sky_icon_5d
+    entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature_0d
+    entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1d
+    entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2d
+    entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3d
+    entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4d
+    entity_summary_1: sensor.dark_sky_summary_1d
+    entity_summary_2: sensor.dark_sky_summary_2d
+    entity_summary_3: sensor.dark_sky_summary_3d
+    entity_summary_4: sensor.dark_sky_summary_4d
+    entity_summary_5: sensor.dark_sky_summary_5d
+    entity_sun: sun.sun
+    entity_visibility: sensor.dark_sky_visibility
+    entity_daytime_high: sensor.dark_sky_daytime_high_temperature_0d
+    entity_wind_bearing: sensor.dark_sky_wind_bearing
+    entity_wind_speed: sensor.dark_sky_wind_speed
+    entity_humidity: sensor.dark_sky_humidity
+    entity_pressure: sensor.dark_sky_pressure
+    entity_apparent_temp: sensor.dark_sky_apparent_temperature
+    entity_daily_summary: sensor.dark_sky_daily_summary
+    entity_pop: sensor.dark_sky_precip_probability
+    entity_pop_intensity: sensor.dark_sky_precip_intensity
+    entity_pop_1: sensor.dark_sky_precip_probability_1d
+    entity_pop_2: sensor.dark_sky_precip_probability_2d
+    entity_pop_3: sensor.dark_sky_precip_probability_3d
+    entity_pop_4: sensor.dark_sky_precip_probability_4d
+    entity_pop_5: sensor.dark_sky_precip_probability_5d
+

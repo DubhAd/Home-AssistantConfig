@@ -15,27 +15,26 @@ trigger:
     to: 'on'
   - platform: homeassistant
     event: start
-variables:
-  home_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['home']|count }}"
-  door_recent: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 60) }}"
-  is_home: "{{ is_state('input_boolean.person2_home','on') }}"
-  home_script: script.person2_home
 condition:
-  # Not already home
-  - condition: template
-    value_template: "{{ is_home == 'False' }}"
-  # Either multiple trackers show home, or the door just opened/closed
+  - condition: state
+    entity_id: group.person_person2
+    state: 'home'
+  # Either the door just opened/closed, or multiple trackers show home
   - condition: or
     conditions:
-    - condition: template
-      value_template: "{{ home_count|int > 1 }}"
+    - condition: numeric_state
+      entity_id: group.person_person2
+      above: 1
+      value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['home']|count }}"
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ door_recent == 'True' }}"
-      - condition: template
-        value_template: "{{ home_count|int > 0 }}"
+        value_template: >-
+          {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60 ) }}
+      - condition: numeric_state
+        entity_id: group.person_person2
+        above: 0
+        value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['home']|count }}"
 action:
   - service: script.turn_on
-    data:
-      entity_id: "{{ home_script }}"
+    entity_id: script.person2_home
