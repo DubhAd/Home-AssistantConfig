@@ -6,8 +6,8 @@ trigger:
     to: 'up-press'
 condition:
   - condition: state
-    entity_id: input_boolean.living_room_occupied
+    entity_id: input_boolean.lighting_living_room
     state: 'off'
 action:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.living_room_occupied
+    entity_id: input_boolean.lighting_living_room
