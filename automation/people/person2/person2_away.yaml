@@ -40,7 +40,8 @@ condition:
       conditions:
       # More than one tracker shows away
       - condition: template
-        value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count|int > 1}}"
+        #value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count|int > 1}}"
+        value_template: "{{ expand('group.person_person2')|selectattr('state','eq','not_home')|list|count > 1 }}"
       # An exit door recently opened or closed
       - condition: template
         value_template: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300) }}"
@@ -48,7 +49,8 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count|int > 0 }}"
+        #value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count|int > 0 }}"
+        value_template: "{{ expand('group.person_person2')|selectattr('state','eq','not_home')|list|count > 0 }}"
       - condition: template
         value_template: "{{ states('proximity.person2_home')|float > 300 }}"
     # Far away
