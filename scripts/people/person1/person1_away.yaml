@@ -6,3 +6,4 @@ sequence:
     data:
       topic: location/person1
       payload: 'not_home'
+      retain: true

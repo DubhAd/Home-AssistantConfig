@@ -6,6 +6,7 @@ sequence:
     data:
       topic: location/person3
       payload: 'home'
+      retain: true
   - service: input_boolean.turn_on
     entity_id: input_boolean.person3_home
   - service: script.turn_on

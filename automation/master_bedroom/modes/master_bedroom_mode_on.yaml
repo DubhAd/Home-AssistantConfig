@@ -7,6 +7,8 @@ trigger:
   - platform: state
     entity_id: input_boolean.person2_phone_charging
     to: 'on'
+  - platform: time
+    at: '22:00:00'
 condition:
   - condition: time
     after: '22:00:00'

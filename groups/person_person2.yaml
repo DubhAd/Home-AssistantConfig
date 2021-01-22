@@ -3,3 +3,4 @@ entities:
 - device_tracker.40_4e_36_24_53_15
 - device_tracker.person2_bt_mobile
 - device_tracker.person2_bt_front_mobile
+- device_tracker.person2_wifi

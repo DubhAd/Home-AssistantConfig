@@ -15,10 +15,13 @@ trigger:
       - device_tracker.40_4e_36_24_53_15
       - device_tracker.person2_bt_mobile
       - device_tracker.person2_bt_front_mobile
+      - device_tracker.person2_wifi
     to: 'not_home'
   - platform: state
     entity_id: input_boolean.person2_driving
     to: 'on'
+  - platform: event
+    event_type: automation_reloaded
   - platform: homeassistant
     event: start
 condition:

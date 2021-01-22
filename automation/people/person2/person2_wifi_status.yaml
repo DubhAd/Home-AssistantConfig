@@ -1,0 +1,21 @@
+alias: 'person2 WiFi status'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.pixel_xl_wifi_connection
+action:
+  - choose:
+    - conditions:
+        - condition: template
+          value_template: "{{ 'Cogs-n-Gears' in states('sensor.pixel_xl_wifi_connection') }}"
+      sequence:
+        - service: mqtt.publish
+          data:
+            topic: location/person2_wifi
+            payload: 'home'
+    default:
+      - service: mqtt.publish
+        data:
+          topic: location/person2_wifi
+          payload: 'not_home'
+          retain: true

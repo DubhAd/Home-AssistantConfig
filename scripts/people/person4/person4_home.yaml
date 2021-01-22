@@ -6,5 +6,6 @@ sequence:
     data:
       topic: location/person4
       payload: 'home'
+      retain: true
   - service: script.turn_on
     entity_id: script.person4_traveltime

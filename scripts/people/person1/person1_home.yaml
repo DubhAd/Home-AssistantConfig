@@ -8,6 +8,7 @@ sequence:
     data:
       topic: location/person1
       payload: 'home'
+      retain: true
   - service: automation.turn_on
     entity_id: automation.person1_at_work
   - service: script.turn_on
