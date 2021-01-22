@@ -14,7 +14,7 @@ trigger:
       minutes: 5
   - platform: numeric_state
     entity_id: sensor.hall_downstairs_illuminance
-    below: 5
+    below: 2
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
@@ -58,7 +58,7 @@ condition:
     # or hall
     - condition: numeric_state
       entity_id: sensor.hall_downstairs_illuminance
-      below: 5
+      below: 2
   - condition: or
     conditions:
     - condition: state

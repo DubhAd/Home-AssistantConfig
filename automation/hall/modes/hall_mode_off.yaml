@@ -2,17 +2,17 @@ initial_state: 'on'
 alias: 'Hall mode off'
 trigger:
   - platform: state
-    entity_id: 
-    - binary_sensor.hall_downstairs_occupancy
-    - input_boolean.home_occupied
+    entity_id: input_boolean.home_occupied
     to: 'on'
+  - platform: state
+    entity_id: binary_sensor.hall_downstairs_occupancy
   # When the sun goes above 5 degrees
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     above: 5
   - platform: numeric_state
     entity_id: sensor.hall_downstairs_illuminance
-    above: 15
+    above: 5
   # When it gets bright in the living room
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
@@ -50,7 +50,7 @@ condition:
     # or here
     - condition: numeric_state
       entity_id: sensor.hall_downstairs_illuminance
-      above: 10
+      above: 5
 action:
   - service: notify.logfile
     data:
