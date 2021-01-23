@@ -4,6 +4,7 @@ trigger:
   - platform: state
     entity_id: input_boolean.person2_home
     to: 'off'
+    for: '00:02:00'
 condition:
   - condition: state
     entity_id: binary_sensor.pi3_garage_closed_car_sensor

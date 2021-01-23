@@ -1,0 +1,131 @@
+blueprint:
+  name: Mark the person as away from home
+  description: Blueprint to mark people as away based off their devices
+  domain: automation
+  input:
+    proximity_sensor:
+      name: Proximity sensor
+      description: The person's proximity sensor
+      selector:
+        entity:
+          domain: proximity
+    wifi_tracker:
+      name: WiFi Tracker
+      description: The person's main WiFi tracker
+      selector:
+        entity:
+          domain: device_tracker
+    wifi_tracker_2:
+      name: WiFi Tracker second
+      description: The person's other WiFi tracker
+      selector:
+        entity:
+          domain: device_tracker
+    bluetooth_tracker_front:
+      name: Bluetooth Tracker Front
+      description: The person's front Bluetooth tracker entity
+      selector:
+        entity:
+          domain: device_tracker
+    bluetooth_tracker_rear:
+      name: Bluetooth Tracker Rear
+      description: The person's rear Bluetooth tracker entity
+      selector:
+        entity:
+          domain: device_tracker
+    person_group:
+      name: Person group
+      description: The person's group holding their device trackers
+      selector:
+        entity:
+          domain: group
+    person_boolean:
+      name: Person boolean
+      description: The boolean for this person that indicates they're home or not
+      selector:
+        entity:
+          domain: input_boolean
+    person_can_drive:
+      name: This person can drive
+      description: Set if this person can drive, otherwise the boolean below is ignored
+      default: false
+      selector:
+        boolean:
+    person_driving:
+      name: Person driving 
+      description: The boolean for this person that indicates they're driving or not
+      selector:
+        entity:
+          domain: input_boolean
+    person_script:
+      name: Person script
+      description: The away script for this person
+      selector:
+        target:
+          entity:
+            domain: script
+trigger:
+  - platform: numeric_state
+    entity_id: !input proximity_sensor
+    above: 200
+  - platform: numeric_state
+    entity_id: !input proximity_sensor
+    above: 300
+  - platform: numeric_state
+    entity_id: !input proximity_sensor
+    above: 600
+  - platform: state
+    entity_id: 
+      - !input wifi_tracker
+      - !input wifi_tracker_2
+      - !input bluetooth_tracker_front
+      - !input bluetooth_tracker_rear
+    to: 'not_home'
+  - platform: state
+    entity_id: !input person_driving
+    to: 'on'
+  - platform: event
+    event_type: automation_reloaded
+  - platform: homeassistant
+    event: start
+variables:
+  can_drive: !input person_can_drive
+  is_driving: !input person_driving
+  person_group: !input person_group
+  door_recent: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 60) }}"
+  home_count: "{{ expand(person_group)|selectattr('state','eq','not_home')|list|count }}"
+  bluetooth_count: "{{ expand(person_group)|selectattr('attributes.source_type','eq','bluetooth')|selectattr('state','eq','not_home')|list|count }}" # for just Bluetooth trackers
+condition:
+  # currently home
+  - condition: state
+    entity_id: !input person_boolean
+    state: 'on'
+  - condition: or
+    conditions:
+    # Driving
+    - condition: template
+      value_template: "{{ can_drive and is_state(person_driving,'on') }}"
+    # Two or more trackers mark as away, door opened/closed in the last 5 minutes
+    - condition: and
+      conditions:
+      # More than one tracker shows away, and at least one Bluetooth tracker
+      - condition: template
+        value_template: "{{ home_count|int > 1 and bluetooth_count|int > 0 }}"
+      # An exit door recently opened or closed
+      - condition: template
+        value_template: "{{ door_recent == 'True' }}"
+    # Some away, and not near
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ home_count|int > 1 }}"
+      - condition: numeric_state
+        entity_id: !input proximity_sensor
+        above: 300
+    # Far away
+    - condition: numeric_state
+      entity_id: !input proximity_sensor
+      above: 600
+action:
+  - service: script.turn_on
+    target: !input person_script

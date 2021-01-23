@@ -42,6 +42,7 @@ condition:
       - condition: template
         #value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count|int > 1}}"
         value_template: "{{ expand('group.person_person2')|selectattr('state','eq','not_home')|list|count > 1 }}"
+        #value_template: "{{ expand('group.person_person2')|selectattr('attributes.source_type','eq','bluetooth')|selectattr('state','eq','home')|list|count }}" # for just Bluetooth trackers
       # An exit door recently opened or closed
       - condition: template
         value_template: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300) }}"
