@@ -1,5 +1,5 @@
 initial_state: 'on'
-alias: 'Master bedroom lights on'
+alias: 'Master bedroom lights motion'
 trigger:
   - platform: state
     entity_id: input_select.master_bedroom

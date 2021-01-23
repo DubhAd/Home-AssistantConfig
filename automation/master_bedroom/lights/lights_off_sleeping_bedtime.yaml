@@ -1,0 +1,24 @@
+initial_state: 'on'
+alias: 'Master bedroom lights off sleeping bedtime'
+trigger:
+  - platform: state
+    entity_id: input_select.master_bedroom
+    to: 'Off'
+    for: '00:05:00'
+  - platform: state
+    entity_id: input_boolean.person2_is_awake
+    to: 'off'
+    for: '00:05:00'
+condition:
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_is_awake
+    state: 'off'
+  - condition: state
+    entity_id: input_select.master_bedroom
+    state: 'Off'
+action:
+  - service: switch.turn_on
+    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom

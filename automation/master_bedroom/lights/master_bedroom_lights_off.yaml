@@ -25,10 +25,16 @@ condition:
         entity_id: input_select.house
         state: 'Off'
 action:
-  - service: light.turn_off
-    data:
-      entity_id: light.master_bedroom_bedhead
-      transition: 10
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: light.master_bedroom_bedhead
+        state: 'on'
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: light.master_bedroom_bedhead
+          transition: 10
   # If we're turning this off after a motion trigger, don't change the settings for the lights
   - condition: template
     value_template: "{{ trigger.from_state.state != 'Motion' }}"

@@ -1,0 +1,12 @@
+initial_state: 'on'
+alias: 'Master bedroom mode to off'
+trigger:
+  - platform: state
+    entity_id: light.master_bedroom_bedhead
+    to: 'off'
+    for: '00:00:05'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.master_bedroom
+      option: 'Off'

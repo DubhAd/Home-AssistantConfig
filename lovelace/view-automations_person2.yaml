@@ -41,6 +41,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person2_tablet_unplugged
     secondary_info: last-triggered
+  - entity: automation.person2_wifi_status
+    secondary_info: last-triggered
 - type: entities
   title: Automations for travel - person2
   show_header_toggle: false
