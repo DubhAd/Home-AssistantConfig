@@ -132,6 +132,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.zigbee_router_online
     secondary_info: last-triggered
+  - entity: automation.zigbee_3_offline
+    secondary_info: last-triggered
   - entity: automation.living_room_table_on
     secondary_info: last-triggered
   - entity: automation.living_room_table_off
