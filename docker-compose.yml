@@ -1,0 +1,73 @@
+version: '3'
+services:
+  zigbee2mqtt_1:
+    # This is my original Zigbee setup, running on a CC2531, eventually it'll be migrated off, probably.
+    container_name: zigbee2mqtt_1
+    image: koenkk/zigbee2mqtt:1.17.0
+    volumes:
+      - /data/zigbee2mqtt_1:/app/data
+    devices:
+      - /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018E1F2ED-if00:/dev/ttyACM0
+    restart: unless-stopped
+    ports:
+      - "8081:8081/tcp"
+    environment:
+      - TZ=Etc/UTC
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  zigbee2mqtt:
+    # This is my new Zigbee setup, running on a Zig-A-Zig-Ah!
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:1.17.0
+    volumes:
+      - /data/zigbee2mqtt:/app/data
+    devices:
+      - /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0:/dev/ttyACM0
+    restart: unless-stopped
+    ports:
+      - "8080:8080/tcp"
+    environment:
+      - TZ=Etc/UTC
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  home-assistant:
+    # This is my test/mess about install
+    container_name: home-assistant
+    image: homeassistant/home-assistant:stable
+    volumes:
+      - /data/homeassistant:/config
+    environment:
+      - TZ=Europe/London
+    restart: unless-stopped
+    network_mode: host
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8123"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+  mosquitto:
+    # Mosquitto, duh :D
+    container_name: mosquitto
+    image: eclipse-mosquitto:2
+    volumes:
+      - /data/mosquitto/config:/mosquitto/config
+      - /data/mosquitto/data:/mosquitto/data
+      - /data/mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+    ports:
+      - "1883:1883/tcp"
+    healthcheck:
+      test: ["CMD", "mosquitto_sub", "-h", "localhost", "-t", "$$SYS/broker/uptime", "-i", "docker_health_check", "-C", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # NB: I use an acl_file that gives the anonymous user only read access to that topic, nothing else
