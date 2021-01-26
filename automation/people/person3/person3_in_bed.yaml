@@ -38,6 +38,6 @@ action:
     entity_id: input_boolean.person3_phone_charging
     state: 'on'
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Marked person3 as being in bed because the phone was plugged in at {{ now() }}

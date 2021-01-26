@@ -24,7 +24,7 @@ condition:
     below: 10
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Office Wake triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
           Light level is {{ states('sensor.pi3_office_multi_luminance') }}

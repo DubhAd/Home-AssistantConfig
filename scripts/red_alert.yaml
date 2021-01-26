@@ -17,7 +17,7 @@ sequence:
           media_content_type: music
       - delay: '00:00:08'
       - service: tts.google_cloud_say
-        data_template:
+        data:
           entity_id: media_player.all
           message: "This is not a drill. Please leave the house immediately."
       - delay: '00:00:02'

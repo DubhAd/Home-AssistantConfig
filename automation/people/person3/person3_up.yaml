@@ -17,6 +17,6 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_in_bed
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Turned off person3 in bed because the phone was unplugged at {{ now() }}

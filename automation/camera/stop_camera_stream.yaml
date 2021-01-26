@@ -6,5 +6,5 @@ trigger:
     to: 'off'
 action:
   - service: media_player.turn_off
-    data_template:
+    data:
       entity_id: "{{ states('input_select.camera_stream_target') }}"

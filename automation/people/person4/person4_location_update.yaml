@@ -12,7 +12,7 @@ trigger:
       - sensor.person4s_time_to_person4_o
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Location for person4 updated at {{ now() }}
   - service: script.turn_on

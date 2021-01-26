@@ -12,7 +12,7 @@ trigger:
       - input_boolean.person2_overseas
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Status for person2 updated at {{ now() }}
   - service: script.turn_on

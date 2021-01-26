@@ -14,5 +14,5 @@ action:
   - wait_template: >-
       {{ is_state('input_boolean.person2_is_awake','on') }}
   - service: notify.person2_telegram
-    data_template:
+    data:
       message: "The WAN IP has changed to {{ trigger.to_state.attributes.external_ip }}"

@@ -40,7 +40,7 @@ condition:
 action:
   - service: tts.google_cloud_say
     entity_id: media_player.living_room_display
-    data_template:
+    data:
       message: "It's now cooler outside than inside, you should open some windows or doors."
   - service: automation.turn_off
     data:

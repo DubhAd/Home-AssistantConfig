@@ -22,7 +22,7 @@ condition:
 action:
   - delay: '00:01:00'
   - service: notify.lm_notify
-    data_template:
+    data:
       message: >-
         {% if is_state('sensor.bin_brown', 'tomorrow') %}
            Tomorrow the brown bin is being collected

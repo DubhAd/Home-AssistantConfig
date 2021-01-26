@@ -10,6 +10,6 @@ condition:
     state: 'off'
 action:
   - service: notify.logfile
-    data_template: 
+    data: 
       message: >-
         SENDME The alarm was triggered by the following door or window: {{ states('sensor.last_opened') }}

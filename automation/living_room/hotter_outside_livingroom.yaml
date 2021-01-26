@@ -46,7 +46,7 @@ action:
     entity_id: automation.cooler_outside_livingroom
   - service: tts.google_cloud_say
     entity_id: media_player.living_room_display
-    data_template:
+    data:
       message: "It's now hotter outside than inside, you should close the windows and doors."
   - wait_template: "{{ is_state('media_player.living_room_display','playing') }}"
   - wait_template: "{{ is_state('media_player.living_room_display','idle') }}"

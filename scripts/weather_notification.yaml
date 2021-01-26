@@ -1,7 +1,7 @@
 alias: Weather notification
 sequence:
   - service: input_text.set_value
-    data_template:
+    data:
       entity_id: input_text.weather_message
       value: >-
         {% if states('sensor.dark_sky_temperature') != 'unknown' %}
@@ -19,8 +19,8 @@ sequence:
           {% endif %}
         {% endif %}
   - service: notify.lm_notify
-    data_template:
+    data:
       message: "{{ states('input_text.weather_message') }}"
   - service: notify.logfile
-    data_template:
+    data:
       message: "{{ states('input_text.weather_message') }}"

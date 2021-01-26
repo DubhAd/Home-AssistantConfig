@@ -20,7 +20,7 @@ condition:
     state: 'on'
 action:
   - service: notify.person2_telegram
-    data_template:
+    data:
       message: >-
         The Zigbee router and lights are alive again
   - service: homeassistant.turn_off

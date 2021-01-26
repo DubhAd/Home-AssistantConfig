@@ -1,7 +1,7 @@
 alias: telegram trains
 sequence:
   - service: homeassistant.update_entity
-    data_template:
+    data:
       entity_id: >-
         {%- if states('proximity.person2_home')|int < 2000 -%}
           {%- if ("other" in state_attr('calendar.person2_work','location')) or ("other" in state_attr('calendar.person2','location')) -%}
@@ -33,7 +33,7 @@ sequence:
     timeout: '00:01:00'
     continue_on_timeout: 'true'
   - service: input_text.set_value
-    data_template:
+    data:
       entity_id: input_text.train_message
       value: >-
         {%- if states('proximity.person2_home')|int < 2000 -%}

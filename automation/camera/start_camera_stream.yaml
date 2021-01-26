@@ -10,7 +10,7 @@ condition:
     state: 'on'
 action:
   - service: input_select.select_option
-    data_template:
+    data:
       entity_id: input_select.camera_stream_target
       option: >-
         {%- if is_state('input_boolean.office_occupied','on') -%}
@@ -23,7 +23,7 @@ action:
           media_player.family_room_display
         {%- endif -%}
   - service: camera.play_stream
-    data_template:
+    data:
       entity_id: "camera.front_camera_lowres"
       format: "hls"
       media_player: "{{ states('input_select.camera_stream_target') }}"

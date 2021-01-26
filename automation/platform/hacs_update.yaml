@@ -12,7 +12,7 @@ condition:
     state: 'on'
 action:
   service: notify.person2_telegram
-  data_template:
+  data:
     title: Updates ({{ states('sensor.hacs') }}) pending in HACS
     message: >-
       {% for repo in state_attr('sensor.hacs', 'repositories') %}

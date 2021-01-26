@@ -10,6 +10,6 @@ condition:
     value_template: "{{ trigger.event.data.args|length == 0 }}"
 action:
   - service: telegram_bot.send_message
-    data_template:
+    data:
       message: >
         The following lights are on: {{ expand('group.my_lights')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}

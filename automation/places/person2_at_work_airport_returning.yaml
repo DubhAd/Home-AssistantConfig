@@ -11,7 +11,7 @@ condition:
       state: 'off'
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: "SENDperson3 person2's landed at work Aiport"
   - service: automation.turn_off
     data:

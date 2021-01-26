@@ -5,5 +5,5 @@ trigger:
   event: shutdown
 action:
   - service: script.notify_person2
-    data_template:
+    data:
       message: "Home Assistant {{ states('sensor.hass_installed') }} has shut down on Vision ({{ as_timestamp(utcnow())|timestamp_utc }})"

@@ -10,7 +10,7 @@ trigger:
     to: 'off'
 action:
   - service: input_select.select_option
-    data_template:
+    data:
       entity_id: >
         {% if trigger.entity_id == 'input_boolean.person2_home' %}
           input_select.person2_status_dropdown

@@ -7,7 +7,7 @@ trigger:
       command: '/where'
 action:
   - service: telegram_bot.send_message
-    data_template:
+    data:
       message: >
         {%- if is_state('input_boolean.person3_in_bed','on') -%}
           person3 has been in bed for {{ relative_time(states.input_boolean.person3_in_bed.last_changed) }}

@@ -84,7 +84,7 @@ condition:
       state: 'Just Arrived'
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >-
         Hall turned Night on by {{ trigger.entity_id }} - {{ states('sensor.pi3_living_room_multi_luminance') }}/{{ states('sensor.hall_downstairs_illuminance') }}
   - service: input_select.select_option

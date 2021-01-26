@@ -3,7 +3,7 @@ sequence:
   - service: notify.logfile
     data:
       message: "Notifying about front camera"
-  - service_template: >-
+  - service: >-
       {%- if is_state_attr('image_processing.doods_front_camera_snapshot','total_matches',0) -%}
         script.front_camera_notify_nothing
       {%- else -%}

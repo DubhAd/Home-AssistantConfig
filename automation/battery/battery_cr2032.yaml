@@ -36,5 +36,5 @@ trigger:
       minutes: 5
 action:
   service: notify.logfile
-  data_template:
+  data:
     message: "SENDME The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2032 coin cell"

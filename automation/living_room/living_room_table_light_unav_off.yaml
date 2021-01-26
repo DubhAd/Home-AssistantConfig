@@ -16,5 +16,5 @@ condition:
       state: 'Night on'
 action:
   - service: light.turn_on
-    data_template:
+    data:
       entity_id: light.living_room_table

@@ -8,6 +8,6 @@ trigger:
 action:
   - service: script.train_message
   - service: telegram_bot.answer_callback_query
-    data_template:
+    data:
       message: "{{ states('input_text.train_message') }}"
       callback_query_id: "{{ trigger.event.data.id }}"

@@ -28,6 +28,6 @@ action:
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_second_bedroom
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Turned off person1 in bed because the {{ trigger.to_state.name }} was {{ trigger.to_state.state }} at {{ now() }}

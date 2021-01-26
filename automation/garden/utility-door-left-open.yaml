@@ -17,7 +17,7 @@ condition:
       below: 5
 action:
   - service: media_player.turn_on
-    data_template:
+    data:
       entity_id: >-
         {%- if is_state('input_boolean.family_room_occupied','on') -%}
           media_player.family_room_display
@@ -29,7 +29,7 @@ action:
           media_player.office_smart_display
         {%- endif -%}
   - service: media_player.volume_set
-    data_template:
+    data:
       volume_level: 0.4
       entity_id: >-
         {%- if is_state('input_boolean.family_room_occupied','on') -%}
@@ -42,7 +42,7 @@ action:
           media_player.office_smart_display
         {%- endif -%}
   - service: tts.google_cloud_say
-    data_template:
+    data:
       entity_id: >-
         {%- if is_state('input_boolean.family_room_occupied','on') -%}
           media_player.family_room_display
@@ -56,7 +56,7 @@ action:
       message: "The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.owm_temperature') }} {{ state_attr('sensor.owm_temperature','unit_of_measurement') }} outside"
   - delay: '00:00:10'
   - service: media_player.turn_off
-    data_template:
+    data:
       entity_id: >-
         {%- if is_state('input_boolean.family_room_occupied','on') -%}
           media_player.family_room_display

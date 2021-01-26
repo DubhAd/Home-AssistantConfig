@@ -16,7 +16,7 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
           Light level is {{ states('sensor.pi3_living_room_multi_luminance') }}

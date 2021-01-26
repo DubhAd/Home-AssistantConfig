@@ -31,7 +31,7 @@ condition:
       state: 'playing'
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Master bedroom not occupied triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
   - service: input_boolean.turn_off

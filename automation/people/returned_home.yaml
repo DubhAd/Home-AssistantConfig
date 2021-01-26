@@ -93,7 +93,7 @@ condition:
         value_template: "{{ is_state('input_select.person3_status_dropdown','Just Arrived') }}"
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Returned home triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ (trigger.from_state.state|int) }} is {{ (trigger.to_state.state|int) }}
           person1's proximity: {{ states('proximity.person1_home') }} ({{ state_attr('proximity.person1_home', 'dir_of_travel') }} and {{ states('input_select.person1_status_dropdown') }})

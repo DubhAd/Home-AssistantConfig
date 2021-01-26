@@ -17,8 +17,8 @@ condition:
       below: 5
 action:
   - service: notify.logfile
-    data_template: 
+    data: 
       message: "SENDME {{ states('input_text.train_message') }}"
   - service: notify.lm_notify
-    data_template: 
+    data: 
       message: "{{ states('input_text.train_message') }}"

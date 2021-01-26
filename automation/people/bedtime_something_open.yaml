@@ -27,11 +27,11 @@ condition:
         state: 'on'
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         {{ "SENDME" if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) else "SENDperson3" }} The following are open downstairs: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - service: media_player.turn_on
-    data_template:
+    data:
       entity_id: >-
         {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
           media_player.cast_master_bedroom_speaker
@@ -39,7 +39,7 @@ action:
           media_player.cast_master_bedroom_display
         {% endif %}
   - service: media_player.volume_set
-    data_template:
+    data:
       volume_level: 0.15
       entity_id: >-
         {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
@@ -48,7 +48,7 @@ action:
           media_player.cast_master_bedroom_display
         {% endif %}
   - service: tts.google_cloud_say
-    data_template:
+    data:
       entity_id: >-
         {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
           media_player.cast_master_bedroom_speaker
@@ -60,7 +60,7 @@ action:
         {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - delay: '00:01:00'
   - service: media_player.turn_off
-    data_template:
+    data:
       entity_id: >-
         {% if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) %}
           media_player.cast_master_bedroom_speaker

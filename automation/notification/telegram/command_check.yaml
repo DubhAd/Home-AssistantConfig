@@ -7,7 +7,7 @@ trigger:
       command: '/check'
 action:
   - service: telegram_bot.send_message
-    data_template:
+    data:
       message: >
         The alarm is {{ states('alarm_control_panel.ha_alarm') }}
         

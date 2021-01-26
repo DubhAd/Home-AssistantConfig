@@ -41,5 +41,5 @@ action:
       false
       {%- endif -%}
   - service: notify.logfile
-    data_template: 
+    data: 
       message: "SENDME You need to check the trains, they're looking a bit messed up. {{ states('input_text.train_message') }}"

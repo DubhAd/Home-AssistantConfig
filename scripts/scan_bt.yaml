@@ -11,7 +11,7 @@ sequence:
       below: 0.1
     sequence:
     - service: notify.logfile
-      data_template:
+      data:
         message: "Arrival scan because nobody is home"
     - service: script.scan_bt_arrive
   #################### ####################
@@ -23,7 +23,7 @@ sequence:
       above: 0.9
     sequence:
     - service: notify.logfile
-      data_template:
+      data:
         message: "Departure scan because everybody is home"
     - service: script.scan_bt_depart
   #################### ####################
@@ -51,7 +51,7 @@ sequence:
     sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
-      data_template:
+      data:
         message: "Do nothing because of motion in the vestibule, and the bike door is open"
   #################### ####################
   - conditions:
@@ -70,7 +70,7 @@ sequence:
     sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
-      data_template:
+      data:
         message: "Departure (then arrival) scan because of motion in the vestibule (and both garage doors are closed)"
     - service: script.scan_bt_depart
     - service: script.scan_bt_arrive
@@ -83,7 +83,7 @@ sequence:
       state: 'off'
     sequence:
     - service: notify.logfile
-      data_template:
+      data:
         message: "Arrival scan because there was no motion in the vestibule"
     - service: script.scan_bt_arrive
   #################### ####################
@@ -96,14 +96,14 @@ sequence:
       for: '00:00:01'
     sequence:
     - service: notify.logfile
-      data_template:
+      data:
         message: "Arrival scan because the garage door is open"
     - service: script.scan_bt_arrive
   #################### ####################
   # Mixed bag situation unclear, do it all
   default:
   - service: notify.logfile
-    data_template:
+    data:
       message: "Departure then arrival scan because we have no idea"
   - service: script.scan_bt_arrive
   - service: script.scan_bt_depart

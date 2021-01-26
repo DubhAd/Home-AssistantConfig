@@ -6,5 +6,5 @@ trigger:
     to: 'Paris CDG Airport'
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: "SENDperson3 person2's arrived at Paris CDG Airport"

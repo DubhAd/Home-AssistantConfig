@@ -10,6 +10,6 @@ condition:
     value_template: "{{ (trigger.event.data.args|length == 1) and (trigger.event.data.args[0] == 'off') }}"
 action:
   - service: telegram_bot.send_message
-    data_template:
+    data:
       message: >
         Turning the lights {{ trigger.event.data.args[0] }}

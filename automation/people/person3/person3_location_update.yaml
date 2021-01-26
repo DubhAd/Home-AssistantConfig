@@ -13,7 +13,7 @@ trigger:
       - sensor.person3s_time_to_home_by_foot
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Location for person3 updated at {{ now() }}
   - service: script.turn_on

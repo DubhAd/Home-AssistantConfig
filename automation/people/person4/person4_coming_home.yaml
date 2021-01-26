@@ -14,8 +14,8 @@ condition:
       value_template: "{{ is_state_attr('proximity.person4_home', 'dir_of_travel', 'towards') }}"
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: "SENDperson3 person4 will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
   - service: notify.lametric_info
-    data_template:
+    data:
       message: "person4 will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"

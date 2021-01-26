@@ -1,7 +1,7 @@
 alias: person2 traveltime
 sequence:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Updated travel time for person2 at {{ now() }}, currently at {{ state_attr('sensor.person2s_time_to_home','origin_name') }}
   - service: homeassistant.update_entity

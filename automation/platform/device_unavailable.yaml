@@ -15,6 +15,6 @@ trigger:
     from: 'unavailable'
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Device {{ trigger.entity_id }} just went from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}

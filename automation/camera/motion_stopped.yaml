@@ -7,7 +7,7 @@ trigger:
       action: "end"
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Motion detection event ends on {{ trigger.event.data.camera }}
   - service: input_boolean.turn_off

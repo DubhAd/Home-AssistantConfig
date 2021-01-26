@@ -20,7 +20,7 @@ trigger:
     to: 'Just Arrived'
 action:
   - service: input_select.select_option
-    data_template:
+    data:
       entity_id: >
         {% if trigger.entity_id == 'input_select.person2_status_dropdown' %}
           input_select.person2_status_dropdown

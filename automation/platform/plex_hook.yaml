@@ -5,7 +5,7 @@ trigger:
     webhook_id: !secret plex_token
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         {{ trigger.data }}
 

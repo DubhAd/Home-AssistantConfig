@@ -1,6 +1,6 @@
 sequence:
   - service: light.turn_on
-    data_template:
+    data:
       entity_id: light.master_bedroom_bedhead
       color_temp: >-
         {% set current = states.light.master_bedroom_bedhead.attributes.color_temp|default(0)|int %}
@@ -11,7 +11,7 @@ sequence:
         {% endif %}
         {{ next }}
 
-  - service_template: >
+  - service: >
       {% if states.light.master_bedroom_bedhead.attributes.color_temp|default(0)|int > states.light.master_bedroom_bedhead.attributes.min_mireds|int %}
         script.turn_on
       {% else %}

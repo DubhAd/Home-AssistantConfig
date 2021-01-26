@@ -7,6 +7,6 @@ trigger:
     for: '00:05:00'
 action:
   - service: notify.person2_telegram
-    data_template:
+    data:
       message: >-
         The Zigbee bridge is offline again

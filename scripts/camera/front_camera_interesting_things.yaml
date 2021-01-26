@@ -1,7 +1,7 @@
 sequence:
   # I want to know if we've anything interesting, it'll change what we do
   - service: input_number.set_value
-    data_template:
+    data:
       entity_id: input_number.front_camera_interesting_things
       value: >-
         {#- Set the scene - extract the things we care about, and prepare some defaults -#}

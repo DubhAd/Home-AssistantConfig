@@ -19,7 +19,7 @@ sequence:
     continue_on_timeout: 'true'
   # Send an audio alert
   - service: tts.google_cloud_say
-    data_template:
+    data:
       entity_id: media_player.all
       message: >-
         The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}

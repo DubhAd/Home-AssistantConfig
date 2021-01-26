@@ -3,7 +3,7 @@ sequence:
     data:
       message: "Processing front camera"
   - service: camera.snapshot
-    data_template:
+    data:
       entity_id: camera.front_camera
       filename: "/data/homeassistant/cameras/front_camera_snapshot.jpg"
   - service: notify.logfile

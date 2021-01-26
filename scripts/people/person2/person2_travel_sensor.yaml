@@ -1,7 +1,7 @@
 alias: person2 travel sensor
 sequence:
   - service: input_text.set_value
-    data_template:
+    data:
       entity_id: input_text.person_person2
       value: >-
         {% if is_state('input_boolean.person2_home', 'on') %}

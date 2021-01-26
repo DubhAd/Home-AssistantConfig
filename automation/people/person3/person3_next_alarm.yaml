@@ -9,7 +9,7 @@ trigger:
 action:
   - service: input_datetime.set_datetime
     entity_id: input_datetime.person3_next_alarm
-    data_template:
+    data:
       time: >-
         {% if trigger.event.data.when.split(' ')[1] == '%taskertime' %}
           12:00

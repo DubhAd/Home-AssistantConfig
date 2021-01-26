@@ -4,6 +4,6 @@ sequence:
     entity_id: input_boolean.person3_home
     state: 'on'
   - service: notify.person3
-    data_template:
+    data:
       message: "{{ message }}"
 

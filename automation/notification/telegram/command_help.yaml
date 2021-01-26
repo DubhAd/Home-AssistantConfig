@@ -7,7 +7,7 @@ trigger:
       command: '/help'
 action:
   - service: telegram_bot.send_message
-    data_template:
+    data:
       message: >
         The following commands are supported:
 

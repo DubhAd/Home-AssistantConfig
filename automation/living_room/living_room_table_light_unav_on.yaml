@@ -19,6 +19,6 @@ condition:
       state: 'Day on'
 action:
   - service: light.turn_off
-    data_template:
+    data:
       entity_id: light.living_room_table
       transition: 30

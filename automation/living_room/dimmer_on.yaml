@@ -11,7 +11,7 @@ condition:
     state: 'on'
 action:
   - service: input_select.select_option
-    data_template:
+    data:
       entity_id: input_select.living_room
       option: >-
         {% if is_state('input_select.living_room','Off') %}

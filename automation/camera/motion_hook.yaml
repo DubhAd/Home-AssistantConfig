@@ -5,11 +5,11 @@ trigger:
     webhook_id: !secret slack_pi3
 action:
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         Motion detection by {{ trigger.webhook_id }} for {{ trigger.json.action }} on {{ trigger.json.camera }} {{ trigger.data }} / {{ trigger.json }}
   - event: motion_webhook
-    event_data_template:
+    event_data:
       id: "{{ trigger.webhook_id }}"
       action: "{{ trigger.json.action }}"
       camera: "{{ trigger.json.camera }}"

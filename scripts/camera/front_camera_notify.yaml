@@ -5,13 +5,13 @@ sequence:
   - service: script.front_camera_interesting_things
   - delay:
       seconds: "{{ 0 if (states('input_number.front_camera_interesting_things')|int) > 0 else 3 }}"
-  - service_template: >-
+  - service: >-
       {% if (states('input_number.front_camera_interesting_things')|int) == 0 %}
         script.process_front_camera
       {% else %}
         script.nop
       {% endif %}
-  - service_template: >-
+  - service: >-
       {% if (states('input_number.front_camera_interesting_things')|int) == 0 %}
         script.front_camera_interesting_things
       {% else %}
@@ -20,14 +20,14 @@ sequence:
   - service: notify.logfile
     data:
       message: "Setting flags"
-  - service_template: >-
+  - service: >-
       {%- if states('input_number.front_camera_interesting_things')|int > 0 -%}
         input_boolean.turn_on
       {%- else -%}
         input_boolean.turn_off
       {%- endif -%}
     entity_id: input_boolean.front_camera_motion_interesting
-  - service_template: >-
+  - service: >-
       {%- if states('input_number.front_camera_interesting_things')|int > 0 and is_state('input_boolean.stream_front_camera_motion','on') -%}
         input_boolean.turn_on
       {%- else -%}
@@ -38,7 +38,7 @@ sequence:
     data:
       message: "Notifying"
   - service: notify.discord
-    data_template:
+    data:
       # Coordinates from Doods, which are from Tensorflow, are in the order of ymin, ymax, xmin, xmax
       message: >-
         {#- Set the scene - extract the things we care about, and prepare some defaults -#}

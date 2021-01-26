@@ -7,7 +7,7 @@ trigger:
       command: '/status'
 action:
   - service: telegram_bot.send_message
-    data_template:
+    data:
       message: >
         There are {{ expand('group.my_downstairs_windows','my_upstairs_windows','group.my_exterior_doors') | selectattr('state', 'eq', 'on')|list|count }} doors and windows open
 

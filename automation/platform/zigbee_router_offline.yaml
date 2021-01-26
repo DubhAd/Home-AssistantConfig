@@ -25,7 +25,7 @@ condition:
         state: 'off'
 action:
   - service: notify.person2_telegram
-    data_template:
+    data:
       message: >-
         The Zigbee router has been {{ trigger.to_state.state }} for 10 minutes, and the lights are offline too. Time to reset the stick again.
   - service: homeassistant.turn_on

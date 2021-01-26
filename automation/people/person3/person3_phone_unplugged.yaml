@@ -13,6 +13,6 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_phone_charging
   - service: notify.logfile
-    data_template:
+    data:
       message: >
         person3 phone unplugged in at {{ now() }}
