@@ -22,6 +22,10 @@ condition:
     entity_id: input_boolean.bedtime
     state: 'off'
 action:
+  - wait_for_trigger:
+    - platform: state
+      entity_id: binary_sensor.hall_downstairs_occupancy
+      to: 'on'
   - service: notify.logfile
     data:
       message: >
