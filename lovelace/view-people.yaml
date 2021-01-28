@@ -276,7 +276,7 @@ cards:
         title: Work
         columns: 6
         entities:
-        - entity: group.work_laptop
+        - entity: device_tracker.80_b0_3d_e2_3b_a2
           name: WiFi
           icon: mdi:wifi
         - entity: device_tracker.person2_bt_front_work
