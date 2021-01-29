@@ -1,0 +1,15 @@
+alias: Dimmer up motion
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.hue_dimmer_action
+    to: 'down-press'
+condition:
+  - condition: state
+    entity_id: input_select.living_room
+    state: 'Motion'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.living_room
+      option: 'Dim'
