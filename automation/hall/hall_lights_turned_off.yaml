@@ -4,6 +4,13 @@ trigger:
   - platform: state
     entity_id: light.hall
     to: 'off'
+    from: 'on'
 action:
   - service: switch.turn_on
     entity_id: switch.adaptive_lighting_adapt_brightness_hall
+  - condition: template
+    value_template: "{{ not is_state('input_select.hall','Off') }}"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hall
+      option: 'Off'

@@ -38,19 +38,21 @@ condition:
   # Not already on
   - condition: not
     conditions:
+      # If we're already in this mode, there's no point in continuing
     - condition: state
       entity_id: input_select.hall
       state: 'Night on'
+      # If the light is off, we should only continue if it's been off for more than 15 minutes
   # Living room mustn't be bright - the light sensor in the hall isn't very sensitive
   - condition: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
-    below: 100
+    below: 30
   - condition: or
     conditions:
     # Sun is relatively low
     - condition: numeric_state
       entity_id: sensor.sun_elevation
-      below: 15
+      below: 10
     # Dark in the living room
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
