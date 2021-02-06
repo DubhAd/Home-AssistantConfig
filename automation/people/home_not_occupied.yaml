@@ -6,7 +6,6 @@ trigger:
       - input_boolean.person3_home
       - input_boolean.person2_home
       - input_boolean.person1_home
-      - input_boolean.person1_tablet_home
       - input_boolean.person4_home
       - input_boolean.guest_mode
       - input_boolean.living_room_occupied
@@ -22,15 +21,9 @@ condition:
     - condition: state
       entity_id: input_boolean.person2_home
       state: 'off'
-    - condition: or
-      conditions:
-      # Either the phone or tablet are away
-      - condition: state
-        entity_id: input_boolean.person1_tablet_home
-        state: 'off'
-      - condition: state
-        entity_id: input_boolean.person1_home
-        state: 'off'
+    - condition: state
+      entity_id: input_boolean.person1_home
+      state: 'off'
     - condition: state
       entity_id: input_boolean.person4_home
       state: 'off'
