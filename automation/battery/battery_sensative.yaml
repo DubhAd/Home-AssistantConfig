@@ -3,19 +3,16 @@ alias: 'Battery Sensative'
 trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_utility_door_exterior, sensor.pi3_zwave_battery_patio_door_left, sensor.pi3_zwave_battery_front_door
-    below: 25
-    for:
-      minutes: 5
+    below: 20
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_utility_door_exterior, sensor.pi3_zwave_battery_patio_door_left, sensor.pi3_zwave_battery_front_door
     below: 10
-    for:
-      minutes: 5
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_utility_door_exterior, sensor.pi3_zwave_battery_patio_door_left, sensor.pi3_zwave_battery_front_door
     below: 5
-    for:
-      minutes: 5
+    for: '01:00:00'
 action:
   service: notify.logfile
   data:

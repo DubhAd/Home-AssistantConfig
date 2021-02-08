@@ -3,19 +3,16 @@ alias: 'Battery ER14250'
 trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_garage_closed_bike, sensor.pi3_zwave_battery_garage_closed_bike
-    below: 25
-    for:
-      minutes: 5
+    below: 20
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_garage_closed_bike, sensor.pi3_zwave_battery_garage_closed_bike
     below: 10
-    for:
-      minutes: 5
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_garage_closed_bike, sensor.pi3_zwave_battery_garage_closed_bike
     below: 5
-    for:
-      minutes: 5
+    for: '01:00:00'
 action:
   service: notify.logfile
   data:

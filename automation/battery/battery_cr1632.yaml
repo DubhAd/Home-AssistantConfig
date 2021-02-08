@@ -24,9 +24,8 @@ trigger:
     - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
-    below: 25
-    for:
-      minutes: 5
+    below: 20
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_window_battery
@@ -51,8 +50,7 @@ trigger:
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
     below: 10
-    for:
-      minutes: 5
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_window_battery
@@ -77,8 +75,7 @@ trigger:
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
     below: 5
-    for:
-      minutes: 5
+    for: '01:00:00'
 action:
   service: notify.logfile
   data:

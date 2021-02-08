@@ -9,9 +9,8 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    below: 25
-    for:
-      minutes: 5
+    below: 20
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
@@ -21,8 +20,7 @@ trigger:
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
     below: 10
-    for:
-      minutes: 5
+    for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
@@ -32,8 +30,7 @@ trigger:
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
     below: 5
-    for:
-      minutes: 5
+    for: '01:00:00'
 action:
   service: notify.logfile
   data:
