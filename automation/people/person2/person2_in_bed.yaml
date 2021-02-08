@@ -4,8 +4,7 @@ trigger:
   - platform: state
     entity_id: light.master_bedroom_bedhead
     to: 'on'
-    for: 
-      minutes: 2
+    for: '00:02:00'
   - platform: state
     entity_id: 
       - media_player.master_bedroom_speaker
@@ -18,6 +17,9 @@ trigger:
     to: 'on'
   - platform: time
     at: '22:05:00'
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'off'
 condition:
   # I'm home, and the mobile is charging
   - condition: state
@@ -26,6 +28,9 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_phone_charging
     state: 'on'
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    state: 'off'
   - condition: or
     conditions:
     # One of... the tablet charging, the light is on, or I'm listening to music
