@@ -28,12 +28,18 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_phone_charging
     state: 'on'
+    # Door is closed
   - condition: state
     entity_id: binary_sensor.master_bedroom_door_contact
     state: 'off'
+    # Door was closed between 21:00 and 04:00
+  - condition: template
+    value_template: >-
+      {{ states.binary_sensor.master_bedroom_door_contact.last_changed.hour > 20 or
+         states.binary_sensor.master_bedroom_door_contact.last_changed.hour < 4 }}
   - condition: or
     conditions:
-    # One of... the tablet charging, the light is on, or I'm listening to music
+    # Either the tablet charging, the light is on, or I'm listening to music
     - condition: state
       entity_id: input_boolean.person2_tablet_charging
       state: 'on'
