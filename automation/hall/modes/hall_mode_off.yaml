@@ -34,15 +34,15 @@ condition:
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
-  - condition: state
-    entity_id: group.downstairs_occupied
-    state: 'off'
   # Sun above 5 degrees
   - condition: numeric_state
     entity_id: sensor.sun_elevation
     above: 5
   - condition: or
     conditions:
+    - condition: state
+      entity_id: group.downstairs_occupied
+      state: 'off'
     # Bright in the living room
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
