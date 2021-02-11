@@ -1,0 +1,4 @@
+name: person1's old tablet
+icon: mdi:tablet
+entities:
+- device_tracker.e4_a7_c5_8d_3b_e4
