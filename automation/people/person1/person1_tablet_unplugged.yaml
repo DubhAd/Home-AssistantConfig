@@ -1,14 +1,9 @@
 initial_state: 'on'
 alias: 'person1 tablet unplugged'
 trigger:
-  - platform: event
-    event_type: tasker_webhook
-    event_data:
-      who: person1_tablet
-condition: 
-  - condition: template
-    value_template: >-
-      {{ 'Unplugged' in trigger.event.data.what }}
+  - platform: state
+    entity_id: binary_sensor.person1_lenovo_tb_j606f_is_charging
+    to: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person1_tablet_charging

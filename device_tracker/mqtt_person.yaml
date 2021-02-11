@@ -6,3 +6,4 @@ devices:
   person1: 'location/person1'
   person4: 'location/person4'
   person2_wifi: 'location/person2_wifi'
+  person1_wifi: 'location/person1_wifi'
