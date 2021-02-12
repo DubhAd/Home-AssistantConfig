@@ -4,6 +4,20 @@ trigger:
   - platform: state
     entity_id: binary_sensor.person1_lenovo_tb_j606f_is_charging
     to: 'on'
+  - platform: state
+    entity_id: sensor.person1_lenovo_tb_j606f_charger_type
+    from: 'none'
+condition: 
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.person1_lenovo_tb_j606f_is_charging
+      state: 'on'
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.person1_lenovo_tb_j606f_charger_type
+        state: 'none'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person1_tablet_charging
