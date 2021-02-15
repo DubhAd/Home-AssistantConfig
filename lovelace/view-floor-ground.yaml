@@ -65,7 +65,7 @@ cards:
       name: "Light level"
 - type: glance
   title: Vestibule
-  columns: 3
+  columns: 4
   entities:
     - entity: binary_sensor.pi3_front_door_sensor
       show_last_changed: true
@@ -81,6 +81,8 @@ cards:
       name: Motion
     - entity: sensor.vestibule_multi_illuminance
       name: "Light level"
+    - entity: sensor.vestibule_multi_temperature
+      name: "Temperature"
     - entity: switch.pi3_vestibule_switch
       name: Socket
       tap_action: 
@@ -164,6 +166,8 @@ cards:
     - entity: sensor.pi3_living_room_multi_temperature
       name: Living room
       color: darkgoldenrod
+    - entity: sensor.vestibule_multi_temperature
+      name: Vestibule
     - entity: sensor.accuhome_realfeel_temperature
       name: Outside
       color: 'silver'
