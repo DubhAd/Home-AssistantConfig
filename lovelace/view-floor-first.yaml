@@ -167,7 +167,7 @@ cards:
 - type: custom:mini-graph-card
   title: Humidity
   hours_to_show: 12
-  points_per_hour: 6
+  points_per_hour: 4
   line_width: 2
   decimals: 1
   show:
@@ -221,7 +221,7 @@ cards:
       color: 'silver'
 - type: custom:mini-graph-card
   title: Pressure
-  points_per_hour: 3
+  points_per_hour: 2
   hours_to_show: 12
   line_width: 2
   hour24: true
