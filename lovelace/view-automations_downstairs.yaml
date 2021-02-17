@@ -107,6 +107,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.dimmer_up_enable_lights
     secondary_info: last-triggered
+  - entity: automation.dimmer_up_motion
+    secondary_info: last-triggered
 - type: entities
   title: Family room
   show_header_toggle: false

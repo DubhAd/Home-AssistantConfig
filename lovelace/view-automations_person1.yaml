@@ -27,6 +27,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person1_awake
     secondary_info: last-triggered
+  - entity: automation.person1_bedtime_reminder
+    secondary_info: last-triggered
   - entity: automation.person1_up_reminder
     secondary_info: last-triggered
   - entity: automation.person1_up_reminder_off
@@ -38,12 +40,14 @@ cards:
   - entity: automation.person1_tablet_home
     secondary_info: last-triggered
 - type: entities
-  title: People driven automations - Tablet
+  title: People driven automations - Devices
   show_header_toggle: false
   entities:
   - entity: automation.person1_tablet_plugged
     secondary_info: last-triggered
   - entity: automation.person1_tablet_unplugged
+    secondary_info: last-triggered
+  - entity: automation.person1_wifi_status
     secondary_info: last-triggered
   - entity: automation.person1_phone_plugged
     secondary_info: last-triggered
