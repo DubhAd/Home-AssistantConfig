@@ -403,7 +403,7 @@ cards:
           name: Next alarm
       - type: glance
         title: person1's tablet
-        columns: 6
+        columns: 4
         entities:
         - entity: device_tracker.person1_tablet
           name: GPS
@@ -421,6 +421,8 @@ cards:
           name: Battery
         - entity: input_boolean.person1_tablet_charging
           name: Tablet charging
+        - entity: binary_sensor.person1_lenovo_tb_j606f_interactive
+          name: Screen
       - type: glance
         entities:
         - entity: sensor.person1_tablet_first_floor_front

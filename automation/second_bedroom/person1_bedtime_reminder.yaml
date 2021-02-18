@@ -3,8 +3,8 @@ trigger:
   - platform: time
     at: '00:00:01'
   - platform: state
-    entity_id: input_boolean.person1_tablet_charging
-    to: 'off'
+    entity_id: binary_sensor.person1_lenovo_tb_j606f_interactive
+    to: 'on'
     for: '00:20:00'
 condition:
     # Runs from midnight to 04:00
@@ -13,8 +13,8 @@ condition:
     before: '04:00:00'
     # When the tablet is unplugged
   - condition: state
-    entity_id: input_boolean.person1_tablet_charging
-    state: 'off'
+    entity_id: binary_sensor.person1_lenovo_tb_j606f_interactive
+    state: 'on'
     for: '00:20:00'
     # And supposedly in bed with the phone charging
   - condition: state
