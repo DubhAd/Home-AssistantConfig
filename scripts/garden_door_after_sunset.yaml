@@ -1,12 +1,13 @@
 alias: Garden door after sunset
 sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.garden_lights
   - service: homeassistant.turn_off
     entity_id: automation.utility_door_open_after_sunset_turn_off
-    data: {}
   - service: switch.turn_on
     entity_id: switch.pi3_garden_lights_switch
-    data: {}
   - delay: '00:00:{{- "%02d" | format(states.input_number.door_delay.state | int) -}}'
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.garden_lights
   - service: homeassistant.turn_on
     entity_id: automation.utility_door_open_after_sunset_turn_off
-    data: {}

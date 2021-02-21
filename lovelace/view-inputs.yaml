@@ -40,6 +40,10 @@ cards:
       secondary_info: last-changed
       state_color: true
     - type: divider
+    - entity: input_boolean.garden_lights
+      secondary_info: last-changed
+      state_color: true
+    - type: divider
     - entity: input_boolean.test_mode
       secondary_info: last-changed
       state_color: true
