@@ -3,6 +3,11 @@ description: 'Manages the right kind of BT scan. Departure scan if everybody is 
 sequence:
 - choose:
   #################### ####################
+  # If we've just marked somebody as Just Arrived then don't run a departure scan if the garage door is still open.
+  # 
+  # This is to catch the situation when we come home, open the front door to put in shopping, then
+  # close the door while we put the car away.
+  #################### ####################
   # Everybody away
   - conditions:
     # Everybody is away - this can only be an arrival
