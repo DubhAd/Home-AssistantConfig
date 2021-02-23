@@ -47,20 +47,14 @@ condition:
   - condition: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 30
-  - condition: or
-    conditions:
-    # Sun is relatively low
-    - condition: numeric_state
-      entity_id: sensor.sun_elevation
-      below: 10
-    # Dark in the living room
-    - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
-      below: 15
-    # or hall
-    - condition: numeric_state
-      entity_id: sensor.hall_downstairs_illuminance
-      below: 2
+  # Sun is relatively low
+  - condition: numeric_state
+    entity_id: sensor.sun_elevation
+    below: 10
+  # or hall
+  - condition: numeric_state
+    entity_id: sensor.hall_downstairs_illuminance
+    below: 2
   - condition: or
     conditions:
     - condition: state
