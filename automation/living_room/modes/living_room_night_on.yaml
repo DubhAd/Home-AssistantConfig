@@ -64,6 +64,7 @@ condition:
         - condition: state
           entity_id: switch.pi3_cabinet_light_switch
           state: 'on'
+          for: '00:01:00'
         - condition: numeric_state
           entity_id: sensor.pi3_living_room_multi_luminance
           below: 20
