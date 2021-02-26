@@ -61,6 +61,7 @@ cards:
   columns: 5
   entities:
   - sensor.hue_dimmer_linkquality
+  - sensor.guest_bedroom_door_linkquality
   - sensor.master_bedroom_door_linkquality
   - sensor.master_bedroom_light_sensor_linkquality
   - sensor.master_bedroom_socket_linkquality

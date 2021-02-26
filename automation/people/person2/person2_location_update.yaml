@@ -24,4 +24,3 @@ action:
       sequence:
       - service: script.turn_on
         entity_id: script.update_car_location
-  - delay: '00:01:00'

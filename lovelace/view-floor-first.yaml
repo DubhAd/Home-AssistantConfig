@@ -95,7 +95,7 @@ cards:
         name: Ensuite
 - type: glance
   title: Guest bedroom
-  columns: 4
+  columns: 5
   entities:
     - entity: media_player.cast_master_bedroom_display
       name: Home Mini
@@ -103,6 +103,8 @@ cards:
       tap_action: 
         action: toggle
       name: Socket
+    - entity: binary_sensor.guest_bedroom_door_contact
+      name: Door
     - entity: binary_sensor.guest_bedroom_window_left
       show_last_changed: true
       name: Left
@@ -111,7 +113,7 @@ cards:
       name: Right
 - type: glance
   title: Bathroom
-  columns: 4
+  columns: 5
   entities:
     - entity: sensor.bathroom_humidity
       name: Humidity
@@ -121,7 +123,10 @@ cards:
       name: Pressure
     - entity: binary_sensor.bathroom_window
       show_last_changed: true
-      name: Bathroom
+      name: Window
+    - entity: binary_sensor.bathroom_door_contact
+      show_last_changed: true
+      name: Door
 - type: glance
   title: Office
   columns: 6

@@ -217,6 +217,10 @@ cards:
         name: Office
       - entity: binary_sensor.master_bedroom_door_contact
         name: Master bedroom
+      - entity: binary_sensor.guest_bedroom_door_contact
+        name: Guest bedroom
+      - entity: binary_sensor.bathroom_door_contact
+        name: Bathroom
     show_empty: false
     state_filter:
       - 'off'
