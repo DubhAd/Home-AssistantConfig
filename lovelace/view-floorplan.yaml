@@ -437,6 +437,7 @@ cards:
             - binary_sensor.master_bedroom_door_contact
             - binary_sensor.guest_bedroom_door_contact
             - binary_sensor.bathroom_door_contact
+            - binary_sensor.master_ensuite_door_contact
           states:
             - state: 'off'
               class: 'interior-door-closed'

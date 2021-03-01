@@ -39,7 +39,7 @@ cards:
       - entity: sensor.master_bedroom_light_sensor_illuminance_lux
         name: Lux
   - type: glance
-    columns: 4
+    columns: 5
     entities:
       - entity: sensor.master_ensuite_humidity
         name: Humidity
@@ -48,6 +48,9 @@ cards:
       - entity: sensor.master_ensuite_pressure
         name: Pressure
       - entity: binary_sensor.master_window_ensuite
+        show_last_changed: true
+        name: Ensuite
+      - entity: binary_sensor.master_ensuite_door_contact
         show_last_changed: true
         name: Ensuite
 - type: vertical-stack
