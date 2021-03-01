@@ -1,0 +1,28 @@
+initial_state: 'on'
+alias: 'Guest bedroom not occupied'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: 
+    - input_boolean.guest_bedroom_occupied
+    - binary_sensor.guest_bedroom_door_contact
+    state: 'on'
+  - condition: state
+    state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: 
+      - media_player.person2
+      - media_player.master_bedroom_display
+      state: 'playing'
+action:
+  - service: notify.logfile
+    data:
+      message: >
+        Guest bedroom not occupied triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.guest_bedroom_occupied
