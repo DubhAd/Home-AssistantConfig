@@ -1,32 +1,15 @@
 initial_state: 'on'
-alias: 'Master bedroom occupied'
+alias: 'Guest bedroom occupied'
 trigger:
   - platform: state
-    entity_id: 
-    - light.master_bedroom_bedhead
-    - input_boolean.person2_in_bed
-    to: 'on'
-  - platform: state
-    entity_id: 
-    - input_boolean.person2_is_awake
-    - binary_sensor.master_bedroom_door_contact
+    entity_id: binary_sensor.master_bedroom_door_contact
     to: 'off'
 condition:
   - condition: state
     entity_id: 
-    - input_boolean.master_bedroom_occupied
-    - binary_sensor.master_bedroom_door_contact
+    - input_boolean.guest_bedroom_occupied
+    - binary_sensor.guest_bedroom_door_contact
     state: 'off'
-  - condition: state
-    entity_id: 
-    - input_boolean.person2_in_bed
-    - input_boolean.person2_home
-    state: 'on'
 action:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.master_bedroom_occupied
-  - service: notify.logfile
-    data:
-      message: >
-        Master bedroom occupied triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-        {{ states('binary_sensor.master_bedroom_door_contact') }} / {{ states('input_boolean.person2_in_bed') }} 
+    entity_id: input_boolean.guest_bedroom_occupied

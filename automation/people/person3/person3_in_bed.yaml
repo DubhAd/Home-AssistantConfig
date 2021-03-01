@@ -5,9 +5,10 @@ trigger:
     entity_id: input_boolean.person3_phone_charging
     to: 'on'
   - platform: state
-    entity_id: 
-    - binary_sensor.guest_bedroom_door_contact
-    - input_boolean.living_room_occupied
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.living_room_occupied
     to: 'off'
   - platform: time
     at: '23:00:00'

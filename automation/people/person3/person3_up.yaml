@@ -18,6 +18,9 @@ condition:
   - condition: time
     after: '03:00:00'
     before: '21:00:00'
+  - condition: state
+    entity_id: input_boolean.person3_phone_charging
+    state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_in_bed
