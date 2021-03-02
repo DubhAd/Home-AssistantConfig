@@ -65,9 +65,7 @@ cards:
     - "#ffff00" # yellow
     - "#00ff00" # green
   entities:
-  - binary_sensor.master_bedroom_door_battery_low
-  - binary_sensor.office_door_battery_low
-  - binary_sensor.office_motion_konke_battery_low
+  - sensor.bathroom_door_battery
   - sensor.bathroom_environment_battery
   - sensor.bathroom_window_battery
   - sensor.family_window_left_battery
@@ -78,6 +76,7 @@ cards:
   - sensor.hall_downstairs_motion_battery
   - sensor.hue_dimmer_battery
   - sensor.master_bedroom_door_battery
+  - sensor.master_ensuite_door_battery
   - sensor.master_bedroom_light_sensor_battery
   - sensor.master_ensuite_environment_battery
   - sensor.master_window_ensuite_battery
