@@ -11,7 +11,7 @@ trigger:
     entity_id: input_boolean.living_room_occupied
     to: 'off'
   - platform: time
-    at: '23:00:00'
+    at: '22:30:00'
 condition:
   - condition: state
     entity_id: 
@@ -34,7 +34,7 @@ condition:
     - condition: and
       conditions:
       - condition: time
-        after: '22:59:00'
+        after: '22:29:00'
         before: '04:00:00'
       - condition: state
         entity_id: input_boolean.living_room_occupied

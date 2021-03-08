@@ -2,20 +2,9 @@ initial_state: 'on'
 alias: 'Zigbee 3 offline'
 trigger:
   - platform: state
-    entity_id: 
-    - light.office_strip
-    - switch.master_bedroom_socket
-    - switch.spare_bedroom_socket_switch
-    to: 'offline'
-    for: '00:01:00'
+    entity_id: sensor.cc_router_linkquality
+    for: '00:30:00'
 condition:
-  - condition: state
-    entity_id: 
-    - light.office_strip
-    - switch.master_bedroom_socket
-    - switch.spare_bedroom_socket_switch
-    state: 'offline'
-    for: '00:01:00'
   - condition: state
     entity_id: sensor.zigbee3_bridge_state
     state: 'online'
