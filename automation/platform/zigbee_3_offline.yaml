@@ -1,9 +1,10 @@
 initial_state: 'on'
 alias: 'Zigbee 3 offline'
 trigger:
-  - platform: state
-    entity_id: sensor.cc_router_linkquality
-    for: '00:30:00'
+  # No mains powered device has update their link in the last half hour
+  - platform: template
+    value_template: >-
+      {{ ((now()-states.sensor.cc_router_linkquality.last_updated).seconds,(now()-states.sensor.office_strip_linkquality.last_updated).seconds,(now()-states.sensor.master_bedroom_socket_linkquality.last_updated).seconds,(now()-states.sensor.spare_bedroom_socket_linkquality.last_updated).seconds)|min > 1800 }}
 condition:
   - condition: state
     entity_id: sensor.zigbee3_bridge_state
