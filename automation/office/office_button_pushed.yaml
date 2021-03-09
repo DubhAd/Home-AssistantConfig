@@ -3,6 +3,8 @@ alias: 'Office button pushed'
 trigger:
   - platform: state
     entity_id: sensor.office_button_click
+  - platform: state
+    entity_id: sensor.spare_button_click
 condition:
   - condition: template
     value_template: >

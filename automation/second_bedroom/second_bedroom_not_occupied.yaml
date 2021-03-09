@@ -1,0 +1,15 @@
+initial_state: 'on'
+alias: 'Second bedroom not occupied'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: 
+    - input_boolean.second_bedroom_occupied
+    - binary_sensor.second_bedroom_door_contact
+    state: 'on'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.second_bedroom_occupied

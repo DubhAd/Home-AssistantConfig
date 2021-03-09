@@ -161,7 +161,7 @@ cards:
         name: Garage - car
       - entity: binary_sensor.patio_window_left
         name: Patio left
-      - entity: binary_sensor.patio_window_right
+      - entity: binary_sensor.patio_window_right_contact
         name: Patio right
       - entity: binary_sensor.pi3_patio_door_left_sensor
         name: Patio
