@@ -71,6 +71,13 @@ background-color: var(--primary-background-color);
   /* fill: #5d5d6f !important;*/
 }
 
+.unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .interior-door-open {
   /* fill: #6f9382 !important; */
   fill: #647a79 !important;

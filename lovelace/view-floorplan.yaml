@@ -131,6 +131,8 @@ cards:
               class: 'squeezebox-off'
             - state: 'idle'
               class: 'squeezebox-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -143,6 +145,8 @@ cards:
               class: 'squeezebox-paused'
             - state: 'off'
               class: 'squeezebox-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -158,6 +162,8 @@ cards:
               class: 'homehub-off'
             - state: 'idle'
               class: 'homehub-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -174,6 +180,8 @@ cards:
               class: 'squeezebox-off'
             - state: 'idle'
               class: 'squeezebox-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -186,6 +194,8 @@ cards:
               class: 'tv-on'
             - state: 'off'
               class: 'tv-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -210,6 +220,8 @@ cards:
               class: 'squeezebox-off'
             - state: 'unknown'
               class: 'squeezebox-unknown'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -351,6 +363,8 @@ cards:
               class: 'indicator-on'
             - state: 'off'
               class: 'light-off'
+            - state: 'unavailable'
+              class: 'light-unavailable'
           propagate: true
 
         - entities:
@@ -393,6 +407,8 @@ cards:
               class: 'doorbell-on'
             - state: 'off'
               class: 'doorbell-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -403,6 +419,8 @@ cards:
               class: 'switch-on'
             - state: 'off'
               class: 'switch-off'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -426,6 +444,8 @@ cards:
               class: 'motion-background'
             - state: 'on'
               class: 'warning-background'
+            - state: 'unavailable'
+              class: 'unavailable'
           state_transitions:
             - from_state: 'on'
               to_state: 'off'
@@ -444,6 +464,8 @@ cards:
               class: 'interior-door-closed'
             - state: 'on'
               class: 'interior-door-open'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -473,6 +495,8 @@ cards:
               class: 'door-closed'
             - state: 'on'
               class: 'door-open'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
@@ -483,6 +507,8 @@ cards:
               class: 'closed-background'
             - state: 'on'
               class: 'open-background'
+            - state: 'unavailable'
+              class: 'unavailable'
           propagate: true
 
         - entities:
