@@ -3,15 +3,15 @@ alias: 'Battery CR123A'
 trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_living_room_multi
-    below: 20
+    below: 21
     for: '03:00:00'
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_living_room_multi
-    below: 10
+    below: 11
     for: '03:00:00'
   - platform: numeric_state
     entity_id: sensor.pi3_zwave_battery_living_room_multi
-    below: 5
+    below: 11
     for: '01:00:00'
 action:
   service: notify.logfile

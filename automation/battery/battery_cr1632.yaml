@@ -24,7 +24,12 @@ trigger:
     - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
-    below: 20
+    - sensor.bathroom_door_battery
+    - sensor.guest_bedroom_door_battery
+    - sensor.master_bedroom_door_battery
+    - sensor.office_door_battery
+    - sensor.second_bedroom_door_battery
+    below: 21
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
@@ -49,7 +54,12 @@ trigger:
     - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
-    below: 10
+    - sensor.bathroom_door_battery
+    - sensor.guest_bedroom_door_battery
+    - sensor.master_bedroom_door_battery
+    - sensor.office_door_battery
+    - sensor.second_bedroom_door_battery
+    below: 11
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
@@ -74,7 +84,12 @@ trigger:
     - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
-    below: 5
+    - sensor.bathroom_door_battery
+    - sensor.guest_bedroom_door_battery
+    - sensor.master_bedroom_door_battery
+    - sensor.office_door_battery
+    - sensor.second_bedroom_door_battery
+    below: 6
     for: '01:00:00'
 action:
   service: notify.logfile

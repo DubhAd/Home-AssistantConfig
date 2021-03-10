@@ -6,21 +6,21 @@ trigger:
     - sensor.vestibule_multi_battery
     - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
-    below: 20
+    below: 21
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.vestibule_multi_battery
     - sensor.hall_downstairs_motion_battery
-    - sensor.dimmer_switch_battery
-    below: 10
+    - sensor.hue_dimmer_battery
+    below: 11
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.vestibule_multi_battery
     - sensor.hall_downstairs_motion_battery
-    - sensor.dimmer_switch_battery
-    below: 5
+    - sensor.hue_dimmer_battery
+    below: 6
     for: '01:00:00'
 action:
   service: notify.logfile

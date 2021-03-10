@@ -9,7 +9,10 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    below: 20
+    - sensor.spare_button_battery
+    - sensor.office_motion_konke_battery
+    - sensor.office_climate_battery
+    below: 21
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
@@ -19,7 +22,10 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    below: 10
+    - sensor.spare_button_battery
+    - sensor.office_motion_konke_battery
+    - sensor.office_climate_battery
+    below: 11
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
@@ -29,7 +35,10 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    below: 5
+    - sensor.spare_button_battery
+    - sensor.office_motion_konke_battery
+    - sensor.office_climate_battery
+    below: 6
     for: '01:00:00'
 action:
   service: notify.logfile
