@@ -1,19 +1,20 @@
 initial_state: 'on'
-alias: 'Office lights turned off'
+alias: 'Office lights turned on'
 trigger:
   - platform: state
     entity_id: light.office_strip
-    to: 'off'
+    to: 'on'
 condition:
-  - condition: template
-    value_template: "{{ states('input_select.office') not in ('Off') }}"
+  - condition: state
+    entity_id: input_select.office
+    state: 'Off'
 action:
   - service: notify.logfile
     data:
       message: >
-        Office lights turned off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+        Office lights turned on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
           Light level is {{ states('sensor.pi3_office_multi_luminance') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.office
-      option: 'Off'
+      option: 'Auto'

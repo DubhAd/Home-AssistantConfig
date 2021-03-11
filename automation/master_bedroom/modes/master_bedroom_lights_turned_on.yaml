@@ -1,0 +1,20 @@
+initial_state: 'on'
+alias: 'Master bedroom lights turned on'
+trigger:
+  - platform: state
+    entity_id: light.master_bedroom_bedhead
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_select.master_bedroom
+    state: 'Off'
+action:
+  - service: notify.logfile
+    data:
+      message: >
+        Master bedroom lights turned on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
+          Light level is {{ states('sensor.master_bedroom_light_sensor_illuminance_lux') }}
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.master_bedroom
+      option: 'Auto'
