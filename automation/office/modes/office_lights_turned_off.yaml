@@ -1,5 +1,5 @@
 initial_state: 'on'
-alias: 'Office mode off'
+alias: 'Office lights turned off'
 trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
