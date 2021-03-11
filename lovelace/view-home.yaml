@@ -217,8 +217,12 @@ cards:
         name: Office
       - entity: binary_sensor.master_bedroom_door_contact
         name: Master bedroom
+      - entity: binary_sensor.master_ensuite_door_contact
+        name: Master ensuite
       - entity: binary_sensor.guest_bedroom_door_contact
         name: Guest bedroom
+      - entity: binary_sensor.second_bedroom_door_contact
+        name: Second bedroom
       - entity: binary_sensor.bathroom_door_contact
         name: Bathroom
     show_empty: false
