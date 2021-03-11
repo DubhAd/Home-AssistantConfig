@@ -75,7 +75,6 @@ cards:
   - sensor.spare_button_linkquality
   - sensor.vestibule_multi_linkquality
   - sensor.cc_router_linkquality
-  - sensor.0x14b457fffe4b0e5c_linkquality
 - type: glance
   title: Z-Wave battery devices
   show_header_toggle: false
