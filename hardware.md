@@ -3,7 +3,7 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 ## Buy again notes:
 
 | Symbol | Means |
-| --- | --- |
+| ---: | --- |
 | :heavy_check_mark: | Yes |
 | :grey_question: | Maybe - it's not bad, but I may find something better |
 | :construction: | Waiting on the next generation of this - typically that means it's good, but not Zigbee 3.0 |
@@ -13,7 +13,7 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 # Zigbee
 
 | What | Function | Buy again? | Zigbee generation | Notes |
-| --- | --- | --- | --- | --- |
+| --- | --- | :---: | :---: | --- |
 | CC2531 | Coordinator | :x: | :one: | It worked for a small mesh, mostly. It isn't a great choice though so I'm replacing it |
 | [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | :heavy_check_mark: | :three: | The replacement coordinator. Currently on the 202101 firmware, and proving solid and stable. |
 | Sleash | None | :warning: | :three: | I flashed this with router firmware, and it joined the mesh, then fell off. I'll revisit this in the future, but so far, I'm unimpressed |
