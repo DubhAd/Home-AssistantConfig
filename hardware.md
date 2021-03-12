@@ -4,9 +4,9 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 
 | Symbol | Means |
 | --- | --- |
-| :heavy_check_mark | Yes |
+| :heavy_check_mark: | Yes |
 | :grey_question: | Maybe - it's not bad, but I may find something better |
-| :construction: | Waiting on the next generation of this |
+| :construction: | Waiting on the next generation of this - typically that means it's good, but not Zigbee 3.0 |
 | :x: | Unlikely, it's not terrible, but it has issues |
 | :warning: | No, just no |
 
