@@ -6,7 +6,7 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.pi3_office_multi_luminance
-    below: 20
+    below: 30
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.office','On') }}"
@@ -15,7 +15,7 @@ condition:
     state: 'on'
   - condition: numeric_state
     entity_id: sensor.pi3_office_multi_luminance
-    below: 20
+    below: 30
 action:
   - service: notify.logfile
     data:

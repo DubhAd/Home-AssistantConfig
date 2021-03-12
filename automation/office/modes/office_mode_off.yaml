@@ -5,7 +5,7 @@ trigger:
     entity_id: input_boolean.office_occupied
   - platform: numeric_state
     entity_id: sensor.pi3_office_multi_luminance
-    above: 30
+    above: 40
   - platform: state
     entity_id: input_select.office
     to: 'Dim'
@@ -18,7 +18,7 @@ condition:
         state: 'off'
       - condition: numeric_state
         entity_id: sensor.pi3_office_multi_luminance
-        above: 30
+        above: 40
 action:
   - service: notify.logfile
     data:
