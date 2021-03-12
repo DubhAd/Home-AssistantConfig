@@ -3,6 +3,7 @@
       * [Z-Wave](#z-wave)
       * [The key software](#the-key-software)
       * [Floorplan](#floorplan)
+      * [Devices](#devices)
       * [Z-Wave](#z-wave-1)
       * [Zigbee](#zigbee)
       * [Lighting](#lighting)
@@ -16,7 +17,7 @@
       * [Other software](#other-software)
       * [Notes](#notes)
    * [Future plans](#future-plans)
-      * [Devices](#devices)
+      * [Devices](#devices-1)
       * [Automation thoughts](#automation-thoughts)
    * [Useful links](#useful-links)
    * [Coffee](#coffee)
@@ -55,38 +56,21 @@ I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overv
     * Oh, and the printer isn't a little low on consumables.
   * The floorplan was created in [Inkscape](https://inkscape.org/), by importing the image of the house's floorplan from the purchase paperwork, then drawing over it. If you look [at it](www/custom_ui/floorplan/floorplan.svg) you'll see that I built it up in layers, one for the foundation (ground), one for the structure, and one for the sensors. I don't really use those currently, other than to ensure that the right things are on top (sensors).
 
+## Devices
+
+You can find a list of my [current and previous hardware here](hardware.md).
+
 ## Z-Wave
 
 Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) integration, on a remote system
-
-  * Z-Wave.me [Razberry](https://razberry.z-wave.me/) Z-Wave board - it has the advantage of not using a USB port, but does require that the onboard Bluetooth is disabled
-  * Aeotec [MultiSensor 6](https://aeotec.com/z-wave-sensor)
-  * Fibaro [motion sensor](https://www.fibaro.com/en/products/motion-sensor/) in the living room
-  * Fibaro FGK10x door sensors (previous generation, superseded by the [FGDW-002](http://manuals.fibaro.com/door-window-sensor-2/)) on the garage doors
-  * Sensative [door/window strips](https://www.stripsbysensative.com/strips-guard/) on the external house doors
-  * TKB [TKB TZ69E](http://www.tkbhome.com/?cn-p-d-271.html) - metering wall plugs
-  * Foxx Project [Smart Switch](https://www.getfoxx.com/products) (which identifies itself as an Aeotec ZW075, aka Smart Switch Gen5). These are cheap, but there's no local switch control for the attached device. Mostly I'm using these as range extenders.
-  * NodOn [Octan Remote](http://nodon.fr/en/z-wave/octan-remote_7-2) in the master bedroom to provide manual control of the Yeelight. It was originally used by the kitchen door, where the next item is now mounted.
-  * NodOn [Soft Remote](https://nodon.fr/en/nodon/z-wave-soft-remote/) in the second bedroom, to also provide manual control of that room's Yeelight.
-  * Z-Wave.me [WALLC-S](http://eng.z-wave.me/index.php?id=30) wall controller, to provide a wall switch for the garden lights
 
 ## Zigbee
 
 I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
 
-  * A CC2531 coordinator bought [from here](https://zigbee2mqtt.discourse.group/t/ad-buy-ready2use-zigbee2mqtt-stick-flashed-antenna-mod-and-printed-case/22/)
-  * A [Zig-A-Zig-Ah!](https://electrolama.com/projects/zig-a-zig-ah/) for a new Zigbee 3.0 mesh
-  * Xiaomi Aqara [door/window sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-window-door-sensor/) - one on every external window (yes, that's a lot)
-  * Xiaomi Aqara [motion and light sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-human-body-sensor/)
-  * Xiaomi Aqara [temperature and humidity sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-temperature-and-humidity-sensor/) in the bathrooms
-  * Gledopto [GL-C-008 RGB+CCT](https://www.aliexpress.com/item/32858603964.html) LED controller (along with some RGB-CCT LED tape and a 24V power supplly)
-  * A Hive [active smart plug](https://smile.amazon.co.uk/gp/product/B01N7L53TB/)
-  * A Salus [SP600 smart plug](https://smile.amazon.co.uk/gp/product/B0743CTGJ6/)
-
 ## Lighting
 
-  * [Yeelight](https://home-assistant.io/integrations/yeelight/) integration and [led strips](https://www.yeelight.com/en_US/product/pitaya), one mounted behind the headboard in the master bedroom, and one along the wall side of the bed frame in the second bedroom. These provide good enough lighting to read by at night, and also to help wake us in the morning.
-  * Outdoor mains [240V LED strip](https://www.lightingever.co.uk/220-240-v-ac-led-strip-multicolour-5050-50m.html) which we turn on and off with one of the wall plugs
+  * [Yeelight](https://home-assistant.io/integrations/yeelight/) integration and led strips. These provide good enough lighting to read by at night, and also to help wake us in the morning.
 
 ## Media
 
@@ -98,7 +82,7 @@ I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
 ## Notifications:
 
   * [Telegram](https://telegram.org) for my notifications, supported by Hangouts Chat using a command line notifier, and the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/) (system status notifications)
-  * [LaMetric](https://lametric.com/) for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
+  * LaMetric for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes
 
 ## Presence detection:
@@ -128,8 +112,8 @@ You'll note I use three different device trackers, two for home (nmap, bluetooth
 
 Historically I didn't make much use of custom components/integrations, however that's changed. Here are the ones I use, and why:
 
-* [HACS](https://hacs.netlify.com) for intalling, updating, and finding new custom integrations. All other custom integrations are installed using this.
-* [Circadian lighting](https://github.com/claytonjn/hass-circadian_lighting/) since the built in [flux integration](https://www.home-assistant.io/integrations/flux) isn't as good.
+* [HACS](https://hacs.xyz) for intalling, updating, and finding new custom integrations. All other custom integrations are installed using this.
+* [Adaptive lighting](https://github.com/basnijholt/adaptive-lighting) (replacing [Circadian lighting](https://github.com/claytonjn/hass-circadian_lighting/)) since the built in [flux integration](https://www.home-assistant.io/integrations/flux) isn't as good.
 * [Fritzbox tools](https://github.com/mammuth/ha-fritzbox-tools) to allow me to track the status of the Internet connection
 * [Home Assistant Remote](https://github.com/lukas-hetzenecker/home-assistant-remote) for linking my Z-Wave and primary instances. This is more effective than my ugly MQTT hack.
 
