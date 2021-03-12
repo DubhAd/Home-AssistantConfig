@@ -3,7 +3,7 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 # Zigbee
 
 | What | Function | Buy again? | Zigbee 3.0? | Notes |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | CC2531 | Coordinator | No | No | It worked for a small mesh, mostly. It isn't a great choice though so I'm replacing it |
 | [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | Already did | Yes | The replacement coordinator. Currently on the 202101 firmware, and proving solid and stable. |
 | Sleash | None | No | Yes | I flashed this with router firmware, and it joined the mesh, then fell off. I'll revisit this in the future, but so far, I'm unimpressed |
