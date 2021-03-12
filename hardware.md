@@ -3,7 +3,7 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 ## Buy again notes:
 
 | Symbol | Means |
-| ---: | --- |
+| :---: | --- |
 | :heavy_check_mark: | Yes |
 | :grey_question: | Maybe - it's not bad, but I may find something better |
 | :construction: | Waiting on the next generation of this - typically that means it's good, but not Zigbee 3.0 |
