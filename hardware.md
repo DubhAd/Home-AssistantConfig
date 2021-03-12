@@ -52,6 +52,10 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 | Fibaro MultiSensor | Living room sensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though |
 | Fibaro FGK10x | Garage door sensors | :x: | Fairly unobtrusive door sensors, which have support for external sensors too. Their only downside is they're not made any more |
 | [Sensative strips](https://sensative.com/sensors/strips-zwave/guard/) | Exterior door sensors | :heavy_check_mark: | Awesome sensors that fit inside the door (or window) frame. You can't replace the battery, but they claim a 10 year lifespan, which is in line with my experiences so far. |
+| TKB TZ69E | General sockets | :heavy_check_mark: | Smart switch with power monitoring. I use these for the garden lights, and a range of interior sockets. Slightly bulky, but rather good. |
+| Z-Wave.me WALLC-S | Light switch | :heavy_check_mark: | Looks like a normal light switch, and is _Associated_ with the TKB socket for the garden lights, this allows us to turn the lights on and off manually when required |
+| NodOn Octan | Bedroom lights | :x: | Great little four button remote, which sadly is discontinued |
+| NodOn Soft Remote | Bedroom lights | :x: | A brightly coloured, kid proof four button remote, that's also discontinued |
 
 # Other
 
