@@ -4,11 +4,11 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 
 | What | Function | Buy again? | Zigbee 3.0? | Notes |
 | --- | --- | --- | --- | --- |
-| CC2531 | Coordinator | No | No | It worked for a small mesh, mostly. It isn't a great choice though so I'm replacing it |
-| [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | Already did | Yes | The replacement coordinator. Currently on the 202101 firmware, and proving solid and stable. |
-| Sleash | None | No | Yes | I flashed this with router firmware, and it joined the mesh, then fell off. I'll revisit this in the future, but so far, I'm unimpressed |
-| [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | Yes | Yes | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recomend this one. | 
-| [Innr SP222](https://www.zigbee2mqtt.io/devices/SP_222.html) | Router | Maybe | Yes | Purely functions as a (Zigbee 3.0) router, it doesn't do power monitoring, but it is compact and has local control |
+| CC2531 | Coordinator | No | :x: | It worked for a small mesh, mostly. It isn't a great choice though so I'm replacing it |
+| [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | :heavy_check_mark: Already did | Yes | The replacement coordinator. Currently on the 202101 firmware, and proving solid and stable. |
+| Sleash | None | :x: | Yes | I flashed this with router firmware, and it joined the mesh, then fell off. I'll revisit this in the future, but so far, I'm unimpressed |
+| [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | Yes | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recomend this one. | 
+| [Innr SP222](https://www.zigbee2mqtt.io/devices/SP_222.html) | Router | :grey_question: | Yes | Purely functions as a (Zigbee 3.0) router, it doesn't do power monitoring, but it is compact and has local control |
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | No<BR>Waiting on T1 | No | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | No<BR>Waiting on T1 | No | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | No<BR>Waiting on T1 | No | These are pretty good, they report regularly enough to be useful and are reliable. |
@@ -18,13 +18,13 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 | [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | Probably not | Yes | These are neat, smaller than the Xiaomi sensors, and visually quite nice. The main downside is that it supports three channels, out of 26... |
 | [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | Probably not | Yes | These are neat, smaller than the Xiaomi sensors, but visually not as nice. The main downside is that it supports three channels, out of 26... |
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | Remote | Probably not | Yes | These are neat, smaller than the Xiaomi button, but not as nice to use. The main downside is that it supports three channels, out of 26... |
-| [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Light | Maybe | Yes | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
-| [Hive active plug](https://www.zigbee2mqtt.io/devices/1613V.html) | Controlling an uplighter | No | No | This both extends my mesh, and also manages a dumb uplighter that I'll fit a smart bulb to at some point, again |
-| [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | Router | No | No | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
-| [Gledopto GL-C-008 RGB+CCT](https://www.zigbee2mqtt.io/devices/GL-C-008-1ID.html) | Hall lighting | No | No |  I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I plan on swapping this out for the Zigbee 3.0 version, and probably replacing the tape with COB tape |
-| [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | Router | No | Unsure | Purely functions as a router for the original mesh, but I don't need it any more |
-| [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | No | Yes | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly drops off the mesh and reconnecting |
-| [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | No | No | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
+| [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Light | :grey_question: | Yes | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
+| [Hive active plug](https://www.zigbee2mqtt.io/devices/1613V.html) | Controlling an uplighter | :x: | No | This both extends my mesh, and also manages a dumb uplighter that I'll fit a smart bulb to at some point, again |
+| [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | Router | :x: | No | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
+| [Gledopto GL-C-008 RGB+CCT](https://www.zigbee2mqtt.io/devices/GL-C-008-1ID.html) | Hall lighting | :x: | No |  I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I plan on swapping this out for the Zigbee 3.0 version, and probably replacing the tape with COB tape |
+| [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | Router | :x: | Unsure | Purely functions as a router for the original mesh, but I don't need it any more |
+| [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | :x: | Yes | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly drops off the mesh and reconnecting |
+| [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | :x: | No | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
 
 # Z-Wave
 
