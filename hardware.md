@@ -67,3 +67,4 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 | Squeezebox Radio | Alarm clock | :no_entry: | Awesome, but discontinued |
 | Google Home | Various | :heavy_check_mark: | Smart displays, announcements, and voice control. Mostly these are used for casting a camera stream to, or for TTS. |
 | [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
+| HiWatch IPC-T140 | Camera | :construction: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
