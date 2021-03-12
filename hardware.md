@@ -5,13 +5,15 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 | Symbol | Means |
 | :---: | --- |
 | :heavy_check_mark: | Yes |
-| :grey_question: | Maybe - it's not bad, but I may find something better |
 | :construction: | Waiting on the next generation of this - typically that means it's good, but not Zigbee 3.0 |
+| :grey_question: | Maybe - it's not bad, but I may find something better |
 | :x: | Unlikely, it's not terrible, but it has issues |
 | :no_entry: | Discontinued |
 | :warning: | No, just no |
 
 # Zigbee
+
+My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sure, I'm limited to 200 Zigbee 3.0 devices in the mesh, but I don't expect that I'll actually get close enough to that limit for it to matter. If that does look likely to happen then I can always run two meshes.
 
 ## Zigbee 3.0 
 
@@ -33,7 +35,7 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
-| CC2531 | Coordinator | :x: | It worked for a small mesh, mostly. It isn't a great choice though so I'm replacing it |
+| CC2531 | Coordinator | :x: | It worked for a small mesh, mostly. It isn't a great choice though so I'm migrating to the Zig-A-Zig-Ah! |
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | :construction: | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :construction: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :construction: | These are pretty good, they report regularly enough to be useful and are reliable. |
@@ -46,9 +48,11 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 
 # Z-Wave
 
+All my current Z-Wave hardware is Z-Wave Plus.
+
 | What | Function | Buy again? | Thoughts |
 | --- | --- | :---: | --- |
-| [Razpberry board](https://razberry.z-wave.me/) | Controller | :x: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
+| [Razberry board](https://razberry.z-wave.me/) | Controller | :x: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
 | Aeotec MultiSensor 6 | Office sensor | :heavy_check_mark: | Excellent all around multi-sensor with a bonus of being USB powered |
 | Fibaro MultiSensor | Living room sensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though |
 | Fibaro FGK10x | Garage door sensors | :x: | Fairly unobtrusive door sensors, which have support for external sensors too. Their only downside is they're not made any more |
