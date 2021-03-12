@@ -41,7 +41,7 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 | [Gledopto GL-C-008 RGB+CCT](https://www.zigbee2mqtt.io/devices/GL-C-008-1ID.html) | Hall lighting | :construction: |  I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I plan on swapping this out for the Zigbee 3.0 version, and probably replacing the tape with COB tape |
 | [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | Router | :x: | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
 | [Hive active plug](https://www.zigbee2mqtt.io/devices/1613V.html) | Controlling an uplighter | :x: | This both extends my mesh, and also manages a dumb uplighter that I'll fit a smart bulb to at some point, again |
-| [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | :warning: This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
+| [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | :warning: | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
 
 # Z-Wave
 
