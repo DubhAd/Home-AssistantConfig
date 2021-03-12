@@ -4,8 +4,7 @@
       * [The key software](#the-key-software)
       * [Floorplan](#floorplan)
       * [Devices](#devices)
-      * [Z-Wave](#z-wave-1)
-      * [Zigbee](#zigbee)
+      * [Z-Wave and Zigbee](#z-wave-and-zigbee)
       * [Lighting](#lighting)
       * [Media](#media)
       * [Notifications:](#notifications)
@@ -60,13 +59,11 @@ I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overv
 
 You can find a list of my [current and previous hardware here](hardware.md).
 
-## Z-Wave
+## Z-Wave and Zigbee
 
-Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) integration, on a remote system
+Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) integration, on a remote system. At some point I'll migrate to Z-Wave JS, but not soon.
 
-## Zigbee
-
-I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system
+For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
 ## Lighting
 
