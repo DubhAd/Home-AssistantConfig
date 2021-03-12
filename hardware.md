@@ -45,10 +45,13 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 
 # Z-Wave
 
-| What | Function | Buy again? | Z-Wave Plus? | Thoughts |
-| --- | --- | :---: | :---: | --- |
-| [Razpberry board](https://razberry.z-wave.me/) | Controller | :x: | :heavy_plus_sign: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
-| Aeotec MultiSensor 6 | Office sensor | :heavy_check_mark: | :heavy_plus_sign: | |
+| What | Function | Buy again? | Thoughts |
+| --- | --- | :---: | --- |
+| [Razpberry board](https://razberry.z-wave.me/) | Controller | :x: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
+| Aeotec MultiSensor 6 | Office sensor | :heavy_check_mark: | Excellent all around multi-sensor with a bonus of being USB powered |
+| Fibaro MultiSensor | Living room sensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though |
+| Fibaro FGK10x | Garage door sensors | :x: | Fairly unobtrusive door sensors, which have support for external sensors too. Their only downside is they're not made any more |
+| [Sensative strips](https://sensative.com/sensors/strips-zwave/guard/) | Exterior door sensors | :heavy_check_mark: | Awesome sensors that fit inside the door (or window) frame. You can't replace the battery, but they claim a 10 year lifespan, which is in line with my experiences so far. |
 
 # Other
 
