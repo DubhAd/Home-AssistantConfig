@@ -62,3 +62,8 @@ This is a list of the various pieces of hardware I use, or have used, with Home 
 
 | What | Function | Buy again? | Thoughts |
 | --- | --- | :---: | --- |
+| Yeelight strip | Behind the bedhead lighting | :grey_question: | WiFi connected smart RGB strips, not terrible, not awesome |
+| Sonos speakers | Music! | :heavy_check_mark: | Good enough quality for audio, more then loud enough. I'll likely buy some of the Symfonisk speakers instead of more Play One type devices though |
+| Squeezebox Radio | Alarm clock | :no_entry: | Awesome, but discontinued |
+| Google Home | Various | :heavy_check_mark: | Smart displays, announcements, and voice control. Mostly these are used for casting a camera stream to, or for TTS. |
+| [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
