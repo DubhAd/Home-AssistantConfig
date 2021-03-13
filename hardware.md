@@ -1,4 +1,4 @@
-This is a list of the various pieces of hardware I use, or have used, with Home Assistant, along with my take on them.
+This is a list of the various pieces of hardware I use, have used, or plan to use with Home Assistant, along with my take on them (if I've used them).
 
 ## Buy again notes:
 
