@@ -16,7 +16,6 @@
       * [Other software](#other-software)
       * [Notes](#notes)
    * [Future plans](#future-plans)
-      * [Devices](#devices-1)
       * [Automation thoughts](#automation-thoughts)
    * [Useful links](#useful-links)
    * [Coffee](#coffee)
@@ -116,65 +115,7 @@ Historically I didn't make much use of custom components/integrations, however t
 
 ### Standard integrations
 
-These are all the standard integrations I've enabled (ignoring all the ones that Home Assistant (Core) itself uses internally), when last I checked. Some of these can only be set up in the UI, so you won't find them mentioned in the YAML here.
-
-* [`alarm_control_panel`](https://www.home-assistant.io/integrations/alarm_control_panel/)
-* [`alert`](https://www.home-assistant.io/integrations/alert/)
-* [`automation`](https://www.home-assistant.io/integrations/automation/)
-* [`binary_sensor`](https://www.home-assistant.io/integrations/binary_sensor/)
-* [`calendar`](https://www.home-assistant.io/integrations/calendar/)
-* [`camera`](https://www.home-assistant.io/integrations/camera/)
-* [`cast`](https://www.home-assistant.io/integrations/cast/)
-* [`cloud`](https://www.home-assistant.io/integrations/cloud/)
-* [`default_config`](https://www.home-assistant.io/integrations/default_config/)
-* [`device_tracker`](https://www.home-assistant.io/integrations/device_tracker/)
-* [`discovery`](https://www.home-assistant.io/integrations/discovery/)
-* [`ffmpeg`](https://www.home-assistant.io/integrations/ffmpeg/)
-* [`geo_location`](https://www.home-assistant.io/integrations/geo_location/)
-* [`google`](https://www.home-assistant.io/integrations/google/)
-* [`gpslogger`](https://www.home-assistant.io/integrations/gpslogger/)
-* [`group`](https://www.home-assistant.io/integrations/group/)
-* [`history`](https://www.home-assistant.io/integrations/history/)
-* [`http`](https://www.home-assistant.io/integrations/http/)
-* [`influxdb`](https://www.home-assistant.io/integrations/influxdb/)
-* [`input_boolean`](https://www.home-assistant.io/integrations/input_boolean/)
-* [`input_datetime`](https://www.home-assistant.io/integrations/input_datetime/)
-* [`input_number`](https://www.home-assistant.io/integrations/input_number/)
-* [`input_select`](https://www.home-assistant.io/integrations/input_select/)
-* [`input_text`](https://www.home-assistant.io/integrations/input_text/)
-* [`light`](https://www.home-assistant.io/integrations/light/)
-* [`local_ip`](https://www.home-assistant.io/integrations/local_ip/)
-* [`logger`](https://www.home-assistant.io/integrations/logger/)
-* [`lovelace`](https://www.home-assistant.io/integrations/lovelace/)
-* [`media_player`](https://www.home-assistant.io/integrations/media_player/)
-* [`met`](https://www.home-assistant.io/integrations/met/)
-* [`mqtt`](https://www.home-assistant.io/integrations/mqtt/)
-* [`notify`](https://www.home-assistant.io/integrations/notify/)
-* [`person`](https://www.home-assistant.io/integrations/person/)
-* [`plex`](https://www.home-assistant.io/integrations/plex/)
-* [`proximity`](https://www.home-assistant.io/integrations/proximity/)
-* [`recorder`](https://www.home-assistant.io/integrations/recorder/)
-* [`rest_command`](https://www.home-assistant.io/integrations/rest_command/)
-* [`samsungtv`](https://www.home-assistant.io/integrations/samsungtv/)
-* [`scene`](https://www.home-assistant.io/integrations/scene/)
-* [`script`](https://www.home-assistant.io/integrations/script/)
-* [`sensor`](https://www.home-assistant.io/integrations/sensor/)
-* [`sonos`](https://www.home-assistant.io/integrations/sonos/)
-* [`ssdp`](https://www.home-assistant.io/integrations/ssdp/)
-* [`stream`](https://www.home-assistant.io/integrations/stream/)
-* [`sun`](https://www.home-assistant.io/integrations/sun/)
-* [`switch`](https://www.home-assistant.io/integrations/switch/)
-* [`system_health`](https://www.home-assistant.io/integrations/system_health/)
-* [`telegram_bot`](https://www.home-assistant.io/integrations/telegram_bot/)
-* [`timer`](https://www.home-assistant.io/integrations/timer/)
-* [`tts`](https://www.home-assistant.io/integrations/tts/)
-* [`updater`](https://www.home-assistant.io/integrations/updater/)
-* [`weather`](https://www.home-assistant.io/integrations/weather/)
-* [`webhook`](https://www.home-assistant.io/integrations/webhook/)
-* [`wwlln`](https://www.home-assistant.io/integrations/wwlln/)
-* [`yeelight`](https://www.home-assistant.io/integrations/yeelight/)
-* [`zeroconf`](https://www.home-assistant.io/integrations/zeroconf/)
-* [`zone`](https://www.home-assistant.io/integrations/zone/)
+I moved these all [out here](integrations.md) because it's a long list, and not _that_ interesting.
 
 ## Other software
 
@@ -198,17 +139,6 @@ These are all the standard integrations I've enabled (ignoring all the ones that
 # Future plans
 
 A large amount of this will require a rewire of the lighting circuits, so that all the light switches have a neutral wire.
-
-## Devices
-
-* Dimmer modules at most light switches, the exception will be the toilet (since there's a fan linked to it) and the outside light
-* Switch modules for the extractor fans
-* Multisensors (light/motion/humidity/temperature) in the bedrooms and bathrooms
-* Multisensors (light/motion/temperature) in all other rooms
-* Lots more door and window sensors, including on the garden gate
-* Some form of distance sensor (ultrasonic or laser) in the garage
-* Digital LED strip for the front of the garage
-* Analogue LED strips (likely with a Z-Wave controller) for accent lighting and pathway lighting
 
 ## Automation thoughts
 

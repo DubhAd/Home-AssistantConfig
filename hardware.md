@@ -73,3 +73,15 @@ All my current Z-Wave hardware is Z-Wave Plus.
 | [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
 | HiWatch IPC-T140 | Camera | :construction: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
 | 240V RGB LED strip | Garden lights | :grey_question: | Yes, a single strip along the garden perimeter. There's about 25 meters of light strip in use, and being 240V no need to inject power. Sadly being dumb there's no fine control. If I had to do it again, I'd use WLED. |
+
+# Future plans
+
+* Dimmer modules at most light switches, the exception will be the toilet (since there's a fan linked to it) and the outside light
+* Switch modules for the extractor fans
+* Multisensors or multiple sensors (light/motion/humidity/temperature) in the bedrooms and bathrooms
+* Multisensors or multiple sensors (light/motion/temperature) in all other rooms
+* More door and window sensors, including on the garden gate
+* Some form of distance sensor (ultrasonic or laser) in the garage
+* Digital LED strip for the front of the garage
+* LED strips (either Zigbee or Digital) for accent lighting and pathway lighting
+
