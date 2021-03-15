@@ -2,9 +2,10 @@ initial_state: 'on'
 alias: 'person3 up'
 trigger:
   - platform: state
-    entity_id: input_boolean.person3_phone_charging
-  - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.person3_phone_charging
     to: 'off'
 condition:
   - condition: state
@@ -15,12 +16,12 @@ condition:
   - condition: state
     entity_id: binary_sensor.master_bedroom_door_contact
     state: 'off'
-  - condition: time
-    after: '03:00:00'
-    before: '21:00:00'
   - condition: state
     entity_id: input_boolean.person3_phone_charging
     state: 'off'
+  - condition: time
+    after: '03:00:00'
+    before: '21:00:00'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_in_bed

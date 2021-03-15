@@ -1,0 +1,34 @@
+alias: 'person1 alarm left playing'
+initial_state: 'on'
+trigger:
+  # Door open for 2 minutes
+  - platform: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    to: 'off'
+    for: '00:02:00'
+  - platform: state
+    entity_id: media_player.person1
+    to: 'playing'
+    for: '00:01:00'
+  - platform: state
+    entity_id: input_boolean.person1_in_bed
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.person1_in_bed
+    state: 'off'
+  - condition: state
+    entity_id: media_player.person1
+    state: 'playing'
+  - condition: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    state: 'off'
+    for: '00:02:00'
+  # Is in the daytime window
+  - condition: time
+    after: '04:00:00'
+    before: '12:00:00'
+action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.person1

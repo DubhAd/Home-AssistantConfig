@@ -16,6 +16,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 10
 condition:
   # Lighting automations are enabled
   - condition: state
@@ -28,7 +31,7 @@ condition:
     for: '00:30:00'
   - condition: or
     conditions:
-    # Turn it off if the office hasn't been occupied for long, or there's been no motion for a while
+    # Turn it off if the office hasn't been occupied for long, or there's been no motion for a while, or it got brighter
     - condition: and
       conditions:
       - condition: state
@@ -48,6 +51,9 @@ condition:
       entity_id: binary_sensor.pi3_living_room_motion
       state: 'on'
       for: '00:30:00'
+  - condition: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    above: 10
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto
