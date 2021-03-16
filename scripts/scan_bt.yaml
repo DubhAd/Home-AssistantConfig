@@ -20,18 +20,6 @@ sequence:
         message: "Arrival scan because nobody is home"
     - service: script.scan_bt_arrive
   #################### ####################
-  # Everybody is home
-  - conditions:
-    # Nobody is away - this can only be a departure
-    - condition: numeric_state
-      entity_id: sensor.home_count
-      above: 0.9
-    sequence:
-    - service: notify.logfile
-      data:
-        message: "Departure scan because everybody is home"
-    - service: script.scan_bt_depart
-  #################### ####################
   # Far garage door open, near one closed, motion in the vestibule
   - conditions:
     # If the far garage door is open, and the near one is closed, we're likely going to the bike
@@ -47,6 +35,7 @@ sequence:
       - condition: state
         entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'on'
+        for: '00:00:01'
       - condition: not
         conditions:
         - condition: state
@@ -66,6 +55,7 @@ sequence:
       - condition: state
         entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'on'
+        for: '00:00:01'
       - condition: not
         conditions:
         - condition: state
@@ -76,7 +66,7 @@ sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
       data:
-        message: "Departure (then arrival) scan because of motion in the vestibule (and both garage doors are closed)"
+        message: "Departure (then arrival) scan because of motion in the vestibule"
     - service: script.scan_bt_depart
     - service: script.scan_bt_arrive
   #################### ####################
@@ -92,7 +82,7 @@ sequence:
         message: "Arrival scan because there was no motion in the vestibule"
     - service: script.scan_bt_arrive
   #################### ####################
-  # Car door is open already
+  # Car door is open
   - conditions:
     # Garage door is open already
     - condition: state
@@ -104,6 +94,18 @@ sequence:
       data:
         message: "Arrival scan because the garage door is open"
     - service: script.scan_bt_arrive
+  #################### ####################
+  # Everybody is home
+  - conditions:
+    # Nobody is away - this can only be a departure
+    - condition: numeric_state
+      entity_id: sensor.home_count
+      above: 0.9
+    sequence:
+    - service: notify.logfile
+      data:
+        message: "Departure scan because everybody is home"
+    - service: script.scan_bt_depart
   #################### ####################
   # Mixed bag situation unclear, do it all
   default:

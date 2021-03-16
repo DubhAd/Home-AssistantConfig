@@ -32,7 +32,7 @@ condition:
       conditions:
       - condition: template
         value_template: >-
-          {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60 ) }}
+          {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 120 ) }}
       - condition: numeric_state
         entity_id: group.person_person1
         above: 0

@@ -4,18 +4,9 @@ trigger:
   - platform: state
     entity_id: binary_sensor.pi3_front_door_sensor
     to: 'on'
-condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: binary_sensor.pi3_front_door_sensor
-      state: 'on'
-    - condition: template
-      value_template: "{{ true if (trigger and trigger.event) else false }}"
-  # The garage door isn't open
 action:
+  - service: script.turn_on
+    entity_id: script.scan_bt
   - service: automation.turn_off
     data:
       entity_id: automation.garage_open_nobody_home
-  - service: script.turn_on
-    entity_id: script.scan_bt
