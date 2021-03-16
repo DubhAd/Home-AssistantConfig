@@ -1,12 +1,8 @@
 alias: 'person3 away'
 initial_state: 'on'
 trigger:
-  - platform: numeric_state
+  - platform: state
     entity_id: proximity.person3_home
-    above: 300
-  - platform: numeric_state
-    entity_id: proximity.person3_home
-    above: 600
   - platform: state
     entity_id:
       - device_tracker.person3_mobile

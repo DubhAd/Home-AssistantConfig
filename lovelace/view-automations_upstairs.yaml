@@ -13,8 +13,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.pause_music_in_the_office
     secondary_info: last-triggered
-  - entity: automation.resume_music_in_the_office
-    secondary_info: last-triggered
   - entity: automation.office_button_pushed
     secondary_info: last-triggered
   - type: divider

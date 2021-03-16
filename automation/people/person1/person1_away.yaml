@@ -1,30 +1,23 @@
 alias: 'person1 away'
 initial_state: 'on'
 trigger:
-  - platform: numeric_state
+  - platform: state
     entity_id: proximity.person1_home
-    above: 300
-  - platform: numeric_state
-    entity_id: proximity.person1_home
-    above: 600
   - platform: state
     entity_id: 
       - device_tracker.3c_28_6d_da_eb_a1
       - device_tracker.person1_bt_mobile
       - device_tracker.person1_bt_front_mobile
     to: 'not_home'
+  - platform: event
+    event_type: automation_reloaded
   - platform: homeassistant
     event: start
-variables:
-  away_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person1', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
-  door_recent: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300) }}"
-  is_home: "{{ is_state('input_boolean.person1_home','on') }}"
-  proximity_home: "{{ states('proximity.person1_home') }}"
-  away_script: script.person1_away
 condition:
   # currently home
-  - condition: template
-    value_template: "{{ is_home == 'True' }}"
+  - condition: state
+    entity_id: input_boolean.person1_home
+    state: 'on'
   - condition: or
     conditions:
     # Two or more trackers mark as away, door opened/closed in the last 5 minutes
@@ -32,21 +25,22 @@ condition:
       conditions:
       # More than one tracker shows away
       - condition: template
-        value_template: "{{ away_count|int > 1 }}"
+        value_template: "{{ expand('group.person_person1')|selectattr('state','eq','not_home')|list|count > 1 }}"
+        #value_template: "{{ expand('group.person_person1')|selectattr('attributes.source_type','eq','bluetooth')|selectattr('state','eq','home')|list|count }}" # for just Bluetooth trackers
       # An exit door recently opened or closed
       - condition: template
-        value_template: "{{ door_recent == 'True' }}"
+        value_template: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300) }}"
     # Some away, and not near
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ away_count|int > 0 }}"
+        value_template: "{{ expand('group.person_person1')|selectattr('state','eq','not_home')|list|count > 0 }}"
       - condition: template
-        value_template: "{{ proximity_home|int > 300 }}"
+        value_template: "{{ states('proximity.person1_home')|float > 300 }}"
     # Far away
     - condition: template
-      value_template: "{{ proximity_home|int > 600 }}"
+      value_template: "{{ states('proximity.person1_home')|float > 600 }}"
 action:
   - service: script.turn_on
     data:
-      entity_id: "{{ away_script }}"
+      entity_id: script.person1_away

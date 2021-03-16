@@ -5,7 +5,7 @@ trigger:
     entity_id: sensor.office_button_click
     # Need to switch to _action
   - platform: state
-    entity_id: sensor.spare_button_click
+    entity_id: sensor.spare_button_action
 condition:
   - condition: template
     value_template: >

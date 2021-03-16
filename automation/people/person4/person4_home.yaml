@@ -7,8 +7,6 @@ trigger:
       - device_tracker.person4_bt_front_mobile
       - device_tracker.person4_bt_mobile
     to: 'home'
-  - platform: homeassistant
-    event: start
 condition:
   - condition: numeric_state
     entity_id: group.person_person4
