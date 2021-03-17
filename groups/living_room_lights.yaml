@@ -1,5 +1,5 @@
 name: Living room lights
 entities:
-- switch.pi3_cabinet_light_switch
 - switch.pi3_tv_light_switch
-- light.living_room_table
+- switch.pi3_table_light_switch
+- light.living_room_corner_lamp

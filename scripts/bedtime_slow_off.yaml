@@ -3,12 +3,11 @@ alias: Bedtime slow off
 sequence:
   - service: light.turn_off
     data:
-      entity_id: light.living_room_table
+      entity_id: light.living_room_corner_lamp
       transition: 30
   - service: switch.turn_off
     entity_id: 
       - switch.pi3_tv_light_switch
-      - switch.pi3_cabinet_light_switch
       - switch.pi3_livingroom_socket_switch
       - switch.pi3_vestibule_switch
   - service: input_boolean.turn_off

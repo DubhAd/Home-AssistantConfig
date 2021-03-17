@@ -48,10 +48,10 @@ condition:
 action:
   - service: notify.logfile
     data:
-      message: "Turning off the living room table light"
+      message: "Turning off the living room lights"
   - service: light.turn_off
     data:
-      entity_id: light.living_room_table
+      entity_id: light.living_room_corner_lamp
       transition: 15
   - service: switch.turn_off
     entity_id: 

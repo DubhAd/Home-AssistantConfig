@@ -54,6 +54,14 @@ condition:
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
       above: 50
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: light.living_room_corner_lamp
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.pi3_living_room_multi_luminance
+        above: 40
       # Or room not occupied and not bedtime
     - condition: and
       conditions:

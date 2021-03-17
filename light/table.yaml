@@ -1,3 +1,0 @@
-- platform: switch
-  name: "Living room table"
-  entity_id: switch.living_room_table

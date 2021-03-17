@@ -40,7 +40,7 @@ condition:
       above: 11
     # Didn't just turn the lights off
     - condition: template
-      value_template: "{{ (as_timestamp(now()) - as_timestamp(states.switch.pi3_cabinet_light_switch.last_updated)) | int > 120 }}"
+      value_template: "{{ (as_timestamp(now()) - as_timestamp(states.light.living_room_corner_lamp.last_updated)) | int > 120 }}"
     # Lighting in the room is under automatic control
     - condition: state
       entity_id: input_boolean.lighting_living_room

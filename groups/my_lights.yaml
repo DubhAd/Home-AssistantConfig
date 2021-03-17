@@ -1,10 +1,10 @@
 name: Lights
 entities:
 - switch.pi3_garden_lights_switch
-- switch.pi3_cabinet_light_switch
+- switch.pi3_table_light_switch
 - switch.pi3_tv_light_switch
 - switch.pi3_livingroom_socket_switch
-- light.living_room_table
+- light.living_room_corner_lamp
 - light.hall
 - light.master_bedroom_bedhead
 - light.person1_bedroom_bedside

@@ -368,10 +368,10 @@ cards:
           propagate: true
 
         - entities:
-            - switch.pi3_cabinet_light_switch
             - switch.pi3_tv_light_switch
             - switch.pi3_livingroom_socket_switch
             - light.living_room_table
+            - light.living_room_corner_lamp
           states:
             - state: 'on'
               class: 'light-on'

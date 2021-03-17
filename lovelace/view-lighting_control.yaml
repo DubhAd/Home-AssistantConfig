@@ -16,6 +16,22 @@ cards:
     secondary_info: last-changed
     state_color: true
 - type: entities
+  title: Adaptive in the Living Room
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_living_room_lamps
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_living_room_lamps
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_living_room_lamps
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_living_room_lamps
+    name: Sleep mode
+    state_color: true
+- type: entities
   title: Adaptive in the Hall
   show_header_toggle: false
   entities:

@@ -165,10 +165,8 @@ cards:
     - switch.living_room_table
     - light.hall
     - light.person1_bedroom_bedside
-    - light.living_room
-    - light.living_room_corner
-    - light.living_room_table
-    - light.living_room_tv
+    - light.office_strip
+    - light.living_room_corner_lamp
     - light.master_bedroom_bedhead
     - light.yeelight_strip1_286c07afc307
     - light.yeelight_strip1_7811dca22b87

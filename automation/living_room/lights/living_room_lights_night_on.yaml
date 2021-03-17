@@ -36,15 +36,13 @@ action:
     entity_id: input_boolean.livingroom_lights_auto
   - service: notify.logfile
     data:
-      message: "Turning on the living room table light"
+      message: "Turning on the living room lights"
   - service: light.turn_on
     data:
-      entity_id: light.living_room_table
-      brightness_pct: 75
-      transition: 15
+      entity_id: light.living_room_corner_lamp
+      transition: 5
   - service: switch.turn_on
     entity_id: 
       - switch.pi3_livingroom_socket_switch
       - switch.pi3_tv_light_switch
-  - service: switch.turn_on
-    entity_id: switch.pi3_cabinet_light_switch
+      - switch.pi3_table_light_switch

@@ -38,30 +38,28 @@ action:
     entity_id:
       - switch.pi3_tv_light_switch
       - switch.pi3_livingroom_socket_switch
-  - service: light.turn_off
+  - service: switch.turn_off
     data:
-      entity_id: light.living_room_table
-      transition: 10
+      entity_id: switch.pi3_table_light_switch
   - choose:
     - conditions:
       - condition: state
-        entity_id: switch.pi3_cabinet_light_switch
+        entity_id: light.living_room_corner_lamp
         state: 'on'
       - condition: state
         entity_id: input_boolean.living_room_christmas
         state: 'off'
       sequence:
-      - service: switch.turn_off
-        entity_id:
-          - switch.pi3_cabinet_light_switch
+      - service: light.turn_off
+        data:
+          entity_id: light.living_room_corner_lamp
     - conditions:
       - condition: state
-        entity_id: switch.pi3_cabinet_light_switch
+        entity_id: light.living_room_corner_lamp
         state: 'off'
       - condition: state
         entity_id: input_boolean.living_room_christmas
         state: 'on'
       sequence:
       - service: switch.turn_on
-        entity_id:
-          - switch.pi3_cabinet_light_switch
+        entity_id: switch.pi3_cabinet_light_switch

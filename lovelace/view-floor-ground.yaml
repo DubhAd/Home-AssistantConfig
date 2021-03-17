@@ -10,11 +10,12 @@ cards:
     - entity: switch.pi3_tv_light_switch
       tap_action: 
         action: toggle
-    - entity: switch.pi3_cabinet_light_switch
-      tap_action: 
-        action: toggle
+    - entity: light.living_room_corner_lamp
+      name: "Corner"
     - entity: light.living_room_table
       name: "Table"
+      tap_action: 
+        action: toggle 
     - entity: switch.pi3_livingroom_socket_switch
       name: "Socket"
       tap_action: 

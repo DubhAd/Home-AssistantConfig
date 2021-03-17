@@ -3,10 +3,11 @@ alias: 'Living room override'
 trigger:
   - platform: state
     entity_id:
-    - light.living_room_table
+    - light.living_room_corner_lamp
     - switch.pi3_livingroom_socket_switch
     - switch.pi3_tv_light_switch
     - switch.pi3_cabinet_light_switch
+    - switch.pi3_table_light_switch
     to: 'off'
 condition:
   - condition: and
@@ -22,7 +23,7 @@ condition:
         - condition: or
           conditions:
           - condition: state
-            entity_id: light.living_room_table
+            entity_id: light.living_room_corner_lamp
             state: 'off'
           - condition: state
             entity_id: switch.pi3_livingroom_socket_switch
@@ -32,6 +33,9 @@ condition:
             state: 'off'
           - condition: state
             entity_id: switch.pi3_cabinet_light_switch
+            state: 'off'
+          - condition: state
+            entity_id: switch.pi3_table_light_switch
             state: 'off'
       - condition: and
         conditions:

@@ -32,8 +32,6 @@ condition:
         entity_id: input_select.house
         state: 'Motion'
 action:
-  - service: light.turn_on
+  - service: switch.turn_on
     data:
-      entity_id: light.living_room_table
-      brightness_pct: 5
-      transition: 15
+      entity_id: switch.pi3_table_light_switch
