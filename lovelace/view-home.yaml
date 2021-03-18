@@ -258,7 +258,7 @@ cards:
         name: "Vestibule socket"
         tap_action: 
           action: toggle
-      - entity: switch.living_room_table
+      - entity: light.living_room_table_lamp
         name: Table
       - entity: light.living_room_tv_lamp
         name: "TV"

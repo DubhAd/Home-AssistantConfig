@@ -36,11 +36,15 @@ action:
     entity_id: input_boolean.livingroom_lights_auto
   - service: switch.turn_on
     entity_id:
-      - switch.pi3_tv_light_switch
       - switch.pi3_livingroom_socket_switch
-  - service: switch.turn_off
+  - service: switch.turn_on
     data:
-      entity_id: switch.living_room_table
+      entity_id: light.living_room_tv_lamp
+      transition: 5
+  - service: light.turn_off
+    data:
+      entity_id: light.living_room_table_lamp
+      transition: 5
   - choose:
     - conditions:
       - condition: state

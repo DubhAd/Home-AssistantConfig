@@ -2,3 +2,4 @@
   name: 'Living room'
   entities:
     - light.living_room_corner_lamp
+    - light.living_room_tv_lamp

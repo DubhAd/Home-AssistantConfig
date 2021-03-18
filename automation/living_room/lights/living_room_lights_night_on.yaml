@@ -39,11 +39,11 @@ action:
       message: "Turning on the living room lights"
   - service: light.turn_on
     data:
-      entity_id: light.living_room_corner_lamp
-      brightness_pct: 75
+      entity_id: 
+        - light.living_room_corner_lamp
+        - light.living_room_tv_lamp
+        - light.living_room_table_lamp
       transition: 5
   - service: switch.turn_on
     entity_id: 
       - switch.pi3_livingroom_socket_switch
-      - switch.pi3_tv_light_switch
-      - switch.living_room_table

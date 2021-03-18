@@ -63,6 +63,8 @@ cards:
   - sensor.bathroom_door_linkquality
   - sensor.guest_bedroom_door_linkquality
   - sensor.living_room_corner_lamp_linkquality
+  - sensor.living_room_tv_lamp_linkquality
+  - sensor.living_room_table_lamp_linkquality
   - sensor.master_bedroom_door_linkquality
   - sensor.master_bedroom_light_sensor_linkquality
   - sensor.master_bedroom_socket_linkquality
@@ -113,10 +115,9 @@ cards:
   - zwave.pi3_vestibule
   - zwave.pi3_front_bedroom
 - type: custom:html-template-card
-  title: 'Link status times'
+  title: 'Zigbee 1.2 link status times'
   ignore_line_breaks: true
   content: |-
-    Zigbee 1.2:<BR>
     {% for state in states-%}
       {%- if state.attributes.linkquality %}
         {%- if "link" in state.entity_id and state.attributes.unit_of_measurement == '-' %}
@@ -124,8 +125,10 @@ cards:
         {%- endif -%}
       {%- endif -%}
     {%- endfor %}
-    <HR>
-    Zigbee 3.0:<BR>
+- type: custom:html-template-card
+  title: 'Zigbee 3.0 link status times'
+  ignore_line_breaks: true
+  content: |-
     {% for state in states-%}
       {%- if state.attributes.linkquality %}
         {%- if "link" in state.entity_id and state.attributes.unit_of_measurement == 'lqi' %}
@@ -133,8 +136,10 @@ cards:
         {%- endif -%}
       {%- endif -%}
     {%- endfor %}
-    <HR>
-    Z-Wave:<BR>
+- type: custom:html-template-card
+  title: 'Z-Wave link status times'
+  ignore_line_breaks: true
+  content: |-
     {% for state in states.zwave -%}
        {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
     {%- endfor %}

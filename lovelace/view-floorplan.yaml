@@ -370,7 +370,7 @@ cards:
         - entities:
             - switch.pi3_livingroom_socket_switch
             - light.living_room_tv_lamp
-            - light.living_room_table
+            - light.living_room_table_lamp
             - light.living_room_corner_lamp
           states:
             - state: 'on'

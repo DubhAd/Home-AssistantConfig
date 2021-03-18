@@ -8,7 +8,7 @@ condition:
   - condition: template
     value_template: "{{ trigger.to_state.attributes.action == 'up-press' }}"
   - condition: state
-    entity_id: light.living_room_table
+    entity_id: light.living_room_table_lamp
     state: 'on'
 action:
   - service: script.living_room_table_bright_step

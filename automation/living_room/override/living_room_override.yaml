@@ -4,9 +4,9 @@ trigger:
   - platform: state
     entity_id:
     - light.living_room_corner_lamp
+    - light.living_room_tv_lamp
+    - light.living_room_table_lamp
     - switch.pi3_livingroom_socket_switch
-    - switch.pi3_tv_light_switch
-    - switch.living_room_table
     to: 'off'
 condition:
   - condition: and
@@ -28,10 +28,10 @@ condition:
             entity_id: switch.pi3_livingroom_socket_switch
             state: 'off'
           - condition: state
-            entity_id: switch.pi3_tv_light_switch
+            entity_id: light.living_room_tv_lamp
             state: 'off'
           - condition: state
-            entity_id: switch.living_room_table
+            entity_id: light.living_room_table_lamp
             state: 'off'
       - condition: and
         conditions:
@@ -44,7 +44,7 @@ condition:
             entity_id: switch.pi3_livingroom_socket_switch
             state: 'off'
           - condition: state
-            entity_id: switch.pi3_tv_light_switch
+            entity_id: light.living_room_tv_lamp
             state: 'off'
 action:
   - service: input_select.select_option

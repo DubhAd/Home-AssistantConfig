@@ -35,10 +35,11 @@ action:
   - service: switch.turn_off
     data:
       entity_id: 
-        - sswitch.living_room_table
-        - switch.pi3_tv_light_switch
         - switch.pi3_livingroom_socket_switch 
   - service: light.turn_off
     data:
-      entity_id: light.living_room_corner_lamp
+      entity_id: 
+        - light.living_room_corner_lamp
+        - light.living_room_tv_lamp
+        - light.living_room_table_lamp
       transition: '00:00:30'

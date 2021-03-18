@@ -20,5 +20,5 @@ condition:
 action:
   - service: light.turn_off
     data:
-      entity_id: light.living_room_table
-      transition: 30
+      entity_id: light.living_room_table_lamp
+      transition: 3

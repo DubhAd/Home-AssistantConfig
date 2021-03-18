@@ -167,6 +167,8 @@ cards:
     - light.person1_bedroom_bedside
     - light.office_strip
     - light.living_room_corner_lamp
+    - light.living_room_tv_lamp
+    - light.living_room_table_lamp
     - light.master_bedroom_bedhead
     - light.yeelight_strip1_286c07afc307
     - light.yeelight_strip1_7811dca22b87

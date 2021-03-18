@@ -2,7 +2,7 @@ initial_state: 'on'
 alias: 'TV light on'
 trigger:
   - platform: state
-    entity_id: switch.pi3_tv_light_switch
+    entity_id: light.living_room_tv_lamp
     to: 'on'
 condition:
   - condition: state

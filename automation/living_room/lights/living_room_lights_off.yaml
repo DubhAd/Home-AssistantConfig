@@ -51,12 +51,13 @@ action:
       message: "Turning off the living room lights"
   - service: light.turn_off
     data:
-      entity_id: light.living_room_corner_lamp
+      entity_id: 
+        - light.living_room_corner_lamp
+        - light.living_room_tv_lamp
+        - light.living_room_table_lamp
       transition: 5
   - service: switch.turn_off
     entity_id: 
-      - switch.pi3_tv_light_switch
-      - switch.living_room_table
       - switch.pi3_livingroom_socket_switch
   - condition: state
     entity_id: input_boolean.living_room_christmas

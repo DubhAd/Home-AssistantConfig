@@ -32,6 +32,7 @@ condition:
         entity_id: input_select.house
         state: 'Motion'
 action:
-  - service: switch.turn_on
+  - service: light.turn_on
     data:
-      entity_id: switch.living_room_table
+      entity_id: light.living_room_table_lamp
+      transition: 0.5
