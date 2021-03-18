@@ -260,7 +260,8 @@ cards:
           action: toggle
       - entity: switch.living_room_table
         name: Table
-      - entity: switch.pi3_tv_light_switch
+      - entity: light.living_room_tv_lamp
+        name: "TV"
         tap_action: 
           action: toggle
       - entity: light.living_room_corner_lamp

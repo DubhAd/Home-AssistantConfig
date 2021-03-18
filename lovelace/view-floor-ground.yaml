@@ -7,9 +7,8 @@ cards:
   title: Living room
   columns: 4
   entities:
-    - entity: switch.pi3_tv_light_switch
-      tap_action: 
-        action: toggle
+    - entity: light.living_room_tv_lamp
+      name: "TV"
     - entity: light.living_room_corner_lamp
       name: "Corner"
     - entity: switch.living_room_table
