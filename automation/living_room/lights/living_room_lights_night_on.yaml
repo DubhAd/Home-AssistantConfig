@@ -40,6 +40,7 @@ action:
   - service: light.turn_on
     data:
       entity_id: light.living_room_corner_lamp
+      brightness_pct: 75
       transition: 5
   - service: switch.turn_on
     entity_id: 

@@ -52,7 +52,7 @@ action:
   - service: light.turn_off
     data:
       entity_id: light.living_room_corner_lamp
-      transition: 15
+      transition: 5
   - service: switch.turn_off
     entity_id: 
       - switch.pi3_tv_light_switch

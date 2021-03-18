@@ -53,6 +53,7 @@ action:
       - service: light.turn_off
         data:
           entity_id: light.living_room_corner_lamp
+          transition: 5
     - conditions:
       - condition: state
         entity_id: light.living_room_corner_lamp
