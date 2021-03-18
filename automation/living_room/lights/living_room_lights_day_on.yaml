@@ -40,7 +40,7 @@ action:
       - switch.pi3_livingroom_socket_switch
   - service: switch.turn_off
     data:
-      entity_id: switch.pi3_table_light_switch
+      entity_id: switch.living_room_table
   - choose:
     - conditions:
       - condition: state

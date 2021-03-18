@@ -35,7 +35,7 @@ action:
   - service: switch.turn_off
     data:
       entity_id: 
-        - switch.pi3_table_light_switch
+        - sswitch.living_room_table
         - switch.pi3_tv_light_switch
         - switch.pi3_livingroom_socket_switch 
   - service: light.turn_off

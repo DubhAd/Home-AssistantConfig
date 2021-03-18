@@ -12,7 +12,7 @@ cards:
         action: toggle
     - entity: light.living_room_corner_lamp
       name: "Corner"
-    - entity: light.living_room_table
+    - entity: switch.living_room_table
       name: "Table"
       tap_action: 
         action: toggle 

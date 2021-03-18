@@ -46,4 +46,4 @@ action:
     entity_id: 
       - switch.pi3_livingroom_socket_switch
       - switch.pi3_tv_light_switch
-      - switch.pi3_table_light_switch
+      - switch.living_room_table

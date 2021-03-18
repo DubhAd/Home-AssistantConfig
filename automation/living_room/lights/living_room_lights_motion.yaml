@@ -34,4 +34,4 @@ condition:
 action:
   - service: switch.turn_on
     data:
-      entity_id: switch.pi3_table_light_switch
+      entity_id: switch.living_room_table
