@@ -1,56 +1,38 @@
 alias: 'person1 in bed'
 initial_state: 'on'
 trigger:
-  # Radio playing
-  - platform: state
-    entity_id: media_player.person1
-    to: 'playing'
-  - platform: state
-    entity_id: media_player.person1
-    to: 'idle'
-  # Chromecast playing
-  - platform: state
-    entity_id: media_player.cast_second_bedroom_speaker
-    to: 'playing'
-  - platform: state
-    entity_id: media_player.cast_second_bedroom_speaker
-    to: 'idle'
-  # Light on
-  - platform: state
-    entity_id: light.person1_bedroom_bedside
-    to: 'on'
-  # Family room unoccupied for at least 5 minutes
-  - platform: state
-    entity_id: input_boolean.family_room_occupied
-    to: 'off'
-    for:
-      minutes: 5
-  # Something gets plugged in
+  # Phone is plugged in
   - platform: state
     entity_id: input_boolean.person1_phone_charging
     to: 'on'
+  # Room occupied
   - platform: state
-    entity_id: input_boolean.person1_tablet_charging
+    entity_id: input_boolean.second_bedroom_occupied
     to: 'on'
+  # Bedtime?
+  - platform: time
+    at: '22:01:00'
 condition:
-  - condition: and
-    conditions:
-    # Isn't in bed
-    - condition: state
-      entity_id: input_boolean.person1_in_bed
-      state: 'off'
-    # Is at home
-    - condition: state
-      entity_id: input_boolean.person1_home
-      state: 'on'
-    # Is in the bedtime window
-    - condition: time
-      after: '22:00:00'
-      before: '05:00:00'
-    # Phone is plugged in
-    - condition: state
-      entity_id: input_boolean.person1_phone_charging
-      state: 'on'
+  # Isn't in bed
+  - condition: state
+    entity_id: input_boolean.person1_in_bed
+    state: 'off'
+  # Is at home
+  - condition: state
+    entity_id: input_boolean.person1_home
+    state: 'on'
+  # Is in the bedtime window
+  - condition: time
+    after: '22:00:00'
+    before: '05:00:00'
+  # Phone is plugged in
+  - condition: state
+    entity_id: input_boolean.person1_phone_charging
+    state: 'on'
+  # Room is occupied
+  - condition: state
+    entity_id: input_boolean.second_bedroom_occupied
+    state: 'on'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person1_in_bed

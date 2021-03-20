@@ -80,6 +80,10 @@ condition:
         entity_id: device_tracker.livingroom_chromecast
         state: 'home'
 action:
+  - service: switch.turn_off
+    entity_id:
+      - switch.adaptive_lighting_sleep_mode_living_room_lamps
+      - switch.adaptive_lighting_sleep_mode_living_room_table
   - service: input_boolean.turn_on
     entity_id: 
     - input_boolean.living_room_occupied

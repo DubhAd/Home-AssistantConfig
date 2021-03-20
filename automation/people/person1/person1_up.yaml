@@ -3,23 +3,51 @@ initial_state: 'on'
 trigger:
   # Something gets unplugged
   - platform: state
-    entity_id: input_boolean.person1_phone_charging
+    entity_id: 
+    - input_boolean.person1_phone_charging
+    - input_boolean.person1_tablet_charging
     to: 'off'
+  # Tablet is turned on
   - platform: state
-    entity_id: input_boolean.person1_tablet_charging
+    entity_id: binary_sensor.person1_lenovo_tb_j606f_interactive
+    to: 'on'
+    for: '00:02:00'
+  # Room isn't occupied
+  - platform: state
+    entity_id: input_boolean.second_bedroom_occupied
     to: 'off'
+  # Is time to wake
+  - platform: time
+    at: '05:00:01'
 condition:
-  - condition: and
+  # Is at home
+  - condition: state
+    entity_id: input_boolean.person1_home
+    state: 'on'
+  # Is sleeping
+  - condition: state
+    entity_id: input_boolean.person1_in_bed
+    state: 'on'
+  # Room not occupied any more
+  - condition: state
+    entity_id: input_boolean.second_bedroom_occupied
+    state: 'off'
+  # Is in the daytime window
+  - condition: time
+    after: '05:00:00'
+    before: '21:00:00'
+  # Something is unplugged, or the screen is on
+  - condition: or
     conditions:
     - condition: state
-      entity_id: input_boolean.person1_home
-      state: 'on'
+      entity_id: input_boolean.person1_phone_charging
+      state: 'off'
     - condition: state
-      entity_id: input_boolean.person1_in_bed
+      entity_id: input_boolean.person1_tablet_charging
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.person1_lenovo_tb_j606f_interactive
       state: 'on'
-    - condition: time
-      after: '05:00:00'
-      before: '21:00:00'
 action:
   - service: input_boolean.turn_off
     entity_id: 
