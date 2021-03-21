@@ -30,6 +30,9 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | Remote | :x: | These are neat, smaller than the Xiaomi button, but not as nice to use. The main downside is that it supports three channels, out of 26... |
 | [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | Router | :x: | Unsure | Purely functions as a router for the original mesh, but I don't need it any more |
 | [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly drops off the mesh and reconnecting |
+| [IKEA LED1733G7](https://www.zigbee2mqtt.io/devices/LED1733G7.html#ikea-led1733g7) | Light | :heavy_check_mark: | I bought a couple of these for background lighting in the living room. I have no complaints about them, they transition smoothly, have a good range of brightness, and are cheap. NB: I'm not 100% sure these are Zigbee 3.0 |
+| [Ikea LED1739R5](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html#ikea-led1537r6%252Fled1739r5) | Light | :heavy_check_mark: | This was bought to replace the Osram, and it does this well. My comments for the other Ikea lights apply here too. |
+
 
 ## Zigbee 1.2 and older
 
