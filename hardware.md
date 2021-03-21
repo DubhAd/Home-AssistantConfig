@@ -69,21 +69,21 @@ All my current Z-Wave hardware is Z-Wave Plus.
 
 | What | Function | Buy again? | Thoughts |
 | --- | --- | :---: | --- |
-| Yeelight strip | Behind the bedhead lighting | :grey_question: | WiFi connected smart RGB strips, not terrible, not awesome. I'm considering replacing these with something Zigbee connected, or maybe WLED. |
+| Google Home | Various | :heavy_check_mark: | Smart displays, announcements, and voice control. Mostly these are used for casting a camera stream to, or for TTS. |
+| HiWatch IPC-T140 | Camera | :construction: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
+| [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
 | Sonos speakers | Music! | :heavy_check_mark: | Good enough quality for audio, more then loud enough. I'll likely buy some of the Symfonisk speakers instead of more Play One type devices though |
 | Squeezebox Radio | Alarm clock | :no_entry: | Awesome, but discontinued |
-| Google Home | Various | :heavy_check_mark: | Smart displays, announcements, and voice control. Mostly these are used for casting a camera stream to, or for TTS. |
-| [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
-| HiWatch IPC-T140 | Camera | :construction: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
+| Yeelight strip | Behind the bedhead lighting | :grey_question: | WiFi connected smart RGB strips, not terrible, not awesome. I'm considering replacing these with something Zigbee connected, or maybe WLED. |
 | 240V RGB LED strip | Garden lights | :grey_question: | Yes, a single strip along the garden perimeter. There's about 25 meters of light strip in use, and being 240V no need to inject power. Sadly being dumb there's no fine control. If I had to do it again, I'd use WLED. |
 
 # Future plans
 
-* Dimmer modules at most light switches, the exception will be the toilet (since there's a fan linked to it) and the outside light
+* Dimmer modules at most light switches, the exception will be the toilet (since there's a fan linked to it), the outside light (which is a self contained unit that can't be dimmed), and the number sign light (though that _probably_ could be handled with a 12V dimmer)
 * Switch modules for the extractor fans
 * Multisensors or multiple sensors (light/motion/humidity/temperature) in the bedrooms and bathrooms
 * Multisensors or multiple sensors (light/motion/temperature) in all other rooms
-* More door and window sensors, including on the garden gate
+* More door and window sensors, including on the garden gate - the garden gate one may have to be LoRa as I'm not seeing any weatherproof Zigbee options yet
 * Some form of distance sensor (ultrasonic or laser) in the garage
 * Digital LED strip for the front of the garage
 * LED strips (either Zigbee or Digital) for accent lighting and pathway lighting
