@@ -3,7 +3,7 @@ alias: 'person3 up'
 trigger:
   - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
-    to: 'off'
+    to: 'on'
   - platform: state
     entity_id: input_boolean.person3_phone_charging
     to: 'off'
@@ -15,7 +15,7 @@ condition:
     state: 'on'
   - condition: state
     entity_id: binary_sensor.master_bedroom_door_contact
-    state: 'off'
+    state: 'on'
   - condition: state
     entity_id: input_boolean.person3_phone_charging
     state: 'off'
@@ -25,7 +25,3 @@ condition:
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_in_bed
-  - service: notify.logfile
-    data:
-      message: >
-        Turned off person3 in bed because the phone was unplugged at {{ now() }}
