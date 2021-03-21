@@ -1,0 +1,48 @@
+alias: People reloaded when just arrived
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: automation_reloaded
+  - platform: homeassistant
+    event: start
+action:
+  - choose: 
+      conditions:
+        - condition: state
+          entity_id: input_select.person2_status_dropdown
+          state: 'Just Arrived'
+      sequence:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.person2_status_dropdown
+            option: 'Home'
+  - choose: 
+      conditions:
+        - condition: state
+          entity_id: input_select.person3_status_dropdown
+          state: 'Just Arrived'
+      sequence:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.person3_status_dropdown
+            option: 'Home'
+  - choose: 
+      conditions:
+        - condition: state
+          entity_id: input_select.person1_status_dropdown
+          state: 'Just Arrived'
+      sequence:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.person1_status_dropdown
+            option: 'Home'
+  - choose: 
+      conditions:
+        - condition: state
+          entity_id: input_select.person4_status_dropdown
+          state: 'Just Arrived'
+      sequence:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.person4_status_dropdown
+            option: 'Home'

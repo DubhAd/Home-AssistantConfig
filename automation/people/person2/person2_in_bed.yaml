@@ -16,7 +16,7 @@ trigger:
       - input_boolean.person2_phone_charging
     to: 'on'
   - platform: time
-    at: '22:05:00'
+    at: '22:00:01'
   - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
     to: 'off'
@@ -32,11 +32,15 @@ condition:
   - condition: state
     entity_id: binary_sensor.master_bedroom_door_contact
     state: 'off'
-    # Door was closed between 21:00 and 04:00
+    # Door was closed between 21:00 and 03:59
   - condition: template
     value_template: >-
       {{ states.binary_sensor.master_bedroom_door_contact.last_changed.hour > 20 or
          states.binary_sensor.master_bedroom_door_contact.last_changed.hour < 4 }}
+  # In the time window for bed
+  - condition: time
+    after: '22:00:00'
+    before: '04:00:00'
   - condition: or
     conditions:
     # Either the tablet charging, the light is on, or I'm listening to music
@@ -52,13 +56,6 @@ condition:
     - condition: state
       entity_id: media_player.person2
       state: 'playing'
-  # In the time window for bed
-  - condition: or
-    conditions:
-    - condition: time
-      after: '22:00:00'
-    - condition: time
-      before: '04:00:00'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_in_bed

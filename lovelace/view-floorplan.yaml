@@ -292,6 +292,7 @@ cards:
             - sensor.master_ensuite_humidity
             - sensor.second_bedroom_ensuite_humidity
             - sensor.bathroom_humidity
+            - sensor.office_climate_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '
             var humid = parseFloat(entity.state.replace("%", ""));
@@ -310,17 +311,16 @@ cards:
 
         - entities:
             - sensor.home_humidity
-            - sensor.office_climate_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '
             var humid = parseFloat(entity.state.replace("%", ""));
-            if (humid < 30)
+            if (humid < 65)
               return "humid-low";
-            else if (humid < 45)
+            else if (humid < 75)
               return "humid-med-low";
-            else if (humid < 55)
+            else if (humid < 85)
               return "humid-medium";
-            else if (humid < 65)
+            else if (humid < 95)
               return "humid-med-high";
             else
               return "humid-high";
