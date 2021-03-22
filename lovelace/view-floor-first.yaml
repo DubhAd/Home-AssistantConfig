@@ -30,10 +30,10 @@ cards:
       - entity: binary_sensor.master_bedroom_door_contact
         name: Door
         show_last_changed: true
-      - entity: binary_sensor.master_window_left
+      - entity: binary_sensor.master_window_left_contact
         show_last_changed: true
         name: Left window
-      - entity: binary_sensor.master_window_right
+      - entity: binary_sensor.master_window_right_contact
         show_last_changed: true
         name: Right window
       - entity: sensor.master_bedroom_light_sensor_illuminance_lux
@@ -47,7 +47,7 @@ cards:
         name: Temperature
       - entity: sensor.master_ensuite_pressure
         name: Pressure
-      - entity: binary_sensor.master_window_ensuite
+      - entity: binary_sensor.master_window_ensuite_contact
         show_last_changed: true
         name: Ensuite
       - entity: binary_sensor.master_ensuite_door_contact

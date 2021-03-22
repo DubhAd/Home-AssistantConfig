@@ -127,11 +127,11 @@ cards:
         name: Guest left
       - entity: binary_sensor.guest_bedroom_window_right
         name: Guest right
-      - entity: binary_sensor.master_window_left
+      - entity: binary_sensor.master_window_left_contact
         name: Master left
-      - entity: binary_sensor.master_window_right
+      - entity: binary_sensor.master_window_right_contact
         name: Master right
-      - entity: binary_sensor.master_window_ensuite
+      - entity: binary_sensor.master_window_ensuite_contact
         name: Master ensuite
     show_empty: false
     state_filter:
