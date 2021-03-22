@@ -2,25 +2,25 @@ initial_state: 'on'
 alias: 'Hotter outside (office)'
 trigger:
   - platform: state
-    entity_id: binary_sensor.office_window
+    entity_id: binary_sensor.office_window_contact
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.owm_temperature
+    entity_id: sensor.metno_temperature
     above: 23
   - platform: template
     value_template: >
-      {{ states('sensor.owm_temperature')|int > states('sensor.pi3_office_multi_temperature')|int }}
+      {{ states('sensor.metno_temperature')|int > states('sensor.office_climate_temperature')|int }}
 condition:
   - condition: numeric_state
-    entity_id: sensor.owm_temperature
+    entity_id: sensor.metno_temperature
     above: 23
   - condition: template
     value_template: >
-      {{ states('sensor.owm_temperature')|int > states('sensor.pi3_office_multi_temperature')|int }}
+      {{ states('sensor.metno_temperature')|int > states('sensor.office_climate_temperature')|int }}
   - condition: or
     conditions:
     - condition: state
-      entity_id: binary_sensor.office_window
+      entity_id: binary_sensor.office_window_contact
       state: 'on'
 action:
   - service: tts.google_cloud_say

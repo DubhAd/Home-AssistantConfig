@@ -149,7 +149,7 @@ cards:
     - entity: binary_sensor.office_door_contact
       show_last_changed: true
       name: Door
-    - entity: binary_sensor.office_window
+    - entity: binary_sensor.office_window_contact
       show_last_changed: true
       name: Window
     - entity: sensor.pi3_office_multi_luminance
