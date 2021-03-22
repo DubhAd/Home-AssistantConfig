@@ -48,8 +48,6 @@ cards:
   - sensor.second_bedroom_window_ensuite_linkquality
   - sensor.second_bedroom_window_left_linkquality
   - sensor.second_bedroom_window_right_linkquality
-  - sensor.spare_bedroom_window_left_linkquality
-  - sensor.spare_bedroom_window_right_linkquality
   - sensor.vestibule_window_front_linkquality
   - sensor.vestibule_window_side_linkquality
   - sensor.zigbee_router1_linkquality
@@ -76,6 +74,8 @@ cards:
   - sensor.patio_window_right_linkquality
   - sensor.second_bedroom_door_linkquality
   - sensor.spare_bedroom_socket_linkquality
+  - sensor.spare_bedroom_window_left_linkquality
+  - sensor.spare_bedroom_window_right_linkquality
   - sensor.spare_button_linkquality
   - sensor.vestibule_multi_linkquality
   - sensor.cc_router_linkquality

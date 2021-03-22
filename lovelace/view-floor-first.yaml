@@ -166,10 +166,10 @@ cards:
   title: Spare bedroom
   columns: 3
   entities:
-    - entity: binary_sensor.spare_bedroom_window_left
+    - entity: binary_sensor.spare_bedroom_window_left_contact
       show_last_changed: true
       name: Left
-    - entity: binary_sensor.spare_bedroom_window_right
+    - entity: binary_sensor.spare_bedroom_window_right_contact
       show_last_changed: true
       name: Right
     - entity: switch.pi3_spare_socket_switch

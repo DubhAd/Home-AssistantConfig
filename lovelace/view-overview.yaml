@@ -145,11 +145,11 @@ cards:
 
   - type: entity-filter
     entities:
-      - entity: binary_sensor.office_window
+      - entity: binary_sensor.office_window_contact
         name: Office
-      - entity: binary_sensor.spare_bedroom_window_left
+      - entity: binary_sensor.spare_bedroom_window_left_contact
         name: L Spare bedroom 
-      - entity: binary_sensor.spare_bedroom_window_right
+      - entity: binary_sensor.spare_bedroom_window_right_contact
         name: R Spare bedroom
       - entity: binary_sensor.second_bedroom_window_ensuite
         name: 2nd ensuite
