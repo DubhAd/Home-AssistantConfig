@@ -13,7 +13,10 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    below: 2
+    below: 3
+  - platform: numeric_state
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    below: 1
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
@@ -42,14 +45,19 @@ condition:
       entity_id: input_select.hall
       state: 'Night on'
       # If the light is off, we should only continue if it's been off for more than 15 minutes
-  # Sun is relatively low
-  - condition: numeric_state
-    entity_id: sensor.sun_elevation
-    below: 10
+  # Sun is relatively low or it's completely dark
+  - condition: or
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+      below: 1
   # Not very bright in the hall
   - condition: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    below: 2
+    below: 3
   # One of these things
   - condition: or
     conditions:

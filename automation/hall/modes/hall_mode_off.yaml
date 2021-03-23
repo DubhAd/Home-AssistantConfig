@@ -16,11 +16,15 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     above: 5
-  # Dim
+  # Moderately bright to bright
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 5
     for: '00:05:00'
+  - platform: numeric_state
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    above: 10
+    for: '00:01:00'
   # Nobody's downstairs
   - platform: state
     entity_id: group.downstairs_occupied
@@ -41,7 +45,7 @@ condition:
       above: 5
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      above: 13
+      above: 10
   # No room occupied 
   - condition: or
     conditions:
