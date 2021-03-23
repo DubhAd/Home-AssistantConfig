@@ -55,7 +55,7 @@ sequence:
       - condition: state
         entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'on'
-        for: '00:00:01'
+        for: '00:00:02'
       - condition: not
         conditions:
         - condition: state
@@ -66,33 +66,49 @@ sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
       data:
-        message: "Departure (then arrival) scan because of motion in the vestibule"
+        message: "Departure (then arrival) scan because of motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
     - service: script.scan_bt_depart
     - service: script.scan_bt_arrive
   #################### ####################
   # No motion inside
   - conditions:
     # Nothing happened recently inside 
-    - condition: state
-      entity_id: binary_sensor.vestibule_multi_occupancy
-      state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.vestibule_multi_occupancy
+        state: 'off'
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.vestibule_multi_occupancy
+          state: 'on'
+          for: '00:00:02'
     sequence:
     - service: notify.logfile
       data:
-        message: "Arrival scan because there was no motion in the vestibule"
+        message: "Arrival scan because there was no motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
     - service: script.scan_bt_arrive
   #################### ####################
   # Car door is open
   - conditions:
-    # Garage door is open already
-    - condition: state
-      entity_id: binary_sensor.pi3_garage_closed_car_sensor
-      state: 'on'
-      for: '00:00:01'
+    # Garage door is open already, or recently closed
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.pi3_garage_closed_car_sensor
+        state: 'on'
+        for: '00:00:01'
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.pi3_garage_closed_car_sensor
+          state: 'off'
+          for: '00:00:30'
     sequence:
     - service: notify.logfile
       data:
-        message: "Arrival scan because the garage door is open"
+        message: "Arrival scan because the garage door is open ({{ (now()-states.binary_sensor.pi3_garage_closed_sensor.last_changed).seconds }} ago)"
     - service: script.scan_bt_arrive
   #################### ####################
   # Everybody is home
