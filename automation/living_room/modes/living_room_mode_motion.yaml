@@ -5,31 +5,23 @@ trigger:
   entity_id: binary_sensor.pi3_living_room_motion
   to: 'on'
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: input_boolean.home_occupied
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.lighting_automations
-      state: 'on'
-    - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
-      below: 5
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'off'
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: input_select.living_room
-        state: 'Night off'
-      - condition: state
-        entity_id: input_select.living_room
-        state: 'Off'
-      - condition: state
-        entity_id: input_select.living_room
-        state: 'Bedtime'
+  - condition: state
+    entity_id: 
+      - input_boolean.home_occupied
+      - input_boolean.lighting_automations
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    below: 5
+  - condition: state
+    entity_id: input_select.living_room
+    state: 
+      - 'Night off'
+      - 'Off'
+      - 'Bedtime'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.livingroom_lights_auto

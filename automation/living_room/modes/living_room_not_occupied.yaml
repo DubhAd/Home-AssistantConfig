@@ -1,6 +1,10 @@
 initial_state: 'on'
 alias: 'Living room not occupied'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: media_player.samsung_tv
     to: 'off'
@@ -37,40 +41,35 @@ trigger:
     to: 'on'
     for: '00:10:00'
 condition:
-  - condition: and
+  # Room must currently be occupied
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'on'
+  # Requires all the media devices to be off, paused, unavailable, etc
+  - condition: state
+    entity_id: media_player.samsung_tv
+    state: 'off'
+  - condition: state
+    entity_id: device_tracker.livingroom_chromecast
+    state: 'not_home'
+  - condition: state
+    entity_id: media_player.cast_living_room_tv
+    state: 'unavailable'
+  - condition: state
+    entity_id: media_player.living_room
+    state: 
+      - 'paused'
+      - 'idle'
+  # And no motion or jammed
+  - condition: or
     conditions:
-    # Room must currently be occupied
     - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'on'
-    # Requires all the media devices to be off, paused, unavailable, etc
-    - condition: state
-      entity_id: media_player.samsung_tv
+      entity_id: binary_sensor.pi3_living_room_motion
       state: 'off'
     - condition: state
-      entity_id: device_tracker.livingroom_chromecast
-      state: 'not_home'
-    - condition: state
-      entity_id: media_player.cast_living_room_tv
-      state: 'unavailable'
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: media_player.living_room
-        state: 'paused'
-      - condition: state
-        entity_id: media_player.living_room
-        state: 'idle'
-    # And no motion or jammed
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.pi3_living_room_motion
-        state: 'off'
-      - condition: state
-        entity_id: binary_sensor.pi3_living_room_motion
-        state: 'on'
-        for: '00:10:00'
+      entity_id: binary_sensor.pi3_living_room_motion
+      state: 'on'
+      for: '00:10:00'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.living_room_occupied

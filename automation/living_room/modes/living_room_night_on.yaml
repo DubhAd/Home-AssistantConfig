@@ -1,6 +1,10 @@
 initial_state: 'on'
 alias: 'Living room night on'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'on'
@@ -33,44 +37,42 @@ trigger:
     entity_id: sensor.hue_dimmer_action
     to: 'up-press'
 condition:
-  - condition: and
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'on'
+  - condition: or
     conditions:
+    # Lighting in the room is under automatic control, or we pushed the button
     - condition: state
-      entity_id: input_boolean.living_room_occupied
+      entity_id: input_boolean.lighting_living_room
       state: 'on'
-    - condition: or
+    - condition: template
+      value_template: "{{ trigger and trigger.entity_id == sensor.hue_dimmer_action }}"
+  - condition: template
+    value_template: "{{ not is_state('input_select.living_room','Night on') }}"
+  # Corner light off, and dull, or on and brighter
+  - condition: or
+    conditions:
+    - condition: and
       conditions:
-      # Lighting in the room is under automatic control, or we pushed the button
       - condition: state
-        entity_id: input_boolean.lighting_living_room
-        state: 'on'
-      - condition: template
-        value_template: "{{ trigger and trigger.entity_id == sensor.hue_dimmer_action }}"
-    - condition: template
-      value_template: "{{ not is_state('input_select.living_room','Night on') }}"
-    # Bear light off, and dull, or bear light on and brighter
-    - condition: or
+        entity_id: light.living_room_corner_lamp
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.pi3_living_room_multi_luminance
+        below: 12
+    - condition: and
       conditions:
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: light.living_room_corner_lamp
-          state: 'off'
-        - condition: numeric_state
-          entity_id: sensor.pi3_living_room_multi_luminance
-          below: 12
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: light.living_room_corner_lamp
-          state: 'on'
-          for: '00:01:00'
-        - condition: numeric_state
-          entity_id: sensor.pi3_living_room_multi_luminance
-          below: 20
-    # Didn't just turn the lights off
-    - condition: template
-      value_template: "{{ (as_timestamp(now()) - as_timestamp(states.light.living_room_corner_lamp.last_updated)) | int > 120 }}"
+      - condition: state
+        entity_id: light.living_room_corner_lamp
+        state: 'on'
+        for: '00:01:00'
+      - condition: numeric_state
+        entity_id: sensor.pi3_living_room_multi_luminance
+        below: 20
+  # Didn't just turn the lights off
+  - condition: template
+    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.light.living_room_corner_lamp.last_updated)) | int > 120 }}"
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

@@ -1,6 +1,10 @@
 alias: Living room arrival
 initial_state: 'on'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: input_select.person2_status_dropdown
     to: 'Just Arrived'
@@ -14,6 +18,21 @@ condition:
   - condition: state
     entity_id: input_boolean.living_room_occupied
     state: 'off'
+  # Somebody just came home
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.person2_status_dropdown
+      state: 'Just Arrived'
+    - condition: state
+      entity_id: input_select.person3_status_dropdown
+      state: 'Just Arrived'
+    - condition: state
+      entity_id: input_select.person1_status_dropdown
+      state: 'Just Arrived'
+    - condition: state
+      entity_id: input_select.person4_status_dropdown
+      state: 'Just Arrived'
   - condition: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 5

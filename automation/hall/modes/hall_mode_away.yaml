@@ -4,9 +4,16 @@ trigger:
   - platform: state
     entity_id: input_boolean.home_occupied
     to: 'off'
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Away') }}"
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
 action:
   - service: input_select.select_option
     data:

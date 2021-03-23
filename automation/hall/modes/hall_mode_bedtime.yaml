@@ -4,6 +4,10 @@ trigger:
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'on'
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Bedtime') }}"

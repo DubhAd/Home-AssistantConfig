@@ -1,29 +1,27 @@
 initial_state: 'on'
 alias: 'Hall mode off'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  # Somebody just came home
   - platform: state
     entity_id: input_boolean.home_occupied
     to: 'on'
+  # Motion in the hall
   - platform: state
     entity_id: binary_sensor.hall_downstairs_occupancy
   # When the sun goes above 5 degrees
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     above: 5
+  # Dim
   - platform: numeric_state
-    entity_id: sensor.hall_downstairs_illuminance
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 5
-  # When it gets bright in the living room
-  - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    above: 100
-  - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    above: 40
-  - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    above: 25
     for: '00:05:00'
+  # Nobody's downstairs
   - platform: state
     entity_id: group.downstairs_occupied
     to: 'off'
@@ -31,25 +29,28 @@ trigger:
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Off') }}"
+  # There must be _somebody_ home
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
-  # Sun above 5 degrees
-  - condition: numeric_state
-    entity_id: sensor.sun_elevation
-    above: 5
+  # Sun above 5 degrees, or very bright
+  - condition: or
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      above: 5
+    - condition: numeric_state
+      entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+      above: 13
+  # No room occupied 
   - condition: or
     conditions:
     - condition: state
       entity_id: group.downstairs_occupied
       state: 'off'
-    # Bright in the living room
+    # Brighter here
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
-      above: 25
-    # or here
-    - condition: numeric_state
-      entity_id: sensor.hall_downstairs_illuminance
+      entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
       above: 5
 action:
   - service: notify.logfile

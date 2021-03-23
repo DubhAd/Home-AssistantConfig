@@ -1,19 +1,18 @@
 initial_state: 'on'
 alias: 'Hall mode Night on'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    below: 5
   - platform: state
     entity_id: binary_sensor.hall_downstairs_occupancy
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
-    below: 5
-  - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    below: 15
-    for:
-      minutes: 5
-  - platform: numeric_state
-    entity_id: sensor.hall_downstairs_illuminance
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     below: 2
   - platform: state
     entity_id: input_boolean.bedtime
@@ -43,29 +42,30 @@ condition:
       entity_id: input_select.hall
       state: 'Night on'
       # If the light is off, we should only continue if it's been off for more than 15 minutes
-  # Living room mustn't be bright - the light sensor in the hall isn't very sensitive
-  - condition: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    below: 30
   # Sun is relatively low
   - condition: numeric_state
     entity_id: sensor.sun_elevation
     below: 10
-  # or hall
+  # Not very bright in the hall
   - condition: numeric_state
-    entity_id: sensor.hall_downstairs_illuminance
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     below: 2
+  # One of these things
   - condition: or
     conditions:
+    # Front door is open
     - condition: state
       entity_id: binary_sensor.pi3_front_door_sensor
       state: 'on'
+    # A room is in use
     - condition: state
       entity_id: group.downstairs_occupied
       state: 'on'
+    # Somebody is home
     - condition: state
       entity_id: input_boolean.home_occupied
       state: 'on'
+    # Somebody just came home
     - condition: state
       entity_id: input_select.person2_status_dropdown
       state: 'Just Arrived'
@@ -82,7 +82,7 @@ action:
   - service: notify.logfile
     data:
       message: >-
-        Hall turned Night on by {{ trigger.entity_id }} - {{ states('sensor.pi3_living_room_multi_luminance') }}/{{ states('sensor.hall_downstairs_illuminance') }}
+        Hall turned Night on by {{ trigger.entity_id }} - light level is {{ states('sensor.downstairs_hall_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.hall

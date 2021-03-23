@@ -1,6 +1,10 @@
 initial_state: 'on'
 alias: 'Living room bedtime'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'on'
@@ -8,17 +12,14 @@ trigger:
     entity_id: input_boolean.living_room_occupied
     to: 'off'
 condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.home_occupied
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.bedtime
-      state: 'on'
+  - condition: state
+    entity_id: 
+      - input_boolean.home_occupied
+      - input_boolean.bedtime
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

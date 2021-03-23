@@ -1,6 +1,9 @@
-initial_state: 'on'
 alias: 'Living room off empty'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'off'
@@ -12,6 +15,9 @@ condition:
   # Not currently Off
   - condition: template
     value_template: "{{ not is_state('input_select.living_room','Off') }}"
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

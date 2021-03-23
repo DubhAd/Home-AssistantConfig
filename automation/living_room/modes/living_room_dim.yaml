@@ -5,27 +5,39 @@ trigger:
     entity_id: input_boolean.bedtime
     to: 'off'
 condition:
+  # The living room isn't in use
   - condition: state
     entity_id: input_boolean.living_room_occupied
     state: 'off'
+  # And hasn't been for a while
   - condition: template
     value_template: "{{ (as_timestamp(now()) - as_timestamp(states.input_boolean.living_room_occupied.last_updated)) | int > 600 }}"
+  # Somebody is home
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
+  # Dark
   - condition: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 5
+  # Not already in dim mode
   - condition: template
     value_template: "{{ not is_state('input_select.living_room','Dim') }}"
+  # We're awake
   - condition: state
     entity_id: input_boolean.bedtime
     state: 'off'
 action:
+  # Wait for motion in the hall
   - wait_for_trigger:
     - platform: state
       entity_id: binary_sensor.hall_downstairs_occupancy
       to: 'on'
+  # Have a little background light
+  #- service: switch.turn_off
+  #  entity_id:
+  #    - switch.adaptive_lighting_sleep_mode_living_room_lamps
+  #    - switch.adaptive_lighting_sleep_mode_living_room_table
   - service: notify.logfile
     data:
       message: >

@@ -1,6 +1,10 @@
 initial_state: 'on'
 alias: 'Living room off'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     above: 70
@@ -50,7 +54,7 @@ condition:
   # Either not in use, or bright
   - condition: or
     conditions:
-      # Room is very bright
+    # Room is very bright
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
       above: 50
@@ -62,7 +66,7 @@ condition:
       - condition: numeric_state
         entity_id: sensor.pi3_living_room_multi_luminance
         above: 30
-      # Or room not occupied and not bedtime
+    # Or room not occupied and not bedtime
     - condition: and
       conditions:
       - condition: state
@@ -71,7 +75,7 @@ condition:
       - condition: state
         entity_id: input_boolean.bedtime
         state: 'off'
-      # or sun is rising and not so bright
+    # or sun is rising and not so bright
     - condition: and
       conditions:
       - condition: state

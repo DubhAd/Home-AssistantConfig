@@ -55,7 +55,7 @@ sequence:
       - condition: state
         entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'on'
-        for: '00:00:02'
+        for: '00:00:07'
       - condition: not
         conditions:
         - condition: state
@@ -83,7 +83,7 @@ sequence:
         - condition: state
           entity_id: binary_sensor.vestibule_multi_occupancy
           state: 'on'
-          for: '00:00:02'
+          for: '00:00:07'
     sequence:
     - service: notify.logfile
       data:

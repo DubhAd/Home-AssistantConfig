@@ -149,6 +149,8 @@ cards:
     - entity: sensor.pi3_living_room_multi_luminance
       name: Living room
       color: darkgoldenrod
+    - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
+      name: Downstairs hall
 - type: custom:mini-graph-card
   title: Temperature
   points_per_hour: 6

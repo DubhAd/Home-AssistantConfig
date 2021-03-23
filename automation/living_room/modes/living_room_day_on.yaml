@@ -1,6 +1,10 @@
 initial_state: 'on'
 alias: 'Living room day on'
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'on'
