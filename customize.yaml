@@ -253,3 +253,5 @@ media_player.samsung_tv:
 light.office_strip:
   friendly_name: Office strip
   icon: mdi:led-strip-variant
+sensor.downstairs_hall_light_sensor_illuminance:
+  unit_of_measurement: illuminance

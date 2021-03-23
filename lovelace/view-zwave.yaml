@@ -55,6 +55,8 @@ cards:
     secondary_info: last-updated
   - entity: sensor.bathroom_door_linkquality
     secondary_info: last-updated
+  - entity: sensor.downstairs_hall_light_sensor_linkquality
+    secondary_info: last-updated
   - entity: sensor.guest_bedroom_door_linkquality
     secondary_info: last-updated
   - entity: sensor.guest_bedroom_door_linkquality
