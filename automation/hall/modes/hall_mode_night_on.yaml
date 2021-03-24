@@ -45,7 +45,7 @@ condition:
       entity_id: input_select.hall
       state: 'Night on'
       # If the light is off, we should only continue if it's been off for more than 15 minutes
-  # Sun is relatively low or it's completely dark
+  # Sun is relatively low or it's pretty dim
   - condition: or
     conditions:
     - condition: numeric_state
@@ -53,11 +53,11 @@ condition:
       below: 10
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      below: 1
-  # Not very bright in the hall
+      below: 3
+  # Dark in the hall
   - condition: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    below: 3
+    below: 1
   # One of these things
   - condition: or
     conditions:
