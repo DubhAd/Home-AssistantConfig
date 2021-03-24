@@ -1,6 +1,10 @@
 mode: 'queued'
 description: 'Manages the right kind of BT scan. Departure scan if everybody is home, or there was motion in the vestibule. Arrival scan if nobody is home or there was no motion in the vestibule or hall. Arrival then departure if we are unsure'
 sequence:
+- service: notify.logfile
+  data:
+    message: >-
+      Scan started. Garage: car {{ states('binary_sensor.pi3_garage_closed_car_sensor') }}, bike {{ states('binary_sensor.pi3_garage_closed_bike_sensor') }}.  Vestibule {{ states('binary_sensor.vestibule_multi_occupancy') }} for {{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} seconds.  Front door {{ states('binary_sensor.pi3_front_door_sensor') }} for {{ (now()-states.binary_sensor.pi3_front_door_sensor.last_changed).seconds }} seconds. 
 - choose:
   #################### ####################
   # If we've just marked somebody as Just Arrived then don't run a departure scan if the garage door is still open.
@@ -108,7 +112,7 @@ sequence:
     sequence:
     - service: notify.logfile
       data:
-        message: "Arrival scan because the garage door is open ({{ (now()-states.binary_sensor.pi3_garage_closed_sensor.last_changed).seconds }} ago)"
+        message: "Arrival scan because the garage door is open ({{ (now()-states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds }} ago)"
     - service: script.scan_bt_arrive
   #################### ####################
   # Everybody is home
