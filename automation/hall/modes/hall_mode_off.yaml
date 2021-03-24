@@ -13,9 +13,9 @@ trigger:
   - platform: state
     entity_id: binary_sensor.hall_downstairs_occupancy
   # When the sun goes above 5 degrees
-  - platform: numeric_state
-    entity_id: sensor.sun_elevation
-    above: 5
+  #- platform: numeric_state
+  #  entity_id: sensor.sun_elevation
+  #  above: 5
   # Moderately bright to bright
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
@@ -24,7 +24,7 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 10
-    for: '00:01:00'
+  #  for: '00:01:00'
   # Nobody's downstairs
   - platform: state
     entity_id: group.downstairs_occupied
@@ -37,25 +37,20 @@ condition:
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
-  # Sun above 5 degrees, or very bright
   - condition: or
     conditions:
-    - condition: numeric_state
-      entity_id: sensor.sun_elevation
-      above: 5
-    - condition: numeric_state
-      entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      above: 10
-  # No room occupied 
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: group.downstairs_occupied
-      state: 'off'
     # Brighter here
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
       above: 5
+    # No room occupied 
+    - condition: state
+      entity_id: group.downstairs_occupied
+      state: 'off'
+    # Sun above 5 degrees
+    #- condition: numeric_state
+    #  entity_id: sensor.sun_elevation
+    #  above: 5
 action:
   - service: notify.logfile
     data:

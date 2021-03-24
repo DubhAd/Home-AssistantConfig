@@ -48,7 +48,7 @@ cards:
     detail: 2
 - type: glance
   title: Hall
-  columns: 5
+  columns: 4
   entities:
     - entity: light.hall
       name: Hall light
@@ -61,8 +61,6 @@ cards:
       name: Motion
     - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
       name: "Light level (lux)"
-    - entity: sensor.downstairs_hall_light_sensor_illuminance
-      name: "Light level (illuminance)"
 - type: glance
   title: Vestibule
   columns: 4

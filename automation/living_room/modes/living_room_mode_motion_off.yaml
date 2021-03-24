@@ -11,7 +11,7 @@ trigger:
     for: '00:02:00'
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
-    above: 7
+    above: 5
 condition:
   - condition: state
     entity_id: input_boolean.lighting_automations
@@ -19,13 +19,15 @@ condition:
   - condition: state
     entity_id: input_select.living_room
     state: 'Motion'
-  - condition: state
-    entity_id: binary_sensor.pi3_living_room_motion
-    state: 'off'
-    for: '00:02:00'
-  - condition: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
-    above: 7
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.pi3_living_room_motion
+      state: 'off'
+      for: '00:02:00'
+    - condition: numeric_state
+      entity_id: sensor.pi3_living_room_multi_luminance
+      above: 5
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto
