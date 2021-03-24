@@ -50,7 +50,7 @@ condition:
     conditions:
     - condition: numeric_state
       entity_id: sensor.sun_elevation
-      below: 10
+      below: 5
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
       below: 3
