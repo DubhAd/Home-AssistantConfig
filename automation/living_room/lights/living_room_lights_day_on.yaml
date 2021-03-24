@@ -40,11 +40,11 @@ action:
   - service: light.turn_on
     data:
       entity_id: light.living_room_tv_lamp
-      transition: 5
+      transition: 30
   - service: light.turn_off
     data:
       entity_id: light.living_room_table_lamp
-      transition: 5
+      transition: 30
   - choose:
     - conditions:
       - condition: state
@@ -57,7 +57,7 @@ action:
       - service: light.turn_off
         data:
           entity_id: light.living_room_corner_lamp
-          transition: 5
+          transition: 30
     - conditions:
       - condition: state
         entity_id: light.living_room_corner_lamp
