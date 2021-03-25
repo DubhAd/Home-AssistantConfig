@@ -59,7 +59,7 @@ cards:
   - type: glance
     #title: Second bedroom
     #column_width: 25%
-    columns: 5
+    columns: 4
     entities:
       - entity: light.person1_bedroom_bedside
         name: Bedhead
@@ -80,10 +80,10 @@ cards:
       - entity: binary_sensor.second_bedroom_door_contact
         show_last_changed: true
         name: Door
-      - entity: binary_sensor.second_bedroom_window_left
+      - entity: binary_sensor.second_bedroom_window_left_contact
         show_last_changed: true
         name: Left
-      - entity: binary_sensor.second_bedroom_window_right
+      - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
   - type: glance
@@ -96,7 +96,7 @@ cards:
         name: Temperature
       - entity: sensor.second_bedroom_ensuite_pressure
         name: Pressure
-      - entity: binary_sensor.second_bedroom_window_ensuite
+      - entity: binary_sensor.second_bedroom_window_ensuite_contact
         show_last_changed: true
         name: Ensuite
 - type: glance
@@ -111,23 +111,23 @@ cards:
       name: Socket
     - entity: binary_sensor.guest_bedroom_door_contact
       name: Door
-    - entity: binary_sensor.guest_bedroom_window_left
+    - entity: binary_sensor.guest_bedroom_window_left_contact
       show_last_changed: true
       name: Left
-    - entity: binary_sensor.guest_bedroom_window_right
+    - entity: binary_sensor.guest_bedroom_window_right_contact
       show_last_changed: true
       name: Right
 - type: glance
   title: Bathroom
   columns: 5
   entities:
-    - entity: sensor.bathroom_humidity
+    - entity: sensor.bathroom_environment_humidity
       name: Humidity
-    - entity: sensor.bathroom_temperature
+    - entity: sensor.bathroom_environment_temperature
       name: Temperature
-    - entity: sensor.bathroom_pressure
+    - entity: sensor.bathroom_environment_pressure
       name: Pressure
-    - entity: binary_sensor.bathroom_window
+    - entity: binary_sensor.bathroom_window_contact
       show_last_changed: true
       name: Window
     - entity: binary_sensor.bathroom_door_contact
@@ -195,7 +195,7 @@ cards:
     - entity: sensor.second_bedroom_ensuite_humidity
       name: Second bedroom ensuite
       color: "#33B679"
-    - entity: sensor.bathroom_humidity
+    - entity: sensor.bathroom_environment_humidity
       name: Bathroom
       color: "#E4C441"
     - entity: sensor.office_climate_humidity
@@ -221,7 +221,7 @@ cards:
     - entity: sensor.second_bedroom_ensuite_temperature
       name: Second bedroom ensuite
       color: "#33B679"
-    - entity: sensor.bathroom_temperature
+    - entity: sensor.bathroom_environment_temperature
       name: Bathroom
       color: "#E4C441"
     - entity: sensor.office_climate_temperature
@@ -249,7 +249,7 @@ cards:
     - entity: sensor.second_bedroom_ensuite_pressure
       name: Second bedroom ensuite
       color: "#33B679"
-    - entity: sensor.bathroom_pressure
+    - entity: sensor.bathroom_environment_pressure
       name: Bathroom
       color: "#E4C441"
 - type: custom:mini-graph-card
@@ -269,22 +269,6 @@ cards:
       name: Change
       color: "#9E69AF"
 - type: custom:mini-graph-card
-  title: Master en-suite change rate
-  points_per_hour: 60
-  hours_to_show: 4
-  line_width: 2
-  hour24: true
-  animate: true
-  show:
-    extrema: true
-    average: true
-    fill: false
-    labels: true
-  entities:
-    - entity: sensor.master_ensuite_change_rate
-      name: Change rate
-      color: "#33B679"
-- type: custom:mini-graph-card
   title: Master en-suite Humidity
   points_per_hour: 60
   hours_to_show: 4
@@ -298,5 +282,9 @@ cards:
     labels: true
   entities:
     - entity: sensor.master_ensuite_humidity
-      name: Master ensuite
+      name: Humidity
       color: "#9E69AF"
+    - entity: sensor.master_ensuite_change_rate
+      name: Change rate
+      color: "#33B679"
+      y_axis: secondary

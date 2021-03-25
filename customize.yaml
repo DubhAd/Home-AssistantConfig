@@ -255,3 +255,7 @@ light.office_strip:
   icon: mdi:led-strip-variant
 sensor.downstairs_hall_light_sensor_illuminance:
   unit_of_measurement: illuminance
+binary_sensor.guest_bedroom_window_left_contact:
+  device_class: window
+binary_sensor.guest_bedroom_window_right_contact:
+  device_class: window
