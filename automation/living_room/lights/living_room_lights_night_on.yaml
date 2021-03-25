@@ -43,7 +43,7 @@ action:
         - light.living_room_corner_lamp
         - light.living_room_tv_lamp
         - light.living_room_table_lamp
-      transition: 30
+      transition: 10
   - service: switch.turn_on
     entity_id: 
       - switch.pi3_livingroom_socket_switch
