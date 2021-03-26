@@ -5,8 +5,9 @@ trigger:
     entity_id: 
     - input_boolean.person1_alarm_sounded
     - input_boolean.person1_in_bed
+    - input_boolean.second_bedroom_occupied
     to: 'off'
-    for: '00:15:00'
+    for: '00:05:00'
   - platform: state
     entity_id: 
     - input_boolean.person1_home
@@ -57,19 +58,13 @@ condition:
           {{ not (is_state_attr('calendar.person1_holiday','message','Holiday') and
           (as_timestamp(now())+(6*60*60) - as_timestamp(state_attr('calendar.person1_holiday','start_time'))) > 0) }}
     # Turn it off when he's awake
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: input_boolean.second_bedroom_occupied
-        state: 'off'
-      - condition: state
-        entity_id: input_boolean.person1_in_bed
-        state: 'off'
-        for: '00:15:00'
-      - condition: state
-        entity_id: input_boolean.person1_alarm_sounded
-        state: 'off'
-        for: '00:15:00'
+    - condition: state
+      entity_id: 
+        - input_boolean.second_bedroom_occupied
+        - input_boolean.person1_in_bed
+        - input_boolean.person1_alarm_sounded
+      state: 'off'
+      for: '00:05:00'
 action:
   - service: input_select.select_option
     data:
