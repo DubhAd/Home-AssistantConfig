@@ -49,18 +49,53 @@ action:
   - service: notify.logfile
     data:
       message: "Turning off the living room lights"
-  - service: light.turn_off
-    data:
-      entity_id: 
-        - light.living_room_corner_lamp
-        - light.living_room_tv_lamp
-        - light.living_room_table_lamp
-      transition: 10
-  - service: switch.turn_off
-    entity_id: 
-      - switch.pi3_livingroom_socket_switch
-  - condition: state
-    entity_id: input_boolean.living_room_christmas
-    state: 'off'
-  - service: switch.turn_off
-    entity_id: switch.pi3_cabinet_light_switch
+  # Only turn off the things that are on
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: switch.pi3_livingroom_socket_switch
+            state: 'on'
+        sequence:
+          - service: switch.turn_off
+            entity_id: switch.pi3_livingroom_socket_switch
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: light.living_room_table_lamp
+            state: 'on'
+        sequence:
+          - service: light.turn_off
+            data:
+              entity_id: light.living_room_table_lamp
+              transition: 2
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: light.living_room_tv_lamp
+            state: 'on'
+        sequence:
+          - service: light.turn_off
+            data:
+              entity_id: light.living_room_tv_lamp
+              transition: 2
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: light.living_room_corner_lamp
+            state: 'on'
+        sequence:
+          - service: light.turn_off
+            data:
+              entity_id: light.living_room_corner_lamp
+              transition: 2
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.living_room_christmas
+            state: 'off'
+          - condition: state
+            entity_id: switch.pi3_cabinet_light_switch
+            state: 'on'
+        sequence:
+          - service: switch.turn_off
+            entity_id: switch.pi3_cabinet_light_switch
