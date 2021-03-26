@@ -12,11 +12,15 @@ trigger:
   # Motion in the hall
   - platform: state
     entity_id: binary_sensor.hall_downstairs_occupancy
-  # When the sun goes above 5 degrees
-  #- platform: numeric_state
-  #  entity_id: sensor.sun_elevation
-  #  above: 5
+  #  When the sun goes above 5 degrees
+  - platform: numeric_state
+    entity_id: sensor.sun_elevation
+    above: 5
   # Moderately bright to bright
+  - platform: numeric_state
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    above: 2
+    for: '00:15:00'
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 5
@@ -42,7 +46,7 @@ condition:
     # Brighter here
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      above: 5
+      above: 2
     # No room occupied 
     - condition: state
       entity_id: group.downstairs_occupied
