@@ -20,7 +20,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
 | [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | :heavy_check_mark: | The Zigbee 3.0 coordinator. Currently on the 202101 firmware, and proving solid and stable. I bought a second as a spare which I may use as a router. |
-| Sleash | None | :warning: | I flashed this with router firmware, and it joined the mesh, then fell off. I'll revisit this in the future, but so far, I'm unimpressed. |
+| Sleash | None | :warning: | Works as a router, but be aware of the well documented communication problems with the seller. |
 | [Gledopto GL-C-008P](https://www.zigbee2mqtt.io/devices/GL-C-008P.html) | Hall light | | I've ordered this to replace the Zigbee 1.2 GL-C-008. I'll update this once it arrives and has been installed. |
 | [IKEA LED1733G7](https://www.zigbee2mqtt.io/devices/LED1733G7.html#ikea-led1733g7) | Light | :heavy_check_mark: | I bought a couple of these for background lighting in the living room. I have no complaints about them, they transition smoothly, have a good range of brightness, and are cheap. NB: I'm not 100% sure these are Zigbee 3.0. |
 | [Ikea LED1739R5](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html#ikea-led1537r6%252Fled1739r5) | Light | :heavy_check_mark: | This was bought to replace the Osram, and it does this well. My comments for the other Ikea lights apply here too. |
