@@ -6,6 +6,9 @@ trigger:
     from: 'off'
     to: 'on'
 condition:
+  # We haven't just returned and left again
+  - "{{ (now()-trigger.from_state.last_changed).seconds > 300 }}"
+  # And something is currently open
   - condition: or
     conditions:
     - condition: state
