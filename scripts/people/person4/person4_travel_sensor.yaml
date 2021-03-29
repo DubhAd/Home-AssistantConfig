@@ -6,10 +6,10 @@ sequence:
       value: >-
         {% if is_state("input_boolean.person4_home", "on") %} 
           {{ states("input_select.person4_status_dropdown") }}
-        {% elif is_state("device_tracker.person4_mobile", "home") and is_state("input_boolean.person4_home", "off") %}
+        {% elif is_state("device_tracker.dsb_0230", "home") and is_state("input_boolean.person4_home", "off") %}
           Near home ({{ states("input_select.person4_stats_dropdown") }})
-        {% elif not is_state("device_tracker.person4_mobile", "not_home") %}
-          At {{ states("device_tracker.person4_mobile") }}
+        {% elif not is_state("device_tracker.dsb_0230", "not_home") %}
+          At {{ states("device_tracker.dsb_0230") }}
         {% else %}
           {{ state_attr('sensor.person4s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person4s_time_to_home', 'unit_of_measurement') }} to home
         {% endif %}

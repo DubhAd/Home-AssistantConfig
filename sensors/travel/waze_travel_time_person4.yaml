@@ -1,6 +1,6 @@
 - platform: waze_travel_time
   scan_interval: 604800
   name: 'person4s time to home waze'
-  origin: device_tracker.person4_mobile
+  origin: device_tracker.dsb_0230
   destination: zone.home
   region: 'EU'

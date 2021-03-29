@@ -3,14 +3,14 @@ alias: 'person4 on the move'
 trigger:
   # I've moved
   - platform: state
-    entity_id: device_tracker.person4_mobile
+    entity_id: device_tracker.dsb_0230
 condition:
   # Been at least 5 minutes
   - condition: template
     value_template: "{{ state_attr('script.person4_traveltime','last_triggered') == None or (now() - state_attr('script.person4_traveltime','last_triggered')).seconds > 300 }}"
   # GPS says away
   - condition: state
-    entity_id: device_tracker.person4_mobile
+    entity_id: device_tracker.dsb_0230
     state: 'not_home'
   - condition: or
     conditions:

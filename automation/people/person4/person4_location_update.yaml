@@ -4,7 +4,7 @@ trigger:
   # I've moved
   - platform: state
     entity_id: 
-      - device_tracker.person4_mobile
+      - device_tracker.dsb_0230
       - input_select.person4_status_dropdown
       - input_boolean.person4_home
       - sensor.person4s_time_to_home
