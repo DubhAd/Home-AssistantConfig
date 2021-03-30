@@ -49,6 +49,13 @@ cards:
   - entity: automation.tasker_hook
     secondary_info: last-triggered
   - type: divider
+  - entity: automation.somebody_arrived_scan
+    secondary_info: last-triggered
+  - entity: automation.people_reloaded_when_just_arrived
+    secondary_info: last-triggered
+  - entity: automation.people_reloaded_when_just_left
+    secondary_info: last-triggered
+  - type: divider
   - entity: automation.bedtime_something_open
     secondary_info: last-triggered
   - entity: automation.adults_away_something_open

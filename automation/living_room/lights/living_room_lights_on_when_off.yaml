@@ -1,8 +1,13 @@
 initial_state: 'on'
-alias: 'Living room lights off'
+alias: 'Living room lights on when off'
 trigger:
   - platform: state
-    entity_id: light.living_room_table_lamp
+    entity_id: 
+      - light.living_room_table_lamp
+      - light.living_room_tv_lamp
+      - light.living_room_corner_lamp
+      - switch.pi3_cabinet_light_switch
+      - switch.pi3_livingroom_socket_switch
     to: 'on'
 condition:
   # Lighting automations must be enabled
@@ -12,11 +17,14 @@ condition:
   - condition: or
     conditions:
     - condition: state
-      entity_id: input_select.living_room
-      state: 'Off'
+      entity_id: input_boolean.living_room_occupied
+      state: 'off'
     - condition: state
       entity_id: input_select.living_room
-      state: 'Away'
+      state: 
+        - 'Off'
+        - 'Away'
+        - 'Bedtime'
     - condition: and
       conditions:
       - condition: state
@@ -26,27 +34,14 @@ condition:
         conditions:
         - condition: state
           entity_id: input_select.house
-          state: 'Off'
-        - condition: state
-          entity_id: input_select.house
-          state: 'Away'
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: input_select.living_room
-      state: 'Bedtime'
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: input_select.living_room
-        state: 'Auto'
-      - condition: state
-        entity_id: input_select.house
-        state: 'Bedtime'
+          state: 
+            - 'Off'
+            - 'Away'
+            - 'Bedtime'
 action:
   - service: notify.logfile
     data:
-      message: "Turning off the living room lights"
+      message: "Turning off the living room lights again (mode is currently {{ states('input_select.living_room') }})"
   # Only turn off the things that are on
   - choose:
       - conditions:
@@ -65,7 +60,6 @@ action:
           - service: light.turn_off
             data:
               entity_id: light.living_room_table_lamp
-              transition: 2
   - choose:
       - conditions:
           - condition: state
@@ -75,7 +69,6 @@ action:
           - service: light.turn_off
             data:
               entity_id: light.living_room_tv_lamp
-              transition: 2
   - choose:
       - conditions:
           - condition: state
@@ -85,7 +78,6 @@ action:
           - service: light.turn_off
             data:
               entity_id: light.living_room_corner_lamp
-              transition: 2
   - choose:
       - conditions:
           - condition: state

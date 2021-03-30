@@ -51,3 +51,8 @@ cards:
     secondary_info: last-triggered
   - entity: automation.office_lights_motion
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.office_lights_turned_on
+    secondary_info: last-triggered
+  - entity: automation.office_lights_turned_off
+    secondary_info: last-triggered

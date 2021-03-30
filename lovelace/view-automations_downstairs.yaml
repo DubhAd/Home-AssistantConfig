@@ -64,7 +64,12 @@ cards:
   - entity: automation.living_room_lights_off
     secondary_info: last-triggered
   - type: divider
+  - entity: automation.living_room_lights_on_when_off
+    secondary_info: last-triggered
+  - type: divider
   - entity: automation.tv_light_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_dim_motion
     secondary_info: last-triggered
   - entity: automation.living_room_dark_motion
     secondary_info: last-triggered
