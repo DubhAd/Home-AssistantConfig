@@ -17,9 +17,6 @@ condition:
   - condition: or
     conditions:
     - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'off'
-    - condition: state
       entity_id: input_select.living_room
       state: 
         - 'Off'
