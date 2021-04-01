@@ -24,14 +24,30 @@ cards:
       name: Outside
       icon: 'mdi:thermometer'
       unit: '°C'
+      footer:
+        type: graph
+        entity: sensor.accuhome_realfeel_temperature
+        hours_to_show: 24
+        detail: 2
     - type: entity
       entity: sensor.pi3_living_room_multi_temperature
       name: Downstairs
       icon: 'mdi:thermometer'
+      footer:
+        type: graph
+        entity: sensor.pi3_living_room_multi_temperature
+        hours_to_show: 24
+        detail: 2
     - type: entity
       entity: sensor.upstairs_temperature
       name: Upstairs
       icon: 'mdi:thermometer'
+      footer:
+        type: graph
+        entity: sensor.upstairs_temperature
+        hours_to_show: 24
+        detail: 2
+
         
   - type: entity-filter
     entities:

@@ -135,7 +135,7 @@ cards:
       name: Door
 - type: glance
   title: Office
-  columns: 6
+  columns: 5
   entities:
     - entity: light.office_strip
       name: Strip
@@ -143,25 +143,21 @@ cards:
       name: Sonos
     - entity: media_player.office_smart_display
       name: "Home Hub"
-    - entity: binary_sensor.office_motion_konke_occupancy
-      name: Motion
-      show_last_changed: true
     - entity: binary_sensor.office_door_contact
       show_last_changed: true
       name: Door
     - entity: binary_sensor.office_window_contact
       show_last_changed: true
       name: Window
+    - entity: binary_sensor.office_motion_konke_occupancy
+      name: Motion
+      show_last_changed: true
     - entity: sensor.pi3_office_multi_luminance
       name: Light level
-    - entity: sensor.pi3_office_multi_temperature
-      name: Temperature
     - entity: sensor.office_climate_temperature
-      name: Temperature (Zigbee)
-    - entity: sensor.pi3_office_multi_relative_humidity
-      name: Humidity
+      name: Temperature
     - entity: sensor.office_climate_humidity
-      name: Humidity (Zigbee)
+      name: Humidity
 - type: glance
   title: Spare bedroom
   columns: 3
