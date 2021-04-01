@@ -47,14 +47,16 @@ condition:
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
       above: 2
-    # No room occupied 
-    - condition: state
-      entity_id: group.downstairs_occupied
-      state: 'off'
-    # Sun above 5 degrees
-    #- condition: numeric_state
-    #  entity_id: sensor.sun_elevation
-    #  above: 5
+    # No room occupied and we're not just awake
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: group.downstairs_occupied
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.bedtime
+        state: 'off'
+        for: '00:30:00'
 action:
   - service: notify.logfile
     data:
