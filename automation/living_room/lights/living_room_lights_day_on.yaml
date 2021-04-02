@@ -41,10 +41,16 @@ action:
     data:
       entity_id: light.living_room_tv_lamp
       transition: 10
-  - service: light.turn_off
-    data:
-      entity_id: light.living_room_table_lamp
-      transition: 10
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: light.living_room_table_lamp
+        state: 'on'
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: light.living_room_table_lamp
+          transition: 10
   - choose:
     - conditions:
       - condition: state
