@@ -1,7 +1,0 @@
-- platform: history_stats
-  name: Zigbee coordinator offline count
-  entity_id: sensor.zigbee2mqtt_bridge_state
-  state: 'offline'
-  type: count
-  end: '{{ now() }}'
-  duration: '24:00:00'

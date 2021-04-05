@@ -2,7 +2,7 @@ alias: Hall strip on
 sequence:
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_hall
-  - wait_template: "{{ is_state('light.hall','on') or is_state('light.hall','off') }}"
+  - wait_template: "{{ is_state('light.downstairs_hall','on') or is_state('light.downstairs_hall','off') }}"
   - choose:
     - conditions:
       - condition: state
@@ -13,11 +13,11 @@ sequence:
         entity_id: switch.adaptive_lighting_adapt_brightness_hall
       - service: light.turn_on
         data:
-          entity_id: light.hall
+          entity_id: light.downstairs_hall
           brightness_pct: 15
     default:
     - service: switch.turn_on
       entity_id: switch.adaptive_lighting_adapt_brightness_hall
     - service: light.turn_on
       data:
-        entity_id: light.hall
+        entity_id: light.downstairs_hall

@@ -25,7 +25,6 @@ instances:
     - switch.number_sign_switch
     - switch.second_bedroom_switch
     - switch.spare_socket_switch
-    - switch.table_light_switch
     - switch.tv_light_switch
     - switch.vestibule_switch
     - sensor.zwave_battery_front_door

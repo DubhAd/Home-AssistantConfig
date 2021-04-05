@@ -246,8 +246,6 @@ device_tracker.person3_bt_mobile:
   source_type: bluetooth
 zwave.pi3_zwaveme_razberry_controller_2016_zwave:
   icon: mdi:raspberry-pi
-switch.living_room_table:
-  icon: mdi:spotlight
 media_player.samsung_tv:
   icon: mdi:television
 light.office_strip:

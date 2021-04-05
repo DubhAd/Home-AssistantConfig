@@ -2,7 +2,7 @@ initial_state: 'on'
 alias: 'Hall lights turned off'
 trigger:
   - platform: state
-    entity_id: light.hall
+    entity_id: light.downstairs_hall
     to: 'off'
     from: 'on'
 action:

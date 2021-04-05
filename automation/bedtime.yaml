@@ -11,7 +11,7 @@ trigger:
   # No movement and downstairs rooms are empty
   - platform: state
     entity_id: 
-    - binary_sensor.hall_downstairs_occupancy
+    - binary_sensor.downstairs_hall_motion_occupancy
     - binary_sensor.vestibule_multi_occupancy
     - group.downstairs_occupied
     to: 'off'
@@ -19,7 +19,7 @@ trigger:
 action:
   - service: notify.logfile
     data:
-      message: "Bedtime: {{ states('input_boolean.home_occupied') }}/{{ states('group.downstairs_occupied') }}/{{ states('binary_sensor.vestibule_multi_occupancy') }}/{{ states('binary_sensor.hall_downstairs_occupancy') }}"
+      message: "Bedtime: {{ states('input_boolean.home_occupied') }}/{{ states('group.downstairs_occupied') }}/{{ states('binary_sensor.vestibule_multi_occupancy') }}/{{ states('binary_sensor.downstairs_hall_motion_occupancy') }}"
   - service: notify.logfile
     data:
       message: "Bedtime: {{ states('input_boolean.person3_in_bed') }}/{{ states('input_boolean.person3_travelling') }}/{{ states('input_boolean.person1_in_bed') }}/{{ states('input_boolean.person1_travelling') }}/{{ states('input_boolean.person2_in_bed') }}/{{ states('input_boolean.person2_travelling') }}"
@@ -52,11 +52,11 @@ action:
     - condition: or
       conditions:
       - condition: state
-        entity_id: binary_sensor.hall_downstairs_occupancy
+        entity_id: binary_sensor.downstairs_hall_motion_occupancy
         state: 'off'
         for: '00:02:00'
       - condition: state
-        entity_id: binary_sensor.hall_downstairs_occupancy
+        entity_id: binary_sensor.downstairs_hall_motion_occupancy
         state: 'unavailable'
   - service: notify.logfile
     data:

@@ -11,7 +11,7 @@ trigger:
     to: 'on'
   # Motion in the hall
   - platform: state
-    entity_id: binary_sensor.hall_downstairs_occupancy
+    entity_id: binary_sensor.downstairs_hall_motion_occupancy
   #  When the sun goes above 5 degrees
   - platform: numeric_state
     entity_id: sensor.sun_elevation

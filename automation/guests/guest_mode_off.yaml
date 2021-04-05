@@ -17,6 +17,6 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode
   - condition: state
-    entity_id: light.hall
+    entity_id: light.downstairs_hall
     state: 'on'
   - service: script.hall_strip_on

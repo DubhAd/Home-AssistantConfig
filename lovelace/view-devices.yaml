@@ -162,8 +162,7 @@ cards:
     - switch.pi3_table_light_switch
     - switch.pi3_tv_light_switch
     - switch.pi3_vestibule_switch
-    - switch.living_room_table
-    - light.hall
+    - light.downstairs_hall
     - light.person1_bedroom_bedside
     - light.office_strip
     - light.living_room_corner_lamp

@@ -17,7 +17,7 @@ trigger:
   - platform: state
     entity_id: 
       - binary_sensor.pi3_front_door_sensor
-      - binary_sensor.hall_downstairs_occupancy
+      - binary_sensor.downstairs_hall_motion_occupancy
       - binary_sensor.vestibule_multi_occupancy
     to: 'on'
   - platform: state

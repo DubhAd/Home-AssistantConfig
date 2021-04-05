@@ -9,7 +9,7 @@ trigger:
     entity_id: sensor.sun_elevation
     below: 5
   - platform: state
-    entity_id: binary_sensor.hall_downstairs_occupancy
+    entity_id: binary_sensor.downstairs_hall_motion_occupancy
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux

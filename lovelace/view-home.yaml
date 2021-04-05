@@ -129,7 +129,7 @@ cards:
     entities:
       - entity: binary_sensor.pi3_living_room_motion
         name: Living room
-      - entity: binary_sensor.hall_downstairs_occupancy
+      - entity: binary_sensor.downstairs_hall_motion_occupancy
         name: Hall
       - entity: binary_sensor.vestibule_multi_occupancy
         name: Vestibule
@@ -147,13 +147,13 @@ cards:
     entities:
       - entity: binary_sensor.pi3_front_door_sensor
         name: Front
-      - entity: binary_sensor.vestibule_window_front
+      - entity: binary_sensor.vestibule_window_front_contact
         name: Vestibule Front
-      - entity: binary_sensor.vestibule_window_side
+      - entity: binary_sensor.vestibule_window_side_contact
         name: Vestibule Side
-      - entity: binary_sensor.family_window_left
+      - entity: binary_sensor.family_window_left_contact
         name: Family left
-      - entity: binary_sensor.family_window_right
+      - entity: binary_sensor.family_window_right_contact
         name: Family right
       - entity: binary_sensor.pi3_garage_closed_bike_sensor
         name: Garage - bike
@@ -248,7 +248,7 @@ cards:
         name: Family room
         tap_action: 
           action: toggle
-      - entity: light.hall
+      - entity: light.downstairs_hall
         name: "Hall"
       - entity: switch.pi3_hall_downstairs_switch
         name: "Hall socket"

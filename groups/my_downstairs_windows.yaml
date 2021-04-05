@@ -1,8 +1,8 @@
 name: Downstairs windows
 entities:
-- binary_sensor.vestibule_window_front
-- binary_sensor.vestibule_window_side
-- binary_sensor.family_window_left
-- binary_sensor.family_window_right
+- binary_sensor.vestibule_window_front_contact
+- binary_sensor.vestibule_window_side_contact
+- binary_sensor.family_window_left_contact
+- binary_sensor.family_window_right_contact
 - binary_sensor.patio_window_left_contact
 - binary_sensor.patio_window_right_contact

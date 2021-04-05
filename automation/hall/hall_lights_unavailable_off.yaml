@@ -2,7 +2,7 @@ initial_state: 'on'
 alias: 'Hall lights unavailable off'
 trigger:
   - platform: state
-    entity_id: light.hall
+    entity_id: light.downstairs_hall
     from: 'unavailable'
     to: 'on'
 condition:
@@ -27,4 +27,4 @@ condition:
 action:
   - service: light.turn_off
     data:
-      entity_id: light.hall
+      entity_id: light.downstairs_hall

@@ -385,7 +385,7 @@ cards:
             - switch.pi3_garden_lights_switch
             - light.master_bedroom_bedhead
             - light.person1_bedroom_bedside
-            - light.hall
+            - light.downstairs_hall
             - light.office_strip
           states:
             - state: 'on'
@@ -437,7 +437,7 @@ cards:
         - entities:
             - binary_sensor.pi3_living_room_motion
             - binary_sensor.office_motion_konke_occupancy
-            - binary_sensor.hall_downstairs_occupancy
+            - binary_sensor.downstairs_hall_motion_occupancy
             - binary_sensor.vestibule_multi_occupancy
           states:
             - state: 'off'
@@ -474,10 +474,10 @@ cards:
             - binary_sensor.patio_window_left_contact
             - binary_sensor.patio_window_right_contact
             - binary_sensor.pi3_front_door_sensor
-            - binary_sensor.vestibule_window_front
-            - binary_sensor.vestibule_window_side
-            - binary_sensor.family_window_right
-            - binary_sensor.family_window_left
+            - binary_sensor.vestibule_window_front_contact
+            - binary_sensor.vestibule_window_side_contact
+            - binary_sensor.family_window_right_contact
+            - binary_sensor.family_window_left_contact
             - binary_sensor.guest_bedroom_window_left_contact
             - binary_sensor.guest_bedroom_window_right_contact
             - binary_sensor.master_window_left_contact

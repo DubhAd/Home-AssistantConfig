@@ -41,7 +41,7 @@ condition:
         entity_id: switch.pi3_hall_downstairs_switch
         state: 'off'
       - condition: state
-        entity_id: light.hall
+        entity_id: light.downstairs_hall
         state: 'off'
     # Somebody is nearly home, or just arrived
     - condition: or

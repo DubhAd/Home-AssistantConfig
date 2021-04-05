@@ -9,10 +9,10 @@ condition:
     conditions:
     # Hall sensor is on, or has just turned off
     - condition: state
-      entity_id: binary_sensor.hall_downstairs_occupancy
+      entity_id: binary_sensor.downstairs_hall_motion_occupancy
       state: 'on'
     - condition: template
-      value_template: "{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.hall_downstairs_occupancy.last_updated)) | int < 120 }}"
+      value_template: "{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.downstairs_hall_motion_occupancy.last_updated)) | int < 120 }}"
 action:
   - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.ha_alarm

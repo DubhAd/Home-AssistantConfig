@@ -31,7 +31,7 @@ action:
   # Wait for motion in the hall
   - wait_for_trigger:
     - platform: state
-      entity_id: binary_sensor.hall_downstairs_occupancy
+      entity_id: binary_sensor.downstairs_hall_motion_occupancy
       to: 'on'
   # Have a little background light
   #- service: switch.turn_off

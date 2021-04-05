@@ -3,14 +3,10 @@ alias: 'device unavailable'
 trigger:
   - platform: state
     entity_id:
-      - light.hall
-      - light.living_room_table
       - binary_sensor.zigbee2mqtt_router_1
     to: 'unavailable'
   - platform: state
     entity_id:
-      - light.hall
-      - light.living_room_table
       - binary_sensor.zigbee2mqtt_router_1
     from: 'unavailable'
 action:
