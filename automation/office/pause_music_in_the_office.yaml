@@ -2,30 +2,38 @@ initial_state: 'on'
 alias: 'Pause music in the office'
 trigger:
   - platform: state
-    entity_id: calendar.person2_work
+    entity_id: 
+    - calendar.person2_work
+    - binary_sensor.kelsie_hws_webcamactive
     to: 'on'
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'off'
 condition:
+  # Music is playing
+  - condition: state
+    entity_id: media_player.office
+    state: 'playing'
   - condition: or
     conditions:
-    - condition: state
-      entity_id: media_player.office
-      state: 'playing'
-    - condition: state
-      entity_id: calendar.person2_work
-      state: 'on'
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: media_player.office
-      state: 'playing'
-      for:
-        minutes: 10
+    # Office is now empty
     - condition: state
       entity_id: input_boolean.office_occupied
       state: 'off'
+    # Occupied, and either a meeting or video call started
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.office_occupied
+        state: 'on'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.kelsie_hws_webcamactive
+          state: 'on'
+        - condition: state
+          entity_id: calendar.person2_work
+          state: 'on'
 action:
   - service: media_player.media_pause
     data:
