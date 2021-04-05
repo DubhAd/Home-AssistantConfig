@@ -9,7 +9,7 @@ condition:
       {{ trigger.from_state.attributes.external_ip != trigger.to_state.attributes.external_ip }}
   - condition: template
     value_template: >-
-      {{ trigger.to_state.attributes.external_ip|string != "None" }}
+      {{ (trigger.to_state.attributes.external_ip|string != "None") and (trigger.to_state.attributes.external_ip|length != 0) }}
 action:
   - wait_template: >-
       {{ is_state('input_boolean.person2_is_awake','on') }}
