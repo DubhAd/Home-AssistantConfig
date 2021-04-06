@@ -21,7 +21,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | --- | --- | :---: | --- |
 | [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | :heavy_check_mark: | The Zigbee 3.0 coordinator. Currently on the 202101 firmware, and proving solid and stable. I bought a second as a spare which I may use as a router. |
 | Sleash | None | :warning: | Works as a router, but be aware of the well documented communication problems with the seller. |
-| [Tube CC2652 router](https://www.tubeszb.com/product/cc_router/4) | Router | :heavy_check_mark: | A friend ordered a couple of these and it turned out they only needed one, so they gave me the spare. So far, so good. |
+| [Tube CC2652 router](https://www.tubeszb.com/product/cc_router/4) | Router | :heavy_check_mark: | A friend ordered a couple of these and it turned out they only needed one, so they gave me the spare. It replaced a CC2530 with antenna, and so far, so good. The sign of a good router device is that you forget about it after all :P |
 | [Gledopto GL-C-008P](https://www.zigbee2mqtt.io/devices/GL-C-008P.html) | Hall light | :heavy_check_mark: | Replaced the older GL-C-008, transitions are smoother, but otherwise it behaves much like the old unit. I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I may replace the tape with COB tape |
 | [IKEA LED1733G7](https://www.zigbee2mqtt.io/devices/LED1733G7.html#ikea-led1733g7) | Light | :heavy_check_mark: | I bought a couple of these for background lighting in the living room. I have no complaints about them, they transition smoothly, have a good range of brightness, and are cheap. NB: I'm not 100% sure these are Zigbee 3.0. |
 | [Ikea LED1739R5](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html#ikea-led1537r6%252Fled1739r5) | Light | :heavy_check_mark: | This was bought to replace the Osram, and it does this well. My comments for the other Ikea lights apply here too. |
@@ -45,13 +45,13 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Gledopto GL-C-008 RGB+CCT](https://www.zigbee2mqtt.io/devices/GL-C-008-1ID.html) | Hall lighting | :construction: |  I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I plan on swapping this out for the Zigbee 3.0 version, and probably replacing the tape with COB tape |
 | [Hive active plug](https://www.zigbee2mqtt.io/devices/1613V.html) | Controlling an uplighter | :x: | This both extends my mesh, and also manages a dumb uplighter that I'll fit a smart bulb to at some point, again |
 | [Hue dimmer](https://www.zigbee2mqtt.io/devices/324131092621.html) | Remote | :grey_question: | Quite nice four button remote, the only downside is that it's not Zigbee 3.0 |
-| [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | Router | :x: | Unsure | Purely functions as a router for the original mesh, but I don't need it any more |
+| [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | None | :x: | :x: | Purely functioned as a router for the original mesh, but I don't need it any more, and it only routes for a handful of devices |
 | [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | :warning: | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
 | [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | Router | :x: | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
-| [Xiaomi Aqara button](https://www.zigbee2mqtt.io/devices/WXKG12LM.html) | Remote | :construction: | I like these, they feel good and work well |
+| [Xiaomi Aqara button](https://www.zigbee2mqtt.io/devices/WXKG12LM.html) | Remote | :construction: | I like these, they feel good and work well, but it's only Zigbee 1.2 |
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | :construction: | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :construction: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
-| [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :construction: | These are pretty good, they report regularly enough to be useful and are reliable. |
+| [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :construction: | These are pretty good, they report regularly enough to be useful and are reliable. Hopefully we'll get a Zigbee 3.0 version soon. |
 
 # Z-Wave
 
