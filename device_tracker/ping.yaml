@@ -1,6 +1,0 @@
-platform: ping
-consider_home: 1
-interval_seconds: 4
-count: 2
-hosts:
-  gateway_router: 192.168.0.1
