@@ -15,22 +15,12 @@ cards:
     - entity: binary_sensor.updater
       state_color: true
 
-- type: entity
-  name: "WAN IP"
-  entity: binary_sensor.fritzbox_7530_connectivity
-  attribute: external_ip
-- type: entity
-  name: "Up since"
-  entity: binary_sensor.fritzbox_7530_connectivity
-  attribute: last_reconnect
 - type: glance
   title: Things
   show_header_toggle: false
   show_state: false
-  columns: 4
+  columns: 3
   entities:
-  - entity: binary_sensor.fritzbox_7530_connectivity
-    name: Internet
   - binary_sensor.remote_ui
   - entity: binary_sensor.first_floor_front
     name: BT Front
@@ -51,11 +41,6 @@ cards:
     name: Living room TV
   - entity: switch.pi3_table_light_switch
     name: Table light switch
-- type: glance
-  title: Power consumption
-  show_header_toggle: false
-  entities:
-    - entity: sensor.living_room_table_switch_power
 - type: custom:battery-state-card
   title: Battery devices
   sort_by_level: "asc"
@@ -65,39 +50,41 @@ cards:
     - "#ffff00" # yellow
     - "#00ff00" # green
   entities:
-  - sensor.bathroom_door_battery
-  - sensor.bathroom_environment_battery
-  - sensor.bathroom_window_battery
-  - sensor.family_window_left_battery
-  - sensor.family_window_right_battery
-  - sensor.guest_bedroom_door_battery
-  - sensor.guestbedroom_window_left_battery
-  - sensor.guestbedroom_window_right_battery
-  - sensor.hall_downstairs_motion_battery
-  - sensor.hue_dimmer_battery
-  - sensor.master_bedroom_door_battery
-  - sensor.master_ensuite_door_battery
-  - sensor.master_bedroom_light_sensor_battery
-  - sensor.master_ensuite_environment_battery
-  - sensor.master_window_ensuite_battery
-  - sensor.master_window_left_battery
-  - sensor.master_window_right_battery
-  - sensor.office_button_battery
-  - sensor.office_climate_battery
-  - sensor.office_door_battery
-  - sensor.office_motion_konke_battery
-  - sensor.office_window_battery
-  - sensor.patio_window_left_battery
-  - sensor.patio_window_right_battery
-  - sensor.second_bedroom_ensuite_environment_battery
-  - sensor.second_bedroom_window_ensuite_battery
-  - sensor.second_bedroom_window_left_battery
-  - sensor.second_bedroom_window_right_battery
-  - sensor.spare_bedroom_window_left_battery
-  - sensor.spare_bedroom_window_right_battery
-  - sensor.spare_button_battery
-  - sensor.vestibule_multi_battery
-  - sensor.vestibule_window_front_battery
+  - sensor.bathroom_door_battery 
+  - sensor.bathroom_environment_battery 
+  - sensor.bathroom_window_battery 
+  - sensor.downstairs_hall_light_sensor_battery 
+  - sensor.downstairs_hall_motion_battery 
+  - sensor.family_window_left_battery 
+  - sensor.family_window_right_battery 
+  - sensor.guest_bedroom_door_battery 
+  - sensor.guest_bedroom_window_left_battery 
+  - sensor.guest_bedroom_window_right_battery 
+  - sensor.hue_dimmer_battery 
+  - sensor.master_bedroom_door_battery 
+  - sensor.master_bedroom_light_sensor_battery 
+  - sensor.master_ensuite_door_battery 
+  - sensor.master_ensuite_environment_battery 
+  - sensor.master_window_ensuite_battery 
+  - sensor.master_window_left_battery 
+  - sensor.master_window_right_battery 
+  - sensor.office_button_battery 
+  - sensor.office_climate_battery 
+  - sensor.office_door_battery 
+  - sensor.office_motion_konke_battery 
+  - sensor.office_window_battery 
+  - sensor.patio_window_left_battery 
+  - sensor.patio_window_right_battery 
+  - sensor.second_bedroom_door_battery 
+  - sensor.second_bedroom_ensuite_battery 
+  - sensor.second_bedroom_window_ensuite_battery 
+  - sensor.second_bedroom_window_left_battery 
+  - sensor.second_bedroom_window_right_battery 
+  - sensor.spare_bedroom_window_left_battery 
+  - sensor.spare_bedroom_window_right_battery 
+  - sensor.spare_button_battery 
+  - sensor.vestibule_multi_battery 
+  - sensor.vestibule_window_front_battery 
   - sensor.vestibule_window_side_battery
   - entity: zwave.pi3_garage_closed_bike
     name: Garage left
