@@ -1,5 +1,6 @@
 initial_state: 'on'
 alias: 'Bedtime'
+id: bedtime
 trigger:
   # Everybody is in bed
   - platform: state

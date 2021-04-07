@@ -1,4 +1,5 @@
 alias: 'All away media off'
+id: all_away_media_off
 initial_state: 'off'
 trigger:
   - platform: state
