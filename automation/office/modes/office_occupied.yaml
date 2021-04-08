@@ -4,10 +4,24 @@ trigger:
   - platform: state
     entity_id: group.work_laptop
     to: 'home'
+  - platform: state
+    entity_id: input_boolean.person2_in_bed
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.person2_home
+    to: 'on'
 condition:
   - condition: state
-    entity_id: input_boolean.office_occupied
+    entity_id: 
+      - input_boolean.office_occupied
+      - input_boolean.person2_in_bed
     state: 'off'
+  - condition: state
+    entity_id: group.work_laptop
+    state: 'home'
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
 action:
   - service: input_boolean.turn_on
     entity_id: 
