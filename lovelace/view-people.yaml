@@ -145,7 +145,7 @@ cards:
       type: vertical-stack
       cards: 
       - type: glance
-        columns: 6
+        columns: 5
         entities:
         - entity: device_tracker.person2_mobile_gps
           name: GPS
@@ -153,6 +153,9 @@ cards:
         - entity: device_tracker.40_4e_36_24_53_15
           name: WiFi
           icon: mdi:wifi
+        - entity: device_tracker.person2_wifi
+          name: App
+          icon: mdi:wifi-star
         - entity: device_tracker.person2_bt_front_mobile
           name: Front
           icon: mdi:bluetooth
