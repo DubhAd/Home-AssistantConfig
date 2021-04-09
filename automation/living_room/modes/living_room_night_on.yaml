@@ -72,7 +72,7 @@ condition:
         below: 20
   # Didn't just turn the lights off
   - condition: template
-    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.light.living_room_corner_lamp.last_updated)) | int > 120 }}"
+    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.light.living_room_corner_lamp.last_changed)) | int > 120 }}"
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

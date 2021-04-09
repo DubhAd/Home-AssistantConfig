@@ -56,7 +56,7 @@ condition:
     conditions:
     # There's been motion in the last 3 minutes
     - condition: template
-      value_template: "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.pi3_living_room_motion.last_updated) ) < 180 }}"
+      value_template: "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.pi3_living_room_motion.last_changed) ) < 180 }}"
     # We're awake
     - condition: state
       entity_id: input_boolean.bedtime
