@@ -4,6 +4,9 @@ trigger:
   - platform: webhook
     webhook_id: !secret slack_pi3
 action:
+  # This requires a JSON payload like
+  # {"action":"start","camera":"whale"}
+  # {"action":"end","camera":"whale"}
   - service: notify.logfile
     data:
       message: >
