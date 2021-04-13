@@ -20,13 +20,14 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 12
-    for:
-      minutes: 5
+    for: '00:02:00'
+  - platform: numeric_state
+    entity_id: sensor.pi3_living_room_multi_luminance
+    below: 11
+    for: '00:01:00'
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 10
-    for:
-      minutes: 1
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 6

@@ -17,18 +17,14 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 18
-    for:
-      minutes: 5
+    for: '00:05:00'
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     below: 16
-    for:
-      minutes: 1
   - platform: numeric_state
     entity_id: sensor.pi3_living_room_multi_luminance
     above: 11
-    for:
-      minutes: 10
+    for: '00:10:00'
 condition:
   - condition: state
     entity_id: input_boolean.living_room_occupied
@@ -40,7 +36,7 @@ condition:
     # Room is dark, but not too dark
     - condition: numeric_state
       entity_id: sensor.pi3_living_room_multi_luminance
-      below: 25
+      below: 20
       above: 11
     # Didn't just turn the lights off
     - condition: template
