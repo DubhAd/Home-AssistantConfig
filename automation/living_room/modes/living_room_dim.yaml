@@ -19,7 +19,7 @@ condition:
     state: 'on'
   # Dark
   - condition: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 5
   # Not already in dim mode
   - condition: template
@@ -43,7 +43,7 @@ action:
     data:
       message: >
         Dim triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.pi3_living_room_multi_luminance') }}
+          Light level is {{ states('sensor.living_room_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.living_room

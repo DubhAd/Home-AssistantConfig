@@ -18,7 +18,7 @@ trigger:
     entity_id: input_boolean.office_occupied
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 10
 condition:
   # Lighting automations are enabled
@@ -38,7 +38,7 @@ condition:
       for: '00:30:00'
     # Getting brighter
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
+      entity_id: sensor.living_room_light_sensor_illuminance_lux
       above: 10
   - condition: or
     conditions:
@@ -65,7 +65,7 @@ condition:
       for: '00:30:00'
     # Getting brighter
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
+      entity_id: sensor.living_room_light_sensor_illuminance_lux
       above: 10
 action:
   - service: input_boolean.turn_off

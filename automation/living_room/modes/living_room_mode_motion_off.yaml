@@ -11,7 +11,7 @@ trigger:
     to: 'off'
     for: '00:02:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 5
 condition:
   - condition: state
@@ -27,7 +27,7 @@ condition:
       state: 'off'
       for: '00:02:00'
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
+      entity_id: sensor.living_room_light_sensor_illuminance_lux
       above: 5
 action:
   - service: input_boolean.turn_off

@@ -7,38 +7,38 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 70
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 65
     for: '00:01:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 60
     for: '00:02:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 55
     for: '00:03:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 50
     for: '00:04:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 45
     for: '00:05:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 40
     for: '00:06:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 35
     for: '00:07:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 30
     for: '00:08:00'
   - platform: state
@@ -57,7 +57,7 @@ condition:
     conditions:
     # Room is very bright
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
+      entity_id: sensor.living_room_light_sensor_illuminance_lux
       above: 50
     - condition: and
       conditions:
@@ -65,7 +65,7 @@ condition:
         entity_id: light.living_room_corner_lamp
         state: 'off'
       - condition: numeric_state
-        entity_id: sensor.pi3_living_room_multi_luminance
+        entity_id: sensor.living_room_light_sensor_illuminance_lux
         above: 30
     # Or room not occupied and not bedtime
     - condition: and
@@ -83,7 +83,7 @@ condition:
         entity_id: binary_sensor.trend_sun_elevation
         state: 'on'
       - condition: numeric_state
-        entity_id: sensor.pi3_living_room_multi_luminance
+        entity_id: sensor.living_room_light_sensor_illuminance_lux
         above: 25
 action:
   - service: input_boolean.turn_off
@@ -92,7 +92,7 @@ action:
     data:
       message: >
         Off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.pi3_living_room_multi_luminance') }}
+          Light level is {{ states('sensor.living_room_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.living_room

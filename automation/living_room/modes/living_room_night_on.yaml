@@ -19,21 +19,21 @@ trigger:
     entity_id: switch.pi3_cabinet_light_switch
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 12
     for: '00:02:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 11
     for: '00:01:00'
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 10
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 6
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 1
   - platform: state
     entity_id: sensor.hue_dimmer_action
@@ -52,26 +52,10 @@ condition:
       value_template: "{{ trigger and trigger.entity_id == sensor.hue_dimmer_action }}"
   - condition: template
     value_template: "{{ not is_state('input_select.living_room','Night on') }}"
-  # Corner light off, and dull, or on and brighter
-  - condition: or
-    conditions:
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: light.living_room_corner_lamp
-        state: 'off'
-      - condition: numeric_state
-        entity_id: sensor.pi3_living_room_multi_luminance
-        below: 12
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: light.living_room_corner_lamp
-        state: 'on'
-        for: '00:01:00'
-      - condition: numeric_state
-        entity_id: sensor.pi3_living_room_multi_luminance
-        below: 20
+  # Dull
+  - condition: numeric_state
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    below: 12
   # Didn't just turn the lights off
   - condition: template
     value_template: "{{ (as_timestamp(now()) - as_timestamp(states.light.living_room_corner_lamp.last_changed)) | int > 120 }}"
@@ -82,7 +66,7 @@ action:
     data:
       message: >
         Night on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.pi3_living_room_multi_luminance') }}
+          Light level is {{ states('sensor.living_room_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.living_room
