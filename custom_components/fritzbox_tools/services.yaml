@@ -2,12 +2,12 @@ reconnect:
   description: Reconnects your FRITZ!Box internet connection.
   fields:
     host:
-      description: IP Adress of the FRITZ!Box (must be configured in HA)
+      description: IP Address of the FRITZ!Box (must be configured in HA)
       example: 192.168.178.1
 
 reboot:
   description: Reboots your FRITZ!Box.
   fields:
     host:
-      description: IP Adress of the FRITZ!Box (must be configured in HA)
+      description: IP Address of the FRITZ!Box (must be configured in HA)
       example: 192.168.178.1

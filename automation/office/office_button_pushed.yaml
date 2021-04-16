@@ -2,14 +2,12 @@ initial_state: 'on'
 alias: 'Office button pushed'
 trigger:
   - platform: state
-    entity_id: sensor.office_button_click
+    entity_id: sensor.office_button_action
+    to: 'single'
     # Need to switch to _action
   - platform: state
     entity_id: sensor.spare_button_action
-condition:
-  - condition: template
-    value_template: >
-      {{ trigger.to_state.attributes.click == 'single' }}
+    to: 'single'
 action:
   - choose:
     - conditions:

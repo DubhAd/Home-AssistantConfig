@@ -6,18 +6,7 @@
     entity_id: alarm_control_panel.ha_alarm
     from: banana
     to: kipper
-  - type: not_connected
-    platform: device
-    device_id: dcd0d096babb4d24b9992141becae071
-    entity_id: binary_sensor.fritzbox_connectivity
-    domain: binary_sensor
   condition: []
   action:
-  - data: {}
-    entity_id: light.yeelight_strip1_286c07afc307
-    service: light.turn_off
-  - service: light.turn_on
-    data:
-      brightness_step_pct: 10
-    entity_id: light.office_strip
+  - service: automation.reload
   mode: single
