@@ -1,3 +1,4 @@
+id: 'garage_snapshot'
 initial_state: 'off'
 alias: 'Garage snapshot'
 trigger:

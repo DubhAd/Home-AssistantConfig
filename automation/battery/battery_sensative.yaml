@@ -1,3 +1,4 @@
+id: 'battery_sensative'
 initial_state: 'on'
 alias: 'Battery Sensative'
 trigger:

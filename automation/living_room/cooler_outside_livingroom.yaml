@@ -1,3 +1,4 @@
+id: 'cooler_outside_livingroom'
 initial_state: 'off'
 alias: 'cooler outside (livingroom)'
 trigger:

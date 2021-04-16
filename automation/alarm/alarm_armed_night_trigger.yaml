@@ -1,3 +1,4 @@
+id: 'alarm_armed_trigger_night'
 initial_state: 'on'
 alias: 'Alarm armed trigger night'
 trigger:

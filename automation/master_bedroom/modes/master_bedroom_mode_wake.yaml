@@ -1,3 +1,4 @@
+id: 'master_bedroom_mode_wake'
 initial_state: 'on'
 alias: 'Master bedroom mode wake'
 trigger:

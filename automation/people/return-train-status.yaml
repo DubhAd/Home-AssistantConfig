@@ -1,3 +1,4 @@
+id: 'return_train_status'
 initial_state: 'on'
 alias: 'Return train status'
 trigger:

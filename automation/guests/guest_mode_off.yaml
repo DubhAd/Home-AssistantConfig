@@ -1,3 +1,4 @@
+id: 'guest_mode_off'
 initial_state: 'on'
 alias: 'Guest mode off'
 trigger:

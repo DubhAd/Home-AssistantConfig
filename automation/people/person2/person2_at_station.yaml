@@ -1,3 +1,4 @@
+id: 'person2_at_station'
 alias: 'person2 at station'
 initial_state: 'on'
 trigger:

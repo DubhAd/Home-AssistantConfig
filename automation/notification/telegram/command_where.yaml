@@ -1,3 +1,4 @@
+id: 'telegram_command_where'
 alias: 'Telegram command where'
 initial_state: 'on'
 trigger:

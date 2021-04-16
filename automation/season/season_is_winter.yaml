@@ -1,3 +1,4 @@
+id: 'season_is_winter'
 alias: 'Season is winter'
 initial_state: 'on'
 trigger:

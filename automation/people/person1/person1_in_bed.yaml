@@ -1,3 +1,4 @@
+id: 'person1_in_bed'
 alias: 'person1 in bed'
 initial_state: 'on'
 trigger:

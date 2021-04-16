@@ -1,3 +1,4 @@
+id: 'office_mode_wake'
 initial_state: 'on'
 alias: 'Office mode Wake'
 trigger:

@@ -1,3 +1,4 @@
+id: 'master_bedroom_no_motion'
 initial_state: 'on'
 alias: 'Master bedroom no motion'
 trigger:

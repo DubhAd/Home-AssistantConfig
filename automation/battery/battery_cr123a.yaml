@@ -1,3 +1,4 @@
+id: 'battery_cr123a'
 initial_state: 'on'
 alias: 'Battery CR123A'
 trigger:

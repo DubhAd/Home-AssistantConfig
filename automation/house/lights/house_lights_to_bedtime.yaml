@@ -1,3 +1,4 @@
+id: 'house_lights_to_bedtime'
 initial_state: 'on'
 alias: 'House lights to bedtime'
 trigger:

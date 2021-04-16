@@ -1,3 +1,4 @@
+id: 'probably_leaving'
 initial_state: 'off'
 alias: 'Probably leaving'
 trigger:

@@ -1,3 +1,4 @@
+id: 'person1_changing_zones'
 initial_state: 'on'
 alias: 'person1 changing zones'
 trigger:

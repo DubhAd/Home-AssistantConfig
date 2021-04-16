@@ -1,3 +1,4 @@
+id: 'person1_mobile_low_battery'
 initial_state: 'on'
 alias: 'person1 mobile low battery'
 trigger:

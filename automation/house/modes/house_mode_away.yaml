@@ -1,3 +1,4 @@
+id: 'house_mode_away'
 alias: 'House mode away'
 initial_state: 'on'
 trigger:

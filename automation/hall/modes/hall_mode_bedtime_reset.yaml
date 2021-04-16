@@ -1,3 +1,4 @@
+id: 'hall_mode_bedtime_reset'
 alias: 'Hall mode bedtime reset'
 initial_state: 'on'
 trigger:

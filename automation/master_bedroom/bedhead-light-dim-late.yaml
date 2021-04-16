@@ -1,3 +1,4 @@
+id: 'bedhead_light_dim_late'
 alias: 'Bedhead light dim late'
 trigger:
   - platform: time

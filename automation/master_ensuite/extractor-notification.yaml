@@ -1,3 +1,4 @@
+id: 'extractor_notification'
 alias: 'Extractor notification'
 initial_state: 'on'
 trigger:

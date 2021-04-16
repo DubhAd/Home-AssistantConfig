@@ -1,3 +1,4 @@
+id: 'person2_overseas'
 initial_state: 'on'
 alias: 'person2 overseas'
 trigger:

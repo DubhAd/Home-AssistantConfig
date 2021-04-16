@@ -1,3 +1,4 @@
+id: 'front_camera_motion_detected'
 initial_state: 'on'
 alias: 'Front camera motion detected'
 trigger:

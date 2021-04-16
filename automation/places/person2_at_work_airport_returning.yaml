@@ -1,3 +1,4 @@
+id: 'person2_at_work_airport_returning'
 alias: 'person2 at work Airport returning'
 trigger:
   - platform: state

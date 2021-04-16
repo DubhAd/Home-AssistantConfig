@@ -1,3 +1,4 @@
+id: 'alarm_monitor_person1'
 alias: 'Alarm monitor person1'
 trigger:
   - platform: time

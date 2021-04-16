@@ -1,3 +1,4 @@
+id: 'person2_at_amsterdam_airport'
 alias: 'person2 at Amsterdam Airport'
 initial_state: 'on'
 trigger:

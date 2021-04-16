@@ -1,3 +1,4 @@
+id: 'living_room_dim_motion'
 initial_state: 'on'
 alias: 'Living room dim motion'
 trigger:

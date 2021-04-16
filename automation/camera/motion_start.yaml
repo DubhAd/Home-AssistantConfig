@@ -1,3 +1,4 @@
+id: 'motion_start'
 initial_state: 'on'
 alias: 'Motion start'
 trigger:

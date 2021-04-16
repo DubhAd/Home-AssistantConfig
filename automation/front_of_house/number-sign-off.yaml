@@ -1,3 +1,4 @@
+id: 'number_sign_off'
 initial_state: 'on'
 alias: 'Number sign off'
 trigger:

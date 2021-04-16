@@ -1,3 +1,4 @@
+id: 'somebody_arrived_scan'
 alias: Somebody arrived scan
 initial_state: 'on'
 trigger:

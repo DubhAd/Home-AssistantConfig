@@ -1,3 +1,4 @@
+id: 'christmas_enabled'
 alias: 'Christmas enabled'
 trigger:
   - platform: homeassistant

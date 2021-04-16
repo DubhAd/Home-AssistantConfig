@@ -1,3 +1,4 @@
+id: 'office_occupied'
 initial_state: 'on'
 alias: 'Office occupied'
 trigger:

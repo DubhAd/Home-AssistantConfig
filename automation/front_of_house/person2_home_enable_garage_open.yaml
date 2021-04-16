@@ -1,3 +1,4 @@
+id: 'person2_home_enable_garage_open'
 alias: 'person2 home enable Garage open'
 initial_state: 'on'
 trigger:

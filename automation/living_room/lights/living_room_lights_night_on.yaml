@@ -1,3 +1,4 @@
+id: 'living_room_lights_night_on'
 initial_state: 'on'
 alias: 'Living room lights night on'
 trigger:

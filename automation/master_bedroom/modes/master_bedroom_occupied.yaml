@@ -1,3 +1,4 @@
+id: 'master_bedroom_occupied'
 initial_state: 'on'
 alias: 'Master bedroom occupied'
 trigger:

@@ -1,3 +1,4 @@
+id: 'living_room_table_light_unavailable_on'
 initial_state: 'on'
 alias: 'Living room table light unavailable on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'notify_about_hacs_updates'
 alias: Notify about HACS updates
 trigger:
   - platform: time

@@ -1,3 +1,4 @@
+id: 'living_room_movement'
 initial_state: 'on'
 alias: 'Living room movement'
 trigger:

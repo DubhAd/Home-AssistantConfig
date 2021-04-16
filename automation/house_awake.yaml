@@ -1,5 +1,5 @@
+id: 'house_awake'
 alias: 'House awake'
-id: house_awake
 initial_state: 'on'
 trigger:
   # Consider the house awake if I'm up, person1 is up, or the TV comes on after 03:00

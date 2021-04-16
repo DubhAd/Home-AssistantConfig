@@ -1,3 +1,4 @@
+id: 'person2_not_driving'
 initial_state: 'on'
 alias: 'person2 not driving'
 trigger:

@@ -1,3 +1,4 @@
+id: 'device_unavailable'
 initial_state: 'on'
 alias: 'device unavailable'
 trigger:

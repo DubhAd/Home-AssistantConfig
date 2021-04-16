@@ -1,3 +1,4 @@
+id: 'telegram_command_status'
 alias: 'Telegram command status'
 initial_state: 'on'
 trigger:

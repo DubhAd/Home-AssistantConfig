@@ -1,3 +1,4 @@
+id: 'person2_in_the_car'
 initial_state: 'on'
 alias: 'person2 in the car'
 trigger:

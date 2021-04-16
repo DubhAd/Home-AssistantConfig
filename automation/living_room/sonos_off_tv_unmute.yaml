@@ -1,3 +1,4 @@
+id: 'sonos_off_tv_unmute'
 initial_state: 'on'
 alias: 'Sonos off TV unmute'
 trigger:

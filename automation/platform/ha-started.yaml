@@ -1,3 +1,4 @@
+id: 'ha_started'
 alias: 'HA started'
 initial_state: 'on'
 trigger:

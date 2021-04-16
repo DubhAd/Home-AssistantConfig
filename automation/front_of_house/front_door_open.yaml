@@ -1,3 +1,4 @@
+id: 'front_door_open'
 alias: 'Front door open'
 initial_state: 'on'
 trigger:

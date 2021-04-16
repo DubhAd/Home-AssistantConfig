@@ -480,6 +480,8 @@ cards:
             - binary_sensor.family_window_left_contact
             - binary_sensor.guest_bedroom_window_left_contact
             - binary_sensor.guest_bedroom_window_right_contact
+            - binary_sensor.kitchen_window_right_contact
+            - binary_sensor.kitchen_window_left_contact
             - binary_sensor.master_window_left_contact
             - binary_sensor.master_window_right_contact
             - binary_sensor.master_window_ensuite_contact

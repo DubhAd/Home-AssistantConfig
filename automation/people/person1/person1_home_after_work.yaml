@@ -1,3 +1,4 @@
+id: 'person1_home_after_work'
 initial_state: 'off'
 alias: 'person1 home after work'
 trigger:

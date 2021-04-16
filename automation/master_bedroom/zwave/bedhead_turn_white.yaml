@@ -1,3 +1,4 @@
+id: 'bedhead_turn_white'
 alias: 'Bedhead turn white'
 initial_state: 'on'
 trigger:

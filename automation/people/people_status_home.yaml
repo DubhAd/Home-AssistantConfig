@@ -1,3 +1,4 @@
+id: 'mark_person_as_home'
 alias: Mark person as home
 initial_state: 'on'
 trigger:

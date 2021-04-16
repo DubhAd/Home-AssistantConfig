@@ -1,3 +1,4 @@
+id: 'startup_location_update'
 initial_state: 'on'
 alias: 'Startup location update'
 trigger:

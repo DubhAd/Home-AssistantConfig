@@ -1,3 +1,4 @@
+id: 'bt_rear_offline'
 initial_state: 'on'
 alias: 'BT rear offline'
 trigger:

@@ -1,3 +1,4 @@
+id: 'tv_on_sonos_off'
 initial_state: 'on'
 alias: 'TV on Sonos off'
 trigger:

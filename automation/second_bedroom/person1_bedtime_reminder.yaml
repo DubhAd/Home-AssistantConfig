@@ -1,3 +1,4 @@
+id: 'person1_bedtime_reminder'
 alias: 'person1 bedtime reminder'
 trigger:
   - platform: time

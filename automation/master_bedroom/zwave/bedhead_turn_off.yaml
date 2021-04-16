@@ -1,3 +1,4 @@
+id: 'bedhead_turn_off'
 alias: 'Bedhead turn off'
 initial_state: 'on'
 trigger:

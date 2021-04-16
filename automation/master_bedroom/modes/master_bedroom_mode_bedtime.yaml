@@ -1,3 +1,4 @@
+id: 'master_bedroom_mode_bedtime'
 alias: 'Master bedroom mode bedtime'
 trigger:
   - platform: state

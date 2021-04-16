@@ -1,3 +1,4 @@
+id: 'bedtime_something_open'
 alias: 'Bedtime something open'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'garden_lights_left_on'
 alias: 'Garden lights left on'
 initial_state: 'on'
 trigger:

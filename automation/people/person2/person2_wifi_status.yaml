@@ -1,3 +1,4 @@
+id: 'person2_wifi_status'
 alias: 'person2 WiFi status'
 initial_state: 'on'
 trigger:

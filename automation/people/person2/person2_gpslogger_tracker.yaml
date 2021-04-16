@@ -1,3 +1,4 @@
+id: 'person2_gpslogger_tracker'
 initial_state: 'off'
 alias: 'person2 GPSLogger tracker'
 trigger:

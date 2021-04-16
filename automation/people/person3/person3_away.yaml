@@ -1,3 +1,4 @@
+id: 'person3_away'
 alias: 'person3 away'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'telegram_text'
 alias: 'Telegram text'
 initial_state: 'on'
 trigger:

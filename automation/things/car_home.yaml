@@ -1,3 +1,4 @@
+id: 'car_home'
 initial_state: 'on'
 alias: 'Car home'
 trigger:

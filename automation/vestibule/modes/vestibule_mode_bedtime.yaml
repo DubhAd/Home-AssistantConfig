@@ -1,3 +1,4 @@
+id: 'vestibule_mode_bedtime'
 alias: 'Vestibule mode bedtime'
 initial_state: 'on'
 trigger:

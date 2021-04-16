@@ -1,3 +1,4 @@
+id: 'office_button_pushed'
 initial_state: 'on'
 alias: 'Office button pushed'
 trigger:

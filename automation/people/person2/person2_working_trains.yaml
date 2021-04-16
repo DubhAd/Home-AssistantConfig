@@ -1,3 +1,4 @@
+id: 'person2_working_trains'
 alias: 'person2 working trains'
 initial_state: 'on'
 trigger:

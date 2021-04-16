@@ -1,3 +1,4 @@
+id: 'living_room_dim'
 alias: Living room dim
 initial_state: 'on'
 trigger:

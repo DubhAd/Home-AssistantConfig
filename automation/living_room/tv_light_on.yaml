@@ -1,3 +1,4 @@
+id: 'tv_light_on'
 initial_state: 'on'
 alias: 'TV light on'
 trigger:

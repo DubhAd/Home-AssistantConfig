@@ -1,3 +1,4 @@
+id: 'telegram_command_trains'
 alias: 'Telegram command trains'
 initial_state: 'on'
 trigger:

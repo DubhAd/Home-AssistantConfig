@@ -1,3 +1,4 @@
+id: 'dimmer_down_while_on'
 alias: Dimmer down while on
 initial_state: 'on'
 trigger:

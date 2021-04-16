@@ -1,3 +1,4 @@
+id: 'front_door_closed'
 alias: 'Front door closed'
 trigger:
   - platform: state

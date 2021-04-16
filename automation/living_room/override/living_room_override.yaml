@@ -1,3 +1,4 @@
+id: 'living_room_override'
 initial_state: 'on'
 alias: 'Living room override'
 trigger:

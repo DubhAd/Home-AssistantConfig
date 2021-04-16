@@ -1,3 +1,4 @@
+id: 'hall_mode_dim'
 initial_state: 'on'
 alias: 'Hall mode dim'
 trigger:

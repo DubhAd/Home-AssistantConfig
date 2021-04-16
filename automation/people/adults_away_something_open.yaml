@@ -1,3 +1,4 @@
+id: 'adults_away_something_open'
 alias: 'Adults away something open'
 initial_state: 'on'
 trigger:

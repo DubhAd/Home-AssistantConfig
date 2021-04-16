@@ -1,3 +1,4 @@
+id: 'return_train_watcher'
 initial_state: 'off'
 alias: 'Return train watcher'
 trigger:

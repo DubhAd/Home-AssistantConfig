@@ -1,3 +1,4 @@
+id: 'number_on_at_sunset'
 initial_state: 'on'
 alias: 'Number on at sunset'
 trigger:

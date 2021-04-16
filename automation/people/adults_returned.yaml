@@ -1,3 +1,4 @@
+id: 'adults_returned'
 alias: 'Adults returned'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'mark_person_as_away'
 alias: Mark person as away
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'lightning'
 initial_state: 'off'
 alias: 'Lightning'
 trigger:

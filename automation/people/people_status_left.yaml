@@ -1,3 +1,4 @@
+id: 'mark_person_as_just_left'
 alias: Mark person as just left
 initial_state: 'on'
 trigger:

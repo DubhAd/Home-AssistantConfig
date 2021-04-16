@@ -1,3 +1,4 @@
+id: 'bt_front_offline'
 initial_state: 'on'
 alias: 'BT front offline'
 trigger:

@@ -1,3 +1,4 @@
+id: 'vestibule_mode_on'
 initial_state: 'on'
 alias: 'Vestibule mode on'
 trigger:

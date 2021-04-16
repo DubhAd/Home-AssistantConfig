@@ -1,3 +1,4 @@
+id: 'person3_home'
 initial_state: 'on'
 alias: 'person3 home'
 trigger:

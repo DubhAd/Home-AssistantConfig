@@ -1,3 +1,4 @@
+id: 'garage_door_closed'
 alias: 'Garage door closed'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'person2_left_work'
 alias: 'person2 left Work'
 initial_state: 'on'
 trigger:

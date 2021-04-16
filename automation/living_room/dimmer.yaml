@@ -1,3 +1,4 @@
+id: 'dimmer'
 alias: Dimmer
 initial_state: 'on'
 trigger:

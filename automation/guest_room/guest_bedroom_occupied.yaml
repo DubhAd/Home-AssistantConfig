@@ -1,3 +1,4 @@
+id: 'guest_bedroom_occupied'
 initial_state: 'on'
 alias: 'Guest bedroom occupied'
 trigger:

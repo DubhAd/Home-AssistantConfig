@@ -1,3 +1,4 @@
+id: 'battery_cr2032'
 initial_state: 'on'
 alias: 'Battery CR2032'
 trigger:

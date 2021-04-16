@@ -1,3 +1,4 @@
+id: 'home_occupied'
 alias: 'Home occupied'
 initial_state: 'on'
 trigger:

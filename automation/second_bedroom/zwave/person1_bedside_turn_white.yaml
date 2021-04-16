@@ -1,3 +1,4 @@
+id: 'person1_bedside_turn_white'
 alias: 'person1 bedside turn white'
 initial_state: 'on'
 trigger:

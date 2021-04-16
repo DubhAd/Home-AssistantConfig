@@ -1,3 +1,4 @@
+id: 'hall_lights_to_night_on'
 initial_state: 'on'
 alias: 'Hall lights to Night on'
 trigger:

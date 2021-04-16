@@ -1,3 +1,4 @@
+id: 'alarm_triggered_home'
 alias: 'Alarm triggered home'
 initial_state: 'on'
 trigger:

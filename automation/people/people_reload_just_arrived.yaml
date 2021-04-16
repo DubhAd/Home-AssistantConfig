@@ -1,3 +1,4 @@
+id: 'people_reloaded_when_just_arrived'
 alias: People reloaded when just arrived
 initial_state: 'on'
 trigger:

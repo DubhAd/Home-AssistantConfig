@@ -1,3 +1,4 @@
+id: 'stop_camera_stream'
 alias: 'Stop camera stream'
 initial_state: 'on'
 trigger:

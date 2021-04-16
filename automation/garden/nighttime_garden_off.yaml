@@ -1,3 +1,4 @@
+id: 'nighttime_garden_off'
 initial_state: 'off'
 alias: 'Nighttime garden off'
 trigger:

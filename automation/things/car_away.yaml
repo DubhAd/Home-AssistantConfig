@@ -1,3 +1,4 @@
+id: 'car_away'
 alias: 'Car away'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'master_bedroom_lights_motion'
 initial_state: 'on'
 alias: 'Master bedroom lights motion'
 trigger:

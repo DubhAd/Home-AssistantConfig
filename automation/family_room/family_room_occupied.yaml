@@ -1,3 +1,4 @@
+id: 'family_room_occupied'
 initial_state: 'on'
 alias: 'Family room occupied'
 trigger:

@@ -1,3 +1,4 @@
+id: 'garage_open_nobody_home'
 alias: 'Garage open nobody home'
 initial_state: 'off'
 trigger:

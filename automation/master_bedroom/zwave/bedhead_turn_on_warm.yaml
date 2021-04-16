@@ -1,3 +1,4 @@
+id: 'bedhead_turn_on_warm'
 alias: 'Bedhead turn on warm'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'test_cast'
 alias: Test Cast
 initial_state: 'off'
 trigger:

@@ -1,3 +1,4 @@
+id: 'person1_off_holiday'
 alias: 'person1 off holiday'
 initial_state: 'on'
 trigger:

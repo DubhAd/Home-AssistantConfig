@@ -1,3 +1,4 @@
+id: 'bedhead_turn_white_max'
 alias: 'Bedhead turn white max'
 initial_state: 'on'
 trigger:

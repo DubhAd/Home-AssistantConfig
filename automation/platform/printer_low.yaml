@@ -1,3 +1,4 @@
+id: 'printer_low'
 initial_state: 'on'
 alias: 'Printer low'
 trigger:

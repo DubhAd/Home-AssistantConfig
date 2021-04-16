@@ -1,3 +1,4 @@
+id: 'ha_automations_reloaded'
 alias: 'HA automations reloaded'
 initial_state: 'on'
 trigger:

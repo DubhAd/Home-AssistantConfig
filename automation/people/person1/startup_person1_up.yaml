@@ -1,3 +1,4 @@
+id: 'startup_person1_up'
 alias: 'Startup person1 up'
 initial_state: 'on'
 trigger:

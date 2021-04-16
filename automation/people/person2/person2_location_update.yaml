@@ -1,3 +1,4 @@
+id: 'person2_location_update'
 initial_state: 'on'
 alias: 'person2 location update'
 mode: single

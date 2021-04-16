@@ -1,3 +1,4 @@
+id: 'battery_er14250'
 initial_state: 'on'
 alias: 'Battery ER14250'
 trigger:

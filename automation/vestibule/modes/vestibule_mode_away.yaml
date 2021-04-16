@@ -1,3 +1,4 @@
+id: 'vestibule_mode_away'
 initial_state: 'on'
 alias: 'Vestibule mode away'
 trigger:

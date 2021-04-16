@@ -1,3 +1,4 @@
+id: 'plex_hook'
 initial_state: 'on'
 alias: 'Plex hook'
 trigger:

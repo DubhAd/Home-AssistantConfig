@@ -1,3 +1,4 @@
+id: 'person3_on_the_move'
 initial_state: 'on'
 alias: 'person3 on the move'
 trigger:

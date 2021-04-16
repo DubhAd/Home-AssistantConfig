@@ -1,3 +1,4 @@
+id: 'nearly_home'
 alias: 'Nearly Home'
 initial_state: 'on'
 trigger:

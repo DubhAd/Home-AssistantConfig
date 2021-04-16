@@ -1,3 +1,4 @@
+id: 'person2_working_from_home'
 alias: 'person2 working from home'
 initial_state: 'on'
 trigger:

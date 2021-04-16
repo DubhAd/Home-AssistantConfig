@@ -1,3 +1,4 @@
+id: 'returned_home'
 initial_state: 'on'
 alias: 'Returned home'
 trigger:

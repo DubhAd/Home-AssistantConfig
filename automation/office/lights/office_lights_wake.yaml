@@ -1,3 +1,4 @@
+id: 'office_lights_wake'
 initial_state: 'on'
 alias: 'Office lights wake'
 trigger:

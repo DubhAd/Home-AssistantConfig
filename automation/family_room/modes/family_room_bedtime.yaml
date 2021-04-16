@@ -1,3 +1,4 @@
+id: 'family_room_mode_bedtime'
 initial_state: 'on'
 alias: 'family room mode bedtime'
 trigger:

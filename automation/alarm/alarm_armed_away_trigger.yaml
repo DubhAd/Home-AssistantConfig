@@ -1,3 +1,4 @@
+id: 'alarm_armed_away_trigger'
 initial_state: 'on'
 alias: 'Alarm armed away trigger'
 trigger:

@@ -1,3 +1,4 @@
+id: 'utility_door_left_open'
 alias: 'Utility door left open'
 initial_state: 'on'
 trigger:

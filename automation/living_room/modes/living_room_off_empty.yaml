@@ -1,3 +1,4 @@
+id: 'living_room_off_empty'
 alias: 'Living room off empty'
 trigger:
   - platform: homeassistant

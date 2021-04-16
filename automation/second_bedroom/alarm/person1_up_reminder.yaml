@@ -1,3 +1,4 @@
+id: 'person1_up_reminder'
 alias: 'person1 up reminder'
 initial_state: 'on'
 trigger:

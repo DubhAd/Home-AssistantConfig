@@ -1,3 +1,4 @@
+id: 'master_bedroom_mode_on'
 alias: 'Master bedroom mode on'
 initial_state: 'on'
 trigger:

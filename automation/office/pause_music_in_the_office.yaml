@@ -1,3 +1,4 @@
+id: 'pause_music_in_the_office'
 initial_state: 'on'
 alias: 'Pause music in the office'
 trigger:

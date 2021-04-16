@@ -259,3 +259,7 @@ binary_sensor.guest_bedroom_window_right_contact:
   device_class: window
 light.downstairs_hall:
   icon: mdi:led-strip-variant
+binary_sensor.kitchen_window_left_contact:
+  device_class: window
+binary_sensor.kitchen_window_right_contact:
+  device_class: window

@@ -1,3 +1,4 @@
+id: 'utility_door_open_after_sunset_closed'
 alias: 'Utility door open after sunset closed'
 initial_state: 'on'
 trigger:

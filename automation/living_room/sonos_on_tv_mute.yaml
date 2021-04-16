@@ -1,3 +1,4 @@
+id: 'sonos_on_tv_mute'
 initial_state: 'on'
 alias: 'Sonos on TV mute'
 trigger:

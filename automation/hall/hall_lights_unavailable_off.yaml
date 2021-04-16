@@ -1,3 +1,4 @@
+id: 'hall_lights_unavailable_off'
 initial_state: 'on'
 alias: 'Hall lights unavailable off'
 trigger:

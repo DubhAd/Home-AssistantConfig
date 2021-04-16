@@ -1,3 +1,4 @@
+id: 'office_lights_off'
 initial_state: 'on'
 alias: 'Office lights off'
 trigger:

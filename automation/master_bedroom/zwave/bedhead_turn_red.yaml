@@ -1,3 +1,4 @@
+id: 'bedhead_turn_red'
 alias: 'Bedhead turn red'
 initial_state: 'on'
 trigger:

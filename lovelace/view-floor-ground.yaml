@@ -33,6 +33,8 @@ cards:
       name: "Temperature"
     - entity: sensor.pi3_living_room_multi_luminance
       name: "Light level"
+    - entity: sensor.living_room_light_sensor_illuminance_lux
+      name: "Lux"
     - entity: media_player.samsung_tv
       name: TV
     - entity: media_player.cast_living_room_tv
@@ -99,8 +101,20 @@ cards:
       tap_action: 
         action: toggle
 - type: glance
-  title: Family room & Kitchen
-  columns: 4
+  title: Kitchen
+  columns: 3
+  entities:
+    - entity: binary_sensor.kitchen_window_right_contact
+      show_last_changed: true
+      name: Right
+    - entity: binary_sensor.kitchen_window_left_contact
+      show_last_changed: true
+      name: Left
+    - entity: media_player.cast_kitchen_speaker
+      name: Mini
+- type: glance
+  title: Family room
+  columns: 3
   entities:
     - entity: binary_sensor.family_window_left_contact
       show_last_changed: true
@@ -116,8 +130,6 @@ cards:
       name: TV
     - entity: media_player.family_room
       name: Sonos
-    - entity: media_player.cast_kitchen_speaker
-      name: Mini
     - entity: media_player.family_room_display
       name: Hub
 - type: glance
@@ -145,8 +157,11 @@ cards:
     labels: true
   entities:
     - entity: sensor.pi3_living_room_multi_luminance
-      name: Living room
+      name: Living room ZW
       color: darkgoldenrod
+    - entity: sensor.living_room_light_sensor_illuminance_lux
+      name: Living room Zi
+      color: goldenrod
     - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
       name: Downstairs hall
 - type: custom:mini-graph-card

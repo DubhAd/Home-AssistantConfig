@@ -1,3 +1,4 @@
+id: 'person3_asleep'
 alias: 'person3 asleep'
 initial_state: 'on'
 trigger:

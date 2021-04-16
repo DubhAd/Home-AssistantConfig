@@ -1,3 +1,4 @@
+id: 'dimmer_up_motion'
 alias: Dimmer up motion
 initial_state: 'on'
 trigger:

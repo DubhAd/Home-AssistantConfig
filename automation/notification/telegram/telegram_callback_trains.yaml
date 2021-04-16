@@ -1,3 +1,4 @@
+id: 'telegram_callback_trains'
 alias: 'Telegram callback trains'
 initial_state: 'on'
 trigger:

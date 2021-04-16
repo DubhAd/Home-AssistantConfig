@@ -1,3 +1,4 @@
+id: 'wan_ip_changed'
 alias: 'WAN IP changed'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'alarm_monitor_person2'
 alias: 'Alarm monitor person2'
 trigger:
     # Alarm scheduled for "now"

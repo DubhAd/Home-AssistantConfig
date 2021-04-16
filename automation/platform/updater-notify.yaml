@@ -1,3 +1,4 @@
+id: 'ha_update_available_notifications'
 alias: 'HA Update Available Notifications'
 initial_state: 'on'
 trigger:

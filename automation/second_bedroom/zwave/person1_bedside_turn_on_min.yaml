@@ -1,3 +1,4 @@
+id: 'person1_bedside_turn_on_min'
 alias: 'person1 bedside turn on min'
 initial_state: 'on'
 trigger:

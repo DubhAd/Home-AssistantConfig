@@ -1,3 +1,4 @@
+id: 'house_mode_holiday'
 alias: 'House mode holiday'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'person1_alarm_left_playing'
 alias: 'person1 alarm left playing'
 initial_state: 'on'
 trigger:

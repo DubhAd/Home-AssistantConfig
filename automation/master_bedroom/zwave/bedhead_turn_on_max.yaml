@@ -1,3 +1,4 @@
+id: 'bedhead_turn_on_max'
 alias: 'Bedhead turn on max'
 initial_state: 'on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'living_room_arrival'
 alias: Living room arrival
 initial_state: 'on'
 trigger:

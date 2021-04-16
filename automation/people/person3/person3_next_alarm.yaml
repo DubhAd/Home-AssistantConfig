@@ -1,3 +1,4 @@
+id: 'person3_next_alarm'
 initial_state: 'on'
 alias: 'person3 next alarm'
 trigger:

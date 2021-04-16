@@ -1,3 +1,4 @@
+id: 'start_camera_stream'
 alias: 'Start camera stream'
 initial_state: 'on'
 trigger:

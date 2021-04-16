@@ -1,3 +1,4 @@
+id: 'second_bedroom_mode_off'
 initial_state: 'on'
 alias: 'Second bedroom mode off'
 trigger:

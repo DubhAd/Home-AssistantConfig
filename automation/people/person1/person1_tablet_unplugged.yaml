@@ -1,3 +1,4 @@
+id: 'person1_tablet_unplugged'
 initial_state: 'on'
 alias: 'person1 tablet unplugged'
 trigger:

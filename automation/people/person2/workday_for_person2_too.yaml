@@ -1,3 +1,4 @@
+id: 'workday_for_person2_too'
 alias: 'Workday for person2 too'
 initial_state: 'on'
 trigger:

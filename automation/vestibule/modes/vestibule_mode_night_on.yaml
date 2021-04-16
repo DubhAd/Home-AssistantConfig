@@ -1,3 +1,4 @@
+id: 'vestibule_mode_night_on'
 alias: 'Vestibule mode Night on'
 trigger:
   - platform: state

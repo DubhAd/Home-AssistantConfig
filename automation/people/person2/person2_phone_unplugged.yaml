@@ -1,3 +1,4 @@
+id: 'person2_phone_unplugged'
 initial_state: 'on'
 alias: 'person2 phone unplugged'
 trigger:

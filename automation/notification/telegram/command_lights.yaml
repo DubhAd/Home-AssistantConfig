@@ -1,3 +1,4 @@
+id: 'telegram_command_lights'
 alias: 'Telegram command lights'
 initial_state: 'on'
 trigger:

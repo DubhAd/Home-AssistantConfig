@@ -1,3 +1,4 @@
+id: 'vestibule_lights_to_bedtime'
 initial_state: 'on'
 alias: 'Vestibule lights to bedtime'
 trigger:

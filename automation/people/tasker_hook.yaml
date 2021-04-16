@@ -1,3 +1,4 @@
+id: 'tasker_hook'
 initial_state: 'on'
 alias: 'Tasker hook'
 trigger:

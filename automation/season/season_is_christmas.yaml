@@ -1,3 +1,4 @@
+id: 'season_is_christmas'
 alias: 'Season is Christmas'
 initial_state: 'on'
 trigger:

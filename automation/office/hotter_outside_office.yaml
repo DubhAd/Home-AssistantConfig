@@ -1,3 +1,4 @@
+id: 'hotter_outside_office'
 initial_state: 'on'
 alias: 'Hotter outside (office)'
 trigger:

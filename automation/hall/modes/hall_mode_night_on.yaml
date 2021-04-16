@@ -1,3 +1,4 @@
+id: 'hall_mode_night_on'
 initial_state: 'on'
 alias: 'Hall mode Night on'
 trigger:

@@ -1,3 +1,4 @@
+id: 'bin_notification'
 initial_state: 'on'
 alias: 'Bin notification'
 trigger:

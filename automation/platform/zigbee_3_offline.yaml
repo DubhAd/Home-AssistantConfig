@@ -1,3 +1,4 @@
+id: 'zigbee_3_offline'
 initial_state: 'on'
 alias: 'Zigbee 3 offline'
 trigger:

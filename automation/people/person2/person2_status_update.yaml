@@ -1,3 +1,4 @@
+id: 'person2_status_update'
 initial_state: 'on'
 alias: 'person2 status update'
 trigger:
