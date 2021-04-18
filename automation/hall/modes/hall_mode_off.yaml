@@ -44,10 +44,17 @@ condition:
     state: 'on'
   - condition: or
     conditions:
-    # Brighter here
-    - condition: numeric_state
-      entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      above: 2
+    - condition: and
+      conditions:
+      # Brighter here
+      - condition: numeric_state
+        entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+        above: 2
+      # Sun is high enough to matter
+      - condition: numeric_state
+        entity_id: sun.sun
+        attribute: elevation
+        above: 0
     # No room occupied and we're not just awake
     - condition: and
       conditions:
