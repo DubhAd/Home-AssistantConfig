@@ -39,10 +39,7 @@ action:
         - switch.pi3_livingroom_socket_switch 
   - service: light.turn_off
     data:
-      entity_id: 
-        - light.living_room_corner_lamp
-        - light.living_room_tv_lamp
-        - light.living_room_table_lamp
+      entity_id: light.living_room_lamps
       transition: 15
   - delay: '00:01:00'
   - service: switch.turn_on

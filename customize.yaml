@@ -263,3 +263,5 @@ binary_sensor.kitchen_window_left_contact:
   device_class: window
 binary_sensor.kitchen_window_right_contact:
   device_class: window
+light.living_room_lamps:
+  icon: mdi:lightbulb-group
