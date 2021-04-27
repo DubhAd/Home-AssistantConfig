@@ -5,65 +5,29 @@ sequence:
       message: >
         Updated travel time for person3 at {{ now() }}
   - choose:
-      # Nearby - walking
       - conditions:
-          - condition: numeric_state
-            entity_id: proximity.person3_home
-            below: 1000
-        sequence:
-          - choose:
-              - conditions:
-                  - condition: state
-                    entity_id: input_boolean.google_travel_time
-                    state: 'on'
-                sequence: 
-                  - service: homeassistant.update_entity
-                    entity_id: sensor.person3s_time_to_home_by_walking_google
-              - conditions:
-                  - condition: state
-                    entity_id: input_boolean.here_travel_time
-                    state: 'on'
-                sequence: 
-                  - service: homeassistant.update_entity
-                    entity_id: sensor.person3s_time_to_home_by_foot
-      # Moderately close - bus
+          - condition: state
+            entity_id: input_boolean.google_travel_time
+            state: 'on'
+        sequence: 
+          - service: homeassistant.update_entity
+            entity_id: sensor.person3s_time_to_home_by_walking_google
+          - service: homeassistant.update_entity
+            entity_id: sensor.person3s_time_to_home_by_bus_google
+          - service: homeassistant.update_entity
+            entity_id: sensor.person3s_time_to_home_by_car_google
+  - choose:
       - conditions:
-          - condition: numeric_state
-            entity_id: proximity.person3_home
-            below: 3000
-        sequence:
-          - choose:
-              - conditions:
-                  - condition: state
-                    entity_id: input_boolean.google_travel_time
-                    state: 'on'
-                sequence: 
-                  - service: homeassistant.update_entity
-                    entity_id: sensor.person3s_time_to_home_by_bus_google
-              - conditions:
-                  - condition: state
-                    entity_id: input_boolean.here_travel_time
-                    state: 'on'
-                sequence: 
-                  - service: homeassistant.update_entity
-                    entity_id: sensor.person3s_time_to_home_by_bus
-    # Far far away - car
-    default:
-      - choose:
-          - conditions:
-              - condition: state
-                entity_id: input_boolean.google_travel_time
-                state: 'on'
-            sequence: 
-              - service: homeassistant.update_entity
-                entity_id: sensor.person3s_time_to_home_by_car_google
-          - conditions:
-              - condition: state
-                entity_id: input_boolean.here_travel_time
-                state: 'on'
-            sequence: 
-              - service: homeassistant.update_entity
-                entity_id: sensor.person3s_time_to_home
+          - condition: state
+            entity_id: input_boolean.here_travel_time
+            state: 'on'
+        sequence: 
+          - service: homeassistant.update_entity
+            entity_id: sensor.person3s_time_to_home_by_foot
+          - service: homeassistant.update_entity
+            entity_id: sensor.person3s_time_to_home_by_bus
+          - service: homeassistant.update_entity
+            entity_id: sensor.person3s_time_to_home
   # Whatever happens, update Waze
   - service: homeassistant.update_entity
     entity_id: sensor.person3s_time_to_home_waze

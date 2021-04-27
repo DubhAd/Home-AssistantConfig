@@ -11,10 +11,10 @@ sequence:
             conditions:
               - condition: numeric_state
                 entity_id: proximity.person2_work
-                below: 5
+                below: 2
               - condition: numeric_state
                 entity_id: proximity.person2_work_2
-                below: 5
+                below: 2
           - condition: state
             entity_id: binary_sensor.workday
             state: 'on'
