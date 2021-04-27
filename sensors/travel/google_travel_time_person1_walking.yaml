@@ -1,0 +1,8 @@
+- platform: google_travel_time
+  name: 'person1s time to home by walking google'
+  scan_interval: 604800
+  api_key: !secret google_travel_key
+  origin: device_tracker.person1_mobile
+  destination: !secret home_location
+  options:
+    mode: walking

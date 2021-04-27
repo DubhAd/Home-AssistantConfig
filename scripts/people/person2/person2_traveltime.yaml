@@ -5,6 +5,6 @@ sequence:
       message: >
         Updated travel time for person2 at {{ now() }}, currently at {{ state_attr('sensor.person2s_time_to_home','origin_name') }}
   - service: homeassistant.update_entity
-    entity_id: sensor.person2s_time_to_home
-  - service: homeassistant.update_entity
     entity_id: sensor.person2s_time_to_home_waze
+  - service: homeassistant.update_entity
+    entity_id: sensor.person2s_time_to_home

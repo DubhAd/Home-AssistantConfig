@@ -5,6 +5,8 @@ sequence:
       message: >
         Updated travel time for person1 at {{ now() }}
   - service: homeassistant.update_entity
+    entity_id: sensor.person1s_time_to_home_waze
+  - service: homeassistant.update_entity
     entity_id: sensor.person1s_time_to_home
   - delay: '00:00:10'
   - service: homeassistant.update_entity
@@ -12,5 +14,3 @@ sequence:
   - delay: '00:00:10'
   - service: homeassistant.update_entity
     entity_id: sensor.person1s_time_to_home_by_foot
-  - service: homeassistant.update_entity
-    entity_id: sensor.person1s_time_to_home_waze
