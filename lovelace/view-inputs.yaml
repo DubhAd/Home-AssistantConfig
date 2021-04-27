@@ -133,6 +133,9 @@ cards:
     - type: divider
     - input_select.season
     - sensor.season
+    - type: divider
+    - input_boolean.google_travel_time
+    - input_boolean.here_travel_time
   - type: entities
     title: Cameras
     show_header_toggle: false
