@@ -4,7 +4,53 @@ sequence:
     data:
       message: >
         Updated travel time for person2 at {{ now() }}, currently at {{ state_attr('sensor.person2s_time_to_home','origin_name') }}
+  - choose:
+      # Near an office - transit
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: numeric_state
+                entity_id: proximity.person2_work
+                below: 5
+              - condition: numeric_state
+                entity_id: proximity.person2_work_2
+                below: 5
+          - condition: state
+            entity_id: binary_sensor.workday
+            state: 'on'
+        sequence:
+          - choose:
+              - conditions:
+                  - condition: state
+                    entity_id: input_boolean.google_travel_time
+                    state: 'on'
+                sequence: 
+                  - service: homeassistant.update_entity
+                    entity_id: sensor.person2s_time_to_home_by_transit_google
+              - conditions:
+                  - condition: state
+                    entity_id: input_boolean.here_travel_time
+                    state: 'on'
+                sequence: 
+                  - service: homeassistant.update_entity
+                    entity_id: sensor.person2s_time_to_home_by_transit
+    # Default is car
+    default:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.google_travel_time
+                state: 'on'
+            sequence: 
+              - service: homeassistant.update_entity
+                entity_id: sensor.person2s_time_to_home_by_driving_google
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.here_travel_time
+                state: 'on'
+            sequence: 
+              - service: homeassistant.update_entity
+                entity_id: sensor.person2s_time_to_home
+  # Whatever happens, update Waze
   - service: homeassistant.update_entity
     entity_id: sensor.person2s_time_to_home_waze
-  - service: homeassistant.update_entity
-    entity_id: sensor.person2s_time_to_home
