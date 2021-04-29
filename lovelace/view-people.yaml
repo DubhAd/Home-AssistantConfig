@@ -33,6 +33,10 @@ cards:
           icon: mdi:crosshairs-gps
         - entity: device_tracker.person3_mobile
           name: WiFi
+          icon: mdi:wifi
+        - entity: device_tracker.person3_wifi
+          name: App
+          icon: mdi:wifi-star
         - entity: device_tracker.person3_bt_front_mobile
           name: Front
           icon: mdi:bluetooth
@@ -344,7 +348,7 @@ cards:
       cards: 
       - type: glance
         title: person1
-        columns: 5
+        columns: 6
         entities:
         - entity: device_tracker.person1_mobile
           name: GPS
@@ -352,6 +356,9 @@ cards:
         - entity: device_tracker.3c_28_6d_da_eb_a1
           name: WiFi
           icon: mdi:wifi
+        - entity: device_tracker.person1_wifi
+          name: App
+          icon: mdi:wifi-star
         - entity: device_tracker.person1_bt_front_mobile
           name: Front
           icon: mdi:bluetooth
