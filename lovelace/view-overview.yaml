@@ -48,6 +48,37 @@ cards:
         hours_to_show: 24
         detail: 2
 
+  - type: custom:mini-graph-card
+    title: Temperature
+    hours_to_show: 24
+    points_per_hour: 6
+    line_width: 2
+    hour24: true
+    animate: true
+    decimals: 1
+    show:
+      labels: true
+      fill: false
+    color_thresholds:
+      - value: -10
+        color: 'silver'
+      - value: 0
+        color: 'white'
+      - value: 5
+        color: 'lightblue'
+      - value: 15
+        color: 'orange'
+      - value: 25
+        color: 'red'
+    entities:
+      - entity: sensor.pi3_living_room_multi_temperature
+        name: Downstairs
+        color: darkgoldenrod
+      - entity: sensor.upstairs_temperature
+        color: "#33B679"
+      - entity: sensor.accuhome_realfeel_temperature
+        name: Outside
+        #color: 'silver'
         
   - type: entity-filter
     entities:

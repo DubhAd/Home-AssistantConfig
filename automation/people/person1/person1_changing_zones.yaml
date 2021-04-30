@@ -20,4 +20,4 @@ action:
     data:
       message: "Updating travel time for person1 due to entering a zone, or leaving one 5 minutes ago"
   - service: script.turn_on
-    entity_id: script.person1_travel_time
+    entity_id: script.person1_traveltime

@@ -32,7 +32,7 @@ cards:
 - type: entities
   title: person1
   entities:
-  - entity: script.person1_travel_time
+  - entity: script.person1_traveltime
     secondary_info: last-triggered
   - entity: script.person1_travel_sensor
     secondary_info: last-triggered

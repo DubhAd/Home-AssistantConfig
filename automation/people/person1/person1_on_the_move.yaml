@@ -43,4 +43,4 @@ condition:
         above: 39999
 action:
   - service: script.turn_on
-    entity_id: script.person1_travel_time
+    entity_id: script.person1_traveltime
