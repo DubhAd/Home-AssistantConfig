@@ -143,7 +143,7 @@ cards:
       tap_action: 
         action: toggle
 - type: custom:mini-graph-card
-  title: Light level
+  name: Light level
   points_per_hour: 6
   hours_to_show: 12
   line_width: 2
@@ -165,7 +165,7 @@ cards:
     - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
       name: Downstairs hall
 - type: custom:mini-graph-card
-  title: Temperature
+  name: Temperature
   points_per_hour: 6
   hours_to_show: 12
   line_width: 2

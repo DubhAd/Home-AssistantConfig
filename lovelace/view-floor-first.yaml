@@ -172,7 +172,7 @@ cards:
       tap_action: 
         action: toggle
 - type: custom:mini-graph-card
-  title: Humidity
+  name: Humidity
   hours_to_show: 12
   points_per_hour: 4
   line_width: 2
@@ -198,7 +198,7 @@ cards:
       name: Office
       color: "#4285F4"
 - type: custom:mini-graph-card
-  title: Temperature
+  name: Temperature
   hours_to_show: 12
   points_per_hour: 6
   line_width: 2
@@ -227,7 +227,7 @@ cards:
       name: Outside
       color: 'silver'
 - type: custom:mini-graph-card
-  title: Pressure
+  name: Pressure
   points_per_hour: 2
   hours_to_show: 12
   line_width: 2
@@ -249,7 +249,7 @@ cards:
       name: Bathroom
       color: "#E4C441"
 - type: custom:mini-graph-card
-  title: Master en-suite change
+  name: Master en-suite change
   points_per_hour: 60
   hours_to_show: 4
   line_width: 2
@@ -265,7 +265,7 @@ cards:
       name: Change
       color: "#9E69AF"
 - type: custom:mini-graph-card
-  title: Master en-suite Humidity
+  name: Master en-suite Humidity
   points_per_hour: 60
   hours_to_show: 4
   line_width: 2
