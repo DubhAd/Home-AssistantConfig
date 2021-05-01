@@ -24,32 +24,17 @@ cards:
       name: Outside
       icon: 'mdi:thermometer'
       unit: '°C'
-      footer:
-        type: graph
-        entity: sensor.accuhome_realfeel_temperature
-        hours_to_show: 24
-        detail: 2
     - type: entity
-      entity: sensor.pi3_living_room_multi_temperature
+      entity: sensor.downstairs_temperature
       name: Downstairs
       icon: 'mdi:thermometer'
-      footer:
-        type: graph
-        entity: sensor.pi3_living_room_multi_temperature
-        hours_to_show: 24
-        detail: 2
     - type: entity
       entity: sensor.upstairs_temperature
       name: Upstairs
       icon: 'mdi:thermometer'
-      footer:
-        type: graph
-        entity: sensor.upstairs_temperature
-        hours_to_show: 24
-        detail: 2
 
   - type: custom:mini-graph-card
-    title: Temperature
+    name: Temperature
     hours_to_show: 24
     points_per_hour: 6
     line_width: 2
@@ -71,10 +56,12 @@ cards:
       - value: 25
         color: 'red'
     entities:
-      - entity: sensor.pi3_living_room_multi_temperature
+      - entity: sensor.downstairs_temperature
         name: Downstairs
-        color: darkgoldenrod
+        #color: darkgoldenrod
+        color: '#5397e0'
       - entity: sensor.upstairs_temperature
+        name: Upstairs
         color: "#33B679"
       - entity: sensor.accuhome_realfeel_temperature
         name: Outside
@@ -97,47 +84,6 @@ cards:
       title: Occupied rooms
       show_state: false
 
-  - type: entity-filter
-    entities:
-      - entity: device_tracker.family_tv
-        name: Family room
-      - entity: media_player.family_room
-        name: Family room
-      - entity: media_player.cast_kitchen_speaker
-        name: Kitchen
-      - entity: media_player.family_room_display
-        name: Family room hub
-      - entity: media_player.living_room
-        name: Living room Sonos
-      - entity: media_player.living_room_display
-        name: Living room hub
-      - entity: media_player.cast_living_room_tv
-        name: Living room
-      - entity: media_player.samsung_tv
-        name: Living room
-      - entity: media_player.office
-        name: Office
-      - entity: media_player.office_smart_display
-        name: Office hub
-      - entity: media_player.person2
-        name: Master bedroom
-      - entity: media_player.cast_master_bedroom_speaker
-        name: Master bedroom
-      - entity: media_player.person1
-        name: Second bedroom
-      - entity: media_player.cast_second_bedroom_speaker
-        name: Second bedroom
-      - entity: media_player.cast_master_bedroom_display
-        name: Guest bedroom
-    show_empty: false
-    state_filter:
-      - 'on'
-      - 'playing'
-      - 'home'
-    card:
-      type: glance
-      title: Media players
-      show_state: false
       
   - type: entity-filter
     entities:
