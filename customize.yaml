@@ -265,3 +265,5 @@ binary_sensor.kitchen_window_right_contact:
   device_class: window
 light.living_room_lamps:
   icon: mdi:lightbulb-group
+device_tracker.08_a6_bc_ea_df_3f:
+  friendly_name: person2_kindle_oasis
