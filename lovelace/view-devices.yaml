@@ -39,8 +39,6 @@ cards:
     name: Living room chromecast
   - entity: media_player.samsung_tv
     name: Living room TV
-  - entity: switch.pi3_table_light_switch
-    name: Table light switch
 - type: custom:battery-state-card
   title: Battery devices
   sort_by_level: "asc"
