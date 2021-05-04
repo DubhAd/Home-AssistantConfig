@@ -9,6 +9,7 @@ trigger:
       - device_tracker.person3_mobile
       - device_tracker.person3_bt_mobile
       - device_tracker.person3_bt_front_mobile
+      - device_tracker.person3_wifi
     to: 'not_home'
   - platform: homeassistant
     event: start
