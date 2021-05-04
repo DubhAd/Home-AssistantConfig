@@ -6,9 +6,6 @@ trigger:
     entity_id: sensor.office_button_action
     to: 'single'
     # Need to switch to _action
-  - platform: state
-    entity_id: sensor.spare_button_action
-    to: 'single'
 action:
   - choose:
     - conditions:

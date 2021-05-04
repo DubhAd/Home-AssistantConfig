@@ -1,0 +1,73 @@
+id: 'master_bedroom_button_pushed'
+initial_state: 'on'
+alias: 'Master bedroom button pushed'
+trigger:
+  - platform: state
+    entity_id: sensor.master_bedroom_button_action
+    to:
+    - 'single'
+    - 'double'
+action:
+  - choose:
+    # Single press - turn the lights off if they're on, unless it's in motion mode where we turn it on. Turn them on otherwise.
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'single' }}"
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'On'
+            - 'Bedtime'
+            - 'Motion'
+            - 'Wake'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'Off'
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'Off'
+            - 'Motion'
+            - 'Auto'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'On'
+        default:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.master_bedroom
+            option: 'On'
+    # Double press, On if currently bedtime, else Bedtime
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'double' }}"
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'Bedtime'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'On'
+        default:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.master_bedroom
+            option: 'Bedtime'
+    default:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.master_bedroom
+        option: 'Auto'
