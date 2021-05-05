@@ -12,4 +12,4 @@ sequence:
   - service: automation.turn_on
     entity_id: automation.person1_at_work
   - service: script.turn_on
-    entity_id: script.person1_travel_time
+    entity_id: script.person1_traveltime
