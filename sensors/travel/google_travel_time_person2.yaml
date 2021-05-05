@@ -1,8 +1,0 @@
-- platform: google_travel_time
-  name: 'person2s time to home by driving google'
-  scan_interval: 604800
-  api_key: !secret google_travel_key
-  origin: device_tracker.person2_mobile_gps
-  destination: !secret home_location
-  options:
-    mode: driving
