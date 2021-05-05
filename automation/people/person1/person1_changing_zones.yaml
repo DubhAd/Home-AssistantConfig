@@ -4,13 +4,23 @@ alias: 'person1 changing zones'
 trigger:
   # Been away for a few minutes
   - platform: state
-    entity_id: device_tracker.person1_mobile
+    entity_id: 
+    - device_tracker.person1_mobile
+    - device_tracker.person1_pixel_3
     to: 'not_home'
     for: '00:05:00'
   # Arrived in a zone
   - platform: state
-    entity_id: device_tracker.person1_mobile
+    entity_id: 
+    - device_tracker.person1_mobile
+    - device_tracker.person1_pixel_3
     from: 'not_home'
+  - platform: state
+    entity_id: sensor.person1_pixel_3_wifi_connection
+    to: '<not connected>'
+  - platform: state
+    entity_id: sensor.person1_pixel_3_wifi_connection
+    from: '<not connected>'
 condition:
   # Been at least 5 minutes
   - condition: template

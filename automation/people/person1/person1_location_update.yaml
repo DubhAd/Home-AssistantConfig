@@ -6,6 +6,7 @@ trigger:
   - platform: state
     entity_id: 
       - device_tracker.person1_mobile
+      - device_tracker.person1_pixel_3
       - input_select.person1_status_dropdown
       - input_boolean.person1_home
       - sensor.person1s_time_to_home

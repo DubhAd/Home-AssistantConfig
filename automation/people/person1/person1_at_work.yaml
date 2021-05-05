@@ -2,9 +2,14 @@ id: 'person1_at_work'
 initial_state: 'on'
 alias: 'person1 at work'
 trigger:
-  platform: state
-  entity_id: device_tracker.person1_mobile
+- platform: state
+  entity_id: 
+  - device_tracker.person1_mobile
+  - device_tracker.person1_pixel_3
   to: 'work'
+- platform: state
+  entity_id: sensor.person1_pixel_3_wifi_connection
+  to: "AAL"
 action:
-  - service: automation.turn_on
-    entity_id: automation.person1_home_after_work
+- service: automation.turn_on
+  entity_id: automation.person1_home_after_work
