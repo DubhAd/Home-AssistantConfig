@@ -6,6 +6,15 @@ visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:
 - type: entities
+  title: Automations for the bathroom
+  show_header_toggle: false
+  entities:
+  - entity: automation.bathroom_leak_detected
+    secondary_info: last-triggered
+  - entity: automation.bathroom_leak_cleared
+    secondary_info: last-triggered
+
+- type: entities
   title: Automations for the office
   show_header_toggle: false
   entities:

@@ -45,7 +45,7 @@ action:
             entity_id: input_boolean.person2_home
             state: 'on'
         sequence:
-          - service: notify.discord_webhook
+          - service: notify.person2_telegram
             data:
-              title: "person1 returning"
               message: "person1 should be home from work in about {{ (states('sensor.person1s_time_to_home')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home','unit_of_measurement') }}"
+  - delay: '00:10:00'
