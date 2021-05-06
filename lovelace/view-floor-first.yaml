@@ -119,7 +119,7 @@ cards:
       name: Right
 - type: glance
   title: Bathroom
-  columns: 5
+  columns: 6
   entities:
     - entity: sensor.bathroom_environment_humidity
       name: Humidity
@@ -133,6 +133,8 @@ cards:
     - entity: binary_sensor.bathroom_door_contact
       show_last_changed: true
       name: Door
+    - entity: binary_sensor.bathroom_water_leak_water_leak
+      name: Leak
 - type: glance
   title: Office
   columns: 5

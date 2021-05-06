@@ -10,6 +10,9 @@ trigger:
     entity_id: sensor.pixel_xl_charger_type
     from: 'none'
 condition:
+  - condition: state
+    entity_id: input_boolean.person2_phone_charging
+    state: 'off'
   - condition: or
     conditions:
       - condition: template
@@ -21,8 +24,5 @@ condition:
             entity_id: sensor.pixel_xl_charger_type
             state: 'none'
 action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.person2_phone_charging
-  - delay: '00:00:01'
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_phone_charging

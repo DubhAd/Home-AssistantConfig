@@ -50,6 +50,7 @@ cards:
   entities:
   - sensor.bathroom_door_battery 
   - sensor.bathroom_environment_battery 
+  - sensor.bathroom_water_leak_battery
   - sensor.bathroom_window_battery 
   - sensor.downstairs_hall_light_sensor_battery 
   - sensor.downstairs_hall_motion_battery 
@@ -59,6 +60,8 @@ cards:
   - sensor.guest_bedroom_window_left_battery 
   - sensor.guest_bedroom_window_right_battery 
   - sensor.hue_dimmer_battery 
+  - sensor.kitchen_window_left_battery
+  - sensor.kitchen_window_right_battery
   - sensor.master_bedroom_door_battery 
   - sensor.master_bedroom_light_sensor_battery 
   - sensor.master_ensuite_door_battery 
