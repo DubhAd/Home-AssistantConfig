@@ -66,6 +66,14 @@ cards:
           propagate: true
 
         - entities:
+            - binary_sensor.bathroom_water_leak_water_leak
+          states:
+            - state: 'off'
+              class: entity-noalert
+            - state: 'on'
+              class: entity-alert
+
+        - entities:
             - input_boolean.car_home
           states:
             - state: 'on'

@@ -78,6 +78,18 @@ background-color: var(--primary-background-color);
   stroke-opacity: 0.5 !important;
 }
 
+.entity-noalert {
+  fill-opacity: 0.1 !important;
+}
+
+.entity-alert  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 1px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
 .interior-door-open {
   /* fill: #6f9382 !important; */
   fill: #647a79 !important;
