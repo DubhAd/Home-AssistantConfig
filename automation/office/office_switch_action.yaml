@@ -9,7 +9,7 @@ condition:
 action:
   - service: notify.logfile
     data:
-      message: "Office button action was: ={{ trigger.to_state.state }}="
+      message: "Office switch action was: ={{ trigger.to_state.state }}="
   - choose:
      # Single
      - alias: "Single switch push - toggle the lights"
@@ -74,3 +74,5 @@ action:
          - alias: "Lights restored to automatic control"
            service: input_boolean.turn_on
            entity_id: input_boolean.lighting_office
+         - service: switch.turn_on
+           entity_id: switch.adaptive_lighting_adapt_brightness_office
