@@ -1,0 +1,76 @@
+id: 'office_switch_action'
+alias: 'Office switch action'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.office_switch_action
+condition:
+  - "{{ trigger.to_state.state != '' }}"
+action:
+  - service: notify.logfile
+    data:
+      message: "Office button action was: ={{ trigger.to_state.state }}="
+  - choose:
+     # Single
+     - alias: "Single switch push - toggle the lights"
+       conditions:
+         - "{{ trigger.to_state.state == 'single' }}"
+       sequence:
+         - alias: "Manual control of the lights enabled"
+           service: input_boolean.turn_off
+           entity_id: input_boolean.lighting_office
+         - choose:
+             - alias: "Lights currently off"
+               conditions:
+                 - condition: state
+                   entity_id: input_select.office
+                   state: 'Off'
+               sequence:
+                 - service: input_select.select_option
+                   data:
+                     entity_id: input_select.office
+                     option: 'On'
+           default:
+             - service: input_select.select_option
+               data:
+                 entity_id: input_select.office
+                 option: 'Off'
+     # Double
+     - alias: "Double switch push - max/reset the lights"
+       conditions:
+         - "{{ trigger.to_state.state == 'double' }}"
+       sequence:
+         - choose:
+             - alias: "Lights currently maxed"
+               conditions:
+                 - condition: state
+                   entity_id: switch.adaptive_lighting_adapt_brightness_office
+                   state: 'off'
+               sequence:
+                 - alias: "Manual control of the lights disabled"
+                   service: input_boolean.turn_on
+                   entity_id: input_boolean.lighting_office
+                 - service: switch.turn_on
+                   entity_id: switch.adaptive_lighting_adapt_brightness_office
+           default:
+             - alias: "Manual control of the lights enabled"
+               service: input_boolean.turn_on
+               entity_id: input_boolean.lighting_office
+             - service: switch.turn_off
+               entity_id: switch.adaptive_lighting_adapt_brightness_office
+             - service: input_select.select_option
+               data:
+                 entity_id: input_select.office
+                 option: 'On'
+             - service: light.turn_on
+               data:
+                 entity_id: light.office_strip
+                 brightness_pct: 100
+     # Hold
+     - alias: "Switch hold - back to auto"
+       conditions:
+         - "{{ trigger.to_state.state == 'hold' }}"
+       sequence:
+         - alias: "Lights restored to automatic control"
+           service: input_boolean.turn_on
+           entity_id: input_boolean.lighting_office

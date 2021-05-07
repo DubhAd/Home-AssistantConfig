@@ -8,7 +8,13 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.pi3_office_multi_luminance
     below: 30
+  - platform: state
+    entity_id: input_boolean.lighting_office
+    to: 'on'
 condition:
+  - condition: state
+    entity_id: input_boolean.lighting_office
+    state: 'on'
   - condition: template
     value_template: "{{ not is_state('input_select.office','On') }}"
   - condition: state

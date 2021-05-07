@@ -45,4 +45,6 @@ action:
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_office
   - service: input_boolean.turn_on
-    entity_id: input_boolean.lighting_living_room
+    entity_id: 
+      - input_boolean.lighting_living_room
+      - input_boolean.lighting_office

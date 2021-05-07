@@ -11,7 +11,13 @@ trigger:
     entity_id: input_select.office
     to: 'Dim'
     for: '01:00:00'
+  - platform: state
+    entity_id: input_boolean.lighting_office
+    to: 'on'
 condition:
+  - condition: state
+    entity_id: input_boolean.lighting_office
+    state: 'on'
   - condition: or
     conditions:
       - condition: state

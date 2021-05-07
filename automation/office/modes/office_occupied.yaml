@@ -27,4 +27,5 @@ action:
   - service: input_boolean.turn_on
     entity_id: 
       - input_boolean.office_occupied
+      - input_boolean.lighting_office
       - input_boolean.stream_front_camera_motion
