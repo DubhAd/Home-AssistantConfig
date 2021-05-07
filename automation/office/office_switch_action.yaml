@@ -16,7 +16,7 @@ action:
        conditions:
          - "{{ trigger.to_state.state == 'single' }}"
        sequence:
-         - alias: "Manual control of the lights enabled"
+         - alias: "Automatic control of the lights disabled"
            service: input_boolean.turn_off
            entity_id: input_boolean.lighting_office
          - choose:
@@ -43,17 +43,19 @@ action:
          - choose:
              - alias: "Lights currently maxed"
                conditions:
-                 - condition: state
-                   entity_id: switch.adaptive_lighting_adapt_brightness_office
-                   state: 'off'
+                 - "{{ is_state('light.office_strip','on') and state_attr('light.office_strip','brightness')|int > 250 }}"
                sequence:
-                 - alias: "Manual control of the lights disabled"
-                   service: input_boolean.turn_on
+                 - alias: "Automatic control of the lights enabled"
+                   service: switch.turn_off
+                   entity_id: switch.adaptive_lighting_office
+                 - service: input_boolean.turn_on
                    entity_id: input_boolean.lighting_office
                  - service: switch.turn_on
-                   entity_id: switch.adaptive_lighting_adapt_brightness_office
+                   entity_id: 
+                   - switch.adaptive_lighting_adapt_brightness_office
+                   - switch.adaptive_lighting_office
            default:
-             - alias: "Manual control of the lights enabled"
+             - alias: "Automatic control of the lights disabled"
                service: input_boolean.turn_on
                entity_id: input_boolean.lighting_office
              - service: switch.turn_off
@@ -72,7 +74,11 @@ action:
          - "{{ trigger.to_state.state == 'hold' }}"
        sequence:
          - alias: "Lights restored to automatic control"
-           service: input_boolean.turn_on
+           service: switch.turn_off
+           entity_id: switch.adaptive_lighting_office
+         - service: input_boolean.turn_on
            entity_id: input_boolean.lighting_office
          - service: switch.turn_on
-           entity_id: switch.adaptive_lighting_adapt_brightness_office
+           entity_id: 
+           - switch.adaptive_lighting_adapt_brightness_office
+           - switch.adaptive_lighting_office
