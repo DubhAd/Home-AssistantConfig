@@ -20,8 +20,8 @@ trigger:
   # Moderately bright to bright
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    above: 2
-    for: '00:15:00'
+    above: 3
+    for: '00:10:00'
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 5
@@ -49,7 +49,7 @@ condition:
       # Brighter here
       - condition: numeric_state
         entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-        above: 2
+        above: 3
       # Sun is high enough to matter
       - condition: numeric_state
         entity_id: sun.sun

@@ -14,7 +14,7 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    below: 3
+    below: 2
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     below: 1
@@ -54,7 +54,7 @@ condition:
       below: 5
     - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      below: 3
+      below: 2
   # Dark in the hall
   - condition: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
