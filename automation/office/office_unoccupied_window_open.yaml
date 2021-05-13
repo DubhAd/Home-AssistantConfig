@@ -1,0 +1,18 @@
+id: 'office_unoccupied_window_open'
+alias: 'Office unoccupied window open'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.office_window_contact
+    state: 'on'
+action:
+  - service: notify.person2_telegram
+    data:
+      message: "You left the office window open"

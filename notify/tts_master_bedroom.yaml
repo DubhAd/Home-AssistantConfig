@@ -1,0 +1,4 @@
+- name: tts_master_bedroom
+  platform: tts
+  tts_service: tts.google_cloud_say
+  media_player: media_player.master_bedroom_display

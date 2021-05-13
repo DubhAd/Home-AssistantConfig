@@ -1,0 +1,4 @@
+- name: tts_office
+  platform: tts
+  tts_service: tts.google_cloud_say
+  media_player: media_player.office_smart_display

@@ -1,0 +1,9 @@
+name: "Garage door for the bike has been open for {{ relative_time(states.binary_sensor.pi3_garage_closed_bike_sensor.last_changed) }}"
+done_message: "The flood has been dealt with"
+entity_id: binary_sensor.flood_while_away
+state: 'on'
+repeat: 60
+can_acknowledge: True
+skip_first: False
+notifiers:
+  - notify.adults

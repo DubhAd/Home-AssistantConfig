@@ -1,5 +1,5 @@
 - name: adults
   platform: group
   services:
-    - service: person2
+    - service: person2_telegram
     - service: person3
