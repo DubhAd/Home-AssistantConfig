@@ -65,7 +65,7 @@ All my current Z-Wave hardware is Z-Wave Plus.
 | --- | --- | :---: | --- |
 | [Razberry board](https://razberry.z-wave.me/) | Controller | :thumbsdown: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
 | Aeotec MultiSensor 6 | Office sensor | :heavy_check_mark: | Excellent all around multi-sensor with a bonus of being USB powered |
-| Fibaro FGK10x | Garage door sensors | :thumbsdown: | Fairly unobtrusive door sensors, which have support for external sensors too. Their only downside is they're not made any more |
+| Fibaro FGK10x | Garage door sensors | :no_entry: | Fairly unobtrusive door sensors, which have support for external sensors too. Their only downside is they're not made any more |
 | Fibaro MultiSensor | Living room sensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though |
 | NodOn Octan | Bedroom lights | :no_entry: | Great little four button remote, which sadly is discontinued |
 | NodOn Soft Remote | Bedroom lights | :no_entry: | A brightly coloured, kid proof four button remote, that's also discontinued |
