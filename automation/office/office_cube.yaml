@@ -7,10 +7,33 @@ trigger:
 condition:
   # Ignore the nothings
   - condition: template
-    value_template: "{{ states('sensor.office_cube_action')|count > 0 and not is_state('sensor.office_cube_action','None') }}"
+    value_template: "{{ (trigger.to_state.state|count > 0) and (not trigger.to_state.state == 'None') }}"
 action:
   - service: notify.logfile
     data:
       message: >-
-        Cube action was {{ states('sensor.office_cube_action') }}, angle is {{ states('sensor.office_cube_action_angle') }}, from side {{ states('sensor.office_cube_action_from_side') }}
-          side is {{ states('sensor.office_cube_action_side') }}, to side {{ states('sensor.office_cube_action_to_side') }}
+        Cube action was {{ trigger.to_state.state }}, angle is {{ trigger.to_state.attributes.action_angle }}, from side {{ trigger.to_state.attributes.action_from_side }}
+          side is {{ trigger.to_state.attributes.action_side }}, to side {{ trigger.to_state.attributes.action_to_side }}
+  - choose:
+    ############################################################
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'rotate_left' }}"
+      - condition: state
+        entity_id: media_player.office
+        state: 'playing'
+      sequence:
+      - service: media_player.media_pause
+        data:
+          entity_id: media_player.office
+    ############################################################
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'rotate_right' }}"
+      - condition: state
+        entity_id: media_player.office
+        state: 'paused'
+      sequence:
+      - service: media_player.media_play
+        data:
+          entity_id: media_player.office
