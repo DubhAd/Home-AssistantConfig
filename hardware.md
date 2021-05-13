@@ -33,16 +33,16 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | :grey_question: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. The main downside is that it supports three channels, out of 26... |
 | [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | :grey_question: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. The main downside is that it supports three channels, out of 26... |
 | [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Office light | :grey_question: | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
-| [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :warning: | Others have no problems, but this won't pair with my ZZH | 
-| [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | Room sensor | :warning: | Combined motion, light, temperature sensor, and a button. It's huge, and like the other Terncy kit, won't pair for me. |
-| [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :warning: | I wanted this to give me volume control in the office, but sadly [it won't pair](https://github.com/Koenkk/zigbee2mqtt/discussions/5682). |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
-| [YSRSAI YSR-MINI-01_rgbcct](https://www.zigbee2mqtt.io/devices/YSR-MINI-01_rgbcct.html) | Bedroom light | | A compact controller with what looks like local control. Sadly it takes a slightly non-standard connector for the LED strips, so I'm waiting on something coming so I can use it. |
 
-### No longer in use
+### Not in use
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
 | [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
+| [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :warning: | Others have no problems, but this won't pair with my ZZH | 
+| [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | Room sensor | :warning: | Combined motion, light, temperature sensor, and a button. It's huge, and like the other Terncy kit, won't pair for me. |
+| [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :warning: | I wanted this to give me volume control in the office, but sadly [it won't pair](https://github.com/Koenkk/zigbee2mqtt/discussions/5682). |
+| [YSRSAI YSR-MINI-01_rgbcct](https://www.zigbee2mqtt.io/devices/YSR-MINI-01_rgbcct.html) | Bedroom light | | A compact controller with what looks like local control. Sadly it takes a slightly non-standard connector for the LED strips, so I'm waiting on something coming so I can use it. |
 
 ## Zigbee 1.2 and older
 
@@ -55,7 +55,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :pause_button: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :pause_button: | These are pretty good, they report regularly enough to be useful and are reliable. Hopefully we'll get a Zigbee 3.0 version soon. |
 
-### No longer in use
+### Not in use
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
 | CC2531 | Coordinator | :warning: | It worked for a small mesh, mostly. It isn't a great choice though so I'm migrating to the Zig-A-Zig-Ah! |
