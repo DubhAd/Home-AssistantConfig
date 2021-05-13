@@ -33,29 +33,36 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | :grey_question: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. The main downside is that it supports three channels, out of 26... |
 | [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | :grey_question: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. The main downside is that it supports three channels, out of 26... |
 | [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Office light | :grey_question: | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
-| [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
 | [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :warning: | Others have no problems, but this won't pair with my ZZH | 
 | [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | Room sensor | :warning: | Combined motion, light, temperature sensor, and a button. It's huge, and like the other Terncy kit, won't pair for me. |
 | [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :warning: | I wanted this to give me volume control in the office, but sadly [it won't pair](https://github.com/Koenkk/zigbee2mqtt/discussions/5682). |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
 | [YSRSAI YSR-MINI-01_rgbcct](https://www.zigbee2mqtt.io/devices/YSR-MINI-01_rgbcct.html) | Bedroom light | | A compact controller with what looks like local control. Sadly it takes a slightly non-standard connector for the LED strips, so I'm waiting on something coming so I can use it. |
 
+### No longer in use
+| What | Function | Buy again? | Notes |
+| --- | --- | :---: | --- |
+| [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
 
 ## Zigbee 1.2 and older
 
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
-| CC2531 | Coordinator | :warning: | It worked for a small mesh, mostly. It isn't a great choice though so I'm migrating to the Zig-A-Zig-Ah! |
 | [Gledopto GL-C-008 RGB+CCT](https://www.zigbee2mqtt.io/devices/GL-C-008-1ID.html) | Hall lighting | :small_red_triangle: |  I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I plan on swapping this out for the Zigbee 3.0 version, and probably replacing the tape with COB tape |
-| [Hive active plug](https://www.zigbee2mqtt.io/devices/1613V.html) | Controlling an uplighter | :thumbsdown: | Works well, but  slightly bulky and also not Zigbee 3.0 |
 | [Hue dimmer](https://www.zigbee2mqtt.io/devices/324131092621.html) | Remote | :grey_question: | Quite nice four button remote, the only downside is that it's not Zigbee 3.0 |
-| [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | None | :thumbsdown: | Purely functioned as a router for the original mesh, but I don't need it any more, and it only routes for a handful of devices |
-| [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | :warning: | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
-| [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | Router | :thumbsdown: | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
 | [Xiaomi Aqara button](https://www.zigbee2mqtt.io/devices/WXKG12LM.html) | Remote | :pause_button: | I like these, they feel good and work well, but it's only Zigbee 1.2 |
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | :pause_button: | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :pause_button: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :pause_button: | These are pretty good, they report regularly enough to be useful and are reliable. Hopefully we'll get a Zigbee 3.0 version soon. |
+
+### No longer in use
+| What | Function | Buy again? | Notes |
+| --- | --- | :---: | --- |
+| CC2531 | Coordinator | :warning: | It worked for a small mesh, mostly. It isn't a great choice though so I'm migrating to the Zig-A-Zig-Ah! |
+| [Hive active plug](https://www.zigbee2mqtt.io/devices/1613V.html) | Controlling an uplighter | :thumbsdown: | Worked well, but  slightly bulky and also not Zigbee 3.0 |
+| [Ikea router](https://www.zigbee2mqtt.io/devices/E1746.html) | None | :thumbsdown: | Purely functioned as a router for the original mesh, but I don't need it any more, and it only routes for a handful of devices |
+| [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | None | :warning: | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
+| [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | Router | :thumbsdown: | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
 
 # Z-Wave
 
@@ -66,7 +73,7 @@ All my current Z-Wave hardware is Z-Wave Plus.
 | [Razberry board](https://razberry.z-wave.me/) | Controller | :thumbsdown: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
 | Aeotec MultiSensor 6 | Office sensor | :heavy_check_mark: | Excellent all around multi-sensor with a bonus of being USB powered |
 | Fibaro FGK10x | Garage door sensors | :no_entry: | Fairly unobtrusive door sensors, which have support for external sensors too. Their only downside is they're not made any more |
-| Fibaro MultiSensor | Living room sensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though |
+| Fibaro MultiSensor | Living room sensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though. I'm more likely to buy some Zigbee sensors than buy another one of these. |
 | NodOn Octan | Bedroom lights | :no_entry: | Great little four button remote, which sadly is discontinued |
 | NodOn Soft Remote | Bedroom lights | :no_entry: | A brightly coloured, kid proof four button remote, that's also discontinued |
 | [Sensative strips](https://sensative.com/sensors/strips-zwave/guard/) | Exterior door sensors | :heavy_check_mark: | Awesome sensors that fit inside the door (or window) frame. You can't replace the battery, but they claim a 10 year lifespan, which is in line with my experiences so far. |
