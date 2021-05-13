@@ -1,8 +1,8 @@
 name: "There is a water leak in the following rooms: {{ expand('group.flood_sensors')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}"
 done_message: "The water leak has been dealt with"
-entity_id: binary_sensor.flood_while_away
+entity_id: binary_sensor.flood_while_home
 state: 'on'
-repeat: 180
+repeat: 60
 can_acknowledge: True
 skip_first: False
 notifiers:

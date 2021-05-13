@@ -1,0 +1,4 @@
+- name: status_alert
+  platform: group
+  services:
+    - service: command_line_person2

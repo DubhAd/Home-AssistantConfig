@@ -41,6 +41,10 @@ cards:
         name: Garage door, bike
       - entity: alert.garage_door_r
         name: Garage door, car
+      - entity: alert.flood_while_home
+        name: Flood detected while at home
+      - entity: alert.flood_while_away
+        name: Flood detected while at away
     show_empty: false
     state_filter:
       - 'on'
