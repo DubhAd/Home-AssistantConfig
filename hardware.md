@@ -78,7 +78,7 @@ All my current Z-Wave hardware is Z-Wave Plus.
 | What | Function | Buy again? | Thoughts |
 | --- | --- | :---: | --- |
 | Google Home | Various | :heavy_check_mark: | Smart displays, announcements, and voice control. Mostly these are used for casting a camera stream to, or for TTS. |
-| HiWatch IPC-T140 | Camera | :pause_button: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
+| HiWatch IPC-T140 | Camera | :small_red_triangle: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
 | [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
 | Sonos speakers | Music! | :heavy_check_mark: | Good enough quality for audio, more then loud enough. I'll likely buy some of the Symfonisk speakers instead of more Play One type devices though |
 | Squeezebox Radio | Alarm clock | :no_entry: | Awesome, but discontinued |
