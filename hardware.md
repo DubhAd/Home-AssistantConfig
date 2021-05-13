@@ -6,7 +6,7 @@ This is a list of the various pieces of hardware I use, have used, or plan to us
 | :---: | --- |
 | :heavy_check_mark: | Yes |
 | :pause_button: | Waiting on the next generation of this - typically that means it's good, but not Zigbee 3.0 |
-| :grey_question: | Maybe - it's not bad, but I may find something better |
+| :grey_question: | Maybe - it's not bad, but I'm looking something better |
 | :thumbsdown: | Unlikely, it's not terrible, but it has issues |
 | :small_red_triangle: | There's a newer version that's better |
 | :no_entry: | Discontinued |
@@ -21,7 +21,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
 | [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | :heavy_check_mark: | The Zigbee 3.0 coordinator. Currently on the 202101 firmware, and proving solid and stable. I bought a second as a spare which I may use as a router. |
-| Sleash | None | :warning: | Works as a router, but be aware of the well documented communication problems with the seller. |
+| Sleash | Router | :warning: | Works as a router, but be aware of the well documented communication problems with the seller. |
 | [Tube CC2652 router](https://www.tubeszb.com/product/cc_router/4) | Router | :heavy_check_mark: | A friend ordered a couple of these and it turned out they only needed one, so they gave me the spare. It replaced a CC2530 with antenna, and so far, so good. The sign of a good router device is that you forget about it after all :P |
 | [CR Smart Home TS0207](https://www.zigbee2mqtt.io/devices/TS0207.html) | Leak sensor | :heavy_check_mark: | Bought one to test it out, and it works exactly as described. Ordered a few more for around the house. |
 | [Gledopto GL-C-008P](https://www.zigbee2mqtt.io/devices/GL-C-008P.html) | Hall light | :heavy_check_mark: | Replaced the older GL-C-008, transitions are smoother, but otherwise it behaves much like the old unit. I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I may replace the tape with COB tape |
