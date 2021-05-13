@@ -1,0 +1,117 @@
+id: 'master_bedroom_cube'
+initial_state: 'on'
+alias: 'Master bedroom cube'
+description: 'Handles the master bedroom cube, it supports wakeup, shake/tap, rotate/flip, and fall'
+trigger:
+  - platform: state
+    entity_id: sensor.master_bedroom_cube_action
+condition:
+  # Ignore the nothings
+  - condition: template
+    value_template: "{{ (trigger.to_state.state|count > 0) and (not trigger.to_state.state == 'None') }}"
+action:
+  - service: notify.logfile
+    data:
+      message: "{{trigger.to_state.name}} action: {{ trigger.to_state.state }}"
+  - choose:
+    ############################################################
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'wakeup' }}"
+      - condition: state
+        entity_id: input_select.master_bedroom
+        state: 'Off'
+      - condition: state
+        entity_id: input_boolean.person2_is_awake
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.master_bedroom_occupied
+        state: 'on'
+      sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.master_bedroom
+          option: 'Bedtime'
+    ############################################################
+    # Shake - turn the lights off if they're on, unless it's in motion mode where we turn it on. Turn them on otherwise.
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'shake' or trigger.to_state.state == 'tap' }}"
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'On'
+            - 'Bedtime'
+            - 'Wake'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'Off'
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'Off'
+            - 'Motion'
+            - 'Auto'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'On'
+        default:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.master_bedroom
+            option: 'On'
+    ############################################################
+    # Rotate (either) or flip (any), change between On and Bedtime, or if Off and sleeping turn it to Bedtime
+    - conditions:
+      - condition: template
+        value_template: "{{ ('rotate_' in trigger.to_state.state) or ('flip' in trigger.to_state.state) }}"
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'Bedtime'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'On'
+        - conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_select.master_bedroom
+              state:
+              - 'On'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_select.master_bedroom
+                state: 'Off'
+              - condition: state
+                entity_id: input_boolean.master_bedroom_occupied
+                state: 'on'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'Bedtime'
+    ############################################################
+    # Dropped it, time to wake!
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'fall' }}"
+      sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.master_bedroom
+          option: 'Wake'

@@ -1,0 +1,15 @@
+id: 'office_cube'
+alias: 'office_cube'
+trigger:
+  - platform: state
+    entity_id: sensor.office_cube_action
+condition:
+  # Ignore the nothings
+  - condition: template
+    value_template: "{{ states('sensor.office_cube_action')|count > 0 and not is_state('sensor.office_cube_action','None') }}"
+action:
+  - service: notify.logfile
+    data:
+      message: >-
+        Cube action was {{ states('sensor.office_cube_action') }}, angle is {{ states('sensor.office_cube_action_angle') }}, from side {{ states('sensor.office_cube_action_from_side') }}
+          side is {{ states('sensor.office_cube_action_side') }}, to side {{ states('sensor.office_cube_action_to_side') }}
