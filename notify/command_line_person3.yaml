@@ -1,0 +1,3 @@
+- name: command_line_person3
+  platform: command_line
+  command: "/local/bin/notify person3"
