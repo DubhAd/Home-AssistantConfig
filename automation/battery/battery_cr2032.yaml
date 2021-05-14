@@ -2,6 +2,10 @@ id: 'battery_cr2032'
 initial_state: 'on'
 alias: 'Battery CR2032'
 trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bathroom_water_leak_battery_low
+    to: 'on'
   - platform: numeric_state
     entity_id: 
     - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
@@ -10,9 +14,8 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    - sensor.spare_button_battery
-    - sensor.office_motion_konke_battery
-    - sensor.office_climate_battery
+    - sensor.office_switch_battery
+    - sensor.master_bedroom_button_battery
     below: 21
     for: '03:00:00'
   - platform: numeric_state
@@ -23,9 +26,8 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    - sensor.spare_button_battery
-    - sensor.office_motion_konke_battery
-    - sensor.office_climate_battery
+    - sensor.office_switch_battery
+    - sensor.master_bedroom_button_battery
     below: 11
     for: '03:00:00'
   - platform: numeric_state
@@ -36,9 +38,8 @@ trigger:
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
-    - sensor.spare_button_battery
-    - sensor.office_motion_konke_battery
-    - sensor.office_climate_battery
+    - sensor.office_switch_battery
+    - sensor.master_bedroom_button_battery
     below: 6
     for: '01:00:00'
 action:

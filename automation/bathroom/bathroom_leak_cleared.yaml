@@ -4,6 +4,7 @@ initial_state: 'on'
 trigger:
   - platform: state
     entity_id: binary_sensor.bathroom_water_leak_water_leak
+    from: 'on'
     to: 'off'
     for: '00:01:00'
 condition:

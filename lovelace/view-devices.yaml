@@ -62,6 +62,7 @@ cards:
   - sensor.hue_dimmer_battery 
   - sensor.kitchen_window_left_battery
   - sensor.kitchen_window_right_battery
+  - sensor.master_bedroom_cube_battery
   - sensor.master_bedroom_door_battery 
   - sensor.master_bedroom_light_sensor_battery 
   - sensor.master_ensuite_door_battery 
@@ -71,6 +72,7 @@ cards:
   - sensor.master_window_right_battery 
   - sensor.office_button_battery 
   - sensor.office_climate_battery 
+  - sensor.office_cube_battery
   - sensor.office_door_battery 
   - sensor.office_motion_konke_battery 
   - sensor.office_window_battery 
@@ -83,7 +85,6 @@ cards:
   - sensor.second_bedroom_window_right_battery 
   - sensor.spare_bedroom_window_left_battery 
   - sensor.spare_bedroom_window_right_battery 
-  - sensor.spare_button_battery 
   - sensor.vestibule_multi_battery 
   - sensor.vestibule_window_front_battery 
   - sensor.vestibule_window_side_battery

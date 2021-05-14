@@ -2,6 +2,13 @@ id: 'battery_cr1632'
 initial_state: 'on'
 alias: 'Battery CR1632'
 trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.bathroom_door_battery_low
+    - binary_sensor.master_bedroom_door_battery_low
+    - binary_sensor.office_door_battery_low
+    - binary_sensor.second_bedroom_door_battery_low
+    to: 'on'
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_window_battery
@@ -10,10 +17,10 @@ trigger:
     - sensor.guestbedroom_window_left_battery
     - sensor.guestbedroom_window_right_battery
     - sensor.hall_downstairs_motion_battery
+    - sensor.master_bedroom_button_battery
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
-    - sensor.office_button_battery
     - sensor.office_window_battery
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery
@@ -27,9 +34,6 @@ trigger:
     - sensor.vestibule_window_side_battery
     - sensor.bathroom_door_battery
     - sensor.guest_bedroom_door_battery
-    - sensor.master_bedroom_door_battery
-    - sensor.office_door_battery
-    - sensor.second_bedroom_door_battery
     below: 21
     for: '03:00:00'
   - platform: numeric_state
@@ -40,10 +44,10 @@ trigger:
     - sensor.guestbedroom_window_left_battery
     - sensor.guestbedroom_window_right_battery
     - sensor.hall_downstairs_motion_battery
+    - sensor.master_bedroom_button_battery
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
-    - sensor.office_button_battery
     - sensor.office_window_battery
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery
@@ -57,9 +61,6 @@ trigger:
     - sensor.vestibule_window_side_battery
     - sensor.bathroom_door_battery
     - sensor.guest_bedroom_door_battery
-    - sensor.master_bedroom_door_battery
-    - sensor.office_door_battery
-    - sensor.second_bedroom_door_battery
     below: 11
     for: '03:00:00'
   - platform: numeric_state
@@ -70,10 +71,10 @@ trigger:
     - sensor.guestbedroom_window_left_battery
     - sensor.guestbedroom_window_right_battery
     - sensor.hall_downstairs_motion_battery
+    - sensor.master_bedroom_button_battery
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
-    - sensor.office_button_battery
     - sensor.office_window_battery
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery
@@ -87,9 +88,6 @@ trigger:
     - sensor.vestibule_window_side_battery
     - sensor.bathroom_door_battery
     - sensor.guest_bedroom_door_battery
-    - sensor.master_bedroom_door_battery
-    - sensor.office_door_battery
-    - sensor.second_bedroom_door_battery
     below: 6
     for: '01:00:00'
 action:
