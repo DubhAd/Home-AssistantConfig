@@ -42,6 +42,6 @@ trigger:
     below: 6
     for: '01:00:00'
 action:
-  service: notify.logfile
+  service: notify.person2_telegram
   data:
-    message: "SENDME The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2032 coin cell"
+    message: "The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2032 coin cell"

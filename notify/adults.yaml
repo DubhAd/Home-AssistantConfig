@@ -2,4 +2,4 @@
   platform: group
   services:
     - service: person2_telegram
-    - service: person3
+    - service: command_line_person3

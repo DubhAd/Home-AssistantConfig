@@ -6,6 +6,6 @@ trigger:
     entity_id: device_tracker.person2_mobile_gps
     to: 'Singapore Airport'
 action:
-  - service: notify.logfile
+  - service: notify.command_line_person3
     data:
-      message: "SENDperson3 person2's arrived at Singapore Airport"
+      message: "person2 has arrived at Singapore Airport"

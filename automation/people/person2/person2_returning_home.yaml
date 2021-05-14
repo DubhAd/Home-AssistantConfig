@@ -30,6 +30,6 @@ action:
   - service: script.person2_traveltime
   # Wait 30 seconds for the update
   - delay: '00:00:30'
-  - service: notify.logfile
+  - service: notify.command_line_person3
     data:
-      message: "SENDperson3 person2 should be home from {{ states('device_tracker.person2_mobile_gps') }} in around {%- set travel_time = states('sensor.person2s_time_to_home') %} {{ travel_time[0] }} to {{ travel_time[0] | int + 25 }} {{ travel_time[1] }}{{ state_attr('sensor.person2s_time_to_home','unit_of_measurement') }}"
+      message: "person2 should be home from {{ states('device_tracker.person2_mobile_gps') }} in around {%- set travel_time = states('sensor.person2s_time_to_home') %} {{ travel_time[0] }} to {{ travel_time[0] | int + 25 }} {{ travel_time[1] }}{{ state_attr('sensor.person2s_time_to_home','unit_of_measurement') }}"

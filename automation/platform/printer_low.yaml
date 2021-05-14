@@ -9,6 +9,6 @@ trigger:
     entity_id: sensor.printer
     below: 20
 action:
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data:
-      message: "SENDME The printer is running low on consumables, time to buy something."
+      message: "The printer is running low on consumables, time to buy something."

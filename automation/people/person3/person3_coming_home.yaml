@@ -24,7 +24,7 @@ condition:
     entity_id: sensor.person3s_time_to_home_by_foot
     below: 10
 action:
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data:
-      message: "SENDME person3's nearly home, and will be home in {{ states('sensor.person3s_time_to_home_by_foot') }} {{ state_attr('sensor.person3s_time_to_home_by_foot','unit_of_measurement') }}"
+      message: "person3's nearly home, and will be home in {{ states('sensor.person3s_time_to_home_by_foot') }} {{ state_attr('sensor.person3s_time_to_home_by_foot','unit_of_measurement') }}"
   - delay: '00:05:00'

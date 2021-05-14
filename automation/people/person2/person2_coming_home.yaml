@@ -14,8 +14,8 @@ condition:
         entity_id: input_boolean.home_occupied
         state: 'off'
 action:
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data:
-      message: "SENDME Nobody's home right now"
+      message: "Nobody's home right now"
   - service: homeassistant.turn_off
     entity_id: automation.person2_coming_home

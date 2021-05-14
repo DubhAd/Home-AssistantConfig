@@ -17,9 +17,9 @@ condition:
       entity_id: proximity.person2_work_2
       below: 5
 action:
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data: 
-      message: "SENDME {{ states('input_text.train_message') }}"
+      message: "{{ states('input_text.train_message') }}"
   - service: notify.lm_notify
     data: 
       message: "{{ states('input_text.train_message') }}"

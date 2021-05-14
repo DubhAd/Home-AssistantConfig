@@ -27,16 +27,20 @@ action:
       - condition: state
         entity_id: input_boolean.master_bedroom_occupied
         state: 'on'
+        # Only if relatively dim
+      - condition: numeric_state
+        entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+        below: 20
       sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.master_bedroom
           option: 'Bedtime'
     ############################################################
-    # Shake - turn the lights off if they're on, unless it's in motion mode where we turn it on. Turn them on otherwise.
+    # Shake, tap, or flip to turn the lights Off if they're On/Bedtime/Wake, unless it's in motion mode where we turn it on. Turn them On otherwise.
     - conditions:
       - condition: template
-        value_template: "{{ trigger.to_state.state == 'shake' or trigger.to_state.state == 'tap' }}"
+        value_template: "{{ trigger.to_state.state == 'shake' or trigger.to_state.state == 'tap' or ('flip' in trigger.to_state.state) }}"
       sequence:
       - choose:
         - conditions:
@@ -46,6 +50,10 @@ action:
             - 'On'
             - 'Bedtime'
             - 'Wake'
+            # Only if relatively dim
+          - condition: numeric_state
+            entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+            below: 20
           sequence:
           - service: input_select.select_option
             data:
@@ -69,10 +77,10 @@ action:
             entity_id: input_select.master_bedroom
             option: 'On'
     ############################################################
-    # Rotate (either) or flip (any), change between On and Bedtime, or if Off and sleeping turn it to Bedtime
+    # Rotate (either) to change between On and Bedtime, or if Off and sleeping turn it to Bedtime
     - conditions:
       - condition: template
-        value_template: "{{ ('rotate_' in trigger.to_state.state) or ('flip' in trigger.to_state.state) }}"
+        value_template: "{{ ('rotate_' in trigger.to_state.state) }}"
       sequence:
       - choose:
         - conditions:
@@ -110,6 +118,10 @@ action:
     - conditions:
       - condition: template
         value_template: "{{ trigger.to_state.state == 'fall' }}"
+        # Only if relatively dim
+      - condition: numeric_state
+        entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+        below: 20
       sequence:
       - service: input_select.select_option
         data:

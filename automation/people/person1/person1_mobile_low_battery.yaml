@@ -8,9 +8,6 @@ trigger:
   - sensor.person1_pixel_3_battery_level
   below: 10
 action:
-  - service: notify.logfile
+  - service: notify.adults
     data:
-      message: "SENDME person1's phone is at {{ trigger.to_state.state }}% battery"
-  - service: notify.logfile
-    data:
-      message: "SENDperson3 person1's phone is at {{ trigger.to_state.state }}% battery"
+      message: "person1's phone is at {{ trigger.to_state.state }}% battery"

@@ -13,9 +13,9 @@ action:
   - delay: '00:00:05'
   - wait_template: >-
       {{ not is_state('media_player.person2','playing') }}
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data:
-      message: "SENDME The alarm forgot to turn on, so we're waking you the hard way"
+      message: "The alarm forgot to turn on, so we're waking you the hard way"
   - service: media_player.play_media
     data:
       entity_id: media_player.person2

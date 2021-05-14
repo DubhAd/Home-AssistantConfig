@@ -11,9 +11,9 @@ action:
     continue_on_timeout: 'true'
   - condition: template
     value_template: "{{ states('sensor.date_time') != states('sensor.pi3_date_time') }}"
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data:
-      message: "SENDME Looks like the remote link has failed"
+      message: "Looks like the remote link has failed"
   - service: automation.turn_off
     data:
       entity_id: automation.remote_ping

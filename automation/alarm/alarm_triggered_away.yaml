@@ -10,7 +10,7 @@ condition:
     entity_id: input_boolean.home_occupied
     state: 'off'
 action:
-  - service: notify.logfile
+  - service: notify.person2_telegram
     data: 
       message: >-
-        SENDME The alarm was triggered by the following door or window: {{ states('sensor.last_opened') }}
+        The alarm was triggered by the following door or window: {{ states('sensor.last_opened') }}
