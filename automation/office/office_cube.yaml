@@ -18,6 +18,31 @@ action:
     ############################################################
     - conditions:
       - condition: template
+        value_template: "{{ trigger.to_state.state == 'wakeup' }}"
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: media_player.office
+            state: 'playing'
+          sequence:
+          - service: media_player.media_pause
+            data:
+              entity_id: media_player.office
+        - conditions:
+          - condition: state
+            entity_id: media_player.office
+            state: 'paused'
+          - condition: state
+            entity_id: input_boolean.office_occupied
+            state: 'on'
+          sequence:
+          - service: media_player.media_play
+            data:
+              entity_id: media_player.office
+    ############################################################
+    - conditions:
+      - condition: template
         value_template: "{{ trigger.to_state.state == 'rotate_left' }}"
       - condition: state
         entity_id: media_player.office
