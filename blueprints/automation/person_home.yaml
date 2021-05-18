@@ -3,9 +3,15 @@ blueprint:
   description: Blueprint to mark people as home based off their devices
   domain: automation
   input:
-    gps_tracker:
-      name: GPS Tracker
-      description: The person's GPS tracker
+    app_tracker:
+      name: App Tracker
+      description: The person's app based tracker
+      selector:
+        entity:
+          domain: device_tracker
+    wifi_tracker:
+      name: WiFi Tracker
+      description: The person's Wifi tracker
       selector:
         entity:
           domain: device_tracker
@@ -36,7 +42,8 @@ blueprint:
 trigger:
   - platform: state
     entity_id: 
-      - !input gps_tracker
+      - !input app_tracker
+      - !input wifi_tracker
       - !input bluetooth_tracker_front
       - !input bluetooth_tracker_rear
     to: 'home'
@@ -48,22 +55,30 @@ trigger:
     to: 'on'
   - platform: homeassistant
     event: start
-variables:
-  person_group: !input person_group
-  door_recent: "{{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 60) or ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 60) }}"
-  home_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr(person_group, 'entity_id'))|list)|groupby('state'))['home']|count }}"
+  - platform: event
+    event_type: automation_reloaded
+variables
+  p_group: !input person_group
 condition:
+  - condition: state
+    entity_id: !input person_group
+    state: 'home'
   # Either multiple trackers show home, or the door just opened/closed
   - condition: or
     conditions:
-    - condition: template
-      value_template: "{{ home_count|int > 1 }}"
+    - condition: numeric_state
+      entity_id: !input person_group
+      value_template: "{{ expand(p_group)|selectattr('state','eq','not_home')|list|count  }}"
+      above: 1
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ door_recent == 'True' }}"
-      - condition: template
-        value_template: "{{ home_count|int > 0 }}"
+        value_template: >-
+          {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 120 ) }}
+      - condition: numeric_state
+        entity_id: !input person_group
+        value_template: "{{ expand(p_group)|selectattr('state','eq','not_home')|list|count  }}"
+        above: 0
 action:
   - service: script.turn_on
     data:

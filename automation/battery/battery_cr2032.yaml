@@ -5,6 +5,9 @@ trigger:
   - platform: state
     entity_id:
     - binary_sensor.bathroom_water_leak_battery_low
+    - binary_sensor.kitchen_water_leak_battery_low
+    - binary_sensor.toilet_water_leak_battery_low
+    - binary_sensor.utility_room_water_leak_battery_low
     to: 'on'
   - platform: numeric_state
     entity_id: 

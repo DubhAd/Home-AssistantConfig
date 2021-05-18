@@ -186,11 +186,11 @@ device_tracker.person2_mobile_gps:
 device_tracker.car_gps:
   friendly_name: Car
 input_text.person_person3:
-  entity_picture: /local/person3Thumb.jpg
+  entity_picture: /local/people/person3Thumb.jpg
 input_text.person_person4:
-  entity_picture: /local/person4Thumb.jpg
+  entity_picture: /local/people/person4Thumb.jpg
 input_text.person_person1:
-  entity_picture: /local/person1Thumb.jpg
+  entity_picture: /local/people/person1Thumb.jpg
 input_text.person_person2:
   entity_picture: /local/people/person2/person2.png
 light.living_room_table:

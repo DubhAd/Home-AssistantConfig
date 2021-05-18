@@ -262,7 +262,7 @@ cards:
             maxDaysToShow: 1
   - type: picture-entity
     entity: group.person_person2_work
-    image: /local/people/person2_Work.png
+    image: /local/people/person2/Work.png
     name: Work
     tap_action:
       action: call-service
@@ -270,8 +270,8 @@ cards:
       service_data:
         entity_id: input_boolean.lovelace_person2_work_more
     state_image:
-      "home": /local/people/person2_Work.png
-      "not_home": /local/people/person2_WorkAway.png
+      "home": /local/people/person2/Work.png
+      "not_home": /local/people/person2/WorkAway.png
   - type: conditional
     conditions:
       - entity: input_boolean.lovelace_person2_work_more
