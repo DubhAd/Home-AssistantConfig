@@ -63,7 +63,8 @@ cards:
       - entity: sensor.upstairs_temperature
         name: Upstairs
         color: "#33B679"
-      - entity: sensor.accuhome_realfeel_temperature
+        #- entity: sensor.dark_sky_temperature
+      - entity: sensor.home_temperature
         name: Outside
         #color: 'silver'
         
