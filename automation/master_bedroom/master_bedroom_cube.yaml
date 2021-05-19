@@ -40,7 +40,7 @@ action:
     # Shake, tap, or flip to turn the lights Off if they're On/Bedtime/Wake, unless it's in motion mode where we turn it on. Turn them On otherwise.
     - conditions:
       - condition: template
-        value_template: "{{ trigger.to_state.state == 'shake' or trigger.to_state.state == 'tap' or ('flip' in trigger.to_state.state) }}"
+        value_template: "{{ trigger.to_state.state == 'tap' or ('flip' in trigger.to_state.state) }}"
       sequence:
       - choose:
         - conditions:
@@ -65,54 +65,76 @@ action:
             state:
             - 'Off'
             - 'Motion'
-            - 'Auto'
           sequence:
           - service: input_select.select_option
             data:
               entity_id: input_select.master_bedroom
               option: 'On'
-        default:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.master_bedroom
-            option: 'On'
-    ############################################################
-    # Rotate (either) to change between On and Bedtime, or if Off and sleeping turn it to Bedtime
-    - conditions:
-      - condition: template
-        value_template: "{{ ('rotate_' in trigger.to_state.state) }}"
-      sequence:
-      - choose:
         - conditions:
           - condition: state
             entity_id: input_select.master_bedroom
             state:
-            - 'Bedtime'
+            - 'Auto'
+          - condition: state
+            entity_id: light.master_bedroom_bedhead
+            state: 'off'
           sequence:
           - service: input_select.select_option
             data:
               entity_id: input_select.master_bedroom
               option: 'On'
         - conditions:
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: input_select.master_bedroom
-              state:
-              - 'On'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_select.master_bedroom
-                state: 'Off'
-              - condition: state
-                entity_id: input_boolean.master_bedroom_occupied
-                state: 'on'
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'Auto'
+          - condition: state
+            entity_id: light.master_bedroom_bedhead
+            state: 'on'
           sequence:
           - service: input_select.select_option
             data:
               entity_id: input_select.master_bedroom
-              option: 'Bedtime'
+              option: 'Off'
+        default:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.master_bedroom
+            option: 'Off'
+    ############################################################
+    # Rotate (either) to change between On and Bedtime, or if Off and sleeping turn it to Bedtime
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'rotate_right' }}"
+      - condition: state
+        entity_id: input_select.master_bedroom
+        state: 'Bedtime'
+      sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.master_bedroom
+          option: 'On'
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'rotate_left' }}"
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.master_bedroom
+          state: 'On'
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state: 'Off'
+          - condition: state
+            entity_id: input_boolean.master_bedroom_occupied
+            state: 'on'
+      sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.master_bedroom
+          option: 'Bedtime'
     ############################################################
     # Dropped it, time to wake!
     - conditions:
@@ -127,3 +149,28 @@ action:
         data:
           entity_id: input_select.master_bedroom
           option: 'Wake'
+    ############################################################
+    # Shake, pick a colour, any colour
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'shake' }}"
+      sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.master_bedroom
+          option: 'Auto'
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.master_bedroom_bedhead
+            state: 'off'
+          sequence:
+          - service: light.turn_on
+            data:
+              entity_id: light.master_bedroom_bedhead
+      - service: light.turn_on
+        data:
+          entity_id: light.master_bedroom_bedhead
+          brightness: 255
+          rgb_color:
+          - "{{ range(0,255)|random }}"
