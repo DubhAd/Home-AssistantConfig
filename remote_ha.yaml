@@ -30,9 +30,7 @@ instances:
     - sensor.zwave_battery_front_door
     - sensor.zwave_battery_garage_closed_bike
     - sensor.zwave_battery_garage_closed_car
-    - sensor.zwave_battery_green_remote
     - sensor.zwave_battery_living_room_multi
-    - sensor.zwave_battery_nodon_crc3100_octan_remote
     - sensor.zwave_battery_patio_door_left
     - sensor.zwave_battery_utility
     - sensor.zwave_battery_utility_door_exterior

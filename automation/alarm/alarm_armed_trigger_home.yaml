@@ -13,6 +13,10 @@ condition:
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
+  - "{{ trigger.from_state.state != 'Unavailable' }}"
+  - "{{ trigger.to_state.state != 'Unavailable' }}"
+  - "{{ is_state('sensor.zigbee3_bridge_state','online') }}"
+  - "{{ (now() - states.sensor.zigbee3_bridge_state.last_changed).seconds > 30 }}"
 action:
   - service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm

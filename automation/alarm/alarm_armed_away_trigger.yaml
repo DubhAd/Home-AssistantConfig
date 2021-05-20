@@ -12,6 +12,7 @@ trigger:
       - group.my_downstairs_windows
       - group.my_upstairs_windows
     to: 'on'
+    from: 'off'
 condition:
   # Alarm is armed
   - condition: state
