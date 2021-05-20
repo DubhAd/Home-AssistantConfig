@@ -40,8 +40,6 @@ cards:
       - zwave.pi3_patio_door_left
       - zwave.pi3_utility_door_exterior
       - zwave.pi3_living_room_multi
-      - zwave.pi3_nodon_crc3100_octan_remote
-      - zwave.pi3_green_remote
       - zwave.pi3_utility
   - type: glance
     title: Z-Wave mains
