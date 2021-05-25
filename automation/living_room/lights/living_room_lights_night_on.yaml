@@ -43,5 +43,4 @@ action:
       entity_id: light.living_room_lamps
       transition: 10
   - service: switch.turn_on
-    entity_id: 
-      - switch.pi3_livingroom_socket_switch
+    entity_id: switch.pi3_livingroom_socket_switch
