@@ -225,7 +225,7 @@ cards:
     - entity: sensor.office_climate_temperature
       name: Office
       color: "#4285F4"
-    - entity: sensor.home_temperature
+    - entity: sensor.accuhome_realfeel_temperature
       name: Outside
       color: 'silver'
 - type: custom:mini-graph-card

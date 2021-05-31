@@ -19,7 +19,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity
-      entity: weather.accuhome
+      entity: weather.home
       attribute: 'temperature'
       name: Outside
       icon: 'mdi:thermometer'
@@ -64,7 +64,7 @@ cards:
         name: Upstairs
         color: "#33B679"
         #- entity: sensor.dark_sky_temperature
-      - entity: sensor.home_temperature
+      - entity: sensor.accuhome_realfeel_temperature
         name: Outside
         #color: 'silver'
         
