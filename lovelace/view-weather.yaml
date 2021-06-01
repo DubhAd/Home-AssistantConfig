@@ -22,6 +22,13 @@ cards:
       name: MetNo
       current: true
       details: true
+    - type: custom:weather-card
+      entity: weather.home_hourly
+      name: Hourly
+      hourly_forecast: true
+      number_of_forecasts: 6
+      current: false
+      details: false
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
