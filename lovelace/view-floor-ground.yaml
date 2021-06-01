@@ -194,6 +194,6 @@ cards:
     - entity: sensor.vestibule_multi_temperature
       name: Vestibule
       color: '#5397e0'
-    - entity: sensor.accuhome_realfeel_temperature
+    - entity: sensor.accuhome_apparent_temperature
       name: Outside
       color: 'silver'

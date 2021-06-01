@@ -35,6 +35,7 @@ cards:
 
   - type: custom:mini-graph-card
     name: Temperature
+    icon: mdi:thermometer
     hours_to_show: 24
     points_per_hour: 6
     line_width: 2
@@ -51,9 +52,11 @@ cards:
         color: 'white'
       - value: 5
         color: 'lightblue'
+      - value: 10
+        color: 'lightgreen'
       - value: 15
         color: 'orange'
-      - value: 25
+      - value: 23
         color: 'red'
     entities:
       - entity: sensor.downstairs_temperature
@@ -64,7 +67,7 @@ cards:
         name: Upstairs
         color: "#33B679"
         #- entity: sensor.dark_sky_temperature
-      - entity: sensor.accuhome_realfeel_temperature
+      - entity: sensor.accuhome_apparent_temperature
         name: Outside
         #color: 'silver'
         
