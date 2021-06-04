@@ -260,6 +260,8 @@ cards:
         name: Second bedroom
       - entity: binary_sensor.bathroom_door_contact
         name: Bathroom
+      - entity: binary_sensor.vestibule_door_contact
+        name: Vestibule
     show_empty: false
     state_filter:
       - 'off'

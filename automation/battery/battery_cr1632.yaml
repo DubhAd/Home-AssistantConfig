@@ -8,6 +8,7 @@ trigger:
     - binary_sensor.master_bedroom_door_battery_low
     - binary_sensor.office_door_battery_low
     - binary_sensor.second_bedroom_door_battery_low
+    - binary_sensor.vestibule_door_battery_low
     to: 'on'
   - platform: numeric_state
     entity_id: 
