@@ -67,6 +67,7 @@ cards:
         show_last_changed: true
         name: Car
       - entity: switch.pi3_number_sign_switch
+        icon: mdi:home-lightbulb
         tap_action: 
           action: toggle
   - type: glance
@@ -75,7 +76,10 @@ cards:
     entities:
       - entity: binary_sensor.pi3_front_door_sensor
         show_last_changed: true
-        name: Front door
+        name: Front
+      - entity: binary_sensor.vestibule_door_contact
+        show_last_changed: true
+        name: Interior
       - entity: binary_sensor.vestibule_window_front_contact
         show_last_changed: true
         name: Front
