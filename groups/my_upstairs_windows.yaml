@@ -1,5 +1,6 @@
 name: Upstairs windows
 entities:
+- binary_sensor.bathroom_window_contact
 - binary_sensor.guest_bedroom_window_left_contact
 - binary_sensor.guest_bedroom_window_right_contact
 - binary_sensor.master_window_ensuite_contact
@@ -11,4 +12,3 @@ entities:
 - binary_sensor.second_bedroom_window_ensuite_contact
 - binary_sensor.second_bedroom_window_left_contact
 - binary_sensor.second_bedroom_window_right_contact
-- binary_sensor.bathroom_window_contact_contact

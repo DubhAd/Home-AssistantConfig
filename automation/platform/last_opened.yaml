@@ -1,0 +1,43 @@
+id: 'last_opened'
+alias: 'Last opened'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+    # Exterior doors
+      - binary_sensor.pi3_front_door_sensor
+      - binary_sensor.pi3_garage_closed_bike_sensor
+      - binary_sensor.pi3_garage_closed_car_sensor
+      - binary_sensor.pi3_patio_door_left_sensor
+      - binary_sensor.pi3_utility_door_exterior_sensor
+    # Downstairs windows
+      - binary_sensor.family_window_left_contact
+      - binary_sensor.family_window_right_contact
+      - binary_sensor.kitchen_window_left_contact
+      - binary_sensor.kitchen_window_right_contact
+      - binary_sensor.patio_window_left_contact
+      - binary_sensor.patio_window_right_contact
+      - binary_sensor.vestibule_window_front_contact
+      - binary_sensor.vestibule_window_side_contact
+    # Upstairs windows
+      - binary_sensor.bathroom_window_contact
+      - binary_sensor.guest_bedroom_window_left_contact
+      - binary_sensor.guest_bedroom_window_right_contact
+      - binary_sensor.master_window_ensuite_contact
+      - binary_sensor.master_window_left_contact
+      - binary_sensor.master_window_right_contact
+      - binary_sensor.office_window_contact
+      - binary_sensor.second_bedroom_window_ensuite_contact
+      - binary_sensor.second_bedroom_window_left_contact
+      - binary_sensor.second_bedroom_window_right_contact
+      - binary_sensor.spare_bedroom_window_left_contact
+      - binary_sensor.spare_bedroom_window_right_contact
+    from: 'off'
+    to: 'on'
+action:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.last_opened
+      value: >-
+        {{ trigger.to_state.name }}
+
