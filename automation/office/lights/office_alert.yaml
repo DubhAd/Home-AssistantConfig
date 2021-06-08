@@ -1,0 +1,56 @@
+id: 'office_alert'
+alias: 'Office alert'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: state
+    entity_id: input_boolean.alarm_mode
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.alarm_mode
+    state: 'on'
+action:
+  # Disable automatic control of the lights
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.lighting_office
+  # Disable Adaptive lighting
+  - service: switch.turn_off
+    entity_id:
+    - switch.adaptive_lighting_office
+  # Turn on the light
+  - service: light.turn_on
+    entity_id: light.office_strip
+  # Let it flash
+  - repeat:
+      while: 
+        - condition: state
+          entity_id: input_boolean.alarm_mode
+          state: 'on'
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.office_strip
+          data:
+            brightness_pct: 100
+            color_name: red
+            transition: 0.5
+        - delay: 1
+        - service: light.turn_on
+          target:
+            entity_id: light.office_strip
+          data:
+            brightness: 1
+            color_name: red
+            transition: 0.5
+        - delay: 1
+  # Enable automatic control of the lights
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.lighting_office
+  # Enable Adaptive lighting
+  - service: switch.turn_on
+    entity_id:
+    - switch.adaptive_lighting_office
