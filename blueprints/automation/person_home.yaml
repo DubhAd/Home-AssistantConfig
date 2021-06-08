@@ -1,6 +1,7 @@
 blueprint:
   name: Mark the person as home
   description: Blueprint to mark people as home based off their devices
+  source_url: https://github.com/DubhAd/Home-AssistantConfig/blob/live/blueprints/automation/person_home.yaml
   domain: automation
   input:
     app_tracker:
@@ -57,7 +58,7 @@ trigger:
     event: start
   - platform: event
     event_type: automation_reloaded
-variables
+variables:
   p_group: !input person_group
 condition:
   - condition: state

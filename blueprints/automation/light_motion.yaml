@@ -1,0 +1,47 @@
+blueprint:
+  name: "Tinkerer's motion controlled lighting"
+  description: "Turn a light on when motion is detected, then turn it off after there's no motion"
+  domain: automation
+  source_url: https://github.com/DubhAd/Home-AssistantConfig/blob/live/blueprints/automation/light_motion.yaml
+  input:
+    light:
+      name: Light
+      description: The light to control
+      selector:
+        entity:
+          domain: light
+    motion_sensor:
+      name: Motion sensor
+      description: The motion sensor that controls the light
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    delay:
+      name: Delay
+      description: How long the motion sensor must be off for the light to turn off
+      selector:
+        number:
+          min: 0
+          max: 3600
+          unit_of_measurement: seconds
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  - platform: state
+    entity_id: !input motion_sensor
+    to: 'on'
+action:
+  - service: light.turn_on
+    entity_id: !input light
+
+  - wait_for_trigger: 
+    - platform: state
+      entity_id: !input motion_sensor
+      to: 'off'
+      for:
+        seconds: !input delay
+  - service: light.turn_off
+    entity_id: !input light

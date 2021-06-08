@@ -1,6 +1,7 @@
 blueprint:
   name: Mark the person as away from home
   description: Blueprint to mark people as away based off their devices
+  source_url: https://github.com/DubhAd/Home-AssistantConfig/blob/live/blueprints/automation/person_away.yaml
   domain: automation
   input:
     proximity_sensor:
