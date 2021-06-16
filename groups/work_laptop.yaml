@@ -1,3 +1,5 @@
 name: Work laptop
 entities:
+- device_tracker.00_e0_4c_68_05_50
 - device_tracker.00_e0_4c_7c_8e_41
+- device_tracker.54_ee_75_e2_65_6d
