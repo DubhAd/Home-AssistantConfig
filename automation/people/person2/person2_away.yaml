@@ -29,12 +29,12 @@ condition:
     - condition: state
       entity_id: input_boolean.person2_driving
       state: 'on'
-    # Two or more trackers mark as away, door opened/closed in the last 5 minutes
+    # Most trackers mark as away, door opened/closed in the last 5 minutes
     - condition: and
       conditions:
-      # More than one tracker shows away
+      # More than half the tracker show away
       - condition: template
-        value_template: "{{ expand('group.person_person2')|selectattr('state','eq','not_home')|list|count > 1 }}"
+        value_template: "{{ (expand('group.person_person2')|selectattr('state','eq','not_home')|list|count / expand('group.person_person2')|list|count) > 0.5 }}"
         #value_template: "{{ expand('group.person_person2')|selectattr('attributes.source_type','eq','bluetooth')|selectattr('state','eq','home')|list|count }}" # for just Bluetooth trackers
       # An exit door recently opened or closed
       - condition: template
