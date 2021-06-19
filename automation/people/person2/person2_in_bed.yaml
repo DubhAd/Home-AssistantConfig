@@ -26,11 +26,11 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
-    # Door is closed
+  # Bedroom door is closed
   - condition: state
     entity_id: binary_sensor.master_bedroom_door_contact
     state: 'off'
-    # Door was closed between 21:00 and 03:59
+  # Door was closed between 21:00 and 03:59
   - condition: template
     value_template: >-
       {{ states.binary_sensor.master_bedroom_door_contact.last_changed.hour > 20 or

@@ -16,6 +16,10 @@ condition:
   - condition: time
     after: '22:00:00'
     before: '04:00:00'
+  # Relatively dull
+  - condition: numeric_state
+    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    below: 10
   - condition: or
     conditions:
     # Phone or tablet are charging

@@ -2,6 +2,8 @@ id: 'master_bedroom_occupied'
 initial_state: 'on'
 alias: 'Master bedroom occupied'
 trigger:
+  - platform: time
+    at: '22:00:01'
   - platform: state
     entity_id: 
     - light.master_bedroom_bedhead
@@ -13,16 +15,21 @@ trigger:
     - binary_sensor.master_bedroom_door_contact
     to: 'off'
 condition:
+  # Bedroom door is closed and room not currently occupied
   - condition: state
     entity_id: 
     - input_boolean.master_bedroom_occupied
     - binary_sensor.master_bedroom_door_contact
     state: 'off'
-  - condition: state
-    entity_id: 
-    - input_boolean.person2_in_bed
-    - input_boolean.person2_home
-    state: 'on'
+  # Door was closed between 21:00 and 03:59
+  - condition: template
+    value_template: >-
+      {{ states.binary_sensor.master_bedroom_door_contact.last_changed.hour > 20 or
+         states.binary_sensor.master_bedroom_door_contact.last_changed.hour < 4 }}
+  # In the time window for bed
+  - condition: time
+    after: '21:00:00'
+    before: '04:00:00'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.master_bedroom_occupied

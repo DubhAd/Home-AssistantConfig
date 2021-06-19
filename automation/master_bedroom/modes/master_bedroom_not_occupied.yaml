@@ -3,33 +3,23 @@ initial_state: 'on'
 alias: 'Master bedroom not occupied'
 trigger:
   - platform: state
-    entity_id: input_boolean.person2_in_bed
-    to: 'off'
-  - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
     to: 'on'
-  - platform: state
-    entity_id: 
-    - media_player.person2
-    - media_player.master_bedroom_speaker
-    from: 'playing'
+  - platform: time
+    at: '03:00:01'
 condition:
   - condition: state
     entity_id: input_boolean.master_bedroom_occupied
     state: 'on'
   - condition: state
-    entity_id: input_boolean.person2_in_bed
-    state: 'off'
-  - condition: state
     entity_id: binary_sensor.master_bedroom_door_contact
     state: 'on'
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: 
-      - media_player.person2
-      - media_player.master_bedroom_speaker
-      state: 'playing'
+  - condition: state
+    entity_id: input_boolean.person2_in_bed
+    state: 'off'
+  # In the time window for waking up
+  - condition: time
+    after: '03:00:00'
 action:
   - service: notify.logfile
     data:
