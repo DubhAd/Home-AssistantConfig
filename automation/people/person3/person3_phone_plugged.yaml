@@ -6,10 +6,23 @@ trigger:
     event_type: tasker_webhook
     event_data:
       who: person3
-condition: 
-  - condition: template
-    value_template: >-
-      {{ 'Plugged' in trigger.event.data.what }}
+  - platform: state
+    entity_id: sensor.person3_pixel_3a_charger_type
+    from: 'none'
+condition:
+  - condition: state
+    entity_id: input_boolean.person3_phone_charging
+    state: 'off'
+  - condition: or
+    conditions:
+      - condition: template
+        value_template: >-
+          {{ trigger.platform == 'event' and 'Plugged' in trigger.event.data.what }}
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.person3_pixel_3a_charger_type
+            state: 'none'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person3_phone_charging

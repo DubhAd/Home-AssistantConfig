@@ -22,12 +22,9 @@ trigger:
     entity_id: binary_sensor.master_bedroom_door_contact
     to: 'off'
 condition:
-  # I'm home, and the mobile is charging
+  # I'm home
   - condition: state
     entity_id: input_boolean.person2_home
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.person2_phone_charging
     state: 'on'
     # Door is closed
   - condition: state
@@ -44,7 +41,10 @@ condition:
     before: '04:00:00'
   - condition: or
     conditions:
-    # Either the tablet charging, the light is on, or I'm listening to music
+    # Either the tablet or phone are charging, the light is on, or I'm listening to music
+    - condition: state
+      entity_id: input_boolean.person2_phone_charging
+      state: 'on'
     - condition: state
       entity_id: input_boolean.person2_tablet_charging
       state: 'on'
