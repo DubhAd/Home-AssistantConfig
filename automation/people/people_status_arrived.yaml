@@ -48,3 +48,5 @@ action:
             Just Arrived
           {% endif %}
         {% endif %}
+  - service: script.turn_on
+    entity_id: script.scan_bt_arrive

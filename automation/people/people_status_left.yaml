@@ -23,3 +23,5 @@ action:
           input_select.person4_status_dropdown
         {% endif %}
       option: Just Left
+  - service: script.turn_on
+    entity_id: script.scan_bt_depart
