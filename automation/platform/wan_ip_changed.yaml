@@ -1,9 +1,10 @@
 id: 'wan_ip_changed'
 alias: 'WAN IP changed'
+mode: parallel
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: binary_sensor.fritzbox_7530_connectivity
+    entity_id: binary_sensor.fritzbox_3490_connectivity
 condition:
   - condition: template
     value_template: >-
@@ -12,11 +13,11 @@ condition:
     value_template: >-
       {{ (trigger.to_state.attributes.external_ip|string != "None") and (trigger.to_state.attributes.external_ip|length != 0) }}
 action:
-  - wait_template: >-
-      {{ is_state('input_boolean.person2_is_awake','on') }}
   - service: notify.logfile
     data:
       message: "The WAN IP has changed to #{{ trigger.to_state.attributes.external_ip }}/{{ trigger.to_state.attributes.external_ipv6 }}#"
+  - wait_template: >-
+      {{ is_state('input_boolean.person2_is_awake','on') }}
   - service: notify.person2_telegram
     data:
       message: "The WAN IP has changed to {{ trigger.to_state.attributes.external_ip }} and {{ trigger.to_state.attributes.external_ipv6 }}"
