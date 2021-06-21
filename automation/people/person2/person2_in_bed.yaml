@@ -16,6 +16,9 @@ trigger:
       - input_boolean.person2_tablet_charging
       - input_boolean.person2_phone_charging
     to: 'on'
+  - platform: state
+    entity_id: sensor.pixel_xl_do_not_disturb_sensor
+    to: 'priority_only'
   - platform: time
     at: '22:00:01'
   - platform: state
@@ -41,13 +44,16 @@ condition:
     before: '04:00:00'
   - condition: or
     conditions:
-    # Either the tablet or phone are charging, the light is on, or I'm listening to music
+    # Either the tablet or phone are charging, the phone is in do not disturb (bedtime) mode, the light is on, or I'm listening to music
     - condition: state
       entity_id: input_boolean.person2_phone_charging
       state: 'on'
     - condition: state
       entity_id: input_boolean.person2_tablet_charging
       state: 'on'
+    - condition: state
+      entity_id: sensor.pixel_xl_do_not_disturb_sensor
+      state: 'priority_only'
     - condition: state
       entity_id: light.master_bedroom_bedhead
       state: 'on'

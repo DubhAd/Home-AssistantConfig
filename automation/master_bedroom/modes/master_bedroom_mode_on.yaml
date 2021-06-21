@@ -8,6 +8,9 @@ trigger:
     - input_boolean.person2_tablet_charging
     to: 'on'
   - platform: state
+    entity_id: sensor.pixel_xl_do_not_disturb_sensor
+    to: 'priority_only'
+  - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
     to: 'off'
   - platform: time
@@ -29,6 +32,9 @@ condition:
     - condition: state
       entity_id: input_boolean.person2_tablet_charging
       state: 'on'
+    - condition: state
+      entity_id: sensor.pixel_xl_do_not_disturb_sensor
+      state: 'priority_only'
     # Door is open
     - condition: state
       entity_id: binary_sensor.master_bedroom_door_contact
