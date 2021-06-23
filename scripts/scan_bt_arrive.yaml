@@ -1,4 +1,3 @@
-mode: queued
 sequence:
   - wait_template: "{{ is_state('script.scan_bt_depart', 'off') }}"
   - service: mqtt.publish
