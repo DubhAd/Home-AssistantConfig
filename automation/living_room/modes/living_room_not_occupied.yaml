@@ -12,7 +12,9 @@ trigger:
     for: '00:01:00'
   - platform: state
     entity_id: media_player.samsung_tv
-    to: 'off'
+    to: 
+    - 'off'
+    - 'unavailable'
     for: '00:05:00'
   - platform: state
     entity_id: device_tracker.livingroom_chromecast
@@ -49,7 +51,9 @@ condition:
   # Requires all the media devices to be off, paused, unavailable, etc
   - condition: state
     entity_id: media_player.samsung_tv
-    state: 'off'
+    state: 
+    - 'off'
+    - 'unavailable'
   - condition: state
     entity_id: device_tracker.livingroom_chromecast
     state: 'not_home'

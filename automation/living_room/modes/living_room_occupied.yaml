@@ -72,7 +72,9 @@ condition:
     # TV
     - condition: state
       entity_id: media_player.samsung_tv
-      state: 'on'
+      state: 
+      - 'on'
+      - 'unavailable'
     # Chromecast
     - condition: state
       entity_id: media_player.cast_living_room_tv
