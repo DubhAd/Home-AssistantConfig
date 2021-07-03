@@ -1,5 +1,6 @@
 id: 'mark_person_as_away'
 alias: Mark person as away
+mode: parallel
 initial_state: 'on'
 trigger:
   - platform: state

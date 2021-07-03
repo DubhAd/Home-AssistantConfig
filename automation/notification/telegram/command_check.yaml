@@ -12,7 +12,7 @@ action:
       message: >
         The alarm is {{ states('alarm_control_panel.ha_alarm') }}
         
-        The zigbee bridge is {{ states('sensor.zigbee2mqtt_bridge_state') }} and router is {{ states('binary_sensor.zigbee2mqtt_router_1') }}
+        The zigbee bridge is {{ states('sensor.zigbee3_bridge_state') }}
 
         {% set rooms_occupied = expand('group.my_room_status')|selectattr('state', 'eq', 'on')|list|count -%}
         {%- if rooms_occupied > 0 -%}
