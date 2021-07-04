@@ -109,8 +109,10 @@ binary_sensor.master_window_ensuite_contact:
   device_class: window
 binary_sensor.master_window_left_contact:
   device_class: window
+  friendly_name: Master window left
 binary_sensor.master_window_right_contact:
   device_class: window
+  friendly_name: Master window right
 binary_sensor.office_window_contact:
   device_class: window
 binary_sensor.patio_window_left_contact:
@@ -119,8 +121,10 @@ binary_sensor.second_bedroom_window_ensuite_contact:
   device_class: window
 binary_sensor.second_bedroom_window_left_contact:
   device_class: window
+  friendly_name: Second bedroom window left
 binary_sensor.second_bedroom_window_right_contact:
   device_class: window
+  friendly_name: Second bedroom window right
 binary_sensor.spare_bedroom_window_left_contact:
   device_class: window
 binary_sensor.spare_bedroom_window_right_contact:
@@ -255,8 +259,10 @@ sensor.downstairs_hall_light_sensor_illuminance:
   unit_of_measurement: illuminance
 binary_sensor.guest_bedroom_window_left_contact:
   device_class: window
+  friendly_name: Guest bedroom window left
 binary_sensor.guest_bedroom_window_right_contact:
   device_class: window
+  friendly_name: Guest bedroom window right
 light.downstairs_hall:
   icon: mdi:led-strip-variant
 binary_sensor.kitchen_window_left_contact:

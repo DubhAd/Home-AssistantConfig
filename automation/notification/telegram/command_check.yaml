@@ -16,7 +16,7 @@ action:
 
         {% set rooms_occupied = expand('group.my_room_status')|selectattr('state', 'eq', 'on')|list|count -%}
         {%- if rooms_occupied > 0 -%}
-          The following rooms are occupied: {{ expand('group.my_room_status')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}
+          The following {{ rooms_occupied }} rooms are occupied: {{ expand('group.my_room_status')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|join(', ') }}
         {%- else -%}
           No rooms are occupied
         {%- endif %}
