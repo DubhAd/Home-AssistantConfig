@@ -1,4 +1,4 @@
-alias: telegram trains
+alias: Train message
 sequence:
   - service: homeassistant.update_entity
     data:
@@ -32,6 +32,10 @@ sequence:
       {%- endif %}
     timeout: '00:01:00'
     continue_on_timeout: 'true'
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.train_message
+      value: "Cleared at {{ as_timestamp(now())|timestamp_local() }}"
   - service: input_text.set_value
     data:
       entity_id: input_text.train_message
