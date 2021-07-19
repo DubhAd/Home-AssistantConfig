@@ -273,3 +273,9 @@ light.living_room_lamps:
   icon: mdi:lightbulb-group
 device_tracker.08_a6_bc_ea_df_3f:
   friendly_name: person2_kindle_oasis
+sensor.pi3_office_multi_temperature:
+  device_class: temperature
+sensor.pi3_living_room_multi_temperature:
+  device_class: temperature
+sensor.pi3_office_multi_relative_humidity:
+  device_class: humidity
