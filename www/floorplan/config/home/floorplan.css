@@ -427,6 +427,10 @@ background-color: var(--primary-background-color);
   fill: #77FF77 !important;
 }
 
+.temp-medium-high {
+  fill: #FFA500 !important;
+}
+
 .temp-high {
   fill: #FF0000 !important;
 }

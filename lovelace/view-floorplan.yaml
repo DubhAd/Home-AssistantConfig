@@ -268,8 +268,10 @@ cards:
               return "temp-freeze";
             else if (temp < 15)
               return "temp-low";
-            else if (temp < 25)
+            else if (temp < 22)
               return "temp-medium";
+            else if (temp < 25)
+              return "temp-medium-high";
             else if (temp >= 25)
               return "temp-high";
             else
@@ -289,9 +291,11 @@ cards:
               return "temp-freeze";
             else if (temp < 10)
               return "temp-low";
-            else if (temp < 25)
+            else if (temp < 21)
               return "temp-medium";
-            else if (temp >= 25)
+            else if (temp < 24)
+              return "temp-medium-high";
+            else if (temp >= 24)
               return "temp-high";
             else
               return "temp-unknown";
