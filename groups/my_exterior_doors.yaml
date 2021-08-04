@@ -3,5 +3,5 @@ entities:
 - binary_sensor.pi3_front_door_sensor
 - binary_sensor.pi3_patio_door_left_sensor
 - binary_sensor.pi3_utility_door_exterior_sensor
-- binary_sensor.pi3_garage_closed_bike_sensor
-- binary_sensor.pi3_garage_closed_car_sensor
+- binary_sensor.garage_door_bike_contact
+- binary_sensor.garage_door_car_contact

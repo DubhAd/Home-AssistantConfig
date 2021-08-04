@@ -279,3 +279,7 @@ sensor.pi3_living_room_multi_temperature:
   device_class: temperature
 sensor.pi3_office_multi_relative_humidity:
   device_class: humidity
+binary_sensor.garage_door_car_contact:
+  device_class: garage_door
+binary_sensor.garage_door_bike_contact:
+  device_class: garage_door

@@ -60,10 +60,10 @@ cards:
     title: Front of house
     columns: 3
     entities:
-      - entity: binary_sensor.pi3_garage_closed_bike_sensor
+      - entity: binary_sensor.garage_door_bike_contact
         show_last_changed: true
         name: bike
-      - entity: binary_sensor.pi3_garage_closed_car_sensor
+      - entity: binary_sensor.garage_door_car_contact
         show_last_changed: true
         name: Car
       - entity: switch.pi3_number_sign_switch

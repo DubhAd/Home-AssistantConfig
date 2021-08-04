@@ -186,9 +186,9 @@ cards:
         name: Family left
       - entity: binary_sensor.family_window_right_contact
         name: Family right
-      - entity: binary_sensor.pi3_garage_closed_bike_sensor
+      - entity: binary_sensor.garage_door_bike_contact
         name: Garage - bike
-      - entity: binary_sensor.pi3_garage_closed_car_sensor
+      - entity: binary_sensor.garage_door_car_contact
         name: Garage - car
       - entity: binary_sensor.kitchen_window_right_contact
         name: Kitchen right
