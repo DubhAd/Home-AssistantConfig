@@ -26,7 +26,7 @@ condition:
       value_template: >-
         {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 300)
           or
-          ((now() - states.binary_sensor.pi3_garage_closed_car_sensor.last_changed).seconds < 300)
+          ((now() - states.binary_sensor.garage_door_car_contact.last_changed).seconds < 300)
           or
           ((now() - states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds < 300)
         }}
