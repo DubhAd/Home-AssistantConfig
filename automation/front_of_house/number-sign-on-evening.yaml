@@ -20,7 +20,7 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: switch.pi3_number_sign_switch
+      entity_id: switch.number_sign
       state: 'off'
     - condition: or
       conditions:
@@ -57,10 +57,4 @@ condition:
           above: 25
 action:
   - service: switch.turn_on
-    entity_id: switch.pi3_number_sign_switch
-  - delay: 00:00:30
-  - condition: state
-    entity_id: switch.pi3_number_sign_switch
-    state: 'off'
-  - service: switch.turn_on
-    entity_id: switch.pi3_number_sign_switch
+    entity_id: switch.number_sign

@@ -372,7 +372,7 @@ cards:
           propagate: true
 
         - entities:
-            - switch.pi3_number_sign_switch
+            - switch.number_sign
           states:
             - state: 'on'
               class: 'indicator-on'

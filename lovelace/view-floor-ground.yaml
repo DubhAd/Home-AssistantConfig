@@ -66,8 +66,8 @@ cards:
       - entity: binary_sensor.garage_door_car_contact
         show_last_changed: true
         name: Car
-      - entity: switch.pi3_number_sign_switch
-        icon: mdi:home-lightbulb
+      - entity: switch.number_sign
+        icon: mdi:home-floor-3
         tap_action: 
           action: toggle
   - type: glance
