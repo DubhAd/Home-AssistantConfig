@@ -56,10 +56,13 @@ cards:
   - sensor.downstairs_hall_motion_battery 
   - sensor.family_window_left_battery 
   - sensor.family_window_right_battery 
+  - sensor.garage_door_car_battery
+  - sensor.garage_door_bike_battery
   - sensor.guest_bedroom_door_battery 
   - sensor.guest_bedroom_window_left_battery 
   - sensor.guest_bedroom_window_right_battery 
   - sensor.hue_dimmer_battery 
+  - sensor.kitchen_water_leak_battery
   - sensor.kitchen_window_left_battery
   - sensor.kitchen_window_right_battery
   - sensor.master_bedroom_cube_battery
@@ -85,6 +88,8 @@ cards:
   - sensor.second_bedroom_window_right_battery 
   - sensor.spare_bedroom_window_left_battery 
   - sensor.spare_bedroom_window_right_battery 
+  - sensor.toilet_water_leak_battery
+  - sensor.utility_room_water_leak_battery
   - sensor.vestibule_multi_battery 
   - sensor.vestibule_window_front_battery 
   - sensor.vestibule_window_side_battery
@@ -143,7 +148,6 @@ cards:
     - switch.pi3_hall_downstairs_switch
     - switch.pi3_livingroom_socket_switch
     - switch.pi3_master_bedroom_socket_switch
-    - switch.pi3_number_sign_switch
     - switch.pi3_second_bedroom_switch
     - switch.pi3_spare_socket_switch
     - switch.pi3_table_light_switch
