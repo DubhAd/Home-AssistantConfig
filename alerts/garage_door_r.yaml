@@ -2,7 +2,11 @@ name: "Garage door for car has been open for {{ relative_time(states.binary_sens
 done_message: "Garage door for car is now closed"
 entity_id: binary_sensor.garage_door_car_contact
 state: 'on'
-repeat: 10
+repeat:
+  - 10
+  - 20
+  - 30
+  - 60
 can_acknowledge: True
 skip_first: True
 notifiers:

@@ -2,7 +2,11 @@ name: "There is a water leak in the following rooms: {{ expand('group.flood_sens
 done_message: "The water leak has been dealt with"
 entity_id: binary_sensor.flood_while_away
 state: 'on'
-repeat: 180
+repeat: 
+  - 180
+  - 360
+  - 720
+  - 1440
 can_acknowledge: True
 skip_first: False
 notifiers:
