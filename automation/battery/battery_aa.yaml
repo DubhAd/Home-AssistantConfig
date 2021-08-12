@@ -1,0 +1,11 @@
+id: 'battery_aa'
+initial_state: 'on'
+alias: 'Battery AA'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.family_room_multi_battery_low
+    to: 'on'
+action:
+  service: notify.person2_telegram
+  data:
+    message: "The {{ trigger.to_state.name }} has a low battery, fit some new AAs"

@@ -255,6 +255,7 @@ cards:
         # Indoors should be moderate
         - entities:
             - sensor.pi3_living_room_multi_temperature
+            - sensor.family_room_multi_temperature
             - sensor.office_climate_temperature
             - sensor.master_ensuite_temperature
             - sensor.bathroom_environment_temperature
@@ -454,6 +455,7 @@ cards:
             - binary_sensor.office_motion_konke_occupancy
             - binary_sensor.downstairs_hall_motion_occupancy
             - binary_sensor.vestibule_multi_occupancy
+            - binary_sensor.family_room_multi_occupancy
           states:
             - state: 'off'
               class: 'motion-background'
