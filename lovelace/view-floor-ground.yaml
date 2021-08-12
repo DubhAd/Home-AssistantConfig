@@ -142,14 +142,21 @@ cards:
         name: Leak
   - type: glance
     title: Family room
-    columns: 3
+    columns: 5
     entities:
+      - entity: binary_sensor.family_room_multi_occupancy
+        show_last_changed: true
+        name: Motion
       - entity: binary_sensor.family_window_left_contact
         show_last_changed: true
         name: Left
       - entity: binary_sensor.family_window_right_contact
         show_last_changed: true
         name: Right
+      - entity: sensor.family_room_multi_illuminance_lux
+        name: Illuminance
+      - entity: sensor.family_room_multi_temperature
+        name: Temperature
       - entity: switch.pi3_family_room_socket_switch
         name: Socket
         tap_action: 
@@ -182,6 +189,9 @@ cards:
     - entity: sensor.living_room_light_sensor_illuminance_lux
       name: Living room Zi
       color: goldenrod
+    - entity: sensor.family_room_multi_illuminance_lux
+      name: Family room
+      color: '#9753e0'
     - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
       name: Downstairs hall
 - type: custom:mini-graph-card
@@ -201,6 +211,9 @@ cards:
     - entity: sensor.pi3_living_room_multi_temperature
       name: Living room
       color: darkgoldenrod
+    - entity: sensor.family_room_multi_temperature
+      name: Family room
+      color: '#9753e0'
     - entity: sensor.vestibule_multi_temperature
       name: Vestibule
       color: '#5397e0'
