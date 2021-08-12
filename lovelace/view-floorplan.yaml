@@ -348,6 +348,7 @@ cards:
             - sensor.pi3_office_multi_luminance
             - sensor.downstairs_hall_light_sensor_illuminance_lux
             - sensor.master_bedroom_light_sensor_illuminance_lux
+            - sensor.family_room_multi_illuminance_lux
           text_template: '${entity.state ? entity.state : "unknown"} lux'
           class_template: '
             var light = parseFloat(entity.state.replace("°", ""));

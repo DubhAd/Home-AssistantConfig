@@ -4,5 +4,4 @@
   round_digits: 1
   entity_ids:
     - sensor.pi3_living_room_multi_temperature
-    - sensor.vestibule_multi_temperature
     - sensor.family_room_multi_temperature
