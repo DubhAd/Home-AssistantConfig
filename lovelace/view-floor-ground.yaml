@@ -171,7 +171,7 @@ cards:
         name: Hub
 - type: custom:mini-graph-card
   name: Light level
-  points_per_hour: 6
+  points_per_hour: 12
   hours_to_show: 12
   line_width: 2
   hour24: true
@@ -183,20 +183,19 @@ cards:
     fill: true
     labels: true
   entities:
-    - entity: sensor.pi3_living_room_multi_luminance
-      name: Living room ZW
-      color: darkgoldenrod
     - entity: sensor.living_room_light_sensor_illuminance_lux
       name: Living room Zi
-      color: goldenrod
+      #color: goldenrod
+      color: '#5793e0'
     - entity: sensor.family_room_multi_illuminance_lux
       name: Family room
       color: '#9753e0'
     - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
       name: Downstairs hall
+      color: '#3357d0'
 - type: custom:mini-graph-card
   name: Temperature
-  points_per_hour: 6
+  points_per_hour: 12
   hours_to_show: 12
   line_width: 2
   hour24: true
@@ -210,13 +209,10 @@ cards:
   entities:
     - entity: sensor.pi3_living_room_multi_temperature
       name: Living room
-      color: darkgoldenrod
+      color: '#5793e0'
     - entity: sensor.family_room_multi_temperature
       name: Family room
       color: '#9753e0'
-    - entity: sensor.vestibule_multi_temperature
-      name: Vestibule
-      color: '#5397e0'
     - entity: sensor.accuhome_apparent_temperature
       name: Outside
       color: 'silver'

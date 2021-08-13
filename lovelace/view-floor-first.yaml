@@ -189,16 +189,16 @@ cards:
   entities:
     - entity: sensor.master_ensuite_humidity
       name: Master ensuite
-      color: "#9E69AF"
+      color: "#9EA96F"
     - entity: sensor.second_bedroom_ensuite_humidity
       name: Second bedroom ensuite
       color: "#33B679"
     - entity: sensor.bathroom_environment_humidity
       name: Bathroom
-      color: "#E4C441"
+      color: "#C4E441"
     - entity: sensor.office_climate_humidity
       name: Office
-      color: "#4285F4"
+      color: "#F28544"
 - type: custom:mini-graph-card
   name: Temperature
   hours_to_show: 12
@@ -215,16 +215,16 @@ cards:
   entities:
     - entity: sensor.master_ensuite_temperature
       name: Master ensuite
-      color: "#9E69AF"
+      color: "#9EA96F"
     - entity: sensor.second_bedroom_ensuite_temperature
       name: Second bedroom ensuite
       color: "#33B679"
     - entity: sensor.bathroom_environment_temperature
       name: Bathroom
-      color: "#E4C441"
+      color: "#C4E441"
     - entity: sensor.office_climate_temperature
       name: Office
-      color: "#4285F4"
+      color: "#F28544"
     - entity: sensor.accuhome_apparent_temperature
       name: Outside
       color: 'silver'
@@ -243,13 +243,13 @@ cards:
   entities:
     - entity: sensor.master_ensuite_pressure
       name: Master ensuite
-      color: "#9E69AF"
+      color: "#9EA96F"
     - entity: sensor.second_bedroom_ensuite_pressure
       name: Second bedroom ensuite
       color: "#33B679"
     - entity: sensor.bathroom_environment_pressure
       name: Bathroom
-      color: "#E4C441"
+      color: "#C4E441"
 - type: custom:mini-graph-card
   name: Master en-suite change
   points_per_hour: 60
