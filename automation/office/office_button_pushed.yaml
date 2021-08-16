@@ -20,3 +20,4 @@ action:
     - service: media_player.media_play
       data:
         entity_id: media_player.office
+  - delay: '00:00:01'
