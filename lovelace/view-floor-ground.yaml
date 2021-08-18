@@ -31,10 +31,10 @@ cards:
       name: "Motion"
     - entity: sensor.pi3_living_room_multi_temperature
       name: "Temperature"
-    - entity: sensor.pi3_living_room_multi_luminance
-      name: "Light level"
     - entity: sensor.living_room_light_sensor_illuminance_lux
       name: "Lux"
+    - entity: sensor.pi3_living_room_multi_luminance
+      name: "Z-Wave Lux"
     - entity: media_player.samsung_tv
       name: TV
     - entity: media_player.cast_living_room_tv
