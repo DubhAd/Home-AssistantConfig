@@ -2,5 +2,5 @@ name: Flood sensors
 entities:
 - binary_sensor.bathroom_water_leak_water_leak
 - binary_sensor.kitchen_water_leak_water_leak
-- binary_sensor.toilet_room_water_leak_water_leak
+- binary_sensor.toilet_water_leak_water_leak
 - binary_sensor.utility_room_water_leak_water_leak

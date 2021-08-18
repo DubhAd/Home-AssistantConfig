@@ -101,7 +101,7 @@ cards:
         name: Bathroom
       - entity: binary_sensor.kitchen_water_leak_water_leak
         name: Kitchen
-      - entity: binary_sensor.toilet_room_water_leak_water_leak
+      - entity: binary_sensor.toilet_water_leak_water_leak
         name: Toilet
       - entity: binary_sensor.utility_room_water_leak_water_leak
         name: Utility room
