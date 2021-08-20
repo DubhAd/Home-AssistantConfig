@@ -168,6 +168,7 @@ cards:
   title: 'Overdue zigbee link status times'
   ignore_line_breaks: true
   content: |-
+    Routers:<BR>
     {% for state in states.sensor if "_linkquality" in state.entity_id and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'Router' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 10) -%}
@@ -175,14 +176,27 @@ cards:
       {% endif -%}
     {% endfor %}
 
-    {% for state in states.sensor if "_linkquality" in state.entity_id and "leak" not in state.entity_id  and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
+    <HR>
+    Non-Konke:    
+    {% for state in states.sensor if "_linkquality" in state.entity_id and "leak" not in state.entity_id and state.attributes.device.manufacturerName != "Konke" and state.attributes.device.model != 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 60 * 1.5) -%}
         {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
       {% endif -%}
     {% endfor %}
-
-    {% for state in states.sensor if "_linkquality" in state.entity_id and "leak" in state.entity_id  and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
+    
+    <HR>
+    Konke:
+    {% for state in states.sensor if "_linkquality" in state.entity_id and "leak" not in state.entity_id and state.attributes.device.manufacturerName == "Konke" and state.attributes.device.model != 'TS0207'  and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
+      {%- set when =  (now()-state.last_updated).seconds -%}
+      {%- if when > (60 * 60 * 3) -%}
+        {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
+      {% endif -%}
+    {% endfor %}
+    
+    <HR>
+    CR Smart home:   
+    {% for state in states.sensor if "_linkquality" in state.entity_id and state.attributes.device.model == 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 60 * 5) -%}
         {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
