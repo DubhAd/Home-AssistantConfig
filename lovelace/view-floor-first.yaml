@@ -12,17 +12,6 @@ cards:
       - entity: light.master_bedroom_bedhead
         name: Bedhead
         icon: mdi:led-strip-variant
-      - entity: media_player.person2
-        name: Squeezebox
-      - entity: media_player.cast_master_bedroom_speaker
-        name: Home Mini
-      - entity: media_player.master_bedroom_display
-        name: "Home Hub"
-      - entity: switch.radio_person2
-        icon: mdi:alarm
-        tap_action: 
-          action: toggle
-        name: Alarms
       - entity: switch.pi3_master_bedroom_socket_switch
         tap_action: 
           action: toggle
@@ -38,41 +27,43 @@ cards:
         name: Right window
       - entity: sensor.master_bedroom_light_sensor_illuminance_lux
         name: Lux
+      - entity: media_player.person2
+        name: Squeezebox
+      - entity: media_player.cast_master_bedroom_speaker
+        name: Home Mini
+      - entity: media_player.master_bedroom_display
+        name: "Home Hub"
+      - entity: switch.radio_person2
+        icon: mdi:alarm
+        tap_action: 
+          action: toggle
+        name: Alarms
   - type: glance
     columns: 5
     entities:
-      - entity: sensor.master_ensuite_humidity
-        name: Humidity
-      - entity: sensor.master_ensuite_temperature
-        name: Temperature
-      - entity: sensor.master_ensuite_pressure
-        name: Pressure
-      - entity: binary_sensor.master_window_ensuite_contact
-        show_last_changed: true
-        name: Ensuite
       - entity: binary_sensor.master_ensuite_door_contact
         show_last_changed: true
-        name: Ensuite
+        name: Door
+      - entity: binary_sensor.master_window_ensuite_contact
+        show_last_changed: true
+        name: Window
+      - entity: sensor.master_ensuite_temperature
+        name: Temperature
+      - entity: sensor.master_ensuite_humidity
+        name: Humidity
+      - entity: sensor.master_ensuite_pressure
+        name: Pressure
 - type: vertical-stack
   title: Second bedroom & en-suite
   cards:
   - type: glance
     #title: Second bedroom
     #column_width: 25%
-    columns: 4
+    columns: 5
     entities:
       - entity: light.person1_bedroom_bedside
         name: Bedhead
         icon: mdi:led-strip-variant
-      - entity: media_player.person1
-        name: Squeezebox
-      - entity: media_player.cast_second_bedroom_speaker
-        name: Home Mini
-      - entity: switch.radio_person1
-        icon: mdi:alarm
-        tap_action: 
-          action: toggle
-        name: Alarms
       - entity: switch.pi3_second_bedroom_switch
         tap_action: 
           action: toggle
@@ -86,27 +77,35 @@ cards:
       - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
+
+      - entity: media_player.person1
+        name: Squeezebox
+      - entity: media_player.cast_second_bedroom_speaker
+        name: Home Mini
+      - entity: switch.radio_person1
+        icon: mdi:alarm
+        tap_action: 
+          action: toggle
+        name: Alarms
   - type: glance
     #title: Second bedroom ensuite
     columns: 5
     entities:
-      - entity: sensor.second_bedroom_ensuite_humidity
-        name: Humidity
-      - entity: sensor.second_bedroom_ensuite_temperature
-        name: Temperature
-      - entity: sensor.second_bedroom_ensuite_pressure
-        name: Pressure
       - entity: binary_sensor.second_bedroom_window_ensuite_contact
         show_last_changed: true
-        name: Ensuite
+        name: Window
+      - entity: sensor.second_bedroom_ensuite_temperature
+        name: Temperature
+      - entity: sensor.second_bedroom_ensuite_humidity
+        name: Humidity
+      - entity: sensor.second_bedroom_ensuite_pressure
+        name: Pressure
       - entity: binary_sensor.second_ensuite_water_leak
         name: Leak
 - type: glance
   title: Guest bedroom
   columns: 5
   entities:
-    - entity: media_player.cast_master_bedroom_display
-      name: Home Mini
     - entity: switch.pi3_front_bedroom_switch
       tap_action: 
         action: toggle
@@ -119,22 +118,24 @@ cards:
     - entity: binary_sensor.guest_bedroom_window_right_contact
       show_last_changed: true
       name: Right
+    - entity: media_player.cast_master_bedroom_display
+      name: Home Mini
 - type: glance
   title: Bathroom
   columns: 6
   entities:
-    - entity: sensor.bathroom_environment_humidity
-      name: Humidity
-    - entity: sensor.bathroom_environment_temperature
-      name: Temperature
-    - entity: sensor.bathroom_environment_pressure
-      name: Pressure
-    - entity: binary_sensor.bathroom_window_contact
-      show_last_changed: true
-      name: Window
     - entity: binary_sensor.bathroom_door_contact
       show_last_changed: true
       name: Door
+    - entity: binary_sensor.bathroom_window_contact
+      show_last_changed: true
+      name: Window
+    - entity: sensor.bathroom_environment_temperature
+      name: Temperature
+    - entity: sensor.bathroom_environment_humidity
+      name: Humidity
+    - entity: sensor.bathroom_environment_pressure
+      name: Pressure
     - entity: binary_sensor.bathroom_water_leak_water_leak
       name: Leak
 - type: glance
@@ -143,10 +144,6 @@ cards:
   entities:
     - entity: light.office_strip
       name: Strip
-    - entity: media_player.office
-      name: Sonos
-    - entity: media_player.office_smart_display
-      name: "Home Hub"
     - entity: binary_sensor.office_door_contact
       show_last_changed: true
       name: Door
@@ -162,19 +159,23 @@ cards:
       name: Temperature
     - entity: sensor.office_climate_humidity
       name: Humidity
+    - entity: media_player.office
+      name: Sonos
+    - entity: media_player.office_smart_display
+      name: "Home Hub"
 - type: glance
   title: Spare bedroom
   columns: 3
   entities:
+    - entity: switch.pi3_spare_socket_switch
+      tap_action: 
+        action: toggle
     - entity: binary_sensor.spare_bedroom_window_left_contact
       show_last_changed: true
       name: Left
     - entity: binary_sensor.spare_bedroom_window_right_contact
       show_last_changed: true
       name: Right
-    - entity: switch.pi3_spare_socket_switch
-      tap_action: 
-        action: toggle
 - type: custom:mini-graph-card
   name: Light level
   points_per_hour: 12

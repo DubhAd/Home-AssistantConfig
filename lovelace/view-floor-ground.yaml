@@ -29,12 +29,12 @@ cards:
     - entity: binary_sensor.pi3_living_room_motion
       show_last_changed: true
       name: "Motion"
-    - entity: sensor.pi3_living_room_multi_temperature
-      name: "Temperature"
     - entity: sensor.living_room_light_sensor_illuminance_lux
       name: "Lux"
     - entity: sensor.pi3_living_room_multi_luminance
       name: "Z-Wave Lux"
+    - entity: sensor.pi3_living_room_multi_temperature
+      name: "Temperature"
     - entity: media_player.samsung_tv
       name: TV
     - entity: media_player.cast_living_room_tv
@@ -72,8 +72,12 @@ cards:
           action: toggle
   - type: glance
     title: Vestibule
-    columns: 4
+    columns: 5
     entities:
+      - entity: switch.pi3_vestibule_switch
+        name: Socket
+        tap_action: 
+          action: toggle
       - entity: binary_sensor.pi3_front_door_sensor
         show_last_changed: true
         name: Front
@@ -93,10 +97,6 @@ cards:
         name: "Light level"
       - entity: sensor.vestibule_multi_temperature
         name: "Temperature"
-      - entity: switch.pi3_vestibule_switch
-        name: Socket
-        tap_action: 
-          action: toggle
   - type: glance
     title: Hall
     columns: 4
@@ -124,43 +124,43 @@ cards:
       - entity: binary_sensor.kitchen_window_left_contact
         show_last_changed: true
         name: Left
-      - entity: media_player.cast_kitchen_speaker
-        name: Mini
       - entity: binary_sensor.kitchen_water_leak_water_leak
         name: Leak
+      - entity: media_player.cast_kitchen_speaker
+        name: Mini
   - type: glance
     title: Utility room & back
     columns: 3
     entities:
-      - entity: binary_sensor.pi3_utility_door_exterior_sensor
-        show_last_changed: true
-        name: Door
       - entity: switch.pi3_garden_lights_switch
         tap_action: 
           action: toggle
+      - entity: binary_sensor.pi3_utility_door_exterior_sensor
+        show_last_changed: true
+        name: Door
       - entity: binary_sensor.utility_room_water_leak_water_leak
         name: Leak
   - type: glance
     title: Family room
     columns: 5
     entities:
-      - entity: binary_sensor.family_room_multi_occupancy
-        show_last_changed: true
-        name: Motion
+      - entity: switch.pi3_family_room_socket_switch
+        name: Socket
+        tap_action: 
+          action: toggle
       - entity: binary_sensor.family_window_left_contact
         show_last_changed: true
         name: Left
       - entity: binary_sensor.family_window_right_contact
         show_last_changed: true
         name: Right
+      - entity: binary_sensor.family_room_multi_occupancy
+        show_last_changed: true
+        name: Motion
       - entity: sensor.family_room_multi_illuminance_lux
         name: Illuminance
       - entity: sensor.family_room_multi_temperature
         name: Temperature
-      - entity: switch.pi3_family_room_socket_switch
-        name: Socket
-        tap_action: 
-          action: toggle
   #    - entity: sensor.person1
   #      name: XBox
       - entity: device_tracker.family_tv
