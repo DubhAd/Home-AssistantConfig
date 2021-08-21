@@ -4,3 +4,4 @@ entities:
 - binary_sensor.kitchen_water_leak_water_leak
 - binary_sensor.toilet_water_leak_water_leak
 - binary_sensor.utility_room_water_leak_water_leak
+- binary_sensor.second_ensuite_water_leak

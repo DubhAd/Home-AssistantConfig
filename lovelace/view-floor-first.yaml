@@ -88,7 +88,7 @@ cards:
         name: Right
   - type: glance
     #title: Second bedroom ensuite
-    columns: 4
+    columns: 5
     entities:
       - entity: sensor.second_bedroom_ensuite_humidity
         name: Humidity
@@ -99,6 +99,8 @@ cards:
       - entity: binary_sensor.second_bedroom_window_ensuite_contact
         show_last_changed: true
         name: Ensuite
+      - entity: binary_sensor.second_ensuite_water_leak
+        name: Leak
 - type: glance
   title: Guest bedroom
   columns: 5

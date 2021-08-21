@@ -86,6 +86,7 @@ cards:
   - sensor.second_bedroom_window_ensuite_battery 
   - sensor.second_bedroom_window_left_battery 
   - sensor.second_bedroom_window_right_battery 
+  - sensor.second_ensuite_battery
   - sensor.spare_bedroom_window_left_battery 
   - sensor.spare_bedroom_window_right_battery 
   - sensor.toilet_water_leak_battery

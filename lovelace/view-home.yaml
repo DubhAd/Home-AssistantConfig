@@ -90,13 +90,14 @@ cards:
     entities:
       - entity: binary_sensor.bathroom_water_leak_water_leak
         name: Bathroom
+      - entity: binary_sensor.second_ensuite_water_leak
+        name: Second ensuite
       - entity: binary_sensor.kitchen_water_leak_water_leak
         name: Kitchen
       - entity: binary_sensor.toilet_water_leak_water_leak
         name: Toilet
       - entity: binary_sensor.utility_room_water_leak_water_leak
         name: Utility room
-
   - type: entity-filter
     show_empty: false
     state_filter:
