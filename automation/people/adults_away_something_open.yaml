@@ -21,16 +21,14 @@ condition:
     - condition: state
       entity_id: group.my_upstairs_windows
       state: 'on'
-  - condition: state
-    entity_id: input_boolean.living_room_occupied
-    state: 'off'
 action:
   # Notify the last person to leave
-  - service: notify.logfile
+  - service: >-
+      {% if as_timestamp(states.input_boolean.person2_home.last_updated) > as_timestamp(states.input_boolean.person3_home.last_updated) %}
+        notify.command_line_person2
+      {% else %}
+        notify.command_line_person3
+      {% endif %}
     data: 
       message: >-
-        {% if as_timestamp(states.input_boolean.person2_home.last_updated) > as_timestamp(states.input_boolean.person3_home.last_updated) %}
-          SENDME The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
-        {% else %}
-          SENDperson3 The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
-        {% endif %}
+        The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
