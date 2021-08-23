@@ -39,7 +39,7 @@ cards:
           action: toggle
         name: Alarms
   - type: glance
-    columns: 5
+    columns: 6
     entities:
       - entity: binary_sensor.master_ensuite_door_contact
         show_last_changed: true
@@ -53,6 +53,8 @@ cards:
         name: Humidity
       - entity: sensor.master_ensuite_pressure
         name: Pressure
+      - entity: binary_sensor.master_ensuite_leak_water_leak
+        name: Leak
 - type: vertical-stack
   title: Second bedroom & en-suite
   cards:
