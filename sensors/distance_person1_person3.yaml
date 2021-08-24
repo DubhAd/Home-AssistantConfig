@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    distance_person1_person3:
+      friendly_name: 'Distance between person1 and person3'
+      unique_id: 'distance_person1_person3'
+      unit_of_measurement: 'km'
+      value_template: >-
+        {{ distance('device_tracker.person1_mobile','device_tracker.person3_mobile')|round(1) }}
