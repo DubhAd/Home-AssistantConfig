@@ -3,6 +3,8 @@ sequence:
   - service: light.turn_on
     data:
       entity_id: light.downstairs_hall
+      brightness_pct: "{{ state_attr('switch.adaptive_lighting_hall','brightness_pct') }}"
+      color_temp: "{{ state_attr('switch.adaptive_lighting_hall','color_temp_mired') }}"
   - service: switch.turn_on
     entity_id: switch.adaptive_lighting_sleep_mode_hall
   - delay: '00:04:00'

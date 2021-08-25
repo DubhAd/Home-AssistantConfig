@@ -7,6 +7,8 @@ sequence:
           data:
             entity_id: light.downstairs_hall
             transition: 5
+            brightness_pct: "{{ state_attr('switch.adaptive_lighting_hall','brightness_pct') }}"
+            color_temp: "{{ state_attr('switch.adaptive_lighting_hall','color_temp_mired') }}"
         - delay: '00:00:05'
       until:
         - condition: state

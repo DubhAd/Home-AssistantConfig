@@ -42,5 +42,7 @@ action:
     data:
       entity_id: light.living_room_lamps
       transition: 10
+      brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','brightness_pct') }}"
+      color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','color_temp_mired') }}"
   - service: switch.turn_on
     entity_id: switch.pi3_livingroom_socket_switch
