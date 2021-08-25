@@ -19,7 +19,10 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    above: 10
+    above: 5
+  - platform: numeric_state
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    above: 15
 condition:
   # Lighting automations are enabled
   - condition: state
@@ -39,7 +42,7 @@ condition:
     # Getting brighter
     - condition: numeric_state
       entity_id: sensor.living_room_light_sensor_illuminance_lux
-      above: 10
+      above: 5
   - condition: or
     conditions:
     # Turn it off if the office hasn't been occupied for long, or there's been no motion for a while, or it got brighter
@@ -66,7 +69,11 @@ condition:
     # Getting brighter
     - condition: numeric_state
       entity_id: sensor.living_room_light_sensor_illuminance_lux
-      above: 10
+      above: 5
+  # Getting brighter
+  - condition: numeric_state
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    above: 15
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto
