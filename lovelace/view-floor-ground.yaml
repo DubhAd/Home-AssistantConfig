@@ -207,7 +207,7 @@ cards:
     fill: false
     labels: true
   entities:
-    - entity: sensor.pi3_living_room_multi_temperature
+    - entity: sensor.living_room_climate_temperature
       name: Living room
       color: '#5793e0'
     - entity: sensor.family_room_multi_temperature
