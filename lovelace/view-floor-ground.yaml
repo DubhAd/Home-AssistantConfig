@@ -28,13 +28,18 @@ cards:
       name: "Right"
     - entity: binary_sensor.pi3_living_room_motion
       show_last_changed: true
-      name: "Motion"
+      name: "Motion (Zw)"
+    - entity: binary_sensor.living_room_motion_occupancy
+      show_last_changed: true
+      name: "Motion (Zb)"
     - entity: sensor.living_room_light_sensor_illuminance_lux
       name: "Lux"
     - entity: sensor.pi3_living_room_multi_luminance
       name: "Z-Wave Lux"
     - entity: sensor.pi3_living_room_multi_temperature
-      name: "Temperature"
+      name: "Temperature (ZW)"
+    - entity: sensor.living_room_climate_temperature
+      name: "Temperature (Zb)"
     - entity: media_player.samsung_tv
       name: TV
     - entity: media_player.cast_living_room_tv
@@ -43,11 +48,6 @@ cards:
       name: "Home Hub"
     - entity: media_player.living_room
       name: "Sonos"
-  footer:
-    type: graph
-    entity: sensor.pi3_living_room_multi_temperature
-    hours_to_show: 24
-    detail: 2
 - type: glance
   title: Toilet
   columns: 1
