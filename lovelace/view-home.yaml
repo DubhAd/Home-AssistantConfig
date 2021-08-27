@@ -162,6 +162,8 @@ cards:
   - type: entity-filter
     entities:
       - entity: binary_sensor.pi3_living_room_motion
+        name: Living room (ZW)
+      - entity: binary_sensor.living_room_motion_occupancy
         name: Living room
       - entity: binary_sensor.family_room_multi_occupancy
         name: Family room

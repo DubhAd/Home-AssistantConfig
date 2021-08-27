@@ -12,7 +12,7 @@ condition:
     state: 'off'
   # And hasn't been for a while
   - condition: template
-    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.input_boolean.living_room_occupied.last_changed)) | int > 600 }}"
+    value_template: "{{ (now() - states.input_boolean.living_room_occupied.last_changed).seconds > 600 }}"
   # Somebody is home
   - condition: state
     entity_id: input_boolean.home_occupied

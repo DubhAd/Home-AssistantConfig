@@ -7,7 +7,9 @@ trigger:
     to: 'Dim'
     for: '00:30:00'
   - platform: state
-    entity_id: binary_sensor.pi3_living_room_motion
+    entity_id: 
+    - binary_sensor.pi3_living_room_motion
+    - binary_sensor.living_room_motion_occupancy
     to: 'off'
     for: '00:30:00'
   - platform: state
@@ -58,6 +60,10 @@ condition:
           state: 'on'
           for: '00:10:00'
     # No motion for half an hour
+    - condition: state
+      entity_id: binary_sensor.living_room_motion_occupancy
+      state: 'off'
+      for: '00:30:00'
     - condition: state
       entity_id: binary_sensor.pi3_living_room_motion
       state: 'off'

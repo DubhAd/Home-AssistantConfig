@@ -7,7 +7,9 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: state
-    entity_id: binary_sensor.pi3_living_room_motion
+    entity_id: 
+    - binary_sensor.pi3_living_room_motion
+    - binary_sensor.living_room_motion_occupancy
     to: 'off'
     for: '00:02:00'
   - platform: numeric_state
@@ -22,6 +24,10 @@ condition:
     state: 'Motion'
   - condition: or
     conditions:
+    - condition: state
+      entity_id: binary_sensor.living_room_motion_occupancy
+      state: 'off'
+      for: '00:02:00'
     - condition: state
       entity_id: binary_sensor.pi3_living_room_motion
       state: 'off'

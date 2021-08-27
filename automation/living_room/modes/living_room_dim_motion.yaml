@@ -3,12 +3,11 @@ initial_state: 'on'
 alias: 'Living room dim motion'
 trigger:
   - platform: state
-    entity_id: binary_sensor.pi3_living_room_motion
+    entity_id: 
+    - binary_sensor.pi3_living_room_motion
+    - binary_sensor.living_room_motion_occupancy
     to: 'on'
 condition:
-  - condition: state
-    entity_id: binary_sensor.pi3_living_room_motion
-    state: 'on'
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'

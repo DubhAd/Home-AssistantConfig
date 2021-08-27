@@ -62,33 +62,22 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: light.living_room_table_lamp
+            entity_id: light.living_room_lamps
             state: 'on'
         sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.living_room_table_lamp
-              transition: 2
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: light.living_room_tv_lamp
-            state: 'on'
-        sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.living_room_tv_lamp
-              transition: 2
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: light.living_room_corner_lamp
-            state: 'on'
-        sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.living_room_corner_lamp
-              transition: 2
+        - alias: "Turn off the lights"
+          repeat:
+            while:
+              - condition: state
+                entity_id: light.living_room_lamps
+                state: 'on'
+            sequence:
+            - service: light.turn_off
+              data:
+                entity_id: light.living_room_lamps
+                transition: 15
+            - delay: '00:00:30'
+          # end of repeat block
   - choose:
       - conditions:
           - condition: state

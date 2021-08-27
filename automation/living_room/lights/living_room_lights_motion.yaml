@@ -33,9 +33,18 @@ condition:
         entity_id: input_select.house
         state: 'Motion'
 action:
-  - service: light.turn_on
-    data:
-      entity_id: light.living_room_table_lamp
-      transition: 0.5
-      brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_table','brightness_pct') }}"
-      color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_mired') }}"
+  - alias: "Turn on the table light"
+    repeat:
+      while:
+        - condition: state
+          entity_id: light.living_room_table_lamp
+          state: 'off'
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_table_lamp
+          transition: 0.5
+          brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_table','brightness_pct') }}"
+          color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_mired') }}"
+      - delay: '00:00:05'
+    # end of repeat block

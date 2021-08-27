@@ -257,6 +257,7 @@ cards:
         # Indoors should be moderate
         - entities:
             - sensor.pi3_living_room_multi_temperature
+            - sensor.living_room_climate_temperature
             - sensor.family_room_multi_temperature
             - sensor.office_climate_temperature
             - sensor.master_ensuite_temperature
@@ -347,6 +348,7 @@ cards:
 
         - entities:
             - sensor.pi3_living_room_multi_luminance
+            - sensor.living_room_light_sensor_illuminance_lux
             - sensor.pi3_office_multi_luminance
             - sensor.downstairs_hall_light_sensor_illuminance_lux
             - sensor.master_bedroom_light_sensor_illuminance_lux
@@ -455,6 +457,7 @@ cards:
 
         - entities:
             - binary_sensor.pi3_living_room_motion
+            - binary_sensor.living_room_motion_occupancy
             - binary_sensor.office_motion_konke_occupancy
             - binary_sensor.downstairs_hall_motion_occupancy
             - binary_sensor.vestibule_multi_occupancy

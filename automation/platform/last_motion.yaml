@@ -6,6 +6,7 @@ trigger:
     entity_id:
     # Downstairs
       - binary_sensor.pi3_living_room_motion
+      - binary_sensor.living_room_motion_occupancy
       - binary_sensor.downstairs_hall_motion_occupancy
       - binary_sensor.vestibule_multi_occupancy
       - binary_sensor.family_room_multi_occupancy

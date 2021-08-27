@@ -37,11 +37,20 @@ action:
     data:
       entity_id: 
         - switch.pi3_livingroom_socket_switch 
-  - service: light.turn_off
-    data:
-      entity_id: light.living_room_lamps
-      transition: 15
-  - delay: '00:01:00'
+  - alias: "Turn off the lights"
+    repeat:
+      while:
+        - condition: state
+          entity_id: light.living_room_lamps
+          state: 'on'
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: light.living_room_lamps
+          transition: 15
+      - delay: '00:00:30'
+    # end of repeat block
+  - delay: '00:00:30'
   - service: switch.turn_on
     entity_id:
       - switch.adaptive_lighting_sleep_mode_living_room_lamps

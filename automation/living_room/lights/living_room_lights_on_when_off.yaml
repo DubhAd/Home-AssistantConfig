@@ -1,6 +1,7 @@
 id: 'living_room_lights_on_when_off'
 initial_state: 'on'
 alias: 'Living room lights on when off'
+mode: 'parallel'
 trigger:
   - platform: state
     entity_id: 
@@ -52,30 +53,12 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: light.living_room_table_lamp
+            entity_id: light.living_room_lamps
             state: 'on'
         sequence:
           - service: light.turn_off
             data:
-              entity_id: light.living_room_table_lamp
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: light.living_room_tv_lamp
-            state: 'on'
-        sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.living_room_tv_lamp
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: light.living_room_corner_lamp
-            state: 'on'
-        sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.living_room_corner_lamp
+              entity_id: light.living_room_lamps
   - choose:
       - conditions:
           - condition: state

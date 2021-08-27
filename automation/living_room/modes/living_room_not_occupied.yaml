@@ -36,7 +36,9 @@ trigger:
     to: 'idle'
     for: '00:03:00'
   - platform: state
-    entity_id: binary_sensor.pi3_living_room_motion
+    entity_id: 
+    - binary_sensor.pi3_living_room_motion
+    - binary_sensor.living_room_motion_occupancy
     to: 'off'
     for: '00:01:00'
   - platform: state
@@ -68,6 +70,9 @@ condition:
   # And no motion or jammed
   - condition: or
     conditions:
+    - condition: state
+      entity_id: binary_sensor.living_room_motion_occupancy
+      state: 'off'
     - condition: state
       entity_id: binary_sensor.pi3_living_room_motion
       state: 'off'
