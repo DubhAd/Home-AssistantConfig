@@ -459,6 +459,7 @@ cards:
             - binary_sensor.downstairs_hall_motion_occupancy
             - binary_sensor.vestibule_multi_occupancy
             - binary_sensor.family_room_multi_occupancy
+            - binary_sensor.upstairs_hall_motion_front_occupancy
           states:
             - state: 'off'
               class: 'motion-background'

@@ -116,11 +116,13 @@ cards:
       - entity: binary_sensor.family_room_multi_occupancy
         name: Family room
       - entity: binary_sensor.downstairs_hall_motion_occupancy
-        name: Hall
+        name: Downstairs hall
       - entity: binary_sensor.vestibule_multi_occupancy
         name: Vestibule
       - entity: binary_sensor.office_motion_konke_occupancy
         name: Office
+      - entity: binary_sensor.upstairs_hall_motion_front_occupancy
+        name: Upstairs hall
     show_empty: false
     state_filter:
       - 'on'

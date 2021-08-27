@@ -4,9 +4,4 @@
       friendly_name: 'Last Motion'
       unique_id: 'last_motion'
       value_template: >-
-        {%- set sensors = [states.binary_sensor.pi3_living_room_motion, states.binary_sensor.downstairs_hall_motion_occupancy, states.binary_sensor.vestibule_multi_occupancy, states.binary_sensor.office_motion_konke_occupancy, states.binary_sensor.family_room_multi_occupancy] %}
-        {% for sensor in sensors %}
-          {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
-            {{ sensor.name }}
-          {% endif %}
-        {% endfor %}
+        {{ states('input_text.last_motion') }}

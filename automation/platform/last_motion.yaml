@@ -11,6 +11,7 @@ trigger:
       - binary_sensor.family_room_multi_occupancy
     # Upstairs
       - binary_sensor.office_motion_konke_occupancy
+      - binary_sensor.upstairs_hall_motion_front_occupancy
     from: 'off'
     to: 'on'
 action:
