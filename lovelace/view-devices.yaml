@@ -18,14 +18,20 @@ cards:
 - type: glance
   title: Things
   show_header_toggle: false
-  show_state: false
-  columns: 3
+  #show_state: false
+  columns: 4
   entities:
-  - binary_sensor.remote_ui
+  - entity: binary_sensor.fritz_box_3490_connectivity
+    name: Internet
+    show_last_changed: true
+  - entity: binary_sensor.remote_ui
+    show_last_changed: true
   - entity: binary_sensor.first_floor_front
     name: BT Front
+    show_last_changed: true
   - entity: binary_sensor.first_floor_rear
     name: BT Rear
+    show_last_changed: true
 
 - type: glance
   title: Devices

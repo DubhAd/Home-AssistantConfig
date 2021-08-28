@@ -445,7 +445,7 @@ cards:
           propagate: true
 
         - entities:
-            - binary_sensor.fritzbox_7530_connectivity
+            - binary_sensor.fritz_box_3490_connectivity
           states:
             - state: 'on'
               class: 'squeezebox-on'

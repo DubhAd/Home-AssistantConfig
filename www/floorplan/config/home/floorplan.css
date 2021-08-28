@@ -204,7 +204,9 @@ background-color: var(--primary-background-color);
 }
 
 .motion-background, .motion-text-background {
-  fill: #81c9a7 !important;
+  fill: #6d958b !important;
+  /* fill: #81c9a7 !important; */
+  /* fill: #596170 !important; */
   /* fill-opacity: 1 !important; */
 /*   stroke: #82caa8 !important;
   stroke-width: 1px !important; */
@@ -362,7 +364,8 @@ background-color: var(--primary-background-color);
 }
 
 .squeezebox-off {
-  fill: #8270A2 !important;
+  /* fill: #8270A2 !important; */
+  fill: #727282 !important;
 }
 
 .squeezebox-paused {

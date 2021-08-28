@@ -42,6 +42,7 @@ cards:
     hour24: true
     animate: true
     decimals: 1
+    upper_bound: 30
     show:
       labels: true
       fill: false
