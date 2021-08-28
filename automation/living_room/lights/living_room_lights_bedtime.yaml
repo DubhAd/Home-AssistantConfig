@@ -43,14 +43,16 @@ action:
         - condition: state
           entity_id: light.living_room_lamps
           state: 'on'
+        # Don't do it too many times
+        - condition: template
+          value_template: "{{ repeat.index <= 5 }}"
       sequence:
       - service: light.turn_off
         data:
           entity_id: light.living_room_lamps
           transition: 15
-      - delay: '00:00:30'
+      - delay: '00:00:20'
     # end of repeat block
-  - delay: '00:00:30'
   - service: switch.turn_on
     entity_id:
       - switch.adaptive_lighting_sleep_mode_living_room_lamps

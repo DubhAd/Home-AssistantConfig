@@ -67,6 +67,9 @@ action:
                 - condition: state
                   entity_id: light.living_room_table_lamp
                   state: 'off'
+                # Don't do it too many times
+                - condition: template
+                  value_template: "{{ repeat.index <= 5 }}"
               sequence:
               - service: light.turn_on
                 data:
@@ -89,6 +92,9 @@ action:
                 - condition: state
                   entity_id: light.living_room_corner_lamp
                   state: 'off'
+                # Don't do it too many times
+                - condition: template
+                  value_template: "{{ repeat.index <= 5 }}"
               sequence:
               - service: light.turn_on
                 data:
@@ -111,6 +117,9 @@ action:
                 - condition: state
                   entity_id: light.living_room_tv_lamp
                   state: 'off'
+                # Don't do it too many times
+                - condition: template
+                  value_template: "{{ repeat.index <= 5 }}"
               sequence:
               - service: light.turn_on
                 data:
