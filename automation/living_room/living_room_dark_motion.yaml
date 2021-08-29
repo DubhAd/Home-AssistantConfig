@@ -3,9 +3,7 @@ initial_state: 'off'
 alias: 'Living room dark motion'
 trigger:
 - platform: state
-  entity_id: 
-  - binary_sensor.pi3_living_room_motion
-  - binary_sensor.living_room_motion_occupancy
+  entity_id: binary_sensor.living_room_motion_occupancy
   to: 'on'
 condition:
   condition: and
@@ -17,7 +15,7 @@ condition:
       entity_id: input_boolean.lighting_automations
       state: 'on'
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
+      entity_id: sensor.living_room_light_sensor_illuminance_lux
       below: 5
     - condition: state
       entity_id: input_boolean.living_room_occupied

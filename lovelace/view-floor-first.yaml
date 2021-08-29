@@ -12,10 +12,12 @@ cards:
       - entity: light.master_bedroom_bedhead
         name: Bedhead
         icon: mdi:led-strip-variant
+        show_last_changed: true
       - entity: switch.pi3_master_bedroom_socket_switch
         tap_action: 
           action: toggle
         name: Socket
+        show_last_changed: true
       - entity: binary_sensor.master_bedroom_door_contact
         name: Door
         show_last_changed: true
@@ -29,15 +31,19 @@ cards:
         name: Lux
       - entity: media_player.person2
         name: Squeezebox
+        show_last_changed: true
       - entity: media_player.cast_master_bedroom_speaker
         name: Home Mini
+        show_last_changed: true
       - entity: media_player.master_bedroom_display
         name: "Home Hub"
+        show_last_changed: true
       - entity: switch.radio_person2
         icon: mdi:alarm
         tap_action: 
           action: toggle
         name: Alarms
+        show_last_changed: true
   - type: glance
     columns: 6
     entities:
@@ -55,6 +61,7 @@ cards:
         name: Pressure
       - entity: binary_sensor.master_ensuite_leak_water_leak
         name: Leak
+        show_last_changed: true
 - type: vertical-stack
   title: Second bedroom & en-suite
   cards:
@@ -66,10 +73,12 @@ cards:
       - entity: light.person1_bedroom_bedside
         name: Bedhead
         icon: mdi:led-strip-variant
+        show_last_changed: true
       - entity: switch.pi3_second_bedroom_switch
         tap_action: 
           action: toggle
         name: Socket
+        show_last_changed: true
       - entity: binary_sensor.second_bedroom_door_contact
         show_last_changed: true
         name: Door
@@ -82,13 +91,16 @@ cards:
 
       - entity: media_player.person1
         name: Squeezebox
+        show_last_changed: true
       - entity: media_player.cast_second_bedroom_speaker
         name: Home Mini
+        show_last_changed: true
       - entity: switch.radio_person1
         icon: mdi:alarm
         tap_action: 
           action: toggle
         name: Alarms
+        show_last_changed: true
   - type: glance
     #title: Second bedroom ensuite
     columns: 5
@@ -104,6 +116,7 @@ cards:
         name: Pressure
       - entity: binary_sensor.second_ensuite_water_leak
         name: Leak
+        show_last_changed: true
 - type: glance
   title: Guest bedroom
   columns: 5
@@ -112,8 +125,10 @@ cards:
       tap_action: 
         action: toggle
       name: Socket
+      show_last_changed: true
     - entity: binary_sensor.guest_bedroom_door_contact
       name: Door
+      show_last_changed: true
     - entity: binary_sensor.guest_bedroom_window_left_contact
       show_last_changed: true
       name: Left
@@ -122,6 +137,7 @@ cards:
       name: Right
     - entity: media_player.cast_master_bedroom_display
       name: Home Mini
+      show_last_changed: true
 - type: glance
   title: Bathroom
   columns: 6
@@ -140,12 +156,14 @@ cards:
       name: Pressure
     - entity: binary_sensor.bathroom_water_leak_water_leak
       name: Leak
+      show_last_changed: true
 - type: glance
   title: Office
   columns: 5
   entities:
     - entity: light.office_strip
       name: Strip
+      show_last_changed: true
     - entity: binary_sensor.office_door_contact
       show_last_changed: true
       name: Door
@@ -163,8 +181,10 @@ cards:
       name: Humidity
     - entity: media_player.office
       name: Sonos
+      show_last_changed: true
     - entity: media_player.office_smart_display
       name: "Home Hub"
+      show_last_changed: true
 - type: glance
   title: Spare bedroom
   columns: 3
@@ -172,6 +192,7 @@ cards:
     - entity: switch.pi3_spare_socket_switch
       tap_action: 
         action: toggle
+      show_last_changed: true
     - entity: binary_sensor.spare_bedroom_window_left_contact
       show_last_changed: true
       name: Left
@@ -184,6 +205,7 @@ cards:
   entities:
     - entity: binary_sensor.upstairs_hall_motion_front_occupancy
       name: Front
+      show_last_changed: true
 - type: custom:mini-graph-card
   name: Light level
   points_per_hour: 12

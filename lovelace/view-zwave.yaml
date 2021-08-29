@@ -30,12 +30,8 @@ cards:
   - type: glance
     title: Z-Wave battery devices
     show_header_toggle: false
-    columns: 4
+    columns: 5
     entities:
-      - entity: zwave.pi3_garage_closed_bike
-        name: Garage left
-      - entity: zwave.pi3_garage_closed_car
-        name: Garage car
       - zwave.pi3_front_door
       - zwave.pi3_patio_door_left
       - zwave.pi3_utility_door_exterior
@@ -49,7 +45,6 @@ cards:
     - zwave.pi3_table_light
     - zwave.pi3_cabinet_light
     - zwave.pi3_tv_light
-    - zwave.pi3_number_sign
     - zwave.pi3_garden_lights
     - zwave.pi3_spare_socket
     - zwave.pi3_master_bedroom_socket

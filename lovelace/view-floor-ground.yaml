@@ -11,12 +11,16 @@ cards:
     entities:
     - entity: light.living_room_tv_lamp
       name: "TV"
+      show_last_changed: true
     - entity: light.living_room_corner_lamp
       name: "Corner"
+      show_last_changed: true
     - entity: light.living_room_table_lamp
       name: "Table"
+      show_last_changed: true
     - entity: switch.pi3_livingroom_socket_switch
       name: "Socket"
+      show_last_changed: true
       tap_action: 
         action: toggle 
   - type: glance
@@ -58,12 +62,16 @@ cards:
     entities:
     - entity: media_player.samsung_tv
       name: TV
+      show_last_changed: true
     - entity: media_player.cast_living_room_tv
       name: Chromecast
+      show_last_changed: true
     - entity: media_player.living_room_display
       name: "Home Hub"
+      show_last_changed: true
     - entity: media_player.living_room
       name: "Sonos"
+      show_last_changed: true
 - type: vertical-stack
   cards:
   - type: glance
@@ -80,6 +88,7 @@ cards:
         icon: mdi:home-floor-3
         tap_action: 
           action: toggle
+        show_last_changed: true
   - type: glance
     title: Vestibule
     columns: 5
@@ -88,6 +97,7 @@ cards:
         name: Socket
         tap_action: 
           action: toggle
+        show_last_changed: true
       - entity: binary_sensor.pi3_front_door_sensor
         show_last_changed: true
         name: Front
@@ -113,10 +123,12 @@ cards:
     entities:
       - entity: light.downstairs_hall
         name: Hall light
+        show_last_changed: true
       - entity: switch.pi3_hall_downstairs_switch
         name: Hall socket
         tap_action: 
           action: toggle
+        show_last_changed: true
       - entity: binary_sensor.downstairs_hall_motion_occupancy
         show_last_changed: true
         name: Motion
@@ -128,6 +140,7 @@ cards:
     entities:
       - entity: binary_sensor.toilet_water_leak_water_leak
         name: Leak
+        show_last_changed: true
 - type: vertical-stack
   cards:
   - type: glance
@@ -141,8 +154,10 @@ cards:
         show_last_changed: true
         name: Left
       - entity: binary_sensor.kitchen_water_leak_water_leak
+        show_last_changed: true
         name: Leak
       - entity: media_player.cast_kitchen_speaker
+        show_last_changed: true
         name: Mini
   - type: glance
     title: Utility room & back
@@ -151,16 +166,19 @@ cards:
       - entity: switch.pi3_garden_lights_switch
         tap_action: 
           action: toggle
+        show_last_changed: true
       - entity: binary_sensor.pi3_utility_door_exterior_sensor
         show_last_changed: true
         name: Door
       - entity: binary_sensor.utility_room_water_leak_water_leak
+        show_last_changed: true
         name: Leak
   - type: glance
     title: Family room
     columns: 5
     entities:
       - entity: switch.pi3_family_room_socket_switch
+        show_last_changed: true
         name: Socket
         tap_action: 
           action: toggle
@@ -178,10 +196,13 @@ cards:
       - entity: sensor.family_room_multi_temperature
         name: Temperature
       - entity: device_tracker.family_tv
+        show_last_changed: true
         name: TV
       - entity: media_player.family_room
+        show_last_changed: true
         name: Sonos
       - entity: media_player.family_room_display
+        show_last_changed: true
         name: Hub
 - type: custom:mini-graph-card
   name: Light level

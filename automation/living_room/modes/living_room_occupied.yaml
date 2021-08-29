@@ -45,9 +45,7 @@ trigger:
     entity_id: device_tracker.livingroom_chromecast
     to: 'home'
   - platform: state
-    entity_id: 
-    - binary_sensor.pi3_living_room_motion
-    - binary_sensor.living_room_motion_occupancy
+    entity_id: binary_sensor.living_room_motion_occupancy
     to: 'on'
 condition:
   # Room must currently be not occupied
@@ -60,9 +58,6 @@ condition:
     # There's been motion in the last 3 minutes
     - condition: template
       value_template: "{{ (now() - states.binary_sensor.living_room_motion_occupancy.last_changed).seconds < 180 }}"
-    # There's been motion in the last 3 minutes
-    - condition: template
-      value_template: "{{ (now() - states.binary_sensor.pi3_living_room_motion.last_changed).seconds < 180 }}"
     # We're awake
     - condition: state
       entity_id: input_boolean.bedtime
