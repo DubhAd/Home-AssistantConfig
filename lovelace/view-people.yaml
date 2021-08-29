@@ -47,14 +47,17 @@ cards:
           name: Battery
         - entity: input_boolean.person3_phone_charging
           name: Phone charging
+          show_last_changed: true
         - entity: sensor.person3s_time_to_home
           name: Car home
           icon: mdi:map-marker-distance
         - entity: proximity.person3_home
           name: To home
         - entity: input_boolean.person3_is_awake
+          show_last_changed: true
           name: Awake
         - entity: input_boolean.person3_in_bed
+          show_last_changed: true
           name: In bed
       - type: glance
         entities:
@@ -169,6 +172,7 @@ cards:
         - entity: sensor.battery_person2_mobile
           name: Battery
         - entity: input_boolean.person2_phone_charging
+          show_last_changed: true
           name: Phone charging
         - entity: sensor.person2s_time_to_home
           name: Car home
@@ -176,13 +180,17 @@ cards:
         - entity: proximity.person2_home
           name: To home
         - entity: switch.radio_person2
+          show_last_changed: true
           icon: mdi:alarm
           name: Alarms
         - entity: input_boolean.person2_driving
+          show_last_changed: true
           name: Driving
         - entity: input_boolean.person2_is_awake
+          show_last_changed: true
           name: Awake
         - entity: input_boolean.person2_in_bed
+          show_last_changed: true
           name: In bed
       - type: glance
         entities:
@@ -221,6 +229,7 @@ cards:
         - entity: sensor.battery_person2_tablet
           name: Tablet
         - entity: input_boolean.person2_tablet_charging
+          show_last_changed: true
           name: Tablet charging
         - entity: device_tracker.9c_30_5b_3c_6c_87
           name: Laptop
@@ -366,6 +375,7 @@ cards:
           name: Rear
           icon: mdi:bluetooth
         - entity: switch.radio_person1
+          show_last_changed: true
           icon: mdi:alarm
           tap_action: 
             action: toggle
@@ -373,12 +383,16 @@ cards:
         - entity: sensor.battery_person1_mobile
           name: Battery
         - entity: input_boolean.person1_phone_charging
+          show_last_changed: true
           name: Phone charging
         - entity: input_boolean.person1_alarm_sounded
+          show_last_changed: true
           name: Alarm sounded
         - entity: input_boolean.person1_is_awake
+          show_last_changed: true
           name: Awake
         - entity: input_boolean.person1_in_bed
+          show_last_changed: true
           name: In bed
         - entity: calendar.person1_holiday
           name: Holiday
@@ -430,8 +444,10 @@ cards:
         - entity: sensor.battery_person1_tablet
           name: Battery
         - entity: input_boolean.person1_tablet_charging
+          show_last_changed: true
           name: Tablet charging
         - entity: binary_sensor.person1_lenovo_tb_j606f_interactive
+          show_last_changed: true
           name: Screen
       - type: glance
         entities:
