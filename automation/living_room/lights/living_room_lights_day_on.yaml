@@ -48,6 +48,9 @@ action:
         - condition: template
           value_template: "{{ repeat.index <= 5 }}"
       sequence:
+      - service: notify.logfile
+        data:
+          message: "Turning on the living room TV light (attempt {{ repeat.index }})"
       - service: light.turn_on
         data:
           entity_id: light.living_room_tv_lamp
