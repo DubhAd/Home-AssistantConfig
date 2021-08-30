@@ -16,8 +16,8 @@ condition:
   - condition: template
     value_template: '{{ states.proximity.person3_home.attributes.dir_of_travel == "towards"  }}'
   - condition: state
-    entity_id: input_select.person2_status_dropdown
-    state: 'Home'
+    entity_id: input_boolean.person2_home
+    state: 'on'
     for: '00:05:00'
   - condition: numeric_state
     entity_id: proximity.person3_home
