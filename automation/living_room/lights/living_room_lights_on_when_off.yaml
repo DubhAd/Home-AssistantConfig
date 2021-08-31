@@ -45,23 +45,6 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: switch.pi3_livingroom_socket_switch
-            state: 'on'
-        sequence:
-          - service: switch.turn_off
-            entity_id: switch.pi3_livingroom_socket_switch
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: light.living_room_lamps
-            state: 'on'
-        sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.living_room_lamps
-  - choose:
-      - conditions:
-          - condition: state
             entity_id: input_boolean.living_room_christmas
             state: 'off'
           - condition: state
@@ -70,3 +53,7 @@ action:
         sequence:
           - service: switch.turn_off
             entity_id: switch.pi3_cabinet_light_switch
+    default:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: "{{ trigger.entity_id }}"
