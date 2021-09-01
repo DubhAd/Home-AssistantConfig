@@ -1,4 +1,4 @@
-mode: 'queued'
+mode: 'restart'
 description: 'Manages the right kind of BT scan. Departure scan if everybody is home, or there was motion in the vestibule. Arrival scan if nobody is home or there was no motion in the vestibule or hall. Arrival then departure if we are unsure'
 sequence:
 - service: notify.logfile

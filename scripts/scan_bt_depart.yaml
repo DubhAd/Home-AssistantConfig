@@ -1,3 +1,4 @@
+mode: 'restart'
 sequence:
   - wait_template: "{{ is_state('script.scan_bt_arrive', 'off') }}"
   - delay: '00:00:30'
