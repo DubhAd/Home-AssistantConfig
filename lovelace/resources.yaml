@@ -30,3 +30,5 @@
   type: module
 - url: /hacsfiles/lovelace-darksky-card/lovelace-darksky-card.js
   type: module
+- url: /webrtc/webrtc-camera.js
+  type: module

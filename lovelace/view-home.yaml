@@ -56,11 +56,8 @@ cards:
       - input_text.person_person2
       - input_text.person_person4
         
-  - type: picture-entity
-    entity: camera.front_camera_motion
-    camera_view: live
-    show_name: false
-    show_state: false
+  - type: custom:webrtc-camera
+    entity: camera.front_camera_lowres
 
   - type: entity-filter
     entities:

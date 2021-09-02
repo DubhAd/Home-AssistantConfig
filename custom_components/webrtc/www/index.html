@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebRTC Camera</title>
+    <script src="/webrtc/webrtc-camera.js"></script>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body, ha-card, video {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const url = document.referrer ? new URL(document.referrer) : window.location;
+
+    const hass = {}
+    hass.callWS = () => '';
+    hass.hassUrl = () => url.origin + '/api/webrtc/ws?embed=1';
+
+    const config = Object.fromEntries(new URLSearchParams(url.search));
+    for (const [k, v] of Object.entries(config)) {
+        if (v === 'true') config[k] = true;
+        if (v === 'false') config[k] = false;
+    }
+
+    const element = customElements.get('webrtc-camera');
+    const custom = new element();
+    custom.setConfig(config)
+    custom.hass = hass;
+
+    document.body.appendChild(custom);
+</script>
+</body>
+</html>

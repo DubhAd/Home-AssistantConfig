@@ -3,6 +3,7 @@ homeassistant: !include homeassistant.yaml
 logger:
   default: info
 
+default_config:
 cloud:
 config:
 counter:
