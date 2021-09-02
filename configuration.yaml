@@ -3,27 +3,33 @@ homeassistant: !include homeassistant.yaml
 logger:
   default: info
 
-default_config:
-person:
+cloud:
+config:
+counter:
+dhcp:
+history:
+image:
+logbook:
+map:
+media_source:
 mobile_app:
+my:
+person:
 ssdp:
+stream:
+sun:
 system_health:
 updater:
+webhook:
 zeroconf:
-config:
-
-cloud:
 
 frontend: !include frontend.yaml
-map:
 lovelace: !include lovelace.yaml
 
 http: !include http.yaml
 
 discovery: 
 
-history:
-logbook:
 recorder: !include recorder.yaml
 
 tts: !include tts.yaml
@@ -42,7 +48,6 @@ proximity: !include_dir_merge_named proximity/
 sensor: !include_dir_merge_list sensors/
 binary_sensor: !include_dir_merge_list binary_sensors/
 google: !include google.yaml
-sun:
 zone: !include zones.yaml
 
 input_number: !include_dir_named input_number/
@@ -66,7 +71,6 @@ telegram_bot: !include telegram.yaml
 
 camera: !include_dir_list camera/
 ffmpeg: !include ffmpeg.yaml
-stream:
 
 image_processing: !include_dir_list image_processing/
 
