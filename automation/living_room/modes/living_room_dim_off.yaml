@@ -16,9 +16,6 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 5
-  - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
-    above: 15
 condition:
   # Lighting automations are enabled
   - condition: state
@@ -30,42 +27,26 @@ condition:
     state: 'Dim'
   - condition: or
     conditions:
-    # Has been dim for at this long
-    - condition: state
-      entity_id: input_select.living_room
-      state: 'Dim'
-      for: '00:30:00'
-    # Getting brighter
-    - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
-      above: 5
-  - condition: or
-    conditions:
-    # Turn it off if the office hasn't been occupied for long, or there's been no motion for a while, or it got brighter
     - condition: and
       conditions:
+      # Has been dim for at this long
       - condition: state
-        entity_id: input_boolean.office_occupied
-        state: 'on'
-      - condition: not
-        conditions:
-        - condition: state
-          entity_id: input_boolean.office_occupied
-          state: 'on'
-          for: '00:10:00'
-    # No motion for half an hour
-    - condition: state
-      entity_id: binary_sensor.living_room_motion_occupancy
-      state: 'off'
-      for: '00:30:00'
-    # Getting brighter
+        entity_id: input_select.living_room
+        state: 'Dim'
+        for: '00:30:00'
+      # Or no motion for half an hour
+      - condition: state
+        entity_id: binary_sensor.living_room_motion_occupancy
+        state: 'off'
+        for: '00:30:00'
+    # Or getting brighter
     - condition: numeric_state
       entity_id: sensor.living_room_light_sensor_illuminance_lux
       above: 5
-  # Getting brighter
-  - condition: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
-    above: 15
+    # Or the office has become occupied
+    - condition: state
+      entity_id: input_boolean.office_occupied
+      state: 'on'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

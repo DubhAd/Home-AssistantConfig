@@ -2,8 +2,9 @@ id: 'return_train_status'
 initial_state: 'on'
 alias: 'Return train status'
 trigger:
-  platform: time
-  at: '16:35:00'
+  - platform: time
+    at: input_datetime.return_train_time
+    #at: '16:35:00'
 condition:
   - condition: state
     entity_id: binary_sensor.workday_sensor
@@ -18,8 +19,5 @@ condition:
       below: 5
 action:
   - service: notify.person2_telegram
-    data: 
-      message: "{{ states('input_text.train_message') }}"
-  - service: notify.lm_notify
     data: 
       message: "{{ states('input_text.train_message') }}"

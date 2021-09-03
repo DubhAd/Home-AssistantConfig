@@ -1,0 +1,4 @@
+name: Return train time 
+icon: mdi:train
+has_date: false
+has_time: true
