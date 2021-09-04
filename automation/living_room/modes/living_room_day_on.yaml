@@ -17,6 +17,10 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
+    below: input_number.room_low_light
+    for: '00:05:00'
+  - platform: numeric_state
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 18
     for: '00:05:00'
   - platform: numeric_state
