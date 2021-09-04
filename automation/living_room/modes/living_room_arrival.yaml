@@ -37,6 +37,7 @@ condition:
   - condition: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 5
+    #below: input_number.room_dark
 action:
   - service: notify.logfile
     data:

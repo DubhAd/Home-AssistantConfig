@@ -117,8 +117,5 @@ cards:
   show_header_toggle: false
   entities:
   - input_number.room_low_light
+  - input_number.room_dim
   - input_number.room_dark
-  - input_number.light_step
-  - input_number.light_minimum
-  - input_number.light_maximum
-  - input_number.light_step_colour
