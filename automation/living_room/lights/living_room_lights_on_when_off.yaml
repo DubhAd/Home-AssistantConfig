@@ -11,6 +11,7 @@ trigger:
       - switch.pi3_cabinet_light_switch
       - switch.pi3_livingroom_socket_switch
     to: 'on'
+    for: '00:30:00'
 condition:
   # Lighting automations must be enabled
   - condition: state
