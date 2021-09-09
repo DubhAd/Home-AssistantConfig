@@ -60,8 +60,34 @@ cards:
         - input_text.person_person2
         - input_text.person_person4
 
-    - type: custom:webrtc-camera
-      entity: camera.front_camera_lowres
+    - type: entity-filter
+      show_empty: false
+      state_filter:
+        - 'on'
+      card:
+        type: glance
+        title: Occupied rooms
+        show_state: false
+      entities:
+        - entity: input_boolean.family_room_occupied
+          name: Family room
+          icon: mdi:google-controller
+        - entity: input_boolean.living_room_occupied
+          name: Living room
+        - entity: input_boolean.office_occupied
+          name: Office
+
+    - type: custom:auto-entities
+      show_empty: false
+      card: 
+        type: glance
+        title: Unavailable entities
+      filter:
+        include:
+          - state: "unavailable"
+        exclude:
+          - name: /Plex/
+          - entity_id: "sensor.pixel_xl_next_alarm"
         
     - type: entity-filter
       entities:
@@ -102,171 +128,54 @@ cards:
         - entity: binary_sensor.utility_room_water_leak_water_leak
           name: Utility room
 
-    - type: custom:auto-entities
-      card: 
-        type: glance
-        title: Unavailable entities
-      filter:
-        include:
-          - state: "unavailable"
-        exclude:
-          - name: /Plex/
-          - entity_id: "sensor.pixel_xl_next_alarm"
+    - type: custom:webrtc-camera
+      entity: camera.front_camera_lowres
 
-  - type: entity-filter
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
-      type: glance
-      title: Occupied rooms
-      show_state: false
-    entities:
-      - entity: input_boolean.family_room_occupied
-        name: Family room
-        icon: mdi:google-controller
-      - entity: input_boolean.living_room_occupied
-        name: Living room
-      - entity: input_boolean.office_occupied
-        name: Office
-
-  - type: entity-filter
-    entities:
-      - entity: device_tracker.family_tv
-        name: Family room
-      - entity: media_player.family_room
-        name: Family room
-      - entity: media_player.cast_kitchen_speaker
-        name: Kitchen
-      - entity: media_player.family_room_display
-        name: Family room hub
-      - entity: media_player.living_room
-        name: Living room Sonos
-      - entity: media_player.living_room_display
-        name: Living room hub
-      - entity: media_player.cast_living_room_tv
-        name: Living room
-      - entity: media_player.samsung_tv
-        name: Living room
-      - entity: media_player.office
-        name: Office
-      - entity: media_player.office_display
-        name: Office hub
-      - entity: media_player.person2
-        name: Master bedroom
-      - entity: media_player.cast_master_bedroom_speaker
-        name: Master bedroom
-      - entity: media_player.person1
-        name: Second bedroom
-      - entity: media_player.cast_second_bedroom_speaker
-        name: Second bedroom
-      - entity: media_player.cast_master_bedroom_display
-        name: Guest bedroom
-    show_empty: false
-    state_filter:
-      - 'on'
-      - 'playing'
-      - 'home'
-    card:
+    card: 
       type: glance
       title: Media players
       show_state: false
+    filter:
+      include:
+        - domain: media_player
+          state: 'on'
+        - domain: media_player
+          state: 'playing'
+        - entity: device_tracker.family_tv
+          state: 'home'
+
       
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.pi3_living_room_motion
-        name: Living room (ZW)
-      - entity: binary_sensor.living_room_motion_occupancy
-        name: Living room
-      - entity: binary_sensor.family_room_multi_occupancy
-        name: Family room
-      - entity: binary_sensor.downstairs_hall_motion_occupancy
-        name: Downstairs hall
-      - entity: binary_sensor.vestibule_multi_occupancy
-        name: Vestibule
-      - entity: binary_sensor.office_motion_konke_occupancy
-        name: Office
-      - entity: binary_sensor.upstairs_hall_motion_front_occupancy
-        name: Upstairs hall
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
       type: glance
-      title: Motion
+      title: Motion sensors
       show_state: false
+    filter:
+      include:
+        - domain: binary_sensor
+          state: 'on'
+          attributes: 
+            device_class: 'motion'
+      exclude:
+        - entity_id: binary_sensor.pi3_living_room_motion
 
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.pi3_front_door_sensor
-        name: Front
-      - entity: binary_sensor.vestibule_window_front_contact
-        name: Vestibule Front
-      - entity: binary_sensor.vestibule_window_side_contact
-        name: Vestibule Side
-      - entity: binary_sensor.family_window_left_contact
-        name: Family left
-      - entity: binary_sensor.family_window_right_contact
-        name: Family right
-      - entity: binary_sensor.garage_door_bike_contact
-        name: Garage - bike
-      - entity: binary_sensor.garage_door_car_contact
-        name: Garage - car
-      - entity: binary_sensor.kitchen_window_right_contact
-        name: Kitchen right
-      - entity: binary_sensor.kitchen_window_left_contact
-        name: Kitchen left
-      - entity: binary_sensor.patio_window_left_contact
-        name: Patio left
-      - entity: binary_sensor.patio_window_right_contact
-        name: Patio right
-      - entity: binary_sensor.pi3_patio_door_left_sensor
-        name: Patio
-      - entity: binary_sensor.pi3_utility_door_exterior_sensor
-        name: Utility
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
       type: glance
-      columns: 4
-      title: Downstairs doors and windows
+      title: Windows and doors
       show_state: false
-
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.office_window_contact
-        name: Office
-      - entity: binary_sensor.spare_bedroom_window_left_contact
-        name: L Spare bedroom 
-      - entity: binary_sensor.spare_bedroom_window_right_contact
-        name: R Spare bedroom
-      - entity: binary_sensor.second_bedroom_window_ensuite_contact
-        name: 2nd ensuite
-      - entity: binary_sensor.second_bedroom_window_left_contact
-        name: 2nd bed left
-      - entity: binary_sensor.second_bedroom_window_right_contact
-        name: 2nd bed right
-      - entity: binary_sensor.bathroom_window_contact
-        name: Bathroom
-      - entity: binary_sensor.guest_bedroom_window_left_contact
-        name: Guest left
-      - entity: binary_sensor.guest_bedroom_window_right_contact
-        name: Guest right
-      - entity: binary_sensor.master_window_left_contact
-        name: Master left
-      - entity: binary_sensor.master_window_right_contact
-        name: Master right
-      - entity: binary_sensor.master_window_ensuite_contact
-        name: Master ensuite
-    show_empty: false
-    state_filter:
-      - 'on'
-    card:
-      type: glance
-      columns: 4
-      title: Upstairs windows
-      show_state: false
+    filter:
+      include:
+        - group: group.my_exterior_doors
+          state: 'on'
+        - group: group.my_downstairs_windows
+          state: 'on'
+        - group: group.my_upstairs_windows
+          state: 'on'
 
   - type: entity-filter
     entities:

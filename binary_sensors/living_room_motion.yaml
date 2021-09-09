@@ -1,7 +1,0 @@
-- platform: template
-  sensors: 
-    living_room_motion:
-      device_class: motion
-      unique_id: 'living_room_motion'
-      friendly_name: 'Living room motion'
-      value_template: "{{ is_state('sensor.pi3_living_room_multi_burglar', '8') }}"
