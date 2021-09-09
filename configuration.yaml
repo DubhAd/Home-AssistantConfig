@@ -48,6 +48,7 @@ device_tracker: !include_dir_list device_tracker/
 proximity: !include_dir_merge_named proximity/
 sensor: !include_dir_merge_list sensors/
 binary_sensor: !include_dir_merge_list binary_sensors/
+template: !include_dir_merge_list template/
 google: !include google.yaml
 zone: !include zones.yaml
 

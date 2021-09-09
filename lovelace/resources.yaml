@@ -12,6 +12,8 @@
   #type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
   type: module
+- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+  type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
 - url: /local/dist/google-calendar-card.js?v=1

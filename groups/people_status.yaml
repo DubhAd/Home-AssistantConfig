@@ -1,5 +1,0 @@
-name: People status
-entities:
-- input_select.person1_status_dropdown
-- input_select.person2_status_dropdown
-- input_select.person3_status_dropdown

@@ -1,0 +1,24 @@
+id: 'notify_about_unavailable'
+alias: 'Notify about unavailable entities'
+description: "Notify either when an entity has been unavailable for a while (to avoid transient issues), or when they've been cleared"
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.unavailable_entities
+    for: '00:30:00'
+  - platform: state
+    entity_id: sensor.unavailable_entities
+condition:
+  - condition: or
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == '0' and ( (now()-trigger.to_state.last_changed).seconds < 5 ) }}"
+      - condition: template
+        value_template: "{{ trigger.to_state.state|int > 0 and ( (now()-trigger.to_state.last_changed).seconds > 60 ) }}"
+action:
+  - wait_template: >-
+      {{ is_state('input_boolean.person2_is_awake','on') and is_state('input_boolean.person2_home','on') }}
+  - service: script.notify_person2
+    data:
+      message: >-
+        There are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- endif -%}
