@@ -224,4 +224,5 @@ cards:
         - entity_id: light.living_room_lamps
         - entity_id: light.living_room_lamps_2
         - entity_id: light.yeelight_*
+        - entity_id: light.bedroom_lights
 
