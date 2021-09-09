@@ -59,6 +59,9 @@ cards:
         - input_text.person_person1
         - input_text.person_person2
         - input_text.person_person4
+
+    - type: custom:webrtc-camera
+      entity: camera.front_camera_lowres
         
     - type: entity-filter
       entities:
@@ -76,8 +79,28 @@ cards:
       card:
         type: entities
         title: Alerts
-    - type: custom:webrtc-camera
-      entity: camera.front_camera_lowres
+
+    - type: entity-filter
+      show_empty: false
+      state_filter:
+        - 'on'
+      card:
+        type: glance
+        title: Leaks detected
+        show_state: false
+      entities:
+        - entity: binary_sensor.bathroom_water_leak_water_leak
+          name: Bathroom
+        - entity: binary_sensor.master_ensuite_leak_water_leak
+          name: Master ensuite
+        - entity: binary_sensor.second_ensuite_water_leak
+          name: Second ensuite
+        - entity: binary_sensor.kitchen_water_leak_water_leak
+          name: Kitchen
+        - entity: binary_sensor.toilet_water_leak_water_leak
+          name: Toilet
+        - entity: binary_sensor.utility_room_water_leak_water_leak
+          name: Utility room
 
     - type: custom:auto-entities
       card: 
@@ -90,27 +113,6 @@ cards:
           - name: /Plex/
           - entity_id: "sensor.pixel_xl_next_alarm"
 
-  - type: entity-filter
-    show_empty: false
-    state_filter:
-      - 'on'
-    card:
-      type: glance
-      title: Leaks detected
-      show_state: false
-    entities:
-      - entity: binary_sensor.bathroom_water_leak_water_leak
-        name: Bathroom
-      - entity: binary_sensor.master_ensuite_leak_water_leak
-        name: Master ensuite
-      - entity: binary_sensor.second_ensuite_water_leak
-        name: Second ensuite
-      - entity: binary_sensor.kitchen_water_leak_water_leak
-        name: Kitchen
-      - entity: binary_sensor.toilet_water_leak_water_leak
-        name: Toilet
-      - entity: binary_sensor.utility_room_water_leak_water_leak
-        name: Utility room
   - type: entity-filter
     show_empty: false
     state_filter:
