@@ -72,187 +72,156 @@ cards:
         name: Outside
         #color: 'silver'
         
-  - type: entity-filter
-    entities:
-      - entity: input_boolean.family_room_occupied
-        name: Family room
-      - entity: input_boolean.living_room_occupied
-        name: Living room
-        icon: mdi:seat
-      - entity: input_boolean.office_occupied
-        name: Office
+  - type: custom:webrtc-camera
+    entity: camera.front_camera_lowres
+
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
       type: glance
       title: Occupied rooms
       show_state: false
+    sort:
+      method: name
+    filter:
+      include:
+        - entity_id: input_boolean.*_occupied
+          state: 'on'
+      exclude:
+        - entity_id: input_boolean.home_occupied
 
-  - type: entity-filter
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
       type: glance
-      title: Leaks detected
-      show_state: false
-    entities:
-      - entity: binary_sensor.bathroom_water_leak_water_leak
-        name: Bathroom
-      - entity: binary_sensor.master_ensuite_leak_water_leak
-        name: Master ensuite
-      - entity: binary_sensor.second_ensuite_water_leak
-        name: Second ensuite
-      - entity: binary_sensor.kitchen_water_leak_water_leak
-        name: Kitchen
-      - entity: binary_sensor.toilet_water_leak_water_leak
-        name: Toilet
-      - entity: binary_sensor.utility_room_water_leak_water_leak
-        name: Utility room
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.pi3_living_room_motion
-        name: Living room (ZW)
-      - entity: binary_sensor.living_room_motion_occupancy
-        name: Living room
-      - entity: binary_sensor.family_room_multi_occupancy
-        name: Family room
-      - entity: binary_sensor.downstairs_hall_motion_occupancy
-        name: Downstairs hall
-      - entity: binary_sensor.vestibule_multi_occupancy
-        name: Vestibule
-      - entity: binary_sensor.office_motion_konke_occupancy
-        name: Office
-      - entity: binary_sensor.upstairs_hall_motion_front_occupancy
-        name: Upstairs hall
-    show_empty: false
-    state_filter:
-      - 'on'
-    card:
-      type: glance
-      title: Motion
-      show_state: false
+      title: Unavailable entities
+    sort:
+      method: name
+    filter:
+      include:
+        - state: "unavailable"
+      exclude:
+        - name: /Plex/
+        - entity_id: "sensor.pixel_xl_next_alarm"
+        - entity_id: "sensor.kelsie_*"
+        - entity_id: "binary_sensor.kelsie_*"
+        - entity_id: "media_player.samsung_tv"
+        - entity_id: "media_player.cast_living_room_tv"
 
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.pi3_front_door_sensor
-        name: Front
-      - entity: binary_sensor.vestibule_window_front_contact
-        name: Vestibule Front
-      - entity: binary_sensor.vestibule_window_side_contact
-        name: Vestibule Side
-      - entity: binary_sensor.family_window_left_contact
-        name: Family left
-      - entity: binary_sensor.family_window_right_contact
-        name: Family right
-      - entity: binary_sensor.garage_door_bike_contact
-        name: Garage - bike
-      - entity: binary_sensor.garage_door_car_contact
-        name: Garage - car
-      - entity: binary_sensor.kitchen_window_right_contact
-        name: Kitchen right
-      - entity: binary_sensor.kitchen_window_left_contact
-        name: Kitchen left
-      - entity: binary_sensor.patio_window_left_contact
-        name: Patio left
-      - entity: binary_sensor.patio_window_right_contact
-        name: Patio right
-      - entity: binary_sensor.pi3_patio_door_left_sensor
-        name: Patio
-      - entity: binary_sensor.pi3_utility_door_exterior_sensor
-        name: Utility
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
+      type: entities
+      title: Alerts
+    sort:
+      method: name
+    filter:
+      include:
+        - domain: alert
+          state: 'on'
+      
+  - type: custom:auto-entities
+    show_empty: false
+    card: 
       type: glance
+      title: Leaks
+    sort:
+      method: name
+    filter:
+      include:
+       - domain: binary_sensor
+         attributes:
+           device_class: 'moisture'
+         state: 'on'
+
+  - type: custom:auto-entities
+    show_empty: false
+    card: 
+      type: glance
+      title: Media players
+      show_state: false
+    sort:
+      method: name
+    filter:
+      include:
+        - domain: media_player
+          state: 'on'
+        - domain: media_player
+          state: 'playing'
+        - entity_id: device_tracker.family_tv
+          state: 'home'
+
+  - type: custom:auto-entities
+    show_empty: false
+    card: 
+      type: glance
+      title: Motion sensors
+      show_state: false
+    sort:
+      method: name
+    filter:
+      include:
+        - domain: binary_sensor
+          state: 'on'
+          attributes: 
+            device_class: 'motion'
+      exclude:
+        - entity_id: binary_sensor.pi3_living_room_motion
+
+  - type: custom:auto-entities
+    show_empty: false
+    card: 
+      type: glance
+      title: Windows and doors
+      show_state: false
       columns: 4
-      title: Downstairs doors and windows
-      show_state: false
+    sort:
+      method: name
+    filter:
+      include:
+        - group: group.my_exterior_doors
+          state: 'on'
+        - group: group.my_downstairs_windows
+          state: 'on'
+        - group: group.my_upstairs_windows
+          state: 'on'
 
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.office_window_contact
-        name: Office
-      - entity: binary_sensor.spare_bedroom_window_left_contact
-        name: L Spare bedroom 
-      - entity: binary_sensor.spare_bedroom_window_right_contact
-        name: R Spare bedroom
-      - entity: binary_sensor.second_bedroom_window_ensuite_contact
-        name: 2nd ensuite
-      - entity: binary_sensor.second_bedroom_window_left_contact
-        name: 2nd bed left
-      - entity: binary_sensor.second_bedroom_window_right_contact
-        name: 2nd bed right
-      - entity: binary_sensor.bathroom_window_contact
-        name: Bathroom
-      - entity: binary_sensor.guest_bedroom_window_left_contact
-        name: Guest left
-      - entity: binary_sensor.guest_bedroom_window_right_contact
-        name: Guest right
-      - entity: binary_sensor.master_window_left_contact
-        name: Master left
-      - entity: binary_sensor.master_window_right_contact
-        name: Master right
-      - entity: binary_sensor.master_window_ensuite_contact
-        name: Master ensuite
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
       type: glance
-      columns: 4
-      title: Upstairs windows
+      title: Interior doors
       show_state: false
+    sort:
+      method: name
+    filter:
+      include:
+        - group: group.my_interior_doors
+          state: 'off'
 
-  - type: entity-filter
-    entities:
-      - entity: switch.pi3_garden_lights_switch
-        name: Garden
-        tap_action: 
-          action: toggle
-      - entity: light.master_bedroom_bedhead
-        name: Master bedhead
-      - entity: light.person1_bedroom_bedside
-        name: person1's Bedhead
-      - entity: switch.pi3_family_room_socket_switch
-        name: Family room
-        tap_action: 
-          action: toggle
-      - entity: light.downstairs_hall
-        name: "Hall"
-      - entity: switch.pi3_hall_downstairs_switch
-        name: "Hall socket"
-        tap_action: 
-          action: toggle
-      - entity: switch.pi3_vestibule_switch
-        name: "Vestibule socket"
-        tap_action: 
-          action: toggle
-      - entity: light.living_room_table_lamp
-        name: Table
-      - entity: light.living_room_tv_lamp
-        name: "TV"
-        tap_action: 
-          action: toggle
-      - entity: light.living_room_corner_lamp
-        name: "Corner"
-        tap_action: 
-          action: toggle
-      - entity: switch.pi3_livingroom_socket_switch
-        name: "Cabinet"
-        tap_action: 
-          action: toggle
-      - entity: light.office_strip
-        name: Office strip
-        tap_action: 
-          action: toggle
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'on'
-    card:
+    card: 
       type: glance
       columns: 4
       title: Lights
       show_state: false
+    sort:
+      method: name
+    filter:
+      include:
+        - domain: light
+          state: 'on'
+        - entity_id: switch.pi3_family_room_socket_switch
+          state: 'on'
+        - entity_id: switch.pi3_hall_downstairs_switch
+          state: 'on'
+        - entity_id: switch.pi3_vestibule_switch
+          state: 'on'
+        - entity_id: switch.pi3_livingroom_socket_switch
+          state: 'on'
+      exclude:
+        - entity_id: light.living_room_lamps
+        - entity_id: light.living_room_lamps_2
+        - entity_id: light.yeelight_*
+

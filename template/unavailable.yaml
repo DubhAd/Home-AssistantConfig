@@ -2,8 +2,8 @@
   - name: 'Unavailable entities'
     unique_id: 'unavailable_entities'
     state: >-
-      {{ states|selectattr('state', 'in', ['unavailable'])|rejectattr('attributes.restored','in',[true])|rejectattr('entity_id','in',['sensor.pixel_xl_next_alarm','media_player.samsung_tv','media_player.cast_living_room_tv'])|list|length}}
+      {{ states|selectattr('state', 'in', ['unavailable'])|rejectattr('attributes.restored','in',[true])|rejectattr('entity_id','in',['sensor.pixel_xl_next_alarm','media_player.samsung_tv','media_player.cast_living_room_tv','sensor.kelsie_hws_sessionstate','binary_sensor.kelsie_hws_webcamactive','sensor.kelsie_hws_cpuload','sensor.kelsie_hws_sessionstate'])|list|length}}
     unit_of_measurement: 'entities'
     attributes:
       entities: >-
-        {{ states|selectattr('state', 'in', ['unavailable'])|rejectattr('attributes.restored','in',[true])|rejectattr('entity_id','in',['sensor.pixel_xl_next_alarm','media_player.samsung_tv','media_player.cast_living_room_tv'])|map(attribute='entity_id') | list | join('\n')}}
+        {{ states|selectattr('state', 'in', ['unavailable'])|rejectattr('attributes.restored','in',[true])|rejectattr('entity_id','in',['sensor.pixel_xl_next_alarm','media_player.samsung_tv','media_player.cast_living_room_tv','sensor.kelsie_hws_sessionstate','binary_sensor.kelsie_hws_webcamactive','sensor.kelsie_hws_cpuload','sensor.kelsie_hws_sessionstate'])|map(attribute='entity_id') | list | join('\n')}}

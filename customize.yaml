@@ -88,7 +88,7 @@ device_tracker.livingroom_chromecast:
   friendly_name: Chromecast in the lounge
   icon: mdi:google-chrome
 device_tracker.family_tv:
-  friendly_name: TV in the family room
+  friendly_name: Family TV
   icon: mdi:television
 device_tracker.livingroom_tv:
   icon: mdi:television

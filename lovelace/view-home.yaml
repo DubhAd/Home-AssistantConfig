@@ -60,22 +60,18 @@ cards:
         - input_text.person_person2
         - input_text.person_person4
 
-    - type: entity-filter
+    - type: custom:auto-entities
       show_empty: false
-      state_filter:
-        - 'on'
-      card:
+      card: 
         type: glance
         title: Occupied rooms
         show_state: false
-      entities:
-        - entity: input_boolean.family_room_occupied
-          name: Family room
-          icon: mdi:google-controller
-        - entity: input_boolean.living_room_occupied
-          name: Living room
-        - entity: input_boolean.office_occupied
-          name: Office
+      filter:
+        include:
+          - entity_id: input_boolean.*_occupied
+            state: 'on'
+        exclude:
+          - entity_id: input_boolean.home_occupied
 
     - type: custom:auto-entities
       show_empty: false
@@ -88,45 +84,32 @@ cards:
         exclude:
           - name: /Plex/
           - entity_id: "sensor.pixel_xl_next_alarm"
-        
-    - type: entity-filter
-      entities:
-        - entity: alert.garage_door_l
-          name: Garage door, bike
-        - entity: alert.garage_door_r
-          name: Garage door, car
-        - entity: alert.flood_while_home
-          name: Flood detected while at home
-        - entity: alert.flood_while_away
-          name: Flood detected while at away
+          - entity_id: "sensor.kelsie_*"
+          - entity_id: "binary_sensor.kelsie_*"
+          - entity_id: "media_player.samsung_tv"
+          - entity_id: "media_player.cast_living_room_tv"
+
+    - type: custom:auto-entities
       show_empty: false
-      state_filter:
-        - 'on'
-      card:
+      card: 
         type: entities
         title: Alerts
-
-    - type: entity-filter
+      filter:
+        include:
+          - domain: alert
+            state: 'on'
+        
+    - type: custom:auto-entities
       show_empty: false
-      state_filter:
-        - 'on'
-      card:
+      card: 
         type: glance
-        title: Leaks detected
-        show_state: false
-      entities:
-        - entity: binary_sensor.bathroom_water_leak_water_leak
-          name: Bathroom
-        - entity: binary_sensor.master_ensuite_leak_water_leak
-          name: Master ensuite
-        - entity: binary_sensor.second_ensuite_water_leak
-          name: Second ensuite
-        - entity: binary_sensor.kitchen_water_leak_water_leak
-          name: Kitchen
-        - entity: binary_sensor.toilet_water_leak_water_leak
-          name: Toilet
-        - entity: binary_sensor.utility_room_water_leak_water_leak
-          name: Utility room
+        title: Leaks
+      filter:
+        include:
+         - domain: binary_sensor
+           attributes:
+             device_class: 'moisture'
+           state: 'on'
 
     - type: custom:webrtc-camera
       entity: camera.front_camera_lowres
@@ -143,10 +126,9 @@ cards:
           state: 'on'
         - domain: media_player
           state: 'playing'
-        - entity: device_tracker.family_tv
+        - entity_id: device_tracker.family_tv
           state: 'home'
 
-      
   - type: custom:auto-entities
     show_empty: false
     card: 
@@ -177,30 +159,16 @@ cards:
         - group: group.my_upstairs_windows
           state: 'on'
 
-  - type: entity-filter
-    entities:
-      - entity: binary_sensor.office_door_contact
-        name: Office
-      - entity: binary_sensor.master_bedroom_door_contact
-        name: Master bedroom
-      - entity: binary_sensor.master_ensuite_door_contact
-        name: Master ensuite
-      - entity: binary_sensor.guest_bedroom_door_contact
-        name: Guest bedroom
-      - entity: binary_sensor.second_bedroom_door_contact
-        name: Second bedroom
-      - entity: binary_sensor.bathroom_door_contact
-        name: Bathroom
-      - entity: binary_sensor.vestibule_door_contact
-        name: Vestibule
+  - type: custom:auto-entities
     show_empty: false
-    state_filter:
-      - 'off'
-    card:
+    card: 
       type: glance
-      columns: 4
-      title: Interior doors (closed)
+      title: Interior doors
       show_state: false
+    filter:
+      include:
+        - group: group.my_interior_doors
+          state: 'off'
 
   - type: entity-filter
     entities:
