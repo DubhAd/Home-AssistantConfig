@@ -17,12 +17,35 @@ condition:
       - condition: template
         value_template: "{{ trigger.to_state.state|int > 0 and ( (now()-trigger.to_state.last_changed).seconds > 60 ) }}"
 action:
-  - wait_template: >-
-      {{ is_state('input_boolean.person2_is_awake','on') and is_state('input_boolean.person2_home','on') }}
-  - service: script.notify_person2
-    data:
-      message: >-
-        There are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- endif -%}
+  - choose:
+    - alias: 'Everything is available'
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.unavailable_entities
+          below: 1
+        - condition: template
+          value_template: "{{ trigger.from_state.state != '0' }}"
+      sequence:
+        - service: script.notify_person2
+          data:
+            message: >-
+              There are no entities unavailable {%- if trigger.from_state.state != '0' -%}, there were {{ trigger.from_state.state }} ({{ trigger.from_state.attributes.entities }}){%- endif -%}
+    - alias: 'Something is unavailable'
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.unavailable_entities
+          above: 0
+      sequence:
+        - service: script.notify_person2
+          data:
+            message: >-
+              There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }}
+    default:
+      - service: notify.discord_webhook
+        data:
+          message: >-
+            There are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}
+
   - service: notify.logfile
     data:
       message: >-

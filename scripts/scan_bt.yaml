@@ -22,7 +22,8 @@ sequence:
     - service: notify.logfile
       data:
         message: "Arrival scan because nobody is home"
-    - service: script.scan_bt_arrive
+    - service: script.turn_on
+      entity_id: script.scan_bt_arrive
   #################### ####################
   # Far garage door open, near one closed, motion in the vestibule
   - conditions:
@@ -70,9 +71,12 @@ sequence:
     # Check for departure, then check for arrival (just in case)
     - service: notify.logfile
       data:
-        message: "Departure (then arrival) scan because of motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
-    - service: script.scan_bt_depart
-    - service: script.scan_bt_arrive
+        message: "Departure (no arrival) scan because of motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
+    - service: script.turn_on
+      entity_id: script.scan_bt_depart
+    #- delay: '00:00:30'
+    #- service: script.turn_on
+    #  entity_id: script.scan_bt_arrive
   #################### ####################
   # No motion inside
   - conditions:
@@ -92,7 +96,8 @@ sequence:
     - service: notify.logfile
       data:
         message: "Arrival scan because there was no motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
-    - service: script.scan_bt_arrive
+    - service: script.turn_on
+      entity_id: script.scan_bt_arrive
   #################### ####################
   # Car door is open
   - conditions:
@@ -113,7 +118,8 @@ sequence:
     - service: notify.logfile
       data:
         message: "Arrival scan because the garage door is open ({{ (now()-states.binary_sensor.garage_door_car_contact.last_changed).seconds }} ago)"
-    - service: script.scan_bt_arrive
+    - service: script.turn_on
+      entity_id: script.scan_bt_arrive
   #################### ####################
   # Everybody is home
   - conditions:
@@ -125,12 +131,16 @@ sequence:
     - service: notify.logfile
       data:
         message: "Departure scan because everybody is home"
-    - service: script.scan_bt_depart
+    - service: script.turn_on
+      entity_id: script.scan_bt_depart
   #################### ####################
   # Mixed bag situation unclear, do it all
   default:
   - service: notify.logfile
     data:
       message: "Departure then arrival scan because we have no idea"
-  - service: script.scan_bt_arrive
-  - service: script.scan_bt_depart
+  - service: script.turn_on
+    entity_id: script.scan_bt_arrive
+  - delay: '00:00:30'
+  - service: script.turn_on
+    entity_id: script.scan_bt_depart

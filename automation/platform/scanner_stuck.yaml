@@ -1,0 +1,17 @@
+id: 'scanner_stuck'
+mode: 'parallel'
+alias: 'BT scanner stuck'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+      - script.scan_bt
+      - script.scan_bt_arrive
+      - script.scan_bt_depart
+    to: 'on'
+    for: '00:15:00'
+action:
+  - service: script.stop
+    data:
+      entity_id: "{{ trigger.entity_id }}"
+
