@@ -13,7 +13,8 @@ sequence:
   # close the door while we put the car away.
   #################### ####################
   # Everybody away
-  - conditions:
+  - alias: "Everybody is away"
+    conditions:
     # Everybody is away - this can only be an arrival
     - condition: numeric_state
       entity_id: sensor.home_count
@@ -26,7 +27,8 @@ sequence:
       entity_id: script.scan_bt_arrive
   #################### ####################
   # Far garage door open, near one closed, motion in the vestibule
-  - conditions:
+  - alias: "bike door open, do nothing"
+    conditions:
     # If the far garage door is open, and the near one is closed, we're likely going to the bike
     - condition: state
       entity_id: binary_sensor.garage_door_bike_contact
@@ -53,7 +55,29 @@ sequence:
       data:
         message: "Do nothing because of motion in the vestibule, and the bike door is open"
   #################### ####################
-  - conditions:
+  - alias: "Somebody just arrived"
+    conditions:
+    # Somebody just arrived
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.person3_status_dropdown
+        state: 'Just Arrived'
+      - condition: state
+        entity_id: input_select.person1_status_dropdown
+        state: 'Just Arrived'
+      - condition: state
+        entity_id: input_select.person2_status_dropdown
+        state: 'Just Arrived'
+    sequence:
+    - service: notify.logfile
+      data:
+        message: "Arrival scan because somebody just arrived home"
+    - service: script.turn_on
+      entity_id: script.scan_bt_arrive
+  #################### ####################
+  - alias: "Motion in the vestibule"
+    conditions:
     # Something happen in the vestibule recently
     - condition: or
       conditions:
@@ -79,7 +103,8 @@ sequence:
     #  entity_id: script.scan_bt_arrive
   #################### ####################
   # No motion inside
-  - conditions:
+  - alias: "No motion in the vestibule"
+    conditions:
     # Nothing happened recently inside 
     - condition: or
       conditions:
@@ -100,12 +125,13 @@ sequence:
       entity_id: script.scan_bt_arrive
   #################### ####################
   # Car door is open
-  - conditions:
+  - alias: "Garage door is open"
+    conditions:
     # Garage door is open already, or recently closed
     - condition: or
       conditions:
       - condition: state
-        entity_id: binary_sensor.garage_door_bike_contact
+        entity_id: binary_sensor.garage_door_car_contact
         state: 'on'
         for: '00:00:01'
       - condition: not
@@ -122,7 +148,8 @@ sequence:
       entity_id: script.scan_bt_arrive
   #################### ####################
   # Everybody is home
-  - conditions:
+  - alias: "Everybody is home"
+    conditions:
     # Nobody is away - this can only be a departure
     - condition: numeric_state
       entity_id: sensor.home_count
