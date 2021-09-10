@@ -1,4 +1,5 @@
 id: 'notify_about_unavailable'
+mode: 'restart'
 alias: 'Notify about unavailable entities'
 description: "Notify either when an entity has been unavailable for a while (to avoid transient issues), or when they've been cleared"
 initial_state: 'on'
