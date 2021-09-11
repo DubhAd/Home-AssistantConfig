@@ -15,6 +15,13 @@ cards:
     - entity: binary_sensor.updater
       state_color: true
 
+- type: entity
+  name: "WAN IP"
+  entity: sensor.fritz_box_3490_external_ip
+- type: entity
+  name: "Up since"
+  entity: sensor.fritz_box_3490_uptime
+
 - type: glance
   title: Things
   show_header_toggle: false
@@ -144,7 +151,7 @@ cards:
   ignore_line_breaks: true
   content: |-
     Routers:<BR>
-    {% for state in states.sensor if "_linkquality" in state.entity_id and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'Router' -%}
+    {% for state in states.sensor if '_linkquality' in state.entity_id and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'Router' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 10) -%}
         {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
@@ -153,7 +160,7 @@ cards:
 
     <HR>
     Non-Konke:    
-    {% for state in states.sensor if "_linkquality" in state.entity_id and "leak" not in state.entity_id and state.attributes.device.manufacturerName != "Konke" and state.attributes.device.model != 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
+    {% for state in states.sensor if '_linkquality' in state.entity_id and 'leak' not in state.entity_id and state.attributes.device.manufacturerID != 4712 and state.attributes.device.model != 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 60 * 1.5) -%}
         {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
@@ -162,7 +169,7 @@ cards:
     
     <HR>
     Konke:
-    {% for state in states.sensor if "_linkquality" in state.entity_id and "leak" not in state.entity_id and state.attributes.device.manufacturerName == "Konke" and state.attributes.device.model != 'TS0207'  and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
+    {% for state in states.sensor if '_linkquality' in state.entity_id and 'leak' not in state.entity_id and state.attributes.device.manufacturerID == 4712 and state.attributes.device.model != 'TS0207'  and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 60 * 3) -%}
         {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
@@ -171,7 +178,7 @@ cards:
     
     <HR>
     CR Smart home:   
-    {% for state in states.sensor if "_linkquality" in state.entity_id and state.attributes.device.model == 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
+    {% for state in states.sensor if '_linkquality' in state.entity_id and state.attributes.device.model == 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
       {%- set when =  (now()-state.last_updated).seconds -%}
       {%- if when > (60 * 60 * 5) -%}
         {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>

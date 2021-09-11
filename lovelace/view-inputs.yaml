@@ -100,6 +100,7 @@ cards:
     - entity: input_boolean.notify_train_status_work
       secondary_info: last-changed
       state_color: true
+    - entity: input_datetime.return_train_time
     - entity: input_boolean.person2_work_home
       secondary_info: last-changed
       state_color: true

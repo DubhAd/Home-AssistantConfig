@@ -118,10 +118,10 @@ binary_sensor.second_bedroom_window_ensuite_contact:
   device_class: window
 binary_sensor.second_bedroom_window_left_contact:
   device_class: window
-  friendly_name: Second bedroom window left
+  friendly_name: Second bedroom (left)
 binary_sensor.second_bedroom_window_right_contact:
   device_class: window
-  friendly_name: Second bedroom window right
+  friendly_name: Second bedroom (right)
 binary_sensor.spare_bedroom_window_left_contact:
   device_class: window
 binary_sensor.spare_bedroom_window_right_contact:
