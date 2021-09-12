@@ -77,6 +77,8 @@ cards:
               class: entity-noalert
             - state: 'on'
               class: entity-alert
+            - state: 'unavailable'
+              class: 'unavailable'
 
         - entities:
             - input_boolean.car_home
