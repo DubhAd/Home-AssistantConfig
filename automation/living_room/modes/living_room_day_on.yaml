@@ -17,14 +17,14 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 18
+    below: 14
     for: '00:05:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 16
+    below: 12
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    above: 11
+    above: 9
     for: '00:10:00'
 condition:
   - condition: state
@@ -37,8 +37,8 @@ condition:
     # Room is dark, but not too dark
     - condition: numeric_state
       entity_id: sensor.living_room_light_sensor_illuminance_lux
-      below: 20
-      above: 11
+      below: 14
+      above: 9
     # Didn't just turn the lights off
     - condition: template
       value_template: "{{ (now() - states.light.living_room_corner_lamp.last_changed).seconds > 120 }}"
