@@ -121,6 +121,10 @@ cards:
     name: Vision
   - entity: sensor.pi3_date_time
     name: pi3
+  - entity: sensor.unavailable_entities
+    name: Unavailable entities
+    secondary_info: last-changed
+    icon: mdi:close-circle-outline
   - sun.sun
   - sensor.sun_elevation
   - entity: sensor.last_opened

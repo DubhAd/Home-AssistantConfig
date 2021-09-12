@@ -9,22 +9,14 @@ trigger:
     for: '00:30:00'
   - platform: state
     entity_id: sensor.unavailable_entities
-condition:
-  - condition: or
-    conditions:
-      - condition: template
-        value_template: "{{ trigger.to_state.state == '0' and ( (now()-trigger.to_state.last_changed).seconds < 5 ) }}"
-      - condition: template
-        value_template: "{{ trigger.to_state.state|int > 0 and ( (now()-trigger.to_state.last_changed).seconds > 60 ) }}"
 action:
   - choose:
     - alias: 'Everything is available'
       conditions:
-        - condition: numeric_state
-          entity_id: sensor.unavailable_entities
-          below: 1
         - condition: template
-          value_template: "{{ trigger.from_state.state != '0' }}"
+          value_template: "{{ trigger.to_state.state == '0' and ( (now()-trigger.to_state.last_changed).seconds < 5 ) }}"
+        - condition: template
+          value_template: "{{ trigger.from_state.state|int > 0 }}"
       sequence:
         - service: script.notify_person2
           data:
@@ -32,9 +24,8 @@ action:
               There are no entities unavailable {%- if trigger.from_state.state != '0' -%}, there were {{ trigger.from_state.state }} ({{ trigger.from_state.attributes.entities }}){%- endif -%}
     - alias: 'Something is unavailable'
       conditions:
-        - condition: numeric_state
-          entity_id: sensor.unavailable_entities
-          above: 0
+        - condition: template
+          value_template: "{{ trigger.to_state.state|int > 0 and ( (now()-trigger.to_state.last_changed).seconds > 600 ) }}"
       sequence:
         - service: script.notify_person2
           data:
@@ -44,7 +35,7 @@ action:
       - service: notify.discord_webhook
         data:
           message: >-
-            There are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}
+            Hey, there are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}
 
   - service: notify.logfile
     data:
