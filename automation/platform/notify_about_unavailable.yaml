@@ -11,7 +11,18 @@ trigger:
     entity_id: sensor.unavailable_entities
 action:
   - choose:
-    - alias: 'Everything is available'
+    - alias: 'Nothing to nothing'
+      conditions:
+        - condition: template
+          value_template: "{{ trigger.to_state.state == '0' }}"
+        - condition: template
+          value_template: "{{ trigger.from_state.state == '0' }}"
+      sequence:
+        - service: notify.discord_webhook
+          data:
+            message: >-
+              There's nothing unavailable, there was nothing unavailable
+    - alias: 'Everything is available now'
       conditions:
         - condition: template
           value_template: "{{ trigger.to_state.state == '0' and ( (now()-trigger.to_state.last_changed).seconds < 5 ) }}"
@@ -22,7 +33,7 @@ action:
           data:
             message: >-
               There are no entities unavailable {%- if trigger.from_state.state != '0' -%}, there were {{ trigger.from_state.state }} ({{ trigger.from_state.attributes.entities }}){%- endif -%}
-    - alias: 'Something is unavailable'
+    - alias: 'Something has remained unavailable'
       conditions:
         - condition: template
           value_template: "{{ trigger.to_state.state|int > 0 and ( (now()-trigger.to_state.last_changed).seconds > 600 ) }}"
@@ -31,6 +42,15 @@ action:
           data:
             message: >-
               There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }}
+    - alias: 'Something is unavailable right now'
+      conditions:
+        - condition: template
+          value_template: "{{ trigger.to_state.state|int > 0 and ( (now()-trigger.to_state.last_changed).seconds <= 600 ) }}"
+      sequence:
+        - service: notify.discord_webhook
+          data:
+            message: >-
+              There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }} - please hold
     default:
       - service: notify.discord_webhook
         data:
