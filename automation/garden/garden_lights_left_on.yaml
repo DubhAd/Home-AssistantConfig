@@ -24,9 +24,11 @@ condition:
         - condition: state
           entity_id: binary_sensor.pi3_utility_door_exterior_sensor
           state: 'off'
+          for: '00:01:00'
         - condition: state
           entity_id: binary_sensor.pi3_patio_door_left_sensor
           state: 'off'
+          for: '00:01:00'
       # It's been more than 9 minutes
       - condition: state
         entity_id: binary_sensor.garden_lights_left_on
