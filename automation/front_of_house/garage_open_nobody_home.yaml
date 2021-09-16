@@ -6,10 +6,11 @@ trigger:
     entity_id: binary_sensor.garage_door_car_contact
     to: 'on'
 action:
-  - service: notify.person2
+  - service: notify.mobile_app_pixel_xl
     data:
-      message: "Nobody is home right now, turn off the alarm"
+      title: "Nobody is home right now, turn off the alarm"
+      message: TTS
       data:
-        priority: '1'
-        sound: 'siren'
-        device: 'MyPhone'
+        channel: alarm_stream
+        priority: high
+        ttl: 0

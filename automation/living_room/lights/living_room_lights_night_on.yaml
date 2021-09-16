@@ -50,7 +50,7 @@ action:
   - service: light.turn_on
     data:
       entity_id: light.living_room_lamps
-      transition: 10
+      transition: 2
       brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','brightness_pct') }}"
       color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','color_temp_mired') }}"
   - delay: '00:00:10'
@@ -77,7 +77,7 @@ action:
               - service: light.turn_on
                 data:
                   entity_id: light.living_room_table_lamp
-                  transition: 10
+                  transition: 2
                   brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_table','brightness_pct') }}"
                   color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_mired') }}"
               - delay: '00:00:10'
@@ -105,7 +105,7 @@ action:
               - service: light.turn_on
                 data:
                   entity_id: light.living_room_corner_lamp
-                  transition: 10
+                  transition: 2
                   brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','brightness_pct') }}"
                   color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','color_temp_mired') }}"
               - delay: '00:00:10'
@@ -133,7 +133,7 @@ action:
               - service: light.turn_on
                 data:
                   entity_id: light.living_room_tv_lamp
-                  transition: 10
+                  transition: 2
                   brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','brightness_pct') }}"
                   color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_lamps','color_temp_mired') }}"
               - delay: '00:00:10'
