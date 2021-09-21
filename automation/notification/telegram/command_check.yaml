@@ -45,10 +45,10 @@ action:
           person1 has been in bed for {{ relative_time(states.input_boolean.person1_in_bed.last_changed) }}
         {%- elif is_state('input_boolean.person1_home','on') -%}
           person1 has been home for {{ relative_time(states.input_boolean.person1_home.last_changed) }}
-        {% elif is_state('device_tracker.person1_mobile','not_home') -%}
-          person1 has been at {{ state_attr('sensor.person1s_time_to_home','origin_name') }}, {{ states('input_text.person_person1') }}, for {{ relative_time(states.device_tracker.person1_mobile.last_changed) }}
+        {% elif is_state('device_tracker.person1_pixel_3','not_home') -%}
+          person1 has been at {{ state_attr('sensor.person1s_time_to_home','origin_name') }}, {{ states('input_text.person_person1') }}, for {{ relative_time(states.device_tracker.person1_pixel_3.last_changed) }}
         {%- else -%}
-          person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.device_tracker.person1_mobile.last_changed) }}
+          person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.device_tracker.person1_pixel_3.last_changed) }}
         {%- endif %}
 
         {% if ( states('device_tracker.car_gps') != states('device_tracker.person2_mobile_gps') ) and (not is_state('device_tracker.car_gps','not_home')) -%}

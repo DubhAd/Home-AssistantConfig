@@ -15,7 +15,7 @@ cards:
         hours_to_show: 12
         entities:
           - device_tracker.person3_mobile
-          - device_tracker.person1_mobile
+          - device_tracker.person1_pixel_3
           - device_tracker.person2_mobile_gps
           - zone.home
           - zone.friend1

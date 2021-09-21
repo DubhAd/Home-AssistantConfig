@@ -359,7 +359,7 @@ cards:
         title: person1
         columns: 6
         entities:
-        - entity: device_tracker.person1_mobile
+        - entity: device_tracker.person1_pixel_3
           name: GPS
           icon: mdi:crosshairs-gps
         - entity: device_tracker.f8_0f_f9_df_15_5e
