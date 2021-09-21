@@ -4,7 +4,6 @@ alias: 'person1 at work'
 trigger:
 - platform: state
   entity_id: 
-  - device_tracker.person1_mobile
   - device_tracker.person1_pixel_3
   to: 'work'
 - platform: state

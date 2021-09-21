@@ -380,7 +380,7 @@ cards:
           tap_action: 
             action: toggle
           name: Alarms
-        - entity: sensor.battery_person1_mobile
+        - entity: sensor.person1_pixel_3_battery_level
           name: Battery
         - entity: input_boolean.person1_phone_charging
           show_last_changed: true

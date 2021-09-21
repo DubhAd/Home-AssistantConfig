@@ -35,7 +35,6 @@ cards:
         default_zoom: 18
         hours_to_show: 12
         entities:
-          - device_tracker.person1_mobile
           - device_tracker.person1_pixel_3
       - type: map
         aspect_ratio: 105%

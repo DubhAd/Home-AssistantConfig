@@ -5,7 +5,6 @@ trigger:
   # I've moved
   - platform: state
     entity_id: 
-    - device_tracker.person1_mobile
     - device_tracker.person1_pixel_3
 condition:
   # Not home 

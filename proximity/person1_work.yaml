@@ -1,5 +1,5 @@
 person1_work:
   zone: work
   devices:
-    - device_tracker.person1_mobile
+    - device_tracker.person1_pixel_3
   unit_of_measurement: km

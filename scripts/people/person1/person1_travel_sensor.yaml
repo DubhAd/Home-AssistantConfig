@@ -12,10 +12,10 @@ sequence:
           {% else %}
             {{ states("input_select.person1_status_dropdown") }} 
           {% endif %}
-        {% elif is_state('device_tracker.person1_mobile', 'home') and is_state('input_boolean.person1_home', 'off') %}
+        {% elif is_state('device_tracker.person1_pixel_3', 'home') and is_state('input_boolean.person1_home', 'off') %}
           Near home ({{ states('input_select.person1_status_dropdown') }})
-        {% elif not is_state('device_tracker.person1_mobile', 'not_home') %}
-          At {{ states('device_tracker.person1_mobile') }}
+        {% elif not is_state('device_tracker.person1_pixel_3', 'not_home') %}
+          At {{ states('device_tracker.person1_pixel_3') }}
         {% elif states('proximity.person1_home')|int > 4000 %}
           {{ state_attr('sensor.person1s_time_to_home', 'duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home', 'unit_of_measurement') }} to home by car
         {% elif states('proximity.person1_home')|int > 1000 %}

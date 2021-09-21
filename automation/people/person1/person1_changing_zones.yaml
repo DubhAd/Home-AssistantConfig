@@ -5,14 +5,12 @@ trigger:
   # Been away for a few minutes
   - platform: state
     entity_id: 
-    - device_tracker.person1_mobile
     - device_tracker.person1_pixel_3
     to: 'not_home'
     for: '00:05:00'
   # Arrived in a zone
   - platform: state
     entity_id: 
-    - device_tracker.person1_mobile
     - device_tracker.person1_pixel_3
     from: 'not_home'
   - platform: state
