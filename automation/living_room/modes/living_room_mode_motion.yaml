@@ -5,7 +5,6 @@ trigger:
   - platform: state
     entity_id: 
     - binary_sensor.living_room_motion_occupancy
-    - binary_sensor.pi3_living_room_motion
     to: 'on'
 condition:
   - condition: state
@@ -18,7 +17,7 @@ condition:
     state: 'off'
   - condition: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 5
+    below: 2
   - condition: state
     entity_id: input_select.living_room
     state: 
