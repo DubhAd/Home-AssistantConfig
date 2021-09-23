@@ -11,33 +11,61 @@ condition:
   - condition: state
     entity_id: input_boolean.person1_home
     state: 'off'
+  # Not overseas
+  - condition: state
+    entity_id: input_boolean.person1_overseas
+    state: 'off'
   - condition: or
     conditions:
-    # It's been at least 10 minutes, and I'm close
+    # Arrived in work
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 600 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'work' and trigger.from_state.state == 'not_home' }}"
+    # In work, been at least an hour
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
+      - condition: state
+        entity_id: device_tracker.person1_pixel_3
+        state: 'work'
+    # It's been at least 5 minutes, and pretty close
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
-        below: 20000
-    # It's been at least 15 minutes, and I'm a moderate distance away
+        below: 2500
+    # It's been at least 15 minutes, and close
     - condition: and
       conditions:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 900 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
-        above: 19999 
-        below: 40000
-    # It's been at least an hour, and I'm far away
+        above: 2499
+        below: 10000
+    # It's been at least 30 minutes, and a moderate distance away
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
+      - condition: numeric_state
+        entity_id: proximity.person1_home
+        above: 9999
+        below: 20000
+    # It's been at least an hour, and far away
     - condition: and
       conditions:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 3600 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
-        above: 39999
+        above: 19999
 action:
   - service: script.turn_on
     entity_id: script.person1_traveltime
