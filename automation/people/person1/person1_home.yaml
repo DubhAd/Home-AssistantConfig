@@ -11,10 +11,9 @@ trigger:
     to: 'home'
   - platform: state
     entity_id: binary_sensor.pi3_front_door_sensor
-    to: 'off'
-  - platform: state
-    entity_id: binary_sensor.pi3_front_door_sensor
-    to: 'on'
+    to: 
+    - 'off'
+    - 'on'
   - platform: event
     event_type: automation_reloaded
   - platform: homeassistant
