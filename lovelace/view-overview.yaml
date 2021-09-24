@@ -16,61 +16,83 @@ cards:
       - input_text.person_person1
       - input_text.person_person2
       - input_text.person_person4
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
-    - type: entity
-      entity: weather.home
-      attribute: 'temperature'
-      name: Outside
-      icon: 'mdi:thermometer'
-      unit: '°C'
-    - type: entity
-      entity: sensor.downstairs_temperature
-      name: Downstairs
-      icon: 'mdi:thermometer'
-    - type: entity
-      entity: sensor.upstairs_temperature
-      name: Upstairs
-      icon: 'mdi:thermometer'
-
-  - type: custom:mini-graph-card
-    name: Temperature
-    icon: mdi:thermometer
-    hours_to_show: 24
-    points_per_hour: 12
-    line_width: 2
-    hour24: true
-    animate: true
-    decimals: 1
-    upper_bound: 30
-    show:
-      labels: true
-      fill: false
-    color_thresholds:
-      - value: -10
-        color: 'silver'
-      - value: 0
-        color: 'white'
-      - value: 5
-        color: 'lightblue'
-      - value: 10
-        color: 'lightgreen'
-      - value: 15
-        color: 'orange'
-      - value: 23
-        color: 'red'
-    entities:
-      - entity: sensor.downstairs_temperature
-        name: Downstairs
-        #color: darkgoldenrod
-        color: '#5397e0'
-      - entity: sensor.upstairs_temperature
-        name: Upstairs
-        color: "#33B679"
-        #- entity: sensor.dark_sky_temperature
-      - entity: sensor.accuhome_apparent_temperature
+    - type: horizontal-stack
+      cards:
+      - type: entity
+        entity: weather.home
+        attribute: 'temperature'
         name: Outside
-        #color: 'silver'
+        icon: 'mdi:thermometer'
+        unit: '°C'
+  #      footer:
+  #        type: graph
+  #        entity: sensor.metno_temperature
+  #        hours_to_show: 24
+  #        detail: 2
+      - type: entity
+        entity: sensor.downstairs_temperature
+        name: Downstairs
+        icon: 'mdi:thermometer'
+  #      footer:
+  #        type: graph
+  #        entity: sensor.downstairs_temperature
+  #        hours_to_show: 24
+  #        detail: 2
+      - type: entity
+        entity: sensor.upstairs_temperature
+        name: Upstairs
+        icon: 'mdi:thermometer'
+  #      footer:
+  #        type: graph
+  #        entity: sensor.upstairs_temperature
+  #        hours_to_show: 24
+  #        detail: 2
+    - type: custom:weather-card
+      entity: weather.accuhome
+      current: true
+      details: true
+      forecast: true
+  
+    - type: custom:mini-graph-card
+      name: Temperature
+      icon: mdi:thermometer
+      hours_to_show: 24
+      points_per_hour: 12
+      line_width: 2
+      hour24: true
+      animate: true
+      decimals: 1
+      upper_bound: 30
+      show:
+        labels: true
+        fill: false
+      color_thresholds:
+        - value: -10
+          color: 'silver'
+        - value: 0
+          color: 'white'
+        - value: 5
+          color: 'lightblue'
+        - value: 10
+          color: 'lightgreen'
+        - value: 15
+          color: 'orange'
+        - value: 23
+          color: 'red'
+      entities:
+        - entity: sensor.downstairs_temperature
+          name: Downstairs
+          #color: darkgoldenrod
+          color: '#5397e0'
+        - entity: sensor.upstairs_temperature
+          name: Upstairs
+          color: "#33B679"
+          #- entity: sensor.dark_sky_temperature
+        - entity: sensor.accuhome_apparent_temperature
+          name: Outside
+          #color: 'silver'
         
   - type: custom:webrtc-camera
     entity: camera.front_camera_lowres

@@ -20,7 +20,9 @@ action:
         value_template: "{{ trigger.to_state.state == 'wakeup' }}"
       - condition: state
         entity_id: input_select.master_bedroom
-        state: 'Off'
+        state: 
+        - 'Off'
+        - 'Auto'
       - condition: state
         entity_id: input_boolean.person2_is_awake
         state: 'off'
@@ -50,6 +52,7 @@ action:
             - 'On'
             - 'Bedtime'
             - 'Wake'
+            - 'Auto'
             # Only if relatively dim
           - condition: numeric_state
             entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
@@ -65,6 +68,7 @@ action:
             state:
             - 'Off'
             - 'Motion'
+            - 'Auto'
           sequence:
           - service: input_select.select_option
             data:

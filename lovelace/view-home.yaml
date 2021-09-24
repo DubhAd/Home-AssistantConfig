@@ -38,11 +38,6 @@ cards:
         name: Upstairs
         icon: 'mdi:thermometer'
   
-    - type: custom:weather-card
-      entity: weather.accuhome
-      current: true
-      details: true
-      forecast: true
 
   - type: vertical-stack
     cards:
@@ -60,18 +55,8 @@ cards:
         - input_text.person_person2
         - input_text.person_person4
 
-    - type: custom:auto-entities
-      show_empty: false
-      card: 
-        type: glance
-        title: Occupied rooms
-        show_state: false
-      filter:
-        include:
-          - entity_id: input_boolean.*_occupied
-            state: 'on'
-        exclude:
-          - entity_id: input_boolean.home_occupied
+    - type: custom:webrtc-camera
+      entity: camera.front_camera_lowres
 
     - type: custom:auto-entities
       show_empty: false
@@ -81,6 +66,8 @@ cards:
       filter:
         include:
           - state: "unavailable"
+            options:
+              show_last_changed: true
         exclude:
           - name: /Plex/
           - entity_id: "sensor.pixel_xl_next_alarm"
@@ -98,6 +85,8 @@ cards:
         include:
           - domain: alert
             state: 'on'
+            options:
+              show_last_changed: true
         
     - type: custom:auto-entities
       show_empty: false
@@ -106,41 +95,63 @@ cards:
         title: Leaks
       filter:
         include:
-         - domain: binary_sensor
-           attributes:
-             device_class: 'moisture'
-           state: 'on'
+          - domain: binary_sensor
+            attributes:
+              device_class: 'moisture'
+            options:
+              show_last_changed: true
+            state: 'on'
 
-    - type: custom:webrtc-camera
-      entity: camera.front_camera_lowres
+  - type: custom:auto-entities
+    show_empty: false
+    card: 
+      type: glance
+      title: Occupied rooms
+      #show_state: false
+    filter:
+      include:
+        - entity_id: input_boolean.*_occupied
+          state: 'on'
+          options:
+            show_last_changed: true
+      exclude:
+        - entity_id: input_boolean.home_occupied
 
   - type: custom:auto-entities
     show_empty: false
     card: 
       type: glance
       title: Media players
-      show_state: false
+      #show_state: false
     filter:
       include:
         - domain: media_player
           state: 'on'
+          options:
+            show_last_changed: true
         - domain: media_player
           state: 'playing'
+          options:
+            show_last_changed: true
         - entity_id: device_tracker.family_tv
           state: 'home'
+          options:
+            show_last_changed: true
 
   - type: custom:auto-entities
     show_empty: false
     card: 
       type: glance
       title: Motion sensors
-      show_state: false
+      #show_state: false
     filter:
       include:
         - domain: binary_sensor
           state: 'on'
           attributes: 
             device_class: 'motion'
+          options:
+            show_last_changed: true
       exclude:
         - entity_id: binary_sensor.pi3_living_room_motion
 
@@ -149,22 +160,28 @@ cards:
     card: 
       type: glance
       title: Windows and doors
-      show_state: false
+      #show_state: false
     filter:
       include:
         - group: group.my_exterior_doors
           state: 'on'
+          options:
+            show_last_changed: true
         - group: group.my_downstairs_windows
           state: 'on'
+          options:
+            show_last_changed: true
         - group: group.my_upstairs_windows
           state: 'on'
+          options:
+            show_last_changed: true
 
   - type: custom:auto-entities
     show_empty: false
     card: 
       type: glance
       title: Interior doors
-      show_state: false
+      #show_state: false
     filter:
       include:
         - group: group.my_interior_doors
@@ -174,23 +191,32 @@ cards:
     show_empty: false
     card: 
       type: glance
-      columns: 4
       title: Lights
-      show_state: false
+      #show_state: false
     sort:
       method: name
     filter:
       include:
         - domain: light
           state: 'on'
+          options:
+            show_last_changed: true
         - entity_id: switch.pi3_family_room_socket_switch
           state: 'on'
+          options:
+            show_last_changed: true
         - entity_id: switch.pi3_hall_downstairs_switch
           state: 'on'
+          options:
+            show_last_changed: true
         - entity_id: switch.pi3_vestibule_switch
           state: 'on'
+          options:
+            show_last_changed: true
         - entity_id: switch.pi3_livingroom_socket_switch
           state: 'on'
+          options:
+            show_last_changed: true
       exclude:
         - entity_id: light.living_room_lamps
         - entity_id: light.living_room_lamps_2

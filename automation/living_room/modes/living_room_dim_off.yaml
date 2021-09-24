@@ -15,6 +15,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
+  - platform: state
+    entity_id: input_boolean.person2_home
+    to: 'off'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 5
@@ -51,6 +54,10 @@ condition:
     - condition: state
       entity_id: input_boolean.office_occupied
       state: 'on'
+    # Or person2 left
+    - condition: state
+      entity_id: input_boolean.person2_home
+      state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto
