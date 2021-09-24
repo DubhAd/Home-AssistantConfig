@@ -41,10 +41,3 @@ action:
   - service: input_boolean.turn_off
     entity_id: 
       - input_boolean.office_occupied
-      - input_boolean.stream_front_camera_motion
-  - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_sleep_mode_office
-  - service: input_boolean.turn_on
-    entity_id: 
-      - input_boolean.lighting_living_room
-      - input_boolean.lighting_office
