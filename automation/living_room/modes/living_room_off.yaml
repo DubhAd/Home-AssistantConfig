@@ -16,31 +16,35 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 55
-    for: '00:02:00'
+    for: '00:01:30'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 50
-    for: '00:03:00'
+    for: '00:02:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 45
-    for: '00:04:00'
+    for: '00:02:30'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 40
-    for: '00:05:00'
+    for: '00:03:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 35
-    for: '00:06:00'
+    for: '00:03:30'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 30
-    for: '00:07:00'
+    for: '00:04:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     above: 25
-    for: '00:08:00'
+    for: '00:04:30'
+  - platform: numeric_state
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    above: 25
+    for: '00:05:00'
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'off'
@@ -76,7 +80,7 @@ condition:
         state: 'on'
       - condition: numeric_state
         entity_id: sensor.living_room_light_sensor_illuminance_lux
-        above: 25
+        above: 20
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

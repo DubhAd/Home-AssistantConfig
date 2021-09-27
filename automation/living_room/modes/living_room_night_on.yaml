@@ -20,7 +20,7 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 8
+    below: 9
     for: '00:02:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
@@ -49,7 +49,7 @@ condition:
   # Dull
   - condition: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 8
+    below: 9
   # Didn't just turn the lights off
   - condition: template
     value_template: "{{ (now() - states.light.living_room_corner_lamp.last_changed).seconds > 120 }}"
