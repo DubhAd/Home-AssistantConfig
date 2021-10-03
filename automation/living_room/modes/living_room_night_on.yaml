@@ -43,16 +43,16 @@ condition:
       entity_id: input_boolean.lighting_living_room
       state: 'on'
     - condition: template
-      value_template: "{{ trigger and trigger.entity_id == sensor.hue_dimmer_action }}"
+      value_template: "{{ trigger and trigger.entity_id == 'sensor.hue_dimmer_action' }}"
   - condition: template
     value_template: "{{ not is_state('input_select.living_room','Night on') }}"
   # Dull
   - condition: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 9
-  # Didn't just turn the lights off
+  # Didn't just turn the lights off, when the trigger was the light level
   - condition: template
-    value_template: "{{ (now() - states.light.living_room_corner_lamp.last_changed).seconds > 120 }}"
+    value_template: "{{ ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance_lux') }}"
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

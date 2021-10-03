@@ -39,9 +39,9 @@ condition:
       entity_id: sensor.living_room_light_sensor_illuminance_lux
       below: 14
       above: 8
-    # Didn't just turn the lights off
+    # Didn't just turn the lights off and we're triggered by the light sensor
     - condition: template
-      value_template: "{{ (now() - states.light.living_room_corner_lamp.last_changed).seconds > 120 }}"
+      value_template: "{{ ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance_lux') }}"
     # Lighting in the room is under automatic control
     - condition: state
       entity_id: input_boolean.lighting_living_room
