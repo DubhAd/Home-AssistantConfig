@@ -2,16 +2,25 @@ id: 'hall_lights_turned_off'
 initial_state: 'on'
 alias: 'Hall lights turned off'
 trigger:
-  - platform: state
-    entity_id: light.downstairs_hall
-    to: 'off'
-    from: 'on'
+- platform: state
+  entity_id: light.downstairs_hall
+  from: 'on'
+  to: 'off'
+  for: '00:01:00'
 action:
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_adapt_brightness_hall
-  - condition: template
-    value_template: "{{ not is_state('input_select.hall','Off') }}"
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.hall
-      option: 'Off'
+- choose:
+  - conditions:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: input_select.hall
+        state: 'Off'
+    sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.hall
+        option: 'Off'
+- service: switch.turn_on
+  entity_id: 
+  - switch.adaptive_lighting_adapt_brightness_hall
+  - switch.adaptive_lighting_hall

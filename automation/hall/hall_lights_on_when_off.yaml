@@ -1,0 +1,20 @@
+id: 'hall_lights_on_when_off'
+initial_state: 'on'
+alias: 'Hall lights on when off'
+trigger:
+- platform: state
+  entity_id: light.downstairs_hall
+  from: 'off'
+  to: 'on'
+  for: '00:30:00'
+condition:
+- condition: state
+  entity_id: input_select.hall
+  state: 'Off'
+action:
+- service: switch.turn_off
+  entity_id: switch.adaptive_lighting_hall
+- service: light.turn_off
+  data:
+    entity_id: light.downstairs_hall
+    transition: 5
