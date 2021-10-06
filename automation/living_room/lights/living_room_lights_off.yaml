@@ -47,6 +47,10 @@ condition:
           entity_id: input_select.house
           state: 'Away'
 action:
+  - service: switch.turn_off
+    entity_id:
+      - switch.adaptive_lighting_living_room_lamps
+      - switch.adaptive_lighting_living_room_table
   - service: notify.logfile
     data:
       message: "Turning off the living room lights"

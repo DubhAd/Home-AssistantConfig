@@ -39,10 +39,31 @@ condition:
             - 'Away'
             - 'Bedtime'
 action:
+  - service: switch.turn_off
+    entity_id:
+      - switch.adaptive_lighting_living_room_lamps
+      - switch.adaptive_lighting_living_room_table
   - service: notify.logfile
     data:
       message: "Turning off the living room lights again (mode is currently {{ states('input_select.living_room') }})"
   # Only turn off the things that are on
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: switch.pi3_livingroom_socket_switch
+            state: 'on'
+        sequence:
+          - service: switch.turn_off
+            entity_id: switch.pi3_livingroom_socket_switch
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: light.living_room_lamps
+            state: 'on'
+        sequence:
+          - service: light.turn_off
+            data:
+              entity_id: light.living_room_lamps
   - choose:
       - conditions:
           - condition: state

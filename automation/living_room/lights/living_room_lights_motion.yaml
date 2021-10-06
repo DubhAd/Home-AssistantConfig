@@ -33,6 +33,10 @@ condition:
         entity_id: input_select.house
         state: 'Motion'
 action:
+  - service: switch.turn_on
+    entity_id:
+      - switch.adaptive_lighting_living_room_lamps
+      - switch.adaptive_lighting_living_room_table
   - alias: "Turn on the table light"
     repeat:
       while:

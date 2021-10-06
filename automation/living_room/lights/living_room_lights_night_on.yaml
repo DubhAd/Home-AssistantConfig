@@ -38,6 +38,10 @@ action:
   - service: notify.logfile
     data:
       message: "Turning on the living room lights"
+  - service: switch.turn_on
+    entity_id:
+      - switch.adaptive_lighting_living_room_lamps
+      - switch.adaptive_lighting_living_room_table
   - choose:
       - alias: "Socket is off"
         conditions:
