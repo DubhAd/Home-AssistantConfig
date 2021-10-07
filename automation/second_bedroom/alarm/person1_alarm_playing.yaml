@@ -2,24 +2,24 @@ id: 'person1_alarm_playing'
 alias: 'person1 Alarm Playing'
 initial_state: 'on'
 trigger:
+  # Radio playing
   - platform: state
     entity_id: media_player.person1
     to: 'playing'
 condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.person1_home
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.person1_in_bed
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.person1_alarm_sounded
-      state: 'off'
-    - condition: time
-      after: '04:00:00'
-      before: '12:00:00'
+  # Is at home and room is occupied
+  - condition: state
+    entity_id: 
+    - input_boolean.person1_home
+    - input_boolean.second_bedroom_occupied
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person1_alarm_sounded
+    state: 'off'
+  # Is in the daytime window
+  - condition: time
+    after: '04:00:00'
+    before: '12:00:00'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person1_alarm_sounded
