@@ -204,6 +204,14 @@ cards:
       - entity: media_player.family_room_display
         show_last_changed: true
         name: Hub
+      - entity: script.volume_alert
+        name: Alert
+        icon: mdi:alert
+        show_state: false
+        state_color: true
+        tap_action:
+          action: call-service
+          service: script.volume_alert
 - type: custom:mini-graph-card
   name: Light level
   points_per_hour: 12

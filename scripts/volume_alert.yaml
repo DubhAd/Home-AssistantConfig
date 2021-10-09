@@ -1,0 +1,24 @@
+sequence:
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.family_room_display
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.family_room_display
+      volume_level: 0.8
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.family_room_display
+      media_content_id: http://192.168.0.12:8123/local/sounds/air-raid-siren-alert.mp3
+      media_content_type: music
+  - wait_template: "{{ is_state('media_player.family_room_display','playing') }}"
+  - wait_template: "{{ is_state('media_player.family_room_display','idle') }}"
+  - service: tts.google_cloud_say
+    data:
+      entity_id: media_player.family_room_display
+      message: "Stop being so loud"
+  - wait_template: "{{ is_state('media_player.family_room_display','playing') }}"
+  - wait_template: "{{ is_state('media_player.family_room_display','idle') }}"
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.family_room_display
