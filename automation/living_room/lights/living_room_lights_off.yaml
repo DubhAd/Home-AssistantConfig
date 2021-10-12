@@ -88,8 +88,8 @@ action:
             - service: light.turn_off
               data:
                 entity_id: light.living_room_lamps
-                transition: 15
-            - delay: '00:00:30'
+                transition: 5
+            - delay: '00:00:10'
           # end of repeat block
   - choose:
       - conditions:
