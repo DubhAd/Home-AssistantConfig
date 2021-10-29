@@ -4,7 +4,7 @@
     state: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
                 |rejectattr('attributes.restored','in',[true])
-                |rejectattr('entity_id','match','^.*([\._]home|_hws_|_next_alarm)')
+                |rejectattr('entity_id','match','^.*([\._]home|_hws_|_next_alarm|minecraft|accuhome)')
                 |rejectattr('attributes.supported_features','in',[152461])
                 |rejectattr('entity_id','in',['media_player.samsung_tv'])
                 |list|length}}
@@ -14,7 +14,7 @@
       entities: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
                 |rejectattr('attributes.restored','in',[true])
-                |rejectattr('entity_id','match','^.*([\._]home|_hws_|_next_alarm)')
+                |rejectattr('entity_id','match','^.*([\._]home|_hws_|_next_alarm|minecraft|accuhome)')
                 |rejectattr('attributes.supported_features','in',[152461])
                 |rejectattr('entity_id','in',['media_player.samsung_tv'])
                 |map(attribute='entity_id')|list|join(', ')}}

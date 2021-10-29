@@ -75,6 +75,9 @@ cards:
           - entity_id: "binary_sensor.kelsie_*"
           - entity_id: "media_player.samsung_tv"
           - entity_id: "media_player.cast_living_room_tv"
+          - entity_id: "sensor.*_minecraft*"
+          - entity_id: "sensor.accuhome_*"
+          - entity_id: "weather.accuhome"
 
     - type: custom:auto-entities
       show_empty: false
@@ -226,4 +229,3 @@ cards:
         - entity_id: light.living_room_lamps_2
         - entity_id: light.yeelight_*
         - entity_id: light.bedroom_lights
-
