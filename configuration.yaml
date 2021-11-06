@@ -2,6 +2,8 @@ homeassistant: !include homeassistant.yaml
 
 logger:
   default: info
+  logs:
+    homeassistant.helpers.template: error
 
 default_config:
 cloud:
