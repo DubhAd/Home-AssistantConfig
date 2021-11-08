@@ -38,7 +38,7 @@ trigger:
     entity_id: binary_sensor.pi3_front_door_sensor
     to: 'on'
 condition:
-  # Not already on
+  # Not already on or bedtime
   - condition: not
     conditions:
       # If we're already in this mode, there's no point in continuing
@@ -46,6 +46,9 @@ condition:
       entity_id: input_select.hall
       state: 'Night on'
       # If the light is off, we should only continue if it's been off for more than 15 minutes
+  - condition: state
+    entity_id: input_boolean.bedtime
+    state: 'off'
   # Sun is relatively low or it's pretty dim
   - condition: or
     conditions:
