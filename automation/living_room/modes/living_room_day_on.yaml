@@ -41,7 +41,7 @@ condition:
       above: 8
     # Didn't just turn the lights off and we're triggered by the light sensor
     - condition: template
-      value_template: "{{ trigger.entity_id == 'input_boolean.living_room_occupied' or ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance_lux') }}"
+      value_template: "{{ trigger.entity_id == 'input_boolean.living_room_occupied' or trigger.entity_id == 'input_boolean.lighting_living_room' or ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance_lux') }}"
     # Lighting in the room is under automatic control
     - condition: state
       entity_id: input_boolean.lighting_living_room
