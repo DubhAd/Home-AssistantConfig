@@ -5,6 +5,8 @@ logger:
   logs:
     homeassistant.helpers.template: error
 
+  
+
 default_config:
 cloud:
 config:
