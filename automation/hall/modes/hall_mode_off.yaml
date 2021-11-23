@@ -6,10 +6,6 @@ trigger:
     event: start
   - platform: event
     event_type: automation_reloaded
-  # Somebody just came home
-  - platform: state
-    entity_id: input_boolean.home_occupied
-    to: 'on'
   # Motion in the hall
   - platform: state
     entity_id: binary_sensor.downstairs_hall_motion_occupancy
@@ -30,41 +26,18 @@ trigger:
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 10
   #  for: '00:01:00'
-  # Nobody's downstairs
-  - platform: state
-    entity_id: group.downstairs_occupied
-    to: 'off'
-    for: '00:05:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Off') }}"
-  # There must be _somebody_ home
-  - condition: state
-    entity_id: input_boolean.home_occupied
-    state: 'on'
-  - condition: or
-    conditions:
-    - condition: and
-      conditions:
-      # Brighter here
-      - condition: numeric_state
-        entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-        above: 3
-      # Sun is high enough to matter
-      - condition: numeric_state
-        entity_id: sun.sun
-        attribute: elevation
-        above: 0
-    # No room occupied and we're not just awake
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: group.downstairs_occupied
-        state: 'off'
-      - condition: state
-        entity_id: input_boolean.bedtime
-        state: 'off'
-        for: '00:30:00'
+  # Brighter here
+  - condition: numeric_state
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    above: 3
+  # Sun is high enough to matter
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    above: 0
 action:
   - service: notify.logfile
     data:
