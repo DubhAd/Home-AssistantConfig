@@ -1,0 +1,4 @@
+name: Own laptop
+entities:
+- device_tracker.00_e0_4c_7c_8e_41
+- device_tracker.a4_c3_f0_88_fa_2c

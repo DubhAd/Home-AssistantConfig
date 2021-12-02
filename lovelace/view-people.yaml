@@ -231,7 +231,7 @@ cards:
         - entity: input_boolean.person2_tablet_charging
           show_last_changed: true
           name: Tablet charging
-        - entity: device_tracker.9c_30_5b_3c_6c_87
+        - entity: group.own_laptop
           name: Laptop
           icon: mdi:wifi
         - entity: device_tracker.person2_bt_laptop
