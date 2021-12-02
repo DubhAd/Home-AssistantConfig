@@ -42,7 +42,7 @@ action:
   - service: notify.logfile
     data:
       message: >-
-        Hall turned off by {{ trigger.entity_id }} - {{ states('sensor.pi3_living_room_multi_luminance') }}/{{ states('sensor.hall_downstairs_illuminance') }}
+        Hall turned off by {{ trigger.entity_id }} - {{ states('sensor.downstairs_hall_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.hall
