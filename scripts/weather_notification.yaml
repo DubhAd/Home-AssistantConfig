@@ -5,7 +5,7 @@ sequence:
       entity_id: input_text.weather_message
       value: >-
         {% if states('sensor.dark_sky_temperature') != 'unknown' %}
-          {{ states('sensor.dark_sky_temperature')|round(0) }}C outside and {{ states('sensor.dark_sky_hourly_summary')|lower }} {{ states('sensor.dark_sky_daily_summary') }}
+          {{ states('sensor.dark_sky_temperature')|round(0) }}C outside and {{ states('sensor.dark_sky_summary')|lower }}, {% if states('sensor.dark_sky_minutely_summary') != 'unknown' %}{{ states('sensor.dark_sky_minutely_summary')|lower }} {{ states('sensor.dark_sky_daily_summary') }} {% else %} {{ states('sensor.dark_sky_hourly_summary')|lower }} {% endif %}
         {% else %}
           {{ states.weather.dark_sky.attributes.forecast[0].temperature }}C outside and {{ states.weather.dark_sky.attributes.forecast[0].condition }}
         {% endif %}
