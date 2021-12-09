@@ -6,17 +6,16 @@ trigger:
     entity_id: input_boolean.office_occupied
     to: 'on'
 condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: media_player.office
-      state: 'paused'
-    - condition: state
-      entity_id: media_player.office
-      state: 'idle'
-    - condition: state
-      entity_id: media_player.office
-      state: 'off'
+  - condition: state
+    entity_id: media_player.office
+    state: 
+      - 'paused'
+      - 'idle'
+      - 'off'
+  # Must be in a suitable time window
+  - condition: time
+    after: '06:30:00'
+    before: '09:00:00'
 action:
   - service: media_player.media_play
     data:
