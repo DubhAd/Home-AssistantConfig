@@ -224,6 +224,10 @@ cards:
           state: 'on'
           options:
             show_last_changed: true
+        - entity_id: switch.pi3_cabinet_light_switch
+          state: 'on'
+          options:
+            show_last_changed: true
       exclude:
         - entity_id: light.living_room_lamps
         - entity_id: light.living_room_lamps_2

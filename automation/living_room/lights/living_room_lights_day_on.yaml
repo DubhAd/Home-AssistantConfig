@@ -76,18 +76,13 @@ action:
       - condition: state
         entity_id: light.living_room_corner_lamp
         state: 'on'
-      - condition: state
-        entity_id: input_boolean.living_room_christmas
-        state: 'off'
       sequence:
       - service: light.turn_off
         data:
           entity_id: light.living_room_corner_lamp
           transition: 5
+  - choose:
     - conditions:
-      - condition: state
-        entity_id: light.living_room_corner_lamp
-        state: 'off'
       - condition: state
         entity_id: input_boolean.living_room_christmas
         state: 'on'

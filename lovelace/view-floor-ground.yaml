@@ -7,7 +7,7 @@ cards:
   title: Living room
   cards:
   - type: glance
-    columns: 4
+    columns: 5
     entities:
     - entity: light.living_room_tv_lamp
       name: "TV"
@@ -23,6 +23,8 @@ cards:
       show_last_changed: true
       tap_action: 
         action: toggle 
+    - entity: switch.pi3_cabinet_light_switch
+      show_last_changed: true
   - type: glance
     #title: Living room
     columns: 4

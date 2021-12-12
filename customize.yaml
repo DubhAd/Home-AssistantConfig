@@ -58,8 +58,8 @@ calendar.person2_family_tripit:
 calendar.person2_work:
   icon: mdi:calendar-multiple
 switch.pi3_cabinet_light_switch:
-  friendly_name: Bear light
-  icon: mdi:lamp
+  friendly_name: Christmas tree
+  icon: mdi:pine-tree
 switch.pi3_tv_light_switch:
   friendly_name: TV light
   icon: mdi:television
