@@ -80,6 +80,11 @@ cards:
     secondary_info: last-triggered
   - entity: automation.living_room_table_light_unavailable_off
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.living_room_christmas_tree_on
+    secondary_info: last-triggered
+  - entity: automation.living_room_christmas_tree_off
+    secondary_info: last-triggered
 - type: entities
   title: Living room media automations
   show_header_toggle: false

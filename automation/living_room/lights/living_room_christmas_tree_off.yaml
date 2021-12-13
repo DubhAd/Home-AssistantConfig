@@ -1,0 +1,18 @@
+id: 'living_room_christmas_tree_off'
+alias: 'Living room Christmas Tree off'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.living_room_christmas
+    state: 'on'
+  - condition: state
+    entity_id: switch.pi3_cabinet_light_switch
+    state: 'on'
+action:
+  - service: switch.turn_off
+    entity_id: switch.pi3_cabinet_light_switch
+
