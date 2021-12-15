@@ -5,9 +5,20 @@ trigger:
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
+  - platform: state
+    entity_id: 
+      - input_boolean.living_room_occupied
+      - input_boolean.home_occupied
+      - group.downstairs_occupied
+    to: 'on'
+  - platform: state
+    entity_id: sun.sun
+    to: 'below_horizon'
 condition:
   - condition: state
-    entity_id: input_boolean.living_room_christmas
+    entity_id: 
+      - group.downstairs_occupied
+      - input_boolean.home_occupied
     state: 'on'
   - condition: state
     entity_id: switch.pi3_cabinet_light_switch
