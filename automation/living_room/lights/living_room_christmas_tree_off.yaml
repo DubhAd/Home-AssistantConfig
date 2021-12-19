@@ -5,6 +5,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'on'
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'off'
 condition:
   - condition: state
     entity_id: input_boolean.living_room_christmas

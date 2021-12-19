@@ -37,7 +37,6 @@ action:
     entity_id: input_boolean.livingroom_lights_auto
   - service: switch.turn_on
     entity_id:
-      - switch.pi3_livingroom_socket_switch
       - switch.adaptive_lighting_living_room_lamps
       - switch.adaptive_lighting_living_room_table
   - alias: "Turn on the TV light"
