@@ -67,12 +67,12 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: input_boolean.living_room_christmas
-            state: 'off'
-          - condition: state
             entity_id: switch.pi3_cabinet_light_switch
             state: 'on'
         sequence:
+          - condition: state
+            entity_id: input_boolean.living_room_christmas
+            state: 'off'
           - service: switch.turn_off
             entity_id: switch.pi3_cabinet_light_switch
     default:

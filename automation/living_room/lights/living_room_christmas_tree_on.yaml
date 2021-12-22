@@ -10,6 +10,7 @@ trigger:
       - input_boolean.living_room_occupied
       - input_boolean.home_occupied
       - group.downstairs_occupied
+      - input_boolean.living_room_christmas
     to: 'on'
   - platform: state
     entity_id: sun.sun
@@ -19,6 +20,7 @@ condition:
     entity_id: 
       - group.downstairs_occupied
       - input_boolean.home_occupied
+      - input_boolean.living_room_christmas
     state: 'on'
   - condition: state
     entity_id: switch.pi3_cabinet_light_switch
