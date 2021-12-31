@@ -29,9 +29,9 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Ikea LED1739R5](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html#ikea-led1537r6%252Fled1739r5) | Light | :heavy_check_mark: | This was bought to replace the Osram, and it does this well. My comments for the other Ikea lights apply here too. |
 | [Innr SP222](https://www.zigbee2mqtt.io/devices/SP_222.html) | Router | :grey_question: | Purely functions as a (Zigbee 3.0) router, it doesn't do power monitoring, but it is compact and has local control. I'm going to use some more of these to replace some of the Z-Wave sockets. |
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | Remote | :thumbsdown: | These are neat, smaller than the Xiaomi button, but not as nice to use. |
-| [Konke contact sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPDR.html) | Doors | :grey_question: | These are neat, slightly smaller than the Xiaomi sensors, but visually not as nice. |
-| [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | :grey_question: | These are neat, smaller than the Xiaomi sensors, and visually quite nice.  |
-| [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | :grey_question: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. |
+| [Konke contact sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPDR.html) | Doors | :thumbsdown: | These are neat, slightly smaller than the Xiaomi sensors, but visually not as nice. They also seem to eat batteries and fail without warning. |
+| [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. They also seem to eat batteries and fail without warning. |
+| [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. |
 | [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Office light | :grey_question: | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
 
