@@ -19,10 +19,11 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  # currently home
+  # Home for at least a 2 minutes
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
+    for: '00:02:00'
   - condition: or
     conditions:
     # Driving

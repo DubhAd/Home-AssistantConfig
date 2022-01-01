@@ -18,6 +18,7 @@ condition:
   - condition: state
     entity_id: input_boolean.person3_home
     state: 'on'
+    for: '00:02:00'
   - condition: or
     conditions:
     # Two or more trackers mark as away, door opened/closed in the last 5 minutes
