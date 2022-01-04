@@ -24,6 +24,8 @@ sequence:
           Overseas
         {% elif is_state('input_boolean.person2_travelling', 'on') %}
           Travelling
+        {% elif is_state('input_boolean.person2_driving','on') %}
+          Driving ({{ state_attr('sensor.person2s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home', 'unit_of_measurement') }} away)
         {% else %}
           {{ state_attr('sensor.person2s_time_to_home', 'duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home', 'unit_of_measurement') }} to home
         {% endif %}
