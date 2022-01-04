@@ -11,4 +11,4 @@ repeat:
 can_acknowledge: True
 skip_first: False
 notifiers:
-  - notify.status_alert
+  - status_alert

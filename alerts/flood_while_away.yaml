@@ -10,4 +10,5 @@ repeat:
 can_acknowledge: True
 skip_first: False
 notifiers:
-  - notify.status_alert
+  - command_line_person2
+  - command_line_person3
