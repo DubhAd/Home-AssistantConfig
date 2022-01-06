@@ -1,0 +1,125 @@
+alias: Notify House
+description: Notify the house
+fields:
+  message:
+    description: "The message to send"
+    example: "The whale has been dropped"
+sequence:
+  - choose:
+      - conditions: 
+          - condition: state
+            entity_id: input_boolean.person2_home
+            state: 'on'
+        sequence:
+          - service: notify.command_line_person2
+            data:
+              message: "{{ message }}"
+  - choose:
+      - conditions: 
+          - condition: state
+            entity_id: input_boolean.person3_home
+            state: 'on'
+        sequence:
+          - service: notify.command_line_person3
+            data:
+              message: "{{ message }}"
+  - choose:
+      - conditions: 
+          - condition: state
+            entity_id: input_boolean.family_room_occupied
+            state: 'on'
+        sequence:
+          - service: media_player.turn_on
+            target:
+              entity_id: media_player.family_room_display
+          - service: media_player.volume_set
+            data:
+              volume_level: 0.5
+            target:
+              entity_id: media_player.family_room_display
+          - service: notify.tts_family_room
+            data:
+              message: "{{ message }}"
+          - delay: '00:00:02'
+          # Wait for it to stop playing (2 minute timeout)
+          - wait_template: "{{ is_state('media_player.family_room_display','idle') }}"
+            timeout: '00:02:00'
+            continue_on_timeout: 'true'
+          - service: media_player.turn_off
+            target:
+              entity_id: media_player.family_room_display
+  - choose:
+      - conditions: 
+          - condition: state
+            entity_id: input_boolean.living_room_occupied
+            state: 'on'
+        sequence:
+          - service: media_player.turn_on
+            target:
+              entity_id: media_player.living_room_display
+          - service: media_player.volume_set
+            data:
+              volume_level: 0.5
+            target:
+              entity_id: media_player.living_room_display
+          - service: notify.tts_living_room
+            data:
+              message: "{{ message }}"
+          - delay: '00:00:02'
+          # Wait for it to stop playing (2 minute timeout)
+          - wait_template: "{{ is_state('media_player.living_room_display','idle') }}"
+            timeout: '00:02:00'
+            continue_on_timeout: 'true'
+          - service: media_player.turn_off
+            target:
+              entity_id: media_player.living_room_display
+  - choose:
+      - conditions: 
+          - condition: state
+            entity_id: input_boolean.office_occupied
+            state: 'on'
+        sequence:
+          - service: media_player.turn_on
+            target:
+              entity_id: media_player.office_smart_display
+          - service: media_player.volume_set
+            data:
+              volume_level: 0.5
+            target:
+              entity_id: media_player.office_smart_display
+          - service: notify.tts_office
+            data:
+              message: "{{ message }}"
+          - delay: '00:00:02'
+          # Wait for it to stop playing (2 minute timeout)
+          - wait_template: "{{ is_state('media_player.office_smart_display','idle') }}"
+            timeout: '00:02:00'
+            continue_on_timeout: 'true'
+          - service: media_player.turn_off
+            target:
+              entity_id: media_player.office_smart_display
+  - choose:
+      - conditions: 
+          - condition: state
+            entity_id: input_boolean.master_bedroom_occupied
+            state: 'on'
+        sequence:
+          - service: media_player.turn_on
+            target:
+              entity_id: media_player.master_bedroom_display
+          - service: media_player.volume_set
+            data:
+              volume_level: 0.5
+            target:
+              entity_id: media_player.master_bedroom_display
+          - service: notify.tts_master_bedroom
+            data:
+              message: "{{ message }}"
+          - delay: '00:00:02'
+          # Wait for it to stop playing (2 minute timeout)
+          - wait_template: "{{ is_state('media_player.master_bedroom_display','idle') }}"
+            timeout: '00:02:00'
+            continue_on_timeout: 'true'
+          - service: media_player.turn_off
+            target:
+              entity_id: media_player.master_bedroom_display
