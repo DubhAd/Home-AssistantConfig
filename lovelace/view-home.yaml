@@ -136,7 +136,7 @@ cards:
           state: 'playing'
           options:
             show_last_changed: true
-        - entity_id: device_tracker.family_tv
+        - entity_id: device_tracker.family_room_tv
           state: 'home'
           options:
             show_last_changed: true

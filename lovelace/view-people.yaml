@@ -157,7 +157,7 @@ cards:
         - entity: device_tracker.person2_mobile_gps
           name: GPS
           icon: mdi:crosshairs-gps
-        - entity: device_tracker.f8_1a_2b_e5_02_c4
+        - entity: device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4
           name: WiFi
           icon: mdi:wifi
         - entity: device_tracker.person2_wifi
@@ -292,7 +292,7 @@ cards:
         title: Work
         columns: 6
         entities:
-        - entity: device_tracker.80_b0_3d_e2_3b_a2
+        - entity: device_tracker.work_iphone
           name: WiFi
           icon: mdi:wifi
         - entity: device_tracker.person2_bt_front_work

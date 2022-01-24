@@ -214,8 +214,8 @@ cards:
           propagate: true
 
         - entities:
-            - device_tracker.family_tv
-            - device_tracker.livingroom_chromecast
+            - device_tracker.family_room_tv
+            - device_tracker.living_room_chromecast
             - media_player.samsung_tv
             - sensor.person1
           states:

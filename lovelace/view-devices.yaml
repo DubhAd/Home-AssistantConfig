@@ -18,9 +18,6 @@ cards:
 - type: entity
   name: "WAN IP"
   entity: sensor.fritz_box_3490_external_ip
-- type: entity
-  name: "Up since"
-  entity: sensor.fritz_box_3490_uptime
 
 - type: glance
   title: Things
@@ -28,7 +25,7 @@ cards:
   #show_state: false
   columns: 4
   entities:
-  - entity: binary_sensor.fritz_box_3490_connectivity
+  - entity: binary_sensor.fritz_box_3490_connection
     name: Internet
     show_last_changed: true
   - entity: binary_sensor.remote_ui
@@ -44,9 +41,9 @@ cards:
   title: Devices
   show_header_toggle: false
   entities:
-  - entity: device_tracker.family_tv
+  - entity: device_tracker.samsung_electronics_24_b4_13
     name: Family room
-  - entity: device_tracker.livingroom_chromecast
+  - entity: device_tracker.living_room_chromecast
     name: Living room chromecast
   - entity: media_player.cast_living_room_tv
     name: Living room chromecast
