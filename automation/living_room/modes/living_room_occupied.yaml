@@ -25,7 +25,7 @@ trigger:
     for:
       minutes: 5
   - platform: state
-    entity_id: device_tracker.livingroom_chromecast
+    entity_id: device_tracker.living_room_chromecast
     to: 'home'
     for:
       minutes: 5
@@ -42,7 +42,7 @@ trigger:
     to: 'off'
     from: 'unavailable'
   - platform: state
-    entity_id: device_tracker.livingroom_chromecast
+    entity_id: device_tracker.living_room_chromecast
     to: 'home'
   - platform: state
     entity_id: 
@@ -86,7 +86,7 @@ condition:
       - 'playing'
       - 'off'
     - condition: state
-      entity_id: device_tracker.livingroom_chromecast
+      entity_id: device_tracker.living_room_chromecast
       state: 'home'
 action:
   - service: switch.turn_off

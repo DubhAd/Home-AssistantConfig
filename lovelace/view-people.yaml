@@ -434,7 +434,7 @@ cards:
         - entity: device_tracker.person1_tablet
           name: GPS
           icon: mdi:crosshairs-gps
-        - entity: device_tracker.94_be_46_9d_4c_1d
+        - entity: device_tracker.person1_tablet_lenovo
           name: WiFi
           icon: mdi:wifi
         - entity: device_tracker.person1_bt_front_tablet

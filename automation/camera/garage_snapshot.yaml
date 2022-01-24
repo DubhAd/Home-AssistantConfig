@@ -6,7 +6,7 @@ trigger:
     minutes: "/2"
 action:
   - condition: state
-    entity_id: device_tracker.b8_27_eb_44_5b_1a
+    entity_id: device_tracker.garage_pi_camera
     state: 'home'
   - service: camera.snapshot
     data:

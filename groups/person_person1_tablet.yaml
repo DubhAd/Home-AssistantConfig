@@ -3,4 +3,4 @@ icon: mdi:tablet
 entities:
 - device_tracker.person1_bt_tablet
 - device_tracker.person1_bt_front_tablet
-- device_tracker.nmap_tracker_94_be_46_9d_4c_1d
+- device_tracker.person1_tablet_lenovo

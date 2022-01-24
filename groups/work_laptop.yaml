@@ -1,4 +1,3 @@
 name: Work laptop
 entities:
-- device_tracker.nmap_tracker_00_e0_4c_68_05_50
 - device_tracker.work_laptop_dock

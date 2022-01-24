@@ -4,7 +4,7 @@ alias: 'person2 home'
 trigger:
   - platform: state
     entity_id: 
-      - device_tracker.f8_1a_2b_e5_02_c4
+      - device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4
       - device_tracker.person2_bt_mobile
       - device_tracker.person2_bt_front_mobile
       - device_tracker.person2_wifi

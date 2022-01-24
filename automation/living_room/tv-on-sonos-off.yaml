@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'TV on Sonos off'
 trigger:
   - platform: state
-    entity_id: device_tracker.livingroom_chromecast
+    entity_id: device_tracker.living_room_chromecast
     from: 'not_home'
     to: 'home'
 condition:
