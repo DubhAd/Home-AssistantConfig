@@ -362,7 +362,7 @@ cards:
         - entity: device_tracker.person1_pixel_3
           name: GPS
           icon: mdi:crosshairs-gps
-        - entity: device_tracker.f8_0f_f9_df_15_5e
+        - entity: device_tracker.person1_mobile_wifi
           name: WiFi
           icon: mdi:wifi
         - entity: device_tracker.person1_wifi
