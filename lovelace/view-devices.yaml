@@ -23,10 +23,13 @@ cards:
   title: Things
   show_header_toggle: false
   #show_state: false
-  columns: 4
+  columns: 5
   entities:
   - entity: binary_sensor.fritz_box_3490_connection
     name: Internet
+    show_last_changed: true
+  - entity: binary_sensor.fritz_box_3490_link
+    name: link
     show_last_changed: true
   - entity: binary_sensor.remote_ui
     show_last_changed: true
@@ -41,7 +44,7 @@ cards:
   title: Devices
   show_header_toggle: false
   entities:
-  - entity: device_tracker.samsung_electronics_24_b4_13
+  - entity: device_tracker.family_room_tv
     name: Family room
   - entity: device_tracker.living_room_chromecast
     name: Living room chromecast

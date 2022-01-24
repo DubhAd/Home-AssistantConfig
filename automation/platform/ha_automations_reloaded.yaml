@@ -7,4 +7,4 @@ trigger:
 action:
   - service: script.notify_person2
     data:
-      message: "Automations on Vision have been reloaded at {{ as_timestamp(now())|timestamp_local }} local"
+      message: "Automations on Vision have been reloaded at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"

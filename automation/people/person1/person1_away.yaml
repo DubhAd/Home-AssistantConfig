@@ -6,7 +6,7 @@ trigger:
     entity_id: proximity.person1_home
   - platform: state
     entity_id: 
-      - device_tracker.f8_0f_f9_df_15_5e
+      - device_tracker.person1_mobile_wifi
       - device_tracker.person1_bt_mobile
       - device_tracker.person1_bt_front_mobile
       - device_tracker.person1_wifi

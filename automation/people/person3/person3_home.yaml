@@ -4,7 +4,7 @@ alias: 'person3 home'
 trigger:
   - platform: state
     entity_id:
-      - device_tracker.person3_mobile
+      - device_tracker.person3_mobile_wifi
       - device_tracker.person3_bt_mobile
       - device_tracker.person3_bt_front_mobile
       - device_tracker.person3_wifi

@@ -167,7 +167,8 @@ cards:
         - entities:
             - media_player.living_room_display
             - media_player.family_room_display
-            - media_player.office_display
+            - media_player.office_smart_display
+            - media_player.master_bedroom_display
           states:
             - state: 'playing'
               class: 'homehub-on'
@@ -447,7 +448,7 @@ cards:
           propagate: true
 
         - entities:
-            - binary_sensor.fritz_box_3490_connectivity
+            - binary_sensor.fritz_box_3490_connection
           states:
             - state: 'on'
               class: 'squeezebox-on'
