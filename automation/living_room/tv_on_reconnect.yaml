@@ -1,0 +1,15 @@
+id: 'tv_on_reconnect'
+alias: 'TV on reconnect'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: media_player.samsung_tv
+    to: 'on'
+    for: '00:01:00'
+condition:
+  - condition: state
+    entity_id: media_player.cast_living_room_tv
+    state: 'unavailable'
+action:
+  - service: homeassistant.update_entity
+    entity_id: media_player.cast_living_room_tv
