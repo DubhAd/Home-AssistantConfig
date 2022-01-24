@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Family room occupied'
 trigger:
   - platform: state
-    entity_id: device_tracker.family_tv
+    entity_id: device_tracker.samsung_electronics_24_b4_13
     to: 'home'
   - platform: state
     entity_id: media_player.family_room
@@ -21,7 +21,7 @@ condition:
   - condition: or
     conditions:
     - condition: state
-      entity_id: device_tracker.family_tv
+      entity_id: device_tracker.samsung_electronics_24_b4_13
       state: 'home'
     - condition: state
       entity_id: media_player.family_room

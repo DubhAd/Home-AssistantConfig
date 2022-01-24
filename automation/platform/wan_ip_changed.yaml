@@ -6,9 +6,9 @@ trigger:
   - platform: state
     entity_id: sensor.fritz_box_3490_external_ip
   - platform: state
-    entity_id: sensor.fritz_box_3490_uptime
-  - platform: state
-    entity_id: binary_sensor.fritz_box_3490_connectivity
+    entity_id: 
+      - binary_sensor.fritz_box_3490_connection
+      - binary_sensor.fritz_box_3490_link
     from: 'off'
     to: 'on'
 condition:
@@ -26,4 +26,4 @@ action:
       {{ is_state('input_boolean.person2_is_awake','on') }}
   - service: notify.person2_telegram
     data:
-      message: "The WAN IP has changed to {{ states('sensor.fritz_box_3490_external_ip') }} at {{ states('sensor.fritz_box_3490_uptime') }}"
+      message: "The WAN IP has changed to {{ states('sensor.fritz_box_3490_external_ip') }} at {{ states.sensor.fritz_box_3490_external_ip.last_changed }}"
