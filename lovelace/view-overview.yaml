@@ -55,6 +55,12 @@ cards:
       details: true
       forecast: true
   
+    - type: statistics-graph
+      title: Temperature
+      entities:
+        - entity: sensor.accuhome_apparent_temperature
+          name: Outside
+
     - type: custom:mini-graph-card
       name: Temperature
       icon: mdi:thermometer

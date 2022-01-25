@@ -3,6 +3,7 @@ latitude: !secret latitude
 longitude: !secret longitude
 elevation: !secret elevation
 unit_system: metric
+currency: GBP
 time_zone: Europe/London
 customize: !include customize.yaml
 allowlist_external_dirs:
