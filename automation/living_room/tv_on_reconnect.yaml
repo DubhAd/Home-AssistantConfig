@@ -3,8 +3,8 @@ alias: 'TV on reconnect'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: media_player.samsung_tv
-    to: 'on'
+    entity_id: device_tracker.living_room_chromecast
+    to: 'home'
     for: '00:01:00'
 condition:
   - condition: state
