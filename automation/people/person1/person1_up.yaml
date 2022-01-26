@@ -21,18 +21,12 @@ trigger:
   - platform: time
     at: '05:00:01'
 condition:
-  # Is at home
+  # Is at home and sleeping
   - condition: state
-    entity_id: input_boolean.person1_home
+    entity_id: 
+      - input_boolean.person1_home
+      - input_boolean.person1_in_bed
     state: 'on'
-  # Is sleeping
-  - condition: state
-    entity_id: input_boolean.person1_in_bed
-    state: 'on'
-  # Room not occupied any more
-  - condition: state
-    entity_id: input_boolean.second_bedroom_occupied
-    state: 'off'
   # Is in the daytime window
   - condition: time
     after: '05:00:00'

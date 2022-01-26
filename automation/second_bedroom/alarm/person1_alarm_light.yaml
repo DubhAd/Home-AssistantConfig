@@ -6,10 +6,11 @@ trigger:
     entity_id: light.person1_bedroom_bedside
     to: 'off'
 condition:
+  # Alarm has gone off and still in bed
   - condition: state
     entity_id: 
       - input_boolean.person1_alarm_sounded
-      - input_boolean.second_bedroom_occupied
+      - input_boolean.person1_in_bed
     state: 'on'
 action:
   - service: light.turn_on
