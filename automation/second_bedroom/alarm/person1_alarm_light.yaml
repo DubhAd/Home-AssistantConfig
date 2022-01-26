@@ -1,0 +1,19 @@
+id: 'person1_alarm_light'
+alias: 'person1 alarm light'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: light.person1_bedroom_bedside
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: 
+      - input_boolean.person1_alarm_sounded
+      - input_boolean.second_bedroom_occupied
+    state: 'on'
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.person1_bedroom_bedside
+    data:
+      transition: 5
