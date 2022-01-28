@@ -1,0 +1,5 @@
+person2_home_p:
+  zone: home
+  devices:
+    - device_tracker.pixel_xl
+  unit_of_measurement: m
