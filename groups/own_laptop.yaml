@@ -1,4 +1,3 @@
 name: Own laptop
 entities:
-- device_tracker.laptop_dock
 - device_tracker.lenovo_yoga

@@ -1,3 +1,4 @@
 name: Work laptop
 entities:
 - device_tracker.work_laptop_dock
+- device_tracker.laptop_dock
