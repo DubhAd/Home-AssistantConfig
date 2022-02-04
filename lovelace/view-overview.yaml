@@ -134,11 +134,15 @@ cards:
             show_last_changed: true
       exclude:
         - name: /Plex/
-        - entity_id: "sensor.pixel_xl_next_alarm"
-        - entity_id: "sensor.kelsie_*"
         - entity_id: "binary_sensor.kelsie_*"
         - entity_id: "media_player.samsung_tv"
         - entity_id: "media_player.cast_living_room_tv"
+        - entity_id: "sensor.accuhome_*"
+        - entity_id: "sensor.kelsie_*"
+        - entity_id: "sensor.pixel_xl_next_alarm"
+        - entity_id: "sensor.tasmota_car_*"
+        - entity_id: "sensor.*_minecraft*"
+        - entity_id: "weather.accuhome"
 
   - type: custom:auto-entities
     show_empty: false
