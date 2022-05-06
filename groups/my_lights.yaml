@@ -5,6 +5,7 @@ entities:
 - light.living_room_tv_lamp
 - light.living_room_table_lamp
 - light.living_room_corner_lamp
+- light.office_strip
 - light.hall
 - light.master_bedroom_bedhead
 - light.person1_bedroom_bedside

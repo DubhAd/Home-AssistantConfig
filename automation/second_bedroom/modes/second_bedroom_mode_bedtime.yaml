@@ -11,6 +11,9 @@ condition:
   - condition: state
     entity_id: input_boolean.bedtime
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.second_bedroom_occupied
+    state: 'off'
 action:
   - service: input_select.select_option
     data:

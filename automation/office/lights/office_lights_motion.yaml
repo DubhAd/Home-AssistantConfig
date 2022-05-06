@@ -33,8 +33,22 @@ condition:
         entity_id: input_select.house
         state: 'Motion'
 action:
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_sleep_mode_office
-  - service: light.turn_on
-    data:
-      entity_id: light.office_strip
+  - choose:
+      - conditions:
+          - condition: time
+            after: '22:00:00'
+            before: '05:00:00'
+        sequence:
+          - service: switch.turn_off
+            entity_id: switch.adaptive_lighting_office
+          - service: light.turn_on
+            data:
+              entity_id: light.office_strip
+              brightness_pct: 10
+              xy_color: [ 0.612, 0.374 ]
+    default:
+      - service: switch.turn_on
+        entity_id: switch.adaptive_lighting_sleep_mode_office
+      - service: light.turn_on
+        data:
+          entity_id: light.office_strip

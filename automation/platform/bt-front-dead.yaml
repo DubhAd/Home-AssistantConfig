@@ -1,0 +1,18 @@
+id: 'bt_front_dead'
+initial_state: 'on'
+alias: 'BT front dead'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.first_floor_front
+    to: 'off'
+    for: '00:10:00'
+condition:
+  - condition: state
+    entity_id: 
+      - input_boolean.person2_home
+      - input_boolean.person2_is_awake
+    state: 'on'
+action:
+  - service: notify.person2_telegram
+    data:
+      message: "Front Bluetooth is a zombie"

@@ -1,0 +1,13 @@
+id: 'telegram_command_ping'
+alias: 'Telegram command ping'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/ping'
+action:
+  - service: telegram_bot.send_message
+    data:
+      message: >
+        Pong at {{ as_timestamp(now(),0)|timestamp_custom("%Y-%m-%d %H:%M:%S", local=True) }}

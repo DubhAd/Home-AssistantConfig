@@ -103,8 +103,11 @@ cards:
         show_last_changed: true
   - type: glance
     #title: Second bedroom ensuite
-    columns: 5
+    columns: 6
     entities:
+      - entity: binary_sensor.second_ensuite_door_contact
+        show_last_changed: true
+        name: Door
       - entity: binary_sensor.second_bedroom_window_ensuite_contact
         show_last_changed: true
         name: Window

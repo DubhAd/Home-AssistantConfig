@@ -1,0 +1,4 @@
+- platform: meteoalarm
+  classical: "united-kingdom"
+  province: "Strathclyde"
+  language: "en-GB"

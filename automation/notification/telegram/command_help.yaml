@@ -16,6 +16,7 @@ action:
         /lights - lists the lights that are on
         /lights on - turns on the lights
         /lights off - turns off the lights
+        /ping - confirms we're not dead yet
         /status - lists the open doors and windows
         /trains - provides the status of the trains between here and there
         /where - says where the others are

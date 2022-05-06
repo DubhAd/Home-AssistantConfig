@@ -65,16 +65,16 @@ cards:
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
-      entity: weather.met_office_bearsden
-      name: Bearsden (MO)
+      entity: weather.met_office_other
+      name: other (MO)
       backdrop: 
         fade: true
       secondary_info:
         - wind_speed
         - wind_bearing
     - type: custom:weather-card
-      entity: weather.met_office_bearsden
-      name: Bearsden (MO)
+      entity: weather.met_office_other
+      name: other (MO)
       current: true
       details: true
 

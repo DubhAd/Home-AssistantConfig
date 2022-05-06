@@ -21,10 +21,8 @@ mobile_app:
 my:
 person:
 ssdp:
-stream:
 sun:
 system_health:
-updater:
 webhook:
 zeroconf:
 
@@ -77,6 +75,8 @@ telegram_bot: !include telegram.yaml
 
 camera: !include_dir_list camera/
 ffmpeg: !include ffmpeg.yaml
+stream:
+  ll_hls: true
 
 image_processing: !include_dir_list image_processing/
 

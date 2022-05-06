@@ -4,6 +4,10 @@ initial_state: 'on'
 trigger:
   - platform: state
     entity_id: sensor.person1_pixel_3_wifi_connection
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
 action:
   - choose:
     - conditions:

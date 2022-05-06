@@ -78,7 +78,9 @@ cards:
           - entity_id: "sensor.pixel_xl_next_alarm"
           - entity_id: "sensor.tasmota_car_*"
           - entity_id: "sensor.*_minecraft*"
-          - entity_id: "weather.accuhome"
+          - entity_id: "sensor.home_*"
+          - entity_id: "sensor.other_*"
+          - entity_id: "weather.*"
 
     - type: custom:auto-entities
       show_empty: false

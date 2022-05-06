@@ -3,9 +3,6 @@ alias: 'Second bedroom mode on'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: input_boolean.person1_tablet_charging
-    to: 'off'
-  - platform: state
     entity_id: input_boolean.person1_phone_charging
     to: 'on'
 condition:
@@ -13,10 +10,9 @@ condition:
     after: '22:00:00'
     before: '04:00:00'
   - condition: state
-    entity_id: input_boolean.person1_in_bed
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.person1_tablet_charging
+    entity_id: 
+      - input_boolean.person1_in_bed
+      - input_boolean.second_bedroom_occupied
     state: 'off'
   - condition: state
     entity_id: input_boolean.person1_phone_charging

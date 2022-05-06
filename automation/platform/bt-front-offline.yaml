@@ -47,6 +47,3 @@ action:
     data:
       topic: monitor/first floor front/car/device_tracker
       payload: unknown
-  - service: notify.person2_telegram
-    data:
-      message: "Front Bluetooth node is offline, you have 10 minutes to investigate before we power cycle it"

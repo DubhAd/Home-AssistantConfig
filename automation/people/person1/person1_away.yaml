@@ -47,3 +47,5 @@ action:
   - service: script.turn_on
     data:
       entity_id: script.person1_away
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_alarm_sounded

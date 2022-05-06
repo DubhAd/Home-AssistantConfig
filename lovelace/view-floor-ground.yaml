@@ -49,17 +49,6 @@ cards:
       name: "Humidity"
   - type: glance
     #title: Living room
-    columns: 3
-    entities:
-    - entity: binary_sensor.pi3_living_room_motion
-      show_last_changed: true
-      name: "Motion (Zw)"
-    - entity: sensor.pi3_living_room_multi_luminance
-      name: "Z-Wave Lux"
-    - entity: sensor.pi3_living_room_multi_temperature
-      name: "Temperature (ZW)"
-  - type: glance
-    #title: Living room
     columns: 4
     entities:
     - entity: media_player.samsung_tv
@@ -197,7 +186,7 @@ cards:
         name: Illuminance
       - entity: sensor.family_room_multi_temperature
         name: Temperature
-      - entity: device_tracker.family_tv
+      - entity: device_tracker.family_room_tv
         show_last_changed: true
         name: TV
       - entity: media_player.family_room
@@ -261,21 +250,3 @@ cards:
     - entity: sensor.accuhome_apparent_temperature
       name: Outside
       color: 'silver'
-- type: custom:mini-graph-card
-  name: Living room temp
-  points_per_hour: 12
-  hours_to_show: 12
-  line_width: 2
-  hour24: true
-  decimals: 1
-  animate: true
-  show:
-    extrema: true
-    average: true
-    fill: false
-    labels: true
-  entities:
-    - entity: sensor.living_room_climate_temperature
-      name: Zigbee
-    - entity: sensor.pi3_living_room_multi_temperature
-      name: Z-Wave

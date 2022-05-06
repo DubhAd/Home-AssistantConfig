@@ -7,11 +7,14 @@ sequence:
       color_temp: 394
       brightness_pct: 100
   # Gently first, sound the alarm and give a nudge
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.cast_second_bedroom_speaker
+  - wait_template: "{{ is_state('media_player.cast_second_bedroom_speaker','idle') }}"
   - service: media_player.volume_set
     data:
       entity_id: media_player.cast_second_bedroom_speaker
-      volume_level: 0.3
-  - delay: 00:00:03
+      volume_level: "{{ [(state_attr('media_player.cast_second_bedroom_speaker','volume_level')|float(0) + 0.05), 0.6]|min }}"
   # Light goes on (just in case it didn't catch the first message)
   - service: light.turn_on
     data:
@@ -24,22 +27,23 @@ sequence:
     data:
       message: "Time to get up"
   # Brief pause
-  - delay: 00:00:10
   # A little louder now, alarm and nudge
-  - service: media_player.volume_set
-    data:
-      entity_id: media_player.cast_second_bedroom_speaker
-      volume_level: 0.4
-  - delay: 00:00:03
   # Disco lights
   - service: light.turn_on
     data:
       entity_id: light.person1_bedroom_bedside
       effect: "Disco"
-  - service: tts.google_cloud_say
-    entity_id: media_player.cast_second_bedroom_speaker
+  - wait_template: "{{ is_state('media_player.cast_second_bedroom_speaker','playing') }}"
+  - wait_template: "{{ is_state('media_player.cast_second_bedroom_speaker','idle') }}"
+  - service: media_player.turn_off
     data:
-      message: "Time to get up"
+      entity_id: media_player.cast_second_bedroom_speaker
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.person1
+  - service: media_player.media_play
+    data:
+      entity_id: media_player.person1
   - delay: 00:00:10
   # Lights to normal
   - service: light.turn_on

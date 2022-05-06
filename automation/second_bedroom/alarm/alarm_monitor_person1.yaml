@@ -11,7 +11,7 @@ action:
   - delay: '00:00:05'
   - condition: template
     value_template: >-
-      {{ not is_state('media_player.person1','playing') and (as_timestamp(now()) - as_timestamp(states.media_player.person1_snapshot_222stinkbomb.last_updated)) < 10 }}
+      {{ (not is_state('media_player.person1','playing')) or ((now()-states.media_player.person1_snapshot_222stinkbomb.last_updated).seconds < 10) }}
   - wait_template: >-
       {{ not is_state('media_player.person1','playing') }}
   - service: media_player.play_media

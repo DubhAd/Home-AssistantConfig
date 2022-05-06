@@ -2,47 +2,55 @@ id: 'person1_up'
 alias: 'person1 Up'
 initial_state: 'on'
 trigger:
-  # Something gets unplugged
+  # Room isn't occupied, or leaves home
   - platform: state
     entity_id: 
-    - input_boolean.person1_phone_charging
-    - input_boolean.person1_tablet_charging
-    to: 'off'
-  # Tablet is turned on
-  - platform: state
-    entity_id: binary_sensor.person1_lenovo_tb_j606f_interactive
-    to: 'on'
-    for: '00:02:00'
-  # Room isn't occupied
-  - platform: state
-    entity_id: input_boolean.second_bedroom_occupied
+    - input_boolean.second_bedroom_occupied
+    - input_boolean.person1_home
     to: 'off'
   # Is time to wake
   - platform: time
     at: '05:00:01'
+  # A door opened
+  - platform: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    to: 'on'
+    for: '00:00:30'
+  - platform: state
+    entity_id: binary_sensor.second_ensuite_door_contact
+    to: 'on'
 condition:
   # Is at home and sleeping
   - condition: state
-    entity_id: 
-      - input_boolean.person1_home
-      - input_boolean.person1_in_bed
+    entity_id: input_boolean.person1_in_bed
     state: 'on'
   # Is in the daytime window
   - condition: time
     after: '05:00:00'
     before: '21:00:00'
-  # Something is unplugged, or the screen is on
+  # Something is unplugged, or the screen is on, or away from home
   - condition: or
     conditions:
     - condition: state
-      entity_id: input_boolean.person1_phone_charging
+      entity_id: input_boolean.person1_home
       state: 'off'
     - condition: state
-      entity_id: input_boolean.person1_tablet_charging
+      entity_id: input_boolean.second_bedroom_occupied
       state: 'off'
-    - condition: state
-      entity_id: binary_sensor.person1_lenovo_tb_j606f_interactive
-      state: 'on'
+    # Alarm sounded and a door opened
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.person1_alarm_sounded
+        state: 'on'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.second_bedroom_door_contact
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.second_ensuite_door_contact
+          state: 'on'
 action:
   - service: input_boolean.turn_off
     entity_id: 

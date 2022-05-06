@@ -54,3 +54,5 @@ action:
   - delay: '00:00:20'
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_office
+  - service: switch.turn_on
+    entity_id: switch.adaptive_lighting_office

@@ -5,6 +5,7 @@ trigger:
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
+    from: 'on'
 condition:
   # The living room isn't in use
   - condition: state
@@ -22,29 +23,32 @@ condition:
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 5
   # Not already in dim mode
-  - condition: template
-    value_template: "{{ not is_state('input_select.living_room','Dim') }}"
+  - condition: state
+    entity_id: input_select.living_room
+    state:
+      - "Off"
+      - "Auto"
+      - "Bedtime"
+      - "Away"
   # We're awake
   - condition: state
     entity_id: input_boolean.bedtime
     state: 'off'
 action:
   # Wait for motion in the hall
-  - wait_for_trigger:
-    - platform: state
-      entity_id: binary_sensor.downstairs_hall_motion_occupancy
-      to: 'on'
+  - wait_template: "{{ is_state('binary_sensor.downstairs_hall_motion_occupancy','on') }}"
+    timeout: "00:05:00"
   # Have a little background light
   #- service: switch.turn_off
   #  entity_id:
   #    - switch.adaptive_lighting_sleep_mode_living_room_lamps
   #    - switch.adaptive_lighting_sleep_mode_living_room_table
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.living_room
+      option: 'Dim'
   - service: notify.logfile
     data:
       message: >
         Dim triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
           Light level is {{ states('sensor.living_room_light_sensor_illuminance_lux') }}
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.living_room
-      option: 'Dim'

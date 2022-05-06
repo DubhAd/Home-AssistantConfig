@@ -2,14 +2,16 @@ id: 'person1_in_bed'
 alias: 'person1 in bed'
 initial_state: 'on'
 trigger:
-  # Phone is plugged in
-  - platform: state
-    entity_id: input_boolean.person1_phone_charging
-    to: 'on'
   # Room occupied
   - platform: state
     entity_id: input_boolean.second_bedroom_occupied
     to: 'on'
+    for: '00:05:00'
+  # En-suite door closed
+  - platform: state
+    entity_id: binary_sensor.second_ensuite_door_contact
+    to: 'off'
+    for: '00:05:00'
   # Bedtime?
   - platform: time
     at: '22:01:00'
@@ -25,15 +27,18 @@ condition:
   # Is in the bedtime window
   - condition: time
     after: '22:00:00'
-    before: '05:00:00'
-  # Phone is plugged in
-  - condition: state
-    entity_id: input_boolean.person1_phone_charging
-    state: 'on'
+    before: '06:00:00'
   # Room is occupied
   - condition: state
     entity_id: input_boolean.second_bedroom_occupied
     state: 'on'
+    for: '00:05:00'
+  # En-suite door is closed
+  - condition: state
+    entity_id: binary_sensor.second_ensuite_door_contact
+    state: 'off'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person1_in_bed
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_alarm_sounded

@@ -5,16 +5,6 @@ icon: mdi:engine
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:
-- type: conditional
-  conditions:
-  - entity: binary_sensor.updater
-    state: 'on'
-  card:
-    type: entities
-    entities: 
-    - entity: binary_sensor.updater
-      state_color: true
-
 - type: entity
   name: "WAN IP"
   entity: sensor.fritz_box_3490_external_ip
@@ -60,58 +50,53 @@ cards:
     - "#ff0000" # red
     - "#ffff00" # yellow
     - "#00ff00" # green
+  tap_action:
+    action: more-info
   entities:
-  - sensor.bathroom_door_battery 
-  - sensor.bathroom_environment_battery 
-  - sensor.bathroom_water_leak_battery
-  - sensor.bathroom_window_battery 
-  - sensor.downstairs_hall_light_sensor_battery 
-  - sensor.downstairs_hall_motion_battery 
-  - sensor.family_window_left_battery 
-  - sensor.family_window_right_battery 
-  - sensor.garage_door_car_battery
-  - sensor.garage_door_bike_battery
-  - sensor.guest_bedroom_door_battery 
-  - sensor.guest_bedroom_window_left_battery 
-  - sensor.guest_bedroom_window_right_battery 
-  - sensor.hue_dimmer_battery 
-  - sensor.kitchen_water_leak_battery
-  - sensor.kitchen_window_left_battery
-  - sensor.kitchen_window_right_battery
-  - sensor.master_bedroom_cube_battery
-  - sensor.master_bedroom_door_battery 
-  - sensor.master_bedroom_light_sensor_battery 
-  - sensor.master_ensuite_door_battery 
-  - sensor.master_ensuite_environment_battery 
-  - sensor.master_window_ensuite_battery 
-  - sensor.master_window_left_battery 
-  - sensor.master_window_right_battery 
-  - sensor.office_button_battery 
-  - sensor.office_climate_battery 
-  - sensor.office_cube_battery
-  - sensor.office_door_battery 
-  - sensor.office_motion_konke_battery 
-  - sensor.office_window_battery 
-  - sensor.patio_window_left_battery 
-  - sensor.patio_window_right_battery 
-  - sensor.second_bedroom_door_battery 
-  - sensor.second_bedroom_ensuite_battery 
-  - sensor.second_bedroom_window_ensuite_battery 
-  - sensor.second_bedroom_window_left_battery 
-  - sensor.second_bedroom_window_right_battery 
-  - sensor.second_ensuite_battery
-  - sensor.spare_bedroom_window_left_battery 
-  - sensor.spare_bedroom_window_right_battery 
-  - sensor.toilet_water_leak_battery
-  - sensor.utility_room_water_leak_battery
-  - sensor.vestibule_multi_battery 
-  - sensor.vestibule_window_front_battery 
-  - sensor.vestibule_window_side_battery
-  - zwave.pi3_front_door
-  - zwave.pi3_patio_door_left
-  - zwave.pi3_utility_door_exterior
-  - zwave.pi3_living_room_multi
-  - zwave.pi3_utility
+    - entity: sensor.inspire_hr_battery
+      state_map:
+        - from: "High"
+          to: 100
+        - from: "Medium"
+          to: 50
+        - from: "Low"
+          to: 20
+    - entity: sensor.pixel_xl_battery_level
+      charging_state: 
+        entity_id: binary_sensor.pixel_xl_is_charging
+        state: 'on'
+    - entity: sensor.person1_pixel_3_battery_level
+      charging_state: 
+        entity_id: binary_sensor.person1_pixel_3_is_charging
+        state: 'on'
+    - entity: sensor.person3_pixel_3a_battery_level
+      charging_state: 
+        entity_id: binary_sensor.person3_pixel_3a_is_charging
+        state: 'on'
+    - entity: sensor.sht_al09_battery_level
+      charging_state: 
+        entity_id: binary_sensor.sht_al09_is_charging
+        state: 'on'
+    - entity: sensor.person1_lenovo_tb_j606f_battery_level
+      charging_state: 
+        entity_id: binary_sensor.person1_lenovo_tb_j606f_is_charging
+        state: 'on'
+    - entity: sensor.dsb_0230_battery_level
+      charging_state: 
+        entity_id: binary_sensor.dsb_0230_is_charging
+        state: 'on'
+  filter:
+    include:
+      - name: entity_id
+        value: "*_battery"
+      - name: entity_id
+        value: "*_battery_level"
+    exclude:
+      - name: entity_id
+        value: "*mobile*"
+      - name: name
+        operator: "contains"
+        value: "Battery Level"
 - type: glance
   title: Printer status
   show_header_toggle: false

@@ -19,7 +19,7 @@ sequence:
 
         {%- macro isParked(box) -%}
         {{- True if (
-            ((0.700 < box[0] < 0.775) and (0.300 < box[1] < 0.508) and (0.800 < box[2] < 0.862) and (0.380 < box[3] < 0.580))
+            ((0.700 < box[0] < 0.775) and (0.300 < box[1] < 0.508) and (0.800 < box[2] < 0.880) and (0.380 < box[3] < 0.580))
           ) else X -}}
         {%- endmacro -%}
   

@@ -486,6 +486,7 @@ cards:
             - binary_sensor.master_ensuite_door_contact
             - binary_sensor.office_door_contact
             - binary_sensor.second_bedroom_door_contact
+            - binary_sensor.second_ensuite_door_contact
             - binary_sensor.vestibule_door_contact
           states:
             - state: 'off'
