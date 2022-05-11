@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+#
 
 MESSAGE=$(cat)
 CYCLES=1
@@ -51,6 +52,8 @@ case "${MESSAGE:l}" in
 			blue ) ICON=i12154
 				;;
 			grey ) ICON=i12155
+				;;
+			green ) ICON=i12152
 				;;
 			* ) ICON=i12212
 				;;
