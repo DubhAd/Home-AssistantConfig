@@ -1,0 +1,17 @@
+id: 'template_for_automations'
+alias: 'Template for automations'
+initial_state: 'on'
+trigger:
+  - platform: time
+    at: '22:00:00'
+condition:
+  - condition: state
+    entity_id: light.living_room_lamps
+    state: 'on'
+action:
+  - service: switch.turn_on
+    target:
+      entity_id:
+        - switch.adaptive_lighting_sleep_mode_living_room_lamps
+        - switch.adaptive_lighting_sleep_mode_living_room_table
+
