@@ -1,0 +1,24 @@
+id: 'hall_lights_to_motion'
+initial_state: 'on'
+alias: 'Hall lights to motion'
+trigger:
+  - platform: state
+    entity_id: input_select.hall
+    to: 'Motion'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: state
+    entity_id: input_select.hall
+    state: 'Motion'
+action:
+  - service: switch.turn_on
+    entity_id: 
+      - switch.adaptive_lighting_hall
+      - switch.adaptive_lighting_sleep_mode_hall
+  - service: light.turn_on
+    target:
+      entity_id: light.downstairs_hall
+    data:
+      brightness: 1

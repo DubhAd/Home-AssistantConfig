@@ -9,9 +9,6 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     below: 5
-  - platform: state
-    entity_id: binary_sensor.downstairs_hall_motion_occupancy
-    to: 'on'
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     below: 2
@@ -26,16 +23,6 @@ trigger:
       - input_boolean.home_occupied
       - input_boolean.living_room_occupied
       - input_boolean.family_room_occupied
-    to: 'on'
-  - platform: state
-    to: 'Just Arrived'
-    entity_id: 
-      - input_select.person2_status_dropdown
-      - input_select.person3_status_dropdown
-      - input_select.person1_status_dropdown
-      - input_select.person4_status_dropdown
-  - platform: state
-    entity_id: binary_sensor.pi3_front_door_sensor
     to: 'on'
 condition:
   # Not already on or bedtime
@@ -65,10 +52,6 @@ condition:
   # One of these things
   - condition: or
     conditions:
-    # Front door is open
-    - condition: state
-      entity_id: binary_sensor.pi3_front_door_sensor
-      state: 'on'
     # A room is in use
     - condition: state
       entity_id: group.downstairs_occupied
@@ -77,19 +60,6 @@ condition:
     - condition: state
       entity_id: input_boolean.home_occupied
       state: 'on'
-    # Somebody just came home
-    - condition: state
-      entity_id: input_select.person2_status_dropdown
-      state: 'Just Arrived'
-    - condition: state
-      entity_id: input_select.person3_status_dropdown
-      state: 'Just Arrived'
-    - condition: state
-      entity_id: input_select.person1_status_dropdown
-      state: 'Just Arrived'
-    - condition: state
-      entity_id: input_select.person4_status_dropdown
-      state: 'Just Arrived'
 action:
   - service: notify.logfile
     data:

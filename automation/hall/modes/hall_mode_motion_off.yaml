@@ -1,0 +1,26 @@
+id: 'hall_mode_motion_off'
+initial_state: 'on'
+alias: 'Hall mode motion off'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.downstairs_hall_motion_occupancy
+    to: 'off'
+    for: '00:05:00'
+  - platform: state
+    entity_id: input_select.hall
+    to: 'Motion'
+    for: '00:05:00'
+condition:
+  - condition: state
+    entity_id: input_select.hall
+    state: 'Motion'
+    for: '00:05:00'
+  - condition: state
+    entity_id: binary_sensor.downstairs_hall_motion_occupancy
+    state: 'off'
+    for: '00:05:00'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hall
+      option: 'Off'

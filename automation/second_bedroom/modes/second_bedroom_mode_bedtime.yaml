@@ -9,7 +9,9 @@ condition:
   - condition: template
     value_template: "{{ not is_state('input_select.second_bedroom','Bedtime') }}"
   - condition: state
-    entity_id: input_boolean.bedtime
+    entity_id: 
+      - input_boolean.bedtime
+      - input_boolean.person1_home
     state: 'on'
   - condition: state
     entity_id: input_boolean.second_bedroom_occupied

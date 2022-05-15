@@ -15,7 +15,9 @@ condition:
       - input_boolean.second_bedroom_occupied
     state: 'off'
   - condition: state
-    entity_id: input_boolean.person1_phone_charging
+    entity_id: 
+      - input_boolean.person1_phone_charging
+      - input_boolean.person1_home
     state: 'on'
 action:
   - service: input_select.select_option

@@ -8,6 +8,9 @@ trigger:
     - input_boolean.person1_is_awake
     to: 'on'
 condition:
+  - condition: state
+    entity_id: input_boolean.person1_home
+    state: 'on'
   - condition: time
     before: '10:00:00'
 action:
