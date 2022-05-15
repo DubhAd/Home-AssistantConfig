@@ -21,7 +21,7 @@ condition:
   # Dark
   - condition: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 5
+    below: 4
   # Not already in dim mode
   - condition: state
     entity_id: input_select.living_room

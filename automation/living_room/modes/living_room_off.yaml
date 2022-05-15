@@ -43,7 +43,7 @@ trigger:
     for: '00:04:30'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    above: 25
+    above: 22
     for: '00:05:00'
   - platform: state
     entity_id: input_boolean.living_room_occupied

@@ -14,7 +14,7 @@ trigger:
     for: '00:02:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    above: 5
+    above: 4
 condition:
   - condition: state
     entity_id: input_boolean.lighting_automations
@@ -32,7 +32,7 @@ condition:
       for: '00:02:00'
     - condition: numeric_state
       entity_id: sensor.living_room_light_sensor_illuminance_lux
-      above: 5
+      above: 4
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.livingroom_lights_auto

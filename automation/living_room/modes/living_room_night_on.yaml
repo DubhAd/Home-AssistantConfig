@@ -20,15 +20,15 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 9
+    below: 8
     for: '00:02:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 7
+    below: 6
     for: '00:01:00'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 6
+    below: 5
   - platform: state
     entity_id: sensor.hue_dimmer_action
     to: 'up-press'
@@ -49,7 +49,7 @@ condition:
   # Dull
   - condition: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
-    below: 9
+    below: 8
   # Didn't just turn the lights off, when the trigger was the light level
   - condition: template
     value_template: "{{ trigger.entity_id == 'input_boolean.living_room_occupied' or trigger.entity_id == 'input_boolean.lighting_living_room' or ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance_lux') }}"
