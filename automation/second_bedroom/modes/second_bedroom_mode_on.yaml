@@ -20,6 +20,19 @@ condition:
       - input_boolean.person1_home
     state: 'on'
 action:
+  - wait_for_trigger:
+      - platform: state
+        entity_id: 
+          - binary_sensor.downstairs_hall_motion_occupancy
+          - binary_sensor.upstairs_hall_motion_front_occupancy
+        to: 'on'
+      - platform: state
+        entity_id: 
+          - binary_sensor.second_bedroom_door_contact
+          - binary_sensor.second_ensuite_door_contact
+        to:
+          - 'on'
+          - 'off'
   - service: input_select.select_option
     data:
       entity_id: input_select.second_bedroom

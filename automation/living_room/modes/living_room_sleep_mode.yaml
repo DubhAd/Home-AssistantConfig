@@ -9,6 +9,13 @@ condition:
     entity_id: light.living_room_lamps
     state: 'on'
 action:
+  - service: light.turn_on
+    target:
+      entity_id: light.living_room_lamps
+    data:
+      brightness_pct: 1
+      transition: 5
+  - delay: '00:00:07'
   - service: switch.turn_on
     target:
       entity_id:
