@@ -16,6 +16,14 @@ trigger:
     entity_id: binary_sensor.pi3_front_door_sensor
     to: 'on'
 condition:
+  # sun is low
+  - condition: numeric_state
+    entity_id: sensor.sun_elevation
+    below: 5
+  # Dark in the hall
+  - condition: numeric_state
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    below: 2
   # One of these things
   - condition: or
     conditions:
