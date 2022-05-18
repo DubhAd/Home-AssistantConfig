@@ -1,0 +1,17 @@
+id: 'house_awake'
+alias: 'House awake'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.bedtime
+    to: 'off'
+action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+        - switch.adaptive_lighting_sleep_mode_hall
+        - switch.adaptive_lighting_sleep_mode_living_room_lamps
+        - switch.adaptive_lighting_sleep_mode_living_room_table
+        - switch.adaptive_lighting_sleep_mode_master_bedroom
+        - switch.adaptive_lighting_sleep_mode_office
+        - switch.adaptive_lighting_sleep_mode_second_bedroom
