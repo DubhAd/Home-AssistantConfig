@@ -50,6 +50,10 @@ condition:
     # Far away
     - condition: template
       value_template: "{{ states('proximity.person2_home')|float > 600 }}"
+    - condition: state
+      entity_id: input_boolean.person2_home
+      state: 'on'
+      for: '00:05:00'
 action:
   - service: script.turn_on
     data:
