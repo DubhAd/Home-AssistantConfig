@@ -83,3 +83,7 @@ image_processing: !include_dir_list image_processing/
 mqtt: !include mqtt.yaml
 
 remote_homeassistant: !include remote_ha.yaml
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
