@@ -8,7 +8,6 @@
                 |rejectattr('attributes.supported_features','in',[152461])
                 |rejectattr('entity_id','in',['media_player.samsung_tv'])
                 |list|length}}
-
     unit_of_measurement: 'entities'
     attributes:
       entities: >-

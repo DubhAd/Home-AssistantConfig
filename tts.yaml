@@ -4,5 +4,3 @@
 - platform: google_cloud
   key_file: secrets/google_cloud.json
   voice: en-GB-Wavenet-A
-- platform: picotts
-  language: "en-GB"
