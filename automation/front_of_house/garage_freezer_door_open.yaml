@@ -1,0 +1,13 @@
+id: 'garage_door_open'
+alias: 'Garage door open'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.garage_door_car_contact
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'off'
+    for: '00:05:00'
+action:
+  - service: script.scan_bt_arrive
