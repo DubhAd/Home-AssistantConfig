@@ -5,7 +5,9 @@ trigger:
   # Radio playing
   - platform: state
     entity_id: media_player.person1
-    to: 'playing'
+    to: 
+      - 'playing'
+      - 'paused'
 condition:
   # Is at home and room is occupied
   - condition: state
