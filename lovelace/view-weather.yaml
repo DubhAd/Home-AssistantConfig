@@ -77,6 +77,11 @@ cards:
       name: other (MO)
       current: true
       details: true
+  - type: custom:weather-card
+    entity: weather.home_meteo
+    name: Home (Meteo)
+    current: true
+    details: true
 
   - type: 'custom:lovelace-darksky-card'
     tooltips: true
