@@ -3,8 +3,8 @@ initial_state: 'on'
 alias: 'Family room occupied'
 trigger:
   - platform: state
-    entity_id: device_tracker.family_room_tv
-    to: 'home'
+    entity_id: media_player.roku_x00200y5s7lx
+    to: 'on'
   - platform: state
     entity_id: media_player.family_room
     to: 'playing'
@@ -21,8 +21,8 @@ condition:
   - condition: or
     conditions:
     - condition: state
-      entity_id: device_tracker.family_room_tv
-      state: 'home'
+      entity_id: media_player.roku_x00200y5s7lx
+      state: 'on'
     - condition: state
       entity_id: media_player.family_room
       state: 'playing'

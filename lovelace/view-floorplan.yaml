@@ -215,7 +215,7 @@ cards:
           propagate: true
 
         - entities:
-            - device_tracker.family_room_tv
+            - media_player.roku_x00200y5s7lx
             - device_tracker.living_room_chromecast
             - media_player.samsung_tv
             - sensor.person1

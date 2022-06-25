@@ -186,7 +186,7 @@ cards:
         name: Illuminance
       - entity: sensor.family_room_multi_temperature
         name: Temperature
-      - entity: device_tracker.family_room_tv
+      - entity: media_player.roku_x00200y5s7lx
         show_last_changed: true
         name: TV
       - entity: media_player.family_room

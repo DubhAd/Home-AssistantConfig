@@ -9,6 +9,10 @@ trigger:
     for: '00:30:00'
   - platform: state
     entity_id: sensor.unavailable_entities
+condition:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
 action:
   - choose:
     - alias: 'Nothing to nothing'

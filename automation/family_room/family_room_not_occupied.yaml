@@ -3,8 +3,8 @@ initial_state: 'on'
 alias: 'Family room not occupied'
 trigger:
   - platform: state
-    entity_id: device_tracker.family_room_tv
-    to: 'not_home'
+    entity_id: media_player.roku_x00200y5s7lx
+    to: 'off'
     for: '00:03:00'
   - platform: state
     entity_id: media_player.family_room
@@ -55,8 +55,8 @@ condition:
     - condition: and
       conditions:
       - condition: state
-        entity_id: device_tracker.family_room_tv
-        state: 'not_home'
+        entity_id: media_player.roku_x00200y5s7lx
+        state: 'off'
       - condition: or
         conditions:
         - condition: state
