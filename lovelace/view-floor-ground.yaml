@@ -203,6 +203,9 @@ cards:
         tap_action:
           action: call-service
           service: script.volume_alert
+  - type: entity
+    name: Active TV app
+    entity: sensor.roku_x00200y5s7lx_active_app
 - type: custom:mini-graph-card
   name: Light level
   points_per_hour: 12
