@@ -145,6 +145,7 @@ cards:
         - entity_id: "sensor.other_*"
         - entity_id: "sensor.home_*"
         - entity_id: "weather.*"
+        - entity_id: "device_tracker.*"
 
   - type: custom:auto-entities
     show_empty: false
@@ -192,10 +193,6 @@ cards:
             show_last_changed: true
         - domain: media_player
           state: 'playing'
-          options:
-            show_last_changed: true
-        - entity_id: device_tracker.family_room_tv
-          state: 'home'
           options:
             show_last_changed: true
 

@@ -4,7 +4,10 @@ alias: 'Family room not occupied'
 trigger:
   - platform: state
     entity_id: media_player.roku_x00200y5s7lx
-    to: 'off'
+    to: 
+      - 'off'
+      - 'standby'
+      - 'unavailable'
     for: '00:03:00'
   - platform: state
     entity_id: media_player.family_room
@@ -56,7 +59,10 @@ condition:
       conditions:
       - condition: state
         entity_id: media_player.roku_x00200y5s7lx
-        state: 'off'
+        state:
+          - 'off'
+          - 'standby'
+          - 'unavailable'
       - condition: or
         conditions:
         - condition: state
