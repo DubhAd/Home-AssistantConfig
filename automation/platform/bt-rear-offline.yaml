@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id: binary_sensor.first_floor_rear
     to: 'off'
-    #    for: '00:00:30'
+    for: '00:01:00'
 action:
   - service: mqtt.publish
     data:
