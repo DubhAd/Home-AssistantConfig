@@ -6,23 +6,28 @@ URL=https://www.python.org/ftp/python/${PY_VER}/${FILE}
 HA_USER=homeassistant
 VENV_BASE=/srv/homeassistant
 
+if [ -z "${PY_VER}" ]; then
+	echo "You forgot to specify the version..."
+	exit
+fi
+
 #INSTALLED=$(find /usr/lib -name libjemalloc.so -print|wc -l)
 #if [ ${INSTALLED} -eq 0 ]; then
-	echo "Updating and installing required packages"
-	sudo apt update
+#	echo "Updating and installing required packages"
+#	sudo apt update
 
-	echo "Assuming required packages may not be installed"
-	sudo apt -y install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline-dev \
-		libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev \
-		zlib1g-dev libudev-dev libc-dev libffi-dev libbluetooth-dev libtirpc-dev libjemalloc-dev \
-		cargo
+#	echo "Assuming required packages may not be installed"
+#	sudo apt -y install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline-dev \
+#		libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev \
+#		zlib1g-dev libudev-dev libc-dev libffi-dev libbluetooth-dev libtirpc-dev libjemalloc-dev \
+#		cargo
 
 #	ls -1 /dev/tty*|egrep -q "ttyAMA[0-9]|ttyACM[0-9]"
 #	if [ ${?} -eq 0 ]; then
 #		echo "You may have a Z-Wave stick/board, installing libopenzwave1.5-dev"
 #		sudo apt -y install libopenzwave1.5-dev
 #	fi
-	sudo ldconfig
+#	sudo ldconfig
 #fi
 
 if [ ! -f ${FILE} ]; then
