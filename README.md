@@ -1,5 +1,24 @@
 # Table of Contents
-
+   * [Home Assistant configuration](#home-assistant-configuration)
+      * [Z-Wave](#z-wave)
+      * [The key software](#the-key-software)
+      * [Floorplan](#floorplan)
+      * [Devices](#devices)
+      * [Z-Wave and Zigbee](#z-wave-and-zigbee)
+      * [Lighting](#lighting)
+      * [Media](#media)
+      * [Notifications:](#notifications)
+      * [Presence detection:](#presence-detection)
+      * [Core integrations and APIs](#core-integrations-and-apis)
+      * [Other things](#other-things)
+      * [Custom integrations](#custom-integrations)
+         * [Standard integrations](#standard-integrations)
+      * [Other software](#other-software)
+      * [Notes](#notes)
+   * [Future plans](#future-plans)
+      * [Automation thoughts](#automation-thoughts)
+   * [Useful links](#useful-links)
+   * [Coffee](#coffee)
 
 # Home Assistant configuration
 This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2022.3.8 (Python 3.9.7 built [with this guide](https://blog.ceard.tech/2017/12/upgrading-python-virtual-environment.html)) on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
