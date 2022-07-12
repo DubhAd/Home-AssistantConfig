@@ -427,44 +427,6 @@ cards:
         entities:
         - entity: input_datetime.person1_next_alarm
           name: Next alarm
-      - type: glance
-        title: person1's tablet
-        columns: 4
-        entities:
-        - entity: device_tracker.person1_tablet
-          name: GPS
-          icon: mdi:crosshairs-gps
-        - entity: device_tracker.person1_tablet_lenovo
-          name: WiFi
-          icon: mdi:wifi
-        - entity: device_tracker.person1_bt_front_tablet
-          name: Front
-          icon: mdi:bluetooth
-        - entity: device_tracker.person1_bt_tablet
-          name: Rear
-          icon: mdi:bluetooth
-        - entity: sensor.battery_person1_tablet
-          name: Battery
-        - entity: input_boolean.person1_tablet_charging
-          show_last_changed: true
-          name: Tablet charging
-        - entity: binary_sensor.person1_lenovo_tb_j606f_interactive
-          show_last_changed: true
-          name: Screen
-      - type: glance
-        entities:
-        - entity: sensor.person1_tablet_first_floor_front
-          name: Front
-          icon: mdi:gauge
-        - entity: sensor.person1_tablet_rssi_first_floor_front
-          name: Front
-          icon: mdi:signal-cellular-2
-        - entity: sensor.person1_tablet_first_floor_rear
-          name: Rear
-          icon: mdi:gauge
-        - entity: sensor.person1_tablet_rssi_first_floor_rear
-          name: Rear
-          icon: mdi:signal-cellular-2
       - type: "custom:atomic-calendar-revive"
         name: "Calendar"
         entities:
