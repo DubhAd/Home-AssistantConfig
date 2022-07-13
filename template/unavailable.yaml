@@ -4,7 +4,7 @@
     state: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
                 |rejectattr('attributes.restored','in',[true])
-                |rejectattr('entity_id','match','^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|sensor.tasmota_car_|espresense_|plex_|roku_x00200y5s7lx)')
+                |rejectattr('entity_id','match','^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|sensor.tasmota_car_|espresense_|plex_|roku_x00200y5s7lx|weather.)')
                 |rejectattr('attributes.supported_features','in',[152461])
                 |rejectattr('entity_id','in',['media_player.samsung_tv'])
                 |list|length}}
@@ -13,7 +13,7 @@
       entities: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
                 |rejectattr('attributes.restored','in',[true])
-                |rejectattr('entity_id','match','^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|sensor.tasmota_car_|espresense_|plex_|roku_x00200y5s7lx)')
+                |rejectattr('entity_id','match','^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|sensor.tasmota_car_|espresense_|plex_|roku_x00200y5s7lx|weather.)')
                 |rejectattr('attributes.supported_features','in',[152461])
                 |rejectattr('entity_id','in',['media_player.samsung_tv'])
                 |map(attribute='entity_id')|list|join(', ')}}
