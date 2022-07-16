@@ -1,0 +1,14 @@
+id: 'bt_rear_dead'
+initial_state: 'on'
+alias: 'BT rear dead'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.first_floor_rear
+    to: 'off'
+    for: '00:10:00'
+action:
+  - wait_template: >-
+      {{ is_state('input_boolean.person2_home','on') and is_state('input_boolean.person2_is_awake','on') }}
+  - service: notify.person2_telegram
+    data:
+      message: "Rear Bluetooth is a zombie"
