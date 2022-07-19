@@ -248,6 +248,19 @@ cards:
     average: true
     fill: false
     labels: true
+  color_thresholds:
+    - value: -10
+      color: 'silver'
+    - value: 0
+      color: 'white'
+    - value: 5
+      color: 'lightblue'
+    - value: 10
+      color: 'lightgreen'
+    - value: 15
+      color: 'orange'
+    - value: 23
+      color: 'red'
   entities:
     - entity: sensor.living_room_climate_temperature
       name: Living room
@@ -257,4 +270,3 @@ cards:
       color: '#9753e0'
     - entity: sensor.openweathermap_temperature
       name: Outside
-      color: 'silver'

@@ -268,6 +268,19 @@ cards:
     average: true
     labels: true
     fill: false
+  color_thresholds:
+    - value: -10
+      color: 'silver'
+    - value: 0
+      color: 'white'
+    - value: 5
+      color: 'lightblue'
+    - value: 10
+      color: 'lightgreen'
+    - value: 15
+      color: 'orange'
+    - value: 23
+      color: 'red'
   entities:
     - entity: sensor.master_ensuite_temperature
       name: Master ensuite
@@ -283,7 +296,6 @@ cards:
       color: "#F28544"
     - entity: sensor.openweathermap_temperature
       name: Outside
-      color: 'silver'
 - type: custom:mini-graph-card
   name: Pressure
   points_per_hour: 2
