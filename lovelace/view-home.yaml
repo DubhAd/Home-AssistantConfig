@@ -7,8 +7,8 @@ cards:
     cards:
     - type: custom:simple-weather-card
       #entity: weather.accuhome
-      entity: weather.home
-      name: in current location
+      entity: weather.openweathermap
+      name: at home
       backdrop: 
         fade: true
         day: '#666677'
@@ -24,7 +24,7 @@ cards:
       cards:
       - type: entity
         #entity: weather.accuhome
-        entity: weather.home
+        entity: weather.openweathermap
         attribute: 'temperature'
         name: Outside
         icon: 'mdi:thermometer'

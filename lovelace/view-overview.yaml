@@ -21,7 +21,7 @@ cards:
     - type: horizontal-stack
       cards:
       - type: entity
-        entity: weather.home
+        entity: weather.openweathermap
         attribute: 'temperature'
         name: Outside
         icon: 'mdi:thermometer'
@@ -50,7 +50,7 @@ cards:
   #        hours_to_show: 24
   #        detail: 2
     - type: custom:weather-card
-      entity: weather.accuhome
+      entity: weather.openweathermap
       current: true
       details: true
       forecast: true
@@ -58,7 +58,8 @@ cards:
     - type: statistics-graph
       title: Temperature
       entities:
-        - entity: sensor.accuhome_apparent_temperature
+              #- entity: sensor.accuhome_apparent_temperature
+        - entity: sensor.openweathermap_temperature
           name: Outside
 
     - type: custom:mini-graph-card
@@ -95,8 +96,9 @@ cards:
         - entity: sensor.upstairs_temperature
           name: Upstairs
           color: "#33B679"
+          #- entity: sensor.accuhome_apparent_temperature
           #- entity: sensor.dark_sky_temperature
-        - entity: sensor.accuhome_apparent_temperature
+        - entity: sensor.openweathermap_temperature
           name: Outside
           #color: 'silver'
         

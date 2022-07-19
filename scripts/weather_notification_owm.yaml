@@ -1,0 +1,28 @@
+alias: Weather notification OWM
+sequence:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.weather_message
+      value: >-
+        {% if states('sensor.openweathermap_temperature') != 'unknown' %}
+          {{ states('sensor.openweathermap_temperature')|round(0) }}{{ state_attr('sensor.openweathermap_temperature','unit_of_measurement') }} outside and {{ states('sensor.openweathermap_condition')|lower }}, the forecast is {{ states('sensor.openweathermap_forecast_condition') }} with highs of {{ states('sensor.openweathermap_forecast_temperature')|round(0) }}{{ state_attr('sensor.openweathermap_forecast_temperature','unit_of_measurement') }} and lows of {{ states('sensor.openweathermap_forecast_temperature_low')|round(0) }}{{ state_attr('sensor.openweathermap_forecast_temperature_low','unit_of_measurement') }}
+        {% elif states('weather.openweathermap') != 'unknown' %}
+          {{ states.weather.openweathermap.attributes.forecast[0].temperature }}C outside and {{ states('weather.openweathermap') }}
+        {% else %}
+          I have no idea what the weather is like, try looking out the window.
+        {% endif %}
+        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %}
+          {% if states('sensor.dark_sky_alerts')|int == 1 %}
+            {% if state_attr('sensor.dark_sky_alerts','time')|int > as_timestamp(now())|int %}
+              {{ state_attr('sensor.dark_sky_alerts','title') }} until {{ state_attr('sensor.dark_sky_alerts','time')|timestamp_local }}
+            {% endif %}
+          {% else %}
+            There are {{ states('sensor.dark_sky_alerts')}} alerts, {{ state_attr('sensor.dark_sky_alerts','title_0') }} until {{ state_attr('sensor.dark_sky_alerts','time_0')|timestamp_local }}
+          {% endif %}
+        {% endif %}
+  - service: notify.lm_notify
+    data:
+      message: "{{ states('input_text.weather_message') }}"
+  - service: notify.logfile
+    data:
+      message: "{{ states('input_text.weather_message') }}"
