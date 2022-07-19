@@ -255,6 +255,6 @@ cards:
     - entity: sensor.family_room_multi_temperature
       name: Family room
       color: '#9753e0'
-    - entity: sensor.accuhome_apparent_temperature
+    - entity: sensor.openweathermap_temperature
       name: Outside
       color: 'silver'

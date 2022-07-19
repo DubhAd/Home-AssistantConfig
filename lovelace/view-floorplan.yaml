@@ -289,7 +289,10 @@ cards:
         # Outside is expected to be colder/hotter
         - entities:
             - sensor.dark_sky_apparent_temperature
-          text_template: '${entity.state ? entity.state : "unknown"} C'
+            - sensor.openweathermap_temperature
+            - sensor.openweathermap_feels_like_temperature
+          #text_template: '${entity.state ? entity.state : "unknown"} C'
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"} C'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           # text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
           class_template: '
@@ -333,6 +336,7 @@ cards:
 
         - entities:
             - sensor.home_humidity
+            - sensor.openweathermap_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '
             var humid = parseFloat(entity.state.replace("%", ""));

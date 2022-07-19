@@ -281,7 +281,7 @@ cards:
     - entity: sensor.office_climate_temperature
       name: Office
       color: "#F28544"
-    - entity: sensor.accuhome_apparent_temperature
+    - entity: sensor.openweathermap_temperature
       name: Outside
       color: 'silver'
 - type: custom:mini-graph-card
