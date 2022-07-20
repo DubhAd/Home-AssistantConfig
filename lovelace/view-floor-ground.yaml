@@ -206,7 +206,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.roku_x00200y5s7lx_active_app
-        state_not: 'Unknown'
+        state_not: 'unknown'
     card:
       type: entity
       name: Active TV app
