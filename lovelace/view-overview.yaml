@@ -78,24 +78,44 @@ cards:
       color_thresholds:
         - value: -10
           color: 'silver'
+        - value: -1
+          color: 'silver'
         - value: 0
+          color: 'white'
+        - value: 4
           color: 'white'
         - value: 5
           color: 'lightblue'
-        - value: 10
-          color: 'lightgreen'
+        - value: 12
+          color: 'lightblue'
+        - value: 13
+          color: 'lightblue'
+        - value: 14
+          color: 'lightblue'
         - value: 15
+          color: 'lightgreen'
+        - value: 19
+          color: 'lightgreen'
+        - value: 20
+          color: 'green'
+        - value: 21
+          color: 'green'
+        - value: 22
           color: 'orange'
-        - value: 23
+        - value: 24
+          color: 'orange'
+        - value: 25
           color: 'red'
       entities:
         - entity: sensor.downstairs_temperature
           name: Downstairs
           #color: darkgoldenrod
-          color: '#5397e0'
+          #color: '#5397e0'
+          color: '#e03793'
         - entity: sensor.upstairs_temperature
           name: Upstairs
-          color: "#33B679"
+          #color: "#33B679"
+          color: "#B69933"
           #- entity: sensor.accuhome_apparent_temperature
           #- entity: sensor.dark_sky_temperature
         - entity: sensor.openweathermap_temperature
