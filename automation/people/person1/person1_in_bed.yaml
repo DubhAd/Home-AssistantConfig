@@ -15,6 +15,9 @@ trigger:
   # Bedtime?
   - platform: time
     at: '22:01:00'
+  - platform: state
+    entity_id: sensor.roku_x00200y5s7lx_active_app
+    from: 'PlayStation 5'
 condition:
   # Isn't in bed
   - condition: state
@@ -37,6 +40,12 @@ condition:
   - condition: state
     entity_id: binary_sensor.second_ensuite_door_contact
     state: 'off'
+  # Not on the PS5
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.roku_x00200y5s7lx_active_app
+        state: 'PlayStation 5'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person1_in_bed

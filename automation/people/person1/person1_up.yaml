@@ -19,6 +19,9 @@ trigger:
   - platform: state
     entity_id: binary_sensor.second_ensuite_door_contact
     to: 'on'
+  - platform: state
+    entity_id: sensor.roku_x00200y5s7lx_active_app
+    to: 'PlayStation 5'
 condition:
   # Is at home and sleeping
   - condition: state
@@ -31,6 +34,9 @@ condition:
   # Something is unplugged, or the screen is on, or away from home
   - condition: or
     conditions:
+    - condition: state
+      entity_id: sensor.roku_x00200y5s7lx_active_app
+      state: 'PlayStation 5'
     - condition: state
       entity_id: input_boolean.person1_home
       state: 'off'
