@@ -4,13 +4,11 @@ initial_state: 'on'
 trigger:
   - platform: numeric_state
     entity_id: proximity.person1_home
-    above: 100000
+    above: 50000
     for:
       hours: 3
-  - platform: homeassistant
-    event: start
   - platform: time
-    at: '21:00:00'
+    at: '23:00:00'
 condition:
   condition: and
   conditions:
@@ -19,7 +17,7 @@ condition:
     state: 'off'
   - condition: numeric_state
     entity_id: proximity.person1_home
-    above: 100000
+    above: 20000
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person1_travelling
