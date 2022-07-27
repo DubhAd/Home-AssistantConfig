@@ -3,11 +3,17 @@ alias: 'person1 alarm on'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: calendar.person1_holiday
+    entity_id: 
+      - binary_sensor.workday_sensor
+      - calendar.person1_holiday
+      - input_boolean.person1_travelling
     to: 'off'
 condition:
   - condition: state
-    entity_id: binary_sensor.workday_sensor
+    entity_id: 
+      - binary_sensor.workday_sensor
+      - calendar.person1_holiday
+      - input_boolean.person1_travelling
     state: 'off'
 action:
   - service: switch.turn_on
