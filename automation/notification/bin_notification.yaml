@@ -22,7 +22,7 @@ condition:
         state: 'tomorrow'
 action:
   - delay: '00:01:00'
-  - service: notify.lm_notify
+  - service: notify.logfile
     data:
       message: >-
-        Tomorrow the {%- if is_state('sensor.bin_brown', 'tomorrow') %} brown bin {%- elif is_state('sensor.bin_blue', 'tomorrow') %} blue bin {%- else %} grey bin {%- endif %} is being collected
+        SENDLIVING Tomorrow the {%- if is_state('sensor.bin_brown', 'tomorrow') %} brown bin {%- elif is_state('sensor.bin_blue', 'tomorrow') %} blue bin {%- elif is_state('sensor.bin_green','tomorrow') %} green bin {%- else %} grey bin {%- endif %} is being collected

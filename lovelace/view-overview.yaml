@@ -74,48 +74,92 @@ cards:
       upper_bound: 30
       show:
         labels: true
-        fill: false
+        fill: true
+        extrema: true
+        average: true
       color_thresholds:
         - value: -10
-          color: 'silver'
+          color: '#0000FF'
+        - value: -5
+          color: '#0000FF'
+        - value: -4
+          color: '#3333FF'
+        - value: -3
+          color: '#6666FF'
+        - value: -2
+          color: '#9999FF'
         - value: -1
-          color: 'silver'
+          color: '#CCCCFF'
         - value: 0
-          color: 'white'
+          color: '#FFFFFF'
+        - value: 1
+          color: '#EFF7FA'
+        - value: 2
+          color: '#DEEFF5'
+        - value: 3
+          color: '#CEE8F0'
         - value: 4
-          color: 'white'
+          color: '#BDE0EB'
         - value: 5
-          color: 'lightblue'
+          color: '#ADD8E6'
+        - value: 6
+          color: '#A7person2D'
+        - value: 7
+          color: '#A5DCD5'
+        - value: 8
+          color: '#A2DFCC'
+        - value: 9
+          color: '#A0E1C4'
+        - value: 10
+          color: '#9DE3BB'
+        - value: 11
+          color: '#9AE5B2'
         - value: 12
-          color: 'lightblue'
+          color: '#98E7AA'
         - value: 13
-          color: 'lightblue'
+          color: '#95EAA1'
         - value: 14
-          color: 'lightblue'
+          color: '#93EC99'
         - value: 15
-          color: 'lightgreen'
+          color: '#90ee90'
+        - value: 16
+          color: '#78DC78'
+        - value: 17
+          color: '#60C960'
+        - value: 18
+          color: '#48B748'
         - value: 19
-          color: 'lightgreen'
+          color: '#30A530'
         - value: 20
-          color: 'green'
+          color: '#189218'
         - value: 21
-          color: 'green'
+          color: '#008000'
         - value: 22
-          color: 'orange'
+          color: '#558C00'
+        - value: 23
+          color: '#AA9900'
         - value: 24
-          color: 'orange'
+          color: '#FFA500'
         - value: 25
-          color: 'red'
+          color: '#FF6E00'
+        - value: 27
+          color: '#FF3700'
+        - value: 28
+          color: '#FF0000'
+        - value: 29
+          color: '#FF0000'
       entities:
         - entity: sensor.downstairs_temperature
           name: Downstairs
           #color: darkgoldenrod
           #color: '#5397e0'
-          color: '#e03793'
+          #color: '#e03793'
+          color: '#e7d516'
         - entity: sensor.upstairs_temperature
           name: Upstairs
           #color: "#33B679"
-          color: "#B69933"
+          #color: "#B69933"
+          color: '#c6961d'
           #- entity: sensor.accuhome_apparent_temperature
           #- entity: sensor.dark_sky_temperature
         - entity: sensor.openweathermap_temperature

@@ -6,6 +6,11 @@ BINFILE=/data/homeassistant/bin
 SENDER=$(echo ${1}|tr -d '/'| sed "s#@#-a-#")
 #SENDER="${1}"
 
+cat << EOM >> ${LOGFILE}
+==========
+Received email from ${SENDER} at $(date +"%F %T")
+EOM
+
 case ${SENDER} in 
 ##	*greenboxday.co.uk )
 ##		TDIR=$(mktemp --directory --suffix=.pe)
@@ -45,6 +50,10 @@ case ${SENDER} in
 		cat << EOM >> ${BINFILE}.${WHAT:l}.json
 { "collection_date":"${WHEN}", "collection_type":"${WHAT} Bin Collection","timestamp":"$(date +"%F %T")" }
 EOM
+		cat <<-EOM >> ${LOGFILE}
+		==========
+		${WHAT} bin collection at ${WHEN} (parsed at $(date +"%F %T"))
+		EOM
 		;;
 	* )	TDIR=$(mktemp --directory --suffix=.pe)
 		MASTER=${TDIR}/email.file.${SENDER}
