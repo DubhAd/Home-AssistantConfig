@@ -24,6 +24,6 @@ action:
   - service: notify.person2_telegram
     data: 
       message: "{{ states('input_text.train_message') }}"
-  - service: notify.lm_notify
+  - service: notify.logfile
     data: 
-      message: "{{ states('input_text.train_message') }}"
+      message: "SENDLIVING {{ states('input_text.train_message') }}"

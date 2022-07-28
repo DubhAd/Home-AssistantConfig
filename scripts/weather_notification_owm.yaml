@@ -20,9 +20,6 @@ sequence:
             There are {{ states('sensor.dark_sky_alerts')}} alerts, {{ state_attr('sensor.dark_sky_alerts','title_0') }} until {{ state_attr('sensor.dark_sky_alerts','time_0')|timestamp_local }}
           {% endif %}
         {% endif %}
-  - service: notify.lm_notify
-    data:
-      message: "{{ states('input_text.weather_message') }}"
   - service: notify.logfile
     data:
-      message: "{{ states('input_text.weather_message') }}"
+      message: "SENDLIVING {{ states('input_text.weather_message') }}"
