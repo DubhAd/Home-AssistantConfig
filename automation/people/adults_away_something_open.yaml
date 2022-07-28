@@ -25,7 +25,7 @@ action:
   # Notify the last person to leave
   - service: >-
       {% if as_timestamp(states.input_boolean.person2_home.last_updated) > as_timestamp(states.input_boolean.person3_home.last_updated) %}
-        notify.command_line_person2
+        notify.person2_telegram
       {% else %}
         notify.command_line_person3
       {% endif %}
