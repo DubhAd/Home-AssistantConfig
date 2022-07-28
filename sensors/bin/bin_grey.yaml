@@ -1,7 +1,7 @@
 - platform: template
   sensors:
     bin_grey:
-      friendly_name: 'Grey bin collection'
+      friendly_name: 'Grey bin'
       #      entity_id:
       #  - sensor.grey_collection_date
       #  - sun.sun

@@ -1,7 +1,7 @@
 - platform: template
   sensors:
     bin_green:
-      friendly_name: 'Green bin collection'
+      friendly_name: 'Green bin'
       #      entity_id:
       #  - sensor.green_collection_date
       #  - sun.sun

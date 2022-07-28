@@ -1,0 +1,10 @@
+- sensor:
+  - name: 'Next bin collection'
+    unique_id: 'next_bin_collection'
+    state: >-
+        {% set bin_sensor = ("sensor.bin_blue" if states('sensor.bin_blue') in ["today","tomorrow"] else "sensor.bin_brown" if states('sensor.bin_brown') in ["today","tomorrow"] else "sensor.bin_green" if states('sensor.bin_green') in ["today","tomorrow"] else "sensor.bin_grey" if states('sensor.bin_grey') in ["today","tomorrow"] else "none" ) %}
+        {{ "future" if bin_sensor == "none" else states(bin_sensor) }}
+    attributes:
+      bin_type: >-
+        {% set bin_type = ("blue" if states('sensor.bin_blue') in ["today","tomorrow"] else "brown" if states('sensor.bin_brown') in ["today","tomorrow"] else "green" if states('sensor.bin_green') in ["today","tomorrow"] else "grey" if states('sensor.bin_grey') in ["today","tomorrow"] else "none" ) %}
+        {{ bin_type }}
