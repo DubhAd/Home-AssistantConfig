@@ -33,11 +33,10 @@ cards:
 - type: glance
   title: Devices
   show_header_toggle: false
+  columns: 3
   entities:
-  - entity: device_tracker.family_room_tv
+  - entity: media_player.roku_x00200y5s7lx
     name: Family room
-  - entity: device_tracker.living_room_chromecast
-    name: Living room chromecast
   - entity: media_player.cast_living_room_tv
     name: Living room chromecast
   - entity: media_player.samsung_tv

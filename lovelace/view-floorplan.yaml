@@ -226,6 +226,8 @@ cards:
               class: 'squeezebox-on'
             - state: 'Online'
               class: 'squeezebox-on'
+            - state: 'standby'
+              class: 'homehub-paused'
             - state: 'off'
               class: 'squeezebox-off'
             - state: 'not home'
