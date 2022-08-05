@@ -356,7 +356,7 @@ background-color: var(--primary-background-color);
 }
 
 .homehub-paused {
-  fill: #518151 !important;
+  fill: #517151 !important;
 }
 
 .homehub-on {
@@ -370,7 +370,8 @@ background-color: var(--primary-background-color);
 
 .squeezebox-paused {
   /* fill: #B9C999 !important; */
-  fill: #8da6c9 !important;
+  /* fill: #8da6c9 !important; */
+  fill: #9da6b9 !important;
 }
 
 .squeezebox-on {
