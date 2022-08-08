@@ -11,11 +11,7 @@ sequence:
             state: 'on'
         sequence: 
           - service: homeassistant.update_entity
-            entity_id: sensor.person3s_time_to_home_by_walking_google
-          - service: homeassistant.update_entity
-            entity_id: sensor.person3s_time_to_home_by_bus_google
-          - service: homeassistant.update_entity
-            entity_id: sensor.person3s_time_to_home_by_car_google
+            entity_id: sensor.person3s_time_to_home_by_google
   - choose:
       - conditions:
           - condition: state
