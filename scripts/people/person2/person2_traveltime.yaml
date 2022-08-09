@@ -26,24 +26,10 @@ sequence:
                     state: 'on'
                 sequence: 
                   - service: homeassistant.update_entity
-                    entity_id: sensor.person2s_time_to_home_by_transit_google
-              - conditions:
-                  - condition: state
-                    entity_id: input_boolean.here_travel_time
-                    state: 'on'
-                sequence: 
-                  - service: homeassistant.update_entity
                     entity_id: sensor.person2s_time_to_home_by_transit
     # Default is car
     default:
       - choose:
-          - conditions:
-              - condition: state
-                entity_id: input_boolean.google_travel_time
-                state: 'on'
-            sequence: 
-              - service: homeassistant.update_entity
-                entity_id: sensor.person2s_time_to_home_by_driving_google
           - conditions:
               - condition: state
                 entity_id: input_boolean.here_travel_time
