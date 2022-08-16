@@ -9,35 +9,17 @@ trigger:
       - input_boolean.person1_home
       - input_boolean.person4_home
       - input_boolean.guest_mode
-      - input_boolean.living_room_occupied
-      - input_boolean.family_room_occupied
     to: 'off'
 condition:
-  condition: and
-  conditions:
-    # We're all away
-    - condition: state
-      entity_id: input_boolean.person3_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.person2_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.person1_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.person4_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.guest_mode
-      state: 'off'
-    # Rooms are all unoccupied
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.family_room_occupied
-      state: 'off'
+  # We're all away
+  - condition: state
+    entity_id: 
+      - input_boolean.person3_home
+      - input_boolean.person2_home
+      - input_boolean.person1_home
+      - input_boolean.person4_home
+      - input_boolean.guest_mode
+    state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.home_occupied

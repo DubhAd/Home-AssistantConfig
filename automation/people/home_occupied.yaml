@@ -10,8 +10,6 @@ trigger:
       - input_boolean.person1_tablet_home
       - input_boolean.person4_home
       - input_boolean.guest_mode
-      - input_boolean.living_room_occupied
-      - input_boolean.family_room_occupied
     to: 'on'
 condition:
   - condition: state
@@ -38,13 +36,6 @@ condition:
       state: 'on'
     - condition: state
       entity_id: input_boolean.guest_mode
-      state: 'on'
-    # Rooms occupied
-    - condition: state
-      entity_id: input_boolean.living_room_occupied
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.family_room_occupied
       state: 'on'
 action:
   - service: input_boolean.turn_on
