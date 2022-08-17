@@ -54,6 +54,7 @@ cards:
             - sensor.bin_blue
             - sensor.bin_grey
             - sensor.bin_brown
+            - sensor.bin_green
           states:
             - state: 'today'
               class: bin-today
