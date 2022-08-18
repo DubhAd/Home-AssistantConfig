@@ -6,11 +6,23 @@ trigger:
     event_type: tasker_webhook
     event_data:
       who: person2
-condition: 
-  # Phone is roaming
-  - condition: template
-    value_template: >-
-      {{ trigger.event.data.roaming == "on" }}
+  - platform: state
+    entity_id: sensor.pixel_xl_geocoded_location
+    attribute: iso_classical_code
+    from: 'GB'
+condition:
+  - condition: or
+    conditions:
+      # Phone is roaming
+      - condition: template
+        value_template: >-
+          {{ trigger.event.data.roaming == "on" }}
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.pixel_xl_geocoded_location
+            attribute: iso_classical_code
+            state: 'GB'
   # Not overseas
   - condition: state
     entity_id: input_boolean.person2_overseas
