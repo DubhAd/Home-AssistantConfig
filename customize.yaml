@@ -189,7 +189,7 @@ device_tracker.car_gps:
 input_text.person_person3:
   entity_picture: /local/people/person3Thumb.jpg
 input_text.person_person4:
-  entity_picture: /local/people/person4Thumb.jpg
+  entity_picture: /local/people/ElizabethThumb.png
 input_text.person_person1:
   entity_picture: /local/people/person1Thumb.jpg
 input_text.person_person2:

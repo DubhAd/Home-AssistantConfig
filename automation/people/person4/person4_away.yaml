@@ -1,5 +1,5 @@
 id: 'person4_away'
-alias: 'person4 away'
+alias: 'Elizabeth away'
 initial_state: 'on'
 trigger:
   - platform: numeric_state

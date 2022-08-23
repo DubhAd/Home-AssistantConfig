@@ -1,5 +1,5 @@
 id: 'person4_coming_home'
-alias: 'person4 coming home'
+alias: 'Elizabeth coming home'
 initial_state: 'on'
 trigger:
   - platform: numeric_state
@@ -16,7 +16,7 @@ condition:
 action:
   - service: notify.command_line_person3
     data:
-      message: "person4 will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
+      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
   - service: notify.lametric_info
     data:
-      message: "person4 will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
+      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"

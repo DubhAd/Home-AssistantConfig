@@ -1,6 +1,6 @@
 id: 'person4_home'
 initial_state: 'on'
-alias: 'person4 home'
+alias: 'Elizabeth home'
 trigger:
   - platform: state
     entity_id:

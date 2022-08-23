@@ -84,17 +84,17 @@ cards:
             maxDaysToShow: 1
 - type: picture-entity
   entity: input_text.person_person4
-  image: /local/people/person4_Away.png
+  image: /local/people/Elizabeth_Away.png
   tap_action:
     action: call-service
     service: input_boolean.toggle
     service_data:
       entity_id: input_boolean.lovelace_person4_more
   state_image:
-      "Home": /local/people/person4.png
-      "Sleeping": /local/people/person4.png
-      "In bed": /local/people/person4.png
-      "Just Arrived": /local/people/person4.png
+      "Home": /local/people/Elizabeth.png
+      "Sleeping": /local/people/Elizabeth.png
+      "In bed": /local/people/Elizabeth.png
+      "Just Arrived": /local/people/Elizabeth.png
 - type: conditional
   conditions:
     - entity: input_boolean.lovelace_person4_more
@@ -103,7 +103,7 @@ cards:
     type: vertical-stack
     cards: 
     - type: glance
-      title: person4
+      title: Elizabeth
       entities:
       - entity: device_tracker.dsb_0230
         name: GPS

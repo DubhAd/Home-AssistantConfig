@@ -1,6 +1,6 @@
 id: 'person4_on_the_move'
 initial_state: 'on'
-alias: 'person4 on the move'
+alias: 'Elizabeth on the move'
 trigger:
   # I've moved
   - platform: state

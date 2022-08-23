@@ -1,6 +1,6 @@
 id: 'person4_location_update'
 initial_state: 'on'
-alias: 'person4 location update'
+alias: 'Elizabeth location update'
 trigger:
   # I've moved
   - platform: state
@@ -15,6 +15,6 @@ action:
   - service: notify.logfile
     data:
       message: >
-        Location for person4 updated at {{ now() }}
+        Location for Elizabeth updated at {{ now() }}
   - service: script.turn_on
     entity_id: script.person4_travel_sensor

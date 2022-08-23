@@ -1,6 +1,6 @@
 id: 'person4_changing_zones'
 initial_state: 'on'
-alias: 'person4 changing zones'
+alias: 'Elizabeth changing zones'
 trigger:
   # Been away for a few minutes
   - platform: state
@@ -18,6 +18,6 @@ condition:
 action:
   - service: notify.logfile
     data:
-      message: "Updating travel time for person4 due to entering a zone, or leaving one 5 minutes ago"
+      message: "Updating travel time for Elizabeth due to entering a zone, or leaving one 5 minutes ago"
   - service: script.turn_on
     entity_id: script.person4_traveltime
