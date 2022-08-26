@@ -8,9 +8,9 @@ trigger:
 action:
   - service: notify.mobile_app_pixel_xl
     data:
-      title: "Nobody is home right now, turn off the alarm"
       message: TTS
       data:
-        channel: alarm_stream
+        media_stream: alarm_stream_max
+        tts_text: "Nobody is home right now, turn off the alarm"
         priority: high
         ttl: 0
