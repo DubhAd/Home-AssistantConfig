@@ -2,10 +2,6 @@ id: 'person2_not_driving'
 initial_state: 'on'
 alias: 'person2 not driving'
 trigger:
-  - platform: event
-    event_type: tasker_webhook
-    event_data:
-      who: person2
   - platform: state
     entity_id: sensor.pixel_xl_bluetooth_connection
     attribute: connected_paired_devices
@@ -16,9 +12,6 @@ condition:
     - condition: template
       value_template: >-
         {{ '00:0E:9F:7D:6A:96' not in state_attr('sensor.pixel_xl_bluetooth_connection','connected_paired_devices') }}
-    - condition: template
-      value_template: >-
-        {{ trigger.event and ',Exit Car,' in trigger.event.data.what }}
   # Driving
   - condition: state
     entity_id: input_boolean.person2_driving
