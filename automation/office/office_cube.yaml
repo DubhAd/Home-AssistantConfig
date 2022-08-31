@@ -1,6 +1,5 @@
 id: 'office_cube'
 alias: 'office_cube'
-initial_state: 'on'
 trigger:
   - platform: state
     entity_id: sensor.office_cube_action

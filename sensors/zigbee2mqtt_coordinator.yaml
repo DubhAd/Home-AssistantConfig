@@ -1,5 +1,5 @@
 - platform: mqtt
-  name: Zigbee3 Coordinator Version
-  state_topic: "zigbee3mqtt/bridge/info"
+  name: Zigbee2 Coordinator Version
+  state_topic: "zigbee2mqtt/bridge/info"
   value_template: "{{ value_json.coordinator.meta.revision }}"
   icon: mdi:chip

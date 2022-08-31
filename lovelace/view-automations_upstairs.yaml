@@ -27,6 +27,11 @@ cards:
   - type: divider
   - entity: automation.hotter_outside_office
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.office_cube
+    secondary_info: last-triggered
+  - entity: automation.office_dial_action
+    secondary_info: last-triggered
 
 - type: entities
   title: Lighting automations for the office

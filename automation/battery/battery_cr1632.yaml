@@ -6,7 +6,6 @@ trigger:
     entity_id: 
     - binary_sensor.bathroom_door_battery_low
     - binary_sensor.master_bedroom_door_battery_low
-    - binary_sensor.office_door_battery_low
     - binary_sensor.second_bedroom_door_battery_low
     - binary_sensor.vestibule_door_battery_low
     - binary_sensor.garage_door_car_battery_low
@@ -25,6 +24,7 @@ trigger:
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
     - sensor.office_window_battery
+    - sensor.office_door_battery
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery
     - sensor.second_bedroom_window_ensuite_battery
@@ -51,6 +51,7 @@ trigger:
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
+    - sensor.office_door_battery
     - sensor.office_window_battery
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery
@@ -78,6 +79,7 @@ trigger:
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
+    - sensor.office_door_battery
     - sensor.office_window_battery
     - sensor.patio_window_left_battery
     - sensor.patio_window_right_battery

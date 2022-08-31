@@ -8,12 +8,21 @@ cards:
 - type: entities
   title: Zigbee
   show_header_toggle: false
+  state_color: true
   entities:
   - entity: sensor.zigbee3_bridge_state
     secondary_info: last-changed
     name: Zigbee 3 Bridge
   - entity: sensor.zigbee3mqtt_version
     name: Zigbee 3 Version
+  - type: divider
+  - entity: binary_sensor.zigbee2mqtt_bridge_state
+    secondary_info: last-changed
+    name: Zigbee2MQTT
+  - entity: sensor.zigbee2mqtt_version
+    name: Zigbee2MQTT Version
+  - entity: sensor.zigbee2_coordinator_version
+    name: Zigbee2MQTT Coordinator
 - type: custom:html-template-card
   title: 'Zigbee link status times'
   ignore_line_breaks: true
