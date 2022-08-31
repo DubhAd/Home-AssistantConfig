@@ -1,7 +1,7 @@
-title: Z-Wave
-id: zwave
-path: zwave
-icon: mdi:z-wave
+title: Zigbee and Z-Wave
+id: zigbee
+path: zigbee
+icon: mdi:zigbee
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:

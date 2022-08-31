@@ -65,3 +65,7 @@ action:
           - service: notify.tts_office
             data:
               message: "The front door has been left open"
+          - delay: '00:00:05'
+          - service: media_player.turn_off
+            data:
+              entity_id: media_player.office_smart_display
