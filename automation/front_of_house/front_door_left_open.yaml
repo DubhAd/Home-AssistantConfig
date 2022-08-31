@@ -47,6 +47,10 @@ action:
           - service: notify.tts_family_room
             data:
               message: "The front door has been left open"
+          - delay: '00:00:05'
+          - service: media_player.turn_off
+            data:
+              entity_id: media_player.family_room_display
   - choose:
       - conditions: 
           - condition: state
@@ -56,6 +60,10 @@ action:
           - service: notify.tts_living_room
             data:
               message: "The front door has been left open"
+          - delay: '00:00:05'
+          - service: media_player.turn_off
+            data:
+              entity_id: media_player.living_room_display
   - choose:
       - conditions: 
           - condition: state
