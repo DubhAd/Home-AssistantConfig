@@ -91,12 +91,12 @@ All my current Z-Wave hardware is Z-Wave Plus.
 ## Not in use
 These have been removed from my setup and either replaced with another Z-Wave option, or replaced with a Zigbee device.
 
-| What | Buy again? | Thoughts |
-| --- | :---: | --- |
-| Fibaro FGK10x | Garage door sensors | :no_entry: | Fairly unobtrusive door sensors I used for the garage doors, which have support for external sensors too. They're not made any more, and have been replaced with Zigbee sensors that perform so much better. |
-| Fibaro MultiSensor | :grey_question: | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though. I replaced it with some Zigbee sensors. |
-| NodOn Octan | :no_entry: | Great little four button remote, which sadly is discontinued. Replaced by a Xiaomi cube. |
-| NodOn Soft Remote | :no_entry: | A brightly coloured, kid proof four button remote, that's also discontinued. Replaced by voice control. |
+| What | Thoughts |
+| --- | --- |
+| Fibaro FGK10x | Fairly unobtrusive door sensors I used for the garage doors, which have support for external sensors too. They're not made any more, and have been replaced with Zigbee sensors that perform so much better. |
+| Fibaro MultiSensor | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though. I replaced it with some Zigbee sensors. |
+| NodOn Octan | Great little four button remote, which sadly is discontinued. Replaced by a Xiaomi cube. |
+| NodOn Soft Remote | A brightly coloured, kid proof four button remote, that's also discontinued. Replaced by voice control. |
 
 # Other
 
