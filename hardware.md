@@ -62,6 +62,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | :pause_button: | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :pause_button: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :pause_button: | These are pretty good, they report regularly enough to be useful and are reliable. Hopefully we'll get a Zigbee 3.0 version soon. |
+| [Xiaomi Aqara water leak sensor](https://www.zigbee2mqtt.io/devices/SJCGQ11LM.html) | Leak Sensor | :pause_button: | These are pretty good, the only downside is they're not Zigbee 3.0. |
 | [Xiaomi D1 remote](https://www.zigbee2mqtt.io/devices/WXKG06LM.html) | Remote | :small_red_triangle: | Bought initially to replace a Z-Wave switch, but if it's asleep then the first press simply wakes it and does nothing. |
 
 **Notes**
