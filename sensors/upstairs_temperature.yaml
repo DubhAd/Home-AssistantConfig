@@ -6,4 +6,4 @@
     - sensor.bathroom_environment_temperature
     - sensor.master_ensuite_temperature
     - sensor.second_bedroom_ensuite_temperature
-    - sensor.office_climate_temperature
+    - sensor.office_temperature

@@ -6,18 +6,18 @@ trigger:
     entity_id: binary_sensor.office_window_contact
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.metno_temperature
+    entity_id: sensor.accuhome_apparent_temperature
     above: 23
   - platform: template
     value_template: >
-      {{ states('sensor.metno_temperature')|int > states('sensor.office_climate_temperature')|int }}
+      {{ states('sensor.accuhome_apparent_temperature')|int > states('sensor.office_temperature')|int }}
 condition:
   - condition: numeric_state
-    entity_id: sensor.metno_temperature
+    entity_id: sensor.accuhome_apparent_temperature
     above: 23
   - condition: template
     value_template: >
-      {{ states('sensor.metno_temperature')|int > states('sensor.office_climate_temperature')|int }}
+      {{ states('sensor.accuhome_apparent_temperature')|int > states('sensor.office_temperature')|int }}
   - condition: or
     conditions:
     - condition: state
