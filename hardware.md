@@ -27,12 +27,16 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Gledopto GL-C-008P](https://www.zigbee2mqtt.io/devices/GL-C-008P.html) | Hall light | :heavy_check_mark: | Replaced the older GL-C-008, transitions are smoother, but otherwise it behaves much like the old unit. I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I may replace the tape with COB tape |
 | [IKEA LED1733G7](https://www.zigbee2mqtt.io/devices/LED1733G7.html#ikea-led1733g7) | Light | :heavy_check_mark: | I bought a couple of these for background lighting in the living room. I have no complaints about them, they transition smoothly, have a good range of brightness, and are cheap. NB: I'm not 100% sure these are Zigbee 3.0. |
 | [Ikea LED1739R5](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html#ikea-led1537r6%252Fled1739r5) | Light | :heavy_check_mark: | This was bought to replace the Osram, and it does this well. My comments for the other Ikea lights apply here too. |
-| [Innr SP222](https://www.zigbee2mqtt.io/devices/SP_222.html) | Router | :grey_question: | Purely functions as a (Zigbee 3.0) router, it doesn't do power monitoring, but it is compact and has local control. I'm going to use some more of these to replace some of the Z-Wave sockets. |
+| [Innr SP222](https://www.zigbee2mqtt.io/devices/SP_222.html) | Router and socket | :grey_question: | Some purely function as a (Zigbee 3.0) router, it doesn't do power monitoring, but it is compact and has local control. I'm use some of these to replace old Z-Wave sockets, for things like our Christmas lighting. |
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | Remote | :thumbsdown: | These are neat, smaller than the Xiaomi button, but not as nice to use. |
 | [Konke contact sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPDR.html) | Doors | :thumbsdown: | These are neat, slightly smaller than the Xiaomi sensors, but visually not as nice. They also seem to eat batteries and fail without warning. |
 | [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. They also seem to eat batteries and fail without warning. |
 | [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. |
 | [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Office light | :grey_question: | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
+| [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :heavy_check_mark: | It wouldn't pair with my ZZH, but paired fine with my Sonoff coordinator. Small, responsive, and Zigbee 3.0, what's not to like? A little more expensive than the Xiaomi sensors, but far easier to buy. | 
+| [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :heavy_check_mark: | In use as a [media controller in the office](https://github.com/DubhAd/Home-AssistantConfig/blob/live/automation/office/office_dial.yaml), controlling the volume and pause/play. There's a very slight (unavoidable) delay in the clicks, since it supports single, double, and triple clicks, but it's otherwise a great device. |
+| [Xiaomi MCCGQ14LM door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. It's working well for me so far, though they all came with low battery levels. | 
+| [Xiaomi WXKG16LM remote](https://www.zigbee2mqtt.io/devices/WXKG16LM) | Remote | :grey_question: | Bought to replace a Z-Wave wall switch, to early to tell how good it is. |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
 
 **Notes**
@@ -43,9 +47,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
 | [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | None | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
-| [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :warning: | Others have no problems, but this won't pair with my ZZH | 
 | [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | Room sensor | :warning: | Combined motion, light, temperature sensor, and a button. It's huge, and like the other Terncy kit, won't pair for me. |
-| [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :warning: | I wanted this to give me volume control in the office, but sadly [it won't pair](https://github.com/Koenkk/zigbee2mqtt/discussions/5682). |
 | [YSRSAI YSR-MINI-01_rgbcct](https://www.zigbee2mqtt.io/devices/YSR-MINI-01_rgbcct.html) | Bedroom light | | A compact controller with what looks like local control. Sadly it takes a slightly non-standard connector for the LED strips, so I'm waiting on something coming so I can use it. |
 
 ## Zigbee 1.2 and older
