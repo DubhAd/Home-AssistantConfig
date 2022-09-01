@@ -6,10 +6,6 @@ trigger:
     entity_id: sensor.office_dial_action
     to: 'single'
     id: 'action'
-  - platform: state
-    entity_id: sensor.office_dial_action
-    to: 'rotate'
-    id: 'rotate'
 action:
   - choose:
     - conditions:
@@ -22,6 +18,7 @@ action:
       - service: media_player.media_pause
         data:
           entity_id: media_player.office
+      - delay: '00:00:10'
     - conditions:
       - condition: trigger
         id: 'action'
@@ -29,23 +26,4 @@ action:
       - service: media_player.media_play
         data:
           entity_id: media_player.office
-    - conditions:
-      - condition: trigger
-        id: 'rotate'
-      - condition: template
-        value_template: "{{ trigger.to_state.attributes.action_direction == 'clockwise' }}"
-      sequence:
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.office
-          volume_level: "{{ min(1,state_attr('media_player.office','volume_level')|float(0)+(trigger.to_state.attributes.action_number/100)) }}"
-    - conditions:
-      - condition: trigger
-        id: 'rotate'
-      - condition: template
-        value_template: "{{ trigger.to_state.attributes.action_direction == 'counterclockwise' }}"
-      sequence:
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.office
-          volume_level: "{{ max(0,state_attr('media_player.office','volume_level')|float(0)-(trigger.to_state.attributes.action_number/100)) }}"
+      - delay: '00:00:10'
