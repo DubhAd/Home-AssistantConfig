@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id: 
       - binary_sensor.garage_door_car_contact
-      - binary_sensor.pi3_front_door_sensor
+      - binary_sensor.front_door_contact
     to: 'on'
   - platform: numeric_state
     entity_id: proximity.person2_home

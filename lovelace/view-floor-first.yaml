@@ -178,9 +178,9 @@ cards:
       show_last_changed: true
     - entity: sensor.pi3_office_multi_luminance
       name: Light level
-    - entity: sensor.office_climate_temperature
+    - entity: sensor.office_temperature
       name: Temperature
-    - entity: sensor.office_climate_humidity
+    - entity: sensor.office_humidity
       name: Humidity
     - entity: media_player.office
       name: Sonos
@@ -252,7 +252,7 @@ cards:
     - entity: sensor.bathroom_environment_humidity
       name: Bathroom
       color: "#C4E441"
-    - entity: sensor.office_climate_humidity
+    - entity: sensor.office_humidity
       name: Office
       color: "#F28544"
 - type: custom:mini-graph-card
@@ -349,7 +349,7 @@ cards:
     - entity: sensor.bathroom_environment_temperature
       name: Bathroom
       color: "#C4E441"
-    - entity: sensor.office_climate_temperature
+    - entity: sensor.office_temperature
       name: Office
       color: "#F28544"
     - entity: sensor.openweathermap_temperature

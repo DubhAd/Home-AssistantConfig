@@ -4,7 +4,7 @@ sequence:
 - service: notify.logfile
   data:
     message: >-
-      Scan started. Garage: car {{ states('binary_sensor.garage_door_car_contact') }}, bike {{ states('binary_sensor.garage_door_bike_contact') }}.  Vestibule {{ states('binary_sensor.vestibule_multi_occupancy') }} for {{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} seconds.  Front door {{ states('binary_sensor.pi3_front_door_sensor') }} for {{ (now()-states.binary_sensor.pi3_front_door_sensor.last_changed).seconds }} seconds. 
+      Scan started. Garage: car {{ states('binary_sensor.garage_door_car_contact') }}, bike {{ states('binary_sensor.garage_door_bike_contact') }}.  Vestibule {{ states('binary_sensor.vestibule_multi_occupancy') }} for {{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} seconds.  Front door {{ states('binary_sensor.front_door_contact') }} for {{ (now()-states.binary_sensor.front_door_contact.last_changed).seconds }} seconds. 
 - choose:
   #################### ####################
   # If we've just marked somebody as Just Arrived then don't run a departure scan if the garage door is still open.

@@ -1,0 +1,12 @@
+id: 'utility_remote'
+alias: 'Utility remote'
+description: 'Toggle the garden lights when the remote is operated'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.utility_remote_action
+    to: ~
+action:
+  - service: switch.toggle
+    data:
+      entity_id: switch.pi3_garden_lights_switch

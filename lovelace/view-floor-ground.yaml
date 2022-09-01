@@ -27,11 +27,17 @@ cards:
       show_last_changed: true
   - type: glance
     #title: Living room
-    columns: 3
+    columns: 4
     entities:
     - entity: binary_sensor.patio_window_left_contact
       show_last_changed: true
       name: "Left"
+    - entity: binary_sensor.patio_door_left_contact
+      show_last_changed: true
+      name: "Left"
+    - entity: binary_sensor.patio_door_right_contact
+      show_last_changed: true
+      name: "Right"
     - entity: binary_sensor.patio_window_right_contact
       show_last_changed: true
       name: "Right"
@@ -81,12 +87,7 @@ cards:
     title: Vestibule
     columns: 5
     entities:
-      - entity: switch.pi3_vestibule_switch
-        name: Socket
-        tap_action: 
-          action: toggle
-        show_last_changed: true
-      - entity: binary_sensor.pi3_front_door_sensor
+      - entity: binary_sensor.front_door_contact
         show_last_changed: true
         name: Front
       - entity: binary_sensor.vestibule_door_contact
@@ -105,6 +106,11 @@ cards:
         name: "Light level"
       - entity: sensor.vestibule_multi_temperature
         name: "Temperature"
+      - entity: switch.pi3_vestibule_switch
+        name: Socket
+        tap_action: 
+          action: toggle
+        show_last_changed: true
   - type: glance
     title: Hall
     columns: 4
@@ -149,13 +155,13 @@ cards:
         name: Mini
   - type: glance
     title: Utility room & back
-    columns: 3
+    #columns: 4
     entities:
       - entity: switch.pi3_garden_lights_switch
         tap_action: 
           action: toggle
         show_last_changed: true
-      - entity: binary_sensor.utility_door_contact
+      - entity: binary_sensor.utility_door_exterior_contact
         show_last_changed: true
         name: Door
       - entity: binary_sensor.utility_room_water_leak_water_leak

@@ -8,7 +8,7 @@ trigger:
     entity_id: sensor.sun_elevation
     below: 2.5
   - platform: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 15
     for:
       minutes: 5
@@ -31,7 +31,7 @@ trigger:
       - input_select.person1_status_dropdown
       - input_select.person4_status_dropdown
   - platform: state
-    entity_id: binary_sensor.pi3_front_door_sensor
+    entity_id: binary_sensor.front_door_contact
     to: 'on'
 condition:
   - condition: and
@@ -44,7 +44,7 @@ condition:
       state: 'off'
     # Dark in the living room
     - condition: numeric_state
-      entity_id: sensor.pi3_living_room_multi_luminance
+      entity_id: sensor.living_room_light_sensor_illuminance_lux
       below: 25
     # Sun is relatively low
     - condition: numeric_state

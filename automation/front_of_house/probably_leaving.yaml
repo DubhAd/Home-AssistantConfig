@@ -3,7 +3,7 @@ initial_state: 'off'
 alias: 'Probably leaving'
 trigger:
   - platform: state
-    entity_id: binary_sensor.pi3_front_door_sensor
+    entity_id: binary_sensor.front_door_contact
     to: 'on'
   - platform: state
     entity_id: binary_sensor.vestibule_multi_occupancy
@@ -42,7 +42,7 @@ condition:
     entity_id: binary_sensor.vestibule_multi_occupancy
     state: 'on'
   - condition: state
-    entity_id: binary_sensor.pi3_front_door_sensor
+    entity_id: binary_sensor.front_door_contact
     state: 'on'
   # Office isn't occupied
   - condition: state

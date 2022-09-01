@@ -49,10 +49,10 @@ trigger:
       - !input bluetooth_tracker_rear
     to: 'home'
   - platform: state
-    entity_id: binary_sensor.pi3_front_door_sensor
+    entity_id: binary_sensor.front_door_contact
     to: 'off'
   - platform: state
-    entity_id: binary_sensor.pi3_front_door_sensor
+    entity_id: binary_sensor.front_door_contact
     to: 'on'
   - platform: homeassistant
     event: start
@@ -75,7 +75,7 @@ condition:
       conditions:
       - condition: template
         value_template: >-
-          {{ ((now() - states.binary_sensor.pi3_front_door_sensor.last_changed).seconds < 120 ) }}
+          {{ ((now() - states.binary_sensor.front_door_contact.last_changed).seconds < 120 ) }}
       - condition: numeric_state
         entity_id: !input person_group
         value_template: "{{ expand(p_group)|selectattr('state','eq','not_home')|list|count  }}"

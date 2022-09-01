@@ -265,7 +265,7 @@ cards:
             - sensor.pi3_living_room_multi_temperature
             - sensor.living_room_climate_temperature
             - sensor.family_room_multi_temperature
-            - sensor.office_climate_temperature
+            - sensor.office_temperature
             - sensor.master_ensuite_temperature
             - sensor.bathroom_environment_temperature
             - sensor.second_bedroom_ensuite_temperature
@@ -320,7 +320,7 @@ cards:
             - sensor.master_ensuite_humidity
             - sensor.second_bedroom_ensuite_humidity
             - sensor.bathroom_environment_humidity
-            - sensor.office_climate_humidity
+            - sensor.office_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '
             var humid = parseFloat(entity.state.replace("%", ""));
@@ -505,8 +505,11 @@ cards:
           propagate: true
 
         - entities:
+            - binary_sensor.front_door_contact
+            - binary_sensor.patio_door_left_contact
+            - binary_sensor.patio_door_right_contact
+            - binary_sensor.utility_door_exterior_contact
             - binary_sensor.pi3_utility_door_exterior_sensor
-            - binary_sensor.pi3_patio_door_left_sensor
             - binary_sensor.utility_door_contact
             - binary_sensor.patio_window_left_contact
             - binary_sensor.patio_window_right_contact

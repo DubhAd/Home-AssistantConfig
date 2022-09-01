@@ -4,7 +4,9 @@ initial_state: 'on'
 trigger:
   - platform: state
     entity_id: 
-    - binary_sensor.utility_door_contact
+      - binary_sensor.utility_door_exterior_contact
+      - binary_sensor.patio_door_left_contact
+      - binary_sensor.patio_door_right_contact
     to: 'off'
 condition:
   - condition: state

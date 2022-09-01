@@ -37,6 +37,10 @@ trigger:
     - sensor.vestibule_window_side_battery
     - sensor.bathroom_door_battery
     - sensor.guest_bedroom_door_battery
+    - sensor.patio_door_left_battery
+    - sensor.patio_door_right_battery
+    - sensor.front_door_battery
+    - sensor.utility_door_exterior_battery
     below: 21
     for: '03:00:00'
   - platform: numeric_state
@@ -65,6 +69,10 @@ trigger:
     - sensor.vestibule_window_side_battery
     - sensor.bathroom_door_battery
     - sensor.guest_bedroom_door_battery
+    - sensor.patio_door_left_battery
+    - sensor.patio_door_right_battery
+    - sensor.front_door_battery
+    - sensor.utility_door_exterior_battery
     below: 11
     for: '03:00:00'
   - platform: numeric_state
@@ -93,6 +101,10 @@ trigger:
     - sensor.vestibule_window_side_battery
     - sensor.bathroom_door_battery
     - sensor.guest_bedroom_door_battery
+    - sensor.patio_door_left_battery
+    - sensor.patio_door_right_battery
+    - sensor.front_door_battery
+    - sensor.utility_door_exterior_battery
     below: 6
     for: '01:00:00'
 action:
