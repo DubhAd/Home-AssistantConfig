@@ -35,8 +35,8 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Office light | :grey_question: | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
 | [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :heavy_check_mark: | It wouldn't pair with my ZZH, but paired fine with my Sonoff coordinator. Small, responsive, and Zigbee 3.0, what's not to like? A little more expensive than the Xiaomi sensors, but far easier to buy. | 
 | [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :heavy_check_mark: | In use as a [media controller in the office](https://github.com/DubhAd/Home-AssistantConfig/blob/live/automation/office/office_dial.yaml), controlling the volume and pause/play. There's a very slight (unavoidable) delay in the clicks, since it supports single, double, and triple clicks, but it's otherwise a great device. |
-| [Xiaomi MCCGQ14LM door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. It's working well for me so far, though they all came with low battery levels. | 
-| [Xiaomi WXKG16LM remote](https://www.zigbee2mqtt.io/devices/WXKG16LM) | Remote | :grey_question: | Bought to replace a Z-Wave wall switch, to early to tell how good it is. |
+| [Xiaomi MCCGQ14LM door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM.html) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. It's working well for me so far, though they all came with low battery levels. | 
+| [Xiaomi E1 remote](https://www.zigbee2mqtt.io/devices/WXKG16LM.html) | Remote | :heavy_check_mark: | Bought to replace a Z-Wave wall switch, and it's a great replacement. |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
 
 **Notes**
@@ -62,6 +62,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | :pause_button: | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :pause_button: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :pause_button: | These are pretty good, they report regularly enough to be useful and are reliable. Hopefully we'll get a Zigbee 3.0 version soon. |
+| [Xiaomi D1 remote](https://www.zigbee2mqtt.io/devices/WXKG06LM.html) | Remote | :small_red_triangle: | Bought initially to replace a Z-Wave switch, but if it's asleep then the first press simply wakes it and does nothing. |
 
 **Notes**
 - Aqara's E1, P1, and T1 ranges are Zigbee 3.0, but they're often hard to get a hold of outside of China.
