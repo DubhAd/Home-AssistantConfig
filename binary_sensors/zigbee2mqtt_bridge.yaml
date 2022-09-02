@@ -5,3 +5,4 @@
   payload_on: 'online'
   payload_off:  'offline'
   device_class: 'connectivity'
+  unique_id: 'zigbee2mqtt_bridge_state'

@@ -8,6 +8,7 @@ trigger:
     - binary_sensor.patio_door_left_contact
     - binary_sensor.patio_door_right_contact
     to: 'on'
+    from: 'off'
 condition:
   - condition: state
     entity_id: input_boolean.lighting_automations

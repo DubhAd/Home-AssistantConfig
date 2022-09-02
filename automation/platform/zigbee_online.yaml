@@ -1,0 +1,11 @@
+initial_state: 'on'
+id: 'zigbee_online'
+alias: 'Zigbee online'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.zigbee2mqtt_bridge_state
+    to: 'on'
+action:
+  - service: notify.discord_webhook
+    data:
+      message: "The Zigbee bridge is back online at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"
