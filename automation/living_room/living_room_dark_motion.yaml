@@ -3,7 +3,7 @@ initial_state: 'off'
 alias: 'Living room dark motion'
 trigger:
 - platform: state
-  entity_id: binary_sensor.living_room_motion_occupancy
+  entity_id: binary_sensor.living_room_presence_occupancy
   to: 'on'
 condition:
   condition: and

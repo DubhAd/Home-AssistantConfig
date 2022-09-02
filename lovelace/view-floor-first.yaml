@@ -187,6 +187,8 @@ cards:
       name: Temperature
     - entity: sensor.office_humidity
       name: Humidity
+    - entity: sensor.office_pressure
+      name: Pressure
     - entity: media_player.office
       name: Sonos
       show_last_changed: true
@@ -381,3 +383,6 @@ cards:
     - entity: sensor.bathroom_environment_pressure
       name: Bathroom
       color: "#C4E441"
+    - entity: sensor.office_pressure
+      name: Office
+      color: "#F28544"

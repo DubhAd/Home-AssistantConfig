@@ -5,12 +5,12 @@ trigger:
   - platform: state
     entity_id:
     # Downstairs
-      - binary_sensor.living_room_motion_occupancy
+      - binary_sensor.living_room_presence_occupancy
       - binary_sensor.downstairs_hall_motion_occupancy
       - binary_sensor.vestibule_multi_occupancy
       - binary_sensor.family_room_multi_occupancy
     # Upstairs
-      - binary_sensor.office_motion_konke_occupancy
+      - binary_sensor.office_presence_occupancy
       - binary_sensor.upstairs_hall_motion_front_occupancy
     from: 'off'
     to: 'on'
