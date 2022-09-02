@@ -22,15 +22,15 @@ cards:
     secondary_info: last-triggered
   - entity: automation.pause_music_in_the_office
     secondary_info: last-triggered
-  - entity: automation.office_button_pushed
-    secondary_info: last-triggered
   - type: divider
   - entity: automation.hotter_outside_office
     secondary_info: last-triggered
-  - type: divider
-  - entity: automation.office_cube
+  - entity: automation.office_alert
     secondary_info: last-triggered
+  - type: divider
   - entity: automation.office_dial_action
+    secondary_info: last-triggered
+  - entity: automation.office_dial_rotate
     secondary_info: last-triggered
 
 - type: entities

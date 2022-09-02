@@ -139,7 +139,6 @@ cards:
       name: ZW Socket
       show_last_changed: true
     - entity: switch.guest_bedroom_socket
-      icon: mdi:power-socket-uk
       tap_action: 
         action: toggle
       name: Zig Socket

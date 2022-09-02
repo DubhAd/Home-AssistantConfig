@@ -319,12 +319,14 @@ background-color: var(--primary-background-color);
 }
 
 .switch-on {
-  fill: #6F7500 !important;
+  /*fill: #6F7500 !important;*/
+  fill: #006297 !important;
 }
 
 .switch-off {
   /* fill: #92C0AD !important; */
-  fill: #5d3d3e !important;
+  /* fill: #5d3d3e !important; */
+  fill: #4d4d3e !important;
 }
 
 /* Temperature sensor */

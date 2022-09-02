@@ -262,7 +262,6 @@ cards:
 
         # Indoors should be moderate
         - entities:
-            - sensor.pi3_living_room_multi_temperature
             - sensor.living_room_climate_temperature
             - sensor.family_room_multi_temperature
             - sensor.office_temperature
@@ -357,7 +356,6 @@ cards:
           propagate: true
 
         - entities:
-            - sensor.pi3_living_room_multi_luminance
             - sensor.living_room_light_sensor_illuminance_lux
             - sensor.pi3_office_multi_luminance
             - sensor.downstairs_hall_light_sensor_illuminance_lux
@@ -433,6 +431,8 @@ cards:
             - switch.pi3_family_room_socket_switch
             - switch.pi3_hall_downstairs_switch
             - switch.pi3_vestibule_switch
+            - switch.living_room_christmas_tree
+            - switch.vestibule_socket
           states:
             - state: 'on'
               class: 'doorbell-on'
@@ -445,6 +445,9 @@ cards:
         - entities:
             - switch.pi3_master_bedroom_socket_switch
             - switch.pi3_front_bedroom_switch
+            - switch.master_bedroom_socket
+            - switch.spare_bedroom_socket
+            - switch.guest_bedroom_socket
           states:
             - state: 'on'
               class: 'switch-on'
@@ -468,7 +471,7 @@ cards:
         - entities:
             - binary_sensor.pi3_living_room_motion
             - binary_sensor.living_room_motion_occupancy
-            - binary_sensor.office_motion_konke_occupancy
+            - binary_sensor.office_presence_occupancy
             - binary_sensor.downstairs_hall_motion_occupancy
             - binary_sensor.vestibule_multi_occupancy
             - binary_sensor.family_room_multi_occupancy
