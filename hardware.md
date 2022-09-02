@@ -49,7 +49,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | --- | :---: | --- |
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | :thumbsdown: | These are neat, smaller than the Xiaomi button, but not as nice to use. |
 | [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
-| Sleash | Router | | Worked as a router, currently in the drawer. |
+| Sleash | Router | Worked as a router, currently in the drawer. |
 | [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | | Combined motion, light, temperature sensor, and a button. It's huge and I haven't yet tried it on the new coordinator |
 | [YSRSAI YSR-MINI-01_rgbcct](https://www.zigbee2mqtt.io/devices/YSR-MINI-01_rgbcct.html) | | A compact controller with what looks like local control. Sadly it takes a slightly non-standard connector for the LED strips, so I'm waiting on something coming so I can use it. |
 
