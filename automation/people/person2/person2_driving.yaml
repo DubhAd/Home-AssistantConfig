@@ -11,7 +11,7 @@ condition:
     conditions:
     - condition: template
       value_template: >-
-        {{ '00:0E:9F:7D:6A:96' in state_attr('sensor.pixel_xl_bluetooth_connection','connected_paired_devices') }}
+        {{ '00:0E:9F:7D:6A:96 (Seat 4993)' in state_attr('sensor.pixel_xl_bluetooth_connection','connected_paired_devices') }}
   # Not driving
   - condition: state
     entity_id: input_boolean.person2_driving
