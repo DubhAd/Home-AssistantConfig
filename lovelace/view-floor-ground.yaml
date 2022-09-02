@@ -27,7 +27,7 @@ cards:
       show_last_changed: true
   - type: glance
     #title: Living room
-    columns: 4
+    columns: 5
     entities:
     - entity: binary_sensor.patio_window_left_contact
       show_last_changed: true
@@ -46,6 +46,8 @@ cards:
       name: "Motion"
     - entity: sensor.living_room_light_sensor_illuminance_lux
       name: "Lux"
+    - entity: sensor.living_room_presence_illuminance_lux
+      name: "Lux (P)"
     - entity: sensor.living_room_climate_temperature
       name: "Temperature (Zb)"
     - entity: sensor.living_room_climate_humidity
