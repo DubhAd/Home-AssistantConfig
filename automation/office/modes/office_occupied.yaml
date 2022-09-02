@@ -12,18 +12,18 @@ trigger:
     entity_id: input_boolean.person2_home
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.office_motion_konke_occupancy
+    entity_id: binary_sensor.office_presence_occupancy
     to: 'on'
 condition:
   - condition: or
     conditions:
       - condition: state
-        entity_id: binary_sensor.office_motion_konke_occupancy
+        entity_id: binary_sensor.office_presence_occupancy
         state: 'on'
       - condition: not
         conditions:
           - condition: state
-            entity_id: binary_sensor.office_motion_konke_occupancy
+            entity_id: binary_sensor.office_presence_occupancy
             state: 'off'
             for: '00:05:00'
   - condition: state

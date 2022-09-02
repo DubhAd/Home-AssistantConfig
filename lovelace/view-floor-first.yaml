@@ -122,13 +122,8 @@ cards:
         show_last_changed: true
 - type: glance
   title: Guest bedroom
-  columns: 5
+  columns: 3
   entities:
-    - entity: switch.pi3_front_bedroom_switch
-      tap_action: 
-        action: toggle
-      name: Socket
-      show_last_changed: true
     - entity: binary_sensor.guest_bedroom_door_contact
       name: Door
       show_last_changed: true
@@ -138,6 +133,17 @@ cards:
     - entity: binary_sensor.guest_bedroom_window_right_contact
       show_last_changed: true
       name: Right
+    - entity: switch.pi3_front_bedroom_switch
+      tap_action: 
+        action: toggle
+      name: ZW Socket
+      show_last_changed: true
+    - entity: switch.guest_bedroom_socket
+      icon: mdi:power-socket-uk
+      tap_action: 
+        action: toggle
+      name: Zig Socket
+      show_last_changed: true
     - entity: media_player.cast_master_bedroom_display
       name: Home Mini
       show_last_changed: true
@@ -173,7 +179,7 @@ cards:
     - entity: binary_sensor.office_window_contact
       show_last_changed: true
       name: Window
-    - entity: binary_sensor.office_motion_konke_occupancy
+    - entity: binary_sensor.office_presence_occupancy
       name: Motion
       show_last_changed: true
     - entity: sensor.pi3_office_multi_luminance

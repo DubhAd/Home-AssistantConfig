@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Office motion'
 trigger:
   - platform: state
-    entity_id: binary_sensor.office_motion_konke_occupancy
+    entity_id: binary_sensor.office_presence_occupancy
     to: 'on'
   - platform: state
     entity_id: binary_sensor.office_door_contact
