@@ -4,7 +4,7 @@ alias: 'Nighttime garden off'
 description: 'Turn off the lights if they are left on between midnight and sunrise'
 trigger:
   platform: state
-  entity_id: switch.pi3_garden_lights_switch
+  entity_id: switch.garden_lights
   to: 'on'
   for: '00:15:00'
 condition:
@@ -15,4 +15,4 @@ condition:
     state: 'below_horizon'
 action:
   service: switch.turn_off
-  entity_id: switch.pi3_garden_lights_switch
+  entity_id: switch.garden_lights

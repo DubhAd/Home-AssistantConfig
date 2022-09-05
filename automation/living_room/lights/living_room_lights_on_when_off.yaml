@@ -8,8 +8,8 @@ trigger:
       - light.living_room_table_lamp
       - light.living_room_tv_lamp
       - light.living_room_corner_lamp
-      - switch.pi3_cabinet_light_switch
-      - switch.pi3_livingroom_socket_switch
+      - switch.living_room_christmas_tree
+      - switch.living_room_cabinet_light
     to: 'on'
     for: '00:00:30'
 condition:
@@ -50,11 +50,11 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
             state: 'on'
         sequence:
           - service: switch.turn_off
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
   - choose:
       - conditions:
           - condition: state
@@ -67,14 +67,14 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: switch.pi3_cabinet_light_switch
+            entity_id: switch.living_room_christmas_tree
             state: 'on'
         sequence:
           - condition: state
             entity_id: input_boolean.living_room_christmas
             state: 'off'
           - service: switch.turn_off
-            entity_id: switch.pi3_cabinet_light_switch
+            entity_id: switch.living_room_christmas_tree
     default:
       - service: homeassistant.turn_off
         data:

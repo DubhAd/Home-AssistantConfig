@@ -17,10 +17,10 @@ condition:
     - binary_sensor.patio_door_right_contact
     state: 'off'
   - condition: state
-    entity_id: switch.pi3_garden_lights_switch
+    entity_id: switch.garden_lights
     state: 'on'
 action:
   - service: switch.turn_off
-    entity_id: switch.pi3_garden_lights_switch
+    entity_id: switch.garden_lights
   - service: input_boolean.turn_off
     entity_id: input_boolean.garden_lights

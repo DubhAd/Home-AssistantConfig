@@ -22,7 +22,7 @@ condition:
     state: 'off'
     for: '00:10:00'
   - condition: numeric_state
-    entity_id: sensor.pi3_living_room_multi_luminance
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 25
   - condition: numeric_state
     entity_id: sensor.sun_elevation

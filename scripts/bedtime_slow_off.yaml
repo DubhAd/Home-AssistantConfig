@@ -10,8 +10,8 @@ sequence:
       transition: 30
   - service: switch.turn_off
     entity_id: 
-      - switch.pi3_livingroom_socket_switch
-      - switch.pi3_vestibule_switch
+      - switch.living_room_cabinet_light
+      - switch.vestibule_socket
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_is_awake
   - condition: state

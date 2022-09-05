@@ -36,7 +36,7 @@ action:
   - service: switch.turn_off
     data:
       entity_id: 
-        - switch.pi3_livingroom_socket_switch 
+        - switch.living_room_cabinet_light 
         - switch.adaptive_lighting_living_room_lamps
         - switch.adaptive_lighting_living_room_table
   - alias: "Turn off the lights"

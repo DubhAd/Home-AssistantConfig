@@ -13,9 +13,9 @@ condition:
     entity_id: input_boolean.living_room_christmas
     state: 'on'
   - condition: state
-    entity_id: switch.pi3_cabinet_light_switch
+    entity_id: switch.living_room_christmas_tree
     state: 'on'
 action:
   - service: switch.turn_off
-    entity_id: switch.pi3_cabinet_light_switch
+    entity_id: switch.living_room_christmas_tree
 

@@ -90,8 +90,6 @@ cards:
         value: "*_battery"
       - name: entity_id
         value: "*_battery_level"
-      - name: entity_id
-        value: "sensor.pi3_zwave_battery_*"
     exclude:
       - name: entity_id
         value: "*mobile*"

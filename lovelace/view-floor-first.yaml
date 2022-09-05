@@ -13,7 +13,7 @@ cards:
         name: Bedhead
         icon: mdi:led-strip-variant
         show_last_changed: true
-      - entity: switch.pi3_master_bedroom_socket_switch
+      - entity: switch.master_bedroom
         tap_action: 
           action: toggle
         name: Socket
@@ -68,16 +68,11 @@ cards:
   - type: glance
     #title: Second bedroom
     #column_width: 25%
-    columns: 5
+    columns: 4
     entities:
       - entity: light.person1_bedroom_bedside
         name: Bedhead
         icon: mdi:led-strip-variant
-        show_last_changed: true
-      - entity: switch.pi3_second_bedroom_switch
-        tap_action: 
-          action: toggle
-        name: Socket
         show_last_changed: true
       - entity: binary_sensor.second_bedroom_door_contact
         show_last_changed: true
@@ -88,7 +83,6 @@ cards:
       - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
-
       - entity: media_player.person1
         name: Squeezebox
         show_last_changed: true
@@ -133,11 +127,6 @@ cards:
     - entity: binary_sensor.guest_bedroom_window_right_contact
       show_last_changed: true
       name: Right
-    - entity: switch.pi3_front_bedroom_switch
-      tap_action: 
-        action: toggle
-      name: ZW Socket
-      show_last_changed: true
     - entity: switch.guest_bedroom_socket
       tap_action: 
         action: toggle
@@ -183,8 +172,6 @@ cards:
       show_last_changed: true
     - entity: sensor.office_illuminance_illuminance_lux
       name: Light level
-    - entity: sensor.pi3_office_multi_luminance
-      name: Light level
     - entity: sensor.office_temperature
       name: Temperature
     - entity: sensor.office_humidity
@@ -201,10 +188,9 @@ cards:
   title: Spare bedroom
   columns: 3
   entities:
-    - entity: switch.pi3_spare_socket_switch
-      tap_action: 
-        action: toggle
+    - entity: switch.spare_bedroom_socket
       show_last_changed: true
+      name: Socket
     - entity: binary_sensor.spare_bedroom_window_left_contact
       show_last_changed: true
       name: Left

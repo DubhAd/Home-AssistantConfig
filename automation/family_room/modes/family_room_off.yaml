@@ -23,7 +23,7 @@ condition:
       entity_id: input_boolean.family_room_occupied
       state: 'off'
     - condition: numeric_state
-      entity_id: sensor.pi3_family_room_multi_luminance
+      entity_id: sensor.family_room_multi_illuminance_lux
       above: 5
 action:
   - service: input_select.select_option

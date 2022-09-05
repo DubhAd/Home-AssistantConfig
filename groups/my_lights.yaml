@@ -1,7 +1,7 @@
 name: Lights
 entities:
-- switch.pi3_garden_lights_switch
-- switch.pi3_livingroom_socket_switch
+- switch.garden_lights
+- switch.living_room_cabinet_light
 - light.living_room_tv_lamp
 - light.living_room_table_lamp
 - light.living_room_corner_lamp

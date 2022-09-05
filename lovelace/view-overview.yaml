@@ -335,19 +335,11 @@ cards:
           state: 'on'
           options:
             show_last_changed: true
-        - entity_id: switch.pi3_family_room_socket_switch
+        - entity_id: switch.vestibule_socket
           state: 'on'
           options:
             show_last_changed: true
-        - entity_id: switch.pi3_hall_downstairs_switch
-          state: 'on'
-          options:
-            show_last_changed: true
-        - entity_id: switch.pi3_vestibule_switch
-          state: 'on'
-          options:
-            show_last_changed: true
-        - entity_id: switch.pi3_livingroom_socket_switch
+        - entity_id: switch.living_room_cabinet_light
           state: 'on'
           options:
             show_last_changed: true

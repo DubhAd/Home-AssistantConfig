@@ -30,4 +30,4 @@ condition:
       for: '00:09:00'
 action:
 - service: switch.turn_off
-  entity_id: switch.pi3_garden_lights_switch
+  entity_id: switch.garden_lights

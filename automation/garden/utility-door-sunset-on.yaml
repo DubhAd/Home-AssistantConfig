@@ -17,7 +17,7 @@ condition:
     entity_id: sensor.sun_elevation
     below: -4
   - condition: state
-    entity_id: switch.pi3_garden_lights_switch
+    entity_id: switch.garden_lights
     state: 'off'
 action:
   - service: script.turn_on

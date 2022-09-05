@@ -29,7 +29,7 @@ condition:
         entity_id: input_select.house
         state: 'On'
   - condition: state
-    entity_id: switch.pi3_vestibule_switch
+    entity_id: switch.vestibule_socket
     state: 'off'
   # Christmas!
   - condition: state
@@ -37,4 +37,4 @@ condition:
     state: 'on'
 action:
   - service: switch.turn_on
-    entity_id: switch.pi3_vestibule_switch
+    entity_id: switch.vestibule_socket

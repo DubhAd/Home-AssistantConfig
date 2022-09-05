@@ -20,8 +20,3 @@ sequence:
         - condition: state
           entity_id: light.downstairs_hall
           state: 'off'
-  - condition: state
-    entity_id: switch.pi3_hall_downstairs_switch
-    state: 'on'
-  - service: switch.turn_off
-    entity_id: switch.pi3_hall_downstairs_switch

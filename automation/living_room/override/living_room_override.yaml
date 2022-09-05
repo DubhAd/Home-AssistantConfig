@@ -7,7 +7,7 @@ trigger:
     - light.living_room_corner_lamp
     - light.living_room_tv_lamp
     - light.living_room_table_lamp
-    - switch.pi3_livingroom_socket_switch
+    - switch.living_room_cabinet_light
     to: 'off'
 condition:
   - condition: and
@@ -26,7 +26,7 @@ condition:
             entity_id: light.living_room_corner_lamp
             state: 'off'
           - condition: state
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
             state: 'off'
           - condition: state
             entity_id: light.living_room_tv_lamp
@@ -42,7 +42,7 @@ condition:
         - condition: or
           conditions:
           - condition: state
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
             state: 'off'
           - condition: state
             entity_id: light.living_room_tv_lamp

@@ -15,14 +15,14 @@ condition:
     entity_id: input_boolean.office_occupied
     state: 'off'
   - condition: numeric_state
-    entity_id: sensor.pi3_office_multi_luminance
-    below: 2
+    entity_id: sensor.office_illuminance_illuminance_lux
+    below: 10
 action:
   - service: notify.logfile
     data:
       message: >
         Office Motion triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.pi3_office_multi_luminance') }}
+          Light level is {{ states('sensor.office_illuminance_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.office

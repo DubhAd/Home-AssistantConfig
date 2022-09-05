@@ -37,8 +37,6 @@ action:
     entity_id: 
     - switch.adaptive_lighting_sleep_mode_hall
     - switch.adaptive_lighting_adapt_brightness_hall
-  - service: switch.turn_off
-    entity_id: switch.pi3_hall_downstairs_switch
   - delay: '00:01:00'
   - service: light.turn_off
     data:

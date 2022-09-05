@@ -171,6 +171,20 @@ background-color: var(--primary-background-color);
   stroke-opacity: 0.8 !important;
 }
 
+.closed-appliance {
+  fill: #5f739b !important;
+  fill-opacity: 1 !important;
+}
+
+.open-appliance  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
 .interior-closed-background, .interior-closed-text-background {
   fill: #81c9a7 !important;
   fill-opacity: 1 !important;

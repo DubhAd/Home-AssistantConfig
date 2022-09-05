@@ -18,12 +18,12 @@ cards:
     - entity: light.living_room_table_lamp
       name: "Table"
       show_last_changed: true
-    - entity: switch.pi3_livingroom_socket_switch
+    - entity: switch.living_room_cabinet_light
       name: "Socket"
       show_last_changed: true
       tap_action: 
         action: toggle 
-    - entity: switch.pi3_cabinet_light_switch
+    - entity: switch.living_room_christmas_tree
       show_last_changed: true
   - type: glance
     #title: Living room
@@ -52,6 +52,8 @@ cards:
       name: "Temperature (Zb)"
     - entity: sensor.living_room_climate_humidity
       name: "Humidity"
+    - entity: sensor.living_room_climate_pressure
+      name: "Pressure"
   - type: glance
     #title: Living room
     columns: 4
@@ -72,7 +74,7 @@ cards:
   cards:
   - type: glance
     title: Front of house
-    columns: 3
+    columns: 4
     entities:
       - entity: binary_sensor.garage_door_bike_contact
         show_last_changed: true
@@ -85,6 +87,8 @@ cards:
         tap_action: 
           action: toggle
         show_last_changed: true
+      - entity: binary_sensor.bike_lid
+        name: bike
   - type: glance
     title: Vestibule
     columns: 5
@@ -108,7 +112,7 @@ cards:
         name: "Light level"
       - entity: sensor.vestibule_multi_temperature
         name: "Temperature"
-      - entity: switch.pi3_vestibule_switch
+      - entity: switch.vestibule_socket
         name: Socket
         tap_action: 
           action: toggle
@@ -119,11 +123,6 @@ cards:
     entities:
       - entity: light.downstairs_hall
         name: Hall light
-        show_last_changed: true
-      - entity: switch.pi3_hall_downstairs_switch
-        name: Hall socket
-        tap_action: 
-          action: toggle
         show_last_changed: true
       - entity: binary_sensor.downstairs_hall_motion_occupancy
         show_last_changed: true
@@ -159,7 +158,7 @@ cards:
     title: Utility room & back
     #columns: 4
     entities:
-      - entity: switch.pi3_garden_lights_switch
+      - entity: switch.garden_lights
         tap_action: 
           action: toggle
         show_last_changed: true
@@ -171,13 +170,8 @@ cards:
         name: Leak
   - type: glance
     title: Family room
-    columns: 5
+    columns: 4
     entities:
-      - entity: switch.pi3_family_room_socket_switch
-        show_last_changed: true
-        name: Socket
-        tap_action: 
-          action: toggle
       - entity: binary_sensor.family_window_left_contact
         show_last_changed: true
         name: Left

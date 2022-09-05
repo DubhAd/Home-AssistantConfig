@@ -58,14 +58,14 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
             state: 'on'
         sequence:
           - service: notify.logfile
             data:
               message: "Turning off the living room socket switch"
           - service: switch.turn_off
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
   - choose:
       - conditions:
           - condition: state
@@ -97,11 +97,11 @@ action:
             entity_id: input_boolean.living_room_christmas
             state: 'off'
           - condition: state
-            entity_id: switch.pi3_cabinet_light_switch
+            entity_id: switch.living_room_christmas_tree
             state: 'on'
         sequence:
           - service: notify.logfile
             data:
               message: "Turning off the living room Christmas lights"
           - service: switch.turn_off
-            entity_id: switch.pi3_cabinet_light_switch
+            entity_id: switch.living_room_christmas_tree

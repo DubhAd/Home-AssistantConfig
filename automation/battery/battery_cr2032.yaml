@@ -13,9 +13,6 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: 
-    - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
-    - sensor.pi3_zwave_battery_green_remote
-    - sensor.pi3_zwave_battery_utility
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
@@ -25,9 +22,6 @@ trigger:
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
-    - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
-    - sensor.pi3_zwave_battery_green_remote
-    - sensor.pi3_zwave_battery_utility
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery
@@ -37,9 +31,6 @@ trigger:
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
-    - sensor.pi3_zwave_battery_nodon_crc3100_octan_remote
-    - sensor.pi3_zwave_battery_green_remote
-    - sensor.pi3_zwave_battery_utility
     - sensor.bathroom_environment_battery
     - sensor.master_ensuite_environment_battery
     - sensor.second_bedroom_ensuite_environment_battery

@@ -2,4 +2,4 @@ alias: Hall string off
 sequence:
   - service: switch.turn_off
     data:
-      entity_id: switch.pi3_hall_downstairs_switch
+      entity_id: switch.no_such_switch

@@ -57,15 +57,6 @@ calendar.person2_family_tripit:
   icon: mdi:calendar-clock
 calendar.person2_work:
   icon: mdi:calendar-multiple
-switch.pi3_cabinet_light_switch:
-  friendly_name: Christmas tree
-  icon: mdi:pine-tree
-switch.pi3_tv_light_switch:
-  friendly_name: TV light
-  icon: mdi:television
-switch.pi3_garden_lights_switch:
-  friendly_name: Garden lights
-  icon: mdi:flower
 device_tracker.tv_living_room:
   friendly_name: TV in the lounge
   icon: mdi:television
@@ -201,13 +192,7 @@ binary_sensor.first_floor_front:
 binary_sensor.first_floor_rear:
   device_class: connectivity
 zone.lightning: {}
-switch.pi3_living_room_table:
-  icon: mdi:power-socket-uk
 binary_sensor.vestibule_socket_switch: {}
-switch.pi3_family_room_socket_switch:
-  icon: mdi:power-socket-uk
-switch.pi3_vestibule_switch:
-  icon: mdi:power-socket-uk
 sensor.dark_sky_pressure: {}
 device_tracker.person2_bt_front_laptop:
   source_type: bluetooth
@@ -245,8 +230,6 @@ device_tracker.person3_bt_front_mobile:
   source_type: bluetooth
 device_tracker.person3_bt_mobile:
   source_type: bluetooth
-zwave.pi3_zwaveme_razberry_controller_2016_zwave:
-  icon: mdi:raspberry-pi
 media_player.samsung_tv:
   icon: mdi:television
 light.office_strip:
@@ -270,12 +253,6 @@ light.living_room_lamps:
   icon: mdi:lightbulb-group
 device_tracker.08_a6_bc_ea_df_3f:
   friendly_name: person2_kindle_oasis
-sensor.pi3_office_multi_temperature:
-  device_class: temperature
-sensor.pi3_living_room_multi_temperature:
-  device_class: temperature
-sensor.pi3_office_multi_relative_humidity:
-  device_class: humidity
 binary_sensor.garage_door_car_contact:
   device_class: garage_door
 binary_sensor.garage_door_bike_contact:

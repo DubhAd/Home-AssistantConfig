@@ -6,8 +6,8 @@ trigger:
     entity_id: input_boolean.office_occupied
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.pi3_office_multi_luminance
-    below: 30
+    entity_id: sensor.office_illuminance_illuminance_lux
+    below: 40
   - platform: state
     entity_id: input_boolean.lighting_office
     to: 'on'
@@ -21,14 +21,14 @@ condition:
     entity_id: input_boolean.office_occupied
     state: 'on'
   - condition: numeric_state
-    entity_id: sensor.pi3_office_multi_luminance
-    below: 30
+    entity_id: sensor.office_illuminance_illuminance_lux
+    below: 40
 action:
   - service: notify.logfile
     data:
       message: >
         Office on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.pi3_office_multi_luminance') }}
+          Light level is {{ states('sensor.office_illuminance_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.office

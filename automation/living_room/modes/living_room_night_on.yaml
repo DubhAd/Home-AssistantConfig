@@ -16,7 +16,7 @@ trigger:
     - input_boolean.lighting_living_room
     to: 'on'
   - platform: state
-    entity_id: switch.pi3_cabinet_light_switch
+    entity_id: switch.living_room_christmas_tree
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux

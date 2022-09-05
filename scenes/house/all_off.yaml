@@ -6,8 +6,6 @@ entities:
   light.living_room_corner_lamp: off
   light.living_room_tv_lamp: off
   light.living_room_table_lamp: off
-  switch.pi3_cabinet_light_switch: off
-  switch.pi3_family_room_socket_switch: off
-  switch.pi3_garden_lights_switch: off
-  switch.pi3_hall_downstairs_switch: off
-  switch.pi3_livingroom_socket_switch: off
+  switch.living_room_cabinet_light: off
+  switch.living_room_christmas_tree: off
+  switch.garden_lights: off

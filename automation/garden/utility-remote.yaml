@@ -13,7 +13,7 @@ condition:
   - condition: or
     conditions:
       - condition: state
-        entity_id: switch.pi3_garden_lights_switch
+        entity_id: switch.garden_lights
         state: 'on'
       - condition: and
         conditions:
@@ -21,9 +21,9 @@ condition:
             entity_id: sun.sun
             state: below_horizon
           - condition: state
-            entity_id: switch.pi3_garden_lights_switch
+            entity_id: switch.garden_lights
             state: 'off'
 action:
   - service: switch.toggle
     data:
-      entity_id: switch.pi3_garden_lights_switch
+      entity_id: switch.garden_lights

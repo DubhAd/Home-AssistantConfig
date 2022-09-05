@@ -46,11 +46,11 @@ action:
       - alias: "Socket is off"
         conditions:
           - condition: state
-            entity_id: switch.pi3_livingroom_socket_switch
+            entity_id: switch.living_room_cabinet_light
             state: 'off'
         sequence:
         - service: switch.turn_on
-          entity_id: switch.pi3_livingroom_socket_switch
+          entity_id: switch.living_room_cabinet_light
   - service: light.turn_on
     data:
       entity_id: light.living_room_lamps

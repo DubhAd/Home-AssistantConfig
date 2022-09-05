@@ -1,5 +1,4 @@
 id: 'family_room_lights_to_on'
-initial_state: 'on'
 alias: 'family room lights to On'
 trigger:
   - platform: state
@@ -26,8 +25,8 @@ condition:
         entity_id: input_select.house
         state: 'On'
   - condition: state
-    entity_id: switch.pi3_family_room_socket_switch
+    entity_id: switch.no_such_switch
     state: 'off'
 action:
   - service: switch.turn_on
-    entity_id: switch.pi3_family_room_socket_switch
+    entity_id: switch.no_such_switch
