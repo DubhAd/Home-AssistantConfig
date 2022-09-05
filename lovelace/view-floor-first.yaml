@@ -181,6 +181,8 @@ cards:
     - entity: binary_sensor.office_presence_occupancy
       name: Motion
       show_last_changed: true
+    - entity: sensor.office_illuminance_illuminance_lux
+      name: Light level
     - entity: sensor.pi3_office_multi_luminance
       name: Light level
     - entity: sensor.office_temperature
@@ -234,6 +236,9 @@ cards:
       name: Master Bedroom
       color: "#8EA95F"
     - entity: sensor.pi3_office_multi_luminance
+      name: Office ZW
+      color: "#E27534"
+    - entity: sensor.office_illuminance_illuminance_lux
       name: Office
       color: "#F28544"
 - type: custom:mini-graph-card
