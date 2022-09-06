@@ -24,7 +24,7 @@ cards:
       name: ~
       entity: weather.home_hourly
       icons: true
-      num_segments: 12
+      num_segments: 24
     - type: horizontal-stack
       cards:
       - type: entity
