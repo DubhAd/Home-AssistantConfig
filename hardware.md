@@ -64,6 +64,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Xiaomi Aqara door/window sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Doors and windows | :pause_button: | I have a stack of those, one for every exterior window, and a few on interior doors. They're cheap, compact, don't stand out visually, and just work. The T1 versions are the new Zigbee 3.0 versions, that are really hard to get. |
 | [Xiaomi Aqara motion sensor](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Motion | :pause_button: | These are ok, not great, but ok. There is an on board light sensor, but it only reports light levels when motion is detected | 
 | [Xiaomi Aqara temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Temperature and humidity | :pause_button: | These are pretty good, they report regularly enough to be useful and are reliable. Hopefully we'll get a Zigbee 3.0 version soon. |
+| [Xiaomi Aqara vibration sensor](https://www.zigbee2mqtt.io/devices/DJT11LM.html) | Chest freezer | :pause_button: | Sits on the lid of my chest freezer, where it helps tell us if the lid is closed or not. |
 | [Xiaomi Aqara water leak sensor](https://www.zigbee2mqtt.io/devices/SJCGQ11LM.html) | Leak Sensor | :pause_button: | These are pretty good, the only downside is they're not Zigbee 3.0. |
 | [Xiaomi D1 remote](https://www.zigbee2mqtt.io/devices/WXKG06LM.html) | Remote | :small_red_triangle: | Bought initially to replace a Z-Wave switch, but if it's asleep then the first press simply wakes it and does nothing. |
 
@@ -80,27 +81,19 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Osram smart bulb](https://www.zigbee2mqtt.io/devices/AC08560-DIM.html) | :warning: | This was a pain to include, and worked fine for a while. Then one day it fell off the mesh and refused to either reconnect or reset. Then I found out that problems are normal with this brand... |
 | [Salus SP600](https://www.zigbee2mqtt.io/devices/SP600.html) | :thumbsdown: | A pretty good socket, with power monitoring, but it's only Zigbee 1.2 |
 
-# Z-Wave
-
-All my current Z-Wave hardware is Z-Wave Plus.
-
-| What | Function | Buy again? | Thoughts |
-| --- | --- | :---: | --- |
-| [Razberry board](https://razberry.z-wave.me/) | Controller | :thumbsdown: | It does avoid having to use a USB socket, but my Z-Wave mesh can now only run from the Pi |
-| Aeotec MultiSensor 6 | Office sensor | :heavy_check_mark: | Excellent all around multi-sensor with a bonus of being USB powered |
-| [Sensative strips](https://sensative.com/sensors/strips-zwave/guard/) | Exterior door sensors | :heavy_check_mark: | Awesome sensors that fit inside the door (or window) frame. You can't replace the battery, but they claim a 10 year lifespan, which is in line with my experiences so far. |
-| TKB TZ69E | General sockets | :heavy_check_mark: | Smart switch with power monitoring. I use these for the garden lights, and a range of interior sockets. Slightly bulky, but rather good. |
-| Z-Wave.me WALLC-S | Light switch | :no_entry: | Looks like a normal light switch, and is _Associated_ with the TKB socket for the garden lights, this allows us to turn the lights on and off manually when required. Discontinued. |
-
-## Not in use
-These have been removed from my setup and either replaced with another Z-Wave option, or replaced with a Zigbee device.
+# Z-Wave - not in use
 
 | What | Thoughts |
 | --- | --- |
+| [Razberry board](https://razberry.z-wave.me/) | It does avoid having to use a USB socket, but my Z-Wave mesh could only run from the Pi |
+| Aeotec MultiSensor 6 | Excellent all around multi-sensor with a bonus of being USB powered |
 | Fibaro FGK10x | Fairly unobtrusive door sensors I used for the garage doors, which have support for external sensors too. They're not made any more, and have been replaced with Zigbee sensors that perform so much better. |
 | Fibaro MultiSensor | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though. I replaced it with some Zigbee sensors. |
 | NodOn Octan | Great little four button remote, which sadly is discontinued. Replaced by a Xiaomi cube. |
 | NodOn Soft Remote | A brightly coloured, kid proof four button remote, that's also discontinued. Replaced by voice control. |
+| [Sensative strips](https://sensative.com/sensors/strips-zwave/guard/) | Awesome sensors that fit inside the door (or window) frame. You can't replace the battery, but they claim a 10 year lifespan, which is in line with my experiences so far. The fastest any died was in 8 years, on a door used dozens of times a day. |
+| TKB TZ69E | Smart switch with power monitoring. I used these for the garden lights, and a range of interior sockets. Slightly bulky, but rather good. |
+| Z-Wave.me WALLC-S | Looks like a normal light switch, and was _Associated_ with the TKB socket for the garden lights, this allowed us to turn the lights on and off manually when required. Discontinued. |
 
 # Other
 
