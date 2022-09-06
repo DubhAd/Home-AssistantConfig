@@ -20,6 +20,11 @@ cards:
       secondary_info:
         - wind_speed
         - wind_bearing
+    - type: custom:hourly-weather
+      name: ~
+      entity: weather.home_hourly
+      icons: true
+      num_segments: 12
     - type: horizontal-stack
       cards:
       - type: entity

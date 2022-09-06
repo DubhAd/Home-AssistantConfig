@@ -16,7 +16,7 @@ condition:
     entity_id: input_boolean.lighting_office
     state: 'on'
   - condition: template
-    value_template: "{{ not is_state('input_select.office','On') }}"
+    value_template: "{{ states('input_select.office') not in ('Pause','On') }}"
   - condition: state
     entity_id: input_boolean.office_occupied
     state: 'on'

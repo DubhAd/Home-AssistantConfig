@@ -6,11 +6,10 @@ trigger:
     entity_id: 
     - binary_sensor.office_presence_occupancy
     - binary_sensor.office_mmwave_presence
-    - binary_sensor.office_door_contact
     to: 'on'
 condition:
   - condition: template
-    value_template: "{{ states('input_select.office') not in ('Dim','Wake','On') }}"
+    value_template: "{{ states('input_select.office') not in ('Pause','Dim','Wake','On') }}"
   - condition: state
     entity_id: input_boolean.office_occupied
     state: 'off'

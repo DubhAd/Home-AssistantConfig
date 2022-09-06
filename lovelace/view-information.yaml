@@ -119,8 +119,6 @@ cards:
   entities:
   - entity: sensor.date_time
     name: Vision
-  - entity: sensor.pi3_date_time
-    name: pi3
   - entity: sensor.unavailable_entities
     name: Unavailable entities
     secondary_info: last-changed

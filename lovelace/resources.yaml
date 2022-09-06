@@ -34,3 +34,5 @@
   type: module
 - url: /webrtc/webrtc-camera.js
   type: module
+- url: /hacsfiles/lovelace-hourly-weather/hourly-weather.js
+  type: module
