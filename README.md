@@ -66,7 +66,7 @@ You can find a list of my [current and previous hardware here](hardware.md).
 
 ## Z-Wave and Zigbee
 
-Currently I use the original [zwave](https://home-assistant.io/docs/z-wave/) integration, on a remote system. At some point I'll migrate to Z-Wave JS, but not soon.
+I used the original zwave integration on a remote system, using [Remote Home-Assistant](https://github.com/custom-components/remote_homeassistant). I've since stopped using Z-Wave, as explained above.
 
 For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
