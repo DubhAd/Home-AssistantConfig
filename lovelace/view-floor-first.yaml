@@ -221,9 +221,6 @@ cards:
     - entity: sensor.master_bedroom_light_sensor_illuminance_lux
       name: Master Bedroom
       color: "#8EA95F"
-    - entity: sensor.pi3_office_multi_luminance
-      name: Office ZW
-      color: "#E27534"
     - entity: sensor.office_illuminance_illuminance_lux
       name: Office
       color: "#F28544"

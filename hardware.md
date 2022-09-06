@@ -89,6 +89,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | Aeotec MultiSensor 6 | Excellent all around multi-sensor with a bonus of being USB powered |
 | Fibaro FGK10x | Fairly unobtrusive door sensors I used for the garage doors, which have support for external sensors too. They're not made any more, and have been replaced with Zigbee sensors that perform so much better. |
 | Fibaro MultiSensor | Pretty good multi-sensor. Doesn't do humidity unlike the Aeotec, and can chew through batteries like there's no tomorrow though. I replaced it with some Zigbee sensors. |
+| Foxx Smart Switch G5 | Basically a Gen5 Aeotec socket. Worked well and was cheaper than the TKB. |
 | NodOn Octan | Great little four button remote, which sadly is discontinued. Replaced by a Xiaomi cube. |
 | NodOn Soft Remote | A brightly coloured, kid proof four button remote, that's also discontinued. Replaced by voice control. |
 | [Sensative strips](https://sensative.com/sensors/strips-zwave/guard/) | Awesome sensors that fit inside the door (or window) frame. You can't replace the battery, but they claim a 10 year lifespan, which is in line with my experiences so far. The fastest any died was in 8 years, on a door used dozens of times a day. |
