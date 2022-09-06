@@ -5,6 +5,11 @@ trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
+    id: occupied
+  - platform: state
+    entity_id: input_select.office
+    from: 'Pause'
+    id: unpaused
 condition:
   - condition: state
     entity_id: media_player.office
@@ -12,10 +17,19 @@ condition:
       - 'paused'
       - 'idle'
       - 'off'
-  # Must be in a suitable time window
-  - condition: time
-    after: '06:30:00'
-    before: '09:00:00'
+  - condition: or
+    conditions:
+      # Must be newly occupied in a suitable time window
+      - condition: and
+        conditions:
+          - condition: time
+            after: '06:30:00'
+            before: '09:00:00'
+          - condition: trigger
+            id: occupied
+      # Or we unpaused
+      - condition: trigger
+        id: unpaused
 action:
   - service: media_player.media_play
     data:

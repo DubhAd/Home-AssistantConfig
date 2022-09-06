@@ -170,14 +170,15 @@ cards:
     - entity: binary_sensor.office_presence_occupancy
       name: Motion
       show_last_changed: true
+    - entity: binary_sensor.office_mmwave_presence
+      name: Presence
+      show_last_changed: true
     - entity: sensor.office_illuminance_illuminance_lux
       name: Light level
     - entity: sensor.office_temperature
       name: Temperature
     - entity: sensor.office_humidity
       name: Humidity
-    - entity: sensor.office_pressure
-      name: Pressure
     - entity: media_player.office
       name: Sonos
       show_last_changed: true

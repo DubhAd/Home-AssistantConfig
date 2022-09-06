@@ -12,7 +12,9 @@ trigger:
     entity_id: input_boolean.person2_home
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.office_presence_occupancy
+    entity_id: 
+      - binary_sensor.office_presence_occupancy
+      - binary_sensor.office_mmwave_presence
     to: 'on'
 condition:
   - condition: or
@@ -20,12 +22,9 @@ condition:
       - condition: state
         entity_id: binary_sensor.office_presence_occupancy
         state: 'on'
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: binary_sensor.office_presence_occupancy
-            state: 'off'
-            for: '00:05:00'
+      - condition: state
+        entity_id: binary_sensor.office_mmwave_presence
+        state: 'on'
   - condition: state
     entity_id: 
       - input_boolean.office_occupied

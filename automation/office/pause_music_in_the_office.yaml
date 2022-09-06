@@ -10,6 +10,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'off'
+  - platform: state
+    entity_id: input_select.office
+    to: 'Pause'
 condition:
   # Music is playing
   - condition: state
@@ -29,6 +32,9 @@ condition:
         state: 'on'
       - condition: or
         conditions:
+        - condition: state
+          entity_id: input_select.office
+          state: 'Pause'
         - condition: state
           entity_id: binary_sensor.kelsie_webcamactive
           state: 'on'

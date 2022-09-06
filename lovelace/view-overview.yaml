@@ -266,7 +266,7 @@ cards:
     show_empty: false
     card: 
       type: glance
-      title: Motion sensors
+      title: Presence
       #show_state: false
     sort:
       method: name
@@ -278,8 +278,12 @@ cards:
             device_class: 'motion'
           options:
             show_last_changed: true
-      exclude:
-        - entity_id: binary_sensor.pi3_living_room_motion
+        - domain: binary_sensor
+          state: 'on'
+          attributes: 
+            device_class: 'presence'
+          options:
+            show_last_changed: true
 
   - type: custom:auto-entities
     show_empty: false

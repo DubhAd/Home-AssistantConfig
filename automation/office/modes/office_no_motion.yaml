@@ -3,9 +3,8 @@ initial_state: 'on'
 alias: 'Office no motion'
 trigger:
   - platform: state
-    entity_id: binary_sensor.office_presence_occupancy
+    entity_id: binary_sensor.office_mmwave_presence
     to: 'off'
-    for: '00:03:00'
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
     above: 15
@@ -16,7 +15,7 @@ condition:
   - condition: or
     conditions:
     - condition: state
-      entity_id: binary_sensor.office_presence_occupancy
+      entity_id: binary_sensor.office_mmwave_presence
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.office_illuminance_illuminance_lux

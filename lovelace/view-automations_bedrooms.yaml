@@ -48,36 +48,16 @@ cards:
   - entity: automation.master_bedroom_lights_wake
     secondary_info: last-triggered
   - type: divider
+  - entity: automation.master_bedroom_button_pushed
+    secondary_info: last-triggered
+  - entity: automation.master_bedroom_cube
+    secondary_info: last-triggered
   - entity: automation.master_bedroom_lights_turned_on
     secondary_info: last-triggered
   - entity: automation.master_bedroom_lights_turned_off
     secondary_info: last-triggered
   - type: divider
   - entity: automation.master_bedroom_lights_off_sleeping_bedtime
-    secondary_info: last-triggered
-- type: entities
-  title: Remote automations for the bedhead light
-  show_header_toggle: false
-  entities:
-  - entity: automation.bedhead_turn_on
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_off
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_on_min
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_on_max
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_on_cool
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_on_warm
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_white
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_white_max
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_on_red
-    secondary_info: last-triggered
-  - entity: automation.bedhead_turn_red
     secondary_info: last-triggered
 - type: entities
   title: Master en-suite

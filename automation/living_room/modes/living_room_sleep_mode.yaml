@@ -1,5 +1,5 @@
-id: 'template_for_automations'
-alias: 'Template for automations'
+id: 'living_room_sleep_mode'
+alias: 'Living room sleep mode'
 initial_state: 'on'
 trigger:
   - platform: time

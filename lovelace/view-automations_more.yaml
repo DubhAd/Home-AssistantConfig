@@ -19,6 +19,8 @@ cards:
   title: Battery level automations
   show_header_toggle: false
   entities:
+  - entity: automation.battery_aa
+    secondary_info: last-triggered
   - entity: automation.battery_cr1632
     secondary_info: last-triggered
   - entity: automation.battery_cr2032
@@ -110,10 +112,30 @@ cards:
     secondary_info: last-triggered
   - entity: automation.notify_about_hacs_updates
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.bt_front_dead
+    secondary_info: last-triggered
+  - entity: automation.bt_node_hung
+    secondary_info: last-triggered
+  - entity: automation.bt_rear_dead
+    secondary_info: last-triggered
+  - entity: automation.bt_scanner_stuck
+    secondary_info: last-triggered
+  - type: divider
+  - entity: automation.notify_about_unavailable_entities
+    secondary_info: last-triggered
+  - entity: automation.last_motion
+    secondary_info: last-triggered
+  - entity: automation.last_opened
+    secondary_info: last-triggered
 - type: entities
   title: Zigbee mesh automations
   show_header_toggle: false
   entities:
+  - entity: automation.zigbee_online
+    secondary_info: last-triggered
+  - entity: automation.zigbee_offline
+    secondary_info: last-triggered
   - entity: automation.zigbee_3_offline
     secondary_info: last-triggered
   - entity: automation.living_room_table_on

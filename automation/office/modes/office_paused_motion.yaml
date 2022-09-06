@@ -1,0 +1,24 @@
+id: 'office_paused_motion'
+initial_state: 'on'
+alias: 'Office paused motion'
+trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.office_presence_occupancy
+    - binary_sensor.office_mmwave_presence
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_select.office
+    state: 'Pause'
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'On'
+  - service: media_player.media_play
+    data:
+      entity_id: media_player.office

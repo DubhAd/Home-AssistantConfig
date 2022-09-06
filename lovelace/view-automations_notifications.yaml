@@ -1,7 +1,7 @@
 title: Notification automations
 id: notifications
 path: notifications
-icon: mdi:telegram
+icon: mdi:bell-badge
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:
@@ -28,6 +28,8 @@ cards:
   - entity: automation.telegram_command_trains
     secondary_info: last-triggered
   - entity: automation.telegram_command_where
+    secondary_info: last-triggered
+  - entity: automation.telegram_command_ping
     secondary_info: last-triggered
   - entity: automation.telegram_command_help
     secondary_info: last-triggered

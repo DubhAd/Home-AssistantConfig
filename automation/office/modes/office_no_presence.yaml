@@ -1,0 +1,16 @@
+id: 'office_no_presence'
+alias: 'Office no presence'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.office_mmwave_presence
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.office
+      option: 'Pause'

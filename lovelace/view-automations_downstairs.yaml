@@ -147,3 +147,15 @@ cards:
     secondary_info: last-triggered
   - entity: automation.family_room_lights_to_on
     secondary_info: last-triggered
+- type: entities
+  title: Hall
+  show_header_toggle: false
+  entities:
+  - entity: automation.hall_lights_on_when_off
+    secondary_info: last-triggered
+  - entity: automation.hall_lights_to_motion
+    secondary_info: last-triggered
+  - entity: automation.hall_mode_motion
+    secondary_info: last-triggered
+  - entity: automation.hall_mode_motion_off
+    secondary_info: last-triggered

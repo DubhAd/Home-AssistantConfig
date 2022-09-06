@@ -1,0 +1,21 @@
+id: 'office_lights_pause'
+initial_state: 'on'
+alias: 'Office lights pause'
+trigger:
+  - platform: state
+    entity_id: input_select.office
+    to: 'Pause'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: state
+    entity_id: input_select.office
+    state: 'Pause'
+action:
+  - service: switch.turn_on
+    entity_id: switch.adaptive_lighting_sleep_mode_office

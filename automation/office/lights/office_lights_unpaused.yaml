@@ -1,0 +1,23 @@
+id: 'office_lights_unpaused'
+initial_state: 'on'
+alias: 'Office lights unpaused'
+trigger:
+  - platform: state
+    entity_id: input_select.office
+    from: 'Pause'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.office
+      state: 'Pause'
+action:
+  - service: switch.turn_off
+    entity_id: switch.adaptive_lighting_sleep_mode_office
