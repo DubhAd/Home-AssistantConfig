@@ -19,17 +19,11 @@ cards:
   title: Battery level automations
   show_header_toggle: false
   entities:
-  - entity: automation.battery_cr123a
-    secondary_info: last-triggered
   - entity: automation.battery_cr1632
     secondary_info: last-triggered
   - entity: automation.battery_cr2032
     secondary_info: last-triggered
   - entity: automation.battery_cr2450
-    secondary_info: last-triggered
-  - entity: automation.battery_er14250
-    secondary_info: last-triggered
-  - entity: automation.battery_sensative
     secondary_info: last-triggered
 - type: entities
   title: Misc automations
@@ -113,8 +107,6 @@ cards:
   - entity: automation.plex_hook
     secondary_info: last-triggered
   - entity: automation.device_unavailable
-    secondary_info: last-triggered
-  - entity: automation.remote_ping
     secondary_info: last-triggered
   - entity: automation.notify_about_hacs_updates
     secondary_info: last-triggered
