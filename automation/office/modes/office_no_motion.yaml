@@ -2,9 +2,13 @@ id: 'office_no_motion'
 initial_state: 'on'
 alias: 'Office no motion'
 trigger:
+  # No motion
   - platform: state
-    entity_id: binary_sensor.office_mmwave_presence
+    entity_id: 
+    - binary_sensor.office_presence_occupancy
+    - binary_sensor.office_mmwave_presence
     to: 'off'
+  # Becomes brighter
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
     above: 15
@@ -14,6 +18,7 @@ condition:
     state: 'Motion'
   - condition: or
     conditions:
+    # Yes, I check two sensors turning off for the trigger, but I only care that the mmwave is off
     - condition: state
       entity_id: binary_sensor.office_mmwave_presence
       state: 'off'

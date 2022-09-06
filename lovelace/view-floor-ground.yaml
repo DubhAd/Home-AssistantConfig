@@ -119,7 +119,7 @@ cards:
         show_last_changed: true
   - type: glance
     title: Hall
-    columns: 4
+    columns: 3
     entities:
       - entity: light.downstairs_hall
         name: Hall light
