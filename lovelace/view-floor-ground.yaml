@@ -108,10 +108,8 @@ cards:
       - entity: binary_sensor.vestibule_multi_occupancy
         show_last_changed: true
         name: Motion
-      - entity: sensor.vestibule_multi_illuminance
+      - entity: sensor.vestibule_multi_illuminance_lux
         name: "Light level"
-      - entity: sensor.vestibule_multi_temperature
-        name: "Temperature"
       - entity: switch.vestibule_socket
         name: Socket
         tap_action: 
