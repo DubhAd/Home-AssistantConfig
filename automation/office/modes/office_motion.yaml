@@ -15,7 +15,7 @@ condition:
     state: 'off'
   - condition: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    below: 10
+    below: 15
 action:
   - service: notify.logfile
     data:

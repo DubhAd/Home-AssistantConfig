@@ -11,7 +11,7 @@ trigger:
   # Becomes brighter
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    above: 15
+    above: 20
 condition:
   - condition: state
     entity_id: input_select.office

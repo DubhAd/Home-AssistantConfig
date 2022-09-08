@@ -39,7 +39,7 @@ condition:
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
-        below: 2500
+        below: 2000
     # It's been at least 15 minutes, and close
     - condition: and
       conditions:
@@ -47,8 +47,13 @@ condition:
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 900 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
-        above: 2499
+        above: 1999
         below: 10000
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: device_tracker.person1_pixel_3
+            state: 'work'
     # It's been at least 30 minutes, and a moderate distance away
     - condition: and
       conditions:

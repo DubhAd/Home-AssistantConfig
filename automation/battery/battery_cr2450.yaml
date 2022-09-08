@@ -5,43 +5,56 @@ trigger:
   - platform: state
     entity_id:
     - binary_sensor.upstairs_hall_motion_front_battery_low
+    - binary_sensor.office_presence_battery_low
     to: 'on'
   - platform: numeric_state
     entity_id: 
     - sensor.downstairs_hall_light_sensor_battery
+    - sensor.downstairs_hall_motion_battery
     - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
     - sensor.living_room_light_sensor_battery
+    - sensor.living_room_presence_battery
     - sensor.master_bedroom_cube_battery
     - sensor.master_bedroom_light_sensor_battery
     - sensor.office_button_battery
     - sensor.office_cube_battery
+    - sensor.office_illuminance_battery
+    - sensor.office_presence_battery
     - sensor.vestibule_multi_battery
     below: 21
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.downstairs_hall_light_sensor_battery
+    - sensor.downstairs_hall_motion_battery
     - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
     - sensor.living_room_light_sensor_battery
+    - sensor.living_room_presence_battery
     - sensor.master_bedroom_cube_battery
     - sensor.master_bedroom_light_sensor_battery
     - sensor.office_button_battery
     - sensor.office_cube_battery
+    - sensor.office_illuminance_battery
+    - sensor.office_presence_battery
     - sensor.vestibule_multi_battery
     below: 11
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.downstairs_hall_light_sensor_battery
+    - sensor.downstairs_hall_motion_battery
     - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
     - sensor.living_room_light_sensor_battery
+    - sensor.living_room_presence_battery
     - sensor.master_bedroom_cube_battery
     - sensor.master_bedroom_light_sensor_battery
     - sensor.office_button_battery
     - sensor.office_cube_battery
+    - sensor.office_illuminance_battery
+    - sensor.office_presence_battery
     - sensor.vestibule_multi_battery
     below: 6
     for: '01:00:00'

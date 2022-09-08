@@ -6,36 +6,51 @@ trigger:
     entity_id:
     - binary_sensor.bathroom_water_leak_battery_low
     - binary_sensor.kitchen_water_leak_battery_low
+    - binary_sensor.master_ensuite_leak_battery_low
+    - binary_sensor.second_ensuite_battery_low
     - binary_sensor.toilet_water_leak_battery_low
     - binary_sensor.utility_room_water_leak_battery_low
-    - binary_sensor.second_ensuite_battery_low
-    - binary_sensor.master_ensuite_leak_battery_low
     to: 'on'
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_environment_battery
-    - sensor.master_ensuite_environment_battery
-    - sensor.second_bedroom_ensuite_environment_battery
-    - sensor.office_switch_battery
+    - sensor.chest_bike_battery
+    - sensor.living_room_climate_battery
     - sensor.master_bedroom_button_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.office_battery
+    - sensor.office_dial_battery
+    - sensor.office_switch_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.utility_remote_battery
     below: 21
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_environment_battery
-    - sensor.master_ensuite_environment_battery
-    - sensor.second_bedroom_ensuite_environment_battery
-    - sensor.office_switch_battery
+    - sensor.chest_bike_battery
+    - sensor.living_room_climate_battery
     - sensor.master_bedroom_button_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.office_battery
+    - sensor.office_dial_battery
+    - sensor.office_switch_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.utility_remote_battery
     below: 11
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_environment_battery
-    - sensor.master_ensuite_environment_battery
-    - sensor.second_bedroom_ensuite_environment_battery
-    - sensor.office_switch_battery
+    - sensor.chest_bike_battery
+    - sensor.living_room_climate_battery
     - sensor.master_bedroom_button_battery
+    - sensor.master_ensuite_environment_battery
+    - sensor.office_battery
+    - sensor.office_dial_battery
+    - sensor.office_switch_battery
+    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.utility_remote_battery
     below: 6
     for: '01:00:00'
 action:
