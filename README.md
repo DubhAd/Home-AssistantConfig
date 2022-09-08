@@ -127,7 +127,7 @@ I moved these all [out here](integrations.md) because it's a long list, and not 
 
 * [PiVPN](http://www.pivpn.io/) for remote access to my network
 * [Pi Hole](https://pi-hole.net/) for blocking those pesky adverts
-* [netdata](https://my-netdata.io/) so I can keep an eye on the performance
+* [netdata](https://www.netdata.cloud/) so I can keep an eye on the performance
 * [rpi-clone](https://github.com/billw2/rpi-clone) for bootable backups of the Pis
 * [rclone](https://rclone.org/) for offsite backups
 * [rsnapshot](https://rsnapshot.org/) runs on another system, and pulls backups 
