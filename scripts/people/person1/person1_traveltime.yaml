@@ -10,8 +10,14 @@ sequence:
             entity_id: input_boolean.google_travel_time
             state: 'on'
           - condition: numeric_state
-            entity_id: proximity.person3_home
+            entity_id: proximity.person1_home
             above: 500
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: device_tracker.person1_pixel_3
+                state: 'work'
+                for: '00:30:00'
         sequence: 
           - service: homeassistant.update_entity
             entity_id: sensor.person1s_time_to_home_by_bus_google
@@ -24,7 +30,7 @@ sequence:
           - service: homeassistant.update_entity
             entity_id: sensor.person1s_time_to_home_by_foot
           - condition: numeric_state
-            entity_id: proximity.person3_home
+            entity_id: proximity.person1_home
             above: 500
           - service: homeassistant.update_entity
             entity_id: sensor.person1s_time_to_home

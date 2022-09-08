@@ -24,6 +24,12 @@ sequence:
                   - condition: state
                     entity_id: input_boolean.google_travel_time
                     state: 'on'
+                  - condition: not
+                    conditions:
+                      - condition: state
+                        entity_id: input_boolean.person2_home
+                        state: 'on'
+                        for: '00:05:00'
                 sequence: 
                   - service: homeassistant.update_entity
                     entity_id: sensor.person2s_time_to_home_by_transit
