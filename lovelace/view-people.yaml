@@ -26,7 +26,7 @@ cards:
       type: vertical-stack
       cards: 
       - type: glance
-        columns: 6
+        columns: 7
         entities:
         - entity: device_tracker.person3_mobile
           name: GPS
@@ -50,6 +50,12 @@ cards:
           show_last_changed: true
         - entity: sensor.person3s_time_to_home
           name: Car home
+          icon: mdi:map-marker-distance
+        - entity: sensor.person3s_time_to_home_by_google
+          name: Bus home
+          icon: mdi:map-marker-distance
+        - entity: sensor.person3s_time_to_home_by_foot
+          name: Walk home
           icon: mdi:map-marker-distance
         - entity: proximity.person3_home
           name: To home
