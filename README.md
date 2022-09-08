@@ -77,7 +77,7 @@ For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another s
 ## Media
 
   * [Sonos](https://www.sonos.com/) speakers and [integration](https://home-assistant.io/integrations/sonos/)
-  * [Squeezebox Radio](http://support.logitech.com/en_us/product/squeezebox-radio-black) as a smart alarm clock, and [associated integration](https://home-assistant.io/integrations/squeezebox/)
+  * [Squeezebox Radio](https://support.logi.com/hc/articles/360024159134) as a smart alarm clock, and [associated integration](https://home-assistant.io/integrations/squeezebox/)
   * [Cast](https://home-assistant.io/integrations/cast) devices - a bunch of [Google Home Minis](https://store.google.com/product/google_home_mini), a couple of [Google Home Hubs](https://store.google.com/product/google_home_hub), 
   and a [Lenovo Smart Display](https://www.lenovo.com/gb/en/consumer-tablet-and-smart-device/lenovo-smart-device/smart-core-device/Smart-Display-10/p/ZA3N0006GB)
 
