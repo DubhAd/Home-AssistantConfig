@@ -89,6 +89,7 @@ cards:
         show_last_changed: true
       - entity: binary_sensor.bike_lid
         name: bike
+        show_last_changed: true
   - type: glance
     title: Vestibule
     columns: 5
