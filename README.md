@@ -83,7 +83,7 @@ For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another s
 
 ## Notifications:
 
-  * [Telegram](https://telegram.org) for my notifications, supported by Hangouts Chat using a command line notifier, and the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/) (system status notifications)
+  * [Telegram](https://telegram.org) for my notifications, supported by Hangouts Chat using a command line notifier, and the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discord.com/) (system status notifications)
   * LaMetric for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes
 
