@@ -5,4 +5,4 @@
       unique_id: 'distance_person2_person3'
       unit_of_measurement: 'km'
       value_template: >-
-        {{ distance('device_tracker.person2_mobile_gps','device_tracker.person3_mobile')|round(1) }}
+        {{ distance('device_tracker.pixel_xl','device_tracker.person3_pixel_3a')|round(1) }}
