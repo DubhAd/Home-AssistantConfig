@@ -3,7 +3,7 @@ alias: 'Trains to work'
 initial_state: 'on'
 trigger:
   - platform: time_pattern
-    minutes: '/15'
+    minutes: '/30'
 condition:
   - condition: state
     entity_id: binary_sensor.workday_sensor
