@@ -1,0 +1,19 @@
+id: 'internet_outage'
+alias: 'Internet outage'
+mode: parallel
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.fritz_box_3490_connection
+      - binary_sensor.fritz_box_3490_link
+    from: 'off'
+    to: 'on'
+    for: '00:05:00'
+action:
+  - service: notify.logfile
+    data:
+      message: "The internet went down and is now back up"
+  - service: notify.person2_telegram
+    data:
+      message: "The internet went down and is now back up"
