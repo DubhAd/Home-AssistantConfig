@@ -60,8 +60,16 @@ cards:
         - input_text.person_person2
         - input_text.person_person4
 
-    - type: custom:webrtc-camera
-      entity: camera.front_camera_lowres
+    - type: custom:frigate-card
+      cameras:
+        - camera_entity: camera.front
+          live_provider: webrtc-card
+          title: Front
+          webrtc_card:
+            entity: camera.front_camera_lowres
+      live:
+        webrtc_card:
+          ui: true
 
     - type: custom:auto-entities
       show_empty: false
@@ -167,6 +175,8 @@ cards:
             device_class: 'presence'
           options:
             show_last_changed: true
+      exclude:
+        - device_manufacturer: 'Frigate'
 
   - type: custom:auto-entities
     show_empty: false

@@ -4,7 +4,7 @@ views:
   - !include lovelace/view-floorplan.yaml
   - !include lovelace/view-floor-ground.yaml
   - !include lovelace/view-floor-first.yaml
-  - !include lovelace/view-surveillance.yaml
+  - !include lovelace/view-frigate.yaml
   - !include lovelace/view-media.yaml
   - !include lovelace/view-spacer2.yaml
   - !include lovelace/view-overview.yaml

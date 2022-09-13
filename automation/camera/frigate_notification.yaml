@@ -1,0 +1,30 @@
+id: 'frigate_notification'
+alias: 'Frigate notification'
+initial_state: 'on'
+trigger:
+  - platform: mqtt
+    topic: frigate/events
+    payload: "{{ camera }}/new"
+    value_template: "{{ value_json['after']['camera'] }}/{{ value_json['type']}}"
+    id: frigate-event
+variables:
+  camera: camera.front
+  camera_name: "{{ camera | replace('_', ' ') | title }}"
+action:
+  - variables:
+      id: "{{ trigger.payload_json['after']['id'] }}"
+      object: "{{ trigger.payload_json['after']['label'] }}"
+      label: "{{ object | title }}"
+      # Dynamic Variables per event
+      initial_home: "{{ presence_entity != '' and is_state(presence_entity, 'home') }}"
+      initial_entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
+  - service: notify.person2_telegram
+    data:
+      message: "A {{ label }} was detected on the {{ camera_name }} camera."
+  - service: notify.person2_telegram
+    data: 
+      title: "{{ label }} was detected"
+      data:
+        photo:
+          - url: "/api/frigate/notifications/{{id}}/thumbnail.jpg?format=android"
+

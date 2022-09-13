@@ -284,6 +284,8 @@ cards:
             device_class: 'presence'
           options:
             show_last_changed: true
+      exclude:
+        - device_manufacturer: 'Frigate'
 
   - type: custom:auto-entities
     show_empty: false

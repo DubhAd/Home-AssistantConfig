@@ -1,0 +1,19 @@
+id: 'frigate_motion_start'
+initial_state: 'on'
+alias: 'Frigate motion start'
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.drive_bicycle_motion
+      - binary_sensor.drive_car_motion
+      - binary_sensor.drive_bus_motion
+      - binary_sensor.drive_motorcycle_motion
+      - binary_sensor.drive_person_motion
+    to: 'on'
+action:
+  - service: notify.logfile
+    data:
+      message: >
+        Motion detection event begins on {{ trigger.entity_id }}
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.stream_camera

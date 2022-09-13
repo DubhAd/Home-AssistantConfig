@@ -1,5 +1,4 @@
 id: 'motion_stopped'
-initial_state: 'on'
 alias: 'Motion stopped'
 trigger:
   - platform: event

@@ -92,6 +92,11 @@ cards:
     secondary_info: last-triggered
   - entity: automation.motion_stopped
     secondary_info: last-triggered
+  - type: divider
+  - entity: automation.frigate_motion_start
+    secondary_info: last-triggered
+  - entity: automation.frigate_motion_stopped
+    secondary_info: last-triggered
 - type: entities
   title: Core HA automations
   show_header_toggle: false

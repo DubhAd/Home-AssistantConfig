@@ -1,0 +1,20 @@
+id: 'frigate_motion_stopped'
+initial_state: 'on'
+alias: 'Frigate motion stopped'
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.drive_bicycle_motion
+      - binary_sensor.drive_car_motion
+      - binary_sensor.drive_bus_motion
+      - binary_sensor.drive_motorcycle_motion
+      - binary_sensor.drive_person_motion
+    to: 'off'
+    for: '00:01:00'
+action:
+  - service: notify.logfile
+    data:
+      message: >
+        Motion detection event ends on {{ trigger.entity_id }}
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.stream_camera

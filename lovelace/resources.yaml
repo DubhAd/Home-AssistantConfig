@@ -36,3 +36,5 @@
   type: module
 - url: /hacsfiles/lovelace-hourly-weather/hourly-weather.js
   type: module
+- url: /hacsfiles/frigate-hass-card/frigate-hass-card.js
+  type: module

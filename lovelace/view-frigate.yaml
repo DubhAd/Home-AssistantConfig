@@ -1,0 +1,16 @@
+title: Frigate
+id: frigate
+path: frigate
+icon: mdi:cctv
+panel: true
+cards:
+  - type: custom:frigate-card
+    cameras:
+      - camera_entity: camera.front
+        live_provider: webrtc-card
+        title: Front
+        webrtc_card:
+          entity: camera.front_camera_lowres
+    live:
+      webrtc_card:
+        ui: true
