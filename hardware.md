@@ -33,7 +33,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :heavy_check_mark: | In use as a [media controller in the office](https://github.com/DubhAd/Home-AssistantConfig/blob/live/automation/office/office_dial.yaml), controlling the volume and pause/play. There's a very slight (unavoidable) delay in the clicks, since it supports single, double, and triple clicks, but it's otherwise a great device. |
 | [Xiaomi E1 remote](https://www.zigbee2mqtt.io/devices/WXKG16LM.html) | Remote | :heavy_check_mark: | Bought to replace a Z-Wave wall switch, and it's a great replacement. |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
-| [Xiaomi MCCGQ14LM door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM.html) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. It's working well for me so far. | 
+| [Xiaomi E1 door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM.html) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. It's working well for me so far. | 
 | [Xiaomi P1 presence sensor](https://www.zigbee2mqtt.io/devices/RTCGQ14LM.html) | Motion sensor | :heavy_check_mark: | The Zigbee 3.0 version of their popular motion sensor. Others have complained about the range, but so far I'm happy. |
 
 **Notes**
@@ -43,11 +43,11 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 ### Not in use
 | What | Buy again? | Notes |
 | --- | :---: | --- |
-| [CR Smart Home TS0207](https://www.zigbee2mqtt.io/devices/TS0207.html) | Leak sensor | :thumbsdown: | Bought one to test it out, and it works exactly as described. Ordered a few more for around the house. The downside is battery life is ... shockingly bad, so I've replaced them with the Xiaomi leak sensors, despite them being Zigbee 1.2. |
+| [CR Smart Home TS0207](https://www.zigbee2mqtt.io/devices/TS0207.html) | :thumbsdown: | Bought one to test it out, and it works exactly as described. Ordered a few more for around the house. The downside is battery life is ... shockingly bad, so I've replaced them with the Xiaomi leak sensors, despite them being Zigbee 1.2. |
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | :thumbsdown: | These are neat, smaller than the Xiaomi button, but not as nice to use. |
-| [Konke contact sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPDR.html) | Doors | :thumbsdown: | These are neat, slightly smaller than the Xiaomi sensors, but visually not as nice. They also seem to eat batteries and fail without warning. |
-| [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | Motion sensor | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. They also seem to eat batteries and fail without warning. |
-| [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | Temperature and humidity | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. |
+| [Konke contact sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPDR.html) | :thumbsdown: | These are neat, slightly smaller than the Xiaomi sensors, but visually not as nice. They also seem to eat batteries and fail without warning. |
+| [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. They also seem to eat batteries and fail without warning. |
+| [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. |
 | [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
 | Sleash | :warning: | Worked as a router, currently in the drawer. |
 | [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | | Combined motion, light, temperature sensor, and a button. It's huge and I haven't yet tried it on the new coordinator |
