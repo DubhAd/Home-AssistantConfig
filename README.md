@@ -1,6 +1,5 @@
 # Table of Contents
    * [Home Assistant configuration](#home-assistant-configuration)
-      * [Z-Wave](#z-wave)
       * [The key software](#the-key-software)
       * [Floorplan](#floorplan)
       * [Devices](#devices)
@@ -25,18 +24,6 @@
 This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2022.3.8 (Python 3.9.7 built [with this guide](https://blog.ceard.tech/2017/12/upgrading-python-virtual-environment.html)) on a VM, using Proxmox on an old laptop (Intel Core i5-3230M), the VM has two cores and 2 GB of RAM allocated. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
-
-## Z-Wave
-
-> My Z-Wave stack is no longer in use
-
-My Z-Wave stack used to run on a Raspberry Pi 3, using the old All in One installer (effectively a [manual install like this](https://blog.ceard.tech/2017/12/installing-home-assistant-in-virtual.html), on a 16 GB card, that I'd [upgraded to Python 3.6](https://blog.ceard.tech/2017/12/upgrading-python-virtual-environment.html). I used a [Razberry](https://razberry.z-wave.me/) board for Z-Wave control. The configuration for that instance, before it was turned off, can be [found here](https://github.com/DubhAd/HomeAssistant-ZWave).
-
-To limit the risk brought by SD card corruption (a known risk with Pi3) I stored the Home Assistant database on a USB stick, and use a multi-port USB charger with sufficient power for all ports, but left one unused. The power cables were short, and high quality, to minimise issues with voltage drop. Of course, I also took [many different backups](https://blog.ceard.tech/2017/10/backing-up-home-assistant.html) to reduce the risk of losing anything.
-
-This was one of a number of Pi3s I've got, and they're all in a [Multi-Pi stackable case](https://www.okdo.com/p/multi-pi-stackable-raspberry-pi-case/), to keep the footprint down. They share an HDMI cable to a nearby monitor, and an old USB keyboard I've got kicking around, because having a Pi fail to respond isn't that uncommon.
-
-I stopped using this in September 2022, having expanded my Zigbee mesh. I may well return to Z-Wave in the future, those Sensative Guard strips are still the best design of door/window sensor I've found, but for now... Z-Wave no more.
 
 ## The key software
 
@@ -66,7 +53,7 @@ You can find a list of my [current and previous hardware here](hardware.md).
 
 ## Z-Wave and Zigbee
 
-I used the original zwave integration on a remote system, using [Remote Home-Assistant](https://github.com/custom-components/remote_homeassistant). I've since stopped using Z-Wave, as explained above.
+I used the original zwave integration on a remote system, using [Remote Home-Assistant](https://github.com/custom-components/remote_homeassistant). I've since stopped using Z-Wave, as [explained here](ZWAVE.md).
 
 For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
@@ -117,7 +104,6 @@ Historically I didn't make much use of custom components/integrations, however t
 * [HACS](https://hacs.xyz) for intalling, updating, and finding new custom integrations. All other custom integrations are installed using this.
 * [Adaptive lighting](https://github.com/basnijholt/adaptive-lighting) (replacing [Circadian lighting](https://github.com/claytonjn/hass-circadian_lighting/)) since the built in [flux integration](https://www.home-assistant.io/integrations/flux) isn't as good.
 * [Fritzbox tools](https://github.com/mammuth/ha-fritzbox-tools) to allow me to track the status of the Internet connection
-* [Home Assistant Remote](https://github.com/lukas-hetzenecker/home-assistant-remote) for linking my Z-Wave and primary instances. This is more effective than my ugly MQTT hack.
 
 ### Standard integrations
 
