@@ -114,7 +114,6 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 * Switch modules for the extractor fans
 * Multisensors or multiple sensors (light/motion/humidity/temperature) in the bedrooms and bathrooms
 * Multisensors or multiple sensors (light/motion/temperature) in all other rooms
-* More door and window sensors, including on the garden gate - the garden gate one may have to be LoRa as I'm not seeing any weatherproof Zigbee options yet
 * Some form of distance sensor (ultrasonic or laser) in the garage
 * Digital LED strip for the front of the garage
 * LED strips (either Zigbee or Digital) for accent lighting and pathway lighting
