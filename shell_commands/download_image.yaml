@@ -1,0 +1,1 @@
+download_image: "/local/bin/download-image.zsh -e {{ states('input_text.camera_event_id') }}"

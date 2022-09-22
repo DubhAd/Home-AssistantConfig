@@ -58,12 +58,12 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: light.living_room_lamps
+            entity_id: light.living_room
             state: 'on'
         sequence:
           - service: light.turn_off
             data:
-              entity_id: light.living_room_lamps
+              entity_id: light.living_room
   - choose:
       - conditions:
           - condition: state

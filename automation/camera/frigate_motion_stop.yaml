@@ -3,12 +3,15 @@ initial_state: 'on'
 alias: 'Frigate motion stopped'
 trigger:
   - platform: state
+    entity_id: input_boolean.stream_front_camera_motion
+    to: 'off'
+  - platform: state
     entity_id:
-      - binary_sensor.drive_bicycle_motion
-      - binary_sensor.drive_car_motion
-      - binary_sensor.drive_bus_motion
-      - binary_sensor.drive_motorcycle_motion
-      - binary_sensor.drive_person_motion
+      - binary_sensor.front_bicycle_motion
+      - binary_sensor.front_bus_motion
+      - binary_sensor.front_car_motion
+      - binary_sensor.front_motorcycle_motion
+      - binary_sensor.front_person_motion
     to: 'off'
     for: '00:01:00'
 action:

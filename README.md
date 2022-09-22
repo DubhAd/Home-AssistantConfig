@@ -108,7 +108,7 @@ You'll note I use three different device trackers, two for home (nmap, bluetooth
 
   * [Getmail](http://pyropus.ca/software/getmail/) with [a script](local/bin/parse-email) that acts as the message delivery agent, to parse the recycling collection emails
     * I gave up on the the [IMAP email content](https://home-assistant.io/integrations/imap_email_content/) sensor since it doesn't keep state through restarts (which isn't unique to it, Home Assistant doesn't have a persistence mechanism other than for the `input_*` entities)
-  * A HiWatch IPC-T140 dome camera, using the generic camera integration. I use [MotionEye](https://github.com/ccrisan/motioneye/) for motion detection and [Doods](https://www.home-assistant.io/integrations/doods/) (in another VM) for object detection.
+  * A HiWatch IPC-T140 dome camera, using the generic camera integration. I use [Frigate](https://frigate.video/) for motion and object detection, supported by a Coral stick. This runs on a different computer to the one that runs Home Assistant.
 
 ## Custom integrations
 

@@ -74,8 +74,12 @@ cards:
   cards:
   - type: glance
     title: Front of house
-    columns: 4
+    #columns: 4
     entities:
+      - entity: binary_sensor.garden_gate_contact
+        show_last_changed: true
+        icon: mdi:gate
+        name: Gate
       - entity: binary_sensor.garage_door_bike_contact
         show_last_changed: true
         name: bike
@@ -141,12 +145,12 @@ cards:
     title: Kitchen
     columns: 4
     entities:
-      - entity: binary_sensor.kitchen_window_right_contact
-        show_last_changed: true
-        name: Right
       - entity: binary_sensor.kitchen_window_left_contact
         show_last_changed: true
         name: Left
+      - entity: binary_sensor.kitchen_window_right_contact
+        show_last_changed: true
+        name: Right
       - entity: binary_sensor.kitchen_water_leak_water_leak
         show_last_changed: true
         name: Leak
@@ -157,16 +161,16 @@ cards:
     title: Utility room & back
     #columns: 4
     entities:
+      - entity: binary_sensor.utility_room_water_leak_water_leak
+        show_last_changed: true
+        name: Leak
+      - entity: binary_sensor.utility_door_exterior_contact
+        show_last_changed: true
+        name: Door
       - entity: switch.garden_lights
         tap_action: 
           action: toggle
         show_last_changed: true
-      - entity: binary_sensor.utility_door_exterior_contact
-        show_last_changed: true
-        name: Door
-      - entity: binary_sensor.utility_room_water_leak_water_leak
-        show_last_changed: true
-        name: Leak
   - type: glance
     title: Family room
     columns: 4

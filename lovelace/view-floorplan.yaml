@@ -80,6 +80,8 @@ cards:
               class: entity-alert
             - state: 'unavailable'
               class: 'unavailable'
+            - state: 'unknown'
+              class: 'unknown'
 
         - entities:
             - input_boolean.car_home
@@ -439,7 +441,6 @@ cards:
           propagate: true
 
         - entities:
-            - switch.master_bedroom_socket
             - switch.master_bedroom
             - switch.spare_bedroom_socket
             - switch.guest_bedroom_socket
@@ -550,6 +551,7 @@ cards:
         - entities:
             - binary_sensor.garage_door_bike_contact
             - binary_sensor.garage_door_car_contact
+            - binary_sensor.garden_gate_contact
           states:
             - state: 'off'
               class: 'closed-background'

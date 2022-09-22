@@ -1,0 +1,44 @@
+id: 'returned_gate_open'
+alias: 'Returned gate open'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.adults_away
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: binary_sensor.garden_gate_contact
+    state: 'on'
+action:
+  - delay: '00:02:00'
+  - condition: state
+    entity_id: binary_sensor.garden_gate_contact
+    state: 'on'
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.cast_kitchen_speaker
+  - service: tts.google_cloud_say
+    data:
+      entity_id: media_player.cast_kitchen_speaker
+      message: "The garden gate was opened while you were away, and is still open"
+  - wait_template: >-
+      {{ is_state('media_player.cast_kitchen_speaker','playing') }}
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.living_room_display
+  - service: tts.google_cloud_say
+    data:
+      entity_id: media_player.living_room_display
+      message: "The garden gate was opened while you were away, and is still open"
+  - wait_template: >-
+      {{ is_state('media_player.living_room_display','playing') }}
+  - wait_template: >-
+      {{ is_state('media_player.cast_kitchen_speaker','idle') and is_state('media_player.living_room_display','idle') }}
+  - service: media_player.turn_off
+    data:
+      entity_id: 
+        - media_player.cast_kitchen_speaker
+        - media_player.living_room_display

@@ -7,7 +7,11 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
+    below: 40
+  - platform: numeric_state
+    entity_id: sensor.office_illuminance_illuminance_lux
     below: 50
+    for: '00:01:00'
   - platform: state
     entity_id: input_boolean.lighting_office
     to: 'on'

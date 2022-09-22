@@ -1,3 +1,0 @@
-platform: local_file
-name: "Front camera from Doods"
-file_path: "/data/homeassistant/cameras/front_camera_snapshot_latest.jpg"

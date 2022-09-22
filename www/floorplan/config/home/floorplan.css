@@ -71,6 +71,12 @@ background-color: var(--primary-background-color);
   /* fill: #5d5d6f !important;*/
 }
 
+.unknown {
+  fill: #FFFF00 !important;
+  stroke: #FFA500 !important;
+  stroke-width: 1px !important;
+  /* stroke-opacity: 0.5 !important; */
+}
 .unavailable {
   fill: #887777 !important;
   stroke: #FFFF00 !important;

@@ -1,5 +1,8 @@
 alias: person3 home
 sequence:
+  - condition: state
+    entity_id: input_boolean.person3_home
+    state: 'off'
   - service: input_boolean.turn_off
     entity_id: input_boolean.person3_travelling
   - service: input_boolean.turn_on

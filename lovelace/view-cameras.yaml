@@ -3,20 +3,8 @@ id: cameras
 path: cameras
 icon: mdi:camera-burst
 cards:
-  - type: picture-entity
-    entity: camera.front_camera_motion
-    show_name: false
-    show_state: false
   - type: custom:webrtc-camera
     entity: camera.front_camera
-  - type: picture-entity
-    entity: camera.front_camera_from_doods
-    #show_name: false
-    show_state: false
-  - type: picture-entity
-    entity: camera.front_camera_snapshot
-    #show_name: false
-    show_state: false
   - type: custom:webrtc-camera
     entity: camera.front_camera_lowres
   - type: picture-entity

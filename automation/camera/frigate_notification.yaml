@@ -4,27 +4,37 @@ initial_state: 'on'
 trigger:
   - platform: mqtt
     topic: frigate/events
-    payload: "{{ camera }}/new"
-    value_template: "{{ value_json['after']['camera'] }}/{{ value_json['type']}}"
-    id: frigate-event
-variables:
-  camera: camera.front
-  camera_name: "{{ camera | replace('_', ' ') | title }}"
+    payload: "front"
+    value_template: "{{ value_json['after']['camera'] }}"
 action:
   - variables:
+      stationary: "{{ trigger.payload_json['after']['stationary'] == true }}"
       id: "{{ trigger.payload_json['after']['id'] }}"
       object: "{{ trigger.payload_json['after']['label'] }}"
       label: "{{ object | title }}"
+      zones: "{{ trigger.payload_json['after']['current_zones']|join(', ') }}"
+      type: "{{ trigger.payload_json['type'] }}"
       # Dynamic Variables per event
-      initial_home: "{{ presence_entity != '' and is_state(presence_entity, 'home') }}"
-      initial_entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
-  - service: notify.person2_telegram
+      #initial_home: "{{ presence_entity != '' and is_state(presence_entity, 'home') }}"
+      #initial_entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
+  - service: input_text.set_value
+    target:
+      entity_id: input_text.camera_event_id
     data:
-      message: "A {{ label }} was detected on the {{ camera_name }} camera."
-  - service: notify.person2_telegram
-    data: 
-      title: "{{ label }} was detected"
+      value: "{{ id }}"
+  - service: shell_command.download_image
+  - service: notify.logfile
+    data:
+      message: "This is a {{ type }} event {{ id }} for {{ label }} for entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
+  - condition: template
+    #value_template: "{{ type == 'new' and (trigger.payload_json['after']['entered_zones']|count > 0) and (trigger.payload_json['after']['current_zones']|count >0) }}"
+    value_template: "{{ type == 'new' }}"
+  - service: notify.discord
+    data:
+      message: "A {{ type }} {{ label }} was detected in the {{ zones }}"
+      target: >-
+          !secret discord_camera_channel
       data:
-        photo:
-          - url: "/api/frigate/notifications/{{id}}/thumbnail.jpg?format=android"
-
+        images:
+          - "/data/homeassistant/cameras/front_{{ id }}_thumb.jpg"
+          - "/data/homeassistant/cameras/front_{{ id }}.jpg"

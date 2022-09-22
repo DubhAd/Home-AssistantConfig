@@ -1,0 +1,20 @@
+id: 'frigate_new_object'
+alias: 'Frigate new object'
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.front_bicycle
+      - sensor.front_bus
+      - sensor.front_car
+      - sensor.front_motorcycle
+      - sensor.front_person
+    to: ~
+condition:
+  - condition: template
+    value_template: "{{ trigger.to_state.state|int(0) > trigger.from_state.state|int(0) }}"
+action:
+  - service: notify.discord
+    data:
+      message: "We've just seen a new {{ trigger.to_state.name }} out the front"
+      target: >-
+          !secret discord_camera_channel

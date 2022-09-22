@@ -43,7 +43,7 @@ action:
     repeat:
       while:
         - condition: state
-          entity_id: light.living_room_lamps
+          entity_id: light.living_room
           state: 'on'
         # Don't do it too many times
         - condition: template
@@ -54,9 +54,9 @@ action:
           message: "Turning off the living room lights (attempt {{ repeat.index }})"
       - service: light.turn_off
         data:
-          entity_id: light.living_room_lamps
+          entity_id: light.living_room
           transition: 5
-      - delay: '00:00:10'
+      - delay: '00:00:07'
     # end of repeat block
   - service: switch.turn_on
     entity_id:

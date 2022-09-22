@@ -1,5 +1,4 @@
 id: 'bt_front_dead'
-initial_state: 'on'
 alias: 'BT front dead'
 trigger:
   - platform: state
@@ -13,6 +12,6 @@ condition:
       - input_boolean.person2_is_awake
     state: 'on'
 action:
-  - service: notify.person2_telegram
+  - service: notify.discord_webhook
     data:
       message: "Front Bluetooth is a zombie"

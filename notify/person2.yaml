@@ -1,4 +1,0 @@
-- name: person2
-  platform: pushover
-  api_key: !secret person2_pushover_api_key
-  user_key: !secret person2_pushover_user_key
