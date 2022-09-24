@@ -9,16 +9,25 @@ condition:
     entity_id: light.living_room
     state: 'on'
 action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+        - switch.adaptive_lighting_living_room_lamps
+        - switch.adaptive_lighting_living_room_table
+  - service: switch.turn_on
+    target:
+      entity_id:
+        - switch.adaptive_lighting_sleep_mode_living_room_lamps
+        - switch.adaptive_lighting_sleep_mode_living_room_table
   - service: light.turn_on
     target:
       entity_id: light.living_room
     data:
       brightness_pct: 1
       transition: 5
-  - delay: '00:00:07'
+  - delay: '00:00:05'
   - service: switch.turn_on
     target:
       entity_id:
-        - switch.adaptive_lighting_sleep_mode_living_room_lamps
-        - switch.adaptive_lighting_sleep_mode_living_room_table
-
+        - switch.adaptive_lighting_living_room_lamps
+        - switch.adaptive_lighting_living_room_table
