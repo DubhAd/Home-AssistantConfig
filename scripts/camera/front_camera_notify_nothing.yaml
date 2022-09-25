@@ -1,9 +1,0 @@
-sequence:
-  - service: notify.discord
-    data:
-      message: >-
-        There was motion at the front at {{ as_timestamp(states.input_boolean.front_camera_motion.last_updated)|timestamp_custom('%F %T', True) }}. We found nothing.
-      target: !secret discord_camera_false_channel
-      data:
-        images:
-        - "/data/homeassistant/cameras/front_camera_snapshot.jpg"
