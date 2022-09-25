@@ -80,18 +80,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.stop_camera_stream
     secondary_info: last-triggered
-  - entity: automation.front_camera_motion_detected
-    secondary_info: last-triggered
-  - entity: automation.front_camera_motion_off
-    secondary_info: last-triggered
-  - entity: automation.front_camera_motion_stream_off
-    secondary_info: last-triggered
-  - entity: automation.motion_hook
-    secondary_info: last-triggered
-  - entity: automation.motion_start
-    secondary_info: last-triggered
-  - entity: automation.motion_stopped
-    secondary_info: last-triggered
   - type: divider
   - entity: automation.frigate_motion_start
     secondary_info: last-triggered
