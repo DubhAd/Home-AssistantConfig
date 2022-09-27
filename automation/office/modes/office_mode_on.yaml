@@ -7,10 +7,10 @@ trigger:
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    below: 40
+    below: 50
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    below: 50
+    below: 60
     for: '00:01:00'
   - platform: state
     entity_id: input_boolean.lighting_office
@@ -26,7 +26,7 @@ condition:
     state: 'on'
   - condition: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    below: 50
+    below: 60
 action:
   - service: notify.logfile
     data:

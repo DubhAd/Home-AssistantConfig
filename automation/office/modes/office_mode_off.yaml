@@ -6,14 +6,14 @@ trigger:
     entity_id: input_boolean.office_occupied
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    above: 80
+    above: 90
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    above: 70
+    above: 80
     for: '00:01:00'
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
-    above: 60
+    above: 70
     for: '00:02:00'
   - platform: state
     entity_id: input_select.office
@@ -37,7 +37,7 @@ condition:
         state: 'off'
       - condition: numeric_state
         entity_id: sensor.office_illuminance_illuminance_lux
-        above: 60
+        above: 70
 action:
   - service: notify.logfile
     data:
