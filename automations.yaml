@@ -1,12 +1,1 @@
-- id: '1572606895884'
-  alias: A New Automation
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.ha_alarm
-    from: banana
-    to: kipper
-  condition: []
-  action:
-  - service: automation.reload
-  mode: single
+[]
