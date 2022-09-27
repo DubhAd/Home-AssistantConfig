@@ -86,6 +86,7 @@ cards:
         exclude:
           - name: /Plex/
           - entity_id: "/.*_old/"
+          - entity_id: "/.roku_x00200y5s7lx_.*/"
           - entity_id: "binary_sensor.kelsie_*"
           - entity_id: "media_player.samsung_tv"
           - entity_id: "media_player.cast_living_room_tv"
