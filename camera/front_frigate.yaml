@@ -1,0 +1,4 @@
+platform: generic
+name: 'Front frigate'
+still_image_url: !secret front_camera_image
+stream_source: !secret front_camera_frigate
