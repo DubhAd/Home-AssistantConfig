@@ -5,6 +5,7 @@ trigger:
   - platform: state
     entity_id: light.office_strip
     to: 'on'
+    for: '00:30:00'
 condition:
   - condition: state
     entity_id: input_select.office
