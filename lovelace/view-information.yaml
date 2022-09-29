@@ -60,6 +60,9 @@ cards:
   - entity: input_boolean.lighting_office
     secondary_info: last-changed
     state_color: true
+  - entity: input_boolean.office_paused
+    secondary_info: last-changed
+    state_color: true
   - type: divider
   - input_select.master_bedroom
   - entity: input_boolean.master_bedroom_occupied

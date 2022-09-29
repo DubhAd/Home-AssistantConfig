@@ -11,6 +11,9 @@ trigger:
     entity_id: input_boolean.office_occupied
     to: 'off'
   - platform: state
+    entity_id: input_boolean.office_paused
+    to: 'on'
+  - platform: state
     entity_id: input_select.office
     to: 'Pause'
 condition:
@@ -24,6 +27,10 @@ condition:
     - condition: state
       entity_id: input_boolean.office_occupied
       state: 'off'
+    # Office is paused
+    - condition: state
+      entity_id: input_boolean.office_paused
+      state: 'on'
     # Occupied, and either a meeting or video call started
     - condition: and
       conditions:
@@ -32,9 +39,6 @@ condition:
         state: 'on'
       - condition: or
         conditions:
-        - condition: state
-          entity_id: input_select.office
-          state: 'Pause'
         - condition: state
           entity_id: binary_sensor.kelsie_webcamactive
           state: 'on'

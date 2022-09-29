@@ -7,8 +7,8 @@ trigger:
     to: 'on'
     id: occupied
   - platform: state
-    entity_id: input_select.office
-    from: 'Pause'
+    entity_id: input_boolean.office_paused
+    to: 'off'
     id: unpaused
 condition:
   - condition: state
@@ -37,4 +37,3 @@ action:
   - service: media_player.media_play
     data:
       entity_id: media_player.office
-
