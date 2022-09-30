@@ -134,8 +134,10 @@ cards:
         name: "Light level (lux)"
   - type: glance
     title: Toilet
-    columns: 1
     entities:
+      - entity: binary_sensor.toilet_door_contact
+        name: Door
+        show_last_changed: true
       - entity: binary_sensor.toilet_water_leak_water_leak
         name: Leak
         show_last_changed: true
@@ -173,8 +175,10 @@ cards:
         show_last_changed: true
   - type: glance
     title: Family room
-    columns: 4
     entities:
+      - entity: binary_sensor.family_room_door_contact
+        show_last_changed: true
+        name: Door
       - entity: binary_sensor.family_window_left_contact
         show_last_changed: true
         name: Left
