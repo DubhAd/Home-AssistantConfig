@@ -9,15 +9,6 @@ cards:
   - type: glance
     columns: 5
     entities:
-      - entity: light.master_bedroom_bedhead
-        name: Bedhead
-        icon: mdi:led-strip-variant
-        show_last_changed: true
-      - entity: switch.master_bedroom
-        tap_action: 
-          action: toggle
-        name: Socket
-        show_last_changed: true
       - entity: binary_sensor.master_bedroom_door_contact
         name: Door
         show_last_changed: true
@@ -28,7 +19,16 @@ cards:
         show_last_changed: true
         name: Right window
       - entity: sensor.master_bedroom_light_sensor_illuminance_lux
-        name: Lux
+        name: Illuminance
+      - entity: light.master_bedroom_bedhead
+        name: Bedhead
+        icon: mdi:led-strip-variant
+        show_last_changed: true
+      - entity: switch.master_bedroom
+        tap_action: 
+          action: toggle
+        name: Socket
+        show_last_changed: true
       - entity: media_player.person2
         name: Squeezebox
         show_last_changed: true
@@ -45,7 +45,6 @@ cards:
         name: Alarms
         show_last_changed: true
   - type: glance
-    columns: 6
     entities:
       - entity: binary_sensor.master_ensuite_door_contact
         show_last_changed: true
@@ -57,8 +56,6 @@ cards:
         name: Temperature
       - entity: sensor.master_ensuite_humidity
         name: Humidity
-      - entity: sensor.master_ensuite_pressure
-        name: Pressure
       - entity: binary_sensor.master_ensuite_leak_water_leak
         name: Leak
         show_last_changed: true
@@ -97,7 +94,6 @@ cards:
         show_last_changed: true
   - type: glance
     #title: Second bedroom ensuite
-    columns: 6
     entities:
       - entity: binary_sensor.second_ensuite_door_contact
         show_last_changed: true
@@ -109,14 +105,11 @@ cards:
         name: Temperature
       - entity: sensor.second_bedroom_ensuite_humidity
         name: Humidity
-      - entity: sensor.second_bedroom_ensuite_pressure
-        name: Pressure
       - entity: binary_sensor.second_ensuite_water_leak
         name: Leak
         show_last_changed: true
 - type: glance
   title: Guest bedroom
-  columns: 3
   entities:
     - entity: binary_sensor.guest_bedroom_door_contact
       name: Door
@@ -137,7 +130,6 @@ cards:
       show_last_changed: true
 - type: glance
   title: Bathroom
-  columns: 6
   entities:
     - entity: binary_sensor.bathroom_door_contact
       show_last_changed: true
@@ -149,8 +141,6 @@ cards:
       name: Temperature
     - entity: sensor.bathroom_environment_humidity
       name: Humidity
-    - entity: sensor.bathroom_environment_pressure
-      name: Pressure
     - entity: binary_sensor.bathroom_water_leak_water_leak
       name: Leak
       show_last_changed: true
@@ -158,9 +148,6 @@ cards:
   title: Office
   columns: 5
   entities:
-    - entity: light.office_strip
-      name: Strip
-      show_last_changed: true
     - entity: binary_sensor.office_door_contact
       show_last_changed: true
       name: Door
@@ -174,7 +161,10 @@ cards:
       name: Presence
       show_last_changed: true
     - entity: sensor.office_illuminance_illuminance_lux
-      name: Light level
+      name: Illuminance
+    - entity: light.office_strip
+      name: Strip
+      show_last_changed: true
     - entity: sensor.office_temperature
       name: Temperature
     - entity: sensor.office_humidity
@@ -189,15 +179,15 @@ cards:
   title: Spare bedroom
   columns: 3
   entities:
-    - entity: switch.spare_bedroom_socket
-      show_last_changed: true
-      name: Socket
     - entity: binary_sensor.spare_bedroom_window_left_contact
       show_last_changed: true
       name: Left
     - entity: binary_sensor.spare_bedroom_window_right_contact
       show_last_changed: true
       name: Right
+    - entity: switch.spare_bedroom_socket
+      show_last_changed: true
+      name: Socket
 - type: glance
   title: Upstairs hall
   columns: 1
@@ -206,7 +196,7 @@ cards:
       name: Front
       show_last_changed: true
 - type: custom:mini-graph-card
-  name: Light level
+  name: Illuminance
   points_per_hour: 12
   hours_to_show: 12
   line_width: 2

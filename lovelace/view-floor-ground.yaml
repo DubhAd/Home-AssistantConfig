@@ -7,6 +7,43 @@ cards:
   title: Living room
   cards:
   - type: glance
+    #title: Living room
+    columns: 4
+    entities:
+    - entity: binary_sensor.patio_window_left_contact
+      show_last_changed: true
+      name: "Left"
+    - entity: binary_sensor.patio_door_left_contact
+      show_last_changed: true
+      name: "Left"
+    - entity: binary_sensor.patio_door_right_contact
+      show_last_changed: true
+      name: "Right"
+    - entity: binary_sensor.patio_window_right_contact
+      show_last_changed: true
+      name: "Right"
+    - entity: binary_sensor.living_room_presence_occupancy
+      show_last_changed: true
+      name: "Motion"
+    - entity: sensor.living_room_light_sensor_illuminance_lux
+      name: "Illuminance"
+    - entity: sensor.living_room_climate_temperature
+      name: "Temperature"
+    - entity: sensor.living_room_climate_humidity
+      name: "Humidity"
+    - entity: media_player.samsung_tv
+      name: TV
+      show_last_changed: true
+    - entity: media_player.cast_living_room_tv
+      name: Chromecast
+      show_last_changed: true
+    - entity: media_player.living_room_display
+      name: "Home Hub"
+      show_last_changed: true
+    - entity: media_player.living_room
+      name: "Sonos"
+      show_last_changed: true
+  - type: glance
     columns: 5
     entities:
     - entity: light.living_room_tv_lamp
@@ -25,51 +62,6 @@ cards:
         action: toggle 
     - entity: switch.living_room_christmas_tree
       show_last_changed: true
-  - type: glance
-    #title: Living room
-    columns: 5
-    entities:
-    - entity: binary_sensor.patio_window_left_contact
-      show_last_changed: true
-      name: "Left"
-    - entity: binary_sensor.patio_door_left_contact
-      show_last_changed: true
-      name: "Left"
-    - entity: binary_sensor.patio_door_right_contact
-      show_last_changed: true
-      name: "Right"
-    - entity: binary_sensor.patio_window_right_contact
-      show_last_changed: true
-      name: "Right"
-    - entity: binary_sensor.living_room_presence_occupancy
-      show_last_changed: true
-      name: "Motion"
-    - entity: sensor.living_room_light_sensor_illuminance_lux
-      name: "Lux"
-    - entity: sensor.living_room_presence_illuminance_lux
-      name: "Lux (P)"
-    - entity: sensor.living_room_climate_temperature
-      name: "Temperature (Zb)"
-    - entity: sensor.living_room_climate_humidity
-      name: "Humidity"
-    - entity: sensor.living_room_climate_pressure
-      name: "Pressure"
-  - type: glance
-    #title: Living room
-    columns: 4
-    entities:
-    - entity: media_player.samsung_tv
-      name: TV
-      show_last_changed: true
-    - entity: media_player.cast_living_room_tv
-      name: Chromecast
-      show_last_changed: true
-    - entity: media_player.living_room_display
-      name: "Home Hub"
-      show_last_changed: true
-    - entity: media_player.living_room
-      name: "Sonos"
-      show_last_changed: true
 - type: vertical-stack
   cards:
   - type: glance
@@ -86,17 +78,17 @@ cards:
       - entity: binary_sensor.garage_door_car_contact
         show_last_changed: true
         name: Car
+      - entity: binary_sensor.bike_lid
+        name: bike lid
+        show_last_changed: true
       - entity: switch.number_sign
         icon: mdi:home-floor-3
         tap_action: 
           action: toggle
         show_last_changed: true
-      - entity: binary_sensor.bike_lid
-        name: bike
-        show_last_changed: true
   - type: glance
     title: Vestibule
-    columns: 5
+    columns: 4
     entities:
       - entity: binary_sensor.front_door_contact
         show_last_changed: true
@@ -114,7 +106,7 @@ cards:
         show_last_changed: true
         name: Motion
       - entity: sensor.vestibule_multi_illuminance_lux
-        name: "Light level"
+        name: "Illuminance"
       - entity: switch.vestibule_socket
         name: Socket
         tap_action: 
@@ -124,14 +116,14 @@ cards:
     title: Hall
     columns: 3
     entities:
-      - entity: light.downstairs_hall
-        name: Hall light
-        show_last_changed: true
       - entity: binary_sensor.downstairs_hall_motion_occupancy
         show_last_changed: true
         name: Motion
       - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
-        name: "Light level (lux)"
+        name: "Illuminance"
+      - entity: light.downstairs_hall
+        name: Hall light
+        show_last_changed: true
   - type: glance
     title: Toilet
     entities:
@@ -143,6 +135,20 @@ cards:
         show_last_changed: true
 - type: vertical-stack
   cards:
+  - type: glance
+    title: Utility room & back
+    #columns: 4
+    entities:
+      - entity: binary_sensor.utility_door_exterior_contact
+        show_last_changed: true
+        name: Exterior
+      - entity: binary_sensor.utility_room_water_leak_water_leak
+        show_last_changed: true
+        name: Leak
+      - entity: switch.garden_lights
+        tap_action: 
+          action: toggle
+        show_last_changed: true
   - type: glance
     title: Kitchen
     columns: 4
@@ -159,20 +165,6 @@ cards:
       - entity: media_player.cast_kitchen_speaker
         show_last_changed: true
         name: Mini
-  - type: glance
-    title: Utility room & back
-    #columns: 4
-    entities:
-      - entity: binary_sensor.utility_room_water_leak_water_leak
-        show_last_changed: true
-        name: Leak
-      - entity: binary_sensor.utility_door_exterior_contact
-        show_last_changed: true
-        name: Door
-      - entity: switch.garden_lights
-        tap_action: 
-          action: toggle
-        show_last_changed: true
   - type: glance
     title: Family room
     entities:
@@ -218,7 +210,7 @@ cards:
       name: Active TV app
       entity: sensor.roku_x00200y5s7lx_active_app
 - type: custom:mini-graph-card
-  name: Light level
+  name: Illuminance
   points_per_hour: 12
   hours_to_show: 12
   line_width: 2
