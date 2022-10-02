@@ -66,18 +66,21 @@ cards:
   cards:
   - type: glance
     title: Front of house
-    #columns: 4
+    columns: 4
     entities:
+      - entity: binary_sensor.front_door_contact
+        show_last_changed: true
+        name: Front door
+      - entity: binary_sensor.garage_door_car_contact
+        show_last_changed: true
+        name: Car
+      - entity: binary_sensor.garage_door_bike_contact
+        show_last_changed: true
+        name: bike
       - entity: binary_sensor.garden_gate_contact
         show_last_changed: true
         icon: mdi:gate
         name: Gate
-      - entity: binary_sensor.garage_door_bike_contact
-        show_last_changed: true
-        name: bike
-      - entity: binary_sensor.garage_door_car_contact
-        show_last_changed: true
-        name: Car
       - entity: binary_sensor.bike_lid
         name: bike lid
         show_last_changed: true
@@ -88,14 +91,11 @@ cards:
         show_last_changed: true
   - type: glance
     title: Vestibule
-    columns: 4
+    columns: 5
     entities:
-      - entity: binary_sensor.front_door_contact
-        show_last_changed: true
-        name: Front
       - entity: binary_sensor.vestibule_door_contact
         show_last_changed: true
-        name: Interior
+        name: Door
       - entity: binary_sensor.vestibule_window_front_contact
         show_last_changed: true
         name: Front
@@ -105,8 +105,6 @@ cards:
       - entity: binary_sensor.vestibule_multi_occupancy
         show_last_changed: true
         name: Motion
-      - entity: sensor.vestibule_multi_illuminance_lux
-        name: "Illuminance"
       - entity: switch.vestibule_socket
         name: Socket
         tap_action: 

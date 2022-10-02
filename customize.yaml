@@ -83,96 +83,11 @@ device_tracker.family_tv:
   icon: mdi:television
 device_tracker.livingroom_tv:
   icon: mdi:television
-binary_sensor.bathroom_window_contact:
-  device_class: window
-binary_sensor.family_window_left_contact:
-  device_class: window
-binary_sensor.family_window_right_contact:
-  device_class: window
-binary_sensor.guestbedroom_window_left_contact:
-  device_class: window
-binary_sensor.guestbedroom_window_right_contact:
-  device_class: window
-binary_sensor.master_window_ensuite_contact:
-  device_class: window
-binary_sensor.master_window_left_contact:
-  device_class: window
-  friendly_name: Master window left
-binary_sensor.master_window_right_contact:
-  device_class: window
-  friendly_name: Master window right
-binary_sensor.office_window_contact:
-  device_class: window
-binary_sensor.patio_window_left_contact:
-  device_class: window
-binary_sensor.second_bedroom_window_ensuite_contact:
-  device_class: window
-binary_sensor.second_bedroom_window_left_contact:
-  device_class: window
-  friendly_name: Second bedroom (left)
-binary_sensor.second_bedroom_window_right_contact:
-  device_class: window
-  friendly_name: Second bedroom (right)
-binary_sensor.spare_bedroom_window_left_contact:
-  device_class: window
-binary_sensor.spare_bedroom_window_right_contact:
-  device_class: window
-binary_sensor.vestibule_window_front_contact:
-  device_class: window
-binary_sensor.vestibule_window_side_contact:
-  device_class: window
-binary_sensor.patio_window_right_contact:
-  device_class: window
-input_boolean.person2_driving:
-  icon: mdi:car-estate
-binary_sensor.bathroom_window:
-  device_class: window
 light.yeelight_strip1_286c07afc307:
   friendly_name: Master bedroom bedhead
   icon: mdi:led-strip-variant
 light.yeelight_strip1_7811dca22b87:
   friendly_name: Second bedroom bedside
-binary_sensor.vestibule_window_side:
-  device_class: window
-binary_sensor.vestibule_window_front:
-  device_class: window
-binary_sensor.patio_window_left:
-  device_class: window
-binary_sensor.patio_window_right:
-  device_class: window
-binary_sensor.family_window_left:
-  device_class: window
-binary_sensor.family_window_right:
-  device_class: window
-binary_sensor.office_window:
-  device_class: window
-binary_sensor.guest_bedroom_window_left:
-  device_class: window
-binary_sensor.guest_bedroom_window_right:
-  device_class: window
-binary_sensor.second_bedroom_window_left:
-  device_class: window
-binary_sensor.second_bedroom_window_right:
-  device_class: window
-binary_sensor.second_bedroom_window_ensuite:
-  device_class: window
-binary_sensor.spare_bedroom_window_left:
-  device_class: window
-binary_sensor.spare_bedroom_window_right:
-  device_class: window
-binary_sensor.master_window_ensuite:
-  device_class: window
-binary_sensor.master_window_left:
-  device_class: window
-binary_sensor.master_window_right:
-  device_class: window
-switch.livingroom_socket_switch:
-  friendly_name: Living room socket
-  icon: mdi:power-socket-uk
-light.hall:
-  icon: mdi:led-strip
-switch.hall_downstairs_switch:
-  icon: mdi:power-socket-uk
 device_tracker.person2_mobile_gps:
   friendly_name: person2 Mobile
 device_tracker.car_gps:
@@ -191,9 +106,6 @@ binary_sensor.first_floor_front:
   device_class: connectivity
 binary_sensor.first_floor_rear:
   device_class: connectivity
-zone.lightning: {}
-binary_sensor.vestibule_socket_switch: {}
-sensor.dark_sky_pressure: {}
 device_tracker.person2_bt_front_laptop:
   source_type: bluetooth
 device_tracker.person2_bt_front_mobile:
@@ -237,23 +149,5 @@ light.office_strip:
   icon: mdi:led-strip-variant
 sensor.downstairs_hall_light_sensor_illuminance:
   unit_of_measurement: illuminance
-binary_sensor.guest_bedroom_window_left_contact:
-  device_class: window
-  friendly_name: Guest bedroom window left
-binary_sensor.guest_bedroom_window_right_contact:
-  device_class: window
-  friendly_name: Guest bedroom window right
-light.downstairs_hall:
-  icon: mdi:led-strip-variant
-binary_sensor.kitchen_window_left_contact:
-  device_class: window
-binary_sensor.kitchen_window_right_contact:
-  device_class: window
-light.living_room_lamps:
-  icon: mdi:lightbulb-group
 device_tracker.08_a6_bc_ea_df_3f:
   friendly_name: person2_kindle_oasis
-binary_sensor.garage_door_car_contact:
-  device_class: garage_door
-binary_sensor.garage_door_bike_contact:
-  device_class: garage_door
