@@ -23,14 +23,3 @@ cards:
     name: Zigbee2MQTT Version
   - entity: sensor.zigbee2_coordinator_version
     name: Zigbee2MQTT Coordinator
-- type: custom:html-template-card
-  title: 'Zigbee link status times'
-  ignore_line_breaks: true
-  content: |-
-    {% for state in states.sensor if "_linkquality" in state.entity_id and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'Router' -%}
-      {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
-    {%- endfor %}
-    <HR>
-    {% for state in states.sensor if "_linkquality" in state.entity_id and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
-      {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
-    {%- endfor %}
