@@ -128,6 +128,8 @@ cards:
       - entity: binary_sensor.toilet_door_contact
         name: Door
         show_last_changed: true
+      - entity: sensor.toilet_light_sensor_illuminance_lux
+        name: Illuminance
       - entity: binary_sensor.toilet_water_leak_water_leak
         name: Leak
         show_last_changed: true

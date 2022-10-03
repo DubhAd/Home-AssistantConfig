@@ -1,0 +1,23 @@
+id: 'toilet_unoccupied'
+alias: 'Toilet unoccupied'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: automation_reloaded
+  - platform: numeric_state
+    entity_id: sensor.toilet_light_sensor_illuminance_lux
+    below: 2
+  - platform: state
+    entity_id: binary_sensor.toilet_door_contact
+    to: 'off'
+condition:
+  - condition: numeric_state
+    entity_id: sensor.toilet_light_sensor_illuminance_lux
+    below: 2
+  - condition: state
+    entity_id: binary_sensor.toilet_door_contact
+    state: 'off'
+action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.toilet_occupied
