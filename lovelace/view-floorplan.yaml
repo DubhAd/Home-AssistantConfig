@@ -264,11 +264,11 @@ cards:
 
         # Indoors should be moderate
         - entities:
-            - sensor.living_room_climate_temperature
-            - sensor.family_room_multi_temperature
-            - sensor.office_temperature
-            - sensor.master_ensuite_temperature
             - sensor.bathroom_environment_temperature
+            - sensor.family_room_multi_temperature
+            - sensor.living_room_climate_temperature
+            - sensor.master_ensuite_temperature
+            - sensor.office_temperature
             - sensor.second_bedroom_ensuite_temperature
           text_template: '${entity.state ? entity.state : "unknown"} C'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
@@ -358,8 +358,8 @@ cards:
           propagate: true
 
         - entities:
-            - sensor.living_room_light_sensor_illuminance_lux
             - sensor.downstairs_hall_light_sensor_illuminance_lux
+            - sensor.living_room_light_sensor_illuminance_lux
             - sensor.master_bedroom_light_sensor_illuminance_lux
             - sensor.family_room_multi_illuminance_lux
           text_template: '${entity.state ? entity.state : "unknown"} lux'

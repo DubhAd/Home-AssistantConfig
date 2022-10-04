@@ -326,3 +326,4 @@ cards:
       color: '#9753e0'
     - entity: sensor.openweathermap_temperature
       name: Outside
+      color: 'silver'

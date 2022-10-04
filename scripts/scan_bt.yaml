@@ -61,6 +61,10 @@ sequence:
     # Nothing happened recently inside 
     - condition: or
       conditions:
+      - alias: "Somebody on the path"
+        condition: state
+        entity_id: binary_sensor.front_path_person_motion
+        state: 'on'
       - condition: state
         entity_id: binary_sensor.vestibule_multi_occupancy
         state: 'off'
