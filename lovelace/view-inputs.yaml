@@ -147,12 +147,6 @@ cards:
     - entity: input_select.camera_stream_target
       secondary_info: last-changed
     - type: divider
-    - entity: input_boolean.front_camera_motion
-      secondary_info: last-changed
-      state_color: true
-    - entity: input_boolean.front_camera_motion_interesting
-      secondary_info: last-changed
-      state_color: true
     - entity: input_boolean.stream_front_camera_motion
       secondary_info: last-changed
       state_color: true

@@ -4,11 +4,21 @@ alias: 'Frigate motion start'
 trigger:
   - platform: state
     entity_id:
-      - binary_sensor.front_bicycle_motion
-      - binary_sensor.front_bus_motion
-      - binary_sensor.front_car_motion
-      - binary_sensor.front_motorcycle_motion
-      - binary_sensor.front_person_motion
+      - binary_sensor.front_path_bicycle_motion
+      - binary_sensor.front_path_bus_motion
+      - binary_sensor.front_path_car_motion
+      - binary_sensor.front_path_dog_motion
+      - binary_sensor.front_path_motorcycle_motion
+      - binary_sensor.front_path_person_motion
+      - binary_sensor.drive_bicycle_motion
+      - binary_sensor.drive_bus_motion
+      - binary_sensor.drive_car_motion
+      - binary_sensor.drive_dog_motion
+      - binary_sensor.drive_motorcycle_motion
+      - binary_sensor.drive_person_motion
+      - binary_sensor.road_bus_motion
+      - binary_sensor.road_car_motion
+      - binary_sensor.road_motorcycle_motion
     to: 'on'
     from: 'off'
 condition:
