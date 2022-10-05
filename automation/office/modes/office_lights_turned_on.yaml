@@ -16,7 +16,17 @@ action:
       message: >
         Office lights turned on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
           Light level is {{ states('sensor.office_illuminance_illuminance_lux') }}
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.office
-      option: 'On'
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.office_occupied
+            state: 'on'
+        sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.office
+              option: 'On'
+    default:
+      - service: light.turn_off
+        data:
+          entity_id: light.office_strip
