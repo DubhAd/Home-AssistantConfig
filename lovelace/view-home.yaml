@@ -69,9 +69,22 @@ cards:
           title: Front
           webrtc_card:
             entity: camera.front_camera_lowres
+        - camera_entity: camera.garage
+          camera_name: garage
+          frigate_url: http://192.168.0.13:5000/
+          live_provider: webrtc-card
+          title: Garage
+          webrtc_card:
+            entity: camera.garage
       live:
         webrtc_card:
           ui: true
+        controls:
+          next_previous:
+            size: 24
+      menu:
+        style: outside
+        position: bottom
 
     - type: custom:auto-entities
       show_empty: false
