@@ -11,7 +11,9 @@ trigger:
 condition:
   # Lighting automations must be enabled
   - condition: state
-    entity_id: input_boolean.lighting_automations
+    entity_id: 
+      - input_boolean.lighting_automations
+      - input_boolean.office_occupied
     state: 'on'
   - condition: not
     conditions:

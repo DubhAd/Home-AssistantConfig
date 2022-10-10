@@ -1,0 +1,22 @@
+id: 'office_lights_on_when_off'
+alias: 'Office lights on when off'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: light.office_strip
+    to: 'on'
+    for: '00:01:00'
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.office_occupied
+        state: 'off'
+      - condition: state
+        entity_id: input_select.office
+        state: 'Off'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.office_strip
+      transition: 1
