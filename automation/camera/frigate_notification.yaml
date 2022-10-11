@@ -30,7 +30,7 @@ action:
   - condition: template
     value_template: "{{ type == 'new' }}"
   - condition: template
-    value_template: "{{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] }}"
+    value_template: "{{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] or ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['entered_zones'] }}"
   - service: notify.discord
     data:
       message: "A {{ type }} {{ label }} was detected in the {{ zones }}"
