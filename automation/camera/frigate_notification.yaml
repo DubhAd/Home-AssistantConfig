@@ -2,6 +2,8 @@ id: 'frigate_notification'
 alias: 'Frigate notification'
 initial_state: 'on'
 mode: parallel
+trace:
+  stored_traces: 20
 trigger:
   - platform: mqtt
     topic: frigate/events
@@ -27,6 +29,9 @@ action:
   - service: notify.logfile
     data:
       message: "This is a {{ type }} event {{ id }} for {{ label }} for entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
+  - service: notify.logfile
+    data:
+      message: "Interesting zone: {{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] or ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['entered_zones'] }}"
   - condition: template
     value_template: "{{ type == 'new' }}"
   - condition: template
