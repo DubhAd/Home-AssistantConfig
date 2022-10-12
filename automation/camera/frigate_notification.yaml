@@ -7,10 +7,11 @@ trace:
 trigger:
   - platform: mqtt
     topic: frigate/events
-    payload: "front"
-    value_template: "{{ value_json['after']['camera'] }}"
+    payload: "new"
+    value_template: "{{ value_json['type'] }}"
 action:
   - variables:
+      camera: "{{ value_json['after']['camera'] }}"
       stationary: "{{ trigger.payload_json['after']['stationary'] == true }}"
       id: "{{ trigger.payload_json['after']['id'] }}"
       object: "{{ trigger.payload_json['after']['label'] }}"
@@ -28,7 +29,7 @@ action:
   - service: shell_command.download_image
   - service: notify.logfile
     data:
-      message: "This is a {{ type }} event {{ id }} for {{ label }} for entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
+      message: "This is a {{ type }} event {{ id }} for {{ label }} for camera {{ camera }} entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
   - service: notify.logfile
     data:
       message: "Interesting zone: {{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] }}/{{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['entered_zones'] }}"
@@ -38,10 +39,10 @@ action:
   #  value_template: "{{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] or ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['entered_zones'] }}"
   - service: notify.discord
     data:
-      message: "A {{ type }} {{ label }} was detected in the {{ zones }}"
+      message: "A {{ type }} {{ label }} was detected in the {{ zones }} by camera {{ camera }}"
       target: >-
           !secret discord_camera_channel
       data:
         images:
-          - "/data/homeassistant/cameras/front_{{ id }}_thumb.jpg"
-          - "/data/homeassistant/cameras/front_{{ id }}.jpg"
+          - "/data/homeassistant/cameras/{{ camera }}_{{ id }}_thumb.jpg"
+          - "/data/homeassistant/cameras/{{ camera }}_{{ id }}.jpg"
