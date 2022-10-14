@@ -17,6 +17,7 @@ action:
       object: "{{ trigger.payload_json['after']['label'] }}"
       label: "{{ object | title }}"
       zones: "{{ trigger.payload_json['after']['current_zones']|join(', ') }}"
+      entered_zones: "{{ trigger.payload_json['after']['entered_zones']|join(', ') }}"
       type: "{{ trigger.payload_json['type'] }}"
       # Dynamic Variables per event
       #initial_home: "{{ presence_entity != '' and is_state(presence_entity, 'home') }}"
@@ -32,9 +33,11 @@ action:
       message: "This is a {{ type }} event {{ id }} for {{ label }} for camera {{ camera }} entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
   - service: notify.logfile
     data:
-      message: "Interesting zone: {{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] }}/{{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['entered_zones'] }}"
+      message: "Interesting zone: {{ ('road' or 'front_path' or 'drive') in zones }}/{{ ('road' or 'front_path' or 'drive') in entered_zones }}"
   - condition: template
     value_template: "{{ type == 'new' }}"
+  - condition: template
+    value_template: "{{ zones != 'opposite' }}"
   #- condition: template
   #  value_template: "{{ ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['current_zones'] or ('road' or 'front_path' or 'drive') in trigger.payload_json['after']['entered_zones'] }}"
   - service: notify.discord
