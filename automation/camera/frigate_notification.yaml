@@ -7,11 +7,11 @@ trace:
 trigger:
   - platform: mqtt
     topic: frigate/events
-    payload: "front"
-    value_template: "{{ value_json['after']['camera'] }}"
+    payload: "new"
+    value_template: "{{ value_json['type'] }}"
 action:
   - variables:
-      camera: "{{ value_json['after']['camera'] }}"
+      camera: "{{ trigger.payload_json['after']['camera'] }}"
       stationary: "{{ trigger.payload_json['after']['stationary'] == true }}"
       id: "{{ trigger.payload_json['after']['id'] }}"
       object: "{{ trigger.payload_json['after']['label'] }}"
