@@ -22,10 +22,6 @@ action:
       # Dynamic Variables per event
       #initial_home: "{{ presence_entity != '' and is_state(presence_entity, 'home') }}"
       #initial_entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
-  - service: notify.logfile
-    data:
-      message: >-
-        { "frigate_event": { "id":"{{ id }}", "camera":"{{ camera }}" } }
   - service: input_text.set_value
     target:
       entity_id: input_text.camera_event_id
