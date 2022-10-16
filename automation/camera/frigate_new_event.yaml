@@ -1,0 +1,25 @@
+id: 'frigate_new_event'
+alias: 'Frigate new event'
+initial_state: 'on'
+mode: parallel
+trace:
+  stored_traces: 20
+trigger:
+  - platform: mqtt
+    topic: frigate/events
+    payload: "new"
+    value_template: "{{ value_json['type'] }}"
+action:
+  - variables:
+      camera: "{{ trigger.payload_json['after']['camera'] }}"
+      stationary: "{{ trigger.payload_json['after']['stationary'] == true }}"
+      id: "{{ trigger.payload_json['after']['id'] }}"
+      object: "{{ trigger.payload_json['after']['label'] }}"
+      label: "{{ object | title }}"
+      zones: "{{ trigger.payload_json['after']['current_zones']|join(', ') }}"
+      entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
+      before_zones: "{{ trigger.payload_json['before']['entered_zones'] }}"
+      #type: "{{ trigger.payload_json['type'] }}"
+  - service: notify.logfile
+    data:
+      message: '{ "frigate_event": { "id":"{{ id }}", "camera":"{{ camera }}" } }'
