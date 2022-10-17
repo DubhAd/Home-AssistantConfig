@@ -1,6 +1,5 @@
 id: 'frigate_notification'
 alias: 'Frigate notification'
-initial_state: 'on'
 mode: parallel
 trace:
   stored_traces: 20

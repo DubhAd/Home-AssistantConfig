@@ -1,0 +1,42 @@
+id: 'frigate_new_notification'
+alias: 'Frigate new notification'
+initial_state: 'on'
+mode: parallel
+trace:
+  stored_traces: 20
+trigger:
+  - platform: mqtt
+    topic: frigate/events
+    payload: "new"
+    value_template: "{{ value_json['type'] }}"
+action:
+  - variables:
+      camera: "{{ trigger.payload_json['after']['camera'] }}"
+      stationary: "{{ trigger.payload_json['after']['stationary'] == true }}"
+      id: "{{ trigger.payload_json['after']['id'] }}"
+      object: "{{ trigger.payload_json['after']['label'] }}"
+      label: "{{ object | title }}"
+      zones: "{{ trigger.payload_json['after']['current_zones']|join(', ')|replace('_',' ') }}"
+      entered_zones: "{{ trigger.payload_json['after']['entered_zones']|join(', ')|replace('_',' ') }}"
+      type: "{{ trigger.payload_json['type'] }}"
+      external_url: !secret remote_base
+  - service: notify.logfile
+    data:
+      message: "{{ id }} is a {{ type }} event {{ id }} for {{ label }} for camera {{ camera }} entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
+  - service: notify.logfile
+    data:
+      message: "{{ id }} interesting zone: {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0 }}/ {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0 }}"
+  - condition: template
+    value_template: "{{ (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0) or (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0) }}"
+  - service: notify.discord
+    data:
+      message: "A {{ type }} {{ label|lower }} was detected in the {{ zones }} by the {{ camera }} camera"
+      target: >-
+          !secret discord_camera_channel
+      data:
+        embed:
+          title: "{{ label }} in the {{ camera }}"
+          description: "A {{ type|lower }} {{ label }} was detected in the {{ zones }}"
+          url: "{{ external_url}}/api/frigate/notifications/{{ id }}/{{ camera }}/clip.mp4"
+          thumbnail:
+            url: "{{ external_url }}/api/frigate/notifications/{{ id }}/thumbnail.jpg"
