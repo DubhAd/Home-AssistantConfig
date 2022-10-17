@@ -22,4 +22,5 @@ action:
       #type: "{{ trigger.payload_json['type'] }}"
   - service: notify.logfile
     data:
-      message: '{ "frigate_event": { "id":"{{ id }}", "camera":"{{ camera }}" } }'
+      message: >-
+        FRIGATE_EVENT: id:"{{ trigger.payload_json['after']['id'] }}", camera:"{{ trigger.payload_json['after']['camera'] }}"
