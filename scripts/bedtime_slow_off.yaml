@@ -19,7 +19,7 @@ sequence:
     state: 'off'
   - service: switch.turn_off
     entity_id: switch.pi3_hall_downstairs_switch
-  - wait_template: "{{ states('light.hall') != 'unavailable' }}"
+  - wait_template: "{{ not is_state('light.hall','unavailable') }}"
   - service: light.turn_off
     data:
       entity_id: light.hall

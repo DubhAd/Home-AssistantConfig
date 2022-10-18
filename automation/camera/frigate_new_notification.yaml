@@ -27,7 +27,9 @@ action:
     data:
       message: "{{ id }} interesting zone: {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0 }}/ {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0 }}"
   - condition: template
-    value_template: "{{ (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0) or (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0) }}"
+    value_template: "{{ zones != 'opposite' }}"
+  - condition: template
+    value_template: "{{ (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0) and (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0) }}"
   - service: notify.discord
     data:
       message: "A {{ type }} {{ label|lower }} was detected in the {{ zones }} by the {{ camera }} camera at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"
