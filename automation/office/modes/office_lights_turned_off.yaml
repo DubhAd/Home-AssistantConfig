@@ -5,9 +5,13 @@ trigger:
   - platform: state
     entity_id: light.office_strip
     to: 'off'
+    for: '00:00:30'
 condition:
-  - condition: template
-    value_template: "{{ states('input_select.office') not in ('Off') }}"
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: input_select.office
+        state: 'Off'
 action:
   - service: notify.logfile
     data:
