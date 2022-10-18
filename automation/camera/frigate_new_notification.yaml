@@ -30,12 +30,12 @@ action:
     value_template: "{{ (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0) or (['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0) }}"
   - service: notify.discord
     data:
-      message: "A {{ type }} {{ label|lower }} was detected in the {{ zones }} by the {{ camera }} camera"
+      message: "A {{ type }} {{ label|lower }} was detected in the {{ zones }} by the {{ camera }} camera at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"
       target: >-
           !secret discord_camera_channel
       data:
         embed:
-          title: "{{ label }} in the {{ camera }}"
+          title: "{{ label }} in the {{ zones }}"
           description: "A {{ type|lower }} {{ label }} was detected in the {{ zones }}"
           url: "{{ external_url}}/api/frigate/notifications/{{ id }}/{{ camera }}/clip.mp4"
           thumbnail:
