@@ -5,16 +5,11 @@ trigger:
   - platform: state
     entity_id: light.office_strip
     to: 'on'
-    for: '00:01:00'
+    for: '00:00:30'
 condition:
-  - condition: or
-    conditions:
-      - condition: state
-        entity_id: input_boolean.office_occupied
-        state: 'off'
-      - condition: state
-        entity_id: input_select.office
-        state: 'Off'
+  - condition: state
+    entity_id: input_select.office
+    state: 'Off'
 action:
   - service: light.turn_off
     data:
