@@ -37,7 +37,8 @@ condition:
         #value_template: "{{ (expand('group.person_person1')|selectattr('state','eq','not_home')|list|count / expand('group.person_person1')|list|count) >= 0.5 }}"
       # An exit door recently opened or closed
       - condition: template
-        value_template: "{{ ((now() - states.binary_sensor.front_door_contact.last_changed).seconds < 300) or ((now() - states.binary_sensor.garage_door_car_contact.last_changed).seconds < 300) }}"
+        value_template: >
+          {{ (now() - states.binary_sensor.front_door_contact.last_changed < timedelta(minutes=5)) or (now() - states.binary_sensor.garage_door_car_contact.last_changed < timedelta(minutes=5)) }}
     # Some away, and not near
     - condition: and
       conditions:
