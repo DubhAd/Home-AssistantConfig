@@ -49,7 +49,7 @@ condition:
         state: 'on'
       - condition: template
         value_template: >-
-          {% if trigger.entity_id == calendar.person2 %}
+          {% if trigger.entity_id == 'calendar.person2' %}
             {{ trigger.from_state.state == 'on' and trigger.from_state.attributes.message == 'Game night' }}
           {% else %}
             False

@@ -57,32 +57,6 @@ calendar.person2_family_tripit:
   icon: mdi:calendar-clock
 calendar.person2_work:
   icon: mdi:calendar-multiple
-device_tracker.tv_living_room:
-  friendly_name: TV in the lounge
-  icon: mdi:television
-media_player.samsung_tv_remote:
-  friendly_name: Samsung TV in the lounge
-  icon: mdi:television
-media_player.living_room_tv:
-  friendly_name: Chromecast in the lounge
-  icon: mdi:google-chrome
-media_player.living_room:
-  friendly_name: Sonos in the lounge
-  icon: mdi:speaker
-media_player.family_room:
-  friendly_name: Sonos in the family room
-  icon: mdi:speaker
-media_player.office:
-  friendly_name: Sonos in the office
-  icon: mdi:speaker
-device_tracker.livingroom_chromecast:
-  friendly_name: Chromecast in the lounge
-  icon: mdi:google-chrome
-device_tracker.family_tv:
-  friendly_name: Family TV
-  icon: mdi:television
-device_tracker.livingroom_tv:
-  icon: mdi:television
 light.yeelight_strip1_286c07afc307:
   friendly_name: Master bedroom bedhead
   icon: mdi:led-strip-variant
