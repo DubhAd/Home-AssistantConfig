@@ -1,2 +1,4 @@
-trusted_proxies: 127.0.0.1
+trusted_proxies: 
+  - 127.0.0.1
+  - 192.168.0.11
 use_x_forwarded_for: true
