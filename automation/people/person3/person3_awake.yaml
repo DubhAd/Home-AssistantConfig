@@ -3,7 +3,9 @@ initial_state: 'on'
 alias: 'person3 awake'
 trigger:
   - platform: state
-    entity_id: input_boolean.person3_in_bed
+    entity_id: 
+      - input_boolean.person3_in_bed
+      - input_boolean.person3_home
     to: 'off'
 action:
   - service: input_boolean.turn_on

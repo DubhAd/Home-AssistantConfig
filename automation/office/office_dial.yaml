@@ -5,12 +5,16 @@ trigger:
   - platform: state
     entity_id: sensor.office_dial_action
     to: 'single'
-    id: 'action'
+    id: 'single'
+  - platform: state
+    entity_id: sensor.office_dial_action
+    to: 'double'
+    id: 'double'
 action:
   - choose:
     - conditions:
       - condition: trigger
-        id: 'action'
+        id: 'single'
       - condition: state
         entity_id: media_player.office
         state: 'playing'
@@ -21,9 +25,20 @@ action:
       - delay: '00:00:10'
     - conditions:
       - condition: trigger
-        id: 'action'
+        id: 'single'
       sequence:
       - service: media_player.media_play
+        data:
+          entity_id: media_player.office
+      - delay: '00:00:10'
+    - conditions:
+      - condition: trigger
+        id: 'double'
+      - condition: state
+        entity_id: media_player.office
+        state: 'playing'
+      sequence:
+      - service: media_player.media_next_track
         data:
           entity_id: media_player.office
       - delay: '00:00:10'
