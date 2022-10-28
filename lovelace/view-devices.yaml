@@ -5,42 +5,61 @@ icon: mdi:engine
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:
-- type: entity
-  name: "WAN IP"
-  entity: sensor.fritz_box_3490_external_ip
-
-- type: glance
-  title: Things
-  show_header_toggle: false
-  #show_state: false
-  columns: 5
-  entities:
-  - entity: binary_sensor.fritz_box_3490_connection
-    name: Internet
-    show_last_changed: true
-  - entity: binary_sensor.fritz_box_3490_link
-    name: link
-    show_last_changed: true
-  - entity: binary_sensor.remote_ui
-    show_last_changed: true
-  - entity: binary_sensor.first_floor_front
-    name: BT Front
-    show_last_changed: true
-  - entity: binary_sensor.first_floor_rear
-    name: BT Rear
-    show_last_changed: true
-
-- type: glance
-  title: Devices
-  show_header_toggle: false
-  columns: 3
-  entities:
-  - entity: media_player.roku_x00200y5s7lx
-    name: Family room
-  - entity: media_player.cast_living_room_tv
-    name: Living room chromecast
-  - entity: media_player.samsung_tv
-    name: Living room TV
+- type: vertical-stack
+  cards:
+  - type: entity
+    name: "WAN IP"
+    entity: sensor.fritz_box_3490_external_ip
+  
+  - type: glance
+    title: Things
+    show_header_toggle: false
+    #show_state: false
+    columns: 5
+    entities:
+    - entity: binary_sensor.fritz_box_3490_connection
+      name: Internet
+      show_last_changed: true
+    - entity: binary_sensor.fritz_box_3490_link
+      name: link
+      show_last_changed: true
+    - entity: binary_sensor.remote_ui
+      show_last_changed: true
+    - entity: binary_sensor.first_floor_front
+      name: BT Front
+      show_last_changed: true
+    - entity: binary_sensor.first_floor_rear
+      name: BT Rear
+      show_last_changed: true
+  
+  - type: glance
+    title: Zigbee
+    show_header_toggle: false
+    state_color: true
+    entities:
+    - entity: sensor.zigbee3_bridge_state
+      name: Z3 Bridge
+    - entity: sensor.zigbee3mqtt_version
+      name: Z3 Version
+    - entity: binary_sensor.zigbee2mqtt_bridge_state
+      show_last_changed: true
+      name: Z2M
+    - entity: sensor.zigbee2mqtt_version
+      name: Z2M Version
+    - entity: sensor.zigbee2_coordinator_version
+      name: Z2M Coordinator
+  
+  - type: glance
+    title: Devices
+    show_header_toggle: false
+    columns: 3
+    entities:
+    - entity: media_player.roku_x00200y5s7lx
+      name: Family room
+    - entity: media_player.samsung_tv
+      name: Living room TV
+    - entity: media_player.cast_living_room_tv
+      name: Living room chromecast
 - type: custom:battery-state-card
   title: Battery devices
   sort_by_level: "asc"
@@ -117,6 +136,7 @@ cards:
     name: Fuser
 
 - type: custom:auto-entities
+  show_empty: false
   card: 
     type: glance
     title: Unavailable entities
@@ -125,46 +145,20 @@ cards:
       - state: "unavailable"
     exclude:
       - name: /Plex/
+      - entity_id: "binary_sensor.kelsie_*"
+      - entity_id: "media_player.samsung_tv"
+      - entity_id: "media_player.cast_living_room_tv"
+      - entity_id: "media_player.forked_daapd_*"
+      - entity_id: "sensor.accuhome_*"
+      - entity_id: "sensor.kelsie_*"
       - entity_id: "sensor.pixel_xl_next_alarm"
+      - entity_id: "sensor.tasmota_car_*"
+      - entity_id: "sensor.*_minecraft*"
+      - entity_id: "sensor.other_*"
+      - entity_id: "sensor.home_*"
+      - entity_id: "weather.*"
+      - entity_id: "device_tracker.*"
       - attributes: 
           - domain: media_player
             restored: true
 
-- type: custom:html-template-card
-  title: 'Overdue zigbee link status times'
-  ignore_line_breaks: true
-  content: |-
-    Routers:<BR>
-    {% for state in states.sensor if '_linkquality' in state.entity_id and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'Router' -%}
-      {%- set when =  (now()-state.last_updated).seconds -%}
-      {%- if when > (60 * 10) -%}
-        {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
-      {% endif -%}
-    {% endfor %}
-
-    <HR>
-    Non-Konke:    
-    {% for state in states.sensor if '_linkquality' in state.entity_id and 'leak' not in state.entity_id and state.attributes.device.manufacturerID != 4712 and state.attributes.device.model != 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
-      {%- set when =  (now()-state.last_updated).seconds -%}
-      {%- if when > (60 * 60 * 1.5) -%}
-        {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
-      {% endif -%}
-    {% endfor %}
-    
-    <HR>
-    Konke:
-    {% for state in states.sensor if '_linkquality' in state.entity_id and 'leak' not in state.entity_id and state.attributes.device.manufacturerID == 4712 and state.attributes.device.model != 'TS0207'  and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
-      {%- set when =  (now()-state.last_updated).seconds -%}
-      {%- if when > (60 * 60 * 3) -%}
-        {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
-      {% endif -%}
-    {% endfor %}
-    
-    <HR>
-    CR Smart home:   
-    {% for state in states.sensor if '_linkquality' in state.entity_id and state.attributes.device.model == 'TS0207' and state.attributes.unit_of_measurement == 'lqi' and state.attributes.device.type == 'EndDevice' -%}
-      {%- set when =  (now()-state.last_updated).seconds -%}
-      {%- if when > (60 * 60 * 5) -%}
-        {{ relative_time(state.last_updated) }} ago for {{ state.name }}<BR>
-      {% endif -%}
-    {% endfor %}

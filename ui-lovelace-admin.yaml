@@ -5,7 +5,6 @@ views:
   - !include lovelace/view-lighting_control.yaml
   - !include lovelace/view-information.yaml
   - !include lovelace/view-devices.yaml
-  - !include lovelace/view-zigbee.yaml
   - !include lovelace/view-spacer2.yaml
   - !include lovelace/view-cameras.yaml
   - !include lovelace/view-weather.yaml
