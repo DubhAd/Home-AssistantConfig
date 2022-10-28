@@ -203,6 +203,7 @@ cards:
         - entity_id: "binary_sensor.kelsie_*"
         - entity_id: "media_player.samsung_tv"
         - entity_id: "media_player.cast_living_room_tv"
+        - entity_id: "media_player.forked_daapd_*"
         - entity_id: "sensor.accuhome_*"
         - entity_id: "sensor.kelsie_*"
         - entity_id: "sensor.pixel_xl_next_alarm"
