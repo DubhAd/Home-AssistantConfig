@@ -26,7 +26,7 @@ cards:
       type: vertical-stack
       cards: 
       - type: glance
-        columns: 7
+        columns: 6
         entities:
         - entity: device_tracker.person3_mobile
           name: GPS
@@ -43,11 +43,11 @@ cards:
         - entity: device_tracker.person3_bt_mobile
           name: Rear
           icon: mdi:bluetooth
-        - entity: sensor.battery_person3_mobile
-          name: Battery
-        - entity: input_boolean.person3_phone_charging
-          name: Phone charging
-          show_last_changed: true
+        - type: custom:battery-state-entity
+          entity: sensor.person3_pixel_3a_battery_level
+          charging_state:
+            entity_id: sensor.person3_pixel_3a_battery_state
+            state: "charging"
         - entity: sensor.person3s_time_to_home
           name: Car home
           icon: mdi:map-marker-distance
@@ -110,6 +110,7 @@ cards:
     cards: 
     - type: glance
       title: Elizabeth
+      columns: 4
       entities:
       - entity: device_tracker.dsb_0230
         name: GPS
@@ -123,8 +124,11 @@ cards:
       - entity: device_tracker.person4_bt_mobile
         name: Rear
         icon: mdi:bluetooth
-      - entity: sensor.dsb_0230_battery_level
-        name: Battery
+      - type: custom:battery-state-entity
+        entity: sensor.dsb_0230_battery_level
+        charging_state:
+          entity_id: sensor.dsb_0230_battery_state
+          state: "charging"
       - entity: sensor.person4s_time_to_home
         name: To home
         icon: mdi:map-marker-distance
@@ -175,11 +179,11 @@ cards:
         - entity: device_tracker.person2_bt_mobile
           name: Rear
           icon: mdi:bluetooth
-        - entity: sensor.battery_person2_mobile
-          name: Battery
-        - entity: input_boolean.person2_phone_charging
-          show_last_changed: true
-          name: Phone charging
+        - type: custom:battery-state-entity
+          entity: sensor.pixel_xl_battery_level
+          charging_state:
+            entity_id: sensor.pixel_xl_battery_state
+            state: "charging"
         - entity: sensor.person2s_time_to_home
           name: Car home
           icon: mdi:map-marker-distance
@@ -363,7 +367,7 @@ cards:
       cards: 
       - type: glance
         title: person1
-        columns: 6
+        columns: 5
         entities:
         - entity: device_tracker.person1_pixel_3
           name: GPS
@@ -380,19 +384,19 @@ cards:
         - entity: device_tracker.person1_bt_mobile
           name: Rear
           icon: mdi:bluetooth
+        - type: custom:battery-state-entity
+          entity: sensor.person1_pixel_3_battery_level
+          charging_state:
+            entity_id: sensor.person1_pixel_3_battery_state
+            state: "charging"
+        - entity: binary_sensor.person1_pixel_3_interactive
+          name: Screen
         - entity: switch.radio_person1
           show_last_changed: true
           icon: mdi:alarm
           tap_action: 
             action: toggle
           name: Alarms
-        - entity: sensor.person1_pixel_3_battery_level
-          name: Battery
-        - entity: input_boolean.person1_phone_charging
-          show_last_changed: true
-          name: Phone charging
-        - entity: binary_sensor.person1_pixel_3_interactive
-          name: Screen
         - entity: input_boolean.person1_alarm_sounded
           show_last_changed: true
           name: Alarm sounded
