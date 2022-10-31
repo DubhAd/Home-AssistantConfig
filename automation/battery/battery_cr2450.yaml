@@ -1,6 +1,7 @@
 id: 'battery_cr2450'
 initial_state: 'on'
 alias: 'Battery CR2450'
+mode: 'parallel'
 trigger:
   - platform: state
     entity_id:
@@ -17,8 +18,6 @@ trigger:
     - sensor.living_room_presence_battery
     - sensor.master_bedroom_cube_battery
     - sensor.master_bedroom_light_sensor_battery
-    - sensor.office_button_battery
-    - sensor.office_cube_battery
     - sensor.office_illuminance_battery
     - sensor.office_presence_battery
     - sensor.vestibule_multi_battery
@@ -34,8 +33,6 @@ trigger:
     - sensor.living_room_presence_battery
     - sensor.master_bedroom_cube_battery
     - sensor.master_bedroom_light_sensor_battery
-    - sensor.office_button_battery
-    - sensor.office_cube_battery
     - sensor.office_illuminance_battery
     - sensor.office_presence_battery
     - sensor.vestibule_multi_battery
@@ -51,8 +48,6 @@ trigger:
     - sensor.living_room_presence_battery
     - sensor.master_bedroom_cube_battery
     - sensor.master_bedroom_light_sensor_battery
-    - sensor.office_button_battery
-    - sensor.office_cube_battery
     - sensor.office_illuminance_battery
     - sensor.office_presence_battery
     - sensor.vestibule_multi_battery

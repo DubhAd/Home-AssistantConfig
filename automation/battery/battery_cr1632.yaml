@@ -1,6 +1,7 @@
 id: 'battery_cr1632'
 initial_state: 'on'
 alias: 'Battery CR1632'
+mode: 'parallel'
 trigger:
   - platform: state
     entity_id: 
@@ -25,9 +26,6 @@ trigger:
     - sensor.guest_bedroom_door_battery
     - sensor.guest_bedroom_window_left_battery
     - sensor.guest_bedroom_window_right_battery
-    - sensor.guestbedroom_window_left_battery
-    - sensor.guestbedroom_window_right_battery
-    - sensor.hall_downstairs_motion_battery
     - sensor.kitchen_window_left_battery
     - sensor.kitchen_window_right_battery
     - sensor.master_bedroom_button_battery
@@ -49,7 +47,6 @@ trigger:
     - sensor.spare_bedroom_window_left_battery
     - sensor.spare_bedroom_window_right_battery
     - sensor.utility_door_exterior_battery
-    - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
     below: 21
@@ -64,9 +61,6 @@ trigger:
     - sensor.guest_bedroom_door_battery
     - sensor.guest_bedroom_window_left_battery
     - sensor.guest_bedroom_window_right_battery
-    - sensor.guestbedroom_window_left_battery
-    - sensor.guestbedroom_window_right_battery
-    - sensor.hall_downstairs_motion_battery
     - sensor.kitchen_window_left_battery
     - sensor.kitchen_window_right_battery
     - sensor.master_bedroom_button_battery
@@ -88,7 +82,6 @@ trigger:
     - sensor.spare_bedroom_window_left_battery
     - sensor.spare_bedroom_window_right_battery
     - sensor.utility_door_exterior_battery
-    - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
     below: 11
@@ -103,9 +96,6 @@ trigger:
     - sensor.guest_bedroom_door_battery
     - sensor.guest_bedroom_window_left_battery
     - sensor.guest_bedroom_window_right_battery
-    - sensor.guestbedroom_window_left_battery
-    - sensor.guestbedroom_window_right_battery
-    - sensor.hall_downstairs_motion_battery
     - sensor.kitchen_window_left_battery
     - sensor.kitchen_window_right_battery
     - sensor.master_bedroom_button_battery
@@ -127,7 +117,6 @@ trigger:
     - sensor.spare_bedroom_window_left_battery
     - sensor.spare_bedroom_window_right_battery
     - sensor.utility_door_exterior_battery
-    - sensor.vestibule_motion_battery
     - sensor.vestibule_window_front_battery
     - sensor.vestibule_window_side_battery
     below: 6
