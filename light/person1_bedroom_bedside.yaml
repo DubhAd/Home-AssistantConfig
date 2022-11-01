@@ -1,4 +1,5 @@
 - platform: group
   name: 'person1 bedroom bedside'
+  unique_id: 'person1_bedroom_bedside'
   entities:
     - light.yeelight_strip1_7811dca22b87

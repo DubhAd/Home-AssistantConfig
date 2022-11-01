@@ -1,8 +1,0 @@
-- platform: mqtt
-  schema: json
-  name: Living room lamps
-  command_topic: "zigbee3mqtt/living_room_lamps/set"
-  state_topic: "zigbee3mqtt/living_room_lamps"
-  color_temp: true
-  brightness: true
-  rgb: false

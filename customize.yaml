@@ -1,13 +1,3 @@
-device_tracker.person1_mobile:
-  friendly_name: person1's Mobile
-device_tracker.person1_mobile_wifi:
-  friendly_name: person1 WiFi
-  icon: mdi:wifi
-device_tracker.person3_mobile:
-  friendly_name: person3's Mobile
-device_tracker.person3_mobile_wifi:
-  friendly_name: person3 WiFi
-  icon: mdi:wifi
 sensor.person1s_time_to_home_2:
   friendly_name: person1's travel time to home
 sensor.person2s_time_to_home_2:
@@ -22,25 +12,8 @@ sensor.person2s_time_to_home:
   friendly_name: person2's travel time to home
 sensor.person3s_time_to_home:
   friendly_name: person3's travel time to home
-device_tracker.001d29a549ae:
-  friendly_name: person4
-  icon: mdi:bluetooth
-device_tracker.person4_mobile:
-  friendly_name: person4
 sensor.person4s_time_to_home:
   friendly_name: person4's travel time to home
-sensor.person4_travel:
-  friendly_name: person4
-  entity_picture: /local/person4Thumb.jpg
-sensor.person2_travel:
-  friendly_name: person2
-  entity_picture: /local/people/person2/person2.png
-sensor.person3_travel:
-  friendly_name: person3
-  entity_picture: /local/person3Thumb.jpg
-sensor.person1_travel:
-  friendly_name: person1
-  entity_picture: /local/person1Thumb.jpg
 input_number.garden_time:
   icon: mdi:timer
 input_number.door_delay:
@@ -57,13 +30,6 @@ calendar.person2_family_tripit:
   icon: mdi:calendar-clock
 calendar.person2_work:
   icon: mdi:calendar-multiple
-light.yeelight_strip1_286c07afc307:
-  friendly_name: Master bedroom bedhead
-  icon: mdi:led-strip-variant
-light.yeelight_strip1_7811dca22b87:
-  friendly_name: Second bedroom bedside
-device_tracker.person2_mobile_gps:
-  friendly_name: person2 Mobile
 device_tracker.car_gps:
   friendly_name: Car
 input_text.person_person3:
@@ -74,8 +40,6 @@ input_text.person_person1:
   entity_picture: /local/people/person1Thumb.jpg
 input_text.person_person2:
   entity_picture: /local/people/person2/person2.png
-light.living_room_table:
-  friendly_name: Living room table light
 binary_sensor.first_floor_front:
   device_class: connectivity
 binary_sensor.first_floor_rear:
@@ -116,11 +80,6 @@ device_tracker.person3_bt_front_mobile:
   source_type: bluetooth
 device_tracker.person3_bt_mobile:
   source_type: bluetooth
-media_player.samsung_tv:
-  icon: mdi:television
-light.office_strip:
-  friendly_name: Office strip
-  icon: mdi:led-strip-variant
 sensor.downstairs_hall_light_sensor_illuminance:
   unit_of_measurement: illuminance
 device_tracker.08_a6_bc_ea_df_3f:
