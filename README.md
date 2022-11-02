@@ -151,3 +151,4 @@ A large amount of this will require a rewire of the lighting circuits, so that a
 # Coffee
 
 If I've helped you, and you really want to, you can [buy me a coffee](https://buymeacoff.ee/9MWvkxr8P), but don't feel obliged - I'm not doing this for free coffee ;)
+
