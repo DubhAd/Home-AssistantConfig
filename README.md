@@ -35,16 +35,18 @@ Each directory has a short readme explaining what's in there, and the purpose of
 ## Floorplan
 
 I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overview
-  * ![Screenshot of floorplan](https://i.imgur.com/8oe0uTQ.png)
+  * ![Screenshot of floorplan](https://i.imgur.com/gzwtfno.png)
   * Showing: 
-    * No bins are due for collection otherwise they'd have a yellow outline (collected tomorrow) or red outline (collected today)
-    * The living room and family room are occupied
-    * The front door is open, motion has been detected in the downstairs hall, and two windows upstairs is open
-    * The TV is on in the living room
-    * The TV in the family room is on
-    * All the mobiles are home, as is the tablet, and the car
-    * The office is a bit warm (red temperature), and the humidity in the bathroom and master en-suite is a little high (amber)
-    * Oh, and the printer isn't a little low on consumables.
+    * The grey bin is due for collection tomorrow. If any were due today they'd have a red outline.
+    * The family room and home office are occupied
+    * The office window is open (red with yellow outline), all others are closed (green).
+    * All outside doors are closed (green), as are many interior doors (brown). Open interior doors are green.
+    * Motion has been detected in the office (yellow with a red outline), but nowhere else.
+    * The family room TV is on (blue).
+    * The car isn't in the garage (faded), but the freezer lid is closed (blue).
+    * All the mobiles are home, and I'm working from home.
+    * The temperature and humidity in all rooms are good (green).
+    * Oh, and the printer's consumables are unknown (blue).
   * The floorplan was created in [Inkscape](https://inkscape.org/), by importing the image of the house's floorplan from the purchase paperwork, then drawing over it. If you look [at it](www/custom_ui/floorplan/floorplan.svg) you'll see that I built it up in layers, one for the foundation (ground), one for the structure, and one for the sensors. I don't really use those currently, other than to ensure that the right things are on top (sensors).
 
 ## Devices
@@ -151,4 +153,3 @@ A large amount of this will require a rewire of the lighting circuits, so that a
 # Coffee
 
 If I've helped you, and you really want to, you can [buy me a coffee](https://buymeacoff.ee/9MWvkxr8P), but don't feel obliged - I'm not doing this for free coffee ;)
-

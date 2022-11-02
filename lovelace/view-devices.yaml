@@ -119,7 +119,9 @@ cards:
   title: Printer status
   show_header_toggle: false
   columns: 4
+  state_color: true
   entities:
+  - entity: device_tracker.bw_samsung_printer
   - entity: sensor.printer_toner_remaining
     name: Toner
   - entity: sensor.printer_imaging_unit_remaining
