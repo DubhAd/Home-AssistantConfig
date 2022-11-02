@@ -6,6 +6,7 @@ views:
   - !include lovelace/view-information.yaml
   - !include lovelace/view-devices.yaml
   - !include lovelace/view-spacer2.yaml
+  - !include lovelace/view-admin-cameras.yaml
   - !include lovelace/view-cameras.yaml
   - !include lovelace/view-weather.yaml
   - !include lovelace/view-train_status.yaml

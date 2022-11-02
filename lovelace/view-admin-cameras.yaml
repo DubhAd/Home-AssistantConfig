@@ -1,0 +1,96 @@
+title: Camera admin
+id: camera_admin
+path: camera_admin
+icon: mdi:camera-control
+visible:
+  - user: 2e93f54c62e549c8aeperson2748de6bed9d
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Cameras
+        show_header_toggle: false
+        entities:
+        - entity: input_boolean.stream_camera
+          secondary_info: last-changed
+          state_color: true
+        - entity: input_select.camera_stream_target
+          secondary_info: last-changed
+        - type: divider
+        - entity: input_boolean.stream_front_camera_motion
+          secondary_info: last-changed
+          state_color: true
+      - type: custom:auto-entities
+        show_empty: false
+        card: 
+          type: entities
+          title: Front camera
+          state_color: true
+          secondary_info: last-changed
+        filter:
+          include:
+            - domain: binary_sensor
+              options:
+                show_last_changed: true
+              device_manufacturer: 'Frigate'
+              device: 'Front'
+  - type: vertical-stack
+    cards:
+      - type: custom:auto-entities
+        show_empty: false
+        card: 
+          type: entities
+          title: Drive
+          state_color: true
+          secondary_info: last-changed
+        filter:
+          include:
+            - domain: binary_sensor
+              options:
+                show_last_changed: true
+              device_manufacturer: 'Frigate'
+              device: 'Drive'
+      - type: custom:auto-entities
+        show_empty: false
+        card: 
+          type: entities
+          title: Front path
+          state_color: true
+          secondary_info: last-changed
+        filter:
+          include:
+            - domain: binary_sensor
+              options:
+                show_last_changed: true
+              device_manufacturer: 'Frigate'
+              device: 'Front Path'
+      - type: custom:auto-entities
+        show_empty: false
+        card: 
+          type: entities
+          title: Road
+          state_color: true
+          secondary_info: last-changed
+        filter:
+          include:
+            - domain: binary_sensor
+              options:
+                show_last_changed: true
+              device_manufacturer: 'Frigate'
+              device: 'Road'
+  - type: vertical-stack
+    cards:
+      - type: custom:auto-entities
+        show_empty: false
+        card: 
+          type: entities
+          title: Garage camera
+          state_color: true
+          secondary_info: last-changed
+        filter:
+          include:
+            - domain: binary_sensor
+              options:
+                show_last_changed: true
+              device_manufacturer: 'Frigate'
+              device: 'Garage'
