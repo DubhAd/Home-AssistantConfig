@@ -1,0 +1,16 @@
+id: 'office_dial_test'
+alias: 'Office dial test'
+trigger:
+  - platform: state
+    entity_id: sensor.office_dial_action
+    to: 'single'
+    id: 'single'
+  - platform: state
+    entity_id: sensor.office_dial_action
+    to: 'double'
+    id: 'double'
+action:
+  - service: notify.logfile
+    data:
+      message: >-
+        From {{ trigger.from_state.state }}/{{ trigger.from_state.attributes.action }} to {{ trigger.to_state.state }}/{{ trigger.to_state.attributes.action }}
