@@ -48,6 +48,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.living_room_occupied
     to: 'off'
+  - platform: state
+    entity_id: input_boolean.home_occupied
+    to: 'on'
 condition:
   # Home occupied
   - condition: state
