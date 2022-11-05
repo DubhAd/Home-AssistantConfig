@@ -4,6 +4,6 @@
   #app_id: !secret  here_app_id
   #app_code: !secret here_app_code
   api_key: !secret here_api_key
-  origin_entity_id: device_tracker.person3_mobile
+  origin_entity_id: device_tracker.person3_pixel_3a
   destination_entity_id: zone.home
   mode: pedestrian

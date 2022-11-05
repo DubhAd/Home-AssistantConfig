@@ -2,6 +2,6 @@
   name: "person3s time to home by bus"
   scan_interval: 604800
   api_key: !secret here_api_key
-  origin_entity_id: device_tracker.person3_mobile
+  origin_entity_id: device_tracker.person3_pixel_3a
   destination_entity_id: zone.home
   mode: publicTransportTimeTable
