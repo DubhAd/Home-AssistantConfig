@@ -1,0 +1,4 @@
+- name: "Zigbee3MQTT Version"
+  state_topic: "zigbee3mqtt/bridge/info"
+  value_template: "{{ value_json.version }}"
+  icon: mdi:zigbee

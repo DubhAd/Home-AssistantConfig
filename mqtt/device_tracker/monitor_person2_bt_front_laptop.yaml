@@ -1,0 +1,3 @@
+- name: "person2 bt front laptop"
+  state_topic: 'monitor/first floor front/person2_laptop/device_tracker'
+  source_type: bluetooth

@@ -1,0 +1,3 @@
+- name: "rob"
+  state_topic: 'location/person2'
+  source_type: router

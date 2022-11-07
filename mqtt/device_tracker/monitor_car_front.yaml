@@ -1,0 +1,3 @@
+- name: "car front"
+  state_topic: 'monitor/first floor front/car/device_tracker'
+  source_type: bluetooth

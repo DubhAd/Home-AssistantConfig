@@ -1,0 +1,18 @@
+- state_topic: 'monitor/first floor rear/person1_mobile'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'person1 Mobile first floor rear'
+
+- state_topic: 'monitor/first floor front/person1_mobile'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'person1 Mobile first floor front'
+
+- state_topic: 'monitor/first floor rear/person1_mobile/rssi'
+  unit_of_measurement: 'dBm'
+  name: 'person1 Mobile rssi first floor rear'
+
+- state_topic: 'monitor/first floor front/person1_mobile/rssi'
+  unit_of_measurement: 'dBm'
+  name: 'person1 Mobile rssi first floor front'
+

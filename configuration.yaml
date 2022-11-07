@@ -46,12 +46,10 @@ scene: !include scenes.yaml
 scene mine: !include_dir_list scenes/
 shell_command: !include_dir_merge_named shell_commands/
 
-device_tracker: !include_dir_list device_tracker/
 proximity: !include_dir_merge_named proximity/
 sensor: !include_dir_merge_list sensors/
 binary_sensor: !include_dir_merge_list binary_sensors/
 template: !include_dir_merge_list template/
-google: !include google.yaml
 zone: !include zones.yaml
 
 input_number: !include_dir_named input_number/
@@ -73,11 +71,12 @@ alert: !include_dir_named alerts/
 notify: !include_dir_merge_list notify/
 telegram_bot: !include telegram.yaml
 
-camera: !include_dir_list camera/
 ffmpeg: !include ffmpeg.yaml
 stream:
   ll_hls: true
 
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
+mqtt:
+  sensor: !include_dir_merge_list mqtt/sensor/
+  binary_sensor: !include_dir_merge_list mqtt/binary_sensor/
+  device_tracker: !include_dir_merge_list mqtt/device_tracker/
+

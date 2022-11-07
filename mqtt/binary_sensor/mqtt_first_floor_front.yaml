@@ -1,0 +1,4 @@
+- name: 'First floor front'
+  state_topic: 'monitor/first floor front/status'
+  payload_on: 'online'
+  payload_off: 'offline'

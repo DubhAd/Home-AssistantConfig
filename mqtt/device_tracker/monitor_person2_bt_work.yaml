@@ -1,0 +1,3 @@
+- name: "person2 bt work"
+  state_topic: 'monitor/first floor rear/person2_work_mobile/device_tracker'
+  source_type: bluetooth

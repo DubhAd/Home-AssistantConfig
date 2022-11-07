@@ -1,0 +1,3 @@
+- name: "work front laptop"
+  state_topic: 'monitor/first floor front/work_laptop/device_tracker'
+  source_type: bluetooth

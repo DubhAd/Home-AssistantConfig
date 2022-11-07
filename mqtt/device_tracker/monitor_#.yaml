@@ -1,0 +1,3 @@
+- name: "#"
+  state_topic: These are for all the other things I want to track, through monitor
+  source_type: bluetooth

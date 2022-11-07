@@ -1,5 +1,0 @@
-- platform: mqtt
-  state_topic: 'monitor/first floor rear/status'
-  payload_on: 'online'
-  payload_off: 'offline'
-  name: 'First floor rear'

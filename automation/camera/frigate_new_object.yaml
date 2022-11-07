@@ -3,11 +3,11 @@ alias: 'Frigate new object'
 trigger:
   - platform: state
     entity_id:
-      - sensor.front_bicycle
-      - sensor.front_bus
-      - sensor.front_car
-      - sensor.front_motorcycle
-      - sensor.front_person
+      - sensor.front_bicycle_count
+      - sensor.front_bus_count
+      - sensor.front_car_count
+      - sensor.front_motorcycle_count
+      - sensor.front_person_count
     to: ~
 condition:
   - condition: template

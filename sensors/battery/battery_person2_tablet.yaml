@@ -1,7 +1,0 @@
-- platform: template
-  sensors:
-    battery_person2_tablet:
-      unique_id: 'battery_person2_tablet'
-      value_template: "{{ state_attr('device_tracker.person2_tablet_5', 'battery_level')|int|default(0) }}"
-      device_class: battery
-      unit_of_measurement: '%'

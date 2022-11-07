@@ -1,7 +1,0 @@
-platform: generic
-name: 'Front camera'
-still_image_url: !secret front_camera_image
-stream_source: !secret front_camera_stream
-username: !secret front_camera_user
-password: !secret front_camera_pass
-authentication: basic

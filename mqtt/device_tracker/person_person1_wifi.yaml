@@ -1,0 +1,3 @@
+- name: "person1 wifi"
+  state_topic: 'location/person1_wifi'
+  source_type: router
