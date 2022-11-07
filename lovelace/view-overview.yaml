@@ -200,6 +200,7 @@ cards:
             show_last_changed: true
       exclude:
         - name: /Plex/
+        - integration: 'here_travel_time'
         - entity_id: "binary_sensor.kelsie_*"
         - entity_id: "media_player.samsung_tv"
         - entity_id: "media_player.cast_living_room_tv"

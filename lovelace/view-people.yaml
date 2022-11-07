@@ -224,7 +224,7 @@ cards:
         title: person2's devices
         columns: 6
         entities:
-        - entity: device_tracker.person2_tablet_5
+        - entity: device_tracker.sht_al09
           name: Tablet
           icon: mdi:crosshairs-gps
         - entity: device_tracker.person2_tablet_m5
@@ -236,7 +236,7 @@ cards:
         - entity: device_tracker.person2_bt_tablet
           name: Rear
           icon: mdi:bluetooth
-        - entity: sensor.battery_person2_tablet
+        - entity: sensor.sht_al09_battery_level
           name: Tablet
         - entity: input_boolean.person2_tablet_charging
           show_last_changed: true

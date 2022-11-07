@@ -98,6 +98,7 @@ cards:
               show_last_changed: true
         exclude:
           - name: /Plex/
+          - integration: 'here_travel_time'
           - entity_id: "/.*_old/"
           - entity_id: "/.roku_x00200y5s7lx_.*/"
           - entity_id: "binary_sensor.kelsie_*"
