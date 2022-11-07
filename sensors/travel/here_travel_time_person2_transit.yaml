@@ -1,7 +1,0 @@
-- platform: here_travel_time
-  name: "person2s time to home transit"
-  scan_interval: 604800
-  api_key: !secret here_api_key
-  origin_entity_id: device_tracker.person2_mobile_gps
-  destination_entity_id: zone.home
-  mode: publicTransportTimeTable
