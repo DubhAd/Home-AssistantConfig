@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'person2 coming home'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'home Station'
 condition:
   - condition: and

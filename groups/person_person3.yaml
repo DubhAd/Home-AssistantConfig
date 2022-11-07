@@ -1,6 +1,6 @@
 name: person3
 entities:
 - device_tracker.person3_mobile_wifi
-- device_tracker.person3_bt_mobile
-- device_tracker.person3_bt_front_mobile
-- device_tracker.person3_wifi
+- device_tracker.person3_bt_mobile_2
+- device_tracker.person3_bt_front_mobile_2
+- device_tracker.person3_wifi_2

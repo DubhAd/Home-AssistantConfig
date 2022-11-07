@@ -127,16 +127,3 @@ cards:
     secondary_info: last-triggered
   - entity: script.hall_strip_dim
     secondary_info: last-triggered
-- type: entities
-  title: Camera
-  entities:
-  - entity: script.snapshot_front_camera
-    secondary_info: last-triggered
-  - entity: script.front_camera_notify
-    secondary_info: last-triggered
-  - entity: script.front_camera_notify_nothing
-    secondary_info: last-triggered
-  - entity: script.process_front_camera
-    secondary_info: last-triggered
-  - entity: script.front_camera_interesting_things
-    secondary_info: last-triggered

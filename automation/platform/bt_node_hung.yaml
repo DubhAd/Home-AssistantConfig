@@ -18,27 +18,27 @@ condition:
     conditions:
       - alias: 'person3 front hung'
         condition: state
-        entity_id: device_tracker.person3_bt_front_mobile
+        entity_id: device_tracker.person3_bt_front_mobile_2
         state: 'home'
       - alias: 'person3 rear hung'
         condition: state
-        entity_id: device_tracker.person3_bt_mobile
+        entity_id: device_tracker.person3_bt_mobile_2
         state: 'home'
       - alias: 'person1 front hung'
         condition: state
-        entity_id: device_tracker.person1_bt_front_mobile
+        entity_id: device_tracker.person1_bt_front_mobile_2
         state: 'home'
       - alias: 'person1 rear hung'
         condition: state
-        entity_id: device_tracker.person1_bt_mobile
+        entity_id: device_tracker.person1_bt_mobile_2
         state: 'home'
       - alias: 'person2 front hung'
         condition: state
-        entity_id: device_tracker.person2_bt_front_mobile
+        entity_id: device_tracker.person2_bt_front_mobile_2
         state: 'home'
       - alias: 'person2 rear hung'
         condition: state
-        entity_id: device_tracker.person2_bt_mobile
+        entity_id: device_tracker.person2_bt_mobile_2
         state: 'home'
 action:
   - service: script.scan_bt_restart

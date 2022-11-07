@@ -2,5 +2,5 @@ name: person2's laptop
 icon: mdi:laptop-windows
 entities:
 - device_tracker.lenovo_yoga
-- device_tracker.person2_bt_laptop
-- device_tracker.person2_bt_front_laptop
+- device_tracker.person2_bt_laptop_2
+- device_tracker.person2_bt_front_laptop_2

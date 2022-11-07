@@ -5,6 +5,28 @@ icon: mdi:home
 cards:
   - type: vertical-stack
     cards:
+    - type: custom:mushroom-chips-card
+      chips:
+        - type: entity
+          entity: input_text.person_person3
+          use_entity_picture: true
+        - type: entity
+          entity: input_text.person_person2
+          use_entity_picture: true
+        - type: entity
+          entity: input_text.person_person1
+          use_entity_picture: true
+        - type: entity
+          entity: input_text.person_person4
+          use_entity_picture: true
+      alignment: center
+    - type: custom:mushroom-alarm-control-panel-card
+      entity: alarm_control_panel.ha_alarm
+      states:
+        - armed_home
+        - armed_away
+        - armed_night
+      layout: horizontal
     - type: custom:simple-weather-card
       #entity: weather.accuhome
       entity: weather.openweathermap
@@ -46,19 +68,6 @@ cards:
 
   - type: vertical-stack
     cards:
-    - type: glance
-      columns: 5
-      show_name: false
-      style: |
-        ha-card {
-          background: {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %} #4c5c4c {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %} #6c3c3c {% else %} #6c4c1c {% endif %};
-        }
-      entities:
-        - alarm_control_panel.ha_alarm
-        - input_text.person_person3
-        - input_text.person_person1
-        - input_text.person_person2
-        - input_text.person_person4
 
     - type: custom:frigate-card
       cameras:
@@ -102,6 +111,7 @@ cards:
           - entity_id: "/.*_old/"
           - entity_id: "/.roku_x00200y5s7lx_.*/"
           - entity_id: "binary_sensor.kelsie_*"
+          - entity_id: "device_tracker.*"
           - entity_id: "media_player.samsung_tv"
           - entity_id: "media_player.cast_living_room_tv"
           - entity_id: "media_player.forked_daapd_*"
@@ -112,9 +122,11 @@ cards:
           - entity_id: "sensor.*_minecraft*"
           - entity_id: "sensor.home_*"
           - entity_id: "sensor.other_*"
-          - entity_id: "weather.*"
           - entity_id: "sensor.*weather*"
-          - entity_id: "device_tracker.*"
+          - entity_id: "sensor.*_train_*"
+          - entity_id: "binary_sensor*train_*"
+          - entity_id: "binary_sensor*trains_*"
+          - entity_id: "weather.*"
 
     - type: custom:auto-entities
       show_empty: false

@@ -7,9 +7,9 @@ trigger:
   - platform: state
     entity_id:
       - device_tracker.person3_mobile_wifi
-      - device_tracker.person3_bt_mobile
-      - device_tracker.person3_bt_front_mobile
-      - device_tracker.person3_wifi
+      - device_tracker.person3_bt_mobile_2
+      - device_tracker.person3_bt_front_mobile_2
+      - device_tracker.person3_wifi_2
     to: 'not_home'
   - platform: homeassistant
     event: start

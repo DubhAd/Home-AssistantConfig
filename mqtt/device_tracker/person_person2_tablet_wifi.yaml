@@ -1,3 +1,4 @@
-- name: "person2 tablet wifi"
+- name: "person person2 tablet wifi"
   state_topic: 'location/person2_tablet_wifi'
   source_type: router
+  unique_id: "mqtt_person_person2_tablet_wifi"

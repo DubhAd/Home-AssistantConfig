@@ -34,17 +34,18 @@ cards:
         - entity: device_tracker.person3_mobile_wifi
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person3_wifi
+        - entity: device_tracker.person3_wifi_2
           name: App
           icon: mdi:wifi-star
-        - entity: device_tracker.person3_bt_front_mobile
+        - entity: device_tracker.person3_bt_front_mobile_2
           name: Front
           icon: mdi:bluetooth
-        - entity: device_tracker.person3_bt_mobile
+        - entity: device_tracker.person3_bt_mobile_2
           name: Rear
           icon: mdi:bluetooth
         - type: custom:battery-state-entity
           entity: sensor.person3_pixel_3a_battery_level
+          name: Battery
           charging_state:
             entity_id: sensor.person3_pixel_3a_battery_state
             state: "charging"
@@ -65,20 +66,6 @@ cards:
         - entity: input_boolean.person3_in_bed
           show_last_changed: true
           name: In bed
-      - type: glance
-        entities:
-        - entity: sensor.person3_mobile_first_floor_front
-          name: Front
-          icon: mdi:gauge
-        - entity: sensor.person3_mobile_rssi_first_floor_front
-          name: Front
-          icon: mdi:signal-cellular-2
-        - entity: sensor.person3_mobile_first_floor_rear
-          name: Rear
-          icon: mdi:gauge
-        - entity: sensor.person3_mobile_rssi_first_floor_rear
-          name: Rear
-          icon: mdi:signal-cellular-2
       - type: entities
         entities:
         - entity: input_datetime.person3_next_alarm
@@ -118,13 +105,14 @@ cards:
       - entity: device_tracker.00_1d_29_f0_4d_da
         name: WiFi
         icon: mdi:wifi
-      - entity: device_tracker.person4_bt_front_mobile
+      - entity: device_tracker.person4_bt_front_mobile_2
         name: Front
         icon: mdi:bluetooth
-      - entity: device_tracker.person4_bt_mobile
+      - entity: device_tracker.person4_bt_mobile_2
         name: Rear
         icon: mdi:bluetooth
       - type: custom:battery-state-entity
+        name: Battery
         entity: sensor.dsb_0230_battery_level
         charging_state:
           entity_id: sensor.dsb_0230_battery_state
@@ -170,16 +158,17 @@ cards:
         - entity: device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person2_wifi
+        - entity: device_tracker.person2_wifi_2
           name: App
           icon: mdi:wifi-star
-        - entity: device_tracker.person2_bt_front_mobile
+        - entity: device_tracker.person2_bt_front_mobile_2
           name: Front
           icon: mdi:bluetooth
-        - entity: device_tracker.person2_bt_mobile
+        - entity: device_tracker.person2_bt_mobile_2
           name: Rear
           icon: mdi:bluetooth
         - type: custom:battery-state-entity
+          name: Battery
           entity: sensor.pixel_xl_battery_level
           charging_state:
             entity_id: sensor.pixel_xl_battery_state
@@ -202,27 +191,13 @@ cards:
         - entity: input_boolean.person2_in_bed
           show_last_changed: true
           name: In bed
-      - type: glance
-        entities:
-        - entity: sensor.person2_mobile_first_floor_front
-          name: Front
-          icon: mdi:gauge
-        - entity: sensor.person2_mobile_rssi_first_floor_front
-          name: Front
-          icon: mdi:signal-cellular-2
-        - entity: sensor.person2_mobile_first_floor_rear
-          name: Rear
-          icon: mdi:gauge
-        - entity: sensor.person2_mobile_rssi_first_floor_rear
-          name: Rear
-          icon: mdi:signal-cellular-2
       - type: entities
         entities:
         - entity: input_datetime.person2_next_alarm
           name: Next alarm
       - type: glance
         title: person2's devices
-        columns: 6
+        columns: 5
         entities:
         - entity: device_tracker.sht_al09
           name: Tablet
@@ -230,40 +205,27 @@ cards:
         - entity: device_tracker.person2_tablet_m5
           name: Tablet
           icon: mdi:wifi
-        - entity: device_tracker.person2_bt_front_tablet
+        - entity: device_tracker.person2_bt_front_tablet_2
           name: Front
           icon: mdi:bluetooth
-        - entity: device_tracker.person2_bt_tablet
+        - entity: device_tracker.person2_bt_tablet_2
           name: Rear
           icon: mdi:bluetooth
-        - entity: sensor.sht_al09_battery_level
-          name: Tablet
-        - entity: input_boolean.person2_tablet_charging
-          show_last_changed: true
-          name: Tablet charging
+        - type: custom:battery-state-entity
+          name: Battery
+          entity: sensor.sht_al09_battery_level
+          charging_state:
+            entity_id: sensor.sht_al09_battery_state
+            state: "charging"
         - entity: group.own_laptop
           name: Laptop
           icon: mdi:wifi
-        - entity: device_tracker.person2_bt_laptop
+        - entity: device_tracker.person2_bt_laptop_2
           name: Laptop Rear
           icon: mdi:bluetooth
-        - entity: device_tracker.person2_bt_front_laptop
+        - entity: device_tracker.person2_bt_front_laptop_2
           name: Laptop Front
           icon: mdi:bluetooth
-      - type: glance
-        entities:
-        - entity: sensor.person2_tablet_first_floor_front
-          name: Front
-          icon: mdi:gauge
-        - entity: sensor.person2_tablet_rssi_first_floor_front
-          name: Front
-          icon: mdi:signal-cellular-2
-        - entity: sensor.person2_tablet_first_floor_rear
-          name: Rear
-          icon: mdi:gauge
-        - entity: sensor.person2_tablet_rssi_first_floor_rear
-          name: Rear
-          icon: mdi:signal-cellular-2
       - type: "custom:atomic-calendar-revive"
         name: "Calendar"
         entities:
@@ -305,19 +267,19 @@ cards:
         - entity: device_tracker.work_iphone
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person2_bt_front_work
+        - entity: device_tracker.person2_bt_front_work_2
           name: Front
           icon: mdi:phone-bluetooth
-        - entity: device_tracker.person2_bt_work
+        - entity: device_tracker.person2_bt_work_2
           name: Rear
           icon: mdi:phone-bluetooth
         - entity: group.work_laptop
           name: Laptop 
           icon: mdi:laptop
-        - entity: device_tracker.work_front_laptop
+        - entity: device_tracker.work_front_laptop_2
           name: Front
           icon: mdi:bluetooth
-        - entity: device_tracker.work_laptop
+        - entity: device_tracker.work_laptop_2
           name: Rear
           icon: mdi:bluetooth
         - entity: proximity.person2_work
@@ -329,20 +291,6 @@ cards:
         - entity: calendar.person2_away
           name: Away
         - binary_sensor.workday_sensor
-      - type: glance
-        entities:
-        - entity: sensor.person2_work_first_floor_front
-          name: Front
-          icon: mdi:gauge
-        - entity: sensor.person2_work_rssi_first_floor_front
-          name: Front
-          icon: mdi:signal-cellular-2
-        - entity: sensor.person2_work_first_floor_rear
-          name: Rear
-          icon: mdi:gauge
-        - entity: sensor.person2_work_rssi_first_floor_rear
-          name: Rear
-          icon: mdi:signal-cellular-2
 - type: vertical-stack
   cards:
   - type: picture-entity
@@ -375,16 +323,17 @@ cards:
         - entity: device_tracker.person1_mobile_wifi
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person1_wifi
+        - entity: device_tracker.person1_wifi_2
           name: App
           icon: mdi:wifi-star
-        - entity: device_tracker.person1_bt_front_mobile
+        - entity: device_tracker.person1_bt_front_mobile_2
           name: Front
           icon: mdi:bluetooth
-        - entity: device_tracker.person1_bt_mobile
+        - entity: device_tracker.person1_bt_mobile_2
           name: Rear
           icon: mdi:bluetooth
         - type: custom:battery-state-entity
+          name: Battery
           entity: sensor.person1_pixel_3_battery_level
           charging_state:
             entity_id: sensor.person1_pixel_3_battery_state
@@ -419,20 +368,6 @@ cards:
           icon: mdi:map-marker-distance
         - entity: proximity.person1_home
           name: To home
-      - type: glance
-        entities:
-        - entity: sensor.person1_mobile_first_floor_front
-          name: Front
-          icon: mdi:gauge
-        - entity: sensor.person1_mobile_rssi_first_floor_front
-          name: Front
-          icon: mdi:signal-cellular-2
-        - entity: sensor.person1_mobile_first_floor_rear
-          name: Rear
-          icon: mdi:gauge
-        - entity: sensor.person1_mobile_rssi_first_floor_rear
-          name: Rear
-          icon: mdi:signal-cellular-2
       - type: entities
         entities:
         - entity: input_datetime.person1_next_alarm

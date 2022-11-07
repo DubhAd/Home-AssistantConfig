@@ -8,8 +8,8 @@ trigger:
   - platform: state
     entity_id:
       - device_tracker.00_1d_29_f0_4d_da
-      - device_tracker.person4_bt_front_mobile
-      - device_tracker.person4_bt_mobile
+      - device_tracker.person4_bt_front_mobile_2
+      - device_tracker.person4_bt_mobile_2
     to: 'not_home'
   - platform: homeassistant
     event: start

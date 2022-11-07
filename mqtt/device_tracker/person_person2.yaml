@@ -1,3 +1,4 @@
-- name: "rob"
+- name: "person person2"
   state_topic: 'location/person2'
   source_type: router
+  unique_id: "mqtt_person_person2"

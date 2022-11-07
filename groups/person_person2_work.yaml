@@ -1,5 +1,5 @@
 name: person2's work phone
 entities:
 - device_tracker.work_iphone
-- device_tracker.person2_bt_work
-- device_tracker.person2_bt_front_work
+- device_tracker.person2_bt_work_2
+- device_tracker.person2_bt_front_work_2
