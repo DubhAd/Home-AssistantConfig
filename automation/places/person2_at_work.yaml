@@ -3,7 +3,7 @@ alias: 'person2 at Work'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'Work'
     for: '00:30:00'
   - platform: numeric_state

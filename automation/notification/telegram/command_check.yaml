@@ -51,6 +51,6 @@ action:
           person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.device_tracker.person1_pixel_3.last_changed) }}
         {%- endif %}
 
-        {% if ( states('device_tracker.car_gps') != states('device_tracker.person2_mobile_gps') ) and (not is_state('device_tracker.car_gps','not_home')) -%}
+        {% if ( states('device_tracker.car_gps') != states('device_tracker.pixel_xl') ) and (not is_state('device_tracker.car_gps','not_home')) -%}
           The car is at {{ states('device_tracker.car_gps') }}
         {%- endif -%}

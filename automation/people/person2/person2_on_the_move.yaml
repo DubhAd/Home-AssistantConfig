@@ -4,7 +4,7 @@ alias: 'person2 on the move'
 trigger:
   # I've moved
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
 condition:
   # Been at least 5 minutes
   - condition: template

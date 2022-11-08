@@ -2,7 +2,7 @@ id: 'person2_at_work_airport_returning'
 alias: 'person2 at work Airport returning'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'work Airport'
 condition:
   condition: and

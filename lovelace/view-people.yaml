@@ -152,7 +152,7 @@ cards:
       - type: glance
         columns: 5
         entities:
-        - entity: device_tracker.person2_mobile_gps
+        - entity: device_tracker.pixel_xl
           name: GPS
           icon: mdi:crosshairs-gps
         - entity: device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4

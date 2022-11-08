@@ -3,10 +3,10 @@ alias: 'person2 at LHR'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'London Heathrow Airport'
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'LHR T2'
 action:
   - service: notify.command_line_person3

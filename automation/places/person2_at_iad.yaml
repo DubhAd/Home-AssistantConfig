@@ -3,7 +3,7 @@ alias: 'person2 at Dulles Airport'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'Dulles Airport'
 action:
   - service: notify.command_line_person3

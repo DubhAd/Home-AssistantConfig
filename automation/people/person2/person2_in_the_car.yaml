@@ -20,12 +20,12 @@ action:
   - service: notify.logfile
     data:
       message: >
-         Location last updated within last 60 seconds? {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated)|float)|float < 60 }}
-         Location last updated {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated)|float)|float }} seconds ago
+         Location last updated within last 60 seconds? {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.pixel_xl.last_updated)|float)|float < 60 }}
+         Location last updated {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.pixel_xl.last_updated)|float)|float }} seconds ago
   # Location was updated in the last minute
   - condition: template
     value_template: >-
-      {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated)|float)|float < 60 }}
+      {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.pixel_xl.last_updated)|float)|float < 60 }}
   - service: script.turn_on
     entity_id: script.person2_traveltime
   - service: notify.logfile

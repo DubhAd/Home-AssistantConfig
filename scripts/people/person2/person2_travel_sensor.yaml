@@ -14,10 +14,10 @@ sequence:
           {% else %}
             {{ states('input_select.person2_status_dropdown') }} 
           {% endif %}
-        {% elif is_state('device_tracker.person2_mobile_gps', 'home') and is_state('input_boolean.person2_home', 'off') %}
+        {% elif is_state('device_tracker.pixel_xl', 'home') and is_state('input_boolean.person2_home', 'off') %}
           Near home ({{ states('input_select.person2_status_dropdown') }})
-        {% elif not is_state('device_tracker.person2_mobile_gps', 'not_home') %}
-          At {{ states('device_tracker.person2_mobile_gps') }}
+        {% elif not is_state('device_tracker.pixel_xl', 'not_home') %}
+          At {{ states('device_tracker.pixel_xl') }}
         {% elif is_state('calendar.person2_holiday', 'on') and is_state('input_boolean.person2_travelling','on') %}
           On holiday
         {% elif is_state('input_boolean.person2_overseas', 'on') %}

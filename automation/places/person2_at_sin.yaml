@@ -3,7 +3,7 @@ alias: 'person2 at SIN'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile_gps
+    entity_id: device_tracker.pixel_xl
     to: 'Singapore Airport'
 action:
   - service: notify.command_line_person3

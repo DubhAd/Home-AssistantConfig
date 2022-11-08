@@ -19,51 +19,30 @@ cards:
         - type: entity
           entity: input_text.person_person4
           use_entity_picture: true
+        - type: weather
+          entity: weather.openweathermap
+          show_conditions: true
+          show_temperature: true
+        - type: alarm-control-panel
+          entity: alarm_control_panel.ha_alarm
       alignment: center
-    - type: custom:mushroom-alarm-control-panel-card
-      entity: alarm_control_panel.ha_alarm
-      states:
-        - armed_home
-        - armed_away
-        - armed_night
-      layout: horizontal
-    - type: custom:simple-weather-card
-      #entity: weather.accuhome
-      entity: weather.openweathermap
-      name: at home
-      backdrop: 
-        fade: true
-        day: '#666677'
-        night: '#444466'
-      primary_info:
-        - extrema
-        - precipitation
-        - precipitation_probability
-      secondary_info:
-        - wind_speed
-        - wind_bearing
+    - type: horizontal-stack
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.downstairs_temperature
+          icon_type: entity-picture
+          name: Downstairs
+          icon: mdi:thermometer-chevron-down
+        - type: custom:mushroom-entity-card
+          entity: sensor.upstairs_temperature
+          icon_type: entity-picture
+          icon: mdi:thermometer-chevron-up
+          name: Upstairs
     - type: custom:hourly-weather
       name: ~
       entity: weather.home_hourly
       icons: true
       num_segments: 24
-    - type: horizontal-stack
-      cards:
-      - type: entity
-        #entity: weather.accuhome
-        entity: weather.openweathermap
-        attribute: 'temperature'
-        name: Outside
-        icon: 'mdi:thermometer'
-        unit: '°C'
-      - type: entity
-        entity: sensor.downstairs_temperature
-        name: Downstairs
-        icon: 'mdi:thermometer'
-      - type: entity
-        entity: sensor.upstairs_temperature
-        name: Upstairs
-        icon: 'mdi:thermometer'
   
 
   - type: vertical-stack
