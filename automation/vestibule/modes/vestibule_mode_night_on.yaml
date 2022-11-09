@@ -13,7 +13,7 @@ trigger:
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: sensor.vestibule_multi_illuminance
+    entity_id: sensor.vestibule_multi_illuminance_lux
     below: 10
   - platform: state
     entity_id: input_boolean.bedtime
@@ -54,7 +54,7 @@ condition:
       conditions:
       # Dark in the vestibule
       - condition: numeric_state
-        entity_id: sensor.vestibule_multi_illuminance
+        entity_id: sensor.vestibule_multi_illuminance_lux
         below: 5
       # Or sun below 5 degrees
       - condition: numeric_state

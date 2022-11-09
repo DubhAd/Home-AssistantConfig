@@ -32,8 +32,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.office_dial_rotate
     secondary_info: last-triggered
-  - entity: automation.office_cube
-    secondary_info: last-triggered
   - type: divider
   - entity: automation.office_no_presence
     secondary_info: last-triggered

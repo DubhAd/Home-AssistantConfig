@@ -12,7 +12,6 @@ trigger:
     entity_id: 
     - sensor.downstairs_hall_light_sensor_battery
     - sensor.downstairs_hall_motion_battery
-    - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
     - sensor.living_room_light_sensor_battery
     - sensor.living_room_presence_battery
@@ -27,7 +26,6 @@ trigger:
     entity_id: 
     - sensor.downstairs_hall_light_sensor_battery
     - sensor.downstairs_hall_motion_battery
-    - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
     - sensor.living_room_light_sensor_battery
     - sensor.living_room_presence_battery
@@ -42,7 +40,6 @@ trigger:
     entity_id: 
     - sensor.downstairs_hall_light_sensor_battery
     - sensor.downstairs_hall_motion_battery
-    - sensor.hall_downstairs_motion_battery
     - sensor.hue_dimmer_battery
     - sensor.living_room_light_sensor_battery
     - sensor.living_room_presence_battery

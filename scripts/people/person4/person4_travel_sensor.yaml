@@ -7,7 +7,7 @@ sequence:
         {% if is_state("input_boolean.person4_home", "on") %} 
           {{ states("input_select.person4_status_dropdown") }}
         {% elif is_state("device_tracker.dsb_0230", "home") and is_state("input_boolean.person4_home", "off") %}
-          Near home ({{ states("input_select.person4_stats_dropdown") }})
+          Near home ({{ states("input_select.person4_status_dropdown") }})
         {% elif not is_state("device_tracker.dsb_0230", "not_home") %}
           At {{ states("device_tracker.dsb_0230") }}
         {% else %}

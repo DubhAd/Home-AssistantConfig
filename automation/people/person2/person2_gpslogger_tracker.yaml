@@ -1,8 +1,0 @@
-id: 'person2_gpslogger_tracker'
-initial_state: 'off'
-alias: 'person2 GPSLogger tracker'
-trigger:
-  - platform: template
-    value_template: "{{ as_timestamp(states.sensor.date_time.last_updated) - as_timestamp(states.device_tracker.person2_mobile_gps.last_updated) > 600 }}"
-action:
-  - service: shell_command.launch_gpslogger_phone

@@ -22,7 +22,7 @@ trigger:
     - sensor.office_battery
     - sensor.office_dial_battery
     - sensor.office_switch_battery
-    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.second_bedroom_ensuite_battery
     - sensor.utility_remote_battery
     below: 21
     for: '03:00:00'
@@ -36,7 +36,7 @@ trigger:
     - sensor.office_battery
     - sensor.office_dial_battery
     - sensor.office_switch_battery
-    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.second_bedroom_ensuite_battery
     - sensor.utility_remote_battery
     below: 11
     for: '03:00:00'
@@ -50,7 +50,7 @@ trigger:
     - sensor.office_battery
     - sensor.office_dial_battery
     - sensor.office_switch_battery
-    - sensor.second_bedroom_ensuite_environment_battery
+    - sensor.second_bedroom_ensuite_battery
     - sensor.utility_remote_battery
     below: 6
     for: '01:00:00'

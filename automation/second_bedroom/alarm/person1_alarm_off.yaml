@@ -17,4 +17,4 @@ condition:
     state: 'on'
 action:
   - service: switch.turn_off
-    entity_id: switch.person1_radio
+    entity_id: switch.radio_person1

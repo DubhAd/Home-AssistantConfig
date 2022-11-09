@@ -1,6 +1,0 @@
-url: "http://pi3.family:8123/api/services/{{ domain }}/{{ action }}"
-method: "POST"
-headers:
-  authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5NDFkN2E5NjQ3OTk0YWEyODUxNmI2NWEyN2QyNmYxZCIsImlhdCI6MTU2NTcwMjU2MywiZXhwIjoxODgxMDYyNTYzfQ.GsqyFQZaszyRjMm0DPUgf7hx13CaY55CyJQ1y9x4IBI
-payload: '{"entity_id":"{{ entity }}"}'
-content_type:  'application/json'

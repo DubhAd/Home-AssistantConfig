@@ -25,8 +25,8 @@ condition:
         entity_id: input_select.house
         state: 'Bedtime'
   - condition: state
-    entity_id: switch.no_such_switch
+    entity_id: switch.family_room_socket
     state: 'on'
 action:
   - service: switch.turn_off
-    entity_id: switch.no_such_switch
+    entity_id: switch.family_room_socket

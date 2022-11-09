@@ -7,7 +7,7 @@ sequence:
         {% if states('sensor.dark_sky_temperature') != 'unknown' %}
           {{ states('sensor.dark_sky_temperature')|round(0) }}C outside and {{ states('sensor.dark_sky_summary')|lower }}, {% if states('sensor.dark_sky_minutely_summary') != 'unknown' %}{{ states('sensor.dark_sky_minutely_summary')|lower }} {{ states('sensor.dark_sky_daily_summary') }} {% else %} {{ states('sensor.dark_sky_hourly_summary')|lower }} {% endif %}
         {% else %}
-          {{ states.weather.dark_sky.attributes.forecast[0].temperature }}C outside and {{ states.weather.dark_sky.attributes.forecast[0].condition }}
+          {{ states('sensor.openweathermap_feels_like_temperature')|round(1) }}C outside and {{ states('sensor.openweathermap_condition') }}
         {% endif %}
         {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %}
           {% if states('sensor.dark_sky_alerts')|int == 1 %}

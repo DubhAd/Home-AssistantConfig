@@ -3,16 +3,16 @@ alias: 'person2 Returning'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person2_mobile
+    entity_id: device_tracker.pixel_xl
     to: 'work Airport'
   - platform: state
-    entity_id: device_tracker.person2_mobile
+    entity_id: device_tracker.pixel_xl
     to: 'other Airport'
   - platform: state
-    entity_id: device_tracker.person2_mobile
+    entity_id: device_tracker.pixel_xl
     to: 'work station'
   - platform: state
-    entity_id: device_tracker.person2_mobile
+    entity_id: device_tracker.pixel_xl
     to: 'other station'
 condition:
   condition: and

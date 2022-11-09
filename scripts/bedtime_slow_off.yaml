@@ -17,10 +17,8 @@ sequence:
   - condition: state
     entity_id: input_boolean.guest_mode
     state: 'off'
-  - service: switch.turn_off
-    entity_id: switch.pi3_hall_downstairs_switch
-  - wait_template: "{{ not is_state('light.hall','unavailable') }}"
+  - wait_template: "{{ not is_state('light.downstairs_hall','unavailable') }}"
   - service: light.turn_off
     data:
-      entity_id: light.hall
+      entity_id: light.downstairs_hall
       transition: 30

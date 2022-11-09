@@ -11,7 +11,7 @@ trigger:
     to: 'on'
     for: '00:15:00'
 action:
-  - service: script.stop
+  - service: script.turn_off
     data:
       entity_id: "{{ trigger.entity_id }}"
 

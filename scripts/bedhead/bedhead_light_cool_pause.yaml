@@ -1,6 +1,0 @@
-sequence:
-  - delay:
-      milliseconds: 1
-  - service: script.turn_on
-    data:
-      entity_id: script.bedhead_light_cool

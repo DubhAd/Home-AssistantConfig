@@ -65,7 +65,7 @@ cards:
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
-      entity: weather.met_office_home
+      entity: weather.met_office_home_daily
       name: home (MO)
       backdrop: 
         fade: true
@@ -73,14 +73,14 @@ cards:
         - wind_speed
         - wind_bearing
     - type: custom:weather-card
-      entity: weather.met_office_home
+      entity: weather.met_office_home_daily
       name: home (MO)
       current: true
       details: true
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
-      entity: weather.met_office_other
+      entity: weather.met_office_other_ski_centre_daily
       name: other (MO)
       backdrop: 
         fade: true
@@ -88,7 +88,7 @@ cards:
         - wind_speed
         - wind_bearing
     - type: custom:weather-card
-      entity: weather.met_office_other
+      entity: weather.met_office_other_ski_centre_daily
       name: other (MO)
       current: true
       details: true

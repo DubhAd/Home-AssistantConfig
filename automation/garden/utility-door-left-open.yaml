@@ -12,7 +12,7 @@ trigger:
     for: '00:05:00'
 condition:
   - condition: numeric_state
-    entity_id: sensor.home_feels_like_temperature
+    entity_id: sensor.accuhome_apparent_temperature
     below: 5
 action:
   - service: media_player.turn_on
@@ -52,7 +52,7 @@ action:
         {%- else -%}
           media_player.office_smart_display
         {%- endif -%}
-      message: "The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.home_feels_like_temperature') }} {{ state_attr('sensor.home_feels_like_temperature','unit_of_measurement') }} outside"
+      message: "The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.accuhome_apparent_temperature') }} {{ state_attr('sensor.accuhome_apparent_temperature','unit_of_measurement') }} outside"
   - delay: '00:00:10'
   - service: media_player.turn_off
     data:

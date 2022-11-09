@@ -4,7 +4,7 @@ initial_state: 'on'
 trigger:
   - platform: template
     value_template: >-
-      {{ states('sensor.master_ensuite_humidity')|int > (((states('sensor.bathroom_humidity')|int + states('sensor.office_humidity')|int + states('sensor.second_bedroom_ensuite_humidity')|int)/3)+20) }}
+      {{ states('sensor.master_ensuite_humidity')|int > (((states('sensor.bathroom_environment_humidity')|int + states('sensor.office_humidity')|int + states('sensor.second_bedroom_ensuite_humidity')|int)/3)+20) }}
     for: '00:01:00'
 condition:
   - condition: state
@@ -18,7 +18,7 @@ action:
   - wait_template: >-
       {{ (state_attr('sensor.master_ensuite_humidity_stats','change_rate')|abs < 0.5) and (state_attr('sensor.master_ensuite_humidity_stats','change')|abs < 0.5)
         and
-         states('sensor.master_ensuite_humidity')|int < (((states('sensor.bathroom_humidity')|int + states('sensor.office_humidity')|int + states('sensor.second_bedroom_ensuite_humidity')|int)/3)+10) }}
+         states('sensor.master_ensuite_humidity')|int < (((states('sensor.bathroom_environment_humidity')|int + states('sensor.office_humidity')|int + states('sensor.second_bedroom_ensuite_humidity')|int)/3)+10) }}
     timeout: '01:00:00'
     continue_on_timeout: 'false'
   - service: notify.person2_telegram

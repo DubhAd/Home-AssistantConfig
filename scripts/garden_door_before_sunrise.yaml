@@ -1,9 +1,0 @@
-alias: Garden door before sunrise
-sequence:
-  - service: homeassistant.turn_off
-    entity_id: automation.utility_door_open_before_sunrise_turn_off
-  - service: switch.turn_on
-    entity_id: switch.garden_lights
-  - delay: '00:00:{{- "%02d" | format(states.input_number.door_delay.state | int) -}}'
-  - service: homeassistant.turn_on
-    entity_id: automation.utility_door_open_before_sunrise_turn_off

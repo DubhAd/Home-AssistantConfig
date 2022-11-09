@@ -2,14 +2,14 @@ alias: House alert
 sequence:
   - service: media_player.turn_on
     data:
-      entity_id: media_player.all
+      entity_id: all
   - service: media_player.volume_set
     data:
-      entity_id: media_player.all
+      entity_id: all
       volume_level: 0.5
   - service: media_player.play_media
     data:
-      entity_id: media_player.all
+      entity_id: all
       media_content_id: http://192.168.0.10:8123/local/sounds/sub_alert.mp3
       media_content_type: music
   - delay: '00:00:02'
@@ -20,7 +20,7 @@ sequence:
   # Send an audio alert
   - service: tts.google_cloud_say
     data:
-      entity_id: media_player.all
+      entity_id: all
       message: >-
         The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - delay: '00:00:02'
@@ -31,4 +31,4 @@ sequence:
   # Turn off the media players
   - service: media_player.turn_off
     data:
-      entity_id: media_player.all
+      entity_id: all

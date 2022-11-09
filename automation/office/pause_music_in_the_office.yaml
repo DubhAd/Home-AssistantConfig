@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id: 
     - calendar.person2_work
-    - binary_sensor.kelsie_webcamactive
+    - binary_sensor.kelsie_hws_webcamactive
     to: 'on'
   - platform: state
     entity_id: input_boolean.office_occupied
@@ -40,7 +40,7 @@ condition:
       - condition: or
         conditions:
         - condition: state
-          entity_id: binary_sensor.kelsie_webcamactive
+          entity_id: binary_sensor.kelsie_hws_webcamactive
           state: 'on'
         - condition: state
           entity_id: calendar.person2_work

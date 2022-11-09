@@ -17,6 +17,6 @@ action:
   - service: notify.command_line_person3
     data:
       message: "Mum will be here in about {{ states('sensor.person4s_time_to_home_duration_in_traffic') }} minutes"
-  - service: notify.lametric_info
+  - service: notify.logfile
     data:
-      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home_duration_in_traffic') }} minutes"
+      message: "SENDLIVING Mum will be here in about {{ states('sensor.person4s_time_to_home_duration_in_traffic') }} minutes"

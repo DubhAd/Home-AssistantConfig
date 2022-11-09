@@ -9,9 +9,6 @@ trigger:
     - binary_sensor.patio_door_left_battery_low
     - binary_sensor.patio_door_right_battery_low
     - binary_sensor.utility_door_exterior_battery_low
-    - binary_sensor.bathroom_door_battery_low
-    - binary_sensor.master_bedroom_door_battery_low
-    - binary_sensor.second_bedroom_door_battery_low
     - binary_sensor.vestibule_door_battery_low
     - binary_sensor.garage_door_car_battery_low
     - binary_sensor.garage_door_bike_battery_low

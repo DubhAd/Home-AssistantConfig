@@ -4,8 +4,6 @@ input_number.door_delay:
   icon: mdi:clock-fast
 calendar.person3:
   icon: mdi:calendar
-calendar.birthdays_and_anniversaries:
-  icon: mdi:calendar-check
 calendar.person1:
   icon: mdi:calendar
 calendar.person2:
@@ -64,7 +62,5 @@ device_tracker.person3_bt_front_mobile:
   source_type: bluetooth
 device_tracker.person3_bt_mobile:
   source_type: bluetooth
-sensor.downstairs_hall_light_sensor_illuminance:
-  unit_of_measurement: illuminance
 device_tracker.08_a6_bc_ea_df_3f:
   friendly_name: person2_kindle_oasis

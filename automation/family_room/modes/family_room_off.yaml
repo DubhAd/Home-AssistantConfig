@@ -31,4 +31,4 @@ action:
       entity_id: input_select.family_room
       option: 'Off'
   - service: input_boolean.turn_off
-    entity_id: input_boolean.familyroom_lights_auto
+    entity_id: input_boolean.family_room_lights_auto

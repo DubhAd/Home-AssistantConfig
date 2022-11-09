@@ -205,7 +205,7 @@ cards:
 
         - entities:
             # Chromecast
-            - media_player.cast_living_room_tv
+            - media_player.living_room_tv
           states:
             - state: 'on'
               class: 'tv-on'
@@ -221,7 +221,6 @@ cards:
             - media_player.roku_x00200y5s7lx
             - device_tracker.living_room_chromecast
             - media_player.samsung_tv
-            - sensor.person1
           states:
             - state: 'on'
               class: 'squeezebox-on'
@@ -339,7 +338,6 @@ cards:
           propagate: true
 
         - entities:
-            - sensor.home_humidity
             - sensor.openweathermap_humidity
           text_template: '${entity.state ? entity.state : "unknown"} %'
           class_template: '

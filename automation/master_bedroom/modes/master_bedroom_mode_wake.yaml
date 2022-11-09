@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id: 
     - media_player.person2
-    - media_player.master_bedroom_speaker
+    - media_player.master_bedroom
     to: 'playing'
 condition:
   - condition: time

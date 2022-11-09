@@ -1,5 +1,4 @@
 name: person4
 entities:
-- device_tracker.nmap_tracker_00_1d_29_f0_4d_da
 - device_tracker.person4_bt_front_mobile_2
 - device_tracker.person4_bt_mobile_2

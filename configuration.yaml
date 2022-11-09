@@ -62,7 +62,6 @@ timer: !include_dir_named timers/
 light: !include_dir_merge_list light/
 switch: !include_dir_merge_list switch/
 samsungtv: !include samsung_tv.yaml
-rest_command: !include_dir_named rest_command/
 yeelight: !include yeelight.yaml
 
 alarm_control_panel: !include_dir_list alarm/
