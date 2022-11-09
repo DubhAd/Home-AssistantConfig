@@ -106,7 +106,9 @@ Historically I didn't make much use of custom components/integrations, however t
 
 * [HACS](https://hacs.xyz) for intalling, updating, and finding new custom integrations. All other custom integrations are installed using this.
 * [Adaptive lighting](https://github.com/basnijholt/adaptive-lighting) (replacing [Circadian lighting](https://github.com/claytonjn/hass-circadian_lighting/)) since the built in [flux integration](https://www.home-assistant.io/integrations/flux) isn't as good.
-* [Fritzbox tools](https://github.com/mammuth/ha-fritzbox-tools) to allow me to track the status of the Internet connection
+* [Frigate](https://github.com/blakeblackshear/frigate-hass-integration) for integrating with Frigate
+* [The Watchman](https://github.com/dummylabs/thewatchman) for making sure I've caught all the missing entities
+* [WebRTC](https://github.com/AlexxIT/WebRTC) to make viewing cameras less laggy
 
 ### Standard integrations
 
