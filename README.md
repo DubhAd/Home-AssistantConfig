@@ -14,7 +14,7 @@
          * [Standard integrations](#standard-integrations)
       * [Other software](#other-software)
       * [Notes](#notes)
-   * [Future plans](#future-plans)
+   * [(Far) Future plans](#far-future-plans)
       * [Automation thoughts](#automation-thoughts)
    * [Useful links](#useful-links)
    * [Coffee](#coffee)
@@ -29,6 +29,7 @@ Each directory has a short readme explaining what's in there, and the purpose of
 
 * [Home Assistant](https://home-assistant.io/)
 * [nginx](https://nginx.org/en/) to provide remote access, in conjunction with [Let's Encrypt](https://letsencrypt.org/)
+* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
 * MariaDB for the database
 
@@ -113,14 +114,18 @@ I moved these all [out here](integrations.md) because it's a long list, and not 
 
 ## Other software
 
-* [PiVPN](http://www.pivpn.io/) for remote access to my network
-* [Pi Hole](https://pi-hole.net/) for blocking those pesky adverts
+* [Wireguard](https://www.wireguard.com/) for remote access to my network
+* [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome/) for blocking those pesky adverts
 * [netdata](https://my-netdata.io/) so I can keep an eye on the performance
 * [rpi-clone](https://github.com/billw2/rpi-clone) for bootable backups of the Pis
 * [rclone](https://rclone.org/) for offsite backups
 * [rsnapshot](https://rsnapshot.org/) runs on another system, and pulls backups 
-* [MotionEye](https://github.com/ccrisan/motioneye/) for motion detection
-* [nginx](https://nginx.org/en/) to provide remote access, in conjunction with [Let's Encrypt](https://letsencrypt.org/)
+* [Frigate](https://frigate.video/) for motion detection
+* [traefik](https://traefik.io/) with [ZeroSSL](https://zerossl.com/) for remote access (will shortly replace nginx)
+* [Heimdall](https://heimdall.site/) for a dashboard of all my apps
+* [Dozzle](https://dozzle.dev/) for each access to container logs
+* [Paperless NGX](https://github.com/paperless-ngx/paperless-ngx) for turning paper into searcheable digital documents
+* [Photoprism](https://photoprism.app/) both to back up photos from the mobile phones, as well as make it easier to find photos
 
 ## Notes
 
@@ -130,7 +135,7 @@ I moved these all [out here](integrations.md) because it's a long list, and not 
   2. Provide voice control where the automations don't get it right (but try to fix that)
   3. Have a minimal UI to provide manual control (this is currently the Google Home app)
 
-# Future plans
+# (Far) Future plans
 
 A large amount of this will require a rewire of the lighting circuits, so that all the light switches have a neutral wire.
 

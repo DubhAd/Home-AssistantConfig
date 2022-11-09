@@ -3,7 +3,7 @@ sequence:
   - service: notify.logfile
     data:
       message: >
-        Updated travel time for person2 at {{ now() }}, currently at {{ state_attr('sensor.person2s_time_to_home_origin') }}
+        Updated travel time for person2 at {{ now() }}, currently at {{ states('sensor.person2s_time_to_home_origin') }}
   - choose:
       # Near an office - transit
       - conditions:
