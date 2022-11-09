@@ -58,7 +58,7 @@ cards:
       name: Family room
     - entity: media_player.samsung_tv
       name: Living room TV
-    - entity: media_player.cast_living_room_tv
+    - entity: media_player.living_room_tv
       name: Living room chromecast
 - type: custom:battery-state-card
   title: Battery devices
@@ -150,7 +150,7 @@ cards:
       - integration: 'here_travel_time'
       - entity_id: "binary_sensor.kelsie_*"
       - entity_id: "media_player.samsung_tv"
-      - entity_id: "media_player.cast_living_room_tv"
+      - entity_id: "media_player.living_room_tv"
       - entity_id: "media_player.forked_daapd_*"
       - entity_id: "sensor.accuhome_*"
       - entity_id: "sensor.kelsie_*"

@@ -35,7 +35,7 @@ cards:
           when_idle: true
           when_paused: true
           when_standby: true
-      - entity: media_player.cast_living_room_tv
+      - entity: media_player.living_room_tv
         name: Chromecast
         type: custom:mini-media-player
         group: true

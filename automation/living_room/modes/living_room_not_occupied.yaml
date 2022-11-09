@@ -21,10 +21,10 @@ trigger:
     to: 'not_home'
     for: '00:01:00'
   - platform: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv
     to: 'unavailable'
   - platform: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv
     to: 'unavailable'
     for: '00:05:00'
   - platform: state
@@ -55,7 +55,7 @@ condition:
     entity_id: device_tracker.living_room_chromecast
     state: 'not_home'
   - condition: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv
     state: 'unavailable'
   - condition: state
     entity_id: media_player.living_room

@@ -99,7 +99,7 @@ cards:
           - domain: 'weather'
           - entity_id: "/.*_old/"
           - entity_id: "media_player.samsung_tv"
-          - entity_id: "media_player.cast_living_room_tv"
+          - entity_id: "media_player.living_room_tv"
           - entity_id: "sensor.pixel_xl_next_alarm"
           - entity_id: "sensor.*weather*"
 
@@ -134,7 +134,6 @@ cards:
     card: 
       type: glance
       title: Occupied rooms
-      #show_state: false
     filter:
       include:
         - entity_id: input_boolean.*_occupied
@@ -149,24 +148,23 @@ cards:
     card: 
       type: glance
       title: Media players
-      #show_state: false
     filter:
       include:
         - domain: media_player
-          state: 'on'
           options:
             show_last_changed: true
-        - domain: media_player
-          state: 'playing'
-          options:
-            show_last_changed: true
+      exclude:
+        - state 1: 'off'
+        - state 2: 'paused'
+        - state 3: 'idle'
+        - state 4: 'unavailable'
+        - state 5: 'standby'
 
   - type: custom:auto-entities
     show_empty: false
     card: 
       type: glance
       title: Presence
-      #show_state: false
     filter:
       include:
         - domain: binary_sensor
@@ -189,7 +187,6 @@ cards:
     card: 
       type: glance
       title: Windows and doors
-      #show_state: false
     filter:
       include:
         - group: group.my_exterior_doors
@@ -214,7 +211,6 @@ cards:
     card: 
       type: glance
       title: Interior doors
-      #show_state: false
     filter:
       include:
         - group: group.my_interior_doors
@@ -225,7 +221,6 @@ cards:
     card: 
       type: glance
       title: Lights
-      #show_state: false
     sort:
       method: name
     filter:

@@ -34,7 +34,7 @@ cards:
     - entity: media_player.samsung_tv
       name: TV
       show_last_changed: true
-    - entity: media_player.cast_living_room_tv
+    - entity: media_player.living_room_tv
       name: Chromecast
       show_last_changed: true
     - entity: media_player.living_room_display

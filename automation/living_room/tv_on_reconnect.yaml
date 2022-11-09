@@ -12,8 +12,8 @@ trigger:
     for: '00:00:30'
 condition:
   - condition: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv
     state: 'unavailable'
 action:
   - service: homeassistant.update_entity
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv

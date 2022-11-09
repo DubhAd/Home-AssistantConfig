@@ -13,13 +13,15 @@ trigger:
       minutes: 5
   - platform: state
     entity_id:
-    - media_player.cast_living_room_tv
+    - media_player.living_room_tv
     - media_player.living_room
-    to: 'playing'
+    to: 
+    - 'playing'
+    - 'buffering'
     for:
       minutes: 5
   - platform: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv
     to: 'off'
     from: 'unavailable'
     for:
@@ -34,11 +36,13 @@ trigger:
     to: 'on'
   - platform: state
     entity_id: 
-    - media_player.cast_living_room_tv
+    - media_player.living_room_tv
     - media_player.living_room
-    to: 'playing'
+    to: 
+    - 'playing'
+    - 'buffering'
   - platform: state
-    entity_id: media_player.cast_living_room_tv
+    entity_id: media_player.living_room_tv
     to: 'off'
     from: 'unavailable'
   - platform: state
@@ -69,7 +73,9 @@ condition:
     # Sonos
     - condition: state
       entity_id: media_player.living_room
-      state: 'playing'
+      state: 
+        - 'playing'
+        - 'buffering'
     # TV
     - condition: state
       entity_id: media_player.samsung_tv
@@ -78,9 +84,10 @@ condition:
       #- 'unavailable'
     # Chromecast
     - condition: state
-      entity_id: media_player.cast_living_room_tv
+      entity_id: media_player.living_room_tv
       state: 
       - 'playing'
+      - 'buffering'
       - 'off'
     - condition: state
       entity_id: device_tracker.living_room_chromecast
