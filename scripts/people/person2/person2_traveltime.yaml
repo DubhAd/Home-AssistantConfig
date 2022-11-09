@@ -3,7 +3,7 @@ sequence:
   - service: notify.logfile
     data:
       message: >
-        Updated travel time for person2 at {{ now() }}, currently at {{ state_attr('sensor.person2s_time_to_home','origin_name') }}
+        Updated travel time for person2 at {{ now() }}, currently at {{ state_attr('sensor.person2s_time_to_home_origin') }}
   - choose:
       # Near an office - transit
       - conditions:
@@ -32,7 +32,7 @@ sequence:
                         for: '00:05:00'
                 sequence: 
                   - service: homeassistant.update_entity
-                    entity_id: sensor.person2s_time_to_home_by_transit
+                    entity_id: sensor.person2s_time_to_home_by_transit_duration
     # Default is car
     default:
       - choose:
@@ -42,7 +42,7 @@ sequence:
                 state: 'on'
             sequence: 
               - service: homeassistant.update_entity
-                entity_id: sensor.person2s_time_to_home
+                entity_id: sensor.person2s_time_to_home_duration
   # Whatever happens, update Waze
   - service: homeassistant.update_entity
     entity_id: sensor.person2s_time_to_home_waze

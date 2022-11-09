@@ -16,7 +16,7 @@ condition:
 action:
   - service: notify.command_line_person3
     data:
-      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
+      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home_duration_in_traffic') }} minutes"
   - service: notify.lametric_info
     data:
-      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home') }} minutes"
+      message: "Mum will be here in about {{ states('sensor.person4s_time_to_home_duration_in_traffic') }} minutes"

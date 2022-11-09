@@ -3,4 +3,4 @@ entities:
 - device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4
 - device_tracker.person2_bt_mobile_2
 - device_tracker.person2_bt_front_mobile_2
-- device_tracker.person2_wifi_2
+- device_tracker.person_person2_wifi

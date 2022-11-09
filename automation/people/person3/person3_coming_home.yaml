@@ -6,7 +6,7 @@ trigger:
     entity_id: proximity.person3_home
     below: 550
   - platform: numeric_state
-    entity_id: sensor.person3s_time_to_home_by_foot
+    entity_id: sensor.person3s_time_to_home_by_foot_duration
     below: 10
 condition:
   - condition: state
@@ -23,10 +23,10 @@ condition:
     entity_id: proximity.person3_home
     below: 550
   - condition: numeric_state
-    entity_id: sensor.person3s_time_to_home_by_foot
+    entity_id: sensor.person3s_time_to_home_by_foot_duration
     below: 10
 action:
   - service: notify.person2_telegram
     data:
-      message: "person3's nearly home, and will be home in {{ states('sensor.person3s_time_to_home_by_foot') }} {{ state_attr('sensor.person3s_time_to_home_by_foot','unit_of_measurement') }}"
+      message: "person3's nearly home, and will be home in {{ states('sensor.person3s_time_to_home_by_foot_duration') }} {{ state_attr('sensor.person3s_time_to_home_by_foot_duration','unit_of_measurement') }}"
   - delay: '00:05:00'

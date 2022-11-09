@@ -8,7 +8,7 @@ trigger:
       - device_tracker.dsb_0230
       - input_select.person4_status_dropdown
       - input_boolean.person4_home
-      - sensor.person4s_time_to_home
+      - sensor.person4s_time_to_home_distance
       - sensor.person4s_time_to_home_waze
       - sensor.person4s_time_to_person4_o
 action:

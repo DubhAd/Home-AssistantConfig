@@ -7,6 +7,4 @@ sequence:
   - service: homeassistant.update_entity
     entity_id: sensor.person4s_time_to_home_waze
   - service: homeassistant.update_entity
-    entity_id: sensor.person4s_time_to_home
-  - service: homeassistant.update_entity
-    entity_id: sensor.person4s_time_to_person4_o
+    entity_id: sensor.person4s_time_to_home_duration

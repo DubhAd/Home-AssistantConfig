@@ -6,7 +6,7 @@ trigger:
     entity_id: calendar.person2_away
     to: 'off'
   - platform: numeric_state
-    entity_id: sensor.person2s_time_to_home
+    entity_id: sensor.person2s_time_to_home_duration
     below: '180'
   - platform: homeassistant
     event: start
@@ -17,7 +17,7 @@ condition:
     entity_id: calendar.person2_away
     state: 'off'
   - condition: numeric_state
-    entity_id: sensor.person2s_time_to_home
+    entity_id: sensor.person2s_time_to_home_duration
     below: '180'
 action:
   - service: input_boolean.turn_off

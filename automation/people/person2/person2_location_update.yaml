@@ -9,7 +9,7 @@ trigger:
       - device_tracker.pixel_xl
       - input_boolean.person2_home
       - input_select.person2_status_dropdown
-      - sensor.person2s_time_to_home
+      - sensor.person2s_time_to_home_distance
       - sensor.person2s_time_to_home_waze
 action:
   - service: notify.logfile

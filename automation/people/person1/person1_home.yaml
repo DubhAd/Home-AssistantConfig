@@ -7,7 +7,7 @@ trigger:
       - device_tracker.person1_mobile_wifi
       - device_tracker.person1_bt_mobile_2
       - device_tracker.person1_bt_front_mobile_2
-      - device_tracker.person1_wifi_2
+      - device_tracker.person_person1_wifi
     to: 'home'
   - platform: state
     entity_id: binary_sensor.front_door_contact

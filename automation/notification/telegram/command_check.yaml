@@ -36,7 +36,7 @@ action:
         {%- elif is_state('input_boolean.person3_home','on') -%}
           person3 has been home for {{ relative_time(states.input_boolean.person3_home.last_changed) }}
         {%- elif is_state('device_tracker.person3_pixel_3a','not_home') -%}
-          person3 has been at {{ state_attr('sensor.person3s_time_to_home','origin_name') }}, {{ states('input_text.person_person3') }}, for {{ relative_time(states.device_tracker.person3_pixel_3a.last_changed) }}
+          person3 has been at {{ states('sensor.person3s_time_to_home_origin') }}, {{ states('input_text.person_person3') }}, for {{ relative_time(states.device_tracker.person3_pixel_3a.last_changed) }}
         {%- else -%}
           person3 has been {{ states('input_text.person_person3') }} for {{ relative_time(states.device_tracker.person3_pixel_3a.last_changed) }}
         {%- endif %}
@@ -46,7 +46,7 @@ action:
         {%- elif is_state('input_boolean.person1_home','on') -%}
           person1 has been home for {{ relative_time(states.input_boolean.person1_home.last_changed) }}
         {% elif is_state('device_tracker.person1_pixel_3','not_home') -%}
-          person1 has been at {{ state_attr('sensor.person1s_time_to_home','origin_name') }}, {{ states('input_text.person_person1') }}, for {{ relative_time(states.device_tracker.person1_pixel_3.last_changed) }}
+          person1 has been at {{ states('sensor.person1s_time_to_home_origin') }}, {{ states('input_text.person_person1') }}, for {{ relative_time(states.device_tracker.person1_pixel_3.last_changed) }}
         {%- else -%}
           person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.device_tracker.person1_pixel_3.last_changed) }}
         {%- endif %}

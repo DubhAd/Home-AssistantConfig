@@ -34,7 +34,7 @@ cards:
         - entity: device_tracker.person3_mobile_wifi
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person3_wifi_2
+        - entity: device_tracker.person_person3_wifi
           name: App
           icon: mdi:wifi-star
         - entity: device_tracker.person3_bt_front_mobile_2
@@ -49,13 +49,13 @@ cards:
           charging_state:
             entity_id: sensor.person3_pixel_3a_battery_state
             state: "charging"
-        - entity: sensor.person3s_time_to_home
+        - entity: sensor.person3s_time_to_home_duration_in_traffic
           name: Car home
           icon: mdi:map-marker-distance
         - entity: sensor.person3s_time_to_home_by_google
           name: Bus home
           icon: mdi:map-marker-distance
-        - entity: sensor.person3s_time_to_home_by_foot
+        - entity: sensor.person3s_time_to_home_by_foot_duration
           name: Walk home
           icon: mdi:map-marker-distance
         - entity: proximity.person3_home
@@ -117,7 +117,7 @@ cards:
         charging_state:
           entity_id: sensor.dsb_0230_battery_state
           state: "charging"
-      - entity: sensor.person4s_time_to_home
+      - entity: sensor.person4s_time_to_home_duration_in_traffic
         name: To home
         icon: mdi:map-marker-distance
       - entity: proximity.person4_home
@@ -158,7 +158,7 @@ cards:
         - entity: device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person2_wifi_2
+        - entity: device_tracker.person_person2_wifi
           name: App
           icon: mdi:wifi-star
         - entity: device_tracker.person2_bt_front_mobile_2
@@ -173,7 +173,7 @@ cards:
           charging_state:
             entity_id: sensor.pixel_xl_battery_state
             state: "charging"
-        - entity: sensor.person2s_time_to_home
+        - entity: sensor.person2s_time_to_home_duration_in_traffic
           name: Car home
           icon: mdi:map-marker-distance
         - entity: proximity.person2_home
@@ -323,7 +323,7 @@ cards:
         - entity: device_tracker.person1_mobile_wifi
           name: WiFi
           icon: mdi:wifi
-        - entity: device_tracker.person1_wifi_2
+        - entity: device_tracker.person_person1_wifi
           name: App
           icon: mdi:wifi-star
         - entity: device_tracker.person1_bt_front_mobile_2
@@ -357,13 +357,13 @@ cards:
           name: In bed
         - entity: calendar.person1_holiday
           name: Holiday
-        - entity: sensor.person1s_time_to_home
+        - entity: sensor.person1s_time_to_home_duration_in_traffic
           name: Car home
           icon: mdi:map-marker-distance
-        - entity: sensor.person1s_time_to_home_by_bus
+        - entity: sensor.person1s_time_to_home_by_bus_google
           name: Bus home
           icon: mdi:map-marker-distance
-        - entity: sensor.person1s_time_to_home_by_foot
+        - entity: sensor.person1s_time_to_home_by_foot_duration
           name: Walking home
           icon: mdi:map-marker-distance
         - entity: proximity.person1_home
