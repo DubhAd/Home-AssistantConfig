@@ -11,10 +11,10 @@ cards:
           entity: input_text.person_person3
           use_entity_picture: true
         - type: entity
-          entity: input_text.person_person2
+          entity: input_text.person_person1
           use_entity_picture: true
         - type: entity
-          entity: input_text.person_person1
+          entity: input_text.person_person2
           use_entity_picture: true
         - type: entity
           entity: input_text.person_person4

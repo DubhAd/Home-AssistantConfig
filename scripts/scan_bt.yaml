@@ -63,7 +63,7 @@ sequence:
       conditions:
       - alias: "Somebody on the path"
         condition: state
-        entity_id: binary_sensor.front_path_person_motion
+        entity_id: binary_sensor.front_path_person_occupancy
         state: 'on'
       - condition: state
         entity_id: binary_sensor.vestibule_multi_occupancy
