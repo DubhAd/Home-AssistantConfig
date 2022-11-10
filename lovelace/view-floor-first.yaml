@@ -67,10 +67,6 @@ cards:
     #column_width: 25%
     columns: 4
     entities:
-      - entity: light.person1_bedroom_bedside
-        name: Bedhead
-        icon: mdi:led-strip-variant
-        show_last_changed: true
       - entity: binary_sensor.second_bedroom_door_contact
         show_last_changed: true
         name: Door
@@ -80,6 +76,10 @@ cards:
       - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
+      - entity: light.person1_bedroom_bedside
+        name: Bedhead
+        icon: mdi:led-strip-variant
+        show_last_changed: true
       - entity: media_player.person1
         name: Squeezebox
         show_last_changed: true

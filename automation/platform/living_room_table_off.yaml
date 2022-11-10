@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Living room table off'
 trigger:
   - platform: state
-    entity_id: light.living_room_table
+    entity_id: light.living_room_table_lamp
     from: 'unavailable'
     to: 'off'
 condition:
@@ -18,5 +18,5 @@ condition:
 action:
   - service: light.turn_on
     data:
-      entity_id: light.living_room_table
+      entity_id: light.living_room_table_lamp
       transition: 15

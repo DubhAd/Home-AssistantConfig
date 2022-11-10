@@ -8,7 +8,7 @@ trigger:
     for: '00:02:00'
   - platform: state
     entity_id: 
-      - media_player.master_bedroom_speaker
+      - media_player.master_bedroom
       - media_player.person2
     to: 'playing'
   - platform: state
@@ -58,7 +58,7 @@ condition:
       entity_id: light.master_bedroom_bedhead
       state: 'on'
     - condition: state
-      entity_id: media_player.master_bedroom_speaker
+      entity_id: media_player.master_bedroom
       state: 'playing'
     - condition: state
       entity_id: media_player.person2

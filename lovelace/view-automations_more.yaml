@@ -39,8 +39,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.printer_low
     secondary_info: last-triggered
-  - entity: automation.garage_snapshot
-    secondary_info: last-triggered
 - type: entities
   title: Car related automations
   show_header_toggle: false

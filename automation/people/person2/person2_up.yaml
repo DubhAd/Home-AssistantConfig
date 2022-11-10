@@ -5,7 +5,7 @@ trigger:
   # Music is playing
   - platform: state
     entity_id: 
-      - media_player.master_bedroom_speaker
+      - media_player.master_bedroom
       - media_player.person2
     to: 'playing'
   # Phone or tablet is unplugged
@@ -72,18 +72,18 @@ action:
   # Now tell me about it
   - service: media_player.turn_on
     data:
-      entity_id: media_player.cast_master_bedroom_speaker
+      entity_id: media_player.master_bedroom
   - service: media_player.volume_set
     data:
       volume_level: 0.3
-      entity_id: media_player.cast_master_bedroom_speaker
+      entity_id: media_player.master_bedroom
   - delay: '00:00:01'
   - service: tts.google_cloud_say
     data:
-      entity_id: media_player.cast_master_bedroom_speaker
+      entity_id: media_player.master_bedroom
       message: "{{ states('input_text.train_message') }}"
-  - wait_template: "{{ is_state('media_player.cast_master_bedroom_speaker','playing') }}"
-  - wait_template: "{{ is_state('media_player.cast_master_bedroom_speaker','idle') }}"
+  - wait_template: "{{ is_state('media_player.master_bedroom','playing') }}"
+  - wait_template: "{{ is_state('media_player.master_bedroom','idle') }}"
   - service: media_player.turn_off
     data:
-      entity_id: media_player.cast_master_bedroom_speaker
+      entity_id: media_player.master_bedroom
