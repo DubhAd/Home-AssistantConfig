@@ -40,3 +40,5 @@
   type: module
 - url: /hacsfiles/lovelace-mushroom/mushroom.js
   type: module
+- url: /hacsfiles/clock-weather-card/clock-weather-card.js
+  type: module

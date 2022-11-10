@@ -20,51 +20,31 @@ action:
             entity_id: input_boolean.family_room_occupied
             state: 'on'
         sequence:
-          - service: media_player.turn_on
-            data:
-              entity_id: media_player.cast_kitchen_speaker
           - service: tts.google_cloud_say
+            target:
+              entity_id: media_player.family_room_sonos_cloud
             data:
-              entity_id: media_player.cast_kitchen_speaker
               message: "The gate has just been opened"
-          - wait_template: "{{ is_state('media_player.cast_kitchen_speaker','playing') }}"
-          - wait_template: "{{ is_state('media_player.cast_kitchen_speaker','idle') }}"
-          - service: media_player.turn_off
-            data:
-              entity_id: media_player.cast_kitchen_speaker
   - choose:
       - conditions:
           - condition: state
             entity_id: input_boolean.living_room_occupied
             state: 'on'
         sequence:
-          - service: media_player.turn_on
-            data:
-              entity_id: media_player.living_room_display
           - service: tts.google_cloud_say
+            target:
+              entity_id: media_player.living_room_sonos_cloud
             data:
-              entity_id: media_player.living_room_display
               message: "The gate has just been opened"
-          - wait_template: "{{ is_state('media_player.living_room_display','playing') }}"
-          - wait_template: "{{ is_state('media_player.living_room_display','idle') }}"
-          - service: media_player.turn_off
-            data:
-              entity_id: media_player.living_room_display
   - choose:
       - conditions:
           - condition: state
             entity_id: input_boolean.office_occupied
             state: 'on'
         sequence:
-          - service: media_player.turn_on
-            data:
-              entity_id: media_player.office_smart_display
           - service: tts.google_cloud_say
+            target:
+              entity_id: media_player.office_sonos_cloud
             data:
               entity_id: media_player.office_smart_display
               message: "The gate has just been opened"
-          - wait_template: "{{ is_state('media_player.office_smart_display','playing') }}"
-          - wait_template: "{{ is_state('media_player.office_smart_display','idle') }}"
-          - service: media_player.turn_off
-            data:
-              entity_id: media_player.office_smart_display
