@@ -33,8 +33,17 @@ condition:
         entity_id: input_select.house
         state: 'Wake'
 action:
+  - service: switch.turn_off
+    target:
+      entity_id: 
+        - switch.adaptive_lighting_adapt_brightness_office
+        - switch.adaptive_lighting_sleep_mode_office
   - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_sleep_mode_office
+    target:
+      entity_id: 
+        - switch.adaptive_lighting_office
   - service: light.turn_on
-    data:
+    target:
       entity_id: light.office_strip
+    data:
+      brightness_pct: 10

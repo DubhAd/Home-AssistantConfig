@@ -90,7 +90,7 @@ cards:
       - entity: media_player.cast_kitchen_speaker
         type: custom:mini-media-player
         group: true
-        icon: mdi:google-home
+        icon: mdi:cast-audio-variant
         artwork: cover
         show_source: true
         power_color: true
@@ -165,7 +165,7 @@ cards:
       - entity: media_player.cast_master_bedroom_speaker
         type: custom:mini-media-player
         group: true
-        icon: mdi:google-home
+        icon: mdi:cast-audio-variant
         artwork: cover
         show_source: true
         power_color: true
@@ -209,7 +209,7 @@ cards:
       - entity: media_player.cast_second_bedroom_speaker
         type: custom:mini-media-player
         group: true
-        icon: mdi:google-home
+        icon: mdi:cast-audio-variant
         artwork: cover
         show_source: true
         power_color: true
@@ -223,7 +223,7 @@ cards:
     entity: media_player.cast_master_bedroom_display
     name: Guest bedroom
     artwork: cover
-    icon: mdi:google-home
+    icon: mdi:cast-audio-variant
     power_color: true
     show_progress: true
     show_source: true

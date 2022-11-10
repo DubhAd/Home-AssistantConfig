@@ -34,7 +34,11 @@ condition:
         state: 'Dim'
 action:
   - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_sleep_mode_office
+    target:
+      entity_id: 
+        - switch.adaptive_lighting_office
+        - switch.adaptive_lighting_sleep_mode_office
+        - switch.adaptive_lighting_adapt_brightness_office
   - service: light.turn_on
     data:
       entity_id: light.office_strip

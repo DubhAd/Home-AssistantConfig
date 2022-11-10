@@ -48,3 +48,4 @@ action:
             data:
               entity_id: media_player.office_smart_display
               message: "The gate has just been opened"
+  - delay: '00:00:30'

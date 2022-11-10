@@ -43,11 +43,6 @@ cards:
       entity: weather.home_hourly
       icons: true
       num_segments: 24
-    - type: custom:hourly-weather
-      name: ~
-      entity: weather.here_weather_forecast_hourly
-      icons: true
-      num_segments: 24
   
 
   - type: vertical-stack

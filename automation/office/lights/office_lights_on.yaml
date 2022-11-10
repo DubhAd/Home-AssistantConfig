@@ -34,7 +34,13 @@ condition:
         state: 'On'
 action:
   - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_sleep_mode_office
+    target:
+      entity_id: switch.adaptive_lighting_sleep_mode_office
+  - service: switch.turn_on
+    target:
+      entity_id: 
+        - switch.adaptive_lighting_office
+        - switch.adaptive_lighting_adapt_brightness_office
   - service: light.turn_on
     data:
       entity_id: light.office_strip
