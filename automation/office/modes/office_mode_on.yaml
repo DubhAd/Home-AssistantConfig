@@ -3,7 +3,9 @@ initial_state: 'on'
 alias: 'Office mode on'
 trigger:
   - platform: state
-    entity_id: input_boolean.office_occupied
+    entity_id: 
+      - input_boolean.office_occupied
+      - input_boolean.lighting_office
     to: 'on'
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
@@ -13,17 +15,19 @@ trigger:
     below: 60
     for: '00:01:00'
   - platform: state
-    entity_id: input_boolean.lighting_office
-    to: 'on'
+    entity_id: input_boolean.office_paused
+    to: 'off'
 condition:
   - condition: state
-    entity_id: input_boolean.lighting_office
+    entity_id: 
+      - input_boolean.lighting_office
+      - input_boolean.office_occupied
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.office_paused
+    state: 'off'
   - condition: template
     value_template: "{{ states('input_select.office') not in ('Pause','On') }}"
-  - condition: state
-    entity_id: input_boolean.office_occupied
-    state: 'on'
   - condition: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
     below: 60
