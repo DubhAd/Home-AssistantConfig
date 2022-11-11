@@ -25,9 +25,5 @@ trigger:
     to: 'off'
     for: '00:01:00'
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Motion detection event ends on {{ trigger.entity_id }}
   - service: input_boolean.turn_off
     entity_id: input_boolean.stream_camera

@@ -36,7 +36,3 @@ action:
   - service: media_player.turn_off
     data:
       entity_id: media_player.cast_second_bedroom_speaker
-  - service: notify.logfile
-    data:
-      message: >
-        Turned on person1 alarm playing because the {{ trigger.to_state.name }} was {{ trigger.to_state.state }} at {{ now() }}

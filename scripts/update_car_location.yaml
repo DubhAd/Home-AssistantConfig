@@ -1,9 +1,5 @@
 alias: Update car location
 sequence:
-  - service: notify.logfile
-    data:
-      message: >
-        Updating car location at {{ now() }}
   - service: device_tracker.see
     data:
       dev_id: "car_gps"

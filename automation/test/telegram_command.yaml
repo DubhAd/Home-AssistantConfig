@@ -5,7 +5,7 @@ trigger:
   - platform: event
     event_type: telegram_command
 action:
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: >
         Received a command {{ trigger.event.data.command }} {{ trigger.event.data.args }}

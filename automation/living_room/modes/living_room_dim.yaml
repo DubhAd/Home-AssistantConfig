@@ -47,8 +47,3 @@ action:
     data:
       entity_id: input_select.living_room
       option: 'Dim'
-  - service: notify.logfile
-    data:
-      message: >
-        Dim triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.living_room_light_sensor_illuminance_lux') }}

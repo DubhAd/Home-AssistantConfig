@@ -7,10 +7,6 @@ trigger:
     to: 'Wake'
     for: '01:00:00'
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Office Wake off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
   - service: input_select.select_option
     data:
       entity_id: input_select.office

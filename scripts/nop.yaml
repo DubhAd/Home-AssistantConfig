@@ -1,5 +1,5 @@
 alias: NOP
 sequence:
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: "Doing nothing"

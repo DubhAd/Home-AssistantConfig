@@ -10,9 +10,6 @@ condition:
   - condition: template
     value_template: "{{ (trigger.to_state.state|count > 0) and (not trigger.to_state.state == 'None') }}"
 action:
-  - service: notify.logfile
-    data:
-      message: "{{trigger.to_state.name}} action: {{ trigger.to_state.state }}"
   - choose:
     ############################################################
     - conditions:

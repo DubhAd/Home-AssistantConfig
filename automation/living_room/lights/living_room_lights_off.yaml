@@ -51,9 +51,6 @@ action:
     entity_id:
       - switch.adaptive_lighting_living_room_lamps
       - switch.adaptive_lighting_living_room_table
-  - service: notify.logfile
-    data:
-      message: "Turning off the living room lights"
   # Only turn off the things that are on
   - choose:
       - conditions:
@@ -61,9 +58,6 @@ action:
             entity_id: switch.living_room_cabinet_light
             state: 'on'
         sequence:
-          - service: notify.logfile
-            data:
-              message: "Turning off the living room socket switch"
           - service: switch.turn_off
             entity_id: switch.living_room_cabinet_light
   - choose:
@@ -82,9 +76,6 @@ action:
               - condition: template
                 value_template: "{{ repeat.index <= 5 }}"
             sequence:
-            - service: notify.logfile
-              data:
-                message: "Turning off the living room lights (attempt {{ repeat.index }})"
             - service: light.turn_off
               data:
                 entity_id: light.living_room
@@ -100,8 +91,5 @@ action:
             entity_id: switch.living_room_christmas_tree
             state: 'on'
         sequence:
-          - service: notify.logfile
-            data:
-              message: "Turning off the living room Christmas lights"
           - service: switch.turn_off
             entity_id: switch.living_room_christmas_tree

@@ -12,9 +12,5 @@ trigger:
       - input_boolean.person2_travelling
       - input_boolean.person2_overseas
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Status for person2 updated at {{ now() }}
   - service: script.turn_on
     entity_id: script.person2_travel_sensor

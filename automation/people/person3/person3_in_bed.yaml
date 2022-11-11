@@ -50,7 +50,3 @@ condition:
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person3_in_bed
-  - service: notify.logfile
-    data:
-      message: >
-        Marked person3 as being in bed because of {{ trigger.platform }} {{ trigger.entity_id if trigger.platform == "state" }}

@@ -14,7 +14,7 @@ action:
       device: "{{ trigger.json.device }}"
       roaming: "{{ trigger.json.roaming }}"
       phonenet: "{{ trigger.json.phonenet }}"
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: >
         Triggered by {{ trigger.webhook_id }} user {{ trigger.json.who }} with {{ trigger.json.what }} at {% if trigger.json.what == "next_alarm" %} {{ trigger.json.when }} {% else %} {{ as_timestamp(now())|timestamp_local }} {% endif %}

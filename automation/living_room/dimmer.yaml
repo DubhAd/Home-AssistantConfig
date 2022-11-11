@@ -8,6 +8,6 @@ condition:
   - condition: template
     value_template: "{{ trigger.to_state.state == trigger.to_state.attributes.action }}"
 action:
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: "The following button was pressed: {{ trigger.to_state.state }} - {{ trigger.to_state.attributes.action }}"

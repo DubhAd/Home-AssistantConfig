@@ -26,9 +26,5 @@ condition:
     entity_id: input_boolean.stream_front_camera_motion
     state: 'on'
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Motion detection event begins on {{ trigger.entity_id }}
   - service: input_boolean.turn_on
     entity_id: input_boolean.stream_camera

@@ -1,9 +1,5 @@
 alias: person3 traveltime
 sequence:
-  - service: notify.logfile
-    data:
-      message: >
-        Updated travel time for person3 at {{ now() }}
   - choose:
       - conditions:
           - condition: state

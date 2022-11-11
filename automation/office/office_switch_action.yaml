@@ -7,9 +7,6 @@ trigger:
 condition:
   - "{{ trigger.to_state.state != '' }}"
 action:
-  - service: notify.logfile
-    data:
-      message: "Office switch action was: ={{ trigger.to_state.state }}="
   - choose:
      # Single
      - alias: "Single switch push - toggle the lights"

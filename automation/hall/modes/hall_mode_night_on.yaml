@@ -61,10 +61,6 @@ condition:
       entity_id: input_boolean.home_occupied
       state: 'on'
 action:
-  - service: notify.logfile
-    data:
-      message: >-
-        Hall turned Night on by {{ trigger.entity_id }} - light level is {{ states('sensor.downstairs_hall_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.hall

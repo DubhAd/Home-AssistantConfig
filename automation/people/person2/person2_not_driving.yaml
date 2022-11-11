@@ -17,10 +17,6 @@ condition:
     entity_id: input_boolean.person2_driving
     state: 'on'
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        person2 stopped driving at {{ now() }} because of {{ trigger.platform }} - waiting to update location
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_driving
   - wait_for_trigger:

@@ -17,7 +17,7 @@ condition:
     state: 'off'
 action:
   # Update 
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: >
          Location last updated within last 60 seconds? {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.pixel_xl.last_updated)|float)|float < 60 }}
@@ -28,7 +28,3 @@ action:
       {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.pixel_xl.last_updated)|float)|float < 60 }}
   - service: script.turn_on
     entity_id: script.person2_traveltime
-  - service: notify.logfile
-    data:
-      message: >
-        Updated travel time because person2 has entered or exited the car, and we received a location update in the last minute

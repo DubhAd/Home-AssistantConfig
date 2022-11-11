@@ -14,9 +14,5 @@ trigger:
       - sensor.person3s_time_to_home_by_google
       - sensor.person3s_time_to_home_by_foot_duration
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Location for person3 updated at {{ now() }}
   - service: script.turn_on
     entity_id: script.person3_travel_sensor

@@ -3,11 +3,11 @@ variables:
   away_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
   door_recent: "{{ ((now() - states.binary_sensor.front_door_contact.last_changed).seconds < 300) or ((now() - states.binary_sensor.garage_door_car_contact.last_changed).seconds < 300) }}"
 sequence:
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: "This was a test - {{ away_count }} and {{ door_recent }}"
   - condition: template
     value_template: "{{ door_recent == 'False' }}"
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: "Looks like the door hasn't opened recently"

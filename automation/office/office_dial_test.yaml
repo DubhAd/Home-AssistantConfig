@@ -10,7 +10,7 @@ trigger:
     to: 'double'
     id: 'double'
 action:
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: >-
         From {{ trigger.from_state.state }}/{{ trigger.from_state.attributes.action }} to {{ trigger.to_state.state }}/{{ trigger.to_state.attributes.action }}

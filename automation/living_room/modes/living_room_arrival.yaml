@@ -39,11 +39,6 @@ condition:
     below: 4
     #below: input_number.room_dark
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Arrival triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.living_room_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.living_room

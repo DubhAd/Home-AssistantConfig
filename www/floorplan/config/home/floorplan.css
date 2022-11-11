@@ -104,14 +104,16 @@ background-color: var(--primary-background-color);
 }
 
 .interior-door-closed {
-  fill: #cd9948 !important;
+  /* fill: #cd9948 !important; */
+  /* fill: #40a2cf !important; */
+  fill: #40a2cf !important;
   fill-opacity: 1 !important;
 }
 
 .door-closed {
   /* fill: #77FF77 !important; */
   /* fill: #81c9a7 !important; */
-  fill: #81c9a !important;
+  fill: #81c9a0 !important;
   fill-opacity: 1 !important;
 /*   stroke: #82caa8 !important;
   stroke-width: 1px !important;  
@@ -178,7 +180,8 @@ background-color: var(--primary-background-color);
 }
 
 .closed-appliance {
-  fill: #5f739b !important;
+  /* fill: #5f739b !important; */
+  fill: #44607f !important;
   fill-opacity: 1 !important;
 }
 

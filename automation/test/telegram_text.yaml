@@ -5,7 +5,7 @@ trigger:
   - platform: event
     event_type: telegram_text
 action:
-  - service: notify.logfile
+  - service: notify.debug_log
     data:
       message: >
         Received text: {{ trigger.event.data.text }}

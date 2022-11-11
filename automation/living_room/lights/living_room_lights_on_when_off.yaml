@@ -43,9 +43,6 @@ action:
     entity_id:
       - switch.adaptive_lighting_living_room_lamps
       - switch.adaptive_lighting_living_room_table
-  - service: notify.logfile
-    data:
-      message: "Turning off the living room lights again (mode is currently {{ states('input_select.living_room') }})"
   # Only turn off the things that are on
   - choose:
       - conditions:

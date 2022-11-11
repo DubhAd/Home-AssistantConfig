@@ -12,10 +12,6 @@ trigger:
       - sensor.person2s_time_to_home_distance
       - sensor.person2s_time_to_home_waze
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Location for person2 updated at {{ now() }}
   - service: script.person2_travel_sensor
   - choose:
     - conditions:

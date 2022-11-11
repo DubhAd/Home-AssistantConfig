@@ -13,9 +13,5 @@ trigger:
       - sensor.person1s_time_to_home_by_foot_duration
       - sensor.person1s_time_to_home_waze
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Location for person1 updated at {{ now() }}
   - service: script.turn_on
     entity_id: script.person1_travel_sensor

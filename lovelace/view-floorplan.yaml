@@ -463,6 +463,14 @@ cards:
           propagate: true
 
         - entities:
+            - binary_sensor.office_mmwave_presence
+          states:
+            - state: 'on'
+              class: 'squeezebox-on'
+            - state: 'off'
+              class: entity-noalert
+
+        - entities:
             - binary_sensor.living_room_presence_occupancy
             - binary_sensor.office_presence_occupancy
             - binary_sensor.downstairs_hall_motion_occupancy

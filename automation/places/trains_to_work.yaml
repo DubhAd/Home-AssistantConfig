@@ -21,8 +21,5 @@ condition:
     after: '06:00:00'
     before: '12:00:00'
 action:
-  - service: notify.logfile
-    data:
-      message: "Updating train times to work"
   - service: script.turn_on
     entity_id: script.train_message

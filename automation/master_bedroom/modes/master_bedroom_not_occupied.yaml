@@ -21,9 +21,5 @@ condition:
   - condition: time
     after: '03:00:00'
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Master bedroom not occupied triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
   - service: input_boolean.turn_off
     entity_id: input_boolean.master_bedroom_occupied

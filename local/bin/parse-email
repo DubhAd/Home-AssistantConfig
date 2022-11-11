@@ -12,24 +12,20 @@ Received email from ${SENDER} at $(date +"%F %T")
 EOM
 
 case ${SENDER} in 
-##	*greenboxday.co.uk )
-##		TDIR=$(mktemp --directory --suffix=.pe)
-##		MASTER=${TDIR}/email.file.${SENDER}
-##		cat > ${MASTER}
-##
-##		cat ${MASTER} | sed "1,/^$/d" | sed ':a;N;$!ba;s/=\n//g' | sed 's/<[^>]*>//g' > ${MASTER}.body
-##
-##		WHAT=$(cat ${MASTER}.body | grep " Bin Collection " | sed -e "s/.*relates to the forthcoming scheduled //" -e "s/ Bin Collection on .*//")
-##		WHEN=$(date --date="$(cat ${MASTER}.body | grep " Bin Collection " | sed -e "s/.* Bin Collection on //" -e "s/ for POST CODE.*//" | sed "s/\([0-9]\)[a-z][a-z] /\1 /")" +"%F %T")
-##
-##		cat << EOM >> ${BINFILE}.${WHAT:l}.json
-##{ "collection_date":"${WHEN}", "collection_type":"${WHAT} Bin Collection","timestamp":"$(date +"%F %T")" }
-##EOM
-##		;;
 	*COUNCIL.gov.uk )
 		TDIR=$(mktemp --directory --suffix=.pe)
 		MASTER=${TDIR}/email.file.${SENDER}
 		cat > ${MASTER}
+
+		cat ${MASTER} | grep -q " POST CODE. Your "
+		if [ ${?} -ne 0 ]; then
+			# not a bin email, skip it
+			cp ${MASTER} /tmp/email-$(date +%s).txt
+			rm -rf ${TDIR}
+			exit 0
+		fi
+
+		cp ${MASTER} /tmp/email.txt
 
 		cat ${MASTER} | sed "1,/^$/d" | sed ':a;N;$!ba;s/=\n//g' | sed 's/<[^>]*>//g' | csplit -f ${TDIR}/xx - '/^----/' '{*}' >/dev/null 2>&1
 
@@ -47,13 +43,17 @@ case ${SENDER} in
 				;;
 		esac
 
-		cat << EOM >> ${BINFILE}.${WHAT:l}.json
-{ "collection_date":"${WHEN}", "collection_type":"${WHAT} Bin Collection","timestamp":"$(date +"%F %T")" }
-EOM
-		cat <<-EOM >> ${LOGFILE}
-		==========
-		${WHAT} bin collection at ${WHEN} (parsed at $(date +"%F %T"))
-		EOM
+		if [ -n "${WHAT}" ]; then
+			cat <<-EOM >> ${BINFILE}.${WHAT:l}.json
+			{ "collection_date":"${WHEN}", "collection_type":"${WHAT} Bin Collection","timestamp":"$(date +"%F %T")" }
+			EOM
+			cat <<-EOM >> ${LOGFILE}
+			==========
+			${WHAT} bin collection at ${WHEN} (parsed at $(date +"%F %T"))
+			EOM
+		else
+			cp ${MASTER} /tmp/email-$(date +%s).txt
+		fi
 		;;
 	* )	TDIR=$(mktemp --directory --suffix=.pe)
 		MASTER=${TDIR}/email.file.${SENDER}

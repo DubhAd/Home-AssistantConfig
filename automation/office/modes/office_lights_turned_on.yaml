@@ -11,11 +11,6 @@ condition:
     entity_id: input_select.office
     state: 'Off'
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Office lights turned on triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.office_illuminance_illuminance_lux') }}
   - choose:
       - conditions:
           - condition: state

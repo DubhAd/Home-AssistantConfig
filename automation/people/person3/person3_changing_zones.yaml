@@ -17,8 +17,5 @@ condition:
     #value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('script.person3_traveltime','last_triggered'))|float)|float > 300 }}"
     value_template: "{{ (now() - state_attr('script.person3_traveltime','last_triggered')).seconds > 300 }}"
 action:
-  - service: notify.logfile
-    data:
-      message: "Updating travel time for person3 due to entering a zone, or leaving one 5 minutes ago"
   - service: script.turn_on
     entity_id: script.person3_traveltime

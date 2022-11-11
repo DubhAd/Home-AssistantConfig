@@ -33,8 +33,3 @@ condition:
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.master_bedroom_occupied
-  - service: notify.logfile
-    data:
-      message: >
-        Master bedroom occupied triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-        {{ states('binary_sensor.master_bedroom_door_contact') }} / {{ states('input_boolean.person2_in_bed') }} 

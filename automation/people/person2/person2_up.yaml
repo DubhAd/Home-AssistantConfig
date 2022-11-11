@@ -37,10 +37,6 @@ action:
     entity_id: input_boolean.person2_in_bed
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
-  - service: notify.logfile
-    data:
-      message: >
-        Turned off person2 in bed because the {{ trigger.to_state.name }} was {{ trigger.to_state.state }} at {{ now() }}
   - condition: and
     conditions:
     # Working, but not from home, and the alarm got me up
@@ -53,22 +49,13 @@ action:
     - condition: state
       entity_id: media_player.person2
       state: 'playing'
-  - service: notify.logfile
-    data:
-      message: "Not on holiday, not working from home, alarm is playing..."
   # Update the trains
   - service: script.turn_on
     entity_id: script.train_message
-  - service: notify.logfile
-    data:
-      message: "Waiting up to 30 seconds for the radio to turn off"
   # And wait for the radio to be turned off (that is, I'm actually awake)
   - wait_template: "{{ is_state('media_player.person2','off') or is_state('media_player.person2','paused') }}"
     timeout: '00:02:00'
     continue_on_timeout: 'true'
-  - service: notify.logfile
-    data:
-      message: "Announcing state of the trains"
   # Now tell me about it
   - service: media_player.turn_on
     data:

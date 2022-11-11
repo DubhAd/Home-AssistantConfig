@@ -9,11 +9,6 @@ condition:
   - condition: template
     value_template: "{{ states('input_select.master_bedroom') not in ('Off') }}"
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Master bedroom lights turned off triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.master_bedroom_light_sensor_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.master_bedroom

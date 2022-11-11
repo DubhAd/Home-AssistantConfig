@@ -12,9 +12,5 @@ trigger:
       - sensor.person4s_time_to_home_waze
       - sensor.person4s_time_to_person4_o
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Location for Elizabeth updated at {{ now() }}
   - service: script.turn_on
     entity_id: script.person4_travel_sensor

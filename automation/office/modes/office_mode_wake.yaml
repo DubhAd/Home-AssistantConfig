@@ -24,11 +24,6 @@ condition:
     entity_id: sensor.office_illuminance_illuminance_lux
     below: 15
 action:
-  - service: notify.logfile
-    data:
-      message: >
-        Office Wake triggered at {{ now() }} by {{ trigger.entity_id }}, was {{ trigger.from_state.state }} is {{ trigger.to_state.state }}
-          Light level is {{ states('sensor.office_illuminance_illuminance_lux') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.office
