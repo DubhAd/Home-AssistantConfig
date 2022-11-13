@@ -5,9 +5,6 @@ sequence:
           - condition: state
             entity_id: input_boolean.google_travel_time
             state: 'on'
-          - condition: numeric_state
-            entity_id: proximity.person1_home
-            above: 500
           - condition: not
             conditions:
               - condition: state
@@ -25,9 +22,6 @@ sequence:
         sequence: 
           - service: homeassistant.update_entity
             entity_id: sensor.person1s_time_to_home_by_foot_duration
-          - condition: numeric_state
-            entity_id: proximity.person1_home
-            above: 500
           - service: homeassistant.update_entity
             entity_id: sensor.person1s_time_to_home_duration
   # Whatever happens, update Waze
