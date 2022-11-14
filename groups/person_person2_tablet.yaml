@@ -1,5 +1,5 @@
 name: person2's tablet
-icon: mdi:tablet-android
+icon: mdi:tablet
 entities:
 - device_tracker.person2_tablet_m5
 - device_tracker.person2_bt_tablet_2
