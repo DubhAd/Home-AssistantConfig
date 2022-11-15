@@ -10,3 +10,7 @@ action:
     entity_id: alarm_control_panel.ha_alarm
     data:
       code: !secret alarm_code
+  - service: alarmo.arm
+    data:
+      entity_id: alarm_control_panel.master
+      mode: away
