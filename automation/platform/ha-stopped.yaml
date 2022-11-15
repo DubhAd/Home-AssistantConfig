@@ -5,6 +5,9 @@ trigger:
   platform: homeassistant
   event: shutdown
 action:
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.shutdown_in_progress
   - service: script.notify_person2
     data:
       message: "Home Assistant {{ states('sensor.current_version') }} has shut down on Vision ({{ as_timestamp(utcnow())|timestamp_utc }})"

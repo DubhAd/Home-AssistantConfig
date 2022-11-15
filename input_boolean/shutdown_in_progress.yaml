@@ -1,0 +1,3 @@
+name: Shutdown in progress
+icon: mdi:close-octagon
+initial: false

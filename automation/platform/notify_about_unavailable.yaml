@@ -9,6 +9,10 @@ trigger:
     for: '00:30:00'
   - platform: state
     entity_id: sensor.unavailable_entities
+condition:
+  - condition: state
+    entity_id: input_boolean.shutdown_in_progress
+    state: 'off'
 action:
   - choose:
     - alias: 'Nothing to nothing'
