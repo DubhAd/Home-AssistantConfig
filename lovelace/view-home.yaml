@@ -24,7 +24,9 @@ cards:
           show_conditions: true
           show_temperature: true
         - type: alarm-control-panel
-          entity: alarm_control_panel.ha_alarm
+          entity: alarm_control_panel.house
+        - type: alarm-control-panel
+          entity: alarm_control_panel.garage
       alignment: center
     - type: horizontal-stack
       cards:
