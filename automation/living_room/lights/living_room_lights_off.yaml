@@ -2,6 +2,8 @@ id: 'living_room_lights_off'
 initial_state: 'on'
 alias: 'Living room lights off'
 trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id:
     - input_select.living_room

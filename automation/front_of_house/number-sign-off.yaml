@@ -4,8 +4,20 @@ alias: 'Number sign off'
 trigger:
   - platform: time
     at: '23:59:00'
-  - platform: sun
-    event: sunrise
+    id: 'time'
+  - platform: state
+    entity_id: sun.sun
+    to: 'above_horizon'
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: or
+    conditions:
+      - condition: trigger
+        id: 'time'
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
 action:
   - service: switch.turn_off
     entity_id: switch.number_sign

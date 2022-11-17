@@ -2,6 +2,8 @@ id: 'number_on_at_sunset'
 initial_state: 'on'
 alias: 'Number on at sunset'
 trigger:
+  - platform: homeassistant
+    event: start
   - platform: numeric_state
     entity_id: sensor.sun_elevation
     below: 0
@@ -17,44 +19,42 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: switch.number_sign
-      state: 'off'
-    - condition: or
+  - condition: state
+    entity_id: switch.number_sign
+    state: 'off'
+  - condition: or
+    conditions:
+    # Sun at horizon
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      below: 0
+    # Sun at 3 degrees and cover above 75%
+    - condition: and
       conditions:
-      # Sun at horizon
       - condition: numeric_state
         entity_id: sensor.sun_elevation
-        below: 0
-      # Sun at 3 degrees and cover above 75%
-      - condition: and
-        conditions:
-        - condition: numeric_state
-          entity_id: sensor.sun_elevation
-          below: 3
-        - condition: numeric_state
-          entity_id: sensor.dark_sky_cloud_coverage
-          above: 75
-      # Sun at 2 degrees and cover above 50%
-      - condition: and
-        conditions:
-        - condition: numeric_state
-          entity_id: sensor.sun_elevation
-          below: 2
-        - condition: numeric_state
-          entity_id: sensor.dark_sky_cloud_coverage
-          above: 50
-      # Sun at 1 degrees and cover above 25%
-      - condition: and
-        conditions:
-        - condition: numeric_state
-          entity_id: sensor.sun_elevation
-          below: 1
-        - condition: numeric_state
-          entity_id: sensor.dark_sky_cloud_coverage
-          above: 25
+        below: 3
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_cloud_coverage
+        above: 75
+    # Sun at 2 degrees and cover above 50%
+    - condition: and
+      conditions:
+      - condition: numeric_state
+        entity_id: sensor.sun_elevation
+        below: 2
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_cloud_coverage
+        above: 50
+    # Sun at 1 degrees and cover above 25%
+    - condition: and
+      conditions:
+      - condition: numeric_state
+        entity_id: sensor.sun_elevation
+        below: 1
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_cloud_coverage
+        above: 25
 action:
   - service: switch.turn_on
     entity_id: switch.number_sign

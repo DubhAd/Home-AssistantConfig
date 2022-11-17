@@ -4,9 +4,15 @@ alias: 'Number on in the morning'
 trigger:
   - platform: time
     at: '06:30:00'
+  - platform: homeassistant
+    event: start
 condition: 
-  - condition: sun
-    before: sunrise
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  - condition: state
+    entity_id: switch.number_sign
+    state: 'off'
 action:
   - service: switch.turn_on
     entity_id: switch.number_sign

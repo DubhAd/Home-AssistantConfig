@@ -8,13 +8,23 @@ trigger:
   - platform: state
     entity_id: binary_sensor.office_mmwave_presence
     to: 'off'
+  - platform: state
+    entity_id: binary_sensor.office_mmwave_presence
+    to: 'off'
+    for: '00:10:00'
 condition:
   - condition: state
     entity_id: input_boolean.office_occupied
     state: 'on'
-  - condition: state
-    entity_id: group.work_laptop
-    state: 'not_home'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: group.work_laptop
+        state: 'not_home'
+      - condition: state
+        entity_id: binary_sensor.office_mmwave_presence
+        state: 'off'
+        for: '00:10:00'
   - condition: state
     entity_id: binary_sensor.office_mmwave_presence
     state: 'off'

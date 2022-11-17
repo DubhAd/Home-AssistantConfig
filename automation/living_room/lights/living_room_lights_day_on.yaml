@@ -2,6 +2,8 @@ id: 'living_room_lights_day_on'
 initial_state: 'on'
 alias: 'Living room lights day on'
 trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: input_select.living_room
     to: 'Day on'
