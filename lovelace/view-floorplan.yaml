@@ -84,6 +84,16 @@ cards:
               class: 'unknown'
 
         - entities:
+            - binary_sensor.ps5_status
+          states:
+            - state: 'off'
+              class: entity-alert
+            - state: 'on'
+              class: entity-noalert
+            - state: 'unknown'
+              class: 'unknown'
+
+        - entities:
             - input_boolean.car_home
           states:
             - state: 'on'

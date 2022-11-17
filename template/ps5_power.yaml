@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'PS5 power'
+    unique_id: 'ps5_power'
+    state: >-
+      {{ state_attr('sensor.ps5_724_activity','power')|lower }}

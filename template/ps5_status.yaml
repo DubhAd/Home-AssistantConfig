@@ -1,0 +1,6 @@
+- binary_sensor:
+  - name: 'PS5 status'
+    unique_id: 'ps5_status'
+    device_class: 'connectivity'
+    state: >-
+      {{ is_state_attr('sensor.ps5_724_activity','device_status','online') }}
