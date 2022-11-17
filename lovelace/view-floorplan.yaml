@@ -156,7 +156,10 @@ cards:
         - entities:
             - media_player.person2
             - media_player.person1
+            - switch.ps5_724_power
           states:
+            - state: 'on'
+              class: 'squeezebox-on'
             - state: 'playing'
               class: 'squeezebox-on'
             - state: 'paused'
