@@ -1,0 +1,57 @@
+id: 'living_room_lights_wake_on'
+initial_state: 'on'
+alias: 'Living room lights wake on'
+trigger:
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Wake'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Wake'
+  - platform: state
+    entity_id: input_select.living_room
+    to: 'Auto'
+  - platform: state
+    entity_id: input_boolean.lighting_automations
+    to: 'on'
+condition:
+  # Lighting automations must be enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.living_room
+      state: 'Wake'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.living_room
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Wake'
+action:
+  - service: switch.turn_on
+    entity_id:
+      - switch.adaptive_lighting_living_room_lamps
+      - switch.adaptive_lighting_living_room_table
+  - alias: "Turn on the table light"
+    repeat:
+      while:
+        - condition: state
+          entity_id: light.living_room_table_lamp
+          state: 'off'
+        # Don't do it too many times
+        - condition: template
+          value_template: "{{ repeat.index <= 5 }}"
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_table_lamp
+          transition: 1
+          brightness_pct: 100
+          color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_mired') }}"
+      - delay: '00:00:10'
+    # end of repeat block

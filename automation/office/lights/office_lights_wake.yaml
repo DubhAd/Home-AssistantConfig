@@ -46,4 +46,4 @@ action:
     target:
       entity_id: light.office_strip
     data:
-      brightness_pct: 10
+      brightness_pct: 5
