@@ -1,0 +1,7 @@
+- binary_sensor:
+  - name: 'Garden lights left on'
+    unique_id: 'left_the_garden_lights_on'
+    delay_on: '00:00:05'
+    device_class: 'power'
+    state: >-
+      {{ is_state('switch.garden_lights', 'on' ) and ((states.sensor.time.last_updated - states.switch.garden_lights.last_changed).seconds > (states('input_number.garden_time')|float * 60)) }}
