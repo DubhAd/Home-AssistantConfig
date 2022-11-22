@@ -47,12 +47,8 @@ condition:
     entity_id: input_boolean.person2_home
     state: 'on'
 action:
-  - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_office
   - service: input_boolean.turn_on
     entity_id: 
       - input_boolean.office_occupied
       - input_boolean.lighting_office
       - input_boolean.stream_front_camera_motion
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_office
