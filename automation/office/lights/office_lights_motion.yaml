@@ -40,16 +40,19 @@ action:
     then:
       - service: switch.turn_on
         target:
-          entity_id: switch.adaptive_lighting_sleep_mode_office
+          entity_id: 
+            - switch.adaptive_lighting_sleep_mode_office
+            - switch.adaptive_lighting_adapt_brightness_office
     else:
       - service: switch.turn_off
         target:
-          entity_id: switch.adaptive_lighting_sleep_mode_office
+          entity_id: 
+            - switch.adaptive_lighting_sleep_mode_office
+            - switch.adaptive_lighting_adapt_brightness_office
   - service: switch.turn_on
     target:
-      entity_id: 
-        - switch.adaptive_lighting_office
-        - switch.adaptive_lighting_adapt_brightness_office
+      entity_id: switch.adaptive_lighting_office
   - service: light.turn_on
     data:
       entity_id: light.office_strip
+      brightness_pct: 5

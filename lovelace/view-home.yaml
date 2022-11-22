@@ -43,8 +43,17 @@ cards:
     - type: custom:hourly-weather
       name: ~
       entity: weather.home_hourly
-      icons: true
       num_segments: 24
+      icons: true
+      show_wind: 'direction'
+      colors:
+        fog: '#777'
+        cloudy: '#b3bbcf'
+        sunny: '#eFeF90'
+        windy: '#90cbff'
+        windy-variant: '#90cbff'
+        lightning: '#5693C8'
+        pouring: '#375E80'
   
 
   - type: vertical-stack
