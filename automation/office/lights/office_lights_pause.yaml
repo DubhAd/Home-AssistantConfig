@@ -20,12 +20,10 @@ action:
   - service: switch.turn_off
     target:
       entity_id: 
-        #- switch.adaptive_lighting_office
-        - switch.adaptive_lighting_adapt_brightness_office
-        - switch.adaptive_lighting_sleep_mode_office
+        - switch.adaptive_lighting_office
   - service: light.turn_on
     target:
       entity_id: light.office_strip
     data:
-      brightness_pct: 1
+      brightness_pct: 2
       transition: 1
