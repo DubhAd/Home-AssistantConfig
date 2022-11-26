@@ -42,3 +42,5 @@
   type: module
 - url: /hacsfiles/clock-weather-card/clock-weather-card.js
   type: module
+- url: /hacsfiles/bom-weather-card/bom-weather-card.js
+  type: module
