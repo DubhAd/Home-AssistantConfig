@@ -33,7 +33,7 @@ condition:
       conditions:
       - condition: template
         value_template: >-
-          {{ ((now() - states.binary_sensor.front_door_contact.last_changed).seconds < 120 ) }}
+          {{ (now() - states.binary_sensor.front_door_contact.last_changed) < timedelta(minutes=2) }}
       - condition: numeric_state
         entity_id: group.person_person2
         above: 0
