@@ -1,0 +1,27 @@
+id: 'person2_wifi_status'
+alias: 'person2 WiFi status'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.pixel_xl_wifi_connection
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+action:
+  - choose:
+    - conditions:
+        - condition: template
+          value_template: "{{ 'Cogs-n-Gears' in states('sensor.pixel_xl_wifi_connection') }}"
+      sequence:
+        - service: mqtt.publish
+          data:
+            topic: location/person2_wifi
+            payload: 'home'
+            retain: true
+    default:
+      - service: mqtt.publish
+        data:
+          topic: location/person2_wifi
+          payload: 'not_home'
+          retain: true
