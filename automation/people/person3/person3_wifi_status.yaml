@@ -1,6 +1,5 @@
 id: 'person3_wifi_status'
 alias: 'person3 WiFi status'
-initial_state: 'on'
 trigger:
   - platform: state
     entity_id: sensor.person3_pixel_3a_wifi_connection
