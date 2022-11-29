@@ -103,15 +103,23 @@ cards:
       charging_state: 
         entity_id: binary_sensor.dsb_0230_is_charging
         state: 'on'
+    - entity: sensor.kelsie_battery_charge_remaining_percentage
+      charging_state: 
+        entity_id: sensor.kelsie_battery_powerline_status
+        state: 'Online'
   filter:
     include:
       - name: entity_id
         value: "*_battery"
       - name: entity_id
         value: "*_battery_level"
+      - name: entity_id
+        value: "*_battery_charge_remaining_percentage"
     exclude:
       - name: entity_id
         value: "*mobile*"
+      - name: entity_id
+        value: "sensor.person1_lenovo_tb_j606f_battery_level"
       - name: name
         operator: "contains"
         value: "Battery Level"

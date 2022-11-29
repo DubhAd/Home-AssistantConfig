@@ -197,7 +197,7 @@ cards:
           name: Next alarm
       - type: glance
         title: person2's devices
-        columns: 5
+        columns: 6
         entities:
         - entity: device_tracker.sht_al09
           name: Tablet
@@ -205,6 +205,9 @@ cards:
         - entity: device_tracker.person2_tablet_m5
           name: Tablet
           icon: mdi:wifi
+        - entity: device_tracker.person_person2_tablet_wifi
+          name: App
+          icon: mdi:wifi-star
         - entity: device_tracker.person2_bt_front_tablet_2
           name: Front
           icon: mdi:bluetooth
@@ -226,6 +229,12 @@ cards:
         - entity: device_tracker.person2_bt_front_laptop_2
           name: Laptop Front
           icon: mdi:bluetooth
+        - type: custom:battery-state-entity
+          name: Battery
+          entity: sensor.kelsie_battery_charge_remaining_percentage
+          charging_state:
+            entity_id: sensor.kelsie_battery_powerline_status
+            state: 'Online'
       - type: "custom:atomic-calendar-revive"
         name: "Calendar"
         entities:
