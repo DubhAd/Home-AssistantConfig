@@ -34,15 +34,19 @@ cards:
         - entity: device_tracker.person3_mobile_wifi
           name: WiFi
           icon: mdi:wifi
+          show_last_changed: true
         - entity: device_tracker.person_person3_wifi
           name: App
           icon: mdi:wifi-star
+          show_last_changed: true
         - entity: device_tracker.person3_bt_front_mobile_2
           name: Front
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: device_tracker.person3_bt_mobile_2
           name: Rear
           icon: mdi:bluetooth
+          show_last_changed: true
         - type: custom:battery-state-entity
           entity: sensor.person3_pixel_3a_battery_level
           name: Battery
@@ -105,12 +109,15 @@ cards:
       - entity: device_tracker.00_1d_29_f0_4d_da
         name: WiFi
         icon: mdi:wifi
+        show_last_changed: true
       - entity: device_tracker.person4_bt_front_mobile_2
         name: Front
         icon: mdi:bluetooth
+        show_last_changed: true
       - entity: device_tracker.person4_bt_mobile_2
         name: Rear
         icon: mdi:bluetooth
+        show_last_changed: true
       - type: custom:battery-state-entity
         name: Battery
         entity: sensor.dsb_0230_battery_level
@@ -158,15 +165,19 @@ cards:
         - entity: device_tracker.nmap_tracker_f8_1a_2b_e5_02_c4
           name: WiFi
           icon: mdi:wifi
+          show_last_changed: true
         - entity: device_tracker.person_person2_wifi
           name: App
           icon: mdi:wifi-star
+          show_last_changed: true
         - entity: device_tracker.person2_bt_front_mobile_2
           name: Front
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: device_tracker.person2_bt_mobile_2
           name: Rear
           icon: mdi:bluetooth
+          show_last_changed: true
         - type: custom:battery-state-entity
           name: Battery
           entity: sensor.pixel_xl_battery_level
@@ -205,15 +216,19 @@ cards:
         - entity: device_tracker.person2_tablet_m5
           name: Tablet
           icon: mdi:wifi
+          show_last_changed: true
         - entity: device_tracker.person_person2_tablet_wifi
           name: App
           icon: mdi:wifi-star
+          show_last_changed: true
         - entity: device_tracker.person2_bt_front_tablet_2
           name: Front
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: device_tracker.person2_bt_tablet_2
           name: Rear
           icon: mdi:bluetooth
+          show_last_changed: true
         - type: custom:battery-state-entity
           name: Battery
           entity: sensor.sht_al09_battery_level
@@ -223,12 +238,15 @@ cards:
         - entity: group.own_laptop
           name: Laptop
           icon: mdi:wifi
+          show_last_changed: true
         - entity: device_tracker.person2_bt_laptop_2
           name: Laptop Rear
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: device_tracker.person2_bt_front_laptop_2
           name: Laptop Front
           icon: mdi:bluetooth
+          show_last_changed: true
         - type: custom:battery-state-entity
           name: Battery
           entity: sensor.kelsie_battery_charge_remaining_percentage
@@ -274,21 +292,27 @@ cards:
         - entity: device_tracker.work_iphone
           name: WiFi
           icon: mdi:wifi
+          show_last_changed: true
         - entity: device_tracker.person2_bt_front_work_2
           name: Front
           icon: mdi:phone-bluetooth
+          show_last_changed: true
         - entity: device_tracker.person2_bt_work_2
           name: Rear
           icon: mdi:phone-bluetooth
+          show_last_changed: true
         - entity: group.work_laptop
           name: Laptop 
           icon: mdi:laptop
+          show_last_changed: true
         - entity: device_tracker.work_front_laptop_2
           name: Front
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: device_tracker.work_laptop_2
           name: Rear
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: proximity.person2_work
           name: To work
         - entity: calendar.person2_wfh
@@ -330,15 +354,19 @@ cards:
         - entity: device_tracker.person1_mobile_wifi
           name: WiFi
           icon: mdi:wifi
+          show_last_changed: true
         - entity: device_tracker.person_person1_wifi
           name: App
           icon: mdi:wifi-star
+          show_last_changed: true
         - entity: device_tracker.person1_bt_front_mobile_2
           name: Front
           icon: mdi:bluetooth
+          show_last_changed: true
         - entity: device_tracker.person1_bt_mobile_2
           name: Rear
           icon: mdi:bluetooth
+          show_last_changed: true
         - type: custom:battery-state-entity
           name: Battery
           entity: sensor.person1_pixel_3_battery_level
