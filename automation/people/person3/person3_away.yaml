@@ -6,9 +6,9 @@ trigger:
     entity_id: proximity.person3_home
   - platform: state
     entity_id:
-      - device_tracker.person3_mobile_wifi
       - device_tracker.person3_bt_mobile_2
       - device_tracker.person3_bt_front_mobile_2
+      - device_tracker.person_person3_wifi
     to: 'not_home'
   - platform: homeassistant
     event: start
@@ -23,7 +23,7 @@ condition:
     # Two or more trackers mark as away, door opened/closed in the last 5 minutes
     - condition: and
       conditions:
-      # More than one tracker shows away
+      # At least half of each type of tracker shows away
       - condition: template
         value_template: >-
           {{ 
