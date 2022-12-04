@@ -6,7 +6,7 @@ trigger:
     entity_id: input_boolean.person3_phone_charging
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.person3_pixel_3a_device_locked
+    entity_id: binary_sensor.pixel_6a_device_locked
     to: 'on'
     for: '00:10:00'
   - platform: state
@@ -36,7 +36,7 @@ condition:
           entity_id: input_boolean.person3_phone_charging
           state: 'on'
         - condition: state
-          entity_id: binary_sensor.person3_pixel_3a_device_locked
+          entity_id: binary_sensor.pixel_6a_device_locked
           state: 'on'
           for: '00:10:00'
     - condition: and

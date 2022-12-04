@@ -3,10 +3,10 @@ initial_state: 'on'
 alias: 'person3 next alarm'
 trigger:
   - platform: state
-    entity_id: sensor.person3_pixel_3a_next_alarm
+    entity_id: sensor.pixel_6a_next_alarm
     to: ~
 action:
   - service: input_datetime.set_datetime
     entity_id: input_datetime.person3_next_alarm
     data:
-      timestamp: "{{ state_attr('sensor.person3_pixel_3a_next_alarm','Time in Milliseconds')/1000 }}"
+      timestamp: "{{ state_attr('sensor.pixel_6a_next_alarm','Time in Milliseconds')/1000 }}"

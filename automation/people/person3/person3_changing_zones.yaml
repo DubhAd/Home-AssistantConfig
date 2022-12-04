@@ -4,12 +4,12 @@ alias: 'person3 changing zones'
 trigger:
   # Been away for a few minutes
   - platform: state
-    entity_id: device_tracker.person3_pixel_3a
+    entity_id: device_tracker.pixel_6a
     to: 'not_home'
     for: '00:05:00'
   # Arrived in a zone
   - platform: state
-    entity_id: device_tracker.person3_pixel_3a
+    entity_id: device_tracker.pixel_6a
     from: 'not_home'
 condition:
   # Been at least 5 minutes

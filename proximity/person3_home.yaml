@@ -1,5 +1,5 @@
 person3_home:
   zone: home
   devices:
-    - device_tracker.person3_pixel_3a
+    - device_tracker.pixel_6a
   unit_of_measurement: m

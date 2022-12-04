@@ -28,7 +28,7 @@ cards:
       - type: glance
         columns: 6
         entities:
-        - entity: device_tracker.person3_pixel_3a
+        - entity: device_tracker.pixel_6a
           name: GPS
           icon: mdi:crosshairs-gps
         - entity: device_tracker.nmap_tracker_person3
@@ -48,10 +48,10 @@ cards:
           icon: mdi:bluetooth
           show_last_changed: true
         - type: custom:battery-state-entity
-          entity: sensor.person3_pixel_3a_battery_level
+          entity: sensor.pixel_6a_battery_level
           name: Battery
           charging_state:
-            entity_id: sensor.person3_pixel_3a_battery_state
+            entity_id: sensor.pixel_6a_battery_state
             state: "charging"
         - entity: sensor.person3s_time_to_home_duration_in_traffic
           name: Car home

@@ -87,9 +87,9 @@ cards:
       charging_state: 
         entity_id: binary_sensor.person1_pixel_3_is_charging
         state: 'on'
-    - entity: sensor.person3_pixel_3a_battery_level
+    - entity: sensor.pixel_6a_battery_level
       charging_state: 
-        entity_id: binary_sensor.person3_pixel_3a_is_charging
+        entity_id: binary_sensor.pixel_6a_is_charging
         state: 'on'
     - entity: sensor.sht_al09_battery_level
       charging_state: 

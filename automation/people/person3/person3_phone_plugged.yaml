@@ -7,7 +7,7 @@ trigger:
     event_data:
       who: person3
   - platform: state
-    entity_id: sensor.person3_pixel_3a_charger_type
+    entity_id: sensor.pixel_6a_charger_type
     from: 'none'
 condition:
   - condition: state
@@ -21,7 +21,7 @@ condition:
       - condition: not
         conditions:
           - condition: state
-            entity_id: sensor.person3_pixel_3a_charger_type
+            entity_id: sensor.pixel_6a_charger_type
             state: 'none'
 action:
   - service: input_boolean.turn_on
