@@ -2,7 +2,7 @@ id: 'person3_wifi_status'
 alias: 'person3 WiFi status'
 trigger:
   - platform: state
-    entity_id: sensor.person3_pixel_3a_wifi_connection
+    entity_id: sensor.pixel_6a_wifi_connection
   - platform: homeassistant
     event: start
   - platform: event
@@ -11,7 +11,7 @@ action:
   - choose:
     - conditions:
         - condition: template
-          value_template: "{{ 'Cogs-n-Gears' in states('sensor.person3_pixel_3a_wifi_connection') }}"
+          value_template: "{{ 'Cogs-n-Gears' in states('sensor.pixel_6a_wifi_connection') }}"
       sequence:
         - service: mqtt.publish
           data:
