@@ -64,3 +64,5 @@ device_tracker.person3_bt_mobile:
   source_type: bluetooth
 device_tracker.08_a6_bc_ea_df_3f:
   friendly_name: person2_kindle_oasis
+device_tracker.f8_0f_f9_df_15_5e:
+  friendly_name: "person1's mobile"
