@@ -5,26 +5,7 @@ logger:
   logs:
     homeassistant.helpers.template: error
 
-  
-
 default_config:
-cloud:
-config:
-counter:
-dhcp:
-history:
-image:
-logbook:
-map:
-media_source:
-mobile_app:
-my:
-person:
-ssdp:
-sun:
-system_health:
-webhook:
-zeroconf:
 
 frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml

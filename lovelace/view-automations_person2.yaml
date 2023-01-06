@@ -77,8 +77,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person2_not_overseas
     secondary_info: last-triggered
-  - entity: automation.person2_status_update
-    secondary_info: last-triggered
   - entity: automation.person2_home_enable_garage_open
     secondary_info: last-triggered
   - entity: automation.person2_home_disable_garage_open

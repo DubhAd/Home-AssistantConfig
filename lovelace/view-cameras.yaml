@@ -7,7 +7,3 @@ cards:
     entity: camera.front_camera
   - type: custom:webrtc-camera
     entity: camera.front_camera_lowres
-  - type: picture-entity
-    entity: camera.garage
-    show_name: false
-    show_state: false

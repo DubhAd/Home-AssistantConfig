@@ -54,6 +54,6 @@ action:
           entity_id: light.living_room_table_lamp
           transition: 1
           brightness_pct: 100
-          color_temp: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_mired') }}"
+          color_temp_kelvin: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_kelvin')|default(5000,true) }}"
       - delay: '00:00:10'
     # end of repeat block

@@ -111,10 +111,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.dimmer_off_while_off
     secondary_info: last-triggered
-  - entity: automation.dimmer_up_while_on
-    secondary_info: last-triggered
-  - entity: automation.dimmer_down_while_on
-    secondary_info: last-triggered
   - entity: automation.dimmer_up_enable_lights
     secondary_info: last-triggered
   - entity: automation.dimmer_up_motion

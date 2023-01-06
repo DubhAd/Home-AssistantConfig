@@ -1,5 +1,5 @@
 - platform: statistics
-  name: Master ensuite humidity stats
+  name: Master ensuite humidity change rate
   entity_id: sensor.master_ensuite_humidity
   precision: 1
   sampling_size: 8

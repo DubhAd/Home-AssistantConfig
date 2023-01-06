@@ -514,6 +514,7 @@ cards:
             - binary_sensor.second_ensuite_door_contact
             - binary_sensor.toilet_door_contact
             - binary_sensor.vestibule_door_contact
+            - binary_sensor.spare_bedroom_door_contact
           states:
             - state: 'off'
               class: 'interior-door-closed'

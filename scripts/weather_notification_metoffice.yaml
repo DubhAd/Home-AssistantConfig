@@ -1,0 +1,23 @@
+alias: Weather notification MetOffice
+sequence:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.weather_message
+      value: >-
+        {% if states('sensor.met_office_home_temperature_3_hourly') != 'unknown' %}
+          {{ states('sensor.met_office_home_temperature_3_hourly')|round(0) }}{{ state_attr('sensor.met_office_home_temperature_3_hourly','unit_of_measurement') }} outside and {{ states('sensor.met_office_home_weather_3_hourly')|lower }} for the next three hours. The forecast for the day is {{ state_attr('weather.met_office_home_daily','forecast')[0].condition }} with highs of {{ state_attr('weather.met_office_home_daily','forecast')[0].temperature }}{{ state_attr('weather.met_office_home_daily','temperature_unit') }}
+        {% else %}
+          I have no idea what the weather is like, try looking out the window.
+        {% endif %}
+        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %}
+          {% if states('sensor.dark_sky_alerts')|int == 1 %}
+            {% if state_attr('sensor.dark_sky_alerts','time')|int > as_timestamp(now())|int %}
+              {{ state_attr('sensor.dark_sky_alerts','title') }} until {{ state_attr('sensor.dark_sky_alerts','time')|timestamp_local }}
+            {% endif %}
+          {% else %}
+            There are {{ states('sensor.dark_sky_alerts')}} alerts, {{ state_attr('sensor.dark_sky_alerts','title_0') }} until {{ state_attr('sensor.dark_sky_alerts','time_0')|timestamp_local }}
+          {% endif %}
+        {% endif %}
+  - service: notify.logfile
+    data:
+      message: "SENDLIVING {{ states('input_text.weather_message') }}"

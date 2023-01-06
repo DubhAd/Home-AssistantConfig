@@ -289,7 +289,7 @@ cards:
         title: Work
         columns: 6
         entities:
-        - entity: device_tracker.work_iphone
+        - entity: device_tracker.work_iphone13
           name: WiFi
           icon: mdi:wifi
           show_last_changed: true

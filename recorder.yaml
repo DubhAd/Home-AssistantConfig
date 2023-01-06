@@ -1,5 +1,5 @@
 db_url: !secret mysql_url
-purge_keep_days: 14
+purge_keep_days: 56
 exclude:
   entities:
     - sensor.date_time

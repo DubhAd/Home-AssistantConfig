@@ -95,10 +95,6 @@ cards:
       charging_state: 
         entity_id: binary_sensor.sht_al09_is_charging
         state: 'on'
-    - entity: sensor.person1_lenovo_tb_j606f_battery_level
-      charging_state: 
-        entity_id: binary_sensor.person1_lenovo_tb_j606f_is_charging
-        state: 'on'
     - entity: sensor.dsb_0230_battery_level
       charging_state: 
         entity_id: binary_sensor.dsb_0230_is_charging

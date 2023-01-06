@@ -4,7 +4,7 @@ sequence:
     data:
       entity_id: >-
         {%- if states('proximity.person2_home')|int < 2000 -%}
-          {%- if ("other" in state_attr('calendar.person2_work','location')) or ("other" in state_attr('calendar.person2','location')) -%}
+          {%- if (state_attr('calendar.person2_work','location') and ("other" in state_attr('calendar.person2_work','location'))) or (state_attr('calendar.person2','location') and ("other" in state_attr('calendar.person2','location'))) -%}
             sensor.next_train_to_xyz
           {%- else -%}
             sensor.next_train_to_xyz
@@ -18,7 +18,7 @@ sequence:
         {%- endif %}
   - wait_template: >-
       {%- if states('proximity.person2_home')|int < 2000 -%}
-        {%- if ("other" in state_attr('calendar.person2_work','location')) or ("other" in state_attr('calendar.person2','location')) -%}
+        {%- if (state_attr('calendar.person2_work','location') and ("other" in state_attr('calendar.person2_work','location'))) or (state_attr('calendar.person2','location') and ("other" in state_attr('calendar.person2','location'))) -%}
           {{ (as_timestamp(now()) - as_timestamp(states.sensor.next_train_to_xyz.last_updated))|int < 90 }}
         {%- else -%}
           {{ (as_timestamp(now()) - as_timestamp(states.sensor.next_train_to_xyz.last_updated))|int < 90 }}
@@ -41,7 +41,7 @@ sequence:
       entity_id: input_text.train_message
       value: >-
         {%- if states('proximity.person2_home')|int < 2000 -%}
-          {%- if ("other" in state_attr('calendar.person2_work','location')) or ("other" in state_attr('calendar.person2','location')) -%}
+          {%- if (state_attr('calendar.person2_work','location') and ("other" in state_attr('calendar.person2_work','location'))) or (state_attr('calendar.person2','location') and ("other" in state_attr('calendar.person2','location'))) -%}
             {%- macro getTrainStatus() -%}
             {%- for train in state_attr('sensor.next_train_to_xyz', 'next_trains') -%}
             {%- if ( train.status == "ON TIME" or train.status == "EARLY" ) -%} X {%- endif -%}

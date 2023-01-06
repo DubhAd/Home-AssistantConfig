@@ -44,3 +44,5 @@
   type: module
 - url: /hacsfiles/bom-weather-card/bom-weather-card.js
   type: module
+- url: /hacsfiles/platinum-weather-card/platinum-weather-card.js
+  type: module
