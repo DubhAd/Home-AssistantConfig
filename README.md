@@ -3,7 +3,7 @@
       * [The key software](#the-key-software)
       * [Floorplan](#floorplan)
       * [Devices](#devices)
-      * [Zigbee and Z-Wave](#zigbee-and-z-wave)
+      * [Zigbee](#zigbee)
       * [Lighting](#lighting)
       * [Media](#media)
       * [Notifications:](#notifications)
@@ -12,7 +12,7 @@
       * [Other things](#other-things)
       * [Custom integrations](#custom-integrations)
          * [Standard integrations](#standard-integrations)
-      * [Other software](#other-software)
+      * [Other software and services](#other-software-and-services)
       * [Notes](#notes)
    * [(Far) Future plans](#far-future-plans)
       * [Automation thoughts](#automation-thoughts)
@@ -28,7 +28,7 @@ Each directory has a short readme explaining what's in there, and the purpose of
 ## The key software
 
 * [Home Assistant](https://home-assistant.io/)
-* [nginx](https://nginx.org/en/) to provide remote access, in conjunction with [Let's Encrypt](https://letsencrypt.org/)
+* [traefik](https://traefik.io/) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
 * [Zigbee2MQTT](https://www.zigbee2mqtt.io/) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
 * MariaDB for the database
@@ -54,7 +54,7 @@ I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overv
 
 You can find a list of my [current and previous hardware here](hardware.md).
 
-## Zigbee and Z-Wave
+## Zigbee
 
 For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version 1.29.1) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
@@ -109,7 +109,10 @@ Historically I didn't make much use of custom components/integrations, however t
 
 * [HACS](https://hacs.xyz) for intalling, updating, and finding new custom integrations. All other custom integrations are installed using this.
 * [Adaptive lighting](https://github.com/basnijholt/adaptive-lighting) (replacing [Circadian lighting](https://github.com/claytonjn/hass-circadian_lighting/)) since the built in [flux integration](https://www.home-assistant.io/integrations/flux) isn't as good.
+* [Alarmo](https://github.com/nielsfaber/alarmo) as an alternative to the built in manual alarm
 * [Frigate](https://github.com/blakeblackshear/frigate-hass-integration) for integrating with Frigate
+* [Here Weather](https://github.com/eifinger/hass-here-weather) as yet another weather integration, it has the advantage that it includes a (brief) text summary of the forecast
+* [Sonos Cloud](https://github.com/jjlawren/sonos_cloud) to allow TTS (and media playing) without interrupting the music
 * [The Watchman](https://github.com/dummylabs/thewatchman) for making sure I've caught all the missing entities
 * [WebRTC](https://github.com/AlexxIT/WebRTC) to make viewing cameras less laggy
 
@@ -117,20 +120,27 @@ Historically I didn't make much use of custom components/integrations, however t
 
 I moved these all [out here](integrations.md) because it's a long list, and not _that_ interesting.
 
-## Other software
+## Other software and services
 
-* [Wireguard](https://www.wireguard.com/) for remote access to my network
 * [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome/) for blocking those pesky adverts
+* [Authentik](https://goauthentik.io/) for authentication when remotely accessing services
+* [Cloudflare Pages](https://pages.cloudflare.com/) to host my blog
+* [Container Mon](https://github.com/RafhaanShah/Container-Mon) so I know when a container is unhealthy
+* [Dozzle](https://dozzle.dev/) for each access to container logs
+* [Diun](https://github.com/crazy-max/diun/) to get notifications when an update is available for a container
+* [Frigate](https://frigate.video/) for motion detection
+* [Heimdall](https://heimdall.site/) for a dashboard of all my apps
+* [Jekyll](https://jekyllrb.com/) for my blog
 * [netdata](https://my-netdata.io/) so I can keep an eye on the performance
+* [Paperless NGX](https://github.com/paperless-ngx/paperless-ngx) for turning paper into searcheable digital documents
+* [Photoprism](https://photoprism.app/) both to back up photos from the mobile phones, as well as make it easier to find photos
 * [rpi-clone](https://github.com/billw2/rpi-clone) for bootable backups of the Pis
 * [rclone](https://rclone.org/) for offsite backups
 * [rsnapshot](https://rsnapshot.org/) runs on another system, and pulls backups 
-* [Frigate](https://frigate.video/) for motion detection
 * [traefik](https://traefik.io/) with [ZeroSSL](https://zerossl.com/) for remote access (will shortly replace nginx)
-* [Heimdall](https://heimdall.site/) for a dashboard of all my apps
-* [Dozzle](https://dozzle.dev/) for each access to container logs
-* [Paperless NGX](https://github.com/paperless-ngx/paperless-ngx) for turning paper into searcheable digital documents
-* [Photoprism](https://photoprism.app/) both to back up photos from the mobile phones, as well as make it easier to find photos
+  * I did previously use [nginx](https://nginx.org/en/) to provide remote access, in conjunction with [Let's Encrypt](https://letsencrypt.org/)
+* [Uptime Kuma](https://github.com/louislam/uptime-kuma) for some simple service status monitoring
+* [Wireguard](https://www.wireguard.com/) for remote access to my network
 
 ## Notes
 
