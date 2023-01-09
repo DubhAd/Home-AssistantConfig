@@ -2,7 +2,7 @@ sequence:
   - service: media_player.play_media
     data:
       entity_id: media_player.office_sonos_cloud, media_player.family_room_sonos_cloud, media_player.living_room_sonos_cloud
-      media_content_id: https://myhost.dynamic.dom:54321/local/sounds/wind_chime.mp3
+      media_content_id: http://192.168.0.12:8123/local/sounds/wind_chime.mp3
       media_content_type: music
       extra:
         volume: 15

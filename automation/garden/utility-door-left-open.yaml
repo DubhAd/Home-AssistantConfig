@@ -15,54 +15,19 @@ condition:
     entity_id: sensor.accuhome_apparent_temperature
     below: 5
 action:
-  - service: media_player.turn_on
+  - service: media_player.play_media
     data:
+      media_content_id: >-
+        media-source://tts/google_cloud?message=The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.accuhome_apparent_temperature') }} {{ state_attr('sensor.accuhome_apparent_temperature','unit_of_measurement') }} outside
+      media_content_type: music
+      extra:
+        volume: 25
+    target:
       entity_id: >-
         {%- if is_state('input_boolean.family_room_occupied','on') -%}
-          media_player.family_room_display
+          media_player.family_room_sonos_cloud
         {%- elif is_state('input_boolean.living_room_occupied','on') -%}
-          media_player.living_room_display
-        {%- elif is_state('input_boolean.master_bedroom_occupied','on') -%}
-          media_player.master_bedroom_display
+          media_player.living_room_sonos_cloud
         {%- else -%}
-          media_player.office_smart_display
-        {%- endif -%}
-  - service: media_player.volume_set
-    data:
-      volume_level: 0.4
-      entity_id: >-
-        {%- if is_state('input_boolean.family_room_occupied','on') -%}
-          media_player.family_room_display
-        {%- elif is_state('input_boolean.living_room_occupied','on') -%}
-          media_player.living_room_display
-        {%- elif is_state('input_boolean.master_bedroom_occupied','on') -%}
-          media_player.master_bedroom_display
-        {%- else -%}
-          media_player.office_smart_display
-        {%- endif -%}
-  - service: tts.google_cloud_say
-    data:
-      entity_id: >-
-        {%- if is_state('input_boolean.family_room_occupied','on') -%}
-          media_player.family_room_display
-        {%- elif is_state('input_boolean.living_room_occupied','on') -%}
-          media_player.living_room_display
-        {%- elif is_state('input_boolean.master_bedroom_occupied','on') -%}
-          media_player.master_bedroom_display
-        {%- else -%}
-          media_player.office_smart_display
-        {%- endif -%}
-      message: "The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.accuhome_apparent_temperature') }} {{ state_attr('sensor.accuhome_apparent_temperature','unit_of_measurement') }} outside"
-  - delay: '00:00:10'
-  - service: media_player.turn_off
-    data:
-      entity_id: >-
-        {%- if is_state('input_boolean.family_room_occupied','on') -%}
-          media_player.family_room_display
-        {%- elif is_state('input_boolean.living_room_occupied','on') -%}
-          media_player.living_room_display
-        {%- elif is_state('input_boolean.master_bedroom_occupied','on') -%}
-          media_player.master_bedroom_display
-        {%- else -%}
-          media_player.office_smart_display
+          media_player.office_sonos_cloud
         {%- endif -%}
