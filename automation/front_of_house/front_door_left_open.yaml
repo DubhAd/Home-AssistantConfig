@@ -44,30 +44,42 @@ action:
             entity_id: input_boolean.family_room_occupied
             state: 'on'
         sequence:
-          - service: tts.google_cloud_say
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/google_cloud?message=The front door has been left open
+              media_content_type: music
+              extra:
+                volume: 25
             target:
               entity_id: media_player.family_room_sonos_cloud
-            data:
-              message: "The front door has been left open"
   - choose:
       - conditions: 
           - condition: state
             entity_id: input_boolean.living_room_occupied
             state: 'on'
         sequence:
-          - service: tts.google_cloud_say
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/google_cloud?message=The front door has been left open
+              media_content_type: music
+              extra:
+                volume: 25
             target:
               entity_id: media_player.living_room_sonos_cloud
-            data:
-              message: "The front door has been left open"
   - choose:
       - conditions: 
           - condition: state
             entity_id: input_boolean.office_occupied
             state: 'on'
         sequence:
-          - service: tts.google_cloud_say
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/google_cloud?message=The front door has been left open
+              media_content_type: music
+              extra:
+                volume: 25
             target:
               entity_id: media_player.office_sonos_cloud
-            data:
-              message: "The front door has been left open"

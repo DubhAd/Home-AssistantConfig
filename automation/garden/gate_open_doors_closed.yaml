@@ -20,32 +20,43 @@ action:
             entity_id: input_boolean.family_room_occupied
             state: 'on'
         sequence:
-          - service: tts.google_cloud_say
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/google_cloud?message=The gate has just been opened
+              media_content_type: music
+              extra:
+                volume: 25
             target:
               entity_id: media_player.family_room_sonos_cloud
-            data:
-              message: "The gate has just been opened"
   - choose:
       - conditions:
           - condition: state
             entity_id: input_boolean.living_room_occupied
             state: 'on'
         sequence:
-          - service: tts.google_cloud_say
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/google_cloud?message=The gate has just been opened
+              media_content_type: music
+              extra:
+                volume: 25
             target:
               entity_id: media_player.living_room_sonos_cloud
-            data:
-              message: "The gate has just been opened"
   - choose:
       - conditions:
           - condition: state
             entity_id: input_boolean.office_occupied
             state: 'on'
         sequence:
-          - service: tts.google_cloud_say
-            target:
-              entity_id: media_player.office_sonos_cloud
+          - service: media_player.play_media
             data:
+              media_content_id: >-
+                media-source://tts/google_cloud?message=The gate has just been opened
+              media_content_type: music
+              extra:
+                volume: 25
+            target:
               entity_id: media_player.office_smart_display
-              message: "The gate has just been opened"
   - delay: '00:00:30'

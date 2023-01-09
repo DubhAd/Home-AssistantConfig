@@ -46,12 +46,12 @@ condition:
 action:
   - service: automation.turn_on
     entity_id: automation.cooler_outside_livingroom
-  - service: tts.google_cloud_say
-    entity_id: media_player.living_room_display
+  - service: media_player.play_media
     data:
-      message: "It's now hotter outside than inside, you should close the windows and doors."
-  - wait_template: "{{ is_state('media_player.living_room_display','playing') }}"
-  - wait_template: "{{ is_state('media_player.living_room_display','idle') }}"
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.living_room_display
+      media_content_id: >-
+        media-source://tts/google_cloud?message=It's now hotter outside than inside, you should close the windows and doors.
+      media_content_type: music
+      extra:
+        volume: 25
+    target:
+      entity_id: media_player.living_room_sonos_cloud
