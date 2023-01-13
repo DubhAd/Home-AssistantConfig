@@ -1,5 +1,6 @@
 - platform: google_translate
   service_name: google_say
+  language: en-gb
 - platform: google_cloud
   key_file: secrets/google_cloud.json
   voice: en-GB-Wavenet-A

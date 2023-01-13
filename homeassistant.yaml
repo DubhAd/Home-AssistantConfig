@@ -2,9 +2,11 @@ name: Our home
 latitude: !secret latitude
 longitude: !secret longitude
 elevation: !secret elevation
-unit_system: metric
+classical: GB
+language: en-GB
 currency: GBP
 time_zone: Europe/London
+unit_system: metric
 customize: !include customize.yaml
 allowlist_external_dirs:
   - /data/homeassistant
