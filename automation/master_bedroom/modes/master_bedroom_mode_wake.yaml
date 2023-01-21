@@ -7,9 +7,15 @@ trigger:
     - media_player.person2
     - media_player.master_bedroom
     to: 'playing'
+  - platform: state
+    entity_id: sensor.sleepasandroid_person2
+    to: 'sleep_tracking_stopped'
 condition:
   - condition: time
     before: '10:00:00'
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
 action:
   - service: input_select.select_option
     data:
