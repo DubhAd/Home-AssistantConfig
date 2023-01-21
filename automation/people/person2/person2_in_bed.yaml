@@ -3,6 +3,9 @@ alias: 'person2 in bed'
 initial_state: 'on'
 trigger:
   - platform: state
+    entity_id: sensor.sleepasandroid_person2
+    to: 'sleep_tracking_started'
+  - platform: state
     entity_id: light.master_bedroom_bedhead
     to: 'on'
     for: '00:02:00'
@@ -63,6 +66,9 @@ condition:
     - condition: state
       entity_id: media_player.person2
       state: 'playing'
+    - condition: state
+      entity_id: sensor.sleepasandroid_person2
+      state: 'sleep_tracking_started'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_in_bed

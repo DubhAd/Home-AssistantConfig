@@ -6,19 +6,21 @@ trigger:
     entity_id: input_boolean.person2_in_bed
     to: 'on'
     for: '00:05:00'
-  - platform: time
-    at: '23:00:00'
-  - platform: time
-    at: '00:00:00'
-  - platform: time
-    at: '01:00:00'
+  - platform: state
+    entity_id: sensor.sleepasandroid_person2
+    to: 'sleep_tracking_started'
 condition:
   - condition: state
     entity_id: 
-    - input_boolean.person2_in_bed
-    - input_boolean.person2_is_awake
-    - input_boolean.person2_home
+      - input_boolean.person2_in_bed
+      - input_boolean.person2_is_awake
+      - input_boolean.person2_home
     state: 'on'
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.sleepasandroid_person2
+        state: sleep_tracking_stopped
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_is_awake
