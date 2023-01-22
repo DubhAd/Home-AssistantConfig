@@ -3,11 +3,23 @@ alias: 'person2 awake'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: input_boolean.person2_in_bed
+    entity_id: 
+      - input_boolean.person2_in_bed
+      - input_boolean.master_bedroom_occupied
     to: 'off'
   - platform: state
     entity_id: sensor.sleepasandroid_person2
     to: 'sleep_tracking_stopped'
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.person2_is_awake
+        state: 'off'
+        for: '05:00:00'
+      - condition: state
+        entity_id: input_boolean.master_bedroom_occupied
+        state: 'off'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_is_awake
