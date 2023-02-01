@@ -9,7 +9,7 @@ sequence:
             Sleeping
           {% elif is_state('input_boolean.person2_in_bed','on') %}
             In bed
-          {% elif is_state('input_boolean.office_occupied','on') and is_state('group.person_person2_work','home') and is_state('input_boolean.person2_work_home','on') %}
+          {% elif is_state('input_boolean.office_occupied','on') and is_state('input_boolean.person2_work_home','on') %}
             Working from home
           {% else %}
             {{ states('input_select.person2_status_dropdown') }} 
