@@ -23,8 +23,18 @@ action:
         {%- else -%}
           media_player.family_room_display
         {%- endif -%}
-  - service: camera.play_stream
-    data:
-      entity_id: "camera.front_camera_lowres"
-      format: "hls"
-      media_player: "{{ states('input_select.camera_stream_target') }}"
+  - if:
+    - condition: state
+      entity_id: input_boolean.cast_webrtc
+      state: 'on'
+    then:
+      - service: webrtc.dash_cast
+        data:
+          entity_id: "{{ states('input_select.camera_stream_target') }}"
+          url: rtsp://192.168.0.16:8554/front_low
+    else:
+      - service: camera.play_stream
+        data:
+          entity_id: "camera.front_camera_lowres"
+          format: "hls"
+          media_player: "{{ states('input_select.camera_stream_target') }}"

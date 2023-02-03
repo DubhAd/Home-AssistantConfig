@@ -1,3 +1,0 @@
-- platform: command_line
-  command: "/srv/homeassistant/venv_3.9.7/bin/hass --version"
-  name: 'HASS Installed'

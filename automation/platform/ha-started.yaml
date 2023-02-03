@@ -7,5 +7,5 @@ trigger:
 action:
   - service: script.notify_person2
     data:
-      message: "Home Assistant {{ states('sensor.current_version') }} has started on Vision ({{ as_timestamp(utcnow())|timestamp_utc }})"
+      message: "Home Assistant {{ states('sensor.current_version') }} has started on Custodes ({{ as_timestamp(utcnow())|timestamp_utc }})"
   - service: script.scan_bt_restart

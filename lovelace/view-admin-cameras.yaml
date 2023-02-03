@@ -20,6 +20,9 @@ cards:
         - entity: input_boolean.stream_front_camera_motion
           secondary_info: last-changed
           state_color: true
+        - entity: input_boolean.cast_webrtc
+          secondary_info: last-changed
+          state_color: true
       - type: custom:auto-entities
         show_empty: false
         card: 

@@ -1,5 +1,0 @@
-#!/usr/bin/zsh
-
-STATUS_FILE=/data/homeassistant/train-status.json
-
-cat ${STATUS_FILE} | jq -r .message
