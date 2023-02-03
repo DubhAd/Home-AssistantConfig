@@ -31,9 +31,10 @@ action:
       - service: webrtc.dash_cast
         data:
           entity_id: "{{ states('input_select.camera_stream_target') }}"
-          entity: camera.front_camera_lowres
-    else:
-      - service: webrtc.dash_cast
-        data:
-          entity_id: "{{ states('input_select.camera_stream_target') }}"
           url: rtsp://192.168.0.16:8554/front_low
+    else:
+      - service: camera.play_stream
+        data:
+          entity_id: "camera.front_camera_lowres"
+          format: "hls"
+          media_player: "{{ states('input_select.camera_stream_target') }}"
