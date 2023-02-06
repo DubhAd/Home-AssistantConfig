@@ -21,19 +21,19 @@
 
 # Home Assistant configuration
 
-This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.1 
-on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a manual Python 3.10.9 virtual environment 
-built [with pyenv](https://github.com/pyenv/pyenv)), installed [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
+This is my live(-ish) [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.1 
+on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a Python 3.10.9 virtual environment 
+built [with pyenv](https://github.com/pyenv/pyenv), [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
 
 ## The key software
 
-* [Home Assistant](https://home-assistant.io/)
-* [traefik](https://traefik.io/) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
-* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) for Zigbee
+* [Home Assistant](https://home-assistant.io/) (2023.2.1)
+* [traefik](https://traefik.io/) (2.9.6) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
+* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (1.30.0) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
-* MariaDB for the database
+* PostgreSQL (12.13) for the database
 
 ## Floorplan
 
