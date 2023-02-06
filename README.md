@@ -21,7 +21,9 @@
 
 # Home Assistant configuration
 
-This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.1 (Python 3.10.9 built [with pyenv](https://github.com/pyenv/pyenv) on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
+This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.1 
+on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a manual Python 3.10.9 virtual environment 
+built [with pyenv](https://github.com/pyenv/pyenv)), installed [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
 
