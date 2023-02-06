@@ -5,7 +5,6 @@ trigger:
   - platform: webhook
     webhook_id: !secret pi3
 action:
-  - service: notify.debug_log
-    data:
-      message: >
-        {{ trigger.data }}
+  - delay:
+      milliseconds: 1
+mode: parallel

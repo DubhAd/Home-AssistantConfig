@@ -1,0 +1,12 @@
+alias: Weather notification
+sequence:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.weather_message
+      value: >-
+        It is {{ state_attr('weather.here_weather_forecast_hourly','temperature')|round(0) }}{{ state_attr('weather.here_weather_forecast_hourly','temperature_unit') }}, {{ states('sensor.here_weather_observation_sky_description_0')|lower }} and {{ states('sensor.here_weather_observation_temperature_description_0')|lower }}.
+        Today will be {{ states('sensor.here_weather_forecast_hourly_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_hourly_temperature_description_0')|lower }},
+        and it will be {{ states('sensor.here_weather_forecast_7days_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_7days_temperature_description_0')|lower }} for the week.
+  - service: notify.logfile
+    data:
+      message: "SENDLIVING WEATHER {{ states('input_text.weather_message') }}"

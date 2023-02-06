@@ -21,7 +21,7 @@
 
 # Home Assistant configuration
 
-This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.1.7 (Python 3.10.9 built [with pyenv](https://github.com/pyenv/pyenv) on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
+This is my primary [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.1 (Python  built [with pyenv](https://github.com/pyenv/pyenv) on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a manual Python virtual environment install [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
 
@@ -35,7 +35,7 @@ Each directory has a short readme explaining what's in there, and the purpose of
 
 ## Floorplan
 
-I use [Floorplan](https://github.com/pkozul/ha-floorplan) for a high level overview
+I use [Floorplan](https://github.com/ExperienceLovelace/ha-floorplan) for a high level overview
   * ![Screenshot of floorplan](https://i.imgur.com/gzwtfno.png)
   * Showing: 
     * The grey bin is due for collection tomorrow. If any were due today they'd have a red outline.
@@ -56,7 +56,7 @@ You can find a list of my [current and previous hardware here](hardware.md).
 
 ## Zigbee
 
-For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version 1.29.2) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
+For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version 1.30.0) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
 I used to use the original zwave integration on a remote system, using [Remote Home-Assistant](https://github.com/custom-components/remote_homeassistant). I've since stopped using Z-Wave, as [explained here](ZWAVE.md).
 

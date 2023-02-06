@@ -1,9 +1,0 @@
-- platform: fitbit
-  clock_format: 24H
-  monitored_resources:
-    - "devices/battery"
-    - "sleep/minutesAsleep"
-    - "sleep/efficiency"
-    - "sleep/timeInBed"
-    - "sleep/startTime"
-    - "sleep/minutesToFallAsleep"

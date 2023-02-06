@@ -20,4 +20,4 @@ sequence:
         {% endif %}
   - service: notify.logfile
     data:
-      message: "SENDLIVING {{ states('input_text.weather_message') }}"
+      message: "SENDLIVING WEATHER {{ states('input_text.weather_message') }}"

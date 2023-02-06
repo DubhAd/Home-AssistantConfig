@@ -3,13 +3,13 @@
     unique_id: 'unavailable_entities'
     state: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
-                |rejectattr('entity_id','in',['media_player.living_room_tv'])
-                |rejectattr('entity_id','match','^.*_old|^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|sensor.tasmota_car_|espresense_|plex_|roku_x00200y5s7lx|weather.|.kelsie_|.forked_daapd|_train_|_time_to_home|binary_sensor.trains_.*|binary_sensor.return_train_status)')
+                |rejectattr('entity_id','in',['media_player.living_room_tv','sensor.unavailable_entities','binary_sensor.return_train_status'])
+                |rejectattr('entity_id','match','^device_tracker\.|^binary_sensor\.trains_|^.*_old|^sensor\.tasmota_car_|^media_player\.forked_daapd|^media_player\.owntone_|^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|espresense_|plex_|roku_x00200y5s7lx|^weather\.|.kelsie_|_train_|_time_to_home)')
                 |list|length}}
     unit_of_measurement: 'entities'
     attributes:
       entities: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
-                |rejectattr('entity_id','in',['media_player.living_room_tv'])
-                |rejectattr('entity_id','match','^.*_old|^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|sensor.tasmota_car_|espresense_|plex_|roku_x00200y5s7lx|weather.|.kelsie|.forked_daapd|_train_|_time_to_home|binary_sensor.trains_.*|binary_sensor.return_train_status)')
+                |rejectattr('entity_id','in',['media_player.living_room_tv','sensor.unavailable_entities','binary_sensor.return_train_status'])
+                |rejectattr('entity_id','match','^device_tracker\.|^binary_sensor\.trains_|^.*_old|^sensor\.tasmota_car_|^media_player\.forked_daapd|^media_player\.owntone_|^.*([\._]home|[\._]other|_hws_|_next_alarm|minecraft|accuhome|espresense_|plex_|roku_x00200y5s7lx|^weather\.|.kelsie_|_train_|_time_to_home)')
                 |map(attribute='entity_id')|list|join(', ')}}

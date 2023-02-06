@@ -13,6 +13,11 @@ condition:
   - condition: state
     entity_id: input_boolean.shutdown_in_progress
     state: 'off'
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.unavailable_entities
+        state: 'unavailable'
 action:
   - choose:
     - alias: 'Nothing to nothing'
