@@ -79,6 +79,11 @@ cards:
         entities:
           - entity: calendar.person3
             maxDaysToShow: 1
+      - type: map
+        default_zoom: 17
+        hours_to_show: 12
+        entities:
+          - device_tracker.pixel_6a
 - type: picture-entity
   entity: input_text.person_person4
   image: /local/people/Elizabeth_Away.png
@@ -129,6 +134,12 @@ cards:
         icon: mdi:map-marker-distance
       - entity: proximity.person4_home
         name: To home
+    - type: map
+      default_zoom: 17
+      hours_to_show: 12
+      entities:
+        - device_tracker.dsb_0230
+        - zone.person4_o
 - type: vertical-stack
   cards:
   - type: picture-entity
@@ -412,6 +423,11 @@ cards:
         entities:
           - entity: calendar.person1
             maxDaysToShow: 1
+      - type: map
+        default_zoom: 17
+        hours_to_show: 12
+        entities:
+          - device_tracker.person1_pixel_3
 - type: vertical-stack
   cards:
   - type: picture-entity

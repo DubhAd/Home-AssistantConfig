@@ -11,80 +11,52 @@ trigger:
     for: '00:03:00'
   - platform: state
     entity_id: media_player.family_room
-    to: 'paused'
-    for: '00:03:00'
-  - platform: state
-    entity_id: media_player.family_room
-    to: 'idle'
-    for: '00:03:00'
-  - platform: state
-    entity_id: media_player.family_room
-    to: 'off'
+    to: 
+      - 'paused'
+      - 'idle'
+      - 'off'
     for: '00:03:00'
   - platform: state
     entity_id: media_player.cast_kitchen_speaker
+    to: 
+      - 'paused'
+      - 'idle'
+      - 'off'
+    for: '00:03:00'
+  - platform: state
+    entity_id: binary_sensor.family_room_multi_occupancy
     to: 'off'
     for: '00:03:00'
   - platform: state
-    entity_id: media_player.cast_kitchen_speaker
-    to: 'idle'
-    for: '00:03:00'
-  - platform: state
-    entity_id: media_player.cast_kitchen_speaker
-    to: 'paused'
-    for: '00:03:00'
-  - platform: state
-    entity_id: calendar.person2
-    to: 'off'
+    entity_id: binary_sensor.family_room_door_contact
+    to: 'on'
 condition:
   - condition: state
     entity_id: input_boolean.family_room_occupied
     state: 'on'
-  - condition: or
-    conditions:
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: input_boolean.person2_home
-        state: 'on'
-      - condition: template
-        value_template: >-
-          {% if trigger.entity_id == 'calendar.person2' %}
-            {{ trigger.from_state.state == 'on' and trigger.from_state.attributes.message == 'Game night' }}
-          {% else %}
-            False
-          {% endif %}
-    # TV and music off
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: media_player.roku_x00200y5s7lx
-        state:
-          - 'off'
-          - 'standby'
-          - 'unavailable'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: media_player.family_room
-          state: 'paused'
-        - condition: state
-          entity_id: media_player.family_room
-          state: 'idle'
-        - condition: state
-          entity_id: media_player.family_room
-          state: 'off'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: media_player.cast_kitchen_speaker
-          state: 'idle'
-        - condition: state
-          entity_id: media_player.cast_kitchen_speaker
-          state: 'off'
-        - condition: state
-          entity_id: media_player.cast_kitchen_speaker
-          state: 'paused'
+  # TV and music off
+  - condition: state
+    entity_id: media_player.roku_x00200y5s7lx
+    state:
+      - 'off'
+      - 'standby'
+      - 'unavailable'
+  - condition: state
+    entity_id: media_player.family_room
+    state: 
+      - 'paused'
+      - 'idle'
+      - 'off'
+  - condition: state
+    entity_id: media_player.cast_kitchen_speaker
+    state: 
+      - 'paused'
+      - 'idle'
+      - 'off'
+  # Door is open
+  - condition: state
+    entity_id: binary_sensor.family_room_door_contact
+    state: 'on'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.family_room_occupied

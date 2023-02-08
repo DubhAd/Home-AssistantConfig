@@ -21,7 +21,7 @@
 
 # Home Assistant configuration
 
-This is my live(-ish) [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.1 
+This is my live(-ish) [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.2.3 
 on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a Python 3.10.9 virtual environment 
 built [with pyenv](https://github.com/pyenv/pyenv), [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
@@ -29,9 +29,9 @@ Each directory has a short readme explaining what's in there, and the purpose of
 
 ## The key software
 
-* [Home Assistant](https://home-assistant.io/) (2023.2.1)
+* [Home Assistant](https://home-assistant.io/) (2023.2.3)
 * [traefik](https://traefik.io/) (2.9.6) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
-* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (1.30.0) for Zigbee
+* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (1.30.1) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
 * PostgreSQL (12.13) for the database
 
@@ -58,7 +58,7 @@ You can find a list of my [current and previous hardware here](hardware.md).
 
 ## Zigbee
 
-For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version 1.30.0) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
+For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version 1.30.1) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
 I used to use the original zwave integration on a remote system, using [Remote Home-Assistant](https://github.com/custom-components/remote_homeassistant). I've since stopped using Z-Wave, as [explained here](ZWAVE.md).
 

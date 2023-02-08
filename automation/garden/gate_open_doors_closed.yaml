@@ -58,5 +58,20 @@ action:
               extra:
                 volume: 25
             target:
-              entity_id: media_player.office_smart_display
+              entity_id: media_player.office_sonos_cloud
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: 
+              - input_boolean.office_occupied
+              - input_boolean.family_room_occupied
+              - input_boolean.living_room_occupied
+            state: 'off'
+          - condition: state
+            entity_id: input_boolean.person2_home
+            state: 'on'
+        sequence:
+          - service: notify.person2_telegram
+            data:
+              message: The gate has just been opened
   - delay: '00:00:30'
