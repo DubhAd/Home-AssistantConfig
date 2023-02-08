@@ -1,0 +1,25 @@
+id: 'bin_reminder'
+alias: 'Bin reminder'
+description: "Send a reminder at 08:00 if there's a bin collection today and the gate hasn't been opened"
+initial_state: 'on'
+trigger:
+  - platform: time
+    at: '08:00:00'
+condition:
+  - condition: state
+    entity_id: sensor.next_bin_collection
+    state: 'today'
+  - condition: state
+    entity_id: binary_sensor.garden_gate_contact
+    state: 'off'
+    for: '01:00:00'
+action:
+  - service: media_player.play_media
+    data:
+      media_content_id: >-
+        media-source://tts/google_cloud?message=The {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is due for collection today and it hasn't been put out yet.
+      media_content_type: music
+      extra:
+        volume: 25
+    target:
+      entity_id: media_player.family_room_sonos_cloud
