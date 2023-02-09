@@ -168,7 +168,7 @@ cards:
       type: vertical-stack
       cards: 
       - type: glance
-        columns: 5
+        columns: 6
         entities:
         - entity: device_tracker.pixel_xl
           name: GPS

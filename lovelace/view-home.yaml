@@ -27,6 +27,28 @@ cards:
           entity: alarm_control_panel.house
         - type: alarm-control-panel
           entity: alarm_control_panel.garage
+        - type: conditional
+          conditions:
+            - entity: sensor.next_bin_collection
+              state: tomorrow
+          chip:
+            type: template
+            content: >-
+              {{ state_attr('sensor.next_bin_collection','bin_type')|title }} bin tomorrow
+            icon: mdi:delete
+            icon_color: orange
+        - type: conditional
+          conditions:
+            - entity: sensor.next_bin_collection
+              state: today
+            - entity: binary_sensor.morning
+              state: 'on'
+          chip:
+            type: template
+            content: >-
+              {{ state_attr('sensor.next_bin_collection','bin_type')|title }} bin today
+            icon: mdi:delete-circle
+            icon_color: red
       alignment: center
     - type: horizontal-stack
       cards:

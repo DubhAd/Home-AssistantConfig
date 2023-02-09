@@ -1,0 +1,14 @@
+- binary_sensor:
+  - name: 'Garden gate'
+    unique_id: 'garden_gate'
+    device_class: 'door'
+    state: >-
+      {{ states('binary_sensor.garden_gate_contact') }}
+    icon: >-
+      {% if is_state('binary_sensor.garden_gate_contact','off') %}
+        mdi:gate
+      {% elif is_state('binary_sensor.garden_gate_contact','on') %}
+        mdi:gate-open
+      {% else %}
+        mdi:gate-alert
+      {% endif %}

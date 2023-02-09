@@ -77,9 +77,8 @@ cards:
       - entity: binary_sensor.garage_door_bike_contact
         show_last_changed: true
         name: bike
-      - entity: binary_sensor.garden_gate_contact
+      - entity: binary_sensor.garden_gate
         show_last_changed: true
-        icon: mdi:gate
         name: Gate
       - entity: binary_sensor.bike_lid
         name: bike lid
