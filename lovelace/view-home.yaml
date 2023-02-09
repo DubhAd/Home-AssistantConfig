@@ -10,19 +10,49 @@ cards:
         - type: entity
           entity: input_text.person_person3
           use_entity_picture: true
+          double_tap_action:
+            action: none
+          tap_action:
+            action: none
+          hold_action:
+            action: none
         - type: entity
           entity: input_text.person_person1
           use_entity_picture: true
+          double_tap_action:
+            action: none
+          tap_action:
+            action: none
+          hold_action:
+            action: none
         - type: entity
           entity: input_text.person_person2
           use_entity_picture: true
+          double_tap_action:
+            action: none
+          tap_action:
+            action: none
+          hold_action:
+            action: none
         - type: entity
           entity: input_text.person_person4
           use_entity_picture: true
+          double_tap_action:
+            action: none
+          tap_action:
+            action: none
+          hold_action:
+            action: none
         - type: weather
           entity: weather.openweathermap
           show_conditions: true
           show_temperature: true
+          double_tap_action:
+            action: none
+          tap_action:
+            action: none
+          hold_action:
+            action: none
         - type: alarm-control-panel
           entity: alarm_control_panel.house
         - type: alarm-control-panel
@@ -37,6 +67,12 @@ cards:
               {{ state_attr('sensor.next_bin_collection','bin_type')|title }} bin tomorrow
             icon: mdi:delete
             icon_color: orange
+            double_tap_action:
+              action: none
+            tap_action:
+              action: none
+            hold_action:
+              action: none
         - type: conditional
           conditions:
             - entity: sensor.next_bin_collection
@@ -49,6 +85,12 @@ cards:
               {{ state_attr('sensor.next_bin_collection','bin_type')|title }} bin today
             icon: mdi:delete-circle
             icon_color: red
+            double_tap_action:
+              action: none
+            tap_action:
+              action: none
+            hold_action:
+              action: none
       alignment: center
     - type: horizontal-stack
       cards:
