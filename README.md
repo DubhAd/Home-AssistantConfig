@@ -33,7 +33,7 @@ Each directory has a short readme explaining what's in there, and the purpose of
 * [traefik](https://traefik.io/) (2.9.6) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
 * [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (1.30.1) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
-* PostgreSQL (12.13) for the database
+* PostgreSQL (12.14) for the database
 
 ## Floorplan
 
