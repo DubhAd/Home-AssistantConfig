@@ -44,7 +44,8 @@ cards:
           hold_action:
             action: none
         - type: weather
-          entity: weather.openweathermap
+          #entity: weather.home
+          entity: weather.here_weather_forecast_7days
           show_conditions: true
           show_temperature: true
           double_tap_action:
@@ -106,7 +107,8 @@ cards:
           name: Upstairs
     - type: custom:hourly-weather
       name: ~
-      entity: weather.home_hourly
+      #entity: weather.home_hourly
+      entity: weather.here_weather_forecast_hourly
       num_segments: 24
       icons: true
       show_wind: 'direction'
