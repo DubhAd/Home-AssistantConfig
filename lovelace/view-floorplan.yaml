@@ -442,6 +442,7 @@ cards:
         - entities:
             - switch.living_room_christmas_tree
             - switch.vestibule_socket
+            - switch.family_room_socket
           states:
             - state: 'on'
               class: 'doorbell-on'

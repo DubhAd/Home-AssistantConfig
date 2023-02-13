@@ -166,6 +166,7 @@ cards:
         name: Mini
   - type: glance
     title: Family room
+    columns: 6
     entities:
       - entity: binary_sensor.family_room_door_contact
         show_last_changed: true
@@ -192,6 +193,9 @@ cards:
       - entity: media_player.family_room_display
         show_last_changed: true
         name: Hub
+      - entity: switch.family_room_socket
+        show_last_changed: true
+        name: Socket
       - entity: script.volume_alert
         name: Alert
         icon: mdi:alert
