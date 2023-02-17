@@ -7,12 +7,25 @@ trigger:
     - media_player.person2
     - media_player.master_bedroom
     to: 'playing'
+    id: 'playing'
+  - platform: event
+    event_type: tasker_webhook
+    event_data:
+      who: person2
+    id: 'tasker'
 condition:
   - condition: time
     before: '10:00:00'
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
+  - condition: or
+    conditions:
+      - condition: trigger
+        id: playing
+      - condition: template
+        value_template: >-
+          {{ trigger.event and ',Sleep alarm,' in trigger.event.data.what }}
 action:
   - service: input_select.select_option
     data:
