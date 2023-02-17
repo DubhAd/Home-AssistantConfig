@@ -18,21 +18,17 @@ trigger:
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.master_bedroom','Off') }}"
-  - condition: state
-    entity_id: input_boolean.master_bedroom_occupied
-    state: 'off'
   - condition: or
     conditions:
-    # Turn it off when he's awake
     - condition: state
-      entity_id: input_select.master_bedroom
-      state: 'Wake'
-      for: '00:10:00'
-    # Or if the room just became empty
-    - condition: and
-      conditions:
-      - condition: template 
-        value_template: "{{ trigger.to_state.entity_id == input_boolean.master_bedroom_occupied }}"
+      entity_id: input_boolean.master_bedroom_occupied
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.sun_elevation
+      above: 5
+    - condition: numeric_state
+      entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+      above: 30
 action:
   - service: input_select.select_option
     data:

@@ -3,16 +3,13 @@ alias: 'Master bedroom mode on'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: 
-    - input_boolean.person2_phone_charging
-    - input_boolean.person2_tablet_charging
-    to: 'on'
-  - platform: state
     entity_id: sensor.pixel_xl_do_not_disturb_sensor
     to: 'priority_only'
   - platform: state
-    entity_id: binary_sensor.master_bedroom_door_contact
-    to: 'off'
+    entity_id: 
+    - input_boolean.master_bedroom_occupied
+    - binary_sensor.master_bedroom_motion_occupancy
+    to: 'on'
   - platform: time
     at: '22:00:01'
 condition:
@@ -26,23 +23,32 @@ condition:
   - condition: or
     conditions:
     # Phone or tablet are charging
-    - condition: state
-      entity_id: input_boolean.person2_phone_charging
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.person2_tablet_charging
-      state: 'on'
+    #- condition: state
+    #  entity_id: input_boolean.person2_phone_charging
+    #  state: 'on'
+    #- condition: state
+    #  entity_id: input_boolean.person2_tablet_charging
+    #  state: 'on'
     - condition: state
       entity_id: sensor.pixel_xl_do_not_disturb_sensor
       state: 'priority_only'
     # Door is open
+    #- condition: state
+    #  entity_id: binary_sensor.master_bedroom_door_contact
+    #  state: 'off'
+    # Room now occupied
     - condition: state
-      entity_id: binary_sensor.master_bedroom_door_contact
-      state: 'off'
+      entity_id: input_boolean.master_bedroom_occupied
+      state: 'on'
+    # Motion
+    - condition: state
+      entity_id: binary_sensor.master_bedroom_motion_occupancy
+      state: 'on'
   # Not in bed
   - condition: state
     entity_id: input_boolean.person2_in_bed
     state: 'off'
+  # Home
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'

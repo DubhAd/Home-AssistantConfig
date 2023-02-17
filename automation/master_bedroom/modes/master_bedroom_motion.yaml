@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Master bedroom motion'
 trigger:
   - platform: state
-    entity_id: binary_sensor.master_bedroom_door_contact
+    entity_id: binary_sensor.master_bedroom_motion_occupancy
     to: 'on'
 condition:
   - condition: template

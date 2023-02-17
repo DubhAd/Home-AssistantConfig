@@ -19,24 +19,39 @@ trigger:
     entity_id: binary_sensor.master_bedroom_motion_occupancy
     id: 'motion'
     to: 'off'
+    for: '00:30:00'
 condition:
   - condition: or
     conditions:
-    - condition: state
-      entity_id: binary_sensor.master_bedroom_motion_occupancy
-      state: 'off'
-      for: '00:01:00'
-    - condition: trigger
-      id: 'motion'
+      # No motion for at least 30 seconds and the door has been closed for 2 minutes
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.master_bedroom_motion_occupancy
+          state: 'off'
+          for: '00:00:30'
+        - condition: trigger
+          id: 'closed'
+      - condition: and
+        conditions:
+        # No motion and door left open
+        - condition: trigger
+          id: 'motion'
+        - condition: state
+          entity_id: binary_sensor.master_bedroom_door_contact
+          state: 'on'
+  # Ensuite door hasn't changed state in the last 2 minutes
   - condition: state
     entity_id: binary_sensor.master_ensuite_door_contact
     state:
       - 'on'
       - 'off'
     for: '00:02:00'
+  # Room is currently occupied
   - condition: state
     entity_id: input_boolean.master_bedroom_occupied
     state: 'on'
+  # Not in bed any more
   - condition: state
     entity_id: input_boolean.person2_in_bed
     state: 'off'

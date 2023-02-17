@@ -3,9 +3,9 @@ initial_state: 'on'
 alias: 'Master bedroom no motion'
 trigger:
   - platform: state
-    entity_id: input_select.master_bedroom
-    to: 'Motion'
-    for: '00:05:00'
+    entity_id: binary_sensor.master_bedroom_motion_occupancy
+    to: 'off'
+    for: '00:03:00'
   - platform: numeric_state
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
     above: 5
