@@ -1,0 +1,48 @@
+id: 'master_bedroom_occupied'
+initial_state: 'on'
+alias: 'Master bedroom occupied'
+trigger:
+  - platform: state
+    entity_id: 
+    - light.master_bedroom_bedhead
+    - input_boolean.person2_in_bed
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.person2_is_awake
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'off'
+    id: 'door'
+  # Motion was detected inside
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_motion_occupancy
+    to: 'on'
+    id: 'motion'
+  # Ensuite door was opened/closed
+  - platform: state
+    entity_id: binary_sensor.master_ensuite_door_contact
+    to: ~
+    id: 'ensuite'
+condition:
+  # Room not currently occupied
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'off'
+  # Door is closed
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    state: 'off'
+  # Some activity inside
+  - condition: or
+    conditions:
+    - condition: trigger
+      id: 'ensuite'
+    - condition: trigger
+      id: 'motion'
+    - condition: state
+      entity_id: binary_sensor.master_bedroom_motion_occupancy
+      state: 'on'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.master_bedroom_occupied

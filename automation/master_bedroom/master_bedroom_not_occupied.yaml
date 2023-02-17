@@ -1,0 +1,45 @@
+id: 'master_bedroom_not_occupied'
+initial_state: 'on'
+alias: 'Master bedroom not occupied'
+trigger:
+  # Door closes
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    id: 'closed'
+    to: 'off'
+    for: '00:02:00'
+  # Door is left open
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    id: 'open'
+    to: 'on'
+    for: '00:02:00'
+  # No more motion
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_motion_occupancy
+    id: 'motion'
+    to: 'off'
+condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.master_bedroom_motion_occupancy
+      state: 'off'
+      for: '00:01:00'
+    - condition: trigger
+      id: 'motion'
+  - condition: state
+    entity_id: binary_sensor.master_ensuite_door_contact
+    state:
+      - 'on'
+      - 'off'
+    for: '00:02:00'
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_in_bed
+    state: 'off'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.master_bedroom_occupied
