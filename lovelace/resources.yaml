@@ -46,3 +46,5 @@
   type: module
 - url: /hacsfiles/platinum-weather-card/platinum-weather-card.js
   type: module
+- url: /hacsfiles/room-card/room-card.js
+  type: module

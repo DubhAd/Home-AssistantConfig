@@ -18,8 +18,14 @@ cards:
       - entity: binary_sensor.master_window_right_contact
         show_last_changed: true
         name: Right
+      - entity: binary_sensor.master_bedroom_motion_occupancy
+        show_last_changed: true
+        name: Motion
       - entity: sensor.master_bedroom_light_sensor_illuminance_lux
         name: Illuminance
+  - type: glance
+    columns: 6
+    entities:
       - entity: light.master_bedroom_bedhead
         name: Bedhead
         icon: mdi:led-strip-variant
