@@ -22,20 +22,9 @@ condition:
     below: 10
   - condition: or
     conditions:
-    # Phone or tablet are charging
-    #- condition: state
-    #  entity_id: input_boolean.person2_phone_charging
-    #  state: 'on'
-    #- condition: state
-    #  entity_id: input_boolean.person2_tablet_charging
-    #  state: 'on'
     - condition: state
       entity_id: sensor.pixel_xl_do_not_disturb_sensor
       state: 'priority_only'
-    # Door is open
-    #- condition: state
-    #  entity_id: binary_sensor.master_bedroom_door_contact
-    #  state: 'off'
     # Room now occupied
     - condition: state
       entity_id: input_boolean.master_bedroom_occupied
@@ -55,5 +44,4 @@ condition:
 action:
   - service: input_select.select_option
     data:
-      entity_id: input_select.master_bedroom
       option: 'On'

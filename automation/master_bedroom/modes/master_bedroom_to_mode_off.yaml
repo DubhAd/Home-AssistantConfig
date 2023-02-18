@@ -6,6 +6,9 @@ trigger:
     entity_id: light.master_bedroom_bedhead
     to: 'off'
     for: '00:00:05'
+  - platform: state
+    entity_id: input_boolean.master_bedroom_occupied
+    to: 'off'
 action:
   - service: input_select.select_option
     data:
