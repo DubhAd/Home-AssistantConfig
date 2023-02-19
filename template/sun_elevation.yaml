@@ -1,0 +1,13 @@
+- sensor:
+  - name: 'Sun elevation'
+    unique_id: 'sun_elevation'
+    unit_of_measurement: "degrees"
+    state: >-
+      {{ state_attr('sun.sun', 'elevation') }}
+    icon: >
+      {% set elevation = state_attr('sun.sun', 'elevation')|default(0) %}
+      {% if elevation > 0 %}
+        mdi:weather-sunny
+      {% else %}
+        mdi:weather-night
+      {% endif %}

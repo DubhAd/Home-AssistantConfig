@@ -1,0 +1,7 @@
+- sensor:
+  - name: 'Distance between person2 and person3'
+    unique_id: 'distance_person2_person3'
+    unit_of_measurement: 'km'
+    state: >-
+      {{ distance('device_tracker.pixel_xl','device_tracker.pixel_6a')|round(1) }}
+

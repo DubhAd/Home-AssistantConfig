@@ -1,0 +1,19 @@
+- binary_sensor:
+  - name: 'Return train status'
+    device_class: moving
+    unique_id: 'return_train_status'
+    state: >-
+      {%- macro getTrainStatus() -%}
+
+      {%- for train in state_attr('sensor.next_train_to_abc', 'next_trains') -%}
+      {%- if train.status == "ON TIME" -%}
+        X
+      {%- endif -%}
+      {%- endfor -%}
+      {%- endmacro -%}
+
+      {%- if getTrainStatus()[1,4] == "XXXX" -%}
+      true
+      {%- else -%}
+      false
+      {%- endif -%}

@@ -1,0 +1,7 @@
+- sensor:
+  - name: 'Home count'
+    unique_id: 'home_count'
+    state: >-
+      {{ ((expand('group.my_people')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count)/(expand('group.my_people')|map(attribute='name')|list|count))|round(2) }}
+      {# states('input_boolean.person2_home') states('input_boolean.person3_home') states('input_boolean.person1_home') states('input_boolean.person4_home') #}
+

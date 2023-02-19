@@ -1,0 +1,6 @@
+- sensor:
+  - name: 'Last Motion'
+    unique_id: 'last_motion'
+    state: >-
+      {{ states('input_text.last_motion') }}
+

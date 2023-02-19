@@ -1,0 +1,6 @@
+- binary_sensor:
+  - name: 'Flood detected while we are away'
+    unique_id: 'flood_while_away'
+    state: >-
+      {{ is_state('input_boolean.home_occupied','off') and is_state('group.flood_sensors','on') }}
+

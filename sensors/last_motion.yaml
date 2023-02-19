@@ -1,7 +1,0 @@
-- platform: template
-  sensors:
-    last_motion:
-      friendly_name: 'Last Motion'
-      unique_id: 'last_motion'
-      value_template: >-
-        {{ states('input_text.last_motion') }}

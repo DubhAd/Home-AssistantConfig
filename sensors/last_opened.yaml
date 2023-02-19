@@ -1,7 +1,0 @@
-- platform: template
-  sensors:
-    last_opened:
-      friendly_name: 'Last opened'
-      unique_id: 'last_opened'
-      value_template: >-
-        {{ states('input_text.last_opened') }}

@@ -1,0 +1,15 @@
+- sensor:
+  - name: 'Green bin'
+    unique_id: 'green_bin_collection'
+    state: >-
+      {% if (as_timestamp(now()) + ( 60 * 60 * 24 )) | timestamp_custom("%Y-%m-%d 00:00:00") == states('sensor.green_collection_date') %}
+        tomorrow
+      {% elif as_timestamp(now()) > as_timestamp(states('sensor.green_collection_date'))+(60*60*12) %}
+        past
+      {% elif (as_timestamp(now()) | timestamp_custom("%Y-%m-%d 00:00:00")) == states('sensor.green_collection_date') %}
+        today
+      {% else %}
+        future
+      {% endif %}
+      {{ "" if states('sensor.time') != "test" }}
+

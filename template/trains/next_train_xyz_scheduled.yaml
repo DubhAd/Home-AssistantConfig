@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'Next train xyz scheduled'
+    unique_id: 'next_train_xyz_scheduled'
+    state: >-
+      {{ state_attr('sensor.next_train_to_xyz','next_trains')[0].scheduled }}
