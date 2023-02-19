@@ -388,6 +388,11 @@ background-color: var(--primary-background-color);
   fill: #F1F1F1 !important;
 }
 
+.squeezebox-buffering {
+  /* fill: #8270A2 !important; */
+  fill: #827272 !important;
+}
+
 .squeezebox-off {
   /* fill: #8270A2 !important; */
   fill: #727282 !important;
@@ -405,6 +410,9 @@ background-color: var(--primary-background-color);
   /* fill: #A7B349 !important; */
   /* fill: #03a9f4 !important; */
   fill: #40a2cf !important;
+}
+.squeezebox-playing {
+  fill: #40c2af !important;
 }
 
 .squeezebox-unknown {
@@ -526,8 +534,11 @@ background-color: var(--primary-background-color);
 }
 
 .tv-on {
-  /* fill: #DFDFDF !important; */
-  fill: #B0B0D0 !important;
+  fill: #10725f !important;
+}
+
+.tv-buffering {
+  fill: #70223f !important;
 }
 
 .tv-off {
