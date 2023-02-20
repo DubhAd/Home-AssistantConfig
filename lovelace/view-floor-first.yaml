@@ -214,7 +214,7 @@ cards:
   show:
     extrema: true
     average: true
-    fill: true
+    fill: false
     labels: true
   entities:
     - entity: sensor.master_bedroom_light_sensor_illuminance_lux
@@ -229,6 +229,8 @@ cards:
   points_per_hour: 4
   line_width: 2
   decimals: 1
+  upper_bound: ~90
+  lower_bound: ~10
   show:
     extrema: true
     average: true
@@ -257,11 +259,13 @@ cards:
   hour24: true
   animate: true
   decimals: 1
+  upper_bound: ~25
+  lower_bound: ~0
   show:
     extrema: true
     average: true
     labels: true
-    fill: true
+    fill: false
   color_thresholds:
     - value: -10
       color: '#0000FF'
@@ -346,7 +350,7 @@ cards:
     - entity: sensor.office_temperature
       name: Office
       color: "#F28544"
-    - entity: sensor.openweathermap_temperature
+    - entity: sensor.openweathermap_feels_like_temperature
       name: Outside
 - type: custom:mini-graph-card
   name: Pressure
