@@ -2,14 +2,54 @@ id: 'second_bedroom_not_occupied'
 initial_state: 'on'
 alias: 'Second bedroom not occupied'
 trigger:
+  # Door closes
   - platform: state
     entity_id: binary_sensor.second_bedroom_door_contact
+    id: 'closed'
+    to: 'off'
+    for: '00:02:00'
+  # Door is left open
+  - platform: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    id: 'open'
     to: 'on'
+    for: '00:02:00'
+  # No more motion
+  - platform: state
+    entity_id: binary_sensor.second_bedroom_motion_occupancy
+    id: 'motion'
+    to: 'off'
+    for: '00:30:00'
 condition:
+  - condition: or
+    conditions:
+      # No motion for at least 30 seconds and the door has been closed for 2 minutes
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.second_bedroom_motion_occupancy
+          state: 'off'
+          for: '00:00:30'
+        - condition: trigger
+          id: 'closed'
+      - condition: and
+        conditions:
+        # No motion and door left open
+        - condition: trigger
+          id: 'motion'
+        - condition: state
+          entity_id: binary_sensor.second_bedroom_door_contact
+          state: 'on'
+  # Ensuite door hasn't changed state in the last 2 minutes
   - condition: state
-    entity_id: 
-    - input_boolean.second_bedroom_occupied
-    - binary_sensor.second_bedroom_door_contact
+    entity_id: binary_sensor.second_ensuite_door_contact
+    state:
+      - 'on'
+      - 'off'
+    for: '00:02:00'
+  # Room is currently occupied
+  - condition: state
+    entity_id: input_boolean.second_bedroom_occupied
     state: 'on'
 action:
   - service: input_boolean.turn_off

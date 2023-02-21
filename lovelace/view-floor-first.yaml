@@ -71,7 +71,7 @@ cards:
   - type: glance
     #title: Second bedroom
     #column_width: 25%
-    columns: 4
+    columns: 5
     entities:
       - entity: binary_sensor.second_bedroom_door_contact
         show_last_changed: true
@@ -82,6 +82,9 @@ cards:
       - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
+      - entity: binary_sensor.second_bedroom_motion_occupancy
+        show_last_changed: true
+        name: Motion
       - entity: light.person1_bedroom_bedside
         name: Bedhead
         icon: mdi:led-strip-variant
