@@ -40,6 +40,20 @@ condition:
         - condition: state
           entity_id: binary_sensor.second_bedroom_door_contact
           state: 'on'
+      - condition: and
+        conditions:
+        # No motion and door closed recently
+        - condition: trigger
+          id: 'motion'
+        - condition: state
+          entity_id: binary_sensor.second_bedroom_door_contact
+          state: 'off'
+        - condition: not
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.second_bedroom_door_contact
+            state: 'off'
+            for: '00:03:30'
   # Ensuite door hasn't changed state in the last 2 minutes
   - condition: state
     entity_id: binary_sensor.second_ensuite_door_contact
