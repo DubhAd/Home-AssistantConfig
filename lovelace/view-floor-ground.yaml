@@ -149,6 +149,8 @@ cards:
       - entity: binary_sensor.utility_motion_occupancy
         show_last_changed: true
         name: Motion
+      - entity: sensor.utility_motion_illuminance_lux
+        name: Illuminance
       - entity: binary_sensor.utility_room_water_leak_water_leak
         show_last_changed: true
         name: Leak
@@ -245,6 +247,9 @@ cards:
     - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
       name: Downstairs hall
       color: '#3357d0'
+    - entity: sensor.utility_motion_illuminance_lux
+      name: Utility
+      color: '#5337d0'
 - type: custom:mini-graph-card
   name: Temperature
   points_per_hour: 12

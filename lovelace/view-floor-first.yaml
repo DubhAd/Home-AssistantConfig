@@ -82,6 +82,8 @@ cards:
       - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
+      - entity: sensor.second_bedroom_motion_illuminance_lux
+        name: Illuminance
       - entity: binary_sensor.second_bedroom_motion_occupancy
         show_last_changed: true
         name: Motion
@@ -223,6 +225,9 @@ cards:
     - entity: sensor.master_bedroom_light_sensor_illuminance_lux
       name: Master Bedroom
       color: "#8EA95F"
+    - entity: sensor.second_bedroom_motion_illuminance_lux
+      name: Second Bedroom
+      color: "#33B679"
     - entity: sensor.office_illuminance_illuminance_lux
       name: Office
       color: "#F28544"
