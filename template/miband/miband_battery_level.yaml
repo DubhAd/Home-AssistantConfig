@@ -1,0 +1,8 @@
+- sensor:
+  - name: 'person2 MiBand7 battery level'
+    unique_id: 'person2_miband7_battery_level'
+    device_class: "battery"
+    unit_of_measurement: "%"
+    state: >-
+      {{ states('sensor.person2_miband7_battery') }}
+

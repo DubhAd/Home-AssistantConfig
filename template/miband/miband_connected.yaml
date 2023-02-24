@@ -1,0 +1,6 @@
+- binary_sensor:
+  - name: 'person2 MiBand7 connected'
+    unique_id: 'person2_miband7_connected'
+    device_class: 'connectivity'
+    state: >-
+      {{ is_state('sensor.person2_miband7_connected','1') }}

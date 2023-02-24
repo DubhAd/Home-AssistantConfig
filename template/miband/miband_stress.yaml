@@ -1,0 +1,7 @@
+- sensor:
+  - name: 'person2 MiBand7 stress'
+    unique_id: 'person2_miband7_stress_level'
+    unit_of_measurement: "%"
+    state: >-
+      {{ states('sensor.person2_miband7_stress') }}
+

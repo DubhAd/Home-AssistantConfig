@@ -1,0 +1,6 @@
+- sensor:
+  - name: 'person2 MiBand7 step count'
+    unique_id: 'person2_miband7_step_count'
+    state: >-
+      {{ states('sensor.person2_miband7_steps') }}
+

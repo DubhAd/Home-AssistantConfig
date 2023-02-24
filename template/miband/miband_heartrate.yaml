@@ -1,0 +1,7 @@
+- sensor:
+  - name: 'person2 MiBand7 Heartrate'
+    unique_id: 'person2_miband7_heart_rate'
+    unit_of_measurement: "bpm"
+    state: >-
+      {{ states('sensor.person2_miband7_heartrate') }}
+

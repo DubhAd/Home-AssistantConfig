@@ -146,6 +146,9 @@ cards:
       - entity: binary_sensor.utility_door_exterior_contact
         show_last_changed: true
         name: Exterior
+      - entity: binary_sensor.utility_motion_occupancy
+        show_last_changed: true
+        name: Motion
       - entity: binary_sensor.utility_room_water_leak_water_leak
         show_last_changed: true
         name: Leak
