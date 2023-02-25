@@ -3,72 +3,35 @@ alias: 'person2 in bed'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: sensor.sleepasandroid_person2
-    to: 'sleep_tracking_started'
-  - platform: state
-    entity_id: light.master_bedroom_bedhead
-    to: 'on'
-    for: '00:02:00'
-  - platform: state
-    entity_id: 
-      - media_player.master_bedroom
-      - media_player.person2
-    to: 'playing'
-  - platform: state
     entity_id: 
       - input_boolean.person2_tablet_charging
       - input_boolean.person2_phone_charging
     to: 'on'
   - platform: state
-    entity_id: sensor.pixel_xl_do_not_disturb_sensor
-    to: 'priority_only'
+    entity_id: input_boolean.master_bedroom_occupied
+    to: 'on'
   - platform: time
     at: '22:00:01'
-  - platform: state
-    entity_id: binary_sensor.master_bedroom_door_contact
-    to: 'off'
 condition:
   # I'm home
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
-  # Bedroom door is closed
+  # Bedroom occupied
   - condition: state
-    entity_id: binary_sensor.master_bedroom_door_contact
-    state: 'off'
-  # Door was closed between 21:00 and 03:59
-  - condition: template
-    value_template: >-
-      {{ states.binary_sensor.master_bedroom_door_contact.last_changed.hour > 20 or
-         states.binary_sensor.master_bedroom_door_contact.last_changed.hour < 4 }}
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'on'
   # In the time window for bed
   - condition: time
     after: '22:00:00'
     before: '04:00:00'
-  - condition: or
-    conditions:
-    # Either the tablet or phone are charging, the phone is in do not disturb (bedtime) mode, the light is on, or I'm listening to music
-    - condition: state
-      entity_id: input_boolean.person2_phone_charging
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.person2_tablet_charging
-      state: 'on'
-    - condition: state
-      entity_id: sensor.pixel_xl_do_not_disturb_sensor
-      state: 'priority_only'
-    - condition: state
-      entity_id: light.master_bedroom_bedhead
-      state: 'on'
-    - condition: state
-      entity_id: media_player.master_bedroom
-      state: 'playing'
-    - condition: state
-      entity_id: media_player.person2
-      state: 'playing'
-    - condition: state
-      entity_id: sensor.sleepasandroid_person2
-      state: 'sleep_tracking_started'
+  # The tablet or phone are charging
+  - condition: state
+    match: any
+    entity_id: 
+      - input_boolean.person2_tablet_charging
+      - input_boolean.person2_phone_charging
+    state: 'on'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_in_bed
