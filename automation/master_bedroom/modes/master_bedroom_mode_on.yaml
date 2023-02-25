@@ -3,36 +3,21 @@ alias: 'Master bedroom mode on'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: sensor.pixel_xl_do_not_disturb_sensor
-    to: 'priority_only'
-  - platform: state
     entity_id: 
     - input_boolean.master_bedroom_occupied
-    - binary_sensor.master_bedroom_motion_occupancy
     to: 'on'
-  - platform: time
-    at: '22:00:01'
+  - platform: numeric_state
+    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    below: 10
 condition:
-  - condition: time
-    after: '22:00:00'
-    before: '04:00:00'
   # Relatively dull
   - condition: numeric_state
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
     below: 10
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: sensor.pixel_xl_do_not_disturb_sensor
-      state: 'priority_only'
-    # Room now occupied
-    - condition: state
-      entity_id: input_boolean.master_bedroom_occupied
-      state: 'on'
-    # Motion
-    - condition: state
-      entity_id: binary_sensor.master_bedroom_motion_occupancy
-      state: 'on'
+  # Room now occupied
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'on'
   # Not in bed
   - condition: state
     entity_id: input_boolean.person2_in_bed
