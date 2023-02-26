@@ -23,11 +23,9 @@ cards:
             - sensor.bin_grey
           state_action:
             - action: call-service
-              service: floorplan.style_set
+              service: floorplan.class_set
               service_data: 
-                style: |
-                  fill: #FF0000;
-                  stroke: #FF0000;
+                class: 'bin-${entity.state}'
 
         - entities: 
             - input_boolean.person3_in_bed
