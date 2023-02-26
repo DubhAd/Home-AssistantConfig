@@ -48,6 +48,26 @@ background-color: var(--primary-background-color);
 
 */
 
+/* Animation */
+.spinning {
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .awake-on {
   fill: #949494 !important;
 }
@@ -89,8 +109,8 @@ background-color: var(--primary-background-color);
 */
 
 .leak-off {
-  fill-opacity: 0.1 !important;
-  fill: #646F69 !important;
+  fill-opacity: 0.2 !important;
+  fill: #647F69 !important;
 }
 
 .leak-on  {
@@ -259,17 +279,25 @@ background-color: var(--primary-background-color);
   stroke-opacity: 0.5 !important;
 }
 
+.device-on {
+  fill: #40a2cf !important;
+}
+
+.device-off {
+  fill: #727282 !important;
+}
+
 .connection-on {
-  fill: #00FF00 !important;
-  fill-opacity: 0.5 !important;
+  fill: #40c2af !important;
+  fill-opacity: 0.8 !important;
 }
 
 .connection-off  {
-  fill: #FFFF00 !important;
+  fill: #FF0000 !important;
   fill-opacity: 1 !important;
-  stroke: #FF0000 !important;
-  stroke-width: 4px !important;
-  stroke-opacity: 0.5 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 1px !important; 
+  stroke-opacity: 0.8 !important;
 }
 
 /* Bootstrap danger */
@@ -406,7 +434,7 @@ background-color: var(--primary-background-color);
   fill: #517151 !important;
 }
 
-.homehub-on {
+.homehub-on, .homehub-playing {
   fill: #F1F1F1 !important;
 }
 
@@ -494,6 +522,10 @@ background-color: var(--primary-background-color);
    fill: #40a2cf !important; 
 }
 
+.temp-subzero {
+  fill: #7777FF !important;
+}
+
 .temp-freeze {
   fill: #FFFFFF !important;
 }
@@ -515,7 +547,7 @@ background-color: var(--primary-background-color);
 }
 
 .temp-unknown {
-  fill: #777777 !important;
+  fill: #77F777 !important;
 }
 
 .health-critical {
@@ -584,7 +616,11 @@ background-color: var(--primary-background-color);
 }
 
 .tv-off {
-  fill: #505050 !important;
+  fill: #727282 !important;
+}
+
+.tv-standby {
+  fill: #727292 !important;
 }
 
 .bin-today {
@@ -597,12 +633,10 @@ background-color: var(--primary-background-color);
 
 .bin-future {
   fill: #00FF00 !important;
-  fill-opacity: 0.5 !important;
 }
 
 .bin-past {
   fill: #000000 !important;
-  fill-opacity: 0 !important;
 }
 
 .hidden {
