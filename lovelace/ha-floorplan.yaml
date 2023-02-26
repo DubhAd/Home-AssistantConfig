@@ -1,0 +1,456 @@
+title: Floorplan
+id: floor-plan
+path: floor-plan
+icon: mdi:floor-plan
+panel: true
+cards:
+  - type: custom:floorplan-card
+    config:
+      image: /local/floorplan/config/home/floorplan.svg
+      stylesheet: /local/floorplan/config/home/ha-floorplan.css
+      log_level: info
+      console_log_level: info
+
+      defaults:
+        hover_action: hover-info
+        tap_action: more-info
+
+      rules:
+        - entities: 
+            - sensor.bin_blue
+            - sensor.bin_brown
+            - sensor.bin_green
+            - sensor.bin_grey
+          state_action:
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  fill: #FF0000;
+                  stroke: #FF0000;
+
+        - entities: 
+            - input_boolean.person3_in_bed
+            - input_boolean.person1_in_bed
+            - input_boolean.person2_in_bed
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'in-bed-${entity.state}'
+
+        - entities: 
+            - input_boolean.person3_is_awake
+            - input_boolean.person1_is_awake
+            - input_boolean.person2_is_awake
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'awake-${entity.state}'
+
+        - entities: 
+            - input_boolean.living_room_occupied
+            - input_boolean.family_room_occupied
+            - input_boolean.office_occupied
+            - input_boolean.bathroom_occupied
+            - input_boolean.garage_occupied
+            - input_boolean.guest_bedroom_occupied
+            - input_boolean.kitchen_occupied
+            - input_boolean.master_bedroom_occupied
+            - input_boolean.master_ensuite_occupied
+            - input_boolean.second_bedroom_occupied
+            - input_boolean.second_ensuite_occupied
+            - input_boolean.spare_bedroom_occupied
+            - input_boolean.toilet_occupied
+            - input_boolean.utility_occupied
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'room-${entity.state}'
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  transition: fill 1s ease;
+
+        - entities: 
+            - binary_sensor.bathroom_water_leak_water_leak
+            - binary_sensor.kitchen_water_leak_water_leak
+            - binary_sensor.toilet_water_leak_water_leak
+            - binary_sensor.utility_room_water_leak_water_leak
+            - binary_sensor.second_ensuite_water_leak
+            - binary_sensor.master_ensuite_leak_water_leak
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'leak-${entity.state}'
+
+        - entities:
+            - binary_sensor.ps5_status
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'connection-${entity.state}'
+
+        - entities:
+            - input_boolean.car_home
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'car-${entity.state}'
+
+        - entities:
+            - input_boolean.person2_home
+            - input_boolean.person1_home
+            - input_boolean.person3_home
+            - input_boolean.guest_mode
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'person-home-${entity.state}'
+
+        - entities:
+            - group.work_laptop
+            - group.person_person2_work
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'tracker-${entity.state}'
+
+        - entities:
+            - media_player.roku_x00200y5s7lx
+            - media_player.samsung_tv
+            - media_player.living_room_tv
+            #- device_tracker.living_room_chromecast
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'tv-${entity.state}'
+
+        - entity: media_player.living_room
+        - elements:
+            - media_player.living_room_l
+            - media_player.living_room
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'squeezebox-${entity.state}'
+
+        - entities:
+            - media_player.office
+            - media_player.family_room
+            - media_player.person2
+            - media_player.person1
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'squeezebox-${entity.state}'
+
+        - entities:
+            - switch.ps5_724_power
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'squeezebox-${entity.state}'
+
+        - entities:
+            - media_player.living_room_display
+            - media_player.family_room_display
+            - media_player.office_smart_display
+            - media_player.master_bedroom_display
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'homehub-${entity.state}'
+
+        - entities:
+            - media_player.cast_master_bedroom_speaker
+            - media_player.cast_second_bedroom_speaker
+            - media_player.cast_kitchen_speaker
+            - media_player.cast_master_bedroom_display
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'squeezebox-${entity.state}'
+
+        - entities:
+            - sensor.printer
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data:
+                class: |
+                  >
+                  var health = entity.state;
+                  if (health < 50)
+                    return "health-critical";
+                  else if (health < 100)
+                    return "health-warning";
+                  else if (health < 250)
+                    return "health-info";
+                  else if (health >= 25)
+                    return "health-good";
+                  else
+                    return "health-unknown";
+
+        # Indoors should be moderate
+        - entities:
+            - sensor.bathroom_environment_temperature
+            - sensor.family_room_multi_temperature
+            - sensor.living_room_climate_temperature
+            - sensor.master_ensuite_temperature
+            - sensor.office_temperature
+            - sensor.second_bedroom_ensuite_temperature
+          state_action:
+            - action: call-service
+              service: floorplan.text_set
+              service_data:
+                text: '${entity.state ? entity.state : "unknown"}°C'
+            - action: call-service
+              service: floorplan.class_set
+              service_data:
+                class: |
+                  >
+                  var temp = entity.state;
+                  if (temp < 5)
+                    return "temp-freeze";
+                  else if (temp < 15)
+                    return "temp-low";
+                  else if (temp < 22)
+                    return "temp-medium";
+                  else if (temp < 25)
+                    return "temp-medium-high";
+                  else if (temp >= 25)
+                    return "temp-high";
+                  else
+                    return "temp-unknown";
+                  
+        - entities:
+            #- sensor.openweathermap_temperature
+            - sensor.openweathermap_feels_like_temperature
+          state_action:
+            - action: call-service
+              service: floorplan.text_set
+              service_data:
+                text: '${entity.state ? entity.state : "unknown"}°C'
+        - entities:
+            - sensor.master_ensuite_humidity
+            - sensor.second_bedroom_ensuite_humidity
+            - sensor.bathroom_environment_humidity
+            - sensor.office_humidity
+          state_action:
+            - action: call-service
+              service: floorplan.text_set
+              service_data:
+                text: '${entity.state ? entity.state : "unknown"}%'
+        - entities:
+            - sensor.openweathermap_humidity
+          state_action:
+            - action: call-service
+              service: floorplan.text_set
+              service_data:
+                text: '${entity.state ? entity.state : "unknown"}%'
+        - entities:
+            - sensor.downstairs_hall_light_sensor_illuminance_lux
+            - sensor.living_room_light_sensor_illuminance_lux
+            - sensor.master_bedroom_light_sensor_illuminance_lux
+            - sensor.family_room_multi_illuminance_lux
+            - sensor.office_illuminance_illuminance_lux
+          state_action:
+            - action: call-service
+              service: floorplan.text_set
+              service_data:
+                text: '${entity.state ? entity.state : "unknown"} lux'
+        - entities:
+            - input_text.person_person3
+            - input_text.person_person1
+            - input_text.person_person2
+          state_action:
+            - action: call-service
+              service: floorplan.text_set
+              service_data:
+                text: '${entity.state ? entity.state : "unknown"}'
+        - entities:
+            - switch.living_room_cabinet_light
+            - light.living_room_tv_lamp
+            - light.living_room_table_lamp
+            - light.living_room_corner_lamp
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'light-${entity.state}'
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  transition: fill 2s ease;
+
+        - entities:
+            - switch.garden_lights
+            - light.master_bedroom_bedhead
+            - light.person1_bedroom_bedside
+            - light.downstairs_hall
+            - light.office_strip
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'light-strip-${entity.state}'
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  transition: fill 2s ease;
+
+        - entities:
+            - switch.living_room_christmas_tree
+            - switch.vestibule_socket
+            - switch.family_room_socket
+            - switch.number_sign
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'switch-${entity.state}'
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  transition: fill 2s ease;
+
+        - entities:
+            - switch.master_bedroom
+            - switch.spare_bedroom_socket
+            - switch.guest_bedroom_socket
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'socket-${entity.state}'
+
+        - entities:
+            - binary_sensor.fritz_box_3490_connection
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'connection-${entity.state}'
+
+        - entities:
+            - binary_sensor.office_mmwave_presence
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'presence-${entity.state}'
+
+        - entities:
+            - binary_sensor.downstairs_hall_motion_occupancy
+            - binary_sensor.family_room_multi_occupancy
+            - binary_sensor.living_room_presence_occupancy
+            - binary_sensor.master_bedroom_motion_occupancy
+            - binary_sensor.office_presence_occupancy
+            - binary_sensor.second_bedroom_motion_occupancy
+            - binary_sensor.upstairs_hall_motion_front_occupancy
+            - binary_sensor.utility_motion_occupancy
+            - binary_sensor.vestibule_multi_occupancy
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'motion-${entity.state}'
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  transition: ${ entity.state === "off" ? "fill 2s ease" : "" };
+
+        - entities:
+            - binary_sensor.bathroom_door_contact
+            - binary_sensor.family_room_door_contact
+            - binary_sensor.guest_bedroom_door_contact
+            - binary_sensor.living_room_door_contact
+            - binary_sensor.master_bedroom_door_contact
+            - binary_sensor.master_ensuite_door_contact
+            - binary_sensor.office_door_contact
+            - binary_sensor.second_bedroom_door_contact
+            - binary_sensor.second_ensuite_door_contact
+            - binary_sensor.toilet_door_contact
+            - binary_sensor.vestibule_door_contact
+            - binary_sensor.spare_bedroom_door_contact
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'interior-door-${entity.state}'
+
+        - entities:
+            - binary_sensor.front_door_contact
+            - binary_sensor.patio_door_left_contact
+            - binary_sensor.patio_door_right_contact
+            - binary_sensor.utility_door_exterior_contact
+            - binary_sensor.patio_window_left_contact
+            - binary_sensor.patio_window_right_contact
+            - binary_sensor.vestibule_window_front_contact
+            - binary_sensor.vestibule_window_side_contact
+            - binary_sensor.family_window_right_contact
+            - binary_sensor.family_window_left_contact
+            - binary_sensor.guest_bedroom_window_left_contact
+            - binary_sensor.guest_bedroom_window_right_contact
+            - binary_sensor.kitchen_window_right_contact
+            - binary_sensor.kitchen_window_left_contact
+            - binary_sensor.master_window_left_contact
+            - binary_sensor.master_window_right_contact
+            - binary_sensor.master_window_ensuite_contact
+            - binary_sensor.office_window_contact
+            - binary_sensor.spare_bedroom_window_left_contact
+            - binary_sensor.spare_bedroom_window_right_contact
+            - binary_sensor.second_bedroom_window_ensuite_contact
+            - binary_sensor.second_bedroom_window_left_contact
+            - binary_sensor.second_bedroom_window_right_contact
+            - binary_sensor.bathroom_window_contact
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'exterior-door-${entity.state}'
+
+        - entities:
+            - binary_sensor.bike_lid
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'appliance-${entity.state}'
+
+        - entities:
+            - binary_sensor.garage_door_bike_contact
+            - binary_sensor.garage_door_car_contact
+            - binary_sensor.garden_gate_contact
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'exterior-${entity.state}'
+
+        - entities:
+            - alarm_control_panel.ha_alarm
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'alarm-${entity.state}'

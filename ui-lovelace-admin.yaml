@@ -11,3 +11,4 @@ views:
   - !include lovelace/view-weather.yaml
   - !include lovelace/view-train_status.yaml
   - !include lovelace/view-cast.yaml
+  - !include lovelace/ha-floorplan.yaml

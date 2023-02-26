@@ -1,0 +1,608 @@
+/* SVG shapes */
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+  pointer-events: all !important;
+  background-color: var(--primary-background-color);
+}
+
+background-color: var(--primary-background-color);
+
+/* Hover over 
+
+.entity:hover {
+  stroke: #FFFFFF !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Bootstrap succsss 
+
+.success-text {
+  fill: #3c763d !important;
+}
+
+.success-background, .success-text-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+  stroke: #d6e9c6 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap info 
+
+.info-text {
+  fill: #d4d4d4 !important;
+}
+
+.hidden {
+  visibility: hidden !important;
+}
+
+.transparent {
+  fill-opacity: 0.5 !important;
+}
+
+.visible {
+  visibility: hidden !important;
+}
+
+*/
+
+.awake-on {
+  fill: #949494 !important;
+}
+
+.awake-off {
+  fill: #0e0e6e !important;
+}
+
+.in-bed-on {
+  fill: #504c66 !important;
+}
+
+.in-bed-off {
+  fill: #57565c !important;
+}
+
+.room-off {
+  fill: #5d5b5b !important;
+}
+
+.room-on {
+  fill: #596170 !important;
+  /* fill: #5d5d6f !important;*/
+}
+
+/*
+.unknown {
+  fill: #FFFF00 !important;
+  stroke: #FFA500 !important;
+  stroke-width: 1px !important;
+}
+
+.unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+*/
+
+.leak-off {
+  fill-opacity: 0.1 !important;
+  fill: #646F69 !important;
+}
+
+.leak-on  {
+  fill: #FF0000 !important;
+}
+
+.leak-unavailable  {
+  fill: #00FFFF !important;
+}
+
+.interior-door-on {
+  fill: #647a79 !important;
+  fill-opacity: 1 !important;
+  /* transform: rotateZ(270deg); */
+}
+
+.interior-door-off {
+  /* fill: #cd9948 !important; */
+  /* fill: #40a2cf !important; */
+  fill: #40a2cf !important;
+  fill-opacity: 1 !important;
+}
+
+.exterior-door-off {
+  fill: #81c9a0 !important;
+  fill-opacity: 1 !important;
+  stroke-width: 1px !important;  
+  animation-duration: 4s;
+  animation-name: rotateReset90; */
+}
+
+.exterior-door-on  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+  /*
+  animation-duration: 4s;
+  animation-name: rotate90;
+  animation-fill-mode: forwards;  
+  */
+}
+
+.alarm-disarmed {
+  fill: #81D9a7 !important;
+  fill-opacity: 0.5 !important;
+}
+
+.alarm-triggered {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+}
+
+.alarm-armed_night {
+  fill: #FF8A0D; !important;
+}
+
+.alarm-armed_away {
+  fill: #FFCC66; !important;
+}
+
+.alarm-armed_home {
+  fill: #FF8A0D; !important;
+}
+
+.alarm-armed_custom_bypass {
+  fill: #FFCC66; !important;
+}
+
+.exterior-off, .closed-text-background {
+  /* fill: #77FF77 !important; */
+  fill: #81D9a7 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+.exterior-on, .open-text-background  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
+.appliance-off {
+  /* fill: #5f739b !important; */
+  fill: #44607f !important;
+  fill-opacity: 1 !important;
+}
+
+.appliance-on {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
+.interior-closed-background, .interior-closed-text-background {
+  fill: #81c9a7 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+.interior-open-background, .interior-open-text-background  {
+  fill: #5fd3eb !important;
+  fill-opacity: 1 !important;
+  stroke: #6fE3Fb !important;
+  stroke-dasharray: 4,4 !important; 
+  stroke-width: 1px !important; 
+  stroke-opacity: 0.5 !important; 
+}
+
+.window-closed-background, .window-closed-text-background {
+  fill: #83DFF3 !important;
+  fill-opacity: 1 !important;
+/*   stroke: #82caa8 !important;
+  stroke-width: 1px !important; */
+}
+
+.window-open-background, .window-open-text-background  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
+.motion-off, .motion-text-background {
+  fill: #6d958b !important;
+  stroke-width: 1px !important; */
+}
+
+.motion-on, .warning-text-background  {
+  fill: #FFFF00 !important;
+  fill-opacity: 1 !important;
+  stroke: #FF0000 !important;
+  stroke-width: 4px !important;
+  stroke-opacity: 0.5 !important;
+}
+
+.info-background {
+   fill: #81c9a7 !important; 
+  stroke-width: 1px !important; */
+}
+
+/* Bootstrap warning */
+
+.warning-text {
+  fill: #8a6d3b !important;
+}
+
+.warning-background, .warning-text-background  {
+  fill: #FFFF00 !important;
+  fill-opacity: 1 !important;
+  stroke: #FF0000 !important;
+  stroke-width: 4px !important;
+  stroke-opacity: 0.5 !important;
+}
+
+.connection-on {
+  fill: #00FF00 !important;
+  fill-opacity: 0.5 !important;
+}
+
+.connection-off  {
+  fill: #FFFF00 !important;
+  fill-opacity: 1 !important;
+  stroke: #FF0000 !important;
+  stroke-width: 4px !important;
+  stroke-opacity: 0.5 !important;
+}
+
+/* Bootstrap danger */
+
+.danger-text {
+  fill: #a94442 !important;
+}
+
+.danger-background, .danger-text-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+  stroke: #ebccd1 !important;
+  stroke-width: 1px !important;
+}
+
+/* Last motion entity */
+
+.last-motion {
+  stroke: #808080 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Alarm Panel */
+
+.alarm-disarmed {
+  fill: #3c763d !important;
+}
+
+.alarm-armed {
+  fill: #8a6d3b !important;
+}
+
+/* Camera */
+
+.camera-idle {
+/*  fill: #B9CEF7 !important; */
+/*  fill: #6FAECE !important; */
+  fill: #8270A2 !important;
+}
+
+/* Light */
+
+.light-unavailable {
+  fill: #8270A2 !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 1px !important;
+}
+
+.light-off {
+  fill: #4d4d3e !important;
+}
+
+.light-on {
+  fill: #FFF27F !important;
+  stroke: #FFF27F !important;
+  stroke-width: 20px !important;
+  stroke-opacity: 0.25 !important;
+}
+
+.light-strip-off {
+  fill: #4d4d3e !important;
+}
+
+.light-strip-on {
+  fill: #FFF27F !important;
+  stroke: #FFF27F !important;
+  stroke-width: 10px !important;
+  stroke-opacity: 0.25 !important;
+}
+
+.indicator-on {
+  fill: #FFE500 !important;
+/*  stroke: #FFE500 !important;
+  stroke-width: 20px !important;
+  stroke-opacity: 0.25 !important; */
+}
+
+/* Doorbell */
+
+.switch-off {
+  /* fill: #92C0AD !important; */
+  fill: #4d4d3e !important;
+}
+
+.switch-on {
+  fill: #FFE500 !important;
+}
+
+.socket-on {
+  /*fill: #6F7500 !important;*/
+  fill: #006297 !important;
+}
+
+.socket-off {
+  /* fill: #92C0AD !important; */
+  /* fill: #5d3d3e !important; */
+  fill: #4d4d3e !important;
+}
+
+/* Temperature sensor */
+
+.temp-very-low-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-below-average-background {
+  fill: #dcefe8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-average-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-very-high-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+}
+
+/* Media player */
+
+.homehub-off {
+  fill: #515151 !important;
+}
+
+.homehub-idle {
+  fill: #515751 !important;
+}
+
+.homehub-paused {
+  fill: #517151 !important;
+}
+
+.homehub-on {
+  fill: #F1F1F1 !important;
+}
+
+.squeezebox-buffering {
+  /* fill: #8270A2 !important; */
+  fill: #827272 !important;
+}
+
+.squeezebox-off {
+  /* fill: #8270A2 !important; */
+  fill: #727282 !important;
+}
+.squeezebox-idle {
+  /* fill: #8270A2 !important; */
+  fill: #727A82 !important;
+}
+
+.squeezebox-paused {
+  /* fill: #B9C999 !important; */
+  /* fill: #8da6c9 !important; */
+  fill: #9da6b9 !important;
+}
+
+.squeezebox-on {
+  fill: #40a2cf !important;
+}
+
+.squeezebox-playing {
+  fill: #40c2af !important;
+}
+
+.squeezebox-unknown {
+  fill: #A99999 !important;
+}
+
+/* People */
+
+.presence-on {
+  fill: #40a2cf !important;
+}
+
+.presence-off {
+  fill-opacity: 0.1 !important;
+}
+
+.car-off {
+  fill: #585858 !important;
+}
+
+.car-on {
+ fill: #181818 !important;
+}
+
+.person-home-off {
+  fill: #585858 !important;
+}
+.person-home-on {
+   fill: #40a2cf !important; 
+}
+
+.tracker-off {
+  fill: #585858 !important;
+}
+.tracker-on {
+   fill: #40a2cf !important; 
+}
+
+.tracker-not_home {
+  fill: #585858 !important;
+}
+
+.tracker-travel {
+  fill: #88a9b8 !important;
+}
+
+.tracker-work {
+  fill: #9963a6 !important;
+}
+
+.tracker-other {
+  fill: #6993a6 !important;
+}
+
+.tracker-home {
+   fill: #40a2cf !important; 
+}
+
+.temp-freeze {
+  fill: #FFFFFF !important;
+}
+
+.temp-low {
+  fill: #7777FF !important;
+}
+
+.temp-medium {
+  fill: #77FF77 !important;
+}
+
+.temp-medium-high {
+  fill: #FFA500 !important;
+}
+
+.temp-high {
+  fill: #FF0000 !important;
+}
+
+.temp-unknown {
+  fill: #777777 !important;
+}
+
+.health-critical {
+  fill: #FF0000 !important;
+}
+
+.health-warning {
+  fill: #ffa500 !important;
+}
+
+.health-info {
+  fill: #ffff00 !important;
+}
+
+.health-good {
+  fill: #77FF77 !important;
+}
+
+.health-unknown {
+  fill: #0000FF !important;
+}
+
+.humid-low {
+  fill: #C200C2 !important;
+}
+
+.humid-med-low {
+  fill: #67AF47 !important;
+}
+
+.humid-medium {
+  fill: #77FF77 !important;
+}
+
+.humid-med-high {
+  fill: #C8AB37 !important;
+}
+
+.humid-high {
+  fill: #FF0000 !important;
+}
+
+.light-low {
+  /* fill: #000083 !important; */
+  fill: #1D2375 !important;
+}
+
+.light-medium-low {
+  fill: #A7B349 !important;
+}
+
+.light-medium {
+  fill: #e4ff24 !important;
+}
+
+.light-high {
+  fill: #FFFFFF !important;
+}
+
+.tv-on {
+  fill: #40a2cf !important;
+}
+
+.tv-buffering {
+  fill: #70223f !important;
+}
+
+.tv-off {
+  fill: #505050 !important;
+}
+
+.bin-today {
+  fill: #FF0000 !important;
+}
+
+.bin-tomorrow {
+  fill: #FFFF00 !important;
+}
+
+.bin-future {
+  fill: #00FF00 !important;
+}
+
+.bin-false {
+  fill: #000000 !important;
+}
+
+.hidden {
+  visibility: hidden;
+}
