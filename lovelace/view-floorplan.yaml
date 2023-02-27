@@ -116,47 +116,12 @@ cards:
                   transition: fill 1s ease;
 
         - entities: 
-            - binary_sensor.kitchen_water_leak_water_leak
-          state_action:
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                class: 'leak-${entity.state}'
-                elements:
-                  - binary_sensor.kitchen_water_leak_water_leak_1
-                  - binary_sensor.kitchen_water_leak_water_leak_l1
-                  - binary_sensor.kitchen_water_leak_water_leak_l2
-                  - binary_sensor.kitchen_water_leak_water_leak_r1
-                  - binary_sensor.kitchen_water_leak_water_leak_r2
-        - entities: 
-            - binary_sensor.utility_room_water_leak_water_leak
-          state_action:
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                class: 'leak-${entity.state}'
-                elements:
-                  - binary_sensor.utility_room_water_leak_water_leak_1
-                  - binary_sensor.utility_room_water_leak_water_leak_l1
-                  - binary_sensor.utility_room_water_leak_water_leak_l2
-                  - binary_sensor.utility_room_water_leak_water_leak_r1
-                  - binary_sensor.utility_room_water_leak_water_leak_r2
-        - entities: 
-            - binary_sensor.toilet_water_leak_water_leak
-          state_action:
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                class: 'leak-${entity.state}'
-                elements:
-                  - binary_sensor.toilet_water_leak_water_leak_1
-                  - binary_sensor.toilet_water_leak_water_leak_l1
-                  - binary_sensor.toilet_water_leak_water_leak_l2
-                  - binary_sensor.toilet_water_leak_water_leak_r1
-                  - binary_sensor.toilet_water_leak_water_leak_r2
-
-        - entities: 
             - binary_sensor.bathroom_water_leak_water_leak
+            - binary_sensor.kitchen_water_leak_water_leak
+            - binary_sensor.utility_room_water_leak_water_leak
+            - binary_sensor.toilet_water_leak_water_leak
+            - binary_sensor.second_ensuite_water_leak
+            - binary_sensor.master_ensuite_leak_water_leak
           state_action:
             - action: call-service
               service: floorplan.class_set
@@ -175,33 +140,6 @@ cards:
                     elements: elements,
                     class: style,
                   };
-
-        - entities: 
-            - binary_sensor.second_ensuite_water_leak
-          state_action:
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                class: 'leak-${entity.state}'
-                elements:
-                  - binary_sensor.second_ensuite_water_leak_1
-                  - binary_sensor.second_ensuite_water_leak_l1
-                  - binary_sensor.second_ensuite_water_leak_l2
-                  - binary_sensor.second_ensuite_water_leak_r1
-                  - binary_sensor.second_ensuite_water_leak_r2
-        - entities: 
-            - binary_sensor.master_ensuite_leak_water_leak
-          state_action:
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                class: 'leak-${entity.state}'
-                elements:
-                  - binary_sensor.master_ensuite_leak_water_leak_1
-                  - binary_sensor.master_ensuite_leak_water_leak_l1
-                  - binary_sensor.master_ensuite_leak_water_leak_l2
-                  - binary_sensor.master_ensuite_leak_water_leak_r1
-                  - binary_sensor.master_ensuite_leak_water_leak_r2
 
         - entities:
             - binary_sensor.ps5_status
@@ -320,6 +258,7 @@ cards:
               service: floorplan.class_set
               service_data:
                 class: |
+                  >
                   var health = entity.state;
                   if (health < 50)
                     return "health-critical";
@@ -336,6 +275,10 @@ cards:
         - entities:
             - sensor.bathroom_environment_temperature
             - sensor.master_ensuite_temperature
+            - sensor.living_room_climate_temperature
+            - sensor.family_room_multi_temperature
+            - sensor.office_temperature
+            - sensor.second_bedroom_ensuite_temperature
           state_action:
             - action: call-service
               service: floorplan.text_set
@@ -369,116 +312,6 @@ cards:
                   };
 
         - entities:
-            - sensor.family_room_multi_temperature
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.family_room_multi_temperature_icon
-                class: |
-                  >
-                  var temp = parseFloat(entity.state.replace("°", ""));
-                  if (temp < 5)
-                    return "temp-freeze";
-                  else if (temp < 10)
-                    return "temp-low";
-                  else if (temp < 21)
-                    return "temp-medium";
-                  else if (temp < 24)
-                    return "temp-medium-high";
-                  else if (temp >= 24)
-                    return "temp-high";
-                  else
-                    return "temp-unknown";
-        - entities:
-            - sensor.living_room_climate_temperature
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.living_room_climate_temperature_icon
-                class: |
-                  >
-                  var temp = parseFloat(entity.state.replace("°", ""));
-                  if (temp < 5)
-                    return "temp-freeze";
-                  else if (temp < 10)
-                    return "temp-low";
-                  else if (temp < 21)
-                    return "temp-medium";
-                  else if (temp < 24)
-                    return "temp-medium-high";
-                  else if (temp >= 24)
-                    return "temp-high";
-                  else
-                    return "temp-unknown";
-
-        - entities:
-            - sensor.office_temperature
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.office_temperature_icon
-                class: |
-                  >
-                  var temp = parseFloat(entity.state.replace("°", ""));
-                  if (temp < 5)
-                    return "temp-freeze";
-                  else if (temp < 10)
-                    return "temp-low";
-                  else if (temp < 21)
-                    return "temp-medium";
-                  else if (temp < 24)
-                    return "temp-medium-high";
-                  else if (temp >= 24)
-                    return "temp-high";
-                  else
-                    return "temp-unknown";
-        - entities:
-            - sensor.second_bedroom_ensuite_temperature
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.second_bedroom_ensuite_temperature_icon
-                class: |
-                  >
-                  var temp = parseFloat(entity.state.replace("°", ""));
-                  if (temp < 5)
-                    return "temp-freeze";
-                  else if (temp < 10)
-                    return "temp-low";
-                  else if (temp < 21)
-                    return "temp-medium";
-                  else if (temp < 24)
-                    return "temp-medium-high";
-                  else if (temp >= 24)
-                    return "temp-high";
-                  else
-                    return "temp-unknown";
-                  
-        - entities:
             #- sensor.openweathermap_temperature
             - sensor.openweathermap_feels_like_temperature
           state_action:
@@ -490,7 +323,7 @@ cards:
               service: floorplan.class_set
               service_data: 
                 elements:
-                  - sensor.openweathermap_feels_like_temperature_icon
+                  - sensor.openweathermap_feels_like_temperature.icon
                 class: |
                   >
                   var temp = parseFloat(entity.state.replace("°", ""));
@@ -513,6 +346,9 @@ cards:
         - entities:
             - sensor.bathroom_environment_humidity
             - sensor.master_ensuite_humidity
+            - sensor.office_humidity
+            - sensor.second_bedroom_ensuite_humidity
+            - sensor.openweathermap_humidity
           state_action:
             - action: call-service
               service: floorplan.text_set
@@ -545,84 +381,6 @@ cards:
                   };
 
         - entities:
-            - sensor.office_humidity
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}%'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.office_humidity_icon
-                class: |
-                  >
-                  var humid = parseFloat(entity.state.replace("%", ""));
-                  if (humid < 30)
-                    return "humid-low";
-                  else if (humid < 45)
-                    return "humid-med-low";
-                  else if (humid < 60)
-                    return "humid-medium";
-                  else if (humid < 70)
-                    return "humid-med-high";
-                  else
-                    return "humid-high";
-
-        - entities:
-            - sensor.second_bedroom_ensuite_humidity
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}%'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.second_bedroom_ensuite_humidity_icon
-                class: |
-                  >
-                  var humid = parseFloat(entity.state.replace("%", ""));
-                  if (humid < 30)
-                    return "humid-low";
-                  else if (humid < 45)
-                    return "humid-med-low";
-                  else if (humid < 60)
-                    return "humid-medium";
-                  else if (humid < 70)
-                    return "humid-med-high";
-                  else
-                    return "humid-high";
-
-        - entities:
-            - sensor.openweathermap_humidity
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}%'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.openweathermap_humidity_icon
-                class: |
-                  >
-                  var humid = parseFloat(entity.state.replace("%", ""));
-                  if (humid < 65)
-                    return "humid-low";
-                  else if (humid < 75)
-                    return "humid-med-low";
-                  else if (humid < 85)
-                    return "humid-medium";
-                  else if (humid < 95)
-                    return "humid-med-high";
-                  else
-                    return "humid-high";
-
-        - entities:
             - sensor.downstairs_hall_light_sensor_illuminance_lux
             - sensor.living_room_light_sensor_illuminance_lux
             - sensor.master_bedroom_light_sensor_illuminance_lux
@@ -643,6 +401,7 @@ cards:
               service: floorplan.text_set
               service_data:
                 text: '${entity.state ? entity.state : "unknown"}'
+
         - entities:
             - switch.number_sign
           state_action:

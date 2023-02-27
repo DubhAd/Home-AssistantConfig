@@ -438,15 +438,18 @@ svg * {
 }
 
 .homehub-idle {
-  fill: #515751 !important;
+  /* fill: #515751 !important; */
+  fill: #5f7882 !important;
 }
 
 .homehub-paused {
-  fill: #517151 !important;
+  /* fill: #517151 !important; */
+  fill: #5f7882 !important;
 }
 
 .homehub-on, .homehub-playing {
-  fill: #F1F1F1 !important;
+  /* fill: #F1F1F1 !important; */
+  fill: #40a2cf !important;
 }
 
 .squeezebox-buffering {
@@ -460,21 +463,23 @@ svg * {
 }
 .squeezebox-idle {
   /* fill: #8270A2 !important; */
-  fill: #727A82 !important;
+  /* fill: #727A82 !important; */
+  fill: #5f7882 !important;
 }
 
 .squeezebox-paused {
   /* fill: #B9C999 !important; */
   /* fill: #8da6c9 !important; */
-  fill: #9da6b9 !important;
+  /* fill: #9da6b9 !important; */
+  fill: #5f7882 !important;
 }
 
 .squeezebox-on {
-  fill: #40a2cf !important;
+  fill: #368eb5 !important;
 }
 
 .squeezebox-playing {
-  fill: #40c2af !important;
+  fill: #40a2cf !important;
 }
 
 .squeezebox-unknown {
