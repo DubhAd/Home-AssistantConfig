@@ -330,7 +330,7 @@ cards:
             - action: call-service
               service: floorplan.text_set
               service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
+                text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
             - action: call-service
               service: floorplan.class_set
               service_data: 
@@ -338,7 +338,7 @@ cards:
                   - sensor.bathroom_environment_temperature_icon
                 class: |
                   >
-                  var temp = parseFloat(entity.state.replace("°", ""));
+                  text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
                   if (temp < 5)
                     return "temp-freeze";
                   else if (temp < 10)
@@ -358,7 +358,7 @@ cards:
             - action: call-service
               service: floorplan.text_set
               service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
+                text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
             - action: call-service
               service: floorplan.class_set
               service_data: 
@@ -496,7 +496,7 @@ cards:
             - action: call-service
               service: floorplan.text_set
               service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
+                text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
             - action: call-service
               service: floorplan.class_set
               service_data: 
