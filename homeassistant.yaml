@@ -2,7 +2,7 @@ name: Our home
 latitude: !secret latitude
 longitude: !secret longitude
 elevation: !secret elevation
-classical: GB
+country: GB
 language: en-GB
 currency: GBP
 time_zone: Europe/London

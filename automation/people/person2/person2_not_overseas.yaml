@@ -4,12 +4,12 @@ alias: 'person2 not overseas'
 trigger:
   - platform: state
     entity_id: sensor.pixel_xl_geocoded_location
-    attribute: iso_classical_code
+    attribute: iso_country_code
     to: 'GB'
 condition: 
   - condition: state
     entity_id: sensor.pixel_xl_geocoded_location
-    attribute: iso_classical_code
+    attribute: iso_country_code
     state: 'GB'
   # Not overseas
   - condition: state
