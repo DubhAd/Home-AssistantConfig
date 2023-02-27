@@ -154,19 +154,28 @@ cards:
                   - binary_sensor.toilet_water_leak_water_leak_l2
                   - binary_sensor.toilet_water_leak_water_leak_r1
                   - binary_sensor.toilet_water_leak_water_leak_r2
+
         - entities: 
             - binary_sensor.bathroom_water_leak_water_leak
           state_action:
             - action: call-service
               service: floorplan.class_set
-              service_data: 
-                class: 'leak-${entity.state}'
-                elements:
-                  - binary_sensor.bathroom_water_leak_water_leak_1
-                  - binary_sensor.bathroom_water_leak_water_leak_l1
-                  - binary_sensor.bathroom_water_leak_water_leak_l2
-                  - binary_sensor.bathroom_water_leak_water_leak_r1
-                  - binary_sensor.bathroom_water_leak_water_leak_r2
+              service_data: |
+                >
+                  var elements = [
+                    `${entity.entity_id}.main`,
+                    `${entity.entity_id}.l1`,
+                    `${entity.entity_id}.l2`,
+                    `${entity.entity_id}.r1`,
+                    `${entity.entity_id}.r2`,
+                  ];
+                  var style = 'leak-'+entity.state;
+    
+                  return {
+                    elements: elements,
+                    class: style,
+                  };
+
         - entities: 
             - binary_sensor.second_ensuite_water_leak
           state_action:
@@ -326,6 +335,7 @@ cards:
         # Indoors should be moderate
         - entities:
             - sensor.bathroom_environment_temperature
+            - sensor.master_ensuite_temperature
           state_action:
             - action: call-service
               service: floorplan.text_set
@@ -333,24 +343,30 @@ cards:
                 text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
             - action: call-service
               service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.bathroom_environment_temperature_icon
-                class: |
-                  >
-                  text: '${entity.state ? Math.round(entity.state * 2)/2 : "unknown"}°C'
+              service_data: |
+                >
+                  var elements = [
+                    `${entity.entity_id}.icon`,
+                  ];
+    
+                  var temp = parseFloat(entity.state.replace("°", ""));
                   if (temp < 5)
-                    return "temp-freeze";
+                    style = "temp-freeze";
                   else if (temp < 10)
-                    return "temp-low";
+                    style = "temp-low";
                   else if (temp < 21)
-                    return "temp-medium";
+                    style = "temp-medium";
                   else if (temp < 24)
-                    return "temp-medium-high";
+                    style = "temp-medium-high";
                   else if (temp >= 24)
-                    return "temp-high";
+                    style = "temp-high";
                   else
-                    return "temp-unknown";
+                    style = "temp-unknown";
+
+                  return {
+                    elements: elements,
+                    class: style,
+                  };
 
         - entities:
             - sensor.family_room_multi_temperature
@@ -391,33 +407,6 @@ cards:
               service_data: 
                 elements:
                   - sensor.living_room_climate_temperature_icon
-                class: |
-                  >
-                  var temp = parseFloat(entity.state.replace("°", ""));
-                  if (temp < 5)
-                    return "temp-freeze";
-                  else if (temp < 10)
-                    return "temp-low";
-                  else if (temp < 21)
-                    return "temp-medium";
-                  else if (temp < 24)
-                    return "temp-medium-high";
-                  else if (temp >= 24)
-                    return "temp-high";
-                  else
-                    return "temp-unknown";
-        - entities:
-            - sensor.master_ensuite_temperature
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}°C'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.master_ensuite_temperature_icon
                 class: |
                   >
                   var temp = parseFloat(entity.state.replace("°", ""));
@@ -523,6 +512,7 @@ cards:
         # Bathrooms are expected to be a bit more humid
         - entities:
             - sensor.bathroom_environment_humidity
+            - sensor.master_ensuite_humidity
           state_action:
             - action: call-service
               service: floorplan.text_set
@@ -531,21 +521,28 @@ cards:
             - action: call-service
               service: floorplan.class_set
               service_data: 
-                elements:
-                  - sensor.bathroom_environment_humidity_icon
-                class: |
-                  >
+              service_data: |
+                >
+                  var elements = [
+                    `${entity.entity_id}.icon`,
+                  ];
+    
                   var humid = parseFloat(entity.state.replace("%", ""));
                   if (humid < 30)
-                    return "humid-low";
+                    style = "humid-low";
                   else if (humid < 45)
-                    return "humid-med-low";
+                    style = "humid-med-low";
                   else if (humid < 60)
-                    return "humid-medium";
+                    style = "humid-medium";
                   else if (humid < 70)
-                    return "humid-med-high";
+                    style = "humid-med-high";
                   else
-                    return "humid-high";
+                    style = "humid-high";
+
+                  return {
+                    elements: elements,
+                    class: style,
+                  };
 
         - entities:
             - sensor.office_humidity
@@ -559,32 +556,6 @@ cards:
               service_data: 
                 elements:
                   - sensor.office_humidity_icon
-                class: |
-                  >
-                  var humid = parseFloat(entity.state.replace("%", ""));
-                  if (humid < 30)
-                    return "humid-low";
-                  else if (humid < 45)
-                    return "humid-med-low";
-                  else if (humid < 60)
-                    return "humid-medium";
-                  else if (humid < 70)
-                    return "humid-med-high";
-                  else
-                    return "humid-high";
-
-        - entities:
-            - sensor.master_ensuite_humidity
-          state_action:
-            - action: call-service
-              service: floorplan.text_set
-              service_data:
-                text: '${entity.state ? entity.state : "unknown"}%'
-            - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                elements:
-                  - sensor.master_ensuite_humidity_icon
                 class: |
                   >
                   var humid = parseFloat(entity.state.replace("%", ""));
@@ -662,6 +633,7 @@ cards:
               service: floorplan.text_set
               service_data:
                 text: '${entity.state ? entity.state : "unknown"} lux'
+
         - entities:
             - input_text.person_person3
             - input_text.person_person1
