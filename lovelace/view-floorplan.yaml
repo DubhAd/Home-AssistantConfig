@@ -498,7 +498,7 @@ cards:
                       stroke = '10px';
                     }
                   }
-                  var style = `fill: ${color}; stop-color: ${color}; stop-opacity: ${opacity}; stroke-width: ${stroke}; stroke: ${color}; stroke-opacity: 0.25;`;
+                  var style = `fill: ${color}; stop-color: ${color}; stop-opacity: ${opacity}; stroke-width: ${stroke}; stroke: ${color}; stroke-opacity: 0.25; transition: fill 2s ease;`;
     
                   return {
                     elements: elements,
@@ -520,6 +520,24 @@ cards:
 
         - entities:
             - switch.living_room_christmas_tree
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'switch-${entity.state}'
+                elements:
+                  - switch.living_room_christmas_tree.star
+                  - switch.living_room_christmas_tree.main
+                  - switch.living_room_christmas_tree.1
+                  - switch.living_room_christmas_tree.2
+                  - switch.living_room_christmas_tree.3
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                style: |
+                  transition: fill 2s ease;
+
+        - entities:
             - switch.vestibule_socket
             - switch.family_room_socket
           state_action:

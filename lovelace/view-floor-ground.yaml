@@ -159,6 +159,18 @@ cards:
           action: toggle
         show_last_changed: true
   - type: glance
+    entities:
+      - entity: binary_sensor.washing_machine_vibration_vibration
+        name: Washing machine
+      - entity: sensor.washing_machine_vibration_angle_x
+        name: X
+      - entity: sensor.washing_machine_vibration_angle_y
+        name: Y
+      - entity: sensor.washing_machine_vibration_angle_z
+        name: Z
+      - entity: sensor.washing_machine_vibration_strength
+        name: Strength
+  - type: glance
     title: Kitchen
     columns: 4
     entities:
