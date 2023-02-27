@@ -132,6 +132,13 @@ svg * {
   fill: #00FFFF !important;
 }
 
+.door-sweep-on {
+  fill-opacity: 0 !important;
+}
+.door-sweep-off {
+  fill-opacity: 1 !important;
+}
+
 .interior-door-on {
   fill: #647a79 !important;
   fill-opacity: 1 !important;
@@ -505,7 +512,7 @@ svg * {
 }
 
 .person-home-off {
-  fill: #585858 !important;
+  fill: #685858 !important;
 }
 .person-home-on {
    fill: #40a2cf !important; 
@@ -623,8 +630,16 @@ svg * {
   fill: #FFFFFF !important;
 }
 
+.tv-unavailable {
+  fill: #776767 !important;
+}
+
 .tv-on {
   fill: #40a2cf !important;
+}
+
+.tv-playing {
+  fill: #40c2af !important;
 }
 
 .tv-buffering {
