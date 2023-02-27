@@ -312,8 +312,8 @@ background-color: var(--primary-background-color);
 .light-on {
   fill: #FFF27F !important;
   stroke: #FFF27F !important;
-  stroke-width: 20px !important;
-  stroke-opacity: 0.25 !important;
+  /* stroke-width: 20px !important; */
+  /* stroke-opacity: 0.25 !important;*/
 }
 
 .light-strip-on {

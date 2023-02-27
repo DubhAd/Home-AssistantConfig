@@ -7,6 +7,17 @@ svg, svg * {
 
 background-color: var(--primary-background-color);
 
+/* SVG size */
+
+  max-width: 200px;
+}
+
+/* SVG elements */
+
+svg * {
+  vector-effect: non-scaling-stroke !important;
+}
+
 /* Hover over 
 
 .entity:hover {

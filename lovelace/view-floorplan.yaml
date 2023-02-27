@@ -8,8 +8,8 @@ cards:
     config:
       image: /local/floorplan/config/home/floorplan.svg
       stylesheet: /local/floorplan/config/home/ha-floorplan.css
-      #log_level: info
-      #console_log_level: info
+      log_level: info
+      console_log_level: info
 
       defaults:
         hover_action: hover-info
@@ -672,27 +672,110 @@ cards:
               service_data:
                 text: '${entity.state ? entity.state : "unknown"}'
         - entities:
+            - switch.number_sign
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'switch-${entity.state}'
+                elements:
+                  - switch.number_sign_3
+                  - switch.number_sign_9
+
+        - entities:
             - switch.living_room_cabinet_light
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data:
+                class: 'light-${entity.state}'
+            - action: call-service
+              service: floorplan.style_set
+              service_data: 
+                elements:
+                  - switch.living_room_cabinet_light
+                  - switch.living_room_cabinet_light.gradient
+                style: |
+                  transition: fill 2s ease;
+
+        - entities:
             - light.living_room_tv_lamp
             - light.living_room_table_lamp
             - light.living_room_corner_lamp
           state_action:
             - action: call-service
-              service: floorplan.class_set
-              service_data: 
-                class: 'light-${entity.state}'
+              service: floorplan.style_set
+              service_data: |
+                >
+                  var elements = [
+                    `${entity.entity_id}`,
+                    `${entity.entity_id}.gradient_color_0`,
+                  ];
+    
+                  var color = 'rgb(77, 77, 62)';
+                  var opacity = 0;
+    
+                  if (entity.state === 'on') {
+                    if (entity.attributes.color_temp) {
+                      var rgb = util.color.miredToRGB(entity.attributes.color_temp);
+                      color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+                      opacity = 1;
+                    }
+                    else if (entity.attributes.rgb_color) {
+                      var rgb = entity.attributes.rgb_color;
+                      color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+                      opacity = 1;
+                    }
+                  }
+                  var style = `fill: ${color}; stop-color: ${color}; stop-opacity: ${opacity};`;
+    
+                  return {
+                    elements: elements,
+                    style: style,
+                  };
+ 
+        - entities:
+            - light.master_bedroom_bedhead
+            - light.downstairs_hall
+            - light.person1_bedroom_bedside
+            - light.office_strip
+          state_action:
             - action: call-service
               service: floorplan.style_set
-              service_data: 
-                style: |
-                  transition: fill 2s ease;
+              service_data: |
+                >
+                  var elements = [
+                    `${entity.entity_id}`,
+                    `${entity.entity_id}.gradient_color_0`,
+                  ];
+    
+                  var color = 'rgb(77, 77, 62)';
+                  var opacity = 0;
+                  var stroke = '1px';
+    
+                  if (entity.state === 'on') {
+                    if (entity.attributes.color_temp) {
+                      var rgb = util.color.miredToRGB(entity.attributes.color_temp);
+                      color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+                      opacity = 1;
+                      stroke = '10px';
+                    }
+                    else if (entity.attributes.rgb_color) {
+                      var rgb = entity.attributes.rgb_color;
+                      color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+                      opacity = 1;
+                      stroke = '10px';
+                    }
+                  }
+                  var style = `fill: ${color}; stop-color: ${color}; stop-opacity: ${opacity}; stroke-width: ${stroke}; stroke: ${color}; stroke-opacity: 0.25;`;
+    
+                  return {
+                    elements: elements,
+                    style: style,
+                  };
 
         - entities:
             - switch.garden_lights
-            - light.master_bedroom_bedhead
-            - light.person1_bedroom_bedside
-            - light.downstairs_hall
-            - light.office_strip
           state_action:
             - action: call-service
               service: floorplan.class_set
@@ -708,7 +791,6 @@ cards:
             - switch.living_room_christmas_tree
             - switch.vestibule_socket
             - switch.family_room_socket
-            - switch.number_sign
           state_action:
             - action: call-service
               service: floorplan.class_set
