@@ -433,6 +433,7 @@ cards:
             - light.living_room_tv_lamp
             - light.living_room_table_lamp
             - light.living_room_corner_lamp
+            - light.downstairs_hall
           state_action:
             - action: call-service
               service: floorplan.style_set
@@ -467,7 +468,6 @@ cards:
  
         - entities:
             - light.master_bedroom_bedhead
-            - light.downstairs_hall
             - light.person1_bedroom_bedside
             - light.office_strip
           state_action:
