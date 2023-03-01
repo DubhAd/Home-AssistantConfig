@@ -459,7 +459,7 @@ cards:
                       opacity = 1;
                     }
                   }
-                  var style = `fill: ${color}; stop-color: ${color}; stop-opacity: ${opacity};`;
+                  var style = `fill: ${color}; stop-color: ${color}; stop-opacity: ${opacity}; transition: fill 2s ease;`;
     
                   return {
                     elements: elements,
@@ -545,11 +545,6 @@ cards:
               service: floorplan.class_set
               service_data: 
                 class: 'switch-${entity.state}'
-            - action: call-service
-              service: floorplan.style_set
-              service_data: 
-                style: |
-                  transition: fill 2s ease;
 
         - entities:
             - switch.master_bedroom
