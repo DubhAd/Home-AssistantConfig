@@ -10,6 +10,11 @@ trigger:
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
     below: 10
 condition:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: input_select.master_bedroom
+        state: 'On'
   # Relatively dull
   - condition: numeric_state
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
@@ -29,4 +34,5 @@ condition:
 action:
   - service: input_select.select_option
     data:
+      entity_id: input_select.master_bedroom
       option: 'On'

@@ -1,6 +1,9 @@
 blueprint:
   name: "Tinkerer's motion controlled lighting"
   description: "Turn a light on when motion is detected, then turn it off after there's no motion"
+  #author: "Tinkerer"
+  #homeassistant:
+  #  min_version: 2022.1.0
   domain: automation
   source_url: https://github.com/DubhAd/Home-AssistantConfig/blob/live/blueprints/automation/light_motion.yaml
   input:
