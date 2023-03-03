@@ -297,12 +297,20 @@ svg * {
   stroke-opacity: 0.5 !important;
 }
 
-.device-on {
+.console-on {
   fill: #40a2cf !important;
 }
 
+.console-off {
+  fill: #827272 !important;
+}
+
+.device-on {
+  fill: #00FF00 !important;
+}
+
 .device-off {
-  fill: #727282 !important;
+  fill: #770000 !important;
 }
 
 .connection-on {

@@ -227,7 +227,7 @@ cards:
             - action: call-service
               service: floorplan.class_set
               service_data: 
-                class: 'device-${entity.state}'
+                class: 'console-${entity.state}'
 
         - entities:
             - media_player.living_room_display
