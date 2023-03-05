@@ -74,3 +74,5 @@ sensor.person2_miband7_spo2:
   unit_of_measurement: '%'
 sensor.person2_miband7_stress:
   unit_of_measurement: '%'
+sensor.washing_machine_vibration_strength:
+  unit_of_measurement: 'whale'
