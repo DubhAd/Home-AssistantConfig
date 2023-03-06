@@ -45,8 +45,6 @@ switch: !include_dir_merge_list switch/
 samsungtv: !include samsung_tv.yaml
 yeelight: !include yeelight.yaml
 
-alarm_control_panel: !include_dir_list alarm/
-
 alert: !include_dir_named alerts/
 notify: !include_dir_merge_list notify/
 telegram_bot: !include telegram.yaml
