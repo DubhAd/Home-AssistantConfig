@@ -8,9 +8,6 @@ trigger:
     - input_boolean.second_bedroom_occupied
     - input_boolean.person1_home
     to: 'off'
-  # Is time to wake
-  - platform: time
-    at: '05:00:01'
   # A door opened
   - platform: state
     entity_id: binary_sensor.second_bedroom_door_contact
