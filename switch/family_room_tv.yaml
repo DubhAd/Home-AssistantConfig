@@ -1,0 +1,21 @@
+- platform: template
+  switches:
+    family_room_tv:
+      value_template: >-
+        {{ is_state('media_player.roku_x00200y5s7lx','on') }}
+      availability_template: >-
+        {{ not is_state('media_player.roku_x00200y5s7lx','unavailable') }}
+      turn_on:
+        service: media_player.turn_on
+        target:
+          entity_id: media_player.roku_x00200y5s7lx
+      turn_off:
+        service: media_player.turn_off
+        target:
+          entity_id: media_player.roku_x00200y5s7lx
+      icon_template: >-
+        {% if is_state('media_player.roku_x00200y5s7lx','on') %}
+          mdi:television
+        {% else %}
+          mdi:television-off
+        {% endif %}
