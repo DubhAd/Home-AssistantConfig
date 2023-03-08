@@ -7,7 +7,7 @@ trigger:
     below: 550
   - platform: numeric_state
     entity_id: sensor.person3s_time_to_home_by_foot_duration
-    below: 10
+    below: 12
 condition:
   - condition: state
     entity_id: input_boolean.person3_home
@@ -24,7 +24,7 @@ condition:
     below: 550
   - condition: numeric_state
     entity_id: sensor.person3s_time_to_home_by_foot_duration
-    below: 10
+    below: 12
 action:
   - service: notify.person2_telegram
     data:
