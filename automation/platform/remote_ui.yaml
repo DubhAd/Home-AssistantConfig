@@ -1,0 +1,17 @@
+id: 'remote_ui_on'
+alias: 'Remote UI on'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.remote_ui
+    to: 'on'
+action:
+  - service: notify.person2_telegram
+    data:
+      message: "The remote UI just turned on, turning off"
+  - service: cloud.remote_disconnect
+  - wait_template: >-
+      {{ is_state('binary_sensor.remote_ui','off') }}
+  - service: notify.person2_telegram
+    data:
+      message: "The remote UI is now off"
