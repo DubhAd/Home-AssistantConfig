@@ -7,6 +7,8 @@ logger:
 
 default_config:
 
+google_assistant: !include google_assistant.yaml
+
 frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml
 

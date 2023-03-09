@@ -1,0 +1,111 @@
+service_account: !include service_account.json
+project_id: !secret assistant_project_id
+report_state: true
+expose_by_default: false
+secure_devices_pin: !secret alarm_code
+entity_config:
+  # Alarm
+  alarm_control_panel.master:
+    expose: true
+  # Lights and sockets
+  light.living_room:
+    expose: true
+  light.downstairs_hall:
+    expose: true
+  light.master_bedroom_bedhead:
+    expose: true
+  light.person1_bedroom_bedside:
+    expose: true
+  light.office_strip:
+    expose: true
+  switch.living_room_cabinet_light:
+    expose: true
+  switch.garden_lights:
+    expose: true
+  switch.living_room_christmas_tree:
+    expose: true
+  # Doors and windows
+  ## Downstairs
+  binary_sensor.living_room_door_contact:
+    expose: true
+  binary_sensor.patio_door_left_contact:
+    expose: true
+  binary_sensor.patio_door_right_contact:
+    expose: true
+  binary_sensor.patio_window_left_contact:
+    expose: true
+  binary_sensor.patio_window_right_contact:
+    expose: true
+  binary_sensor.family_room_door_contact:
+    expose: true
+  binary_sensor.family_window_right_contact:
+    expose: true
+  binary_sensor.family_window_left_contact:
+    expose: true
+  binary_sensor.kitchen_window_right_contact:
+    expose: true
+  binary_sensor.kitchen_window_left_contact:
+    expose: true
+  binary_sensor.utility_door_exterior_contact:
+    expose: true
+  binary_sensor.front_door_contact:
+    expose: true
+  binary_sensor.toilet_door_contact:
+    expose: true
+  binary_sensor.vestibule_window_front_contact:
+    expose: true
+  binary_sensor.vestibule_window_side_contact:
+    expose: true
+  binary_sensor.vestibule_door_contact:
+    expose: true
+  ## Upstairs
+  binary_sensor.bathroom_door_contact:
+    expose: true
+  binary_sensor.bathroom_window_contact:
+    expose: true
+  binary_sensor.guest_bedroom_door_contact:
+    expose: true
+  binary_sensor.guest_bedroom_window_left_contact:
+    expose: true
+  binary_sensor.guest_bedroom_window_right_contact:
+    expose: true
+  binary_sensor.master_bedroom_door_contact:
+    expose: true
+  binary_sensor.master_window_left_contact:
+    expose: true
+  binary_sensor.master_window_right_contact:
+    expose: true
+  binary_sensor.master_ensuite_door_contact:
+    expose: true
+  binary_sensor.master_window_ensuite_contact:
+    expose: true
+  binary_sensor.office_door_contact:
+    expose: true
+  binary_sensor.office_window_contact:
+    expose: true
+  binary_sensor.second_bedroom_door_contact:
+    expose: true
+  binary_sensor.second_bedroom_window_left_contact:
+    expose: true
+  binary_sensor.second_bedroom_window_right_contact:
+    expose: true
+  binary_sensor.second_ensuite_door_contact:
+    expose: true
+  binary_sensor.second_bedroom_window_ensuite_contact:
+    expose: true
+  binary_sensor.spare_bedroom_door_contact:
+    expose: true
+  binary_sensor.spare_bedroom_window_left_contact:
+    expose: true
+  binary_sensor.spare_bedroom_window_right_contact:
+    expose: true
+  ## Outside
+  binary_sensor.garage_door_bike_contact:
+    expose: true
+  binary_sensor.garage_door_car_contact:
+    expose: true
+  binary_sensor.garden_gate_contact:
+    expose: true
+  # TVs
+  media_player.samsung_tv:
+    expose: true
