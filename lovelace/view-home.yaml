@@ -236,6 +236,7 @@ cards:
         - state 3: 'idle'
         - state 4: 'unavailable'
         - state 5: 'standby'
+        - device_manufacturer: 'Sky'
 
   - type: custom:auto-entities
     show_empty: false

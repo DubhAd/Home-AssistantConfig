@@ -36,6 +36,12 @@ cards:
       name: "Temperature"
     - entity: sensor.living_room_climate_humidity
       name: "Humidity"
+  - type: glance
+    columns: 5
+    entities:
+    - entity: media_player.sky_q_living_room
+      name: SkyQ
+      show_last_changed: true
     - entity: media_player.samsung_tv
       name: TV
       show_last_changed: true
@@ -138,9 +144,10 @@ cards:
         name: Leak
         show_last_changed: true
 - type: vertical-stack
+  title: Utility room & back
   cards:
   - type: glance
-    title: Utility room & back
+    #title: Utility room & back
     #columns: 4
     entities:
       - entity: binary_sensor.utility_door_exterior_contact
@@ -162,12 +169,6 @@ cards:
     entities:
       - entity: binary_sensor.washing_machine_vibration_vibration
         name: Washing machine
-      - entity: sensor.washing_machine_vibration_angle_x
-        name: X
-      - entity: sensor.washing_machine_vibration_angle_y
-        name: Y
-      - entity: sensor.washing_machine_vibration_angle_z
-        name: Z
       - entity: sensor.washing_machine_vibration_strength
         name: Strength
   - type: glance
@@ -186,54 +187,62 @@ cards:
       - entity: media_player.cast_kitchen_speaker
         show_last_changed: true
         name: Mini
-  - type: glance
+  - type: vertical-stack
     title: Family room
-    columns: 6
-    entities:
-      - entity: binary_sensor.family_room_door_contact
-        show_last_changed: true
-        name: Door
-      - entity: binary_sensor.family_window_left_contact
-        show_last_changed: true
-        name: Left
-      - entity: binary_sensor.family_window_right_contact
-        show_last_changed: true
-        name: Right
-      - entity: binary_sensor.family_room_multi_occupancy
-        show_last_changed: true
-        name: Motion
-      - entity: sensor.family_room_multi_illuminance_lux
-        name: Illuminance
-      - entity: sensor.family_room_multi_temperature
-        name: Temperature
-      - entity: media_player.roku_x00200y5s7lx
-        show_last_changed: true
-        name: TV
-      - entity: media_player.family_room
-        show_last_changed: true
-        name: Sonos
-      - entity: media_player.family_room_display
-        show_last_changed: true
-        name: Hub
-      - entity: switch.family_room_socket
-        show_last_changed: true
-        name: Socket
-      - entity: script.volume_alert
-        name: Alert
-        icon: mdi:alert
-        show_state: false
-        state_color: true
-        tap_action:
-          action: call-service
-          service: script.volume_alert
-  - type: conditional
-    conditions:
-      - entity: sensor.roku_x00200y5s7lx_active_app
-        state_not: 'unknown'
-    card:
-      type: entity
-      name: Active TV app
-      entity: sensor.roku_x00200y5s7lx_active_app
+    cards:
+    - type: glance
+      columns: 6
+      entities:
+        - entity: binary_sensor.family_room_door_contact
+          show_last_changed: true
+          name: Door
+        - entity: binary_sensor.family_window_left_contact
+          show_last_changed: true
+          name: Left
+        - entity: binary_sensor.family_window_right_contact
+          show_last_changed: true
+          name: Right
+        - entity: binary_sensor.family_room_multi_occupancy
+          show_last_changed: true
+          name: Motion
+        - entity: sensor.family_room_multi_illuminance_lux
+          name: Illuminance
+        - entity: sensor.family_room_multi_temperature
+          name: Temperature
+    - type: glance
+      columns: 6
+      entities:
+        - entity: media_player.sky_q_family_room
+          name: SkyQ
+          show_last_changed: true
+        - entity: media_player.roku_x00200y5s7lx
+          show_last_changed: true
+          name: TV
+        - entity: media_player.family_room
+          show_last_changed: true
+          name: Sonos
+        - entity: media_player.family_room_display
+          show_last_changed: true
+          name: Hub
+        - entity: switch.family_room_socket
+          show_last_changed: true
+          name: Socket
+        - entity: script.volume_alert
+          name: Alert
+          icon: mdi:alert
+          show_state: false
+          state_color: true
+          tap_action:
+            action: call-service
+            service: script.volume_alert
+    - type: conditional
+      conditions:
+        - entity: sensor.roku_x00200y5s7lx_active_app
+          state_not: 'unknown'
+      card:
+        type: entity
+        name: Active TV app
+        entity: sensor.roku_x00200y5s7lx_active_app
 - type: custom:mini-graph-card
   name: Illuminance
   points_per_hour: 12

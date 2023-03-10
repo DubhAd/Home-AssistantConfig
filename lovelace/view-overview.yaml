@@ -275,6 +275,8 @@ cards:
           state: 'playing'
           options:
             show_last_changed: true
+      exclude:
+        - device_manufacturer: 'Sky'
 
   - type: custom:auto-entities
     show_empty: false
