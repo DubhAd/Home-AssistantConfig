@@ -8,8 +8,8 @@ cards:
     config:
       image: /local/floorplan/config/home/floorplan.svg
       stylesheet: /local/floorplan/config/home/ha-floorplan.css
-      log_level: info
-      console_log_level: info
+      #log_level: info
+      #console_log_level: info
 
       defaults:
         hover_action: hover-info
@@ -150,6 +150,15 @@ cards:
                 class: 'connection-${entity.state}'
 
         - entities:
+            - binary_sensor.sky_q_family_room_transport_status
+            - binary_sensor.sky_q_living_room_transport_status
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'device-${entity.state}'
+
+        - entities:
             - input_boolean.car_home
           state_action:
             - action: call-service
@@ -193,8 +202,6 @@ cards:
             - media_player.roku_x00200y5s7lx
             - media_player.samsung_tv
             - media_player.living_room_tv
-            - media_player.sky_q_living_room
-            - media_player.sky_q_family_room
             #- device_tracker.living_room_chromecast
           state_action:
             - action: call-service
@@ -217,6 +224,8 @@ cards:
             - media_player.family_room
             - media_player.person2
             - media_player.person1
+            - media_player.sky_q_living_room
+            - media_player.sky_q_family_room
           state_action:
             - action: call-service
               service: floorplan.class_set

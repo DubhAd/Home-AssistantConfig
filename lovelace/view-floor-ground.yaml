@@ -39,24 +39,6 @@ cards:
   - type: glance
     columns: 5
     entities:
-    - entity: media_player.sky_q_living_room
-      name: SkyQ
-      show_last_changed: true
-    - entity: media_player.samsung_tv
-      name: TV
-      show_last_changed: true
-    - entity: media_player.living_room_tv
-      name: Chromecast
-      show_last_changed: true
-    - entity: media_player.living_room_display
-      name: "Home Hub"
-      show_last_changed: true
-    - entity: media_player.living_room
-      name: "Sonos"
-      show_last_changed: true
-  - type: glance
-    columns: 5
-    entities:
     - entity: light.living_room_tv_lamp
       name: "TV"
       show_last_changed: true
@@ -73,6 +55,32 @@ cards:
         action: toggle 
     - entity: switch.living_room_christmas_tree
       show_last_changed: true
+  - type: glance
+    columns: 5
+    entities:
+    - entity: media_player.sky_q_living_room
+      name: SkyQ
+      show_last_changed: true
+    - entity: media_player.samsung_tv
+      name: TV
+      show_last_changed: true
+    - entity: media_player.living_room_tv
+      name: Chromecast
+      show_last_changed: true
+    - entity: media_player.living_room_display
+      name: "Home Hub"
+      show_last_changed: true
+    - entity: media_player.living_room
+      name: "Sonos"
+      show_last_changed: true
+  - type: gauge
+    name: Recording space used
+    entity: sensor.sky_q_living_room_used_storage
+    max: 1566
+    severity:
+      green: 0
+      yellow: 1000
+      red: 1450
 - type: vertical-stack
   cards:
   - type: glance

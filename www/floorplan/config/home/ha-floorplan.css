@@ -307,10 +307,12 @@ svg * {
 
 .device-on {
   fill: #00FF00 !important;
+  stroke: #00FF00 !important;
 }
 
 .device-off {
   fill: #770000 !important;
+  stroke: #770000 !important;
 }
 
 .connection-on {

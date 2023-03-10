@@ -55,6 +55,16 @@ cards:
           when_idle: true
           when_paused: true
           when_standby: true
+      - entity: media_player.sky_q_living_room
+        name: Sky Q
+        type: custom:mini-media-player
+        group: true
+        icon: mdi:set-top-box
+        power_color: true
+        idle_view:
+          when_idle: true
+          when_paused: true
+          when_standby: true
   - type: entities
     title: Family room & Kitchen
     show_header_toggle: false
@@ -69,6 +79,16 @@ cards:
         power_color: true
         tts:
           platform: google_cloud
+        idle_view:
+          when_idle: true
+          when_paused: true
+          when_standby: true
+      - entity: media_player.sky_q_family_room
+        name: Sky Q
+        type: custom:mini-media-player
+        group: true
+        icon: mdi:set-top-box
+        power_color: true
         idle_view:
           when_idle: true
           when_paused: true

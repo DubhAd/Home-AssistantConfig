@@ -1,0 +1,6 @@
+- binary_sensor:
+  - name: 'Sky Q family room transport status'
+    unique_id: 'sky_q_family_room_transport'
+    device_class: connectivity
+    state: >-
+      {{ is_state_attr('media_player.sky_q_family_room','skyq_transport_status','OK') }}
