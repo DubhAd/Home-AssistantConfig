@@ -13,8 +13,24 @@ trigger:
       minutes: 5
   - platform: state
     entity_id:
+    - media_player.sky_q_living_room
+    - media_player.living_room_tv
+    to: 
+    - 'playing'
+    - 'buffering'
+    id: 'playing'
+  - platform: state
+    entity_id:
+    - media_player.living_room
+    to: 
+    - 'playing'
+    - 'buffering'
+    id: 'sonos'
+  - platform: state
+    entity_id:
     - media_player.living_room_tv
     - media_player.living_room
+    - media_player.sky_q_living_room
     to: 
     - 'playing'
     - 'buffering'
@@ -34,13 +50,6 @@ trigger:
   - platform: state
     entity_id: media_player.samsung_tv
     to: 'on'
-  - platform: state
-    entity_id: 
-    - media_player.living_room_tv
-    - media_player.living_room
-    to: 
-    - 'playing'
-    - 'buffering'
   - platform: state
     entity_id: media_player.living_room_tv
     to: 'off'
@@ -70,25 +79,29 @@ condition:
   # Some form of media is active
   - condition: or
     conditions:
-    # Sonos
-    - condition: state
-      entity_id: media_player.living_room
-      state: 
+    - condition: trigger
+      id: 'playing'
+    - condition: and
+      conditions:
+      # TV and SkyQ on
+      - condition: state
+        entity_id: media_player.samsung_tv
+        state: 'on'
+      - condition: state
+        entity_id: media_player.sky_q_living_room
+        state: 
         - 'playing'
         - 'buffering'
-    # TV
+    # Chromecast, Sonos
     - condition: state
-      entity_id: media_player.samsung_tv
-      state: 
-      - 'on'
-      #- 'unavailable'
-    # Chromecast
-    - condition: state
-      entity_id: media_player.living_room_tv
+      entity_id: 
+      - media_player.living_room
+      - media_player.living_room_tv
       state: 
       - 'playing'
       - 'buffering'
       - 'off'
+      match: any
     - condition: state
       entity_id: device_tracker.living_room_chromecast
       state: 'home'

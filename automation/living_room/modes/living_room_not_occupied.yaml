@@ -7,6 +7,10 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: state
+    entity_id: media_player.sky_q_living_room
+    to: 'off'
+    for: '00:01:00'
+  - platform: state
     entity_id: media_player.samsung_tv
     to: 'off'
     for: '00:01:00'

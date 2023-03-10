@@ -1,0 +1,17 @@
+id: 'living_tv_off'
+alias: 'Living room TV turned off'
+initial_state: 'on'
+trigger:
+  - alias: 'TV turned off'
+    platform: state
+    entity_id: media_player.samsung_tv
+    to: 'off'
+    for: '00:05:00'
+condition:
+  - condition: state
+    entity_id: media_player.sky_q_living_room
+    state: 'playing'
+action:
+  - service: media_player.turn_off
+    target:
+      entity_id: media_player.sky_q_living_room

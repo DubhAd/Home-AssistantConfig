@@ -1,0 +1,24 @@
+id: 'family_tv_not_sattv'
+alias: 'Family TV not on SatTV'
+initial_state: 'on'
+trigger:
+  - alias: "TV changed input"
+    platform: state
+    entity_id: sensor.roku_x00200y5s7lx_active_app
+    from: 'Satellite TV'
+    for: '00:05:00'
+  - alias: 'TV turned off'
+    platform: state
+    entity_id: media_player.roku_x00200y5s7lx
+    to: 
+      - 'standby'
+      - 'off'
+    for: '00:05:00'
+condition:
+  - condition: state
+    entity_id: media_player.sky_q_family_room
+    state: 'playing'
+action:
+  - service: media_player.turn_off
+    target:
+      entity_id: media_player.sky_q_family_room
