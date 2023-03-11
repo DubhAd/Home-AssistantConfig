@@ -5,7 +5,7 @@ trigger:
   - alias: "TV changed input"
     platform: state
     entity_id: sensor.roku_x00200y5s7lx_active_app
-    from: 'Satellite TV'
+    not_to: 'Satellite TV'
     for: '00:05:00'
   - alias: 'TV turned off'
     platform: state
