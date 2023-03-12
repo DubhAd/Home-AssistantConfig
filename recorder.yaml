@@ -1,4 +1,3 @@
-db_url: !secret pg_url
 purge_keep_days: 56
 exclude:
   entities:

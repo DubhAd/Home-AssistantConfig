@@ -1,4 +1,0 @@
-- platform: derivative
-  name: Master ensuite derivative
-  source: sensor.master_ensuite_humidity
-  unit: '%'
