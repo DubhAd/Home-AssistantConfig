@@ -523,6 +523,10 @@ cards:
               service: floorplan.class_set
               service_data: 
                 class: 'light-strip-${entity.state}'
+                elements:
+                  - switch.garden_lights.1
+                  - switch.garden_lights.2
+                  - switch.garden_lights.3
             - action: call-service
               service: floorplan.style_set
               service_data: 
