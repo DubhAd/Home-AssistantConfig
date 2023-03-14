@@ -15,6 +15,9 @@ trigger:
       - 'off'
     for: '00:05:00'
 condition:
+  - condition: template
+    value_template: >-
+      {{ 'Satellite' not in states('sensor.roku_x00200y5s7lx_active_app') }}
   - condition: state
     entity_id: media_player.sky_q_family_room
     state: 'playing'
