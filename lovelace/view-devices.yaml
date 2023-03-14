@@ -15,15 +15,12 @@ cards:
     title: Things
     show_header_toggle: false
     #show_state: false
-    columns: 5
     entities:
     - entity: binary_sensor.fritz_box_3490_connection
       name: Internet
       show_last_changed: true
     - entity: binary_sensor.fritz_box_3490_link
       name: link
-      show_last_changed: true
-    - entity: binary_sensor.remote_ui
       show_last_changed: true
     - entity: binary_sensor.first_floor_front
       name: BT Front
@@ -71,14 +68,6 @@ cards:
   tap_action:
     action: more-info
   entities:
-    - entity: sensor.inspire_hr_battery
-      state_map:
-        - from: "High"
-          to: 100
-        - from: "Medium"
-          to: 50
-        - from: "Low"
-          to: 20
     - entity: sensor.pixel_xl_battery_level
       charging_state: 
         entity_id: binary_sensor.pixel_xl_is_charging
