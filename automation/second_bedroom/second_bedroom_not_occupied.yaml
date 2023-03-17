@@ -26,12 +26,12 @@ condition:
       # No motion for at least one minute and the door has been closed for 2 minutes
       - condition: and
         conditions:
+        - condition: trigger
+          id: 'closed'
         - condition: state
           entity_id: binary_sensor.second_bedroom_motion_occupancy
           state: 'off'
           for: '00:01:00'
-        - condition: trigger
-          id: 'closed'
       - condition: and
         conditions:
         # No motion and door left open
@@ -53,7 +53,7 @@ condition:
           - condition: state
             entity_id: binary_sensor.second_bedroom_door_contact
             state: 'off'
-            for: '00:01:30'
+            for: '00:01:45'
   # Ensuite door hasn't changed state in the last 2 minutes
   - condition: state
     entity_id: binary_sensor.second_ensuite_door_contact
