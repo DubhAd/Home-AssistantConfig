@@ -13,3 +13,7 @@ allowlist_external_dirs:
 auth_providers: !include auth_providers.yaml
 external_url: !secret remote_base
 internal_url: !secret local_base
+allowlist_external_urls:
+  - !secret local_base
+  - !secret remote_base
+  - http://127.0.0.1:8123

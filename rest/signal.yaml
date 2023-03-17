@@ -1,0 +1,11 @@
+resource: !secret signal_rest
+headers:
+  Content-Type: application/json
+sensor:
+  - name: "Signal message received"
+    value_template: ""
+    json_attributes_path: $[0].envelope
+    json_attributes:
+      - source
+      - timestamp
+      - dataMessage

@@ -1,0 +1,15 @@
+id: 'signal_received'
+alias: 'Signal received'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.signal_message_received
+    attribute: source
+    to: !secret signal_recipient
+action:
+  - service: input_text.set_value
+    target:
+      entity_id: input_text.command
+    data:
+      value: >-
+        {{- state_attr('sensor.signal_message_received','dataMessage').message -}}
