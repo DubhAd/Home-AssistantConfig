@@ -1,0 +1,11 @@
+id: 'sleep_as_android'
+alias: 'Sleep as android'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: 'SleepAsAndroid_person2'
+action:
+  - service: notify.debug_log
+    data:
+      message: >-
+        SleepAsAndroid: {{ trigger.event.data }}

@@ -2,56 +2,41 @@ id: 'person2_up'
 alias: 'person2 up'
 initial_state: 'on'
 trigger:
-  # Music is playing
-  - platform: state
-    entity_id: 
-      - media_player.master_bedroom
-      - media_player.person2
-    to: 'playing'
-  # Phone or tablet is unplugged
-  - platform: state
-    entity_id: 
-      - input_boolean.person2_phone_charging
-      - input_boolean.person2_tablet_charging
-    to: 'off'
-  # Bedhead light is on
-  - platform: state
-    entity_id: 
-      - light.master_bedroom_bedhead
-      - light.yeelight_strip1_286c07afc307
-    to: 'on'
-    for:
-      minutes: 1
+  # Wake up
+ - platform: state
+   entity_id: input_boolean.person2_is_awake
+   to: 'on'
 condition:
   - condition: state
-    entity_id: input_boolean.person2_in_bed
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.person2_home
+    entity_id: 
+      - input_boolean.person2_home
+      - input_boolean.master_bedroom_occupied
     state: 'on'
   - condition: time
     after: '03:00:00'
     before: '21:00:00'
 action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.person2_in_bed
+  # Turn on the light
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.master_bedroom
+      option: 'Wake'
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
   - condition: and
     conditions:
-    # Working, but not from home, and the alarm got me up
+    # Working, but not from home
     - condition: state
       entity_id: calendar.person2_holiday
       state: 'off'
     - condition: state
       entity_id: input_boolean.person2_work_home
       state: 'off'
-    - condition: state
-      entity_id: media_player.person2
-      state: 'playing'
   # Update the trains
   - service: script.turn_on
     entity_id: script.train_message
+  # Wait a moment
+  - delay: '00:00:05'
   # And wait for the radio to be turned off (that is, I'm actually awake)
   - wait_template: "{{ is_state('media_player.person2','off') or is_state('media_player.person2','paused') }}"
     timeout: '00:02:00'

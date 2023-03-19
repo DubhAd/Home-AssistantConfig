@@ -2,28 +2,69 @@ id: 'person2_awake'
 alias: 'person2 awake'
 initial_state: 'on'
 trigger:
+  # Music is playing
   - platform: state
     entity_id: 
-      - input_boolean.person2_in_bed
-      - input_boolean.master_bedroom_occupied
+      - media_player.master_bedroom
+      - media_player.person2
+    from: 'playing'
     to: 'off'
+    id: 'alarm'
+  # Phone or tablet is unplugged
+  - platform: state
+    entity_id: 
+      - input_boolean.person2_phone_charging
+      - input_boolean.person2_tablet_charging
+    to: 'off'
+    id: 'unplugged'
+  # Fully awake
   - platform: state
     entity_id: sensor.sleepasandroid_person2
     to: 'sleep_tracking_stopped'
+    id: 'stopped'
+  # Alarm dismissed
+  - platform: event
+    event_type: 'SleepAsAndroid_person2'
+    event_data:
+      event: 'alarm_alert_dismiss'
+    id: 'sleep_alarm'
+  # Alarm skipped
+  - platform: event
+    event_type: 'SleepAsAndroid_person2'
+    event_data:
+      event: 'alarm_skip_next'
+    id: 'sleep_alarm_skip'
 condition:
+  - condition: state
+    entity_id: input_boolean.person2_is_awake
+    state: 'off'
   - condition: or
     conditions:
-      - condition: state
-        entity_id: input_boolean.person2_is_awake
-        state: 'off'
-        for: '05:00:00'
-      - condition: state
-        entity_id: input_boolean.master_bedroom_occupied
-        state: 'off'
+      # Either the alarm is playing or I unplugged the phone/tablet
+      - condition: trigger
+        id: 'alarm'
+      - condition: trigger
+        id: 'unplugged'
+      # Or the alarm was due to go off and either it's gone off, or I woke up
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.person2_pre_alarm
+            state: 'on'
+          - condition: or
+            conditions:
+              - condition: trigger
+                id: 'stopped'
+              - condition: trigger
+                id: 'sleep_alarm'
+              - condition: trigger
+                id: 'sleep_alarm_skip'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_is_awake
   - service: input_boolean.turn_off
-    entity_id: input_boolean.person2_in_bed
+    entity_id: 
+      - input_boolean.person2_in_bed
+      - input_boolean.person2_pre_alarm
   - service: script.turn_on
     entity_id: script.person2_travel_sensor
