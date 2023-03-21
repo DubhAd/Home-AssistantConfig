@@ -2,19 +2,19 @@ alias: Train message
 sequence:
   - variables:
       train_selector: >-
-        {%- if states('proximity.person2_home')|int < 2000 -%}
-          {%- if (state_attr('calendar.person2_work','location') and ("other" in state_attr('calendar.person2_work','location'))) or (state_attr('calendar.person2','location') and ("other" in state_attr('calendar.person2','location'))) -%}
-            sensor.next_train_to_xyz
-          {%- else -%}
-            sensor.next_train_to_xyz
-          {%- endif -%}
-        {%- elif states('proximity.person2_work')|int < 5 -%}
+        {% if states('proximity.person2_work')|int(0) < 5 %}
           sensor.next_train_to_abc
-        {%- elif states('proximity_person2_work_2')|int < 5 -%}
+        {% elif states('proximity.person2_work_2')|int(0) < 5 %}
           sensor.next_train_to_def
-        {%- else -%}
+        {% elif states('proximity.person2_home')|int(0) < 2000 %}
+          {% if (state_attr('calendar.person2_work','location') and ("other" in state_attr('calendar.person2_work','location'))) or (state_attr('calendar.person2','location') and ("other" in state_attr('calendar.person2','location'))) %}
+            sensor.next_train_to_xyz
+          {% else %}
+            sensor.next_train_to_xyz
+          {% endif %}
+        {% else %}
           sensor.next_train_to_xyz
-        {%- endif %}
+        {% endif %}
   - service: homeassistant.update_entity
     data:
       entity_id: "{{ train_selector }}"
@@ -29,4 +29,4 @@ sequence:
         {%- if ( train.status == "ON TIME" or train.status == "EARLY" ) -%} X {%- endif -%}
         {%- endfor -%}
         {%- endmacro -%}
-        {{ getTrainStatus()|length }} of {{ state_attr(train_selector, 'next_trains')|length }} trains to other are on time. {% if (getTrainStatus()|length) != (state_attr(train_selector,'next_trains')|length) %}{%- for train in state_attr(train_selector, 'next_trains') %}The {{ train.scheduled }} is {{ train.status }}{% if train.status == "LATE" %} at {{ train.estimated }}{% endif %}. {% endfor -%}{%- endif -%}
+        {{ getTrainStatus()|length }} of {{ state_attr(train_selector, 'next_trains')|length }} trains to {{ state_attr(train_selector,'calling_at') }} are on time. {% if (getTrainStatus()|length) != (state_attr(train_selector,'next_trains')|length) %}{%- for train in state_attr(train_selector, 'next_trains') %}The {{ train.scheduled }} is {{ train.status }}{% if train.status == "LATE" %} at {{ train.estimated }}{% endif %}. {% endfor -%}{%- endif -%}
