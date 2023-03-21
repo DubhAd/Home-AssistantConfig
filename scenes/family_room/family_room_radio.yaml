@@ -1,0 +1,10 @@
+id: family_room_radio
+name: Family room radio
+entities:
+  media_player.family_room:
+    volume_level: 0.08
+    is_volume_muted: false
+    media_content_id: hls-radio://https://prod-pre.fns.tunein.com/v1/master/30ead7055f8b8e1f2f04add745f139b184df6925/prod_preroll/preroll0.m3u8?ads.cust_params=partnerId%253dSonos%2526ads_partner_alias%253dceSonos%2526version%253d71.1%2526premium%253dfalse%2526abtest%253d%2526language%253den%2526stationId%253ds65962%2526is_ondemand%253dfalse%2526genre_id%253dg3%2526class%253dmusic%2526is_family%253dfalse%2526is_mature%253dfalse%2526country_region_id%253d100%2526station_language%253den%2526AffiliateIds%253d40166%25252c40188%25252c40221%25252c40192&ads.stationId=s65962&ads.ads_partner_alias=ceSonos&ads.url=https%3a%2f%2ftunein.com%2fdesc%2fs65962%2f&ads.description_url=https%3a%2f%2ftunein.com%2fdesc%2fs65962%2f&ads.npa=1&ads.gdfp_req=1&ads.bundleId=tunein.com&ads.is_lat=1
+    media_content_type: music
+    state: playing
+

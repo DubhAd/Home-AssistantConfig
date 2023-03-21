@@ -1,0 +1,35 @@
+id: 'reset_family_room_sonos'
+alias: 'Reset radio'
+initial_state: 'on'
+trigger:
+  - platform: time
+    at: '09:00:00'
+condition:
+  - condition: state
+    entity_id: media_player.family_room
+    state: 'paused'
+  - condition: time
+    weekday:
+      - sat
+action:
+  - service: media_player.volume_set
+    data:
+      volume_level: 0
+    target:
+      entity_id: media_player.family_room
+  - service: media_player.play_media
+    data:
+      media_content_id: >-
+        x-rincon-mp3radio://http://s7.myradiostream.com:10126
+      media_content_type: music
+    target:
+      entity_id: media_player.family_room
+  - delay: '00:00:10'
+  - service: media_player.media_pause
+    data:
+      entity_id: media_player.office
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.08
+    target:
+      entity_id: media_player.family_room
