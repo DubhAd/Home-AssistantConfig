@@ -10,6 +10,6 @@ condition:
     entity_id: input_boolean.living_room_occupied
     state: 'on'
   - condition: template
-    value_template: "{{ states('sensor.dark_sky_temperature') != 'unknown' }}"
+    value_template: "{{ states('sensor.here_weather_forecast_hourly_description_0') != 'unknown' }}"
 action:
-  - service: script.weather_notification
+  - service: script.weather_notification_here
