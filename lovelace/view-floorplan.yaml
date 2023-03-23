@@ -295,6 +295,46 @@ cards:
                     return "status-critical";
 
         - entities:
+            - sensor.samsung_m283x_series_toner_black
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: |
+                  >
+                  var health = parseFloat(entity.state.replace("%", ""));
+                  if (health < 10)
+                    return "health-critical";
+                  else if (health < 25)
+                    return "health-warning";
+                  else if (health < 50)
+                    return "health-info";
+                  else if (health >= 50)
+                    return "health-good";
+                  else
+                    return "health-unknown";
+
+        - entities:
+            - sensor.samsung_m283x_series_drum_black
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: |
+                  >
+                  var health = parseFloat(entity.state.replace("%", ""));
+                  if (health < 10)
+                    return "health-critical";
+                  else if (health < 25)
+                    return "health-warning";
+                  else if (health < 50)
+                    return "health-info";
+                  else if (health >= 50)
+                    return "health-good";
+                  else
+                    return "health-unknown";
+
+        - entities:
             - sensor.printer
           state_action:
             - action: call-service
