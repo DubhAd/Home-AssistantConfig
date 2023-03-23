@@ -315,12 +315,12 @@ svg * {
   stroke: #770000 !important;
 }
 
-.connection-on {
+.connection-on, alert-off {
   fill: #30b27f !important;
   fill-opacity: 0.8 !important;
 }
 
-.connection-off  {
+.connection-off, alert-on  {
   fill: #FF0000 !important;
   fill-opacity: 1 !important;
   stroke: #FFFF00 !important;
@@ -583,15 +583,15 @@ svg * {
   fill: #77F777 !important;
 }
 
-.health-critical {
+.health-critical, status-critical {
   fill: #FF0000 !important;
 }
 
-.health-warning {
+.health-warning, status-critical {
   fill: #ffa500 !important;
 }
 
-.health-info {
+.health-info, status-critical {
   fill: #ffff00 !important;
 }
 
@@ -599,8 +599,12 @@ svg * {
   fill: #77FF77 !important;
 }
 
-.health-unknown {
+.health-unknown, status-critical {
   fill: #0000FF !important;
+}
+
+.status-good {
+  fill: #8f8f8f !important;
 }
 
 .humid-low {

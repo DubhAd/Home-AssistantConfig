@@ -110,11 +110,28 @@ cards:
         value: "Battery Level"
 - type: glance
   title: Printer status
+  columns: 6
+  show_header_toggle: false
+  state_color: true
+  entities:
+  - entity: binary_sensor.samsung_m283x_series_connected
+    name: Power
+  - entity: binary_sensor.samsung_m283x_series_health
+    name: Health
+  - entity: sensor.samsung_m283x_series_active_alerts
+    name: Alerts
+  - entity: sensor.samsung_m283x_series_output_tray_0
+    name: Output
+  - entity: sensor.samsung_m283x_series_drum_black
+    name: Drum
+  - entity: sensor.samsung_m283x_series_toner_black
+    name: Toner
+- type: glance
+  title: Printer status
   show_header_toggle: false
   columns: 4
   state_color: true
   entities:
-  - entity: device_tracker.bw_samsung_printer
   - entity: sensor.printer_toner_remaining
     name: Toner
   - entity: sensor.printer_imaging_unit_remaining

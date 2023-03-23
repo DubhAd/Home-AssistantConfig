@@ -263,6 +263,38 @@ cards:
                 class: 'squeezebox-${entity.state}'
 
         - entities:
+            - binary_sensor.samsung_m283x_series_connected
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'device-${entity.state}'
+
+        - entities:
+            - binary_sensor.samsung_m283x_series_health
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'alert-${entity.state}'
+
+        - entities:
+            - sensor.samsung_m283x_series_active_alerts
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: |
+                  >
+                  var health = parseFloat(entity.state.replace("%", ""));
+                  if (health < 1)
+                    return "status-good";
+                  else if (health < 2)
+                    return "status-warning";
+                  else
+                    return "status-critical";
+
+        - entities:
             - sensor.printer
           state_action:
             - action: call-service
