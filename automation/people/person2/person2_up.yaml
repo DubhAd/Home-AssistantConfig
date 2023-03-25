@@ -23,15 +23,9 @@ action:
       option: 'Wake'
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
-  - condition: and
-    conditions:
-    # Working, but not from home
-    - condition: state
-      entity_id: calendar.person2_holiday
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.person2_work_home
-      state: 'off'
+  - condition: state
+    entity_id: input_boolean.notify_train_status_work
+    state: 'on'
   # Update the trains
   - service: script.turn_on
     entity_id: script.train_message

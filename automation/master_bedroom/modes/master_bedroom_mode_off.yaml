@@ -3,9 +3,6 @@ initial_state: 'on'
 alias: 'Master bedroom mode off'
 trigger:
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
-    above: 5
-  - platform: numeric_state
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
     above: 30
   - platform: state
@@ -23,9 +20,6 @@ condition:
     - condition: state
       entity_id: input_boolean.master_bedroom_occupied
       state: 'off'
-    - condition: numeric_state
-      entity_id: sensor.sun_elevation
-      above: 5
     - condition: numeric_state
       entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
       above: 30

@@ -15,10 +15,10 @@ condition:
     state: 'on'
 action:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.notify_train_status_work
+    entity_id: 
+      - input_boolean.notify_train_status_work
+      - input_boolean.person2_travelling
   - service: input_boolean.turn_on
-    entity_id: input_boolean.person2_work_home
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.person2_travelling
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.notify_person2_working
+    entity_id: 
+      - input_boolean.person2_work_home
+      - input_boolean.notify_person2_working
