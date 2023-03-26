@@ -439,7 +439,6 @@ cards:
                 text: '${entity.state ? entity.state : "unknown"}%'
             - action: call-service
               service: floorplan.class_set
-              service_data: 
               service_data: |
                 >
                   var elements = [

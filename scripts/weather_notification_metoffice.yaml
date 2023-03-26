@@ -9,15 +9,6 @@ sequence:
         {% else %}
           I have no idea what the weather is like, try looking out the window.
         {% endif %}
-        {% if (not is_state('sensor.dark_sky_alerts','0')) and (states('sensor.dark_sky_alerts') != "unknown") %}
-          {% if states('sensor.dark_sky_alerts')|int == 1 %}
-            {% if state_attr('sensor.dark_sky_alerts','time')|int > as_timestamp(now())|int %}
-              {{ state_attr('sensor.dark_sky_alerts','title') }} until {{ state_attr('sensor.dark_sky_alerts','time')|timestamp_local }}
-            {% endif %}
-          {% else %}
-            There are {{ states('sensor.dark_sky_alerts')}} alerts, {{ state_attr('sensor.dark_sky_alerts','title_0') }} until {{ state_attr('sensor.dark_sky_alerts','time_0')|timestamp_local }}
-          {% endif %}
-        {% endif %}
   - service: notify.logfile
     data:
       message: "SENDLIVING {{ states('input_text.weather_message') }}"

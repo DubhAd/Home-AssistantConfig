@@ -21,7 +21,6 @@ trigger:
     - sensor.master_ensuite_environment_battery
     - sensor.office_battery
     - sensor.office_dial_battery
-    - sensor.office_switch_battery
     - sensor.second_bedroom_ensuite_battery
     - sensor.utility_remote_battery
     below: 21
@@ -35,7 +34,6 @@ trigger:
     - sensor.master_ensuite_environment_battery
     - sensor.office_battery
     - sensor.office_dial_battery
-    - sensor.office_switch_battery
     - sensor.second_bedroom_ensuite_battery
     - sensor.utility_remote_battery
     below: 11
@@ -49,7 +47,6 @@ trigger:
     - sensor.master_ensuite_environment_battery
     - sensor.office_battery
     - sensor.office_dial_battery
-    - sensor.office_switch_battery
     - sensor.second_bedroom_ensuite_battery
     - sensor.utility_remote_battery
     below: 6

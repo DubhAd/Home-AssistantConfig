@@ -13,13 +13,6 @@ cards:
         title: Front
         webrtc_card:
           entity: camera.front_camera_lowres
-      - camera_entity: camera.garage
-        live_provider: webrtc-card
-        camera_name: garage
-        frigate_url: http://192.168.0.13:5000/
-        title: Front
-        webrtc_card:
-          entity: camera.garage
     menu:
       style: overlay
       position: right

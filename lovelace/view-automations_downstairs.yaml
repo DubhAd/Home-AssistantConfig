@@ -134,15 +134,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.family_room_mode_on
     secondary_info: last-triggered
-  - type: divider
-  - entity: automation.family_room_lights_to_away
-    secondary_info: last-triggered
-  - entity: automation.family_room_lights_to_bedtime
-    secondary_info: last-triggered
-  - entity: automation.family_room_lights_to_off
-    secondary_info: last-triggered
-  - entity: automation.family_room_lights_to_on
-    secondary_info: last-triggered
 - type: entities
   title: Hall
   show_header_toggle: false

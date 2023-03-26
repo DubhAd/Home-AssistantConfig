@@ -8,8 +8,6 @@ calendar.person1:
   icon: mdi:calendar
 calendar.person2:
   icon: mdi:calendar
-calendar.person2_family_tripit:
-  icon: mdi:calendar-clock
 calendar.person2_work:
   icon: mdi:calendar-multiple
 device_tracker.car_gps:
