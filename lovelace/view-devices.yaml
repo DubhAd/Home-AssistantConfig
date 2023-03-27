@@ -34,13 +34,9 @@ cards:
     show_header_toggle: false
     state_color: true
     entities:
-    - entity: sensor.zigbee3_bridge_state
-      name: Z3 Bridge
-    - entity: sensor.zigbee3mqtt_version
-      name: Z3 Version
     - entity: binary_sensor.zigbee2mqtt_bridge_state
       show_last_changed: true
-      name: Z2M
+      name: Z2M Bridge
     - entity: sensor.zigbee2mqtt_version
       name: Z2M Version
     - entity: sensor.zigbee2_coordinator_version
