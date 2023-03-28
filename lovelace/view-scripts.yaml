@@ -74,7 +74,7 @@ cards:
     secondary_info: last-triggered
   - entity: script.train_message
     secondary_info: last-triggered
-  - entity: script.weather_notification
+  - entity: script.weather_notification_here
     secondary_info: last-triggered
 - type: entities
   title: Presence
