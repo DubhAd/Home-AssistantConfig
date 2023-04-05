@@ -3,6 +3,10 @@ initial_state: 'on'
 alias: 'Office dial action'
 trigger:
   - platform: state
+    entity_id: sensor.office_dial_moes_action
+    to: 'toggle'
+    id: 'toggle'
+  - platform: state
     entity_id: sensor.office_dial_action
     to: 'single'
     id: 'single'
@@ -12,6 +16,23 @@ trigger:
     id: 'double'
 action:
   - choose:
+    - conditions:
+      - condition: trigger
+        id: 'toggle'
+      - condition: state
+        entity_id: media_player.office
+        state: 'playing'
+      sequence:
+      - service: media_player.media_pause
+        data:
+          entity_id: media_player.office
+    - conditions:
+      - condition: trigger
+        id: 'toggle'
+      sequence:
+      - service: media_player.media_play
+        data:
+          entity_id: media_player.office
     - conditions:
       - condition: trigger
         id: 'single'
