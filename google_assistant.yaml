@@ -7,6 +7,8 @@ entity_config:
   # Alarm
   alarm_control_panel.master:
     expose: true
+  camera.front_camera_lowres:
+    expose: true
   # Lights and sockets
   light.living_room:
     expose: true
