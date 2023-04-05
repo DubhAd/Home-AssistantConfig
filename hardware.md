@@ -20,9 +20,8 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 
 | What | Function | Buy again? | Notes |
 | --- | --- | :---: | --- |
-| [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | Coordinator | :heavy_check_mark: | The Zigbee 3.0 coordinator for my original mesh. Currently on the 202101 firmware, and proving solid and stable. I bought a second as a spare which I may use as a router. |
-| Sonoff CC2652 | Coordinator | :no_entry: | Bought when it was released as it was cheap, it has an advantage that you can flash it without having to hold down buttons. Now running my new mesh. |
-| [Tube CC2652 router](https://www.tubeszb.com/product/cc_router/4) | Router | :heavy_check_mark: | A friend ordered a couple of these and it turned out they only needed one, so they gave me the spare. It replaced a CC2530 with antenna, and so far, so good. The sign of a good router device is that you forget about it after all :P |
+| Sonoff CC2652 | Coordinator | :warning: | Bought when it was released as it was cheap, it has an advantage that you can flash it without having to hold down buttons. Now running my new mesh since the Terncy devices will pair. It does have problems however. Others have reported problems with corrupt NVRAM which I don't appear to have seen, but it does sometimes randomly just stop working (like the CC2531 sticks are known to do) until you restart Z2M. Once I replace all my Terncy devices I'll migrate to the Slaesh stick. |
+| Slaesh | Coordinator | :grey_question: | I'm going to be using this as a replacement for the Sonoff coordinator, since it can be flashed without having to manually put it into BSL mode. |
 | [Gledopto GL-C-008P](https://www.zigbee2mqtt.io/devices/GL-C-008P.html) | Hall light | :heavy_check_mark: | Replaced the older GL-C-008, transitions are smoother, but otherwise it behaves much like the old unit. I use this with a strip of 24V RGB-CCT tape for some lighting in the hall, which is otherwise quite dark. I may replace the tape with COB tape |
 | [IKEA LED1733G7](https://www.zigbee2mqtt.io/devices/LED1733G7.html#ikea-led1733g7) | Light | :heavy_check_mark: | I bought a couple of these for background lighting in the living room. I have no complaints about them, they transition smoothly, have a good range of brightness, and are cheap. NB: I'm not 100% sure these are Zigbee 3.0. |
 | [Ikea LED1739R5](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html#ikea-led1537r6%252Fled1739r5) | Light | :heavy_check_mark: | This was bought to replace the Osram, and it does this well. My comments for the other Ikea lights apply here too. |
@@ -31,11 +30,11 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Lidl light strip](https://www.zigbee2mqtt.io/devices/HG06104A.html) | Office light | :grey_question: | Not a bad strip, doesn't go that dim, but it works pretty well and isn't expensive. |
 | [TERNCY-DC01](https://www.zigbee2mqtt.io/devices/TERNCY-DC01.html) | Windows | :heavy_check_mark: | It wouldn't pair with my ZZH, but paired fine with my Sonoff coordinator. Small, responsive, and Zigbee 3.0, what's not to like? A little more expensive than the Xiaomi sensors, but far easier to buy. | 
 | [TERNCY-SD01](https://www.zigbee2mqtt.io/devices/TERNCY-SD01.html) | Remote | :heavy_check_mark: | In use as a [media controller in the office](https://github.com/DubhAd/Home-AssistantConfig/blob/live/automation/office/office_dial.yaml), controlling the volume and pause/play. There's a very slight (unavoidable) delay in the clicks, since it supports single, double, and triple clicks, but it's otherwise a great device. |
-| [Xiaomi E1 door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM.html) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. It's working well for me so far. | 
+| [Xiaomi E1 door sensor](https://www.zigbee2mqtt.io/devices/MCCGQ14LM.html) | Doors/Windows | :heavy_check_mark: | The Zigbee 3.0 version of their popular door/window sensor. They're working well for me so but are very hard to buy outside of China. | 
 | [Xiaomi E1 remote](https://www.zigbee2mqtt.io/devices/WXKG16LM.html) | Remote | :heavy_check_mark: | Bought to replace a Z-Wave wall switch, and it's a great replacement. |
 | [Xiaomi FP1 presence detector](https://www.zigbee2mqtt.io/devices/RTCZCGQ11LM.html) | Presence | :heavy_check_mark: | The only downside is that you need to keep fans out of the detection zone, but it's an excellent presence detection solution. |
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
-| [Xiaomi P1 presence sensor](https://www.zigbee2mqtt.io/devices/RTCGQ14LM.html) | Presence | :heavy_check_mark: | The Zigbee 3.0 version of their popular motion sensor. Others have complained about the range, but so far I'm happy. |
+| [Xiaomi P1 presence sensor](https://www.zigbee2mqtt.io/devices/RTCGQ14LM.html) | Presence | :heavy_check_mark: | The Zigbee 3.0 version of their popular motion sensor. Others have complained about the range, but I'm getting 5+ meters out of mine. |
 
 **Notes**
 - There's a known bug with the version of the firmware used on the Ikea devices, which impacts other devices too, that causes them to stop routing traffic. I've not experienced this myself, but others have reported it.
@@ -44,13 +43,14 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 ### Not in use
 | What | Buy again? | Notes |
 | --- | :---: | --- |
+| [Zig-A-Zig-Ah!](https://www.tindie.com/products/electrolama/zzh-cc2652r-multiprotocol-rf-stick/) | :heavy_check_mark: | The Zigbee 3.0 coordinator for my original mesh. The only downsides are that it needs manually put into BSL mode to flash, and that no Terncy device will pair. |
+| [Tube CC2652 router](https://www.tubeszb.com/product/cc_router/4) | :heavy_check_mark: | A friend ordered a couple of these and it turned out they only needed one, so they gave me the spare. It replaced a CC2530 with antenna, though I've moved to purely Innr plugs for my routers now. |
 | [CR Smart Home TS0207](https://www.zigbee2mqtt.io/devices/TS0207.html) | :thumbsdown: | Bought one to test it out, and it works exactly as described. Ordered a few more for around the house. The downside is battery life is ... shockingly bad, so I've replaced them with the Xiaomi leak sensors, despite them being Zigbee 1.2. |
 | [Konke button](https://www.zigbee2mqtt.io/devices/2AJZ4KPKEY.html) | :thumbsdown: | These are neat, smaller than the Xiaomi button, but not as nice to use. |
 | [Konke contact sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPDR.html) | :thumbsdown: | These are neat, slightly smaller than the Xiaomi sensors, but visually not as nice. They also seem to eat batteries and fail without warning. |
 | [Konke motion sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPBS.html) | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, and visually quite nice. They also seem to eat batteries and fail without warning. |
 | [Konke temperature sensor](https://www.zigbee2mqtt.io/devices/2AJZ4KPFT.html) | :thumbsdown: | These are neat, smaller than the Xiaomi sensors, but visually not as nice. |
 | [Lidl power socket](https://www.zigbee2mqtt.io/devices/HG06337.html) | :warning: | Quite a good socket, a little bulky, but it does power monitoring. Sadly it constantly dropped off the mesh and reconnected, so I removed it. |
-| Sleash | :warning: | Worked as a router, currently in the drawer. |
 | [TERNCY-PP01](https://www.zigbee2mqtt.io/devices/TERNCY-PP01.html) | | Combined motion, light, temperature sensor, and a button. It's huge and I haven't yet tried it on the new coordinator |
 | [YSRSAI YSR-MINI-01_rgbcct](https://www.zigbee2mqtt.io/devices/YSR-MINI-01_rgbcct.html) | | A compact controller with what looks like local control. Sadly it takes a slightly non-standard connector for the LED strips, so I'm waiting on something coming so I can use it. |
 
