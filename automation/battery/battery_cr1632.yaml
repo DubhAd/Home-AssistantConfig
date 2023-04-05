@@ -30,6 +30,7 @@ trigger:
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
+    - sensor.office_dial_moes_battery
     - sensor.office_door_battery
     - sensor.office_window_battery
     - sensor.patio_door_left_battery
@@ -65,6 +66,7 @@ trigger:
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
+    - sensor.office_dial_moes_battery
     - sensor.office_door_battery
     - sensor.office_window_battery
     - sensor.patio_door_left_battery
@@ -100,6 +102,7 @@ trigger:
     - sensor.master_window_ensuite_battery
     - sensor.master_window_left_battery
     - sensor.master_window_right_battery
+    - sensor.office_dial_moes_battery
     - sensor.office_door_battery
     - sensor.office_window_battery
     - sensor.patio_door_left_battery
