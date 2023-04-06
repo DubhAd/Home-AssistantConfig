@@ -19,7 +19,7 @@ cards:
         use_entity_picture: true
     alignment: center
   - type: custom:mushroom-alarm-control-panel-card
-    entity: alarm_control_panel.ha_alarm
+    entity: alarm_control_panel.master
     states:
       - armed_home
       - armed_away

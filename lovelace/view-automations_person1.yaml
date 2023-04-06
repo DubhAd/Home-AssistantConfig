@@ -41,10 +41,6 @@ cards:
   title: People driven automations - Devices
   show_header_toggle: false
   entities:
-  - entity: automation.person1_tablet_plugged
-    secondary_info: last-triggered
-  - entity: automation.person1_tablet_unplugged
-    secondary_info: last-triggered
   - entity: automation.person1_wifi_status
     secondary_info: last-triggered
   - entity: automation.person1_phone_plugged
