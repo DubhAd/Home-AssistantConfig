@@ -58,6 +58,7 @@ cards:
       - entity: media_player.sky_q_living_room
         name: Sky Q
         type: custom:mini-media-player
+        artwork: cover
         group: true
         icon: mdi:set-top-box
         power_color: true
@@ -87,6 +88,7 @@ cards:
         name: Sky Q
         type: custom:mini-media-player
         group: true
+        artwork: cover
         icon: mdi:set-top-box
         power_color: true
         idle_view:
