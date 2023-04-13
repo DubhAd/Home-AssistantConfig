@@ -16,4 +16,6 @@ internal_url: !secret local_base
 allowlist_external_urls:
   - !secret local_base
   - !secret remote_base
+  - !secret frigate_base
   - http://127.0.0.1:8123
+  - http://127.0.0.1:5000
