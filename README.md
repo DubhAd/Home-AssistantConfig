@@ -77,7 +77,7 @@ I used to use the original zwave integration on a remote system, using [Remote H
 
   * [Telegram](https://telegram.org) for my notifications
   * Supported by Google Chat using a command line notifier (so the messages come from a bot, and not a personal account)
-  * For sysem status notifications I use the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/), along with the [Discord notifier](https://www.home-assistant.io/integrations/discord/) itself
+  * For system status notifications I use the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/), along with the [Discord notifier](https://www.home-assistant.io/integrations/discord/) itself
   * LaMetric for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes, aided by [Sonos Cloud](https://github.com/jjlawren/sonos_cloud) to avoid interrupting music
 
