@@ -12,7 +12,7 @@ cards:
         frigate_url: http://192.168.0.13:5000/
         title: Front
         webrtc_card:
-          entity: camera.front_camera_lowres
+          entity: camera.front_camera
     menu:
       style: overlay
       position: right
