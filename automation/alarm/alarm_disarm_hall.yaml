@@ -9,6 +9,11 @@ condition:
   - condition: state
     entity_id: binary_sensor.front_door_contact
     state: 'off'
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.master
+        state: 'disarmed'
 action:
   - service: alarmo.disarm
     data:

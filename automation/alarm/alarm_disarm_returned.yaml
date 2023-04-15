@@ -5,6 +5,12 @@ trigger:
   - platform: state
     entity_id: input_boolean.home_occupied
     to: 'on'
+condition:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.master
+        state: 'disarmed'
 action:
   - service: alarmo.disarm
     data:
