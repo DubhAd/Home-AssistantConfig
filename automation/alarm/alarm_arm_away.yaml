@@ -16,10 +16,6 @@ condition:
       - group.upstairs_occupied
     state: 'off'
 action:
-  - service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.ha_alarm
-    data:
-      code: !secret alarm_code
   - service: alarmo.arm
     data:
       entity_id: alarm_control_panel.master
