@@ -1,10 +1,12 @@
 alias: person4 home
 sequence:
-  - condition: state
-    entity_id: input_boolean.person4_home
-    state: 'off'
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.person4_home
+  - if:
+      - condition: state
+        entity_id: input_boolean.person4_home
+        state: 'off'
+    then:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.person4_home
   - service: mqtt.publish
     data:
       topic: location/person4

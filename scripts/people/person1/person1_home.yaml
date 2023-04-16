@@ -1,18 +1,20 @@
 alias: person1 home
 sequence:
-  - condition: state
-    entity_id: input_boolean.person1_home
-    state: 'off'
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.person1_travelling
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.person1_home
+  - if:
+      - condition: state
+        entity_id: input_boolean.person1_home
+        state: 'off'
+    then:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.person1_home
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.person1_travelling
+      - service: automation.turn_on
+        entity_id: automation.person1_at_work
   - service: mqtt.publish
     data:
       topic: location/person1
       payload: 'home'
       retain: true
-  - service: automation.turn_on
-    entity_id: automation.person1_at_work
   - service: script.turn_on
     entity_id: script.person1_traveltime

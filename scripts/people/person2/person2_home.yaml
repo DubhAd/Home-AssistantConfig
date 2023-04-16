@@ -1,11 +1,13 @@
 alias: person2 home
 sequence:
   # Should wait for sensor.last_opened to have been updated in the last few minutes
-  - condition: state
-    entity_id: input_boolean.person2_home
-    state: 'off'
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.person2_home
+  - if:
+      - condition: state
+        entity_id: input_boolean.person2_home
+        state: 'off'
+    then:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.person2_home
   - service: mqtt.publish
     data:
       topic: location/person2
