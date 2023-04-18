@@ -1,13 +1,10 @@
 id: 'front_door_closed'
+initial_state: 'on'
 alias: 'Front door closed'
 trigger:
   - platform: state
     entity_id: binary_sensor.front_door_contact
     to: 'off'
-condition:
-  - condition: state
-    entity_id: binary_sensor.front_door_contact
-    state: 'off'
 action:
   - service: script.turn_on
     entity_id: script.scan_bt
