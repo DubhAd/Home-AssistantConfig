@@ -1,5 +1,4 @@
 id: 'front_door_closed'
-initial_state: 'on'
 alias: 'Front door closed'
 trigger:
   - platform: state

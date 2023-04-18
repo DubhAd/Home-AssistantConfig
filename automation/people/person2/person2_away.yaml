@@ -42,6 +42,9 @@ condition:
             (expand('group.person_person2')|selectattr('attributes.source_type','eq','bluetooth')|selectattr('state','eq','home')|list|count / expand('group.person_person2')|selectattr('attributes.source_type','eq','bluetooth')|list|count <= 0.5)
           }}
       # An exit door recently opened or closed
+      - condition: state
+        entity_id: binary_sensor.front_door_contact
+        state: 'off'
       - condition: template
         value_template: >
           {{ (now() - states.binary_sensor.front_door_contact.last_changed < timedelta(minutes=5)) or (now() - states.binary_sensor.garage_door_car_contact.last_changed < timedelta(minutes=5)) }}
