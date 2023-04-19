@@ -6,14 +6,6 @@ trigger:
     entity_id: sensor.office_dial_moes_action
     to: 'toggle'
     id: 'toggle'
-  - platform: state
-    entity_id: sensor.office_dial_action
-    to: 'single'
-    id: 'single'
-  - platform: state
-    entity_id: sensor.office_dial_action
-    to: 'double'
-    id: 'double'
 action:
   - choose:
     - conditions:
@@ -33,33 +25,3 @@ action:
       - service: media_player.media_play
         data:
           entity_id: media_player.office
-    - conditions:
-      - condition: trigger
-        id: 'single'
-      - condition: state
-        entity_id: media_player.office
-        state: 'playing'
-      sequence:
-      - service: media_player.media_pause
-        data:
-          entity_id: media_player.office
-      - delay: '00:00:10'
-    - conditions:
-      - condition: trigger
-        id: 'single'
-      sequence:
-      - service: media_player.media_play
-        data:
-          entity_id: media_player.office
-      - delay: '00:00:10'
-    - conditions:
-      - condition: trigger
-        id: 'double'
-      - condition: state
-        entity_id: media_player.office
-        state: 'playing'
-      sequence:
-      - service: media_player.media_next_track
-        data:
-          entity_id: media_player.office
-      - delay: '00:00:10'
