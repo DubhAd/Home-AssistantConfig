@@ -8,5 +8,5 @@ action:
   - service: notify.debug_log
     data:
       message: >
-        {{ trigger.data }}
+        Plex: {{ trigger.data }}
 
