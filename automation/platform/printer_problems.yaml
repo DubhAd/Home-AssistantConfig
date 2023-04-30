@@ -1,0 +1,32 @@
+id: 'printer_problems'
+alias: 'The printer has problems'
+initial_state: 'on'
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: state
+    entity_id: sensor.samsung_m283x_series_active_alerts
+    to: ~
+  - platform: state
+    entity_id: binary_sensor.samsung_m283x_series_health
+    to: 'on'
+condition:
+  - condition: or
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.samsung_m283x_series_active_alerts
+        above: 0
+      - condition: state
+        entity_id: binary_sensor.samsung_m283x_series_health
+        state: 'on'
+action:
+  - service: notify.discord_webhook
+    data:
+      message: >-
+        {% if is_state('binary_sensor.samsung_m283x_series_health','on') %}
+          :rotating_light: :printer: The printer is unhealthy, there are {{ states('sensor.samsung_m283x_series_active_alerts') }} active alerts
+        {% else %}
+          :rotating_light: :printer: There is a problem with the printer, there are {{ states('sensor.samsung_m283x_series_active_alerts') }} active alerts
+        {% endif %}

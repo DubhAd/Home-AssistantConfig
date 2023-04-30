@@ -30,7 +30,7 @@ action:
         - service: notify.discord_webhook
           data:
             message: >-
-              There's nothing unavailable, there was nothing unavailable
+              :grey_question: There's nothing unavailable, there was nothing unavailable
     - alias: 'Everything is available now'
       conditions:
         - condition: template
@@ -41,7 +41,7 @@ action:
         - service: notify.discord_webhook
           data:
             message: >-
-              There are no entities unavailable {%- if trigger.from_state.state != '0' -%}, there were {{ trigger.from_state.state }} ({{ trigger.from_state.attributes.entities }}){%- endif -%}
+              :grey_question: There are no entities unavailable {%- if trigger.from_state.state != '0' -%}, there were {{ trigger.from_state.state }} ({{ trigger.from_state.attributes.entities }}){%- endif -%}
     - alias: 'Something has remained unavailable'
       conditions:
         - condition: template
@@ -50,7 +50,7 @@ action:
         - service: notify.discord_webhook
           data:
             message: >-
-              There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }}
+              :grey_question: There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }}
     - alias: 'Something is unavailable right now'
       conditions:
         - condition: template
@@ -59,12 +59,12 @@ action:
         - service: notify.discord_webhook
           data:
             message: >-
-              There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }} - please hold
+              :grey_question: There are {{ trigger.to_state.state }} entities unavailable, these are {{ trigger.to_state.attributes.entities }} - please hold
     default:
       - service: notify.discord_webhook
         data:
           message: >-
-            Hey, there are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}
+            :grey_question: Hey, there are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}
 
   - service: notify.debug_log
     data:
