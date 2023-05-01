@@ -7,4 +7,4 @@ trigger:
 action:
   - service: script.notify_person2
     data:
-      message: "Automations on Custodes have been reloaded at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"
+      message: ":robot: Automations on Custodes have been reloaded at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"

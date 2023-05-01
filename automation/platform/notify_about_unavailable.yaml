@@ -1,5 +1,5 @@
 id: 'notify_about_unavailable'
-mode: 'restart'
+mode: 'parallel'
 alias: 'Notify about unavailable entities'
 description: "Notify either when an entity has been unavailable for a while (to avoid transient issues), or when they've been cleared"
 initial_state: 'on'
@@ -27,10 +27,7 @@ action:
         - condition: template
           value_template: "{{ trigger.from_state.state == '0' }}"
       sequence:
-        - service: notify.discord_webhook
-          data:
-            message: >-
-              :grey_question: There's nothing unavailable, there was nothing unavailable
+        - delay: '00:00:01'
     - alias: 'Everything is available now'
       conditions:
         - condition: template
