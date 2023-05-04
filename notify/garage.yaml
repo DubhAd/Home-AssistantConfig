@@ -2,3 +2,5 @@
   platform: group
   services:
     - service: logfile
+    - service: tts_family_room
+    - service: tts_living_room
