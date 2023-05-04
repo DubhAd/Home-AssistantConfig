@@ -755,7 +755,7 @@ cards:
                 class: 'exterior-door-${entity.state}'
 
         - entities:
-            - binary_sensor.bike_lid
+            - binary_sensor.chest_bike_lid_contact
           state_action:
             - action: call-service
               service: floorplan.class_set

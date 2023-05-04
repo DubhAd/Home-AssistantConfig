@@ -1,0 +1,13 @@
+name: "The chest bike has been open for {{ relative_time(states.binary_sensor.chest_bike_lid_contact.last_changed) }}"
+done_message: "The chest bike is now closed"
+entity_id: binary_sensor.chest_bike_lid_contact
+state: 'on'
+repeat: 
+  - 10
+  - 20
+  - 30
+  - 60
+can_acknowledge: True
+skip_first: True
+notifiers:
+  - garage
