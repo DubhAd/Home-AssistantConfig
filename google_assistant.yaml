@@ -108,6 +108,9 @@ entity_config:
     expose: true
   binary_sensor.garden_gate_contact:
     expose: true
+  binary_sensor.chest_bike_lid_contact:
+    expose: true
+    room: Garage
   # TVs
   media_player.samsung_tv:
     expose: true
