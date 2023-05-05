@@ -276,6 +276,10 @@ cards:
           state: 'on'
           options:
             show_last_changed: true
+        - entity: binary_sensor.chest_bike_lid_contact
+          state: 'on'
+          options:
+            show_last_changed: true
 
   - type: custom:auto-entities
     show_empty: false
