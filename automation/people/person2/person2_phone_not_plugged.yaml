@@ -1,0 +1,17 @@
+id: 'person2_phone_not_plugged'
+alias: 'person2 phone not plugged in'
+initial_state: 'on'
+trigger:
+  - platform: time
+    at: '22:45:00'
+condition:
+  - condition: state
+    entity_id: sensor.pixel_xl_charger_type
+    state: 'none'
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+action:
+  - service: notify.person2_telegram
+    data:
+      message: "Don't forget to plug the phone in"
