@@ -1,0 +1,24 @@
+id: 'bin_calendar'
+alias: 'Add bin collection to calendar'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.next_bin_collection
+    attribute: 'bin_type'
+    to: ~
+condition:
+  - condition: state
+    entity_id: sensor.next_bin_collection
+    state: 'tomorrow'
+action:
+  - service: calendar.create_event
+    data:
+      entity_id: calendar.refuse_collection
+      summary: >
+        {{ state_attr('sensor.next_bin_collection','bin_type')|capitalize }} bin collection
+      description: >
+        {{ state_attr('sensor.next_bin_collection','bin_type')|capitalize }} bin collection
+      start_date_time: >
+        {{ today_at('00:00:00')+timedelta(days=1) }}
+      end_date_time: >
+        {{ today_at('12:00:00')+timedelta(days=1) }}
