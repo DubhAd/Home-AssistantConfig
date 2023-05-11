@@ -6,6 +6,9 @@ trigger:
     entity_id: sensor.pixel_6a_next_alarm
     to: ~
 action:
+  - condition: template
+    value_template: >-
+      {{ state_attr('sensor.pixel_6a_next_alarm','Time in Milliseconds') != None }}
   - service: input_datetime.set_datetime
     entity_id: input_datetime.person3_next_alarm
     data:
