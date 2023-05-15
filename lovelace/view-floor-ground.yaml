@@ -109,7 +109,7 @@ cards:
         show_last_changed: true
   - type: glance
     title: Vestibule
-    columns: 5
+    columns: 6
     entities:
       - entity: binary_sensor.vestibule_door_contact
         show_last_changed: true
@@ -123,6 +123,8 @@ cards:
       - entity: binary_sensor.vestibule_multi_occupancy
         show_last_changed: true
         name: Motion
+      - entity: sensor.vestibule_climate_temperature
+        name: Temperature
       - entity: switch.vestibule_socket
         name: Socket
         tap_action: 
@@ -372,6 +374,9 @@ cards:
     - entity: sensor.family_room_multi_temperature
       name: Family room
       color: '#9753e0'
+    - entity: sensor.vestibule_climate_temperature
+      name: Vestibule
+      color: '#7743f0'
     - entity: sensor.openweathermap_feels_like_temperature
       name: Outside
       color: 'silver'

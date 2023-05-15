@@ -5,3 +5,4 @@
   entity_ids:
     - sensor.living_room_climate_temperature
     - sensor.family_room_multi_temperature
+    - sensor.vestibule_climate_temperature
