@@ -41,7 +41,7 @@ cards:
   #        hours_to_show: 24
   #        detail: 2
       - type: entity
-        entity: sensor.downstairs_temperature
+        entity: sensor.downstairs_temp
         name: Downstairs
         icon: 'mdi:thermometer'
   #      footer:
@@ -50,7 +50,7 @@ cards:
   #        hours_to_show: 24
   #        detail: 2
       - type: entity
-        entity: sensor.upstairs_temperature
+        entity: sensor.upstairs_temp
         name: Upstairs
         icon: 'mdi:thermometer'
   #      footer:
@@ -158,13 +158,13 @@ cards:
         - value: 29
           color: '#FF0000'
       entities:
-        - entity: sensor.downstairs_temperature
+        - entity: sensor.downstairs_temp
           name: Downstairs
           #color: darkgoldenrod
           #color: '#5397e0'
           #color: '#e03793'
           color: '#e7d516'
-        - entity: sensor.upstairs_temperature
+        - entity: sensor.upstairs_temp
           name: Upstairs
           #color: "#33B679"
           #color: "#B69933"

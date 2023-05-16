@@ -97,12 +97,12 @@ cards:
     - type: horizontal-stack
       cards:
         - type: custom:mushroom-entity-card
-          entity: sensor.downstairs_temperature
+          entity: sensor.downstairs_temp
           icon_type: entity-picture
           name: Downstairs
           icon: mdi:thermometer-chevron-down
         - type: custom:mushroom-entity-card
-          entity: sensor.upstairs_temperature
+          entity: sensor.upstairs_temp
           icon_type: entity-picture
           icon: mdi:thermometer-chevron-up
           name: Upstairs

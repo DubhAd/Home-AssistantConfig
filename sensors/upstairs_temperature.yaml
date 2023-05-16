@@ -1,9 +1,0 @@
-- platform: min_max
-  type: mean
-  name: "Upstairs temperature"
-  round_digits: 1
-  entity_ids:
-    - sensor.bathroom_environment_temperature
-    - sensor.master_ensuite_temperature
-    - sensor.second_bedroom_ensuite_temperature
-    - sensor.office_temperature
