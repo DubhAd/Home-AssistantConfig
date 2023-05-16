@@ -4,6 +4,9 @@ alias: 'Plex hook'
 trigger:
   - platform: webhook
     webhook_id: !secret plex_token
+    allowed_methods:
+      - POST
+    local_only: false
 action:
   - service: notify.debug_log
     data:

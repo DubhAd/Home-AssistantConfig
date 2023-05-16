@@ -4,6 +4,9 @@ alias: 'Tasker hook'
 trigger:
   - platform: webhook
     webhook_id: !secret assistant_api_key
+    allowed_methods:
+      - POST
+    local_only: false
 action:
   - event: tasker_webhook
     event_data:

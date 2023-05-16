@@ -4,6 +4,7 @@ alias: 'Healthcheck'
 trigger:
   - platform: webhook
     webhook_id: !secret pi3
+    local_only: false
 action:
   - delay:
       milliseconds: 1
