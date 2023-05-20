@@ -1,0 +1,15 @@
+id: 'mqtt_devices'
+alias: 'MQTT device joined or left'
+initial_state: 'on'
+trigger:
+  - platform: mqtt
+    topic: "zigbee2mqtt/bridge/event"
+condition:
+  - condition: template
+    value_template: >-
+      {{ trigger.payload_json.type == "device_joined" or trigger.payload_json == "device_leave" }}
+action:
+  - service: notify.discord_webhook
+    data:
+      message: >-
+        Zigbee: {{ trigger.payload_json.data.friendly_name }} just {{ trigger.payload_json.type }}
