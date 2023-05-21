@@ -1,5 +1,5 @@
-id: 'mqtt_devices'
-alias: 'MQTT device joined or left'
+id: 'zigbee2mqtt_devices'
+alias: 'Zigbee2MQTT device joined or left'
 initial_state: 'on'
 trigger:
   - platform: mqtt
@@ -12,4 +12,4 @@ action:
   - service: notify.discord_webhook
     data:
       message: >-
-        Zigbee: {{ trigger.payload_json.data.friendly_name }} just {{ trigger.payload_json.type }}
+        :bee: Zigbee device {{ trigger.payload_json.data.friendly_name }} just {{ trigger.payload_json.type }}
