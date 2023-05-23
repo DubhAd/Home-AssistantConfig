@@ -1,0 +1,6 @@
+api:
+  listen: ":11984"
+webrtc:
+  listen: ":18555"
+rtsp:
+  listen: ":18554"
