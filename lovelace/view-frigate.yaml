@@ -7,15 +7,11 @@ cards:
   - type: custom:frigate-card
     cameras:
       - camera_entity: camera.front
-        live_provider: webrtc-card
+        live_provider: go2rtc
         camera_name: front
         frigate_url: http://192.168.0.13:5000/
         title: Front
-        webrtc_card:
-          entity: camera.front_camera
     menu:
       style: overlay
       position: right
-    live:
-      webrtc_card:
-        ui: true
+i        ui: true

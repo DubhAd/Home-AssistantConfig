@@ -131,13 +131,11 @@ cards:
         - camera_entity: camera.front
           camera_name: front
           frigate_url: http://custodes.family:5000/
-          live_provider: webrtc-card
+          #live_provider: webrtc-card
+          live_provider: go2rtc
           title: Front
-          webrtc_card:
-            entity: camera.front_camera_lowres
       live:
-        webrtc_card:
-          ui: true
+        zoomable: true
         controls:
           next_previous:
             size: 24
