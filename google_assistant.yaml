@@ -114,3 +114,6 @@ entity_config:
   # TVs
   media_player.samsung_tv:
     expose: true
+  media_player.sky_q_living_room:
+    expose: true
+    room: Living room
