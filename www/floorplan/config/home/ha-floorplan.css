@@ -139,6 +139,16 @@ svg * {
   fill-opacity: 1 !important;
 }
 
+.utility-door-on {
+  stroke: #FFF27F !important;
+  stroke-opacity: 1 !important;
+}
+
+.utility-door-off {
+  stroke: #647a79 !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .interior-door-on {
   fill: #647a79 !important;
   fill-opacity: 1 !important;

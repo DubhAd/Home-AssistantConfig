@@ -96,15 +96,13 @@ background-color: var(--primary-background-color);
   stroke-opacity: 0.8 !important;
 }
 
-.utility-door-open {
-  stroke: #00FF00 !important;
-  fill: #00FF00 !important;
+.hatch-on {
+  fill: #647a79 !important;
   fill-opacity: 1 !important;
 }
 
-.utility-door-closed {
-  stroke: #FF0000 !important;
-  fill: #FF0000 !important;
+.hatch-off {
+  fill: #40a2cf !important;
   fill-opacity: 1 !important;
 }
 
