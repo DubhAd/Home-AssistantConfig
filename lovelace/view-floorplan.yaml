@@ -688,12 +688,12 @@ cards:
                   transition: ${ entity.state === "off" ? "fill 2s ease" : "" };
 
         - entities:
-            - binary_sensor.living_room_door_contact
+            - binary_sensor.loft_hatch_contact
           state_action:
             - action: call-service
               service: floorplan.class_set
               service_data: 
-                class: 'interior-door-${entity.state}'
+                class: 'utility-door-${entity.state}'
 
         - element: binary_sensor.living_room_door_contact.sweep
           entity: binary_sensor.living_room_door_contact
@@ -709,6 +709,7 @@ cards:
             - binary_sensor.bathroom_door_contact
             - binary_sensor.family_room_door_contact
             - binary_sensor.guest_bedroom_door_contact
+            - binary_sensor.living_room_door_contact
             - binary_sensor.master_bedroom_door_contact
             - binary_sensor.master_ensuite_door_contact
             - binary_sensor.office_door_contact

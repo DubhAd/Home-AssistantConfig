@@ -203,11 +203,15 @@ cards:
       name: Socket
 - type: glance
   title: Upstairs hall
-  columns: 1
   entities:
     - entity: binary_sensor.upstairs_hall_motion_front_occupancy
       name: Front
       show_last_changed: true
+    - entity: binary_sensor.loft_hatch_contact
+      name: Loft
+      show_last_changed: true
+    - entity: sensor.loft_environment_temperature
+      name: Loft
 - type: custom:mini-graph-card
   name: Illuminance
   points_per_hour: 12
@@ -256,6 +260,9 @@ cards:
     - entity: sensor.bathroom_environment_humidity
       name: Bathroom
       color: "#C4E441"
+    - entity: sensor.loft_environment_humidity
+      name: Loft
+      color: "#F25534"
     - entity: sensor.office_humidity
       name: Office
       color: "#F28544"
@@ -358,6 +365,9 @@ cards:
     - entity: sensor.office_temperature
       name: Office
       color: "#F28544"
+    - entity: sensor.loft_environment_temperature
+      name: Loft
+      color: "#F25534"
     - entity: sensor.openweathermap_feels_like_temperature
       name: Outside
 - type: custom:mini-graph-card
@@ -382,6 +392,9 @@ cards:
     - entity: sensor.bathroom_environment_pressure
       name: Bathroom
       color: "#C4E441"
+    - entity: sensor.loft_environment_pressure
+      name: Loft
+      color: "#F25534"
     - entity: sensor.office_pressure
       name: Office
       color: "#F28544"

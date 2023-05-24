@@ -96,6 +96,18 @@ background-color: var(--primary-background-color);
   stroke-opacity: 0.8 !important;
 }
 
+.utility-door-open {
+  stroke: #00FF00 !important;
+  fill: #00FF00 !important;
+  fill-opacity: 1 !important;
+}
+
+.utility-door-closed {
+  stroke: #FF0000 !important;
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+}
+
 .interior-door-open {
   /* fill: #6f9382 !important; */
   fill: #647a79 !important;

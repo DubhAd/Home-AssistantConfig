@@ -270,6 +270,10 @@ cards:
           state: 'on'
           options:
             show_last_changed: true
+        - entity: binary_sensor.loft_hatch_contact
+          state: 'on'
+          options:
+            show_last_changed: true
         - entity: binary_sensor.garden_gate_contact
           state: 'on'
           options:
