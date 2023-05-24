@@ -4,3 +4,6 @@ webrtc:
   listen: ":18555"
 rtsp:
   listen: ":18554"
+streams:
+  front: webrtc:http://custodes.family:5000/live/webrtc/stream.html?src=front
+  front_low: webrtc:http://custodes.family:5000/live/webrtc/stream.html?src=front_low
