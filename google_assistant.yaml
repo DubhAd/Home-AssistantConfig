@@ -7,43 +7,57 @@ entity_config:
   # Alarm
   alarm_control_panel.master:
     expose: true
+    room: Vestibule
   camera.front_camera_lowres:
     expose: true
   # Lights and sockets
   light.living_room:
     expose: true
+    room: Living room
   light.downstairs_hall:
     expose: true
+    room: HHall
   light.master_bedroom_bedhead:
     expose: true
   light.person1_bedroom_bedside:
     expose: true
   light.office_strip:
     expose: true
+    room: Office
   switch.living_room_cabinet_light:
     expose: true
+    room: Living room
   switch.garden_lights:
     expose: true
   switch.living_room_christmas_tree:
     expose: true
+    room: Living room
   # Doors and windows
   ## Downstairs
   binary_sensor.living_room_door_contact:
     expose: true
+    room: Living room
   binary_sensor.patio_door_left_contact:
     expose: true
+    room: Living room
   binary_sensor.patio_door_right_contact:
     expose: true
+    room: Living room
   binary_sensor.patio_window_left_contact:
     expose: true
+    room: Living room
   binary_sensor.patio_window_right_contact:
     expose: true
+    room: Living room
   binary_sensor.family_room_door_contact:
     expose: true
+    room: Family room
   binary_sensor.family_window_right_contact:
     expose: true
+    room: Family room
   binary_sensor.family_window_left_contact:
     expose: true
+    room: Family room
   binary_sensor.kitchen_window_right_contact:
     expose: true
   binary_sensor.kitchen_window_left_contact:
@@ -83,8 +97,10 @@ entity_config:
     expose: true
   binary_sensor.office_door_contact:
     expose: true
+    room: Office
   binary_sensor.office_window_contact:
     expose: true
+    room: Office
   binary_sensor.second_bedroom_door_contact:
     expose: true
   binary_sensor.second_bedroom_window_left_contact:
@@ -101,13 +117,19 @@ entity_config:
     expose: true
   binary_sensor.spare_bedroom_window_right_contact:
     expose: true
+  binary_sensor.loft_hatch_contact:
+    expose: true
+    room: Hall
   ## Outside
   binary_sensor.garage_door_bike_contact:
     expose: true
+    room: Garage
   binary_sensor.garage_door_car_contact:
     expose: true
+    room: Garage
   binary_sensor.garden_gate_contact:
     expose: true
+    room: Garden
   binary_sensor.chest_bike_lid_contact:
     expose: true
     room: Garage
@@ -117,3 +139,6 @@ entity_config:
   media_player.sky_q_living_room:
     expose: true
     room: Living room
+  media_player.sky_q_family_room:
+    expose: true
+    room: Family room
