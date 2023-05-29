@@ -46,7 +46,8 @@ cards:
         - type: weather
           #entity: weather.home
           #entity: weather.here_weather_forecast_7days
-          entity: weather.openweathermap
+          #entity: weather.openweathermap
+          entity: weather.tomorrow_io_home_nowcast
           show_conditions: true
           show_temperature: true
           double_tap_action:
@@ -109,7 +110,8 @@ cards:
     - type: custom:hourly-weather
       name: ~
       #entity: weather.home_hourly
-      entity: weather.openweathermap
+      #entity: weather.openweathermap
+      entity: weather.tomorrow_io_home_hourly
       num_segments: 24
       icons: true
       show_wind: 'direction'
