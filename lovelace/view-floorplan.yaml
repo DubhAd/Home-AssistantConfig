@@ -396,7 +396,7 @@ cards:
 
         - entities:
             #- sensor.openweathermap_temperature
-            - sensor.openweathermap_feels_like_temperature
+            - sensor.outside_temperature
           state_action:
             - action: call-service
               service: floorplan.text_set
@@ -406,7 +406,7 @@ cards:
               service: floorplan.class_set
               service_data: 
                 elements:
-                  - sensor.openweathermap_feels_like_temperature.icon
+                  - sensor.outside_temperature.icon
                 class: |
                   >
                   var temp = parseFloat(entity.state.replace("°", ""));
@@ -431,7 +431,7 @@ cards:
             - sensor.master_ensuite_humidity
             - sensor.office_humidity
             - sensor.second_bedroom_ensuite_humidity
-            - sensor.openweathermap_humidity
+            - sensor.outside_humidity
           state_action:
             - action: call-service
               service: floorplan.text_set

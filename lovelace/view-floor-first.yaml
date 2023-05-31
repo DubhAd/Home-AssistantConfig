@@ -368,7 +368,8 @@ cards:
     - entity: sensor.loft_environment_temperature
       name: Loft
       color: "#F25534"
-    - entity: sensor.openweathermap_feels_like_temperature
+    #- entity: sensor.openweathermap_feels_like_temperature
+    - entity: sensor.outside_temperature
       name: Outside
 - type: custom:mini-graph-card
   name: Pressure

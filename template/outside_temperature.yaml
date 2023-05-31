@@ -1,0 +1,7 @@
+- sensor:
+  - name: 'Outside temperature'
+    unique_id: 'outside_temperature'
+    unit_of_measurement: "°C"
+    state: >-
+      {{ state_attr('weather.tomorrow_io_home_nowcast', 'temperature') }}
+    icon: mdi:thermometer

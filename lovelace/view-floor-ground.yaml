@@ -377,6 +377,7 @@ cards:
     - entity: sensor.vestibule_climate_temperature
       name: Vestibule
       color: '#7743f0'
-    - entity: sensor.openweathermap_feels_like_temperature
+    #- entity: sensor.openweathermap_feels_like_temperature
+    - entity: sensor.outside_temperature
       name: Outside
       color: 'silver'

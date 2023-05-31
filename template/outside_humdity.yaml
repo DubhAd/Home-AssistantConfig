@@ -1,0 +1,7 @@
+- sensor:
+  - name: 'Outside humdity'
+    unique_id: 'outside_humidity'
+    unit_of_measurement: "%"
+    state: >-
+      {{ state_attr('weather.tomorrow_io_home_nowcast', 'humidity') }}
+    icon: mdi:water-percent
