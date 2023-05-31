@@ -1,0 +1,37 @@
+id: 'last_opened_interior'
+alias: 'Last opened interior door'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+    # Downstairs 
+      - binary_sensor.family_room_door_contact
+      - binary_sensor.living_room_door_contact
+      - binary_sensor.toilet_door_contact
+      - binary_sensor.vestibule_door_contact
+    # Upstairs
+      - binary_sensor.master_bedroom_door_contact
+      - binary_sensor.master_ensuite_door_contact
+      - binary_sensor.office_door_contact
+      - binary_sensor.second_bedroom_door_contact
+      - binary_sensor.second_ensuite_door_contact
+      - binary_sensor.spare_bedroom_door_contact
+      - binary_sensor.guest_bedroom_door_contact
+      - binary_sensor.bathroom_door_contact
+      - binary_sensor.loft_hatch_contact
+    from:
+      - 'on'
+      - 'off'
+    to:
+      - 'on'
+      - 'off'
+condition:
+  - condition: template
+    value_template: >-
+      {{ trigger.from_state.state != trigger.to_state.state }}
+action:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.last_opened_interior
+      value: >-
+        {{ trigger.to_state.name }}

@@ -120,17 +120,20 @@ cards:
   title: Sensors
   show_header_toggle: false
   entities:
-  - entity: sensor.date_time
-    name: Vision
   - entity: sensor.unavailable_entities
     name: Unavailable entities
     secondary_info: last-changed
     icon: mdi:close-circle-outline
   - sun.sun
-  - sensor.sun_elevation
-  - entity: sensor.last_opened
+  - sensor.sun_solar_elevation
+  - entity: sensor.last_opened_interior
+    name: "Last opened (interior)"
     secondary_info: last-changed
     icon: mdi:door
+  - entity: sensor.last_opened
+    name: "Last opened (exterior)"
+    secondary_info: last-changed
+    icon: mdi:window-closed-variant
   - entity: sensor.last_motion
     secondary_info: last-changed
     icon: mdi:run

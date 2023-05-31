@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'Last opened interior'
+    unique_id: 'last_opened_interior'
+    state: >-
+      {{ states('input_text.last_opened_interior') }}
