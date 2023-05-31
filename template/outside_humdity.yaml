@@ -4,4 +4,5 @@
     unit_of_measurement: "%"
     state: >-
       {{ state_attr('weather.tomorrow_io_home_nowcast', 'humidity') }}
+    state_class: measurement
     icon: mdi:water-percent
