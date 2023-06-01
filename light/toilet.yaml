@@ -1,0 +1,15 @@
+- platform: template
+  lights:
+    toilet_lights:
+      unique_id: toilet_lights
+      friendly_name: "Toilet Lights"
+      level_template: "{{ min((states('sensor.toilet_light_sensor_illuminance_lux')|int)*10,255) }}"
+      value_template: "{{ states('sensor.toilet_light_sensor_illuminance_lux')|int > 10 }}"
+      turn_on:
+        service: script.nop
+      turn_off:
+        service: script.nop
+      set_level:
+        service: script.nop
+        data:
+          brightness: "{{ brightness }}"

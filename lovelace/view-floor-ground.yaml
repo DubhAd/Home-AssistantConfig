@@ -153,6 +153,9 @@ cards:
       - entity: binary_sensor.toilet_water_leak_water_leak
         name: Leak
         show_last_changed: true
+      - entity: light.toilet_lights
+        name: Light
+        show_last_changed: true
 - type: vertical-stack
   title: Utility room & back
   cards:
@@ -220,7 +223,7 @@ cards:
         - entity: sensor.family_room_multi_temperature
           name: Temperature
     - type: glance
-      columns: 6
+      columns: 5
       entities:
         - entity: media_player.sky_q_family_room
           name: SkyQ
@@ -228,6 +231,9 @@ cards:
         - entity: media_player.roku_x00200y5s7lx
           show_last_changed: true
           name: TV
+        - entity: switch.ps5_724_power
+          show_last_changed: true
+          name: PS5
         - entity: media_player.family_room
           show_last_changed: true
           name: Sonos
