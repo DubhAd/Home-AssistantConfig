@@ -184,6 +184,37 @@ svg * {
   */
 }
 
+.downstairs-window-off {
+  fill: #81c9a0 !important;
+  fill-opacity: 1 !important;
+  stroke-width: 1px !important;  
+  animation-duration: 4s;
+  animation-name: rotateReset90; */
+}
+
+.downstairs-window-on  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
+.upstairs-window-off {
+  fill: #81c9a0 !important;
+  fill-opacity: 1 !important;
+}
+
+.upstairs-window-on  {
+  fill: #FF0000 !important;
+  fill-opacity: 1 !important;
+  stroke: #FFFF00 !important;
+  stroke-dasharray: 10,4 !important; 
+  stroke-width: 2px !important; 
+  stroke-opacity: 0.8 !important;
+}
+
 .alarm-disarmed {
   fill: #81D9a7 !important;
   fill-opacity: 0.5 !important;

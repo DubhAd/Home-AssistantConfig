@@ -730,8 +730,16 @@ cards:
             - binary_sensor.patio_door_left_contact
             - binary_sensor.patio_door_right_contact
             - binary_sensor.utility_door_exterior_contact
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'exterior-door-${entity.state}'
+
+        - entities:
             - binary_sensor.patio_window_left_contact
             - binary_sensor.patio_window_right_contact
+            - binary_sensor.master_window_ensuite_contact
             - binary_sensor.vestibule_window_front_contact
             - binary_sensor.vestibule_window_side_contact
             - binary_sensor.family_window_right_contact
@@ -740,21 +748,27 @@ cards:
             - binary_sensor.guest_bedroom_window_right_contact
             - binary_sensor.kitchen_window_right_contact
             - binary_sensor.kitchen_window_left_contact
+            - binary_sensor.bathroom_window_contact
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'downstairs-window-${entity.state}'
+
+        - entities:
             - binary_sensor.master_window_left_contact
             - binary_sensor.master_window_right_contact
-            - binary_sensor.master_window_ensuite_contact
             - binary_sensor.office_window_contact
             - binary_sensor.spare_bedroom_window_left_contact
             - binary_sensor.spare_bedroom_window_right_contact
             - binary_sensor.second_bedroom_window_ensuite_contact
             - binary_sensor.second_bedroom_window_left_contact
             - binary_sensor.second_bedroom_window_right_contact
-            - binary_sensor.bathroom_window_contact
           state_action:
             - action: call-service
               service: floorplan.class_set
               service_data: 
-                class: 'exterior-door-${entity.state}'
+                class: 'upstairs-window-${entity.state}'
 
         - entities:
             - binary_sensor.chest_bike_lid_contact
