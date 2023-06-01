@@ -516,7 +516,6 @@ cards:
             - light.living_room_table_lamp
             - light.living_room_corner_lamp
             - light.downstairs_hall
-            - light.toilet
           state_action:
             - action: call-service
               service: floorplan.style_set
@@ -627,6 +626,7 @@ cards:
         - entities:
             - switch.vestibule_socket
             - switch.family_room_socket
+            - light.toilet
           state_action:
             - action: call-service
               service: floorplan.class_set
