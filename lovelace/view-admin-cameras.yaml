@@ -34,7 +34,7 @@ cards:
           include:
             - domain: binary_sensor
               options:
-                show_last_changed: true
+                secondary_info: last-changed
               device_manufacturer: 'Frigate'
               device: 'Front'
   - type: vertical-stack
@@ -50,7 +50,7 @@ cards:
           include:
             - domain: binary_sensor
               options:
-                show_last_changed: true
+                secondary_info: last-changed
               device_manufacturer: 'Frigate'
               device: 'Drive'
       - type: custom:auto-entities
@@ -64,7 +64,7 @@ cards:
           include:
             - domain: binary_sensor
               options:
-                show_last_changed: true
+                secondary_info: last-changed
               device_manufacturer: 'Frigate'
               device: 'Front Path'
       - type: custom:auto-entities
@@ -78,7 +78,7 @@ cards:
           include:
             - domain: binary_sensor
               options:
-                show_last_changed: true
+                secondary_info: last-changed
               device_manufacturer: 'Frigate'
               device: 'Road'
   - type: vertical-stack
@@ -94,6 +94,6 @@ cards:
           include:
             - domain: binary_sensor
               options:
-                show_last_changed: true
+                secondary_info: last-changed
               device_manufacturer: 'Frigate'
               device: 'Garage'
