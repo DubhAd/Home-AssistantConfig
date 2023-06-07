@@ -85,6 +85,7 @@ cards:
         - wind_bearing
     - type: custom:weather-card
       entity: weather.here_weather_forecast_7days
+      number_of_forecasts: 6
       name: Here
       current: true
       details: true
@@ -109,6 +110,7 @@ cards:
         - wind_speed
         - wind_bearing
     - type: custom:weather-card
+      number_of_forecasts: 6
       entity: weather.accuhome
       name: AccuWeather
       current: true
@@ -124,6 +126,7 @@ cards:
         - wind_speed
         - wind_bearing
     - type: custom:weather-card
+      number_of_forecasts: 6
       entity: weather.openweathermap
       name: OpenWM
       current: true
@@ -139,17 +142,20 @@ cards:
         - wind_speed
         - wind_bearing
     - type: custom:weather-card
+      number_of_forecasts: 6
       entity: weather.met_office_home_daily
       name: home (MO)
       current: true
       details: true
     - type: custom:weather-card
+      number_of_forecasts: 6
       entity: weather.met_office_home_3_hourly
       name: Hourly
       hourly_forecast: true
       current: false
       details: false
   - type: custom:weather-card
+    number_of_forecasts: 6
     entity: weather.home_meteo
     name: Home (Meteo)
     current: true
