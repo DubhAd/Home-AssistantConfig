@@ -1,0 +1,3 @@
+notify:
+  name: lm_notify
+  command: "/local/bin/lm_notify"

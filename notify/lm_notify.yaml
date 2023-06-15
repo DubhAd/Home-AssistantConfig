@@ -1,3 +1,0 @@
-- name: lm_notify
-  platform: command_line
-  command: "/local/bin/lm_notify"

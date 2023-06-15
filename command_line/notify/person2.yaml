@@ -1,3 +1,3 @@
-name: command_line_person2
-command: "/local/bin/notify person2"
-
+notify:
+  name: command_line_person2
+  command: "/local/bin/notify person2"

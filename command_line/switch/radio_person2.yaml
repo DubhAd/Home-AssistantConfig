@@ -1,0 +1,6 @@
+- switch:
+    unique_id: radio_person2
+    command_on: "/local/bin/squeezy/alarms -p person2 -a on"
+    command_off: "/local/bin/squeezy/alarms -p person2 -a off"
+    command_state: "/local/bin/squeezy/alarms -p person2 -a state"
+    name: "person2's radio alarm"

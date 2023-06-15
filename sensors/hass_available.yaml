@@ -1,4 +1,0 @@
-- platform: command_line
-  command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
-  name: Current HA Version
-  scan_interval: 3600
