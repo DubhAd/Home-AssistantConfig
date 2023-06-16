@@ -37,6 +37,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 
 **Notes**
 - There's a known bug with the version of the firmware used on the Ikea devices, which impacts other devices too, that causes them to stop routing traffic. I've not experienced this myself, but others have reported it.
+- The Xiaomi sensor on the garden gate is in one [of these](https://www.etsy.com/uk/listing/1174718590/weatherproof-enclosure-for-aqara-door) enclosures from Etsy. It's survived some pretty impressive torrential downpours without any problem.
 
 ## Zigbee 1.2 and older
 
