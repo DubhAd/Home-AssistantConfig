@@ -1,6 +1,8 @@
 - name: garage
   platform: group
   services:
+    - service: person3
+    - service: person2
     - service: logfile
     - service: tts_family_room
     - service: tts_living_room

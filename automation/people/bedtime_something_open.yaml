@@ -27,10 +27,11 @@ condition:
         entity_id: group.my_exterior_doors
         state: 'on'
 action:
-  - service: notify.logfile
+  - service: >-
+      {{ "notify.person2" if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) else "notify.person3" }} 
     data:
       message: >
-        {{ "SENDME" if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) else "SENDperson3" }} The following are open downstairs: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        The following are open downstairs: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - service: media_player.turn_on
     data:
       entity_id: >-
