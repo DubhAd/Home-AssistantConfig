@@ -42,6 +42,6 @@ condition:
         state: 'home'
 action:
   - service: script.scan_bt_restart
-  - service: notify.person2_telegram
+  - service: notify.person2
     data:
       message: "One of the monitor nodes was hung, so I've restarted them"

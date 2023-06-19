@@ -1,0 +1,7 @@
+- name: person3
+  platform: group
+  services:
+    - service: apprise
+      data:
+        target: person3
+        title: ""

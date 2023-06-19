@@ -1,2 +1,3 @@
 - platform: apprise
-  url: !secret apprise_url
+  name: apprise
+  config: !secret apprise_url

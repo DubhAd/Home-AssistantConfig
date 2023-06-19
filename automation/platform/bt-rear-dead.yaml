@@ -9,6 +9,6 @@ trigger:
 action:
   - wait_template: >-
       {{ is_state('input_boolean.person2_home','on') and is_state('input_boolean.person2_is_awake','on') }}
-  - service: notify.person2_telegram
+  - service: notify.person2
     data:
       message: "Rear Bluetooth is a zombie"

@@ -3,7 +3,7 @@ sequence:
   - condition: state
     entity_id: input_boolean.person3_home
     state: 'on'
-  - service: notify.command_line_person3
+  - service: notify.person3
     data:
       message: "{{ message }}"
 

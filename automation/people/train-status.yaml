@@ -21,7 +21,7 @@ condition:
       state: 'on'
 action:
   - service: script.train_message
-  - service: notify.person2_telegram
+  - service: notify.person2
     data: 
       message: "{{ states('input_text.train_message') }}"
   - service: notify.logfile

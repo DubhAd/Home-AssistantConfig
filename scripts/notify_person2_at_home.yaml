@@ -3,7 +3,7 @@ sequence:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
-  - service: notify.person2_telegram
+  - service: notify.person2
     data:
       title: "{{ title|default('Notification') }}"
       message: "{{ message|default('A message should have been here') }}"

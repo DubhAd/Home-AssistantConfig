@@ -12,6 +12,6 @@ condition:
     entity_id: input_boolean.person2_home
     state: 'on'
 action:
-  - service: notify.person2_telegram
+  - service: notify.person2
     data:
       message: "Don't forget to plug the phone in"

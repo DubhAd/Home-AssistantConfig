@@ -1,8 +1,8 @@
 - name: status_alert
   platform: group
   services:
-    - service: command_line_person2
-    - service: command_line_person3
+    - service: person2
+    - service: person3
     - service: tts_family_room
     - service: tts_living_room
     - service: tts_office

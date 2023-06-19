@@ -41,6 +41,6 @@ action:
       {%- else -%}
       false
       {%- endif -%}
-  - service: notify.person2_telegram
+  - service: notify.person2
     data: 
       message: "You need to check the trains, they're looking a bit messed up. {{ states('input_text.train_message') }}"

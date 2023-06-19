@@ -4,6 +4,6 @@ trigger:
   - platform: time
     at: sensor.pixel_xl_next_alarm
 action:
-  - service: notify.person2_telegram
+  - service: notify.person2
     data:
       message: "The alarm, it's time"

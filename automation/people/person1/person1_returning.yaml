@@ -36,7 +36,7 @@ action:
             entity_id: input_boolean.person3_home
             state: 'on'
         sequence:
-          - service: notify.command_line_person3
+          - service: notify.person3
             data:
               message: "person1 should be home from work in about {{ states('sensor.person1s_time_to_home_duration') }} to {{ (states('sensor.person1s_time_to_home_duration')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home_duration','unit_of_measurement') }}"
       - conditions:
@@ -44,7 +44,7 @@ action:
             entity_id: input_boolean.person2_home
             state: 'on'
         sequence:
-          - service: notify.person2_telegram
+          - service: notify.person2
             data:
               message: "person1 should be home from work in about {{ states('sensor.person1s_time_to_home_duration') }} to {{ (states('sensor.person1s_time_to_home_duration')|int)*2 }} {{ state_attr('sensor.person1s_time_to_home_duration','unit_of_measurement') }}"
   - delay: '00:10:00'

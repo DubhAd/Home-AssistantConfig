@@ -6,6 +6,6 @@ trigger:
     entity_id: device_tracker.pixel_xl
     to: 'Paris CDG Airport'
 action:
-  - service: notify.command_line_person3
+  - service: notify.person3
     data:
       message: "person2 has arrived at Paris CDG Airport"

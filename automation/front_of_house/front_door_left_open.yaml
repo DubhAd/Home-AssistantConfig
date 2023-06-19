@@ -26,7 +26,7 @@ action:
             entity_id: input_boolean.person2_home
             state: 'on'
         sequence:
-          - service: notify.person2_telegram
+          - service: notify.person2
             data:
               message: "The front door has been left open"
   - choose:
@@ -35,7 +35,7 @@ action:
             entity_id: input_boolean.person3_home
             state: 'on'
         sequence:
-          - service: notify.command_line_person3
+          - service: notify.person3
             data:
               message: "The front door has been left open"
   - choose:

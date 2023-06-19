@@ -13,7 +13,7 @@ action:
   - delay: '00:00:05'
   - wait_template: >-
       {{ not is_state('media_player.person2','playing') }}
-  - service: notify.person2_telegram
+  - service: notify.person2
     data:
       message: "The alarm forgot to turn on, so we're waking you the hard way"
   - service: media_player.play_media

@@ -18,6 +18,6 @@ condition:
       entity_id: proximity.person2_work_2
       below: 5
 action:
-  - service: notify.person2_telegram
+  - service: notify.person2
     data: 
       message: "{{ states('input_text.train_message') }}"

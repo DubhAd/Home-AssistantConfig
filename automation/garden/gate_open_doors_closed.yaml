@@ -71,7 +71,7 @@ action:
             entity_id: input_boolean.person2_home
             state: 'on'
         sequence:
-          - service: notify.person2_telegram
+          - service: notify.person2
             data:
               message: The gate has just been opened
   - delay: '00:00:30'

@@ -11,7 +11,7 @@ condition:
       entity_id: input_boolean.person2_home
       state: 'off'
 action:
-  - service: notify.command_line_person3
+  - service: notify.person3
     data:
       message: "person2 has landed at work Aiport"
   - service: automation.turn_off

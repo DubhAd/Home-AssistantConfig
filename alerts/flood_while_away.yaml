@@ -10,5 +10,5 @@ repeat:
 can_acknowledge: True
 skip_first: False
 notifiers:
-  - command_line_person2
-  - command_line_person3
+  - person2
+  - person3
