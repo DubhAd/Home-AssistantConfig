@@ -10,6 +10,7 @@ unit_system: metric
 customize: !include customize.yaml
 allowlist_external_dirs:
   - /data/homeassistant
+  - /data/apprise
 auth_providers: !include auth_providers.yaml
 external_url: !secret remote_base
 internal_url: !secret local_base

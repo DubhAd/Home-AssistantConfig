@@ -1,0 +1,2 @@
+- platform: apprise
+  url: !secret apprise_url
