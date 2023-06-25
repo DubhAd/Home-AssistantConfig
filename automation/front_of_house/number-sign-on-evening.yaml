@@ -5,16 +5,16 @@ trigger:
   - platform: homeassistant
     event: start
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 0
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 1
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 2
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 3
   - platform: homeassistant
     event: start
@@ -26,13 +26,13 @@ condition:
     conditions:
     # Sun at horizon
     - condition: numeric_state
-      entity_id: sensor.sun_elevation
+      entity_id: sensor.sun_solar_elevation
       below: 0
     # Sun at 3 degrees and cover above 75%
     - condition: and
       conditions:
       - condition: numeric_state
-        entity_id: sensor.sun_elevation
+        entity_id: sensor.sun_solar_elevation
         below: 3
       - condition: numeric_state
         entity_id: sensor.openweathermap_cloud_coverage
@@ -41,7 +41,7 @@ condition:
     - condition: and
       conditions:
       - condition: numeric_state
-        entity_id: sensor.sun_elevation
+        entity_id: sensor.sun_solar_elevation
         below: 2
       - condition: numeric_state
         entity_id: sensor.openweathermap_cloud_coverage
@@ -50,7 +50,7 @@ condition:
     - condition: and
       conditions:
       - condition: numeric_state
-        entity_id: sensor.sun_elevation
+        entity_id: sensor.sun_solar_elevation
         below: 1
       - condition: numeric_state
         entity_id: sensor.openweathermap_cloud_coverage

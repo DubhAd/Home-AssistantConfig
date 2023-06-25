@@ -15,7 +15,7 @@ trigger:
     - input_boolean.second_bedroom_occupied
     to: 'off'
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     above: 5
   - platform: time
     at: '23:00:00'

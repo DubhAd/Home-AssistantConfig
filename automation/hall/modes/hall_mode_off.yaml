@@ -11,7 +11,7 @@ trigger:
     entity_id: binary_sensor.downstairs_hall_motion_occupancy
   #  When the sun goes above 5 degrees
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     above: 5
   # Moderately bright to bright
   - platform: numeric_state
@@ -34,8 +34,7 @@ condition:
     above: 3
   # Sun is high enough to matter
   - condition: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
+    entity_id: sensor.sun_solar_elevation
     above: 0
 action:
   - service: input_select.select_option

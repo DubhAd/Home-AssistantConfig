@@ -6,7 +6,7 @@ trigger:
     entity_id: input_boolean.family_room_occupied
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 5
 condition:
   # Only turn them on at Christmas
@@ -17,7 +17,7 @@ condition:
     entity_id: input_boolean.family_room_occupied
     state: 'on'
   - condition: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 5
   - condition: not
     conditions:

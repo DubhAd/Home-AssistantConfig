@@ -5,7 +5,7 @@ trigger:
     entity_id: binary_sensor.vestibule_multi_occupancy
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 2.5
   - platform: numeric_state
     entity_id: sensor.living_room_light_sensor_illuminance_lux
@@ -48,7 +48,7 @@ condition:
       below: 25
     # Sun is relatively low
     - condition: numeric_state
-      entity_id: sensor.sun_elevation
+      entity_id: sensor.sun_solar_elevation
       below: 15
     - condition: or
       conditions:
@@ -58,7 +58,7 @@ condition:
         below: 5
       # Or sun below 5 degrees
       - condition: numeric_state
-        entity_id: sensor.sun_elevation
+        entity_id: sensor.sun_solar_elevation
         below: 5
     - condition: or
       conditions:

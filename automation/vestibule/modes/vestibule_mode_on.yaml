@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Vestibule mode on'
 trigger:
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 2.5
   - platform: state
     entity_id: input_boolean.bedtime
@@ -41,7 +41,7 @@ condition:
       state: 'on'
     # Sun is relatively low
     - condition: numeric_state
-      entity_id: sensor.sun_elevation
+      entity_id: sensor.sun_solar_elevation
       below: 2.5
 action:
   - service: input_select.select_option

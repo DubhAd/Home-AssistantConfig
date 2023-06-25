@@ -25,7 +25,7 @@ condition:
     entity_id: sensor.living_room_light_sensor_illuminance_lux
     below: 25
   - condition: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 15
 action:
   - service: input_select.select_option

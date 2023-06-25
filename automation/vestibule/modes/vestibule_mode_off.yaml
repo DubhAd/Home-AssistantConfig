@@ -7,7 +7,7 @@ trigger:
     to: 'on'
   # When the sun goes above 5 degrees
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     above: 5
 condition:
   - condition: template
@@ -17,7 +17,7 @@ condition:
     state: 'on'
   # Sun above 5 degrees
   - condition: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     above: 5
 action:
   - service: input_select.select_option

@@ -18,7 +18,7 @@ trigger:
 condition:
   # sun is low
   - condition: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 5
   # Dark in the hall
   - condition: numeric_state

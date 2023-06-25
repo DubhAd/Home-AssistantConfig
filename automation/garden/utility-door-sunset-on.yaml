@@ -14,7 +14,7 @@ condition:
     entity_id: input_boolean.lighting_automations
     state: 'on'
   - condition: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: -4
   - condition: state
     entity_id: switch.garden_lights

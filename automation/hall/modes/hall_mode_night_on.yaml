@@ -7,7 +7,7 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: numeric_state
-    entity_id: sensor.sun_elevation
+    entity_id: sensor.sun_solar_elevation
     below: 5
   - platform: numeric_state
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
@@ -40,15 +40,16 @@ condition:
   - condition: or
     conditions:
     - condition: numeric_state
-      entity_id: sensor.sun_elevation
-      below: 5
-    - condition: numeric_state
       entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-      below: 2
-  # Dark in the hall
-  - condition: numeric_state
-    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    below: 1
+      below: 1
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.sun_solar_elevation
+          below: 5
+        - condition: numeric_state
+          entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+          below: 2
   # One of these things
   - condition: or
     conditions:
