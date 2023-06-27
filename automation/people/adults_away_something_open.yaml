@@ -3,7 +3,9 @@ alias: 'Adults away something open'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: input_boolean.adults_away
+    entity_id: 
+      - input_boolean.adults_away
+      - input_boolean.all_away
     from: 'off'
     to: 'on'
 condition:
@@ -18,9 +20,14 @@ condition:
     - condition: state
       entity_id: group.my_downstairs_windows
       state: 'on'
-    - condition: state
-      entity_id: group.my_upstairs_windows
-      state: 'on'
+    - condition: and
+      conditions:
+        # Upstairs are open and everybody is away
+        - condition: state
+          entity_id: 
+            - group.my_upstairs_windows
+            - input_boolean.all_away
+          state: 'on'
 action:
   # Notify the last person to leave
   - service: >-
