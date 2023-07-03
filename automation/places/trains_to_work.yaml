@@ -6,16 +6,12 @@ trigger:
     minutes: '/30'
 condition:
   - condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.person2_is_awake
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.person2_home
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.notify_train_status_work
+    entity_id: 
+      - binary_sensor.workday_sensor
+      - input_boolean.person2_is_awake
+      - input_boolean.person2_home
+      - input_boolean.notify_train_status_work
+      - input_boolean.person2_working_trains
     state: 'on'
   - condition: time
     after: '06:00:00'

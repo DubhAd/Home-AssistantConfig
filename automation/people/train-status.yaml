@@ -2,23 +2,16 @@ id: 'train_status'
 initial_state: 'on'
 alias: 'Train status'
 trigger:
-  platform: time
-  at: '07:10:00'
+  - platform: time
+    at: '07:10:00'
 condition:
-  condition: and
-  conditions:
-    # Notifications for the train status are enabled
-    - condition: state
-      entity_id: input_boolean.notify_train_status_work
-      state: 'on'
-    # Is awake
-    - condition: state
-      entity_id: input_boolean.person2_is_awake
-      state: 'on'
-    # Is home
-    - condition: state
-      entity_id: input_boolean.person2_home
-      state: 'on'
+  - condition: state
+    entity_id: 
+      - input_boolean.notify_train_status_work
+      - input_boolean.person2_is_awake
+      - input_boolean.person2_home
+      - input_boolean.person2_working_trains
+    state: 'on'
 action:
   - service: script.train_message
   - service: notify.person2

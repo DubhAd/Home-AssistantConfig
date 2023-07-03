@@ -8,8 +8,6 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  condition: and
-  conditions:
   - condition: state
     entity_id: calendar.person2_wfh
     state: 'on'

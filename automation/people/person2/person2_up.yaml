@@ -24,7 +24,9 @@ action:
   - service: switch.turn_off
     entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
   - condition: state
-    entity_id: input_boolean.notify_train_status_work
+    entity_id: 
+      - input_boolean.notify_train_status_work
+      - input_boolean.person2_working_trains
     state: 'on'
   # Update the trains
   - service: script.turn_on
