@@ -44,15 +44,12 @@ cards:
           hold_action:
             action: none
         - type: weather
-          #entity: weather.home
-          #entity: weather.here_weather_forecast_7days
-          #entity: weather.openweathermap
           entity: weather.tomorrow_io_home_nowcast
           show_conditions: true
           show_temperature: true
-          double_tap_action:
-            action: none
           tap_action:
+            action: none
+          double_tap_action:
             action: none
           hold_action:
             action: none
@@ -115,6 +112,11 @@ cards:
       num_segments: 24
       icons: true
       show_wind: 'direction'
+      tap_action:
+        action: call-service
+        service: input_boolean.toggle
+        service_data:
+          entity_id: input_boolean.show_weather
       colors:
         fog: '#777'
         cloudy: '#b3bbcf'
@@ -123,6 +125,26 @@ cards:
         windy-variant: '#90cbff'
         lightning: '#5693C8'
         pouring: '#375E80'
+    - type: conditional
+      conditions:
+        - entity: input_boolean.show_weather
+          state: 'on'
+      card:
+        type: vertical-stack
+        cards: 
+        - type: custom:weather-card
+          entity: weather.tomorrow_io_home_daily
+          name: Home
+          number_of_forecasts: 8
+          current: True
+          details: True
+        - type: custom:weather-card
+          entity: weather.tomorrow_io_home_nowcast
+          name: Now
+          hourly_forecast: true
+          number_of_forecasts: 8
+          current: false
+          details: false
   
 
   - type: vertical-stack
