@@ -20,20 +20,21 @@ cards:
     - type: custom:weather-card
       entity: weather.tomorrow_io_home_daily
       name: TomorowIO
+      number_of_forecasts: 6
       current: true
       details: true
     - type: custom:weather-card
       entity: weather.tomorrow_io_home_hourly
       name: Hourly
       hourly_forecast: true
-      number_of_forecasts: 6
+      number_of_forecasts: 8
       current: false
       details: false
     - type: custom:weather-card
       entity: weather.tomorrow_io_home_nowcast
       name: Now
       hourly_forecast: true
-      number_of_forecasts: 6
+      number_of_forecasts: 8
       current: false
       details: false
   - type: vertical-stack
@@ -41,6 +42,7 @@ cards:
     - type: custom:simple-weather-card
       entity: weather.home
       name: by MetNo
+      number_of_forecasts: 6
       backdrop: 
         fade: true
       primary_info:
@@ -59,14 +61,14 @@ cards:
       entity: weather.home_hourly
       name: Hourly
       hourly_forecast: true
-      number_of_forecasts: 6
+      number_of_forecasts: 8
       current: false
       details: false
     - type: custom:weather-card
       entity: weather.met_no_next_6_hours_forecast_home
       name: Next 6
       hourly_forecast: true
-      number_of_forecasts: 6
+      number_of_forecasts: 8
       current: false
       details: false
   - type: vertical-stack
@@ -101,6 +103,7 @@ cards:
     - type: custom:simple-weather-card
       entity: weather.accuhome
       name: by AccuWeather
+      number_of_forecasts: 6
       backdrop: 
         fade: true
       primary_info:
@@ -129,6 +132,7 @@ cards:
       number_of_forecasts: 6
       entity: weather.openweathermap
       name: OpenWM
+      hourly_forecast: true
       current: true
       details: true
   - type: vertical-stack
@@ -154,10 +158,19 @@ cards:
       hourly_forecast: true
       current: false
       details: false
-  - type: custom:weather-card
-    number_of_forecasts: 6
-    entity: weather.home_meteo
-    name: Home (Meteo)
-    current: true
-    details: true
-
+  - type: vertical-stack
+    cards:
+    - type: custom:simple-weather-card
+      entity: weather.home_meteo
+      name: Meteo
+      backdrop: 
+        fade: true
+      secondary_info:
+        - wind_speed
+        - wind_bearing
+    - type: custom:weather-card
+      number_of_forecasts: 6
+      entity: weather.home_meteo
+      name: Meteo
+      current: true
+      details: true

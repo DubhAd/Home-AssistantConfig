@@ -58,12 +58,6 @@ cards:
   #        entity: sensor.upstairs_temperature
   #        hours_to_show: 24
   #        detail: 2
-    - type: custom:weather-card
-      entity: weather.tomorrow_io_home_daily
-      current: true
-      details: true
-      forecast: true
-  
     - type: statistics-graph
       title: Temperature
       entities:
@@ -71,6 +65,22 @@ cards:
         - entity: sensor.outside_temperature
           name: Outside
 
+  - type: vertical-stack
+    cards:
+    - type: custom:weather-card
+      entity: weather.tomorrow_io_home_daily
+      name: Home
+      number_of_forecasts: 8
+      current: True
+      details: True
+    - type: custom:weather-card
+      entity: weather.tomorrow_io_home_nowcast
+      name: Now
+      hourly_forecast: true
+      number_of_forecasts: 8
+      current: false
+      details: false
+  
     - type: custom:mini-graph-card
       name: Temperature
       icon: mdi:thermometer
