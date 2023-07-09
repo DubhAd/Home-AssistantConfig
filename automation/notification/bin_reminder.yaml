@@ -4,22 +4,25 @@ description: "Send a reminder at 08:00 if there's a bin collection today and the
 initial_state: 'on'
 trigger:
   - platform: time
-    at: '08:00:00'
+    at: '19:40:00'
 condition:
+  - condition: template
+    value_template: >-
+      {{ states.binary_sensor.garden_gate_contact.last_changed < today_at("18:00") }}
   - condition: state
     entity_id: sensor.next_bin_collection
-    state: 'today'
-  - condition: state
-    entity_id: binary_sensor.garden_gate_contact
-    state: 'off'
-    for: '01:00:00'
+    state: 'tomorrow'
 action:
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.living_room_presence_occupancy
+        to: 'on'
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/google_cloud?message=The {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is due for collection today and it hasn't been put out yet.
+        media-source://tts/google_cloud?message=The {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is due for collection {{ states('sensor.next_bin_collection') }} and it hasn't been put out yet.
       media_content_type: music
       extra:
         volume: 25
     target:
-      entity_id: media_player.family_room_sonos_cloud
+      entity_id: media_player.living_room_sonos_cloud
