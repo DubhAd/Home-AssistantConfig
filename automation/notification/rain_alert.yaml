@@ -1,0 +1,52 @@
+id: 'rain_alert'
+alias: 'Rain alert'
+description: "Warn if it's likely to rain when we're walking the dog"
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.vestibule_multi_occupancy
+    to: 'on'
+variables:
+  rain_probability: "{{ state_attr('weather.tomorrow_io_home_nowcast','forecast')|selectattr('precipitation_probability')|map(attribute='precipitation_probability')|max() }}"
+  rain_total: "{{ state_attr('weather.tomorrow_io_home_nowcast','forecast')|selectattr('precipitation')|sum(attribute='precipitation')|round(1) }}"
+  probability_text: >-
+    {% if rain_probability < 25 %}
+      may
+    {% elif rain_probability < 50 %}
+      likely to
+    {% elif rain_probability < 75 %}
+      is probably going to
+    {% else %}
+      is going to
+    {% endif %}
+  total_text: >-
+    {% if rain_total < 1 %}
+      a little damp
+    {% elif rain_total < 3 %}
+      a little wet
+    {% elif rain_total < 5 %}
+      slightly wet
+    {% elif rain_total < 8 %}
+      wet
+    {% elif rain_total < 12 %}
+      very wet
+    {% else %}
+      torrential
+    {% endif %}
+condition:
+  - condition: time
+    after: '19:25:00'
+    before: '20:00:00'
+  - condition: template
+    value_template: >-
+      {{ state_attr('automation.rain_alert','last_triggered') < today_at('19:25') }}
+action:
+  - if:
+      - condition: template
+        value_template: "{{ rain_probability == 0 and rain_total == 0 }}"
+    then:
+      - service: script.nop
+    else:
+      - service: notify.person2
+        data:
+          message: "It {{ probability_text }} be {{ total_text}} while you're out"
