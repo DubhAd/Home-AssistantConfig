@@ -19,7 +19,7 @@ trigger:
     entity_id: binary_sensor.master_bedroom_motion_occupancy
     id: 'motion'
     to: 'off'
-    for: '00:30:00'
+    for: '00:00:30'
 condition:
   - condition: or
     conditions:
