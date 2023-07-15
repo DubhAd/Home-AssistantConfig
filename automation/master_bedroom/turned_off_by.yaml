@@ -1,0 +1,15 @@
+id: 'turned_off_by'
+alias: 'Turned off by'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: light.master_bedroom_bedhead
+    to: ~
+condition:
+  - condition: template
+    value_template: >-
+      {{ trigger.to_state.context.user_id != None }}
+action:
+  - service: notify.debug_log
+    data:
+      message: "The light was turned {{ trigger.to_state.state }} by {{ trigger.to_state.context.user_id }}"
