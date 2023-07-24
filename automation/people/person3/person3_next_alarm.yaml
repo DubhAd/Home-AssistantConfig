@@ -8,7 +8,7 @@ trigger:
 action:
   - condition: template
     value_template: >-
-      {{ state_attr('sensor.pixel_6a_next_alarm','Time in Milliseconds') != None }}
+      {{ state_attr('sensor.pixel_6a_next_alarm','Time in Milliseconds') is not none }}
   - service: input_datetime.set_datetime
     entity_id: input_datetime.person3_next_alarm
     data:

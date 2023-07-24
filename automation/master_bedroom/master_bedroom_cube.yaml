@@ -8,7 +8,7 @@ trigger:
 condition:
   # Ignore the nothings
   - condition: template
-    value_template: "{{ (trigger.to_state.state|count > 0) and (not trigger.to_state.state == 'None') }}"
+    value_template: "{{ (trigger.to_state.state|count > 0) and (trigger.to_state.state is not none) }}"
 action:
   - choose:
     ############################################################

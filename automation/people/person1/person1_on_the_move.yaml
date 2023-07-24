@@ -21,14 +21,14 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
       - condition: template
         value_template: "{{ trigger.to_state.state == 'work' and trigger.from_state.state == 'not_home' }}"
     # In work, been at least an hour
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
       - condition: state
         entity_id: device_tracker.person1_pixel_3
         state: 'work'
@@ -36,7 +36,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
         below: 2000
@@ -44,7 +44,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 900 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 900 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
         above: 1999
@@ -58,7 +58,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
         above: 9999
@@ -67,7 +67,7 @@ condition:
     - condition: and
       conditions:
       - condition: template
-        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') == None or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 3600 }}"
+        value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 3600 }}"
       - condition: numeric_state
         entity_id: proximity.person1_home
         above: 19999

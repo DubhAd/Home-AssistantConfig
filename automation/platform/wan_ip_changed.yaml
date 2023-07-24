@@ -19,7 +19,7 @@ condition:
       {{ trigger.from_state.state != trigger.to_state.state }}
   - condition: template
     value_template: >-
-      {{ (states('sensor.fritz_box_3490_external_ip')|string != "None") and (states('sensor.fritz_box_3490_external_ip')|length != 0) }}
+      {{ (states('sensor.fritz_box_3490_external_ip') is not none) and (states('sensor.fritz_box_3490_external_ip')|length != 0) }}
 action:
   - service: notify.debug_log
     data:
