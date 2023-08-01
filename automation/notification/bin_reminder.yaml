@@ -17,6 +17,11 @@ action:
       - platform: state
         entity_id: binary_sensor.living_room_presence_occupancy
         to: 'on'
+    timeout: "02:00:00"
+    continue_on_timeout: false
+  - condition: template
+    value_template: >-
+      {{ states.binary_sensor.garden_gate_contact.last_changed < today_at("18:00") }}
   - service: media_player.play_media
     data:
       media_content_id: >-
