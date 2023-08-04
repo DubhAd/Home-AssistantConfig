@@ -106,6 +106,10 @@ cards:
     state_color: true
   - type: divider
   - input_select.hall
+  - entity: input_boolean.hall_occupied
+    name: Hall
+    secondary_info: last-changed
+    state_color: true
   - entity: input_boolean.hall_christmas
     name: Christmas lighting
     secondary_info: last-changed

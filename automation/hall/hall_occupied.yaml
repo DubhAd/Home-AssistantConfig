@@ -1,0 +1,71 @@
+id: 'hall_occupied'
+alias: 'Hall occupied'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.downstairs_hall_motion_occupancy
+      - binary_sensor.upstairs_hall_motion_front_occupancy
+      - input_boolean.living_room_occupied
+      - binary_sensor.living_room_door_contact
+      - binary_sensor.living_room_presence_occupancy
+      - input_boolean.family_room_occupied
+      - binary_sensor.family_room_door_contact
+      - binary_sensor.family_room_multi_occupancy
+      - binary_sensor.vestibule_door_contact
+      - binary_sensor.vestibule_multi_occupancy
+      - input_boolean.toilet_occupied
+      - binary_sensor.toilet_door_contact
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.hall_occupied
+    state: 'off'
+  - condition: or
+    conditions:
+      # Motion downstairs
+      - condition: state
+        entity_id:
+          - binary_sensor.downstairs_hall_motion_occupancy
+          - binary_sensor.upstairs_hall_motion_front_occupancy
+        state: 'on'
+        match: any
+      # Somebody in the living room
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.living_room_door_contact
+            state: 'on'
+          - condition: state
+            entity_id:
+              - input_boolean.living_room_occupied
+              - binary_sensor.living_room_presence_occupancy
+            state: 'on'
+            match: any
+      # Somebody in the family room
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.family_room_door_contact
+            state: 'on'
+          - condition: state
+            entity_id:
+              - input_boolean.family_room_occupied
+              - binary_sensor.family_room_multi_occupancy
+            state: 'on'
+            match: any
+      # Somebody in the vestibule
+      - condition: state
+        entity_id: 
+          - binary_sensor.vestibule_door_contact
+          - binary_sensor.vestibule_multi_occupancy
+        state: 'on'
+      # Somebody in the toilet
+      - condition: state
+        entity_id: 
+          - input_boolean.toilet_occupied
+          - binary_sensor.toilet_door_contact
+        state: 'on'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.hall_occupied
