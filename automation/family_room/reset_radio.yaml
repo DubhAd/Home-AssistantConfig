@@ -8,6 +8,12 @@ condition:
   - condition: state
     entity_id: media_player.family_room
     state: 'paused'
+  - condition: state
+    entity_id: media_player.roku_x00200y5s7lx
+    state:
+      - 'off'
+      - 'standby'
+      - 'unavailable'
   - condition: time
     weekday:
       - sat

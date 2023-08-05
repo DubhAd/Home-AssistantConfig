@@ -6,12 +6,6 @@ trigger:
     entity_id: media_player.roku_x00200y5s7lx
     to: 'on'
   - platform: state
-    entity_id: media_player.family_room
-    to: 'playing'
-  - platform: state
-    entity_id: media_player.cast_kitchen_speaker
-    to: 'playing'
-  - platform: state
     entity_id: binary_sensor.family_room_multi_occupancy
     to: 'on'
 condition:
@@ -24,12 +18,6 @@ condition:
     - condition: state
       entity_id: media_player.roku_x00200y5s7lx
       state: 'on'
-    - condition: state
-      entity_id: media_player.family_room
-      state: 'playing'
-    - condition: state
-      entity_id: media_player.cast_kitchen_speaker
-      state: 'playing'
     - condition: state
       entity_id: binary_sensor.family_room_door_contact
       state: 'off'

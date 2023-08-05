@@ -10,20 +10,6 @@ trigger:
       - 'unavailable'
     for: '00:03:00'
   - platform: state
-    entity_id: media_player.family_room
-    to: 
-      - 'paused'
-      - 'idle'
-      - 'off'
-    for: '00:03:00'
-  - platform: state
-    entity_id: media_player.cast_kitchen_speaker
-    to: 
-      - 'paused'
-      - 'idle'
-      - 'off'
-    for: '00:03:00'
-  - platform: state
     entity_id: binary_sensor.family_room_multi_occupancy
     to: 'off'
     for: '00:03:00'
@@ -41,18 +27,6 @@ condition:
       - 'off'
       - 'standby'
       - 'unavailable'
-  - condition: state
-    entity_id: media_player.family_room
-    state: 
-      - 'paused'
-      - 'idle'
-      - 'off'
-  - condition: state
-    entity_id: media_player.cast_kitchen_speaker
-    state: 
-      - 'paused'
-      - 'idle'
-      - 'off'
   # Door is open
   - condition: state
     entity_id: binary_sensor.family_room_door_contact
