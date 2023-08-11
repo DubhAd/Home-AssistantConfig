@@ -21,6 +21,10 @@ trigger:
     to: 'off'
     for: '00:00:30'
 condition:
+  # Room is currently occupied
+  - condition: state
+    entity_id: input_boolean.master_bedroom_occupied
+    state: 'on'
   - condition: or
     conditions:
       # No motion for at least 30 seconds and the door has been closed for 2 minutes
@@ -47,12 +51,7 @@ condition:
         - condition: state
           entity_id: 
             - binary_sensor.master_bedroom_door_contact
-            - binary_sensor.master_ensuite_door_contact
           state: 'on'
-  # Room is currently occupied
-  - condition: state
-    entity_id: input_boolean.master_bedroom_occupied
-    state: 'on'
   # Not in bed any more
   - condition: state
     entity_id: input_boolean.person2_in_bed
