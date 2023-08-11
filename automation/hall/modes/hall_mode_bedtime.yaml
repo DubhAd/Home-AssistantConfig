@@ -3,7 +3,9 @@ alias: 'Hall mode bedtime'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: input_boolean.bedtime
+    entity_id: 
+      - input_boolean.bedtime
+      - input_boolean.hall_occupied
     to: 'on'
   - platform: homeassistant
     event: start
@@ -13,7 +15,9 @@ condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Bedtime') }}"
   - condition: state
-    entity_id: input_boolean.bedtime
+    entity_id: 
+      - input_boolean.bedtime
+      - input_boolean.hall_occupied
     state: 'on'
 action:
   - service: input_select.select_option

@@ -6,9 +6,6 @@ trigger:
     event: start
   - platform: event
     event_type: automation_reloaded
-  # Motion in the hall
-  - platform: state
-    entity_id: binary_sensor.downstairs_hall_motion_occupancy
   #  When the sun goes above 5 degrees
   - platform: numeric_state
     entity_id: sensor.sun_solar_elevation
@@ -26,16 +23,28 @@ trigger:
     entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
     above: 10
   #  for: '00:01:00'
+  # Nobody's downstairs
+  - platform: state
+    entity_id: input_boolean.hall_occupied
+    to: 'off'
+    for: '00:01:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Off') }}"
-  - condition: numeric_state
-    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
-    above: 3
-  # Sun is high enough to matter
-  - condition: numeric_state
-    entity_id: sensor.sun_solar_elevation
-    above: 0
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.hall_occupied
+        state: 'off'
+      - condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+            above: 3
+          # Sun is high enough to matter
+          - condition: numeric_state
+            entity_id: sensor.sun_solar_elevation
+            above: 0
 action:
   - service: input_select.select_option
     data:

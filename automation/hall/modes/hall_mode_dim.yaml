@@ -3,19 +3,15 @@ initial_state: 'on'
 alias: 'Hall mode dim'
 trigger:
   - platform: state
-    entity_id: input_boolean.person2_in_bed
+    entity_id: 
+      - input_boolean.person2_in_bed
+      - input_boolean.person3_in_bed
     to: 'on'
   - platform: state
-    entity_id: input_boolean.person3_in_bed
+    entity_id: 
+      - input_boolean.hall_occupied
+      - input_boolean.family_room_occupied
     to: 'on'
-  - platform: state
-    entity_id: input_boolean.living_room_occupied
-    to: 'off'
-    for: '00:05:00'
-  - platform: state
-    entity_id: binary_sensor.downstairs_hall_motion_occupancy
-    to: 'off'
-    for: '00:05:00'
 condition:
   - condition: template
     value_template: "{{ not is_state('input_select.hall','Dim') }}"
@@ -23,13 +19,10 @@ condition:
   - condition: state
     entity_id: input_boolean.family_room_occupied
     state: 'on'
-  # Living room not, and no motion
+  # Hall occupied
   - condition: state
-    entity_id: 
-    - input_boolean.living_room_occupied
-    - binary_sensor.downstairs_hall_motion_occupancy
-    state: 'off'
-    for: '00:05:00'
+    entity_id: input_boolean.hall_occupied
+    state: 'on'
   # Adults in bed
   - condition: state
     entity_id: 

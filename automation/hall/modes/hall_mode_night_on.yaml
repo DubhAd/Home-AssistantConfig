@@ -19,10 +19,7 @@ trigger:
     entity_id: input_boolean.bedtime
     to: 'off'
   - platform: state
-    entity_id:
-      - input_boolean.home_occupied
-      - input_boolean.living_room_occupied
-      - input_boolean.family_room_occupied
+    entity_id: input_boolean.hall_occupied
     to: 'on'
 condition:
   # Not already on or bedtime
@@ -50,17 +47,10 @@ condition:
         - condition: numeric_state
           entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
           below: 2
-  # One of these things
-  - condition: or
-    conditions:
-    # A room is in use
-    - condition: state
-      entity_id: group.downstairs_occupied
-      state: 'on'
-    # Somebody is home
-    - condition: state
-      entity_id: input_boolean.home_occupied
-      state: 'on'
+  # A room is in use
+  - condition: state
+    entity_id: input_boolean.hall_occupied
+    state: 'on'
 action:
   - service: input_select.select_option
     data:
