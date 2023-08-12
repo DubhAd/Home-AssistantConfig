@@ -1,0 +1,21 @@
+- sensor:
+    state_topic: 'monitor/first floor rear/person2_work_mobile'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'person2 work first floor rear'
+
+- sensor:
+    state_topic: 'monitor/first floor front/person2_work_mobile'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'person2 work first floor front'
+
+- sensor:
+    state_topic: 'monitor/first floor rear/person2_work_mobile/rssi'
+    unit_of_measurement: 'dBm'
+    name: 'person2 work rssi first floor rear'
+
+- sensor:
+    state_topic: 'monitor/first floor front/person2_work_mobile/rssi'
+    unit_of_measurement: 'dBm'
+    name: 'person2 work rssi first floor front'

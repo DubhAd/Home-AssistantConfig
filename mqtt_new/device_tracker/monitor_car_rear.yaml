@@ -1,0 +1,4 @@
+- device_tracker:
+    name: "car rear"
+    state_topic: 'monitor/first floor rear/car/device_tracker'
+    source_type: bluetooth

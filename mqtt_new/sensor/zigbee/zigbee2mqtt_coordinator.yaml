@@ -1,0 +1,5 @@
+- sensor:
+    name: "Zigbee2 Coordinator Version"
+    state_topic: "zigbee2mqtt/bridge/info"
+    value_template: "{{ value_json.coordinator.meta.revision }}"
+    icon: mdi:chip

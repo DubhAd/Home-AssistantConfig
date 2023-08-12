@@ -1,0 +1,8 @@
+- binary_sensor:
+    name: Zigbee2MQTT Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    value_template: "{{ value_json.state }}"
+    payload_on: 'online'
+    payload_off:  'offline'
+    device_class: 'connectivity'
+    unique_id: 'zigbee2mqtt_bridge_state'

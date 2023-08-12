@@ -1,0 +1,5 @@
+- device_tracker:
+    name: "person person1"
+    state_topic: 'location/person1'
+    source_type: router
+    unique_id: "mqtt_person_person1"

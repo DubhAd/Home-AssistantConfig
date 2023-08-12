@@ -14,8 +14,6 @@ lovelace: !include lovelace.yaml
 
 http: !include http.yaml
 
-discovery: 
-
 recorder: !include recorder.yaml
 
 tts: !include tts.yaml

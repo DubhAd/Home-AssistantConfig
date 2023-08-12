@@ -1,0 +1,4 @@
+- device_tracker:
+    name: "person4 bt front mobile"
+    state_topic: 'monitor/first floor front/person4_mobile/device_tracker'
+    source_type: bluetooth
