@@ -239,7 +239,7 @@ cards:
       color: "#33B679"
     - entity: sensor.guest_bedroom_motion_illuminance_lux
       name: Guest Bedroom
-      color: "#33C679"
+      color: "#43C699"
     - entity: sensor.office_illuminance_illuminance_lux
       name: Office
       color: "#F28544"
