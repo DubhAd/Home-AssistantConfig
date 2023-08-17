@@ -82,11 +82,11 @@ cards:
       - entity: binary_sensor.second_bedroom_window_right_contact
         show_last_changed: true
         name: Right
-      - entity: sensor.second_bedroom_motion_illuminance_lux
-        name: Illuminance
       - entity: binary_sensor.second_bedroom_motion_occupancy
         show_last_changed: true
         name: Motion
+      - entity: sensor.second_bedroom_motion_illuminance_lux
+        name: Illuminance
       - entity: light.person1_bedroom_bedside
         name: Bedhead
         icon: mdi:led-strip-variant
@@ -131,6 +131,11 @@ cards:
     - entity: binary_sensor.guest_bedroom_window_right_contact
       show_last_changed: true
       name: Right
+    - entity: binary_sensor.guest_bedroom_motion_occupancy
+      show_last_changed: true
+      name: Motion
+    - entity: sensor.guest_bedroom_motion_illuminance_lux
+      name: Illuminance
     - entity: switch.guest_bedroom_socket
       tap_action: 
         action: toggle
@@ -232,6 +237,9 @@ cards:
     - entity: sensor.second_bedroom_motion_illuminance_lux
       name: Second Bedroom
       color: "#33B679"
+    - entity: sensor.guest_bedroom_motion_illuminance_lux
+      name: Guest Bedroom
+      color: "#33C679"
     - entity: sensor.office_illuminance_illuminance_lux
       name: Office
       color: "#F28544"

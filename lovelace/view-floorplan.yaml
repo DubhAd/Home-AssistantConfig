@@ -468,6 +468,8 @@ cards:
             - sensor.master_bedroom_light_sensor_illuminance_lux
             - sensor.family_room_multi_illuminance_lux
             - sensor.office_illuminance_illuminance_lux
+            - sensor.second_bedroom_motion_illuminance_lux
+            - sensor.guest_bedroom_motion_illuminance_lux
           state_action:
             - action: call-service
               service: floorplan.text_set
@@ -674,6 +676,7 @@ cards:
             - binary_sensor.master_bedroom_motion_occupancy
             - binary_sensor.office_presence_occupancy
             - binary_sensor.second_bedroom_motion_occupancy
+            - binary_sensor.guest_bedroom_motion_occupancy
             - binary_sensor.upstairs_hall_motion_front_occupancy
             - binary_sensor.utility_motion_occupancy
             - binary_sensor.vestibule_multi_occupancy
