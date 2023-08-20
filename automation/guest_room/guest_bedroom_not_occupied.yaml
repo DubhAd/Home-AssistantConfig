@@ -5,15 +5,50 @@ trigger:
   - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
     to: 'on'
+    id: 'open'
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door_contact
+    to: 'off'
+    for: '00:00:30'
+    id: 'closed'
   - platform: state
     entity_id: binary_sensor.guest_bedroom_motion_occupancy
     to: 'off'
+    for: '00:00:30'
+    id: 'motion'
 condition:
   - condition: state
-    entity_id: 
-    - input_boolean.guest_bedroom_occupied
-    - binary_sensor.guest_bedroom_door_contact
+    entity_id: input_boolean.guest_bedroom_occupied
     state: 'on'
+  - condition: or
+    conditions:
+      - condition: and
+        conditions:
+          # Door open and no motion
+          - condition: trigger
+            id: 'motion'
+          - condition: state
+            entity_id: binary_sensor.master_bedroom_door_contact
+            state: 'on'
+      - condition: and
+        conditions:
+          - condition: trigger
+            id: 'closed'
+          - condition: or
+            conditions:
+              # Door closed, but motion last reported before the door closed
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: binary_sensor.guest_bedroom_motion_occupancy
+                    state: 'on'
+                  - condition: template
+                    value_template: >-
+                      {{ as_datetime(state_attr('binary_sensor.guest_bedroom_motion_occupancy','last_seen')) < states.binary_sensor.guest_bedroom_door_contact.last_changed }}
+              # Door closed, no motion reported
+              - condition: state
+                entity_id: binary_sensor.guest_bedroom_motion_occupancy
+                state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_bedroom_occupied
