@@ -5,6 +5,9 @@ trigger:
   - platform: state
     entity_id: binary_sensor.master_bedroom_door_contact
     to: 'on'
+  - platform: state
+    entity_id: binary_sensor.guest_bedroom_motion_occupancy
+    to: 'off'
 condition:
   - condition: state
     entity_id: 
