@@ -7,6 +7,8 @@ trigger:
     entity_id: binary_sensor.family_room_multi_battery_low
     to: 'on'
 action:
-  service: notify.person2_telegram
+  service: notify.apprise
   data:
+    target: discord
+    title: ""
     message: "The {{ trigger.to_state.name }} has a low battery, fit some new AAs"
