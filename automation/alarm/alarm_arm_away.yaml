@@ -6,14 +6,12 @@ trigger:
     entity_id: 
       - input_boolean.home_occupied
       - group.downstairs_occupied
-      - group.upstairs_occupied
     to: 'off'
 condition:
   - condition: state
     entity_id: 
       - input_boolean.home_occupied
       - group.downstairs_occupied
-      - group.upstairs_occupied
     state: 'off'
 action:
   - service: alarmo.arm

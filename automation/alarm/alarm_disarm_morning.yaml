@@ -5,6 +5,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.bedtime
     to: 'off'
+  - platform: state
+    entity_id: binary_sensor.utility_motion_occupancy
+    to: 'on'
 condition:
   - condition: not
     conditions:
