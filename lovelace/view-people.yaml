@@ -372,7 +372,7 @@ cards:
         hours_to_show: 12
         entities:
           - device_tracker.person1_pixel_3
-          - zone.heriot_watt_student_union
+          - zone.university_student_union
           - zone.james_watt_centre
 - type: vertical-stack
   cards:
