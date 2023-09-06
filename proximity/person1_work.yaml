@@ -1,5 +1,5 @@
 person1_work:
-  zone: work
+  zone: james_watt_centre
   devices:
     - device_tracker.person1_pixel_3
-  unit_of_measurement: m
+  unit_of_measurement: km
