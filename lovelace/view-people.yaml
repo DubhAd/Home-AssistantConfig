@@ -373,6 +373,8 @@ cards:
         entities:
           - device_tracker.person1_pixel_3
           - zone.university_student_union
+          - zone.university_comp_sci
+          - zone.university_hugh_nisbet
           - zone.james_watt_centre
 - type: vertical-stack
   cards:
