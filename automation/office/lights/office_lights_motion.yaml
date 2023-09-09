@@ -36,7 +36,7 @@ action:
   - if:
       - condition: time
         after: '22:00:00'
-        before: '06:00:00'
+        before: '05:00:00'
     then:
       - service: switch.turn_on
         target:

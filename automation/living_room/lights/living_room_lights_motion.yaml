@@ -52,8 +52,5 @@ action:
       - service: light.turn_on
         data:
           entity_id: light.living_room_table_lamp
-          transition: 0.5
-          brightness_pct: "{{ state_attr('switch.adaptive_lighting_living_room_table','brightness_pct')|default(75,true) }}"
-          color_temp_kelvin: "{{ state_attr('switch.adaptive_lighting_living_room_table','color_temp_kelvin')|default(5000,true) }}"
       - delay: '00:00:05'
     # end of repeat block
