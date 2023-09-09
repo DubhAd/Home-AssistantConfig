@@ -26,6 +26,8 @@ action:
       message: "The WAN IP has changed to #{{ states('sensor.fritz_box_3490_external_ip') }}#"
   - wait_template: >-
       {{ is_state('input_boolean.person2_is_awake','on') }}
-  - service: notify.person2
+  - service: notify.apprise
     data:
-      message: "The WAN IP has changed to {{ states('sensor.fritz_box_3490_external_ip') }} at {{ as_timestamp(states('sensor.fritz_box_3490_connection_uptime'),now())|timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+      target: discord_ha
+      title: ""
+      message: ":computer: The WAN IP has changed to {{ states('sensor.fritz_box_3490_external_ip') }} at {{ as_timestamp(states('sensor.fritz_box_3490_connection_uptime'),now())|timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
