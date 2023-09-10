@@ -4,10 +4,10 @@ mode: parallel
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id:
-      - sensor.fritz_box_3490_external_ip
-      - sensor.fritz_box_3490_connection_uptime
-    from: unavailable
+    entity_id: 
+      - binary_sensor.fritz_box_3490_connection
+    from: unavilable
+    to: 'on'
 condition:
   - condition: template
     value_template: >-
@@ -23,4 +23,6 @@ action:
     data:
       target: discord_ha
       title: ""
-      message: ":computer: The WAN IP has changed to {{ states('sensor.fritz_box_3490_external_ip') }} at {{ as_timestamp(states('sensor.fritz_box_3490_connection_uptime'),now())|timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+      message: >-
+        :computer: The Internet was reconnected at {{ as_timestamp(states('sensor.fritz_box_3490_connection_uptime'),now())|timestamp_custom('%Y-%m-%d %H:%M:%S') }}
+        (WAN {{ states('sensor.fritz_box_3490_external_ip') }} / {{ states('sensor.fritz_box_3490_external_ipv6') }})
