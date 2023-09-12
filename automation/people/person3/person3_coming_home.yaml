@@ -13,8 +13,10 @@ condition:
     entity_id: input_boolean.person3_home
     state: 'off'
     for: '00:02:00'
-  - condition: template
-    value_template: "{{ is_state_attr('proximity.person3_home','dir_of_travel','towards') }}"
+  - condition: state
+    entity_id: proximity.person3_home
+    attribute: 'dir_of_travel'
+    state: 'towards'
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
