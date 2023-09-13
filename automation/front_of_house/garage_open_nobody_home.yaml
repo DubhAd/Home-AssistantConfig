@@ -1,10 +1,22 @@
 id: 'garage_open_nobody_home'
 alias: 'Garage open nobody home'
-initial_state: 'off'
+initial_state: 'on'
 trigger:
   - platform: state
     entity_id: binary_sensor.garage_door_car_contact
     to: 'on'
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.home_occupied
+        state: 'off'
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_boolean.home_occupied
+            state: 'on'
+            for: '00:01:00'
 action:
   - service: notify.mobile_app_pixel_xl
     data:

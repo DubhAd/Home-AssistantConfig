@@ -23,6 +23,3 @@ condition:
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.home_occupied
-  - service: automation.turn_on
-    data:
-      entity_id: automation.garage_open_nobody_home
