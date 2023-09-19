@@ -1,0 +1,22 @@
+id: 'person1_at_ep'
+alias: 'person1 at work Park'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: device_tracker.person1_pixel_3
+    to: 'work Park'
+condition:
+  - condition: state
+    entity_id: input_boolean.person1_at_hw
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+action:
+  - service: notify.apprise
+    data:
+      target: telegram_ha
+      title: ''
+      message: 'person1 is at work Park'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_at_hw

@@ -1,0 +1,14 @@
+id: 'person1_not_at_work'
+alias: 'person1 not at work'
+initial_state: 'on'
+trigger:
+  - platform: numeric_state
+    entity_id: proximity.person1_work
+    above: 3000
+condition:
+  - condition: state
+    entity_id: input_boolean.person1_at_hw
+    state: 'on'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_at_hw
