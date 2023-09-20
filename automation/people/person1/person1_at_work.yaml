@@ -4,7 +4,7 @@ alias: 'person1 at work'
 trigger:
 - platform: numeric_state
   entity_id: proximity.person1_work
-  below: '500'
+  below: '800'
 - platform: state
   entity_id: sensor.person1_pixel_3_wifi_connection
   to: "HWU_Guest"

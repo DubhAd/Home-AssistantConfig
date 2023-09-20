@@ -16,7 +16,7 @@ sequence:
           Near home ({{ states('input_select.person1_status_dropdown') }})
         {% elif not is_state('device_tracker.person1_pixel_3', 'not_home') %}
           At {{ states('device_tracker.person1_pixel_3') }}
-        {% elif states('proximity.person1_work')|int < 400 %}
+        {% elif states('proximity.person1_work')|int < 800 %}
           At University
         {% elif states('proximity.person1_home')|int > 4000 %}
           {{ states('sensor.person1s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} to home by car
