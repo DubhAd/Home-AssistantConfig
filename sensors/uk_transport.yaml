@@ -15,4 +15,4 @@
       destination: xyz
     - mode: train
       origin: xyz
-      destination: def
+      destination: abc
