@@ -2,11 +2,11 @@
   - name: 'Third train xyz status'
     unique_id: 'third_train_abc_status'
     state: >-
-      {{ state_attr('sensor.next_train_to_abc','next_trains')[2].status }}
+      {{ state_attr('sensor.next_train_to_abc_2','next_trains')[2].status }}
     icon: >-
-      {% if states.sensor.next_train_to_abc.attributes.next_trains[2].status == 'ON TIME' %}
+      {% if states.sensor.next_train_to_abc_2.attributes.next_trains[2].status == 'ON TIME' %}
         mdi:alarm-check
-      {% elif states.sensor.next_train_to_abc.attributes.next_trains[2].status == 'EARLY' %}
+      {% elif states.sensor.next_train_to_abc_2.attributes.next_trains[2].status == 'EARLY' %}
         mdi:alarm-check
       {% else %}
         mdi:clock-alert

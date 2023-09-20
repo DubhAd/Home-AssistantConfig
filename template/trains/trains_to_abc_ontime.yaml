@@ -1,11 +1,11 @@
 - binary_sensor:
-  - name: 'Trains from station to home are on time'
+  - name: 'Trains from work Park to home are on time'
     device_class: moving
-    unique_id: 'trains_to_abc_ontime'
+    unique_id: 'trains_to_abc_2_ontime'
     state: >-
-      {% if ( states.sensor.next_train_to_abc.attributes.next_trains[0].status == 'ON TIME' or states.sensor.next_train_to_abc.attributes.next_trains[0].status == 'EARLY' ) and
-        ( states.sensor.next_train_to_abc.attributes.next_trains[1].status == 'ON TIME' or states.sensor.next_train_to_abc.attributes.next_trains[1].status == 'EARLY' ) and
-        ( states.sensor.next_train_to_abc.attributes.next_trains[2].status == 'ON TIME' or states.sensor.next_train_to_abc.attributes.next_trains[2].status == 'EARLY' ) %}
+      {% if ( states.sensor.next_train_to_abc_2.attributes.next_trains[0].status == 'ON TIME' or states.sensor.next_train_to_abc_2.attributes.next_trains[0].status == 'EARLY' ) and
+        ( states.sensor.next_train_to_abc_2.attributes.next_trains[1].status == 'ON TIME' or states.sensor.next_train_to_abc_2.attributes.next_trains[1].status == 'EARLY' ) and
+        ( states.sensor.next_train_to_abc_2.attributes.next_trains[2].status == 'ON TIME' or states.sensor.next_train_to_abc_2.attributes.next_trains[2].status == 'EARLY' ) %}
         true
       {% else %}
         false

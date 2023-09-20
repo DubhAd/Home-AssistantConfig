@@ -10,7 +10,7 @@ cards:
     columns: 2
     entities:
     - entity: binary_sensor.trains_to_xyz_ontime
-      name: To work
+      name: To university
     - entity: binary_sensor.trains_to_abc_ontime
       name: To home
   - type: horizontal-stack
@@ -18,7 +18,7 @@ cards:
     - type: vertical-stack
       cards:
       - type: glance
-        title: 1st home to station
+        title: 1st home to work Park
         columns: 3
         entities:
         - entity: sensor.next_train_xyz_status
@@ -28,7 +28,7 @@ cards:
         - entity: sensor.next_train_xyz_estimated
           name: Expected
       - type: glance
-        title: 2nd home to station
+        title: 2nd home to work Park
         #column_width: 33%
         columns: 3
         entities:
@@ -39,7 +39,7 @@ cards:
         - entity: sensor.second_train_xyz_estimated
           name: Expected
       - type: glance
-        title: 3rd home to station
+        title: 3rd home to work Park
         columns: 3
         entities:
         - entity: sensor.third_train_xyz_status
@@ -51,7 +51,7 @@ cards:
     - type: vertical-stack
       cards:
       - type: glance
-        title: 1st station to home
+        title: 1st work Park to home
         columns: 3
         entities:
         - entity: sensor.next_train_abc_status
@@ -61,7 +61,7 @@ cards:
         - entity: sensor.next_train_abc_estimated
           name: Expected
       - type: glance
-        title: 2nd station to home
+        title: 2nd work Park to home
         #column_width: 33%
         columns: 3
         entities:
@@ -72,7 +72,7 @@ cards:
         - entity: sensor.second_train_abc_estimated
           name: Expected
       - type: glance
-        title: 3rd station to home
+        title: 3rd work Park to home
         #column_width: 33%
         columns: 3
         entities:

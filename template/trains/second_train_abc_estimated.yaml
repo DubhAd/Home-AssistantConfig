@@ -2,4 +2,4 @@
   - name: 'Second train xyz estimated'
     unique_id: 'second_train_abc_estimated'
     state: >-
-      {{ state_attr('sensor.next_train_to_abc','next_trains')[1].estimated }}
+      {{ state_attr('sensor.next_train_to_abc_2','next_trains')[1].estimated }}
