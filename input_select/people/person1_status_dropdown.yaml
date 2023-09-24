@@ -1,6 +1,7 @@
 name: person1
 options:
   - Home
+  - Pre Arrival
   - Just Arrived
   - Just Left
   - Away

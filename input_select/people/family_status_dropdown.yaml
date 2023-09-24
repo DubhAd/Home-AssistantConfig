@@ -1,6 +1,7 @@
 name: Family
 options:
   - Home
+  - Pre Arrival
   - Just Arrived
   - Just Left
   - Away

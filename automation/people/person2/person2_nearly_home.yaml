@@ -1,0 +1,15 @@
+id: 'person2_nearly_home'
+alias: 'person2 nearly home'
+initial_state: 'on'
+trigger:
+  - platform: zone
+    entity_id: device_tracker.pixel_xl
+    zone: zone.nearly_home
+condition:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'off'
+action:
+  - service: notify.debug_log
+    data:
+      message: "person2 is nearly home"
