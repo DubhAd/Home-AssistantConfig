@@ -3,7 +3,7 @@
 
 # Home Assistant configuration
 
-This is my live(-ish) [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.8.4 
+This is my live(-ish) [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2023.9.3 
 on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a Python 3.11.4 virtual environment 
 built [with pyenv](https://github.com/pyenv/pyenv), [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
 
@@ -11,7 +11,7 @@ Each directory has a short readme explaining what's in there, and the purpose of
 
 ## The key software
 
-* [Home Assistant](https://home-assistant.io/) (2023.8.4)
+* [Home Assistant](https://home-assistant.io/) (2023.9.3)
 * [traefik](https://traefik.io/) (2.10.4) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
 * [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (1.32.1) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
