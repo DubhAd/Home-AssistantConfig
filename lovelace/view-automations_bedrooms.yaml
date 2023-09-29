@@ -60,12 +60,6 @@ cards:
   - entity: automation.master_bedroom_lights_off_sleeping_bedtime
     secondary_info: last-triggered
 - type: entities
-  title: Master en-suite
-  show_header_toggle: false
-  entities:
-  - entity: automation.extractor_notification
-    secondary_info: last-triggered
-- type: entities
   title: 2nd bedroom light
   show_header_toggle: false
   entities:

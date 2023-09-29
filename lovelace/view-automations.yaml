@@ -43,8 +43,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.hall_mode_bedtime
     secondary_info: last-triggered
-  - entity: automation.hall_mode_bedtime_reset
-    secondary_info: last-triggered
   - entity: automation.hall_mode_dim
     secondary_info: last-triggered
   - entity: automation.hall_mode_night_on

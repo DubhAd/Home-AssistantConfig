@@ -85,8 +85,6 @@ cards:
   title: Core HA automations
   show_header_toggle: false
   entities:
-  - entity: automation.ha_update_available_notifications
-    secondary_info: last-triggered
   - entity: automation.ha_started
     secondary_info: last-triggered
   - entity: automation.ha_stopped
@@ -123,8 +121,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.zigbee_offline
     secondary_info: last-triggered
-  - entity: automation.zigbee_3_offline
-    secondary_info: last-triggered
   - entity: automation.living_room_table_on
     secondary_info: last-triggered
   - entity: automation.living_room_table_off
@@ -140,18 +136,6 @@ cards:
   - entity: automation.alarm_disarm_in_the_morning
     secondary_info: last-triggered
   - entity: automation.alarm_disarm_upon_return
-    secondary_info: last-triggered
-  - entity: automation.alarm_armed_away_trigger
-    secondary_info: last-triggered
-  - entity: automation.alarm_armed_home_trigger
-    secondary_info: last-triggered
-  - entity: automation.alarm_armed_trigger_night
-    secondary_info: last-triggered
-  - entity: automation.alarm_armed_trigger_frontdoor
-    secondary_info: last-triggered
-  - entity: automation.alarm_triggered_away
-    secondary_info: last-triggered
-  - entity: automation.alarm_triggered_home
     secondary_info: last-triggered
   - entity: automation.alarm_disarm_hall
     secondary_info: last-triggered

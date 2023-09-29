@@ -95,8 +95,6 @@ cards:
   entities:
   - entity: automation.not_workday_for_person2
     secondary_info: last-triggered
-  - entity: automation.workday_for_person2_too
-    secondary_info: last-triggered
   - entity: automation.person2_working_from_home
     secondary_info: last-triggered
   - entity: automation.person2_not_working_from_home
