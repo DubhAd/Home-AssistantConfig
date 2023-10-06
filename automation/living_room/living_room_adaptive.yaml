@@ -1,0 +1,54 @@
+id: 'living_room_adaptive'
+alias: 'Living Room adaptive'
+initial_state: 'on'
+mode: 'single'
+trigger:
+  - platform: time_pattern
+    minutes: '/3'
+condition:
+  - condition: state
+    entity_id:
+      - light.living_room_tv_lamp
+      - light.living_room_corner_lamp
+      - light.living_room_table_lamp
+    state: 'on'
+    match: any
+  - condition: state
+    entity_id: input_select.living_room
+    state:
+      - 'Auto'
+      - 'Motion'
+      - 'Dim'
+      - 'Wake'
+      - 'Bedtime'
+      - 'Day on'
+      - 'Night on'
+      - 'On'
+action:
+  - if:
+      - condition: state
+        entity_id: light.living_room_tv_lamp
+        state: 'on'
+    then:
+      - service: adaptive_lighting.apply
+        data:
+          lights: light.living_room_tv_lamp
+  - delay: '00:00:01'
+  - if:
+      - condition: state
+        entity_id: light.living_room_corner_lamp
+        state: 'on'
+    then:
+      - service: adaptive_lighting.apply
+        data:
+          lights: light.living_room_corner_lamp
+  - delay: '00:00:01'
+  - if:
+      - condition: state
+        entity_id: light.living_room_table_lamp
+        state: 'on'
+    then:
+      - service: adaptive_lighting.apply
+        data:
+          lights: light.living_room_table_lamp
+  - delay: '00:00:01'
