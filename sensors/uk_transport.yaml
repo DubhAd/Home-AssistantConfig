@@ -16,3 +16,9 @@
     - mode: train
       origin: xyz
       destination: abc
+    - mode: train
+      origin: abc
+      destination: xyz
+    - mode: train
+      origin: xyz
+      destination: abc
