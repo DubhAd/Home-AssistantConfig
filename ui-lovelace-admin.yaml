@@ -9,5 +9,4 @@ views:
   - !include lovelace/view-admin-cameras.yaml
   - !include lovelace/view-cameras.yaml
   - !include lovelace/view-weather.yaml
-  - !include lovelace/view-train_status.yaml
   - !include lovelace/view-cast.yaml

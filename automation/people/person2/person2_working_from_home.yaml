@@ -14,7 +14,6 @@ condition:
 action:
   - service: input_boolean.turn_off
     entity_id: 
-      - input_boolean.notify_train_status_work
       - input_boolean.person2_travelling
   - service: input_boolean.turn_on
     entity_id: 

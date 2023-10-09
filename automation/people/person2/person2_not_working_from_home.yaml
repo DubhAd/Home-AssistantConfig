@@ -21,7 +21,5 @@ condition:
     entity_id: input_boolean.person2_working_trains
     state: 'on'
 action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.notify_train_status_work
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_work_home
