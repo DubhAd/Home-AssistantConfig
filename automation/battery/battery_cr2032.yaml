@@ -53,4 +53,4 @@ action:
   data:
     target: discord
     title: ""
-    message: "The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2032 coin cell"
+    message: ":low_battery: The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% battery, it uses a CR2032 coin cell"
