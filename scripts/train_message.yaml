@@ -4,8 +4,6 @@ sequence:
       train_selector: >-
         {% if states('proximity.person2_work')|int(0) < 5 %}
           sensor.next_train_to_abc
-        {% elif states('proximity.person2_work_2')|int(0) < 5 %}
-          sensor.next_train_to_def
         {% elif states('proximity.person2_home')|int(0) < 2000 %}
           {% if (state_attr('calendar.person2_work','location') and ("other" in state_attr('calendar.person2_work','location'))) or (state_attr('calendar.person2','location') and ("other" in state_attr('calendar.person2','location'))) %}
             sensor.next_train_to_xyz

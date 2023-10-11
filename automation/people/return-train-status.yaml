@@ -9,14 +9,9 @@ condition:
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
-  - condition: or
-    conditions: 
-    - condition: numeric_state
-      entity_id: proximity.person2_work
-      below: 5
-    - condition: numeric_state
-      entity_id: proximity.person2_work_2
-      below: 5
+  - condition: numeric_state
+    entity_id: proximity.person2_work
+    below: 5
 action:
   - service: notify.person2
     data: 
