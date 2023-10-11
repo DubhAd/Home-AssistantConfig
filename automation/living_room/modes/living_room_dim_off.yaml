@@ -10,7 +10,7 @@ trigger:
     entity_id: 
     - binary_sensor.living_room_presence_occupancy
     to: 'off'
-    for: '00:30:00'
+    for: '00:10:00'
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
@@ -41,12 +41,12 @@ condition:
         entity_id: input_select.living_room
         state: 'Dim'
         for: '00:30:00'
-      # Or no motion for half an hour
+      # Or no motion for ten mins
       - condition: state
         entity_id: 
         - binary_sensor.living_room_presence_occupancy
         state: 'off'
-        for: '00:30:00'
+        for: '00:10:00'
     # Or getting brighter
     - condition: numeric_state
       entity_id: sensor.living_room_light_sensor_illuminance_lux
