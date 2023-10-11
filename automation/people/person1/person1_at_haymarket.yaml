@@ -9,7 +9,12 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.person1_at_hw
+    state: 'on'
 action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.person1_at_hw
   - service: homeassistant.update_entity
     target:
       entity_id: sensor.next_train_to_abc_3

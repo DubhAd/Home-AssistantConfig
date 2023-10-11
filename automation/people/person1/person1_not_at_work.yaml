@@ -4,7 +4,7 @@ initial_state: 'on'
 trigger:
   - platform: numeric_state
     entity_id: proximity.person1_work
-    above: 2000
+    above: 10000
 condition:
   - condition: state
     entity_id: input_boolean.person1_at_hw
