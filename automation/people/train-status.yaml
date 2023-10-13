@@ -1,5 +1,4 @@
 id: 'train_status'
-initial_state: 'on'
 alias: 'Train status'
 trigger:
   - platform: time
