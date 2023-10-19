@@ -34,6 +34,9 @@ variables:
       torrential
     {% endif %}
 condition:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
   - condition: time
     after: '19:25:00'
     before: '20:00:00'

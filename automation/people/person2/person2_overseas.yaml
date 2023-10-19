@@ -11,6 +11,9 @@ condition:
     conditions:
       - condition: state
         entity_id: sensor.pixel_xl_geocoded_location
+        state: 'unknown'
+      - condition: state
+        entity_id: sensor.pixel_xl_geocoded_location
         attribute: iso_country_code
         state: 'GB'
   # Not overseas
