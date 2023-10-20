@@ -277,6 +277,62 @@ cards:
             maxDaysToShow: 1
           - entity: calendar.person2_away
             maxDaysToShow: 1
+  - type: picture-entity
+    entity: group.person_person2_work
+    image: /local/people/person2/Work.png
+    name: Work
+    tap_action:
+      action: call-service
+      service: input_boolean.toggle
+      service_data:
+        entity_id: input_boolean.lovelace_person2_work_more
+    state_image:
+      "home": /local/people/person2/Work.png
+      "not_home": /local/people/person2/WorkAway.png
+  - type: conditional
+    conditions:
+      - entity: input_boolean.lovelace_person2_work_more
+        state: 'on'
+    card:
+      type: vertical-stack
+      cards: 
+      - type: glance
+        title: Work
+        columns: 6
+        entities:
+        - entity: device_tracker.work_iphone13
+          name: WiFi
+          icon: mdi:wifi
+          show_last_changed: true
+        - entity: device_tracker.person2_bt_front_work_2
+          name: Front
+          icon: mdi:phone-bluetooth
+          show_last_changed: true
+        - entity: device_tracker.person2_bt_work_2
+          name: Rear
+          icon: mdi:phone-bluetooth
+          show_last_changed: true
+        - entity: group.work_laptop
+          name: Laptop 
+          icon: mdi:laptop
+          show_last_changed: true
+        - entity: device_tracker.work_front_laptop_2
+          name: Front
+          icon: mdi:bluetooth
+          show_last_changed: true
+        - entity: device_tracker.work_laptop_2
+          name: Rear
+          icon: mdi:bluetooth
+          show_last_changed: true
+        - entity: proximity.person2_work
+          name: To work
+        - entity: calendar.person2_wfh
+          name: WFH
+        - entity: calendar.person2_holiday
+          name: Holiday
+        - entity: calendar.person2_away
+          name: Away
+        - binary_sensor.workday_sensor
 - type: vertical-stack
   cards:
   - type: picture-entity
