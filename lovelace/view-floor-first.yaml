@@ -91,9 +91,6 @@ cards:
         name: Bedhead
         icon: mdi:led-strip-variant
         show_last_changed: true
-      - entity: media_player.person1
-        name: Squeezebox
-        show_last_changed: true
       - entity: media_player.cast_second_bedroom_speaker
         name: Home Mini
         show_last_changed: true
@@ -206,6 +203,9 @@ cards:
     - entity: switch.spare_bedroom_socket
       show_last_changed: true
       name: Socket
+    - entity: media_player.person1
+      name: Squeezebox
+      show_last_changed: true
 - type: glance
   title: Upstairs hall
   entities:
