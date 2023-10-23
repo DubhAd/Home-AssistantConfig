@@ -2,4 +2,4 @@ person4_person4_o:
   zone: person4_o
   devices:
     - device_tracker.dsb_0230
-  unit_of_measurement: mi
+  unit_of_measurement: m
