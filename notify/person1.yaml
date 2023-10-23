@@ -1,0 +1,4 @@
+- name: person1
+  platform: group
+  services:
+    - service: mobile_app_person1_pixel_3

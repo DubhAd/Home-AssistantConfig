@@ -3,6 +3,37 @@ variables:
   away_count: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_person2', 'entity_id'))|list)|groupby('state'))['not_home']|count }}"
   door_recent: "{{ ((now() - states.binary_sensor.front_door_contact.last_changed).seconds < 300) or ((now() - states.binary_sensor.garage_door_car_contact.last_changed).seconds < 300) }}"
 sequence:
+  - variables:
+      who: >-
+        {% if context.user_id == '2e93f54c62e549c8aeperson2748de6bed9d' %}
+          person2
+        {% elif context.user_id == 'cc64811238de43b5a2e3d15637a0bde7' %}
+          person3
+        {% elif context.user_id == '7d1cc6e431924db79f4f64ddf7b12f6e' %}
+          person1
+        {% elif context.user_id == 'edd225f434af44e8907253829513070d' %}
+          elizabeth
+        {% else %}
+          unknown
+        {% endif %}
+      prox: >-
+        {% if context.user_id == '2e93f54c62e549c8aeperson2748de6bed9d' %}
+          proximity.person2_home
+        {% elif context.user_id == 'cc64811238de43b5a2e3d15637a0bde7' %}
+          proximity.person3_home
+        {% elif context.user_id == '7d1cc6e431924db79f4f64ddf7b12f6e' %}
+          proximity.person1_home
+        {% elif context.user_id == 'edd225f434af44e8907253829513070d' %}
+          proximity.elizabeth_home
+        {% else %}
+          unknown
+        {% endif %}
+      distance: >-
+        {% if prox != 'unknown' %}
+          {{ states(prox) }}
+        {% else %}
+          999999
+        {% endif %}
   - service: notify.debug_log
     data:
-      message: "This was a test - {{ context.user_id }}"
+      message: "This was a test by {{ who }} who is {{ distance }} away"
