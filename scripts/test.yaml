@@ -5,9 +5,4 @@ variables:
 sequence:
   - service: notify.debug_log
     data:
-      message: "This was a test - {{ away_count }} and {{ door_recent }}"
-  - condition: template
-    value_template: "{{ door_recent == 'False' }}"
-  - service: notify.debug_log
-    data:
-      message: "Looks like the door hasn't opened recently"
+      message: "This was a test - {{ context.user_id }}"
