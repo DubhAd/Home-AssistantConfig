@@ -6,6 +6,11 @@ trigger:
     entity_id: input_boolean.stream_front_camera_motion
     to: 'off'
   - platform: state
+    entity_id: input_boolean.stream_camera
+    to: 'on'
+    for: '00:10:00'
+    id: 'idle'
+  - platform: state
     entity_id:
       - binary_sensor.front_path_bicycle_occupancy
       - binary_sensor.front_path_bus_occupancy
@@ -24,6 +29,29 @@ trigger:
       - binary_sensor.road_motorcycle_occupancy
     to: 'off'
     for: '00:01:00'
+condition:
+  - condition: or
+    conditions:
+      - condition: trigger
+        id: 'idle'
+      - condition: state
+        entity_id:
+          - binary_sensor.front_path_bicycle_occupancy
+          - binary_sensor.front_path_bus_occupancy
+          - binary_sensor.front_path_car_occupancy
+          - binary_sensor.front_path_dog_occupancy
+          - binary_sensor.front_path_motorcycle_occupancy
+          - binary_sensor.front_path_person_occupancy
+          - binary_sensor.drive_bicycle_occupancy
+          - binary_sensor.drive_bus_occupancy
+          - binary_sensor.drive_car_occupancy
+          - binary_sensor.drive_dog_occupancy
+          - binary_sensor.drive_motorcycle_occupancy
+          - binary_sensor.drive_person_occupancy
+          - binary_sensor.road_bus_occupancy
+          - binary_sensor.road_car_occupancy
+          - binary_sensor.road_motorcycle_occupancy
+        state: 'off'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.stream_camera
