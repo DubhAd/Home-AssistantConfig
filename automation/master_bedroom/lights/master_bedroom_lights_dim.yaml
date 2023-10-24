@@ -34,4 +34,4 @@ action:
   - service: light.turn_on
     data:
       entity_id: light.master_bedroom_bedhead
-      transition: 10
+      transition: 2
