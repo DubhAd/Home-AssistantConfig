@@ -1,5 +1,5 @@
-id: 'mark_person_as_just_arrived'
-alias: Mark person as just arrived
+id: 'mark_person_as_nearly_home'
+alias: Mark person as nearly home
 mode: parallel
 initial_state: 'on'
 trigger:
