@@ -1,4 +1,5 @@
 - name: "person person3"
   state_topic: 'location/person3'
-  source_type: router
+  json_attributes_topic: 'location/person3/attributes'
+  source_type: gps
   unique_id: "mqtt_person_person3"

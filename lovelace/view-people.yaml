@@ -83,7 +83,7 @@ cards:
         default_zoom: 17
         hours_to_show: 12
         entities:
-          - device_tracker.pixel_6a
+          - person.person3
 - type: picture-entity
   entity: input_text.person_person4
   image: /local/people/Elizabeth_Away.png
@@ -277,6 +277,11 @@ cards:
             maxDaysToShow: 1
           - entity: calendar.person2_away
             maxDaysToShow: 1
+      - type: map
+        default_zoom: 17
+        hours_to_show: 12
+        entities:
+          - person.person2
   - type: picture-entity
     entity: group.work_laptop
     image: /local/people/person2/Work.png
@@ -407,7 +412,8 @@ cards:
         default_zoom: 17
         hours_to_show: 12
         entities:
-          - device_tracker.person1_pixel_3
+          - person.person1
+          - zone.gym_at_university
           - zone.university_student_union
           - zone.university_comp_sci
           - zone.university_hugh_nisbet
