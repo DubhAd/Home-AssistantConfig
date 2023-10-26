@@ -1,5 +1,4 @@
 id: 'person2_coming_home'
-initial_state: 'on'
 alias: 'person2 coming home'
 trigger:
   - platform: state

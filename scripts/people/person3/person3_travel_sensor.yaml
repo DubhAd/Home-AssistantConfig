@@ -28,11 +28,9 @@ sequence:
       topic: location/person3
       payload: >-
         {% if is_state('input_boolean.person3_home', 'on') %}
-          'home'
-        {% elif not is_state('device_tracker.pixel_6a', 'not_home') %}
-          {{ states('device_tracker.pixel_6a') }}
+          home
         {% else %}
-          'not_home'
+          {{ states('device_tracker.pixel_6a') }}
         {% endif %}
       retain: true
   - service: mqtt.publish
