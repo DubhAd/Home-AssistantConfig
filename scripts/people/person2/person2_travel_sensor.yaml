@@ -46,8 +46,8 @@ sequence:
             {
               "latitude": latitude,
               "longitude": longitude,
-              "altitude": {{ state_attr('device_tracker.pixel_xl','altitude') }},
-              "gps_accuracy": 10
+              "altitude": {{ state_attr('device_tracker.pixel_xl','altitude')|default(197,true) }},
+              "gps_accuracy": {{ min(state_attr('device_tracker.pixel_xl','gps_accuracy')|default(20,true),10) }}
             }
           retain: true
     else:
