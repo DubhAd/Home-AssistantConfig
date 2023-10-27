@@ -25,23 +25,42 @@ sequence:
         {% else %}
           {{ states('sensor.person1s_time_to_home_by_foot_duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_by_foot_duration', 'unit_of_measurement') }} to home on foot
         {% endif %}
-  - service: mqtt.publish
-    data:
-      topic: location/person1
-      payload: >-
-        {% if is_state('input_boolean.person1_home', 'on') %}
-          home
-        {% else %}
-          {{ states('device_tracker.person1_pixel_3') }}
-        {% endif %}
-      retain: true
-  - service: mqtt.publish
-    data:
-      topic: location/person1/attributes
-      payload: >-
-        {
-          "latitude": {{ state_attr('device_tracker.person1_pixel_3','latitude') }},
-          "longitude": {{ state_attr('device_tracker.person1_pixel_3','longitude') }},
-          "gps_accuracy": {{ state_attr('device_tracker.person1_pixel_3','gps_accuracy') }}
-        }
-      retain: true
+  - if:
+      - condition: state
+        entity_id: input_boolean.person1_home
+        state: 'on'
+    then:
+      - service: mqtt.publish
+        data:
+          topic: location/person1
+          payload: 'home'
+          retain: true
+      - service: mqtt.publish
+        data:
+          topic: location/person1/attributes
+          payload: >-
+            {
+              "latitude": latitude,
+              "longitude": longitude,
+              "altitude": {{ state_attr('device_tracker.person1_pixel_3','altitude') }},
+              "gps_accuracy": {{ state_attr('device_tracker.person1_pixel_3','gps_accuracy') }}
+            }
+          retain: true
+    else:
+      - service: mqtt.publish
+        data:
+          topic: location/person1
+          payload: >-
+            {{ states('device_tracker.person1_pixel_3') }}
+          retain: true
+      - service: mqtt.publish
+        data:
+          topic: location/person1/attributes
+          payload: >-
+            {
+              "latitude": {{ state_attr('device_tracker.person1_pixel_3','latitude') }},
+              "longitude": {{ state_attr('device_tracker.person1_pixel_3','longitude') }},
+              "altitude": {{ state_attr('device_tracker.person1_pixel_3','altitude') }},
+              "gps_accuracy": {{ state_attr('device_tracker.person1_pixel_3','gps_accuracy') }}
+            }
+          retain: true
