@@ -16,9 +16,6 @@ condition:
   - condition: numeric_state
     entity_id: sensor.sun_solar_elevation
     below: -4
-  - condition: state
-    entity_id: switch.garden_lights
-    state: 'off'
 action:
   - service: script.turn_on
     entity_id: script.garden_door_after_sunset

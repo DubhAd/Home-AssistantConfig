@@ -24,6 +24,37 @@ condition:
             entity_id: switch.garden_lights
             state: 'off'
 action:
-  - service: switch.toggle
-    data:
-      entity_id: switch.garden_lights
+  - choose:
+      # Toggle the lights if they were off, or this was a single press
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: switch.garden_lights
+                state: 'off'
+              - condition: template
+                value_template: "{{ trigger.to_state.state == 'single' }}"
+        sequence:
+          - alias: 'Toggle the lights'
+            service: switch.toggle
+            data:
+              entity_id: switch.garden_lights
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.state == 'double' }}"
+        sequence:
+          - alias: "Don't turn off the lights when we close the door"
+            service: homeassistant.turn_off
+            entity_id: automation.utility_door_open_after_sunset_turn_off
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.state == 'hold' }}"
+        sequence:
+          - alias: "Don't turn off the lights when we close the door"
+            service: homeassistant.turn_off
+            entity_id: automation.utility_door_open_after_sunset_turn_off
+    default:
+      - alias: 'Toggle the lights by default'
+        service: switch.toggle
+        data:
+          entity_id: switch.garden_lights
