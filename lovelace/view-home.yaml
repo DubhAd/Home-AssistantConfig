@@ -316,6 +316,8 @@ cards:
       include:
         - group: group.my_interior_doors
           state: 'off'
+          options:
+            show_last_changed: true
 
   - type: custom:auto-entities
     show_empty: false
