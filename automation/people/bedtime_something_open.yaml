@@ -6,32 +6,30 @@ trigger:
     entity_id: 
       - input_boolean.person3_in_bed
       - input_boolean.person2_in_bed
-    to: 'off'
+    to: 'on'
 condition:
-  condition: and
-  conditions:
-    # We're both in bed
-    - condition: state
-      entity_id: input_boolean.person3_is_awake
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.person2_is_awake
-      state: 'off'
-    - condition: or
-      conditions:
-      # Either a downstairs window is open, or a door is open
-      - condition: state
-        entity_id: group.my_downstairs_windows
-        state: 'on'
-      - condition: state
-        entity_id: group.my_exterior_doors
-        state: 'on'
+  # We're both in bed
+  - condition: state
+    entity_id: 
+      - input_boolean.person3_is_awake
+      - input_boolean.person2_is_awake
+    state: 'on'
+  # Either a downstairs window is open, or a door is open
+  - condition: state
+    entity_id: 
+      - group.my_downstairs_windows
+      - group.my_exterior_doors
+    state: 'on'
+    match: any
 action:
+  - variables:
+      what: >-
+        {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - service: >-
       {{ "notify.person2" if as_timestamp(states.input_boolean.person2_is_awake.last_updated) > as_timestamp(states.input_boolean.person3_is_awake.last_updated) else "notify.person3" }} 
     data:
       message: >
-        The following are open downstairs: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        The following are open downstairs: {{ what }}
   - service: media_player.turn_on
     data:
       entity_id: >-
@@ -59,7 +57,7 @@ action:
         {% endif %}
       message: >-
         The following are open:
-        {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        {{ what }}
   - delay: '00:01:00'
   - service: media_player.turn_off
     data:
