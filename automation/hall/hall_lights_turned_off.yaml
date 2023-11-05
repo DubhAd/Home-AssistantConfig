@@ -20,7 +20,10 @@ action:
       data:
         entity_id: input_select.hall
         option: 'Off'
-- service: switch.turn_on
-  entity_id: 
-  - switch.adaptive_lighting_adapt_brightness_hall
-  - switch.adaptive_lighting_hall
+- if:
+    - condition: state
+      entity_id: switch.adaptive_lighting_hall
+      state: 'off'
+  then:
+    - service: switch.turn_on
+      entity_id: switch.adaptive_lighting_hall
