@@ -2,10 +2,11 @@ id: 'pause_music_in_the_office'
 initial_state: 'on'
 alias: 'Pause music in the office'
 trigger:
+  - platform: calendar
+    entity_id: calendar.person2_work
+    event: start
   - platform: state
-    entity_id: 
-    - calendar.person2_work
-    - binary_sensor.kelsie_webcamactive
+    entity_id: binary_sensor.kelsie_webcamactive
     to: 'on'
   - platform: state
     entity_id: input_boolean.office_occupied
