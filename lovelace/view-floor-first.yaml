@@ -190,6 +190,7 @@ cards:
       show_last_changed: true
 - type: glance
   title: Spare bedroom
+  columns: 6
   entities:
     - entity: binary_sensor.spare_bedroom_door_contact
       show_last_changed: true
@@ -206,6 +207,8 @@ cards:
     - entity: media_player.person1
       name: Squeezebox
       show_last_changed: true
+    - entity: sensor.spare_bedroom_environment_temperature
+      name: Temperature
 - type: glance
   title: Upstairs hall
   entities:
@@ -268,6 +271,9 @@ cards:
     - entity: sensor.bathroom_environment_humidity
       name: Bathroom
       color: "#C4E441"
+    - entity: sensor.spare_bedroom_environment_humidity
+      name: Spare bedroom
+      color: "#40E020"
     - entity: sensor.loft_environment_humidity
       name: Loft
       color: "#F25534"
@@ -373,6 +379,9 @@ cards:
     - entity: sensor.office_temperature
       name: Office
       color: "#F28544"
+    - entity: sensor.spare_bedroom_environment_temperature
+      name: Spare bedroom
+      color: "#40E020"
     - entity: sensor.loft_environment_temperature
       name: Loft
       color: "#F25534"
@@ -401,6 +410,9 @@ cards:
     - entity: sensor.bathroom_environment_pressure
       name: Bathroom
       color: "#C4E441"
+    - entity: sensor.spare_bedroom_environment_pressure
+      name: Spare bedroom
+      color: "#40E020"
     - entity: sensor.loft_environment_pressure
       name: Loft
       color: "#F25534"
