@@ -56,7 +56,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Xiaomi Aqara water leak sensor](https://www.zigbee2mqtt.io/devices/SJCGQ11LM.html) | Leak Sensor | :small_red_triangle: | These are pretty good, the only downside is they're not Zigbee 3.0. When I buy more I'll get the new T1 version. |
 
 **Notes**
-- Aqara's E1, P1, and T1 ranges are Zigbee 3.0, but they're often hard to get a hold of outside of China.
+- Aqara's E1, P1, and T1 ranges are Zigbee 3.0, but the E1 are often hard to get a hold of outside of China. The T1 and P1 are becoming easy enough to find for sale, though not on AliExpress.
 
 ## Not in use
 | What | Buy again? | Notes |
