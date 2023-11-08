@@ -1,0 +1,68 @@
+blueprint:
+  name: Aqara TRV E1 external temperature
+  description: >
+    Configures the Aqara TRV to receive it's temperature from an external sensor.
+    Every time the temperature sensor value cahnges it's is send to the TRV.
+  domain: automation
+  source_url: "https://gist.github.com/pavax/8d6ed250765d89cb281d4a1762b8d2e8"
+  input:
+    external_temp_sensor:
+      name: External temperature sensor
+      description: This temperature sensor values will be synced to the TRV
+      selector:
+        entity:
+          filter:
+            domain: sensor
+            device_class:
+              - temperature
+    aqara_trv_device:
+      name: The Aqara TRV
+      description: The TRV that the temperature willl be set to
+      selector:
+        device:
+          multiple: false
+          filter:
+            - integration: mqtt
+              manufacturer: Xiaomi
+              model: Aqara Smart Radiator Thermostat E1 (SRTS-A01)
+
+mode: single
+max_exceeded: silent
+
+variables:
+  aqara_trv_device: !input aqara_trv_device
+  external_temp_sensor: !input external_temp_sensor
+
+trigger:
+  - platform: state
+    entity_id: !input external_temp_sensor
+action:
+  - variables:
+      aqara_trv_device_name: "{{ device_attr(aqara_trv_device, 'name') }}"
+      aqara_trv_select_entity: >-
+        {% set device_entities = device_entities(aqara_trv_device) %}
+        {{ expand(states['select'])   
+                  | selectattr('entity_id','in', device_entities)
+                  | selectattr('attributes.options', 'contains', 'external')
+                  | map(attribute='entity_id') 
+                  | first
+        }}
+  - if:
+      - condition: template
+        value_template: "{{ not is_state(aqara_trv_select_entity, 'external')}}"
+    then:
+      - service: select.select_option
+        target:
+          entity_id: "{{aqara_trv_select_entity}}"
+        data:
+          option: external
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 10
+          milliseconds: 0
+  - service: mqtt.publish
+    data:
+      topic: "zigbee2mqtt/{{aqara_trv_device_name}}/set/sensor_temp"
+      payload_template: >-
+        {{ (states(external_temp_sensor)|float(0)|round(1)) }}

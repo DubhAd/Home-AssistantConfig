@@ -1,1 +1,9 @@
-[]
+- id: '1699433252013'
+  alias: Spare bedroom external temperature sensor
+  description: Configures the spare bedroom TRV to receive the temperature from the
+    external sensor
+  use_blueprint:
+    path: pavax/z2m_aqara_trv_external_temperature.yaml
+    input:
+      external_temp_sensor: sensor.spare_bedroom_environment_temperature
+      aqara_trv_device: 06c5830a30a0058db6c294ccf8f6e0d0

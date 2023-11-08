@@ -1,0 +1,13 @@
+id: 'spare_bedroom_guest_mode_on'
+alias: 'Spare bedroom guest mode on - turn up the heat'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.guest_mode
+    to: 'on'
+action:
+  - service: climate.set_temperature
+    data:
+      temperature: 21
+    target:
+      entity_id: climate.spare_bedroom_radiator

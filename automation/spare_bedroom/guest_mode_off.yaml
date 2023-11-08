@@ -1,0 +1,13 @@
+id: 'spare_bedroom_guest_mode_off'
+alias: 'Spare bedroom guest mode off - turn down the heat'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_boolean.guest_mode
+    to: 'off'
+action:
+  - service: climate.set_preset_mode
+    data:
+      preset_mode: 'away'
+    target:
+      entity_id: climate.spare_bedroom_radiator
