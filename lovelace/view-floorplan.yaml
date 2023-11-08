@@ -362,6 +362,7 @@ cards:
             - sensor.family_room_multi_temperature
             - sensor.office_temperature
             - sensor.second_bedroom_ensuite_temperature
+            - sensor.spare_bedroom_environment_temperature
           state_action:
             - action: call-service
               service: floorplan.text_set
