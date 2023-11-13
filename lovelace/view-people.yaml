@@ -418,6 +418,7 @@ cards:
           - zone.university_comp_sci
           - zone.university_hugh_nisbet
           - zone.james_watt_centre
+          - zone.station_train_station
 - type: vertical-stack
   cards:
   - type: picture-entity
