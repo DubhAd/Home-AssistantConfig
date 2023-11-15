@@ -6,17 +6,12 @@ trigger:
     entity_id: binary_sensor.garage_door_car_contact
     to: 'on'
 condition:
-  - condition: or
-    conditions:
-      - condition: state
-        entity_id: input_boolean.home_occupied
-        state: 'off'
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: input_boolean.home_occupied
-            state: 'on'
-            for: '00:01:00'
+  - condition: numeric_state
+    entity_id: proximity.person2_home
+    below: 100
+  - condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
 action:
   - service: notify.mobile_app_pixel_xl
     data:

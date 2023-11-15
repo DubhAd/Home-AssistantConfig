@@ -8,6 +8,3 @@ trigger:
 action:
   - service: script.turn_on
     entity_id: script.scan_bt
-  - service: automation.turn_off
-    data:
-      entity_id: automation.garage_open_nobody_home
