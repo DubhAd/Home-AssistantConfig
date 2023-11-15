@@ -55,12 +55,15 @@ cards:
       name: Living room chromecast
 - type: custom:battery-state-card
   title: Battery devices
-  sort_by_level: "asc"
+  sort: 
+    - "state"
   collapse: 8
-  color_gradient:
-    - "#ff0000" # red
-    - "#ffff00" # yellow
-    - "#00ff00" # green
+  colors:
+    steps:
+      - "#ff0000" # red
+      - "#ffff00" # yellow
+      - "#00ff00" # green
+    gradient: true
   tap_action:
     action: more-info
   entities:
@@ -85,9 +88,11 @@ cards:
         entity_id: binary_sensor.dsb_0230_is_charging
         state: 'on'
     - entity: sensor.kelsie_battery_charge_remaining_percentage
+      secondary_info: "{charging}"
       charging_state: 
         entity_id: sensor.kelsie_battery_powerline_status
         state: 'Online'
+        secondary_info_text: "Power connected"
   filter:
     include:
       - name: entity_id
