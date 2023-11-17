@@ -6,9 +6,14 @@ trigger:
     entity_id: device_tracker.person1_pixel_3
     to: 'station Train Station'
 condition:
-  - condition: state
-    entity_id: input_boolean.person2_home
-    state: 'on'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.person2_home
+        state: 'on'
+      - condition: numeric_state
+        entity_id: proximity.person2_home
+        below: 2000
   - condition: state
     entity_id: input_boolean.person1_at_hw
     state: 'on'
