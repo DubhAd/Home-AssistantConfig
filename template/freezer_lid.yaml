@@ -1,6 +1,0 @@
-- binary_sensor:
-  - name: 'bike lid'
-    unique_id: 'bike_lid'
-    device_class: 'opening'
-    state: >-
-      {{ states('sensor.chest_bike_angle_y')|float(0) < 3 or is_state('sensor.chest_bike_action','tilt') }}
