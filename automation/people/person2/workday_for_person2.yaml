@@ -11,14 +11,13 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: calendar.person2_holiday
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.workday_sensor
-      state: 'on'
+  - condition: state
+    entity_id: calendar.person2_holiday
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
 action:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.notify_person2_working
+    entity_id: 
+      - input_boolean.person2_work_home

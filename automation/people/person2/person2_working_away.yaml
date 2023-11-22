@@ -32,4 +32,3 @@ action:
   - service: input_boolean.turn_on
     entity_id: 
       - input_boolean.person2_travelling
-      - input_boolean.notify_person2_working

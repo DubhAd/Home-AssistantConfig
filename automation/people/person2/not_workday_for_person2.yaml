@@ -16,16 +16,9 @@ condition:
     - condition: state
       entity_id: calendar.person2_holiday
       state: 'on'
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'off'
-      - condition: state
-        entity_id: calendar.person2_work
-        state: 'off'
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'off'
 action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.notify_person2_working
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_work_home
