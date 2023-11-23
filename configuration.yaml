@@ -25,7 +25,6 @@ automation: !include automations.yaml
 automation mine: !include_dir_list automation/
 scene: !include scenes.yaml
 scene mine: !include_dir_list scenes/
-shell_command: !include_dir_merge_named shell_commands/
 
 proximity: !include_dir_merge_named proximity/
 sensor: !include_dir_merge_list sensors/
@@ -57,6 +56,4 @@ mqtt:
   sensor: !include_dir_merge_list mqtt/sensor/
   binary_sensor: !include_dir_merge_list mqtt/binary_sensor/
   device_tracker: !include_dir_merge_list mqtt/device_tracker/
-
-command_line: !include_dir_merge_list command_line/
 
