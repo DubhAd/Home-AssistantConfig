@@ -1,0 +1,7 @@
+- binary_sensor:
+  - name: 'Garage door bike combi'
+    unique_id: 'garage_door_bike_combi'
+    device_class: 'garage_door'
+    state: >-
+      {{ states('sensor.garage_door_bike_v_angle_y')|float > 0 and is_state('binary_sensor.garage_door_bike_contact','on') }}
+      {{ states('binary_sensor.garden_gate_contact') }}
