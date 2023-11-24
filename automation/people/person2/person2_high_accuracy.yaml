@@ -1,0 +1,21 @@
+id: 'person2_high_accuracy'
+alias: 'person2 high accuracy mode'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.pixel_xl_high_accuracy_mode
+    to: 'on'
+    for: '00:05:00'
+  - platform: state
+    entity_id: input_boolean.person2_home
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: binary_sensor.pixel_xl_high_accuracy_mode
+    state: 'on'
+action:
+  - service: notify.mobile_app_pixel_xl
+    data:
+      message: "command_high_accuracy_mode"
+      data:
+        command: "turn_off"
