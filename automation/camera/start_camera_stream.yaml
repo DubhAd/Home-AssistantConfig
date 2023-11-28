@@ -1,6 +1,7 @@
 id: 'start_camera_stream'
 alias: 'Start camera stream'
 initial_state: 'on'
+mode: restart
 trigger:
   - platform: state
     entity_id: input_boolean.stream_camera
