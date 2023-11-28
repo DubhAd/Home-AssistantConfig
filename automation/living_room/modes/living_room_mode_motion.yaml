@@ -5,6 +5,7 @@ trigger:
   - platform: state
     entity_id: 
     - binary_sensor.living_room_presence_occupancy
+    - binary_sensor.living_room_door_contact
     to: 'on'
 condition:
   - condition: state
