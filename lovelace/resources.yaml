@@ -48,3 +48,5 @@
   type: module
 - url: /hacsfiles/room-card/room-card.js
   type: module
+- url: /hacsfiles/simple-thermostat/simple-thermostat.js
+  type: module
