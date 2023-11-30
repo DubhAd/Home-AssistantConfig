@@ -27,9 +27,9 @@ action:
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/google_cloud?message=It's now hotter outside than inside, you should close the window.
+              media-source://tts/tts.piper?message=It's now hotter outside than inside, you should close the window.
       media_content_type: music
       extra:
-        volume: 25
+        volume: 10
     target:
       entity_id: media_player.office_sonos_cloud

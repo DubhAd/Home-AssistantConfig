@@ -1,4 +1,4 @@
 - name: tts_family_room
   platform: tts
-  tts_service: tts.google_cloud_say
+  tts_service: tts.piper
   media_player: media_player.family_room_sonos_cloud
