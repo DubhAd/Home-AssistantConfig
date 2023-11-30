@@ -47,7 +47,7 @@ action:
           - service: media_player.play_media
             data:
               media_content_id: >-
-                media-source://tts/google_cloud?message=The front door has been left open
+                media-source://tts/tts.piper?message=The front door has been left open
               media_content_type: music
               extra:
                 volume: 25
@@ -62,7 +62,7 @@ action:
           - service: media_player.play_media
             data:
               media_content_id: >-
-                media-source://tts/google_cloud?message=The front door has been left open
+                media-source://tts/tts.piper?message=The front door has been left open
               media_content_type: music
               extra:
                 volume: 25
@@ -77,7 +77,7 @@ action:
           - service: media_player.play_media
             data:
               media_content_id: >-
-                media-source://tts/google_cloud?message=The front door has been left open
+                media-source://tts/tts.piper?message=The front door has been left open
               media_content_type: music
               extra:
                 volume: 25

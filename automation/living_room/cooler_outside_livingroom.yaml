@@ -40,7 +40,7 @@ action:
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/google_cloud?message=It's now cooler outside than inside, you should open some windows or doors.
+        media-source://tts/tts.piper?message=It's now cooler outside than inside, you should open some windows or doors.
       media_content_type: music
       extra:
         volume: 25

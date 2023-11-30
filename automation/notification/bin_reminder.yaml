@@ -25,7 +25,7 @@ action:
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/google_cloud?message=The {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is due for collection {{ states('sensor.next_bin_collection') }} and it hasn't been put out yet.
+        media-source://tts/tts.piper?message=The {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is due for collection {{ states('sensor.next_bin_collection') }} and it hasn't been put out yet.
       media_content_type: music
       extra:
         volume: 25

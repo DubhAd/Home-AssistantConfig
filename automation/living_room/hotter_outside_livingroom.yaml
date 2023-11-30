@@ -49,7 +49,7 @@ action:
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/google_cloud?message=It's now hotter outside than inside, you should close the windows and doors.
+        media-source://tts/tts.piper?message=It's now hotter outside than inside, you should close the windows and doors.
       media_content_type: music
       extra:
         volume: 25

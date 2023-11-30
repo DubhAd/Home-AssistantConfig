@@ -20,7 +20,7 @@ action:
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/google_cloud?message=The garden gate was opened while you were away, and is still open
+        media-source://tts/tts.piper?message=The garden gate was opened while you were away, and is still open
       media_content_type: music
       extra:
         volume: 25

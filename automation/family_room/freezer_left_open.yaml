@@ -16,7 +16,7 @@ action:
   - service: media_player.play_media
     data:
       entity_id: media_player.family_room_sonos_cloud
-      media_content_id: media-source://tts/cloud?message=The bike lid is still open, but the garage door is closed
+      media_content_id: media-source://tts/tts.piper?message=The bike lid is still open, but the garage door is closed
       media_content_type: music
       extra:
         volume: 25
