@@ -1,0 +1,11 @@
+- sensor:
+  - name: 'Feels like temperature'
+    unique_id: 'feels_like_temperature'
+    unit_of_measurement: "°C"
+    state: >-
+      {%- set temperature = states('sensor.outside_climate_temperature')|float %}
+      {%- set humidity = states('sensor.outside_climate_humidity')|float %}
+      {%- set wvp = (humidity/100) * 6.105 * e**((17.27*temperature) / (237.7 + temperature))%}
+      {{- (temperature + 0.33 * wvp  - 4.00)|round(2) -}}
+    state_class: measurement
+    icon: mdi:thermometer

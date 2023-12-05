@@ -38,7 +38,7 @@ condition:
     entity_id: input_boolean.person2_home
     state: 'on'
   - condition: time
-    after: '19:25:00'
+    after: '18:55:00'
     before: '20:00:00'
   - condition: template
     value_template: >-
@@ -48,8 +48,12 @@ action:
       - condition: template
         value_template: "{{ rain_probability == 0 and rain_total == 0 }}"
     then:
-      - service: script.nop
+      - service: notify.person2
+        data:
+          message: >-
+            It'll be dry while you're out, and feel like {{ states('sensor.feels_like_temperature')|round(0) -}}{{ state_attr('sensor.feels_like_temperature','unit_of_measurement') }}
     else:
       - service: notify.person2
         data:
-          message: "It {{ probability_text }} be {{ total_text}} while you're out"
+          message: >
+            It {{ probability_text }} ({{ rain_probability}})  be {{ total_text}} ({{ rain_total}}) while you're out, and feel like {{ states('sensor.feels_like_temperature')|round(0) -}}{{ state_attr('sensor.feels_like_temperature','unit_of_measurement') }}
