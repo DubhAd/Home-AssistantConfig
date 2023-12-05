@@ -180,6 +180,9 @@ cards:
           #color: "#B69933"
           color: '#c6961d'
           #- entity: sensor.accuhome_apparent_temperature
+        - entity: sensor.outside_rear_temperature
+          name: Outside
+          color: 'purple'
         - entity: sensor.outside_temperature
           name: Outside
           #color: 'silver'

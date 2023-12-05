@@ -95,6 +95,11 @@ cards:
     - type: horizontal-stack
       cards:
         - type: custom:mushroom-entity-card
+          entity: sensor.outside_rear_temperature
+          icon_type: entity-picture
+          icon: mdi:thermometer-chevron-up
+          name: Outside
+        - type: custom:mushroom-entity-card
           entity: sensor.downstairs_temp
           icon_type: entity-picture
           name: Downstairs
