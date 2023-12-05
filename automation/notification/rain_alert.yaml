@@ -7,8 +7,8 @@ trigger:
     entity_id: binary_sensor.vestibule_multi_occupancy
     to: 'on'
 variables:
-  rain_probability: "{{ state_attr('weather.tomorrow_io_home_nowcast','forecast')|selectattr('precipitation_probability')|map(attribute='precipitation_probability')|max() }}"
-  rain_total: "{{ state_attr('weather.tomorrow_io_home_nowcast','forecast')|selectattr('precipitation')|sum(attribute='precipitation')|round(1) }}"
+  rain_probability: "{{ state_attr('weather.tomorrow_io_home_nowcast','forecast')|selectattr('precipitation_probability')|map(attribute='precipitation_probability')|max()|default(0)|int }}"
+  rain_total: "{{ state_attr('weather.tomorrow_io_home_nowcast','forecast')|selectattr('precipitation')|sum(attribute='precipitation')|default(0)|round(1)|int }}"
   probability_text: >-
     {% if rain_probability < 25 %}
       may
@@ -42,7 +42,7 @@ condition:
     before: '20:00:00'
   - condition: template
     value_template: >-
-      {{ state_attr('automation.rain_alert','last_triggered') < today_at('19:25') }}
+      {{ state_attr('automation.rain_alert','last_triggered') < today_at('18:55') }}
 action:
   - if:
       - condition: template
@@ -56,4 +56,4 @@ action:
       - service: notify.person2
         data:
           message: >
-            It {{ probability_text }} ({{ rain_probability}})  be {{ total_text}} ({{ rain_total}}) while you're out, and feel like {{ states('sensor.feels_like_temperature')|round(0) -}}{{ state_attr('sensor.feels_like_temperature','unit_of_measurement') }}
+            It {{ probability_text }} ({{ rain_probability}}) be {{ total_text}} ({{ rain_total}}) while you're out, and feel like {{ states('sensor.feels_like_temperature')|round(0) -}}{{ state_attr('sensor.feels_like_temperature','unit_of_measurement') }}
