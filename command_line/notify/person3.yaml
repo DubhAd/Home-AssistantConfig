@@ -1,3 +1,0 @@
-- notify:
-    name: command_line_person3
-    command: "/local/bin/notify person3"
