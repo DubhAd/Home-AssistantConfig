@@ -200,10 +200,6 @@ cards:
           icon: mdi:map-marker-distance
         - entity: proximity.person2_home
           name: To home
-        - entity: switch.radio_person2
-          show_last_changed: true
-          icon: mdi:alarm
-          name: Alarms
         - entity: input_boolean.person2_driving
           show_last_changed: true
           name: Driving
@@ -371,12 +367,6 @@ cards:
             state: "charging"
         - entity: binary_sensor.person1_pixel_3_interactive
           name: Screen
-        - entity: switch.radio_person1
-          show_last_changed: true
-          icon: mdi:alarm
-          tap_action: 
-            action: toggle
-          name: Alarms
         - entity: input_boolean.person1_alarm_sounded
           show_last_changed: true
           name: Alarm sounded
