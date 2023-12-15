@@ -1,4 +1,0 @@
-- sensor:
-    name: Zigbee3 Bridge state
-    state_topic: "zigbee3mqtt/bridge/state"
-    icon: mdi:zigbee

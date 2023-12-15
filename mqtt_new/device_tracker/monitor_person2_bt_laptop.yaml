@@ -1,4 +1,0 @@
-- device_tracker:
-    name: "person2 bt laptop"
-    state_topic: 'monitor/first floor rear/person2_laptop/device_tracker'
-    source_type: bluetooth

@@ -1,0 +1,1 @@
+healthcheck: 'curl --connect-timeout 5s --retry 3 --max-time 10s https://hc-ping.com/d415b709-aa5f-4bfe-84e0-873fd715d2d5'

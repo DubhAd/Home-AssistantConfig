@@ -1,5 +1,0 @@
-- sensor:
-    name: "Zigbee2MQTT Version"
-    state_topic: "zigbee2mqtt/bridge/info"
-    value_template: "{{ value_json.version }}"
-    icon: mdi:zigbee
