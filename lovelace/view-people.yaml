@@ -217,10 +217,10 @@ cards:
         title: person2's devices
         columns: 6
         entities:
-        - entity: device_tracker.sht_al09
+        - entity: device_tracker.person2_p11
           name: Tablet
           icon: mdi:crosshairs-gps
-        - entity: device_tracker.person2_tablet_m5
+        - entity: device_tracker.person2_lenovo_p11
           name: Tablet
           icon: mdi:wifi
           show_last_changed: true
@@ -238,9 +238,9 @@ cards:
           show_last_changed: true
         - type: custom:battery-state-entity
           name: Battery
-          entity: sensor.sht_al09_battery_level
+          entity: sensor.person2_p11_battery_level
           charging_state:
-            entity_id: sensor.sht_al09_battery_state
+            entity_id: sensor.person2_p11_battery_state
             state: "charging"
         - entity: group.own_laptop
           name: Laptop

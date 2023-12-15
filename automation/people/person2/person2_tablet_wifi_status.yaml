@@ -3,7 +3,7 @@ alias: 'person2 tablet WiFi status'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: sensor.sht_al09_wifi_connection
+    entity_id: sensor.person2_p11_wifi_connection
   - platform: homeassistant
     event: start
   - platform: event
@@ -12,7 +12,7 @@ action:
   - choose:
     - conditions:
         - condition: template
-          value_template: "{{ 'Cogs-n-Gears' in states('sensor.sht_al09_wifi_connection') }}"
+          value_template: "{{ 'Cogs-n-Gears' in states('sensor.person2_p11_wifi_connection') }}"
       sequence:
         - service: mqtt.publish
           data:

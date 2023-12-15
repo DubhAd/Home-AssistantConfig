@@ -1,6 +1,5 @@
 name: person2's tablet
 icon: mdi:tablet
 entities:
-- device_tracker.person2_tablet_m5
-- device_tracker.person2_bt_tablet_2
-- device_tracker.person2_bt_front_tablet_2
+- device_tracker.person2_lenovo_p11
+- device_tracker.person_person2_tablet_wifi
