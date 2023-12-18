@@ -44,12 +44,6 @@ cards:
       - entity: media_player.master_bedroom_display
         name: "Home Hub"
         show_last_changed: true
-      - entity: switch.radio_person2
-        icon: mdi:alarm
-        tap_action: 
-          action: toggle
-        name: Alarms
-        show_last_changed: true
   - type: glance
     entities:
       - entity: binary_sensor.master_ensuite_door_contact
@@ -93,12 +87,6 @@ cards:
         show_last_changed: true
       - entity: media_player.cast_second_bedroom_speaker
         name: Home Mini
-        show_last_changed: true
-      - entity: switch.radio_person1
-        icon: mdi:alarm
-        tap_action: 
-          action: toggle
-        name: Alarms
         show_last_changed: true
   - type: glance
     #title: Second bedroom ensuite
