@@ -23,6 +23,14 @@ cards:
         name: Motion
       - entity: sensor.master_bedroom_light_sensor_illuminance_lux
         name: Illuminance
+      - entity: sensor.master_bedroom_environment_temperature
+        name: Temperature
+      - entity: sensor.master_bedroom_environment_humidity
+        name: Humidity
+      - entity: sensor.master_bedroom_environment_pm25
+        name: PM 2.5
+      - entity: sensor.master_bedroom_environment_voc_index
+        name: VOC Index
   - type: glance
     columns: 6
     entities:
