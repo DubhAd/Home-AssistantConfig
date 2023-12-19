@@ -1,4 +1,4 @@
 - name: tts_second_bedroom
   platform: tts
-  tts_service: tts.google_cloud_say
+  entity_id: tts.piper
   media_player: media_player.cast_second_bedroom_speaker

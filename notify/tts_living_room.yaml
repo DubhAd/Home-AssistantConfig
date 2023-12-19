@@ -1,4 +1,4 @@
 - name: tts_living_room
   platform: tts
-  tts_service: tts.piper
+  entity_id: tts.piper
   media_player: media_player.living_room_sonos_cloud

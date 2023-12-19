@@ -1,4 +1,4 @@
 - name: tts_office
   platform: tts
-  tts_service: tts.piper
+  entity_id: tts.piper
   media_player: media_player.office_sonos_cloud
