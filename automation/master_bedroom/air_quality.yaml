@@ -1,0 +1,24 @@
+id: 'master_bedroom_air_quality'
+alias: 'Master bedroom air quality'
+initial_state: 'on'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.master_bedroom_environment_pm25
+    above: 50
+    for: '00:02:00'
+condition:
+  - condition: state
+    entity_id: 
+      - input_boolean.person3_is_awake
+      - input_boolean.person2_is_awake
+    state: 'on'
+action:
+  - service: media_player.play_media
+    data:
+      media_content_id: >-
+        media-source://tts/tts.piper?message=The particulate level is {{ states('sensor.master_bedroom_environment_pm25') }}, above the recommended maximum of 50. Please ventilate the room
+      media_content_type: music
+      extra:
+        volume: 20
+    target:
+      entity_id: media_player.master_bedroom_display
