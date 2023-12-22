@@ -1,0 +1,14 @@
+id: 'person2_sleep_status'
+alias: 'person2 sleep status'
+initial_state: 'on'
+trigger:
+  - platform: webhook
+    webhook_id: '01234567-dead-beef-cafe-0123456789abc'
+    allowed_methods:
+      - POST
+    local_only: false
+action:
+  - service: notify.debug_log
+    data:
+      message: >-
+        Sleep as Android: {{ trigger.json.event }} / {{ trigger.json }}
