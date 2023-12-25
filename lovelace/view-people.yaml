@@ -340,10 +340,10 @@ cards:
         title: person1
         columns: 5
         entities:
-        - entity: device_tracker.person1_pixel_3
+        - entity: device_tracker.sm_a546b
           name: GPS
           icon: mdi:crosshairs-gps
-        - entity: device_tracker.person1_mobile_wifi
+        - entity: device_tracker.nmap_tracker_samsung_a54
           name: WiFi
           icon: mdi:wifi
           show_last_changed: true
@@ -361,11 +361,11 @@ cards:
           show_last_changed: true
         - type: custom:battery-state-entity
           name: Battery
-          entity: sensor.person1_pixel_3_battery_level
+          entity: sensor.sm_a546b_battery_level
           charging_state:
-            entity_id: sensor.person1_pixel_3_battery_state
+            entity_id: sensor.sm_a546b_battery_state
             state: "charging"
-        - entity: binary_sensor.person1_pixel_3_interactive
+        - entity: binary_sensor.sm_a546b_interactive
           name: Screen
         - entity: input_boolean.person1_alarm_sounded
           show_last_changed: true

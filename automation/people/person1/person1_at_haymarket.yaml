@@ -3,7 +3,7 @@ alias: 'person1 at Haymerket'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person1_pixel_3
+    entity_id: device_tracker.sm_a546b
     to: 'station Train Station'
 condition:
   - condition: or

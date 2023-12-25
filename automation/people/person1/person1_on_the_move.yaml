@@ -5,7 +5,7 @@ trigger:
   # I've moved
   - platform: state
     entity_id: 
-    - device_tracker.person1_pixel_3
+    - device_tracker.sm_a546b
 condition:
   # Not home 
   - condition: state
@@ -30,7 +30,7 @@ condition:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
       - condition: state
-        entity_id: device_tracker.person1_pixel_3
+        entity_id: device_tracker.sm_a546b
         state: 'work'
     # It's been at least 5 minutes, and pretty close
     - condition: and
@@ -52,7 +52,7 @@ condition:
       - condition: not
         conditions:
           - condition: state
-            entity_id: device_tracker.person1_pixel_3
+            entity_id: device_tracker.sm_a546b
             state: 'work'
     # It's been at least 30 minutes, and a moderate distance away
     - condition: and

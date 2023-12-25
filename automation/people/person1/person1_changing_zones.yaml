@@ -5,19 +5,19 @@ trigger:
   # Been away for a few minutes
   - platform: state
     entity_id: 
-    - device_tracker.person1_pixel_3
+    - device_tracker.sm_a546b
     to: 'not_home'
     for: '00:05:00'
   # Arrived in a zone
   - platform: state
     entity_id: 
-    - device_tracker.person1_pixel_3
+    - device_tracker.sm_a546b
     from: 'not_home'
   - platform: state
-    entity_id: sensor.person1_pixel_3_wifi_connection
+    entity_id: sensor.sm_a546b_wifi_connection
     to: '<not connected>'
   - platform: state
-    entity_id: sensor.person1_pixel_3_wifi_connection
+    entity_id: sensor.sm_a546b_wifi_connection
     from: '<not connected>'
 condition:
   # Been at least 5 minutes

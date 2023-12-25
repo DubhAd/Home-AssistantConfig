@@ -8,7 +8,7 @@ sequence:
           - condition: not
             conditions:
               - condition: state
-                entity_id: device_tracker.person1_pixel_3
+                entity_id: device_tracker.sm_a546b
                 state: 'work'
                 for: '00:30:00'
         sequence: 

@@ -3,7 +3,7 @@ alias: 'person1 at work Park'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: device_tracker.person1_pixel_3
+    entity_id: device_tracker.sm_a546b
     to: 'work Park'
 condition:
   - condition: state

@@ -3,7 +3,7 @@ initial_state: 'off'
 alias: 'person1 home after work'
 trigger:
   platform: state
-  entity_id: device_tracker.person1_pixel_3
+  entity_id: device_tracker.sm_a546b
   to: 'home'
   for:
     minutes: 10
