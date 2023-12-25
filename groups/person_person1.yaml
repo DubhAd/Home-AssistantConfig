@@ -3,3 +3,4 @@ entities:
 - device_tracker.person1_bt_mobile_2
 - device_tracker.person1_bt_front_mobile_2
 - device_tracker.person_person1_wifi
+- device_tracker.nmap_tracker_samsung_a54
