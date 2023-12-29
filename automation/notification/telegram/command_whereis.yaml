@@ -1,0 +1,33 @@
+id: 'telegram_command_whereis'
+alias: 'Telegram command whereis'
+initial_state: 'on'
+trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/whereis'
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ "person1" in trigger.event.data.args }}
+        sequence:
+          - service: telegram_bot.send_location
+            data:
+              latitude: >-
+                {{ state_attr('person.person1','latitude') }}
+              longitude: >-
+                {{ state_attr('person.person1','longitude') }}
+          - service: telegram_bot.send_message
+            data:
+              message: >-
+                {% if is_state('input_boolean.person1_in_bed','on') -%}
+                  person1 has been in bed for {{ relative_time(states.input_boolean.person1_in_bed.last_changed) }}
+                {%- elif is_state('input_boolean.person1_home','on') -%}
+                  person1 has been home for {{ relative_time(states.input_boolean.person1_home.last_changed) }}
+                {% elif is_state('person.person1','not_home') -%}
+                  person1 has been at {{ states('sensor.sm_a546b_geocoded_location') }} ({{ states('input_text.person_person1') }}), for {{ relative_time(states.person.person1.last_changed) }}
+                {%- else -%}
+                  person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.person.person1.last_changed) }}
+                {%- endif %}
