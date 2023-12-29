@@ -10,9 +10,9 @@ action:
   - service: telegram_bot.send_message
     data:
       message: >
-        The alarm is {{ states('alarm_control_panel.ha_alarm') }}
+        The alarm is {{ states('alarm_control_panel.house') }}
         
-        The zigbee bridge is {{ states('sensor.zigbee3_bridge_state') }}
+        The zigbee bridge is {{ states('binary_sensor.zigbee2mqtt_bridge_state') }}
 
         {% set rooms_occupied = expand('group.my_room_status')|selectattr('state', 'eq', 'on')|list|count -%}
         {%- if rooms_occupied > 0 -%}
@@ -36,7 +36,7 @@ action:
         {%- elif is_state('input_boolean.person3_home','on') -%}
           person3 has been home for {{ relative_time(states.input_boolean.person3_home.last_changed) }}
         {%- elif is_state('person.person3','not_home') -%}
-          person3 has been at {{ states('sensor.person3s_time_to_home_origin') }}, {{ states('input_text.person_person3') }}, for {{ relative_time(states.person.person3.last_changed) }}
+          person3 has been at {{ states('sensor.pixel_6a_geocoded_location') }} ({{ states('input_text.person_person3') }}), for {{ relative_time(states.person.person3.last_changed) }}
         {%- else -%}
           person3 has been {{ states('input_text.person_person3') }} for {{ relative_time(states.person.person3.last_changed) }}
         {%- endif %}
@@ -46,7 +46,7 @@ action:
         {%- elif is_state('input_boolean.person1_home','on') -%}
           person1 has been home for {{ relative_time(states.input_boolean.person1_home.last_changed) }}
         {% elif is_state('person.person1','not_home') -%}
-          person1 has been at {{ states('sensor.person1s_time_to_home_origin') }}, {{ states('input_text.person_person1') }}, for {{ relative_time(states.person.person1.last_changed) }}
+          person1 has been at {{ states('sensor.sm_a546b_geocoded_location') }} ({{ states('input_text.person_person1') }}), for {{ relative_time(states.person.person1.last_changed) }}
         {%- else -%}
           person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.person.person1.last_changed) }}
         {%- endif %}
