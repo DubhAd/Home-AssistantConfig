@@ -5,38 +5,38 @@ initial_state: 'on'
 trigger:
   - platform: zone
     entity_id: 
-      - device_tracker.pixel_xl
-      - device_tracker.person1_pixel_3
-      - device_tracker.pixel_6a
+      - person.person2
+      - person.person1
+      - person.person3
       - device_tracker.dsb_0230
     zone: zone.nearly_home
 action:
   - service: input_select.select_option
     data:
       entity_id: >
-        {% if trigger.entity_id == 'device_tracker.pixel_xl' %}
+        {% if trigger.entity_id == 'person.person2' %}
           input_select.person2_status_dropdown
-        {% elif trigger.entity_id == 'device_tracker.pixel_6a' %}
+        {% elif trigger.entity_id == 'person.person3' %}
           input_select.person3_status_dropdown
-        {% elif trigger.entity_id == 'device_tracker.person1_pixel_3' %}
+        {% elif trigger.entity_id == 'person.person1' %}
           input_select.person1_status_dropdown
         {% else %}
           input_select.person4_status_dropdown
         {% endif %}
       option: >
-        {% if trigger.entity_id == 'device_tracker.pixel_xl' %}
+        {% if trigger.entity_id == 'person.person2' %}
           {% if states('input_select.person2_status_dropdown') == 'Away' %}
             Pre Arrival
           {% else %}
             {{ states('input_select.person2_status_dropdown') }}
           {% endif %}
-        {% elif trigger.entity_id == 'device_tracker.pixel_6a' %}
+        {% elif trigger.entity_id == 'person.person3' %}
           {% if states('input_select.person3_status_dropdown') == 'Away' %}
             Pre Arrival
           {% else %}
             {{ states('input_select.person3_status_dropdown') }}
           {% endif %}
-        {% elif trigger.entity_id == 'device_tracker.person1_pixel_3' %}
+        {% elif trigger.entity_id == 'person.person1' %}
           {% if states('input_select.person1_status_dropdown') == 'Away' %}
             Pre Arrival
           {% else %}

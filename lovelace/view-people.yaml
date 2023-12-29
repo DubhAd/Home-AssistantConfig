@@ -365,8 +365,6 @@ cards:
           charging_state:
             entity_id: sensor.sm_a546b_battery_state
             state: "charging"
-        - entity: binary_sensor.sm_a546b_interactive
-          name: Screen
         - entity: input_boolean.person1_alarm_sounded
           show_last_changed: true
           name: Alarm sounded
