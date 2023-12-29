@@ -1,5 +1,5 @@
 person1_work:
   zone: university
   devices:
-    - device_tracker.person1_pixel_3
+    - person.person1
   unit_of_measurement: m
