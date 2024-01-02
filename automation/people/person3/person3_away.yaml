@@ -3,12 +3,13 @@ alias: 'person3 away'
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id: proximity.person3_home
+    entity_id: device_tracker.pixel_6a
   - platform: state
     entity_id:
       - device_tracker.person3_bt_mobile_2
       - device_tracker.person3_bt_front_mobile_2
       - device_tracker.person_person3_wifi
+      - device_tracker.nmap_tracker_person3
     to: 'not_home'
   - platform: homeassistant
     event: start
@@ -42,13 +43,13 @@ condition:
       - condition: template
         value_template: "{{ (expand('group.person_person3')|selectattr('state','eq','home')|list|count / expand('group.person_person3')|list|count) < 1}}"
       - condition: template
-        value_template: "{{ states('proximity.person3_home')|float > 300 }}"
+        value_template: "{{ distance('device_tracker.pixel_6a')|float > 0.3 }}"
     # All away
     - condition: template
       value_template: "{{ (expand('group.person_person3')|selectattr('state','eq','home')|list|count / expand('group.person_person3')|list|count) == 0}}"
     # Far away
     - condition: template
-      value_template: "{{ states('proximity.person3_home')|float > 600 }}"
+      value_template: "{{ distance('device_tracker.pixel_6a')|float > 0.6 }}"
 action:
   - service: script.turn_on
     data:
