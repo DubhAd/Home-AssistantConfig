@@ -2,4 +2,4 @@
   - name: 'Flood detected while we are home'
     unique_id: 'flood_while_home'
     state: >-
-      {{ is_state('input_boolean.home_occupied','on') and is_state('group.flood_sensors','on') }}
+      {{ is_state('input_boolean.home_occupied','on') and is_state('binary_sensor.leak_sensors','on') }}

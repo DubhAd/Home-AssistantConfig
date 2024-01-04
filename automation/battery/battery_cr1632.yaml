@@ -12,9 +12,13 @@ trigger:
     - binary_sensor.vestibule_door_battery_low
     - binary_sensor.garage_door_car_battery_low
     - binary_sensor.garage_door_bike_battery_low
+    - binary_sensor.chest_bike_lid_battery_low
     to: 'on'
   - platform: numeric_state
     entity_id: 
+    - sensor.chest_bike_lid_battery
+    - sensor.garage_door_car_battery
+    - sensor.garage_door_bike_battery
     - sensor.bathroom_door_battery
     - sensor.bathroom_window_battery
     - sensor.family_window_left_battery
@@ -51,6 +55,9 @@ trigger:
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
+    - sensor.chest_bike_lid_battery
+    - sensor.garage_door_car_battery
+    - sensor.garage_door_bike_battery
     - sensor.bathroom_door_battery
     - sensor.bathroom_window_battery
     - sensor.family_window_left_battery
@@ -87,6 +94,9 @@ trigger:
     for: '03:00:00'
   - platform: numeric_state
     entity_id: 
+    - sensor.chest_bike_lid_battery
+    - sensor.garage_door_car_battery
+    - sensor.garage_door_bike_battery
     - sensor.bathroom_door_battery
     - sensor.bathroom_window_battery
     - sensor.family_window_left_battery

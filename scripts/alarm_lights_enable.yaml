@@ -10,7 +10,7 @@ sequence:
       effect: 'Police2'
   - delay: '00:00:05'
   - condition: template
-    value_template: "{{ state('alarm_control_panel.ha_alarm') != 'disarmed' }}"
+    value_template: "{{ state('alarm_control_panel.house') != 'disarmed' }}"
   - service: script.turn_on
     data:
       entity_id: script.alarm_lights_on
