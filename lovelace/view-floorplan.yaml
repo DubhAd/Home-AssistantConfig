@@ -122,6 +122,7 @@ cards:
             - binary_sensor.toilet_water_leak_water_leak
             - binary_sensor.second_ensuite_water_leak
             - binary_sensor.master_ensuite_leak_water_leak
+            - binary_sensor.boiler_water_leak
           state_action:
             - action: call-service
               service: floorplan.class_set
