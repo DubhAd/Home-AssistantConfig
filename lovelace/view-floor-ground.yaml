@@ -99,6 +99,8 @@ cards:
       - entity: binary_sensor.garden_gate
         show_last_changed: true
         name: Gate
+      - entity: binary_sensor.boiler_water_leak
+        show_last_changed: true
       - entity: binary_sensor.chest_bike_lid_contact
         name: bike lid
         show_last_changed: true
