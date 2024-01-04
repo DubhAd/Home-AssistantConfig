@@ -1,0 +1,17 @@
+id: 'person1_phone_alarm'
+alias: 'person1 phone alarm'
+initial_state: 'on'
+trigger:
+  - platform: time
+    at: sensor.sm_a546b_next_alarm
+condition:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.sm_a546b_next_alarm
+        state: 'unavailable'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.second_bedroom
+      option: 'Wake'
