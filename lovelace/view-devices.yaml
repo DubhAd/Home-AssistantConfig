@@ -62,8 +62,6 @@ cards:
     name: Tempus
 - type: custom:battery-state-card
   title: Battery devices
-  sort: 
-    - "state"
   collapse: 8
   colors:
     steps:
