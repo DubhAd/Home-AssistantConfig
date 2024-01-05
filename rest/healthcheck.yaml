@@ -1,0 +1,6 @@
+resource: !secret healthcheck_url
+scan_interval: 60
+headers:
+  Content-Type: application/json
+sensor:
+  - name: "Healthcheck status"
