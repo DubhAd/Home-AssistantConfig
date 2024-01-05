@@ -34,6 +34,11 @@ trigger:
     event_data:
       event: 'alarm_skip_next'
     id: 'sleep_alarm_skip'
+  # Alarm skipped
+  - platform: state
+    entity_id: sensor.sleepasandroid_person2
+    to: 'alarm_rescheduled'
+    id: 'sleep_alarm_rescheduled'
 condition:
   - condition: state
     entity_id: input_boolean.person2_is_awake
@@ -59,6 +64,8 @@ condition:
                 id: 'sleep_alarm'
               - condition: trigger
                 id: 'sleep_alarm_skip'
+              - condition: trigger
+                id: 'sleep_alarm_rescheduled'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_is_awake

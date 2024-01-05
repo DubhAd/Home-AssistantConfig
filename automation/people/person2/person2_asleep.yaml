@@ -14,11 +14,13 @@ trigger:
     not_to:
       - 'sleep_tracking_stopped'
       - 'unavailable'
+    for: '00:01:00'
 condition:
   - condition: state
     entity_id: 
       - input_boolean.person2_is_awake
       - input_boolean.person2_home
+      - input_boolean.person2_phone_charging
     state: 'on'
   - condition: not
     conditions:
