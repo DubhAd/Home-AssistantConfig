@@ -104,6 +104,8 @@ cards:
     exclude:
       - name: entity_id
         value: "*mobile*"
+      - name: entity_id
+        value: "sensor.person1_pixel_3_battery_level"
       - name: name
         operator: "contains"
         value: "Battery Level"
