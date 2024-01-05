@@ -53,6 +53,13 @@ cards:
       name: Living room TV
     - entity: media_player.living_room_tv
       name: Living room chromecast
+- type: entities
+  show_header_toggle: false
+  title: Pi power
+  state_color: true
+  entities:
+  - entity: switch.sinilink_tempus_tempus_usb_switch
+    name: Tempus
 - type: custom:battery-state-card
   title: Battery devices
   sort: 
