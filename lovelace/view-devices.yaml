@@ -58,7 +58,7 @@ cards:
   title: Pi power
   state_color: true
   entities:
-  - entity: switch.sinilink_tempus_tempus_usb_switch
+  - entity: switch.cloudfree_usb_switch_tempus
     name: Tempus
 - type: custom:battery-state-card
   title: Battery devices
