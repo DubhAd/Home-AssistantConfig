@@ -68,6 +68,7 @@ sensor.person2_miband7_heartrate:
   unit_of_measurement: bpm
 sensor.person2_miband7_battery:
   unit_of_measurement: '%'
+  friendly_name: "MiBand7 Battery"
 sensor.person2_miband7_spo2:
   unit_of_measurement: '%'
 sensor.person2_miband7_stress:
