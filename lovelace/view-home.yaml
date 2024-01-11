@@ -196,9 +196,9 @@ cards:
           - domain: 'device_tracker'
           - domain: 'weather'
           - entity_id: "/.*_old/"
+          - entity_id: "/.*_next_alarm/"
           - entity_id: "media_player.samsung_tv"
           - entity_id: "media_player.living_room_tv"
-          - entity_id: "sensor.pixel_xl_next_alarm"
           - entity_id: "sensor.*weather*"
 
     - type: custom:auto-entities
