@@ -1,0 +1,18 @@
+- trigger:
+    - platform: state
+      entity_id: sensor.office_mmwave_action
+      to:
+        - 'region_2_enter'
+        - 'region_2_occupied'
+      id: 'on'
+    - platform: state
+      entity_id: sensor.office_mmwave_action
+      to:
+        - 'region_2_leave'
+      id: 'off'
+  binary_sensor:
+  - name: 'Office mmwave region 2'
+    unique_id: 'office_mmwave_region_2'
+    device_class: occupancy
+    state: >-
+      {{ trigger.id }}

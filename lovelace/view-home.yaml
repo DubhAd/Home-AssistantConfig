@@ -274,7 +274,7 @@ cards:
         - domain: binary_sensor
           state: 'on'
           attributes: 
-            device_class: 'presence'
+            device_class: 'occupancy'
           options:
             show_last_changed: true
       exclude:

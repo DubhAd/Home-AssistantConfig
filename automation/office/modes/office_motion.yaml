@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id: 
     - binary_sensor.office_presence_occupancy
-    - binary_sensor.office_mmwave_presence
+    - binary_sensor.office_mmwave_region_1
     to: 'on'
 condition:
   - condition: template

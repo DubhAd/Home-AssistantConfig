@@ -14,15 +14,12 @@ trigger:
   - platform: state
     entity_id: 
       - binary_sensor.office_presence_occupancy
-      - binary_sensor.office_mmwave_presence
+      - binary_sensor.office_mmwave_region_1
     to: 'on'
   - platform: state
     entity_id: binary_sensor.office_mmwave_presence
     to: 'on'
     for: '00:05:00'
-  - platform: state
-    entity_id: sensor.office_mmwave_presence_event
-    to: 'approach'
 condition:
   - condition: or
     conditions:
@@ -30,7 +27,7 @@ condition:
         entity_id: binary_sensor.office_presence_occupancy
         state: 'on'
       - condition: state
-        entity_id: binary_sensor.office_mmwave_presence
+        entity_id: binary_sensor.office_mmwave_region_1
         state: 'on'
       - condition: state
         entity_id: sensor.office_mmwave_presence_event
@@ -46,7 +43,7 @@ condition:
         entity_id: group.work_laptop
         state: 'home'
       - condition: state
-        entity_id: binary_sensor.office_mmwave_presence
+        entity_id: binary_sensor.office_mmwave_region_1
         state: 'on'
         for: '00:04:00'
   - condition: state
