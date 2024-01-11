@@ -1,0 +1,18 @@
+id: 'office_mmwave_test'
+alias: 'Office mmwave test'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.office_mmwave_action
+    to: ~
+condition:
+  - condition: template
+    value_template: >-
+      {{ trigger.to_state.state != "" }}
+action:
+  - service: notify.debug_log
+    data:
+      message: >-
+        Office mmwave: {{ trigger.to_state.state }}
+mode: parallel
+
