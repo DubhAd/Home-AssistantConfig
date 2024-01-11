@@ -166,7 +166,7 @@ cards:
     - entity: binary_sensor.office_presence_occupancy
       name: Motion
       show_last_changed: true
-    - entity: binary_sensor.office_mmwave_presence
+    - entity: binary_sensor.office_mmwave_region_1
       name: Presence
       show_last_changed: true
     - entity: sensor.office_illuminance_illuminance_lux

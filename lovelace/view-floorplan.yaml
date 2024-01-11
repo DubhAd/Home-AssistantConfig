@@ -359,6 +359,7 @@ cards:
         - entities:
             - sensor.bathroom_environment_temperature
             - sensor.master_ensuite_temperature
+            - sensor.master_bedroom_environment_temperature
             - sensor.living_room_climate_temperature
             - sensor.family_room_multi_temperature
             - sensor.office_temperature
@@ -430,6 +431,7 @@ cards:
         # Bathrooms are expected to be a bit more humid
         - entities:
             - sensor.bathroom_environment_humidity
+            - sensor.master_bedroom_environment_humidity
             - sensor.master_ensuite_humidity
             - sensor.office_humidity
             - sensor.second_bedroom_ensuite_humidity
@@ -670,6 +672,18 @@ cards:
                   - binary_sensor.office_mmwave_presence_head
                   - binary_sensor.office_mmwave_presence_body
                   - binary_sensor.office_mmwave_presence_leg
+
+        - entities:
+            - binary_sensor.office_mmwave_region_1
+          state_action:
+            - action: call-service
+              service: floorplan.class_set
+              service_data: 
+                class: 'presence-${entity.state}'
+                elements:
+                  - binary_sensor.office_mmwave_region_1_head
+                  - binary_sensor.office_mmwave_region_1_body
+                  - binary_sensor.office_mmwave_region_1_leg
 
         - entities:
             - binary_sensor.downstairs_hall_motion_occupancy
