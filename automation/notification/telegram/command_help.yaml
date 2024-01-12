@@ -14,9 +14,8 @@ action:
 
         /check - returns an overview of everything relevant in HA, including who's where
         /lights - lists the lights that are on
-        /lights on - turns on the lights
-        /lights off - turns off the lights
         /ping - confirms we're not dead yet
         /status - lists the open doors and windows
         /trains - provides the status of the trains between here and there
         /where - says where the others are
+        /whereis PERSON - says where PERSON is, including a map
