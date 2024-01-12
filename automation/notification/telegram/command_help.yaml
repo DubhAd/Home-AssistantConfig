@@ -9,13 +9,21 @@ trigger:
 action:
   - service: telegram_bot.send_message
     data:
+      parse_mode: markdown2
       message: >
         The following commands are supported:
 
+        
         /check - returns an overview of everything relevant in HA, including who's where
+
         /lights - lists the lights that are on
+        
         /ping - confirms we're not dead yet
+        
         /status - lists the open doors and windows
+        
         /trains - provides the status of the trains between here and there
+        
         /where - says where the others are
+        
         /whereis PERSON - says where PERSON is, including a map

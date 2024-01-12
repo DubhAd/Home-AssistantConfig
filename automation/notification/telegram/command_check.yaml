@@ -12,7 +12,7 @@ action:
       message: >
         The alarm is {{ states('alarm_control_panel.house') }}
         
-        The zigbee bridge is {{ states('binary_sensor.zigbee2mqtt_bridge_state') }}
+        The zigbee bridge is {{ 'online' if is_state('binary_sensor.zigbee2mqtt_bridge_state','on') else 'offline' }}
 
         {% set rooms_occupied = expand('group.my_room_status')|selectattr('state', 'eq', 'on')|list|count -%}
         {%- if rooms_occupied > 0 -%}
@@ -51,6 +51,6 @@ action:
           person1 has been {{ states('input_text.person_person1') }} for {{ relative_time(states.person.person1.last_changed) }}
         {%- endif %}
 
-        {% if ( states('device_tracker.car_gps') != states('device_tracker.pixel_xl') ) and (not is_state('device_tracker.car_gps','not_home')) -%}
+        {% if ( states('device_tracker.car_gps') != states('person.person2') ) and (not is_state('device_tracker.car_gps','not_home')) -%}
           The car is at {{ states('device_tracker.car_gps') }}
         {%- endif -%}
