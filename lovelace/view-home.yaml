@@ -195,6 +195,7 @@ cards:
           - device_manufacturer: 'LAB02 Research'
           - domain: 'device_tracker'
           - domain: 'weather'
+          - device: 'person1 Pixel 3'
           - entity_id: "/.*_old/"
           - entity_id: "/.*_next_alarm/"
           - entity_id: "media_player.samsung_tv"

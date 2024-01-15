@@ -3,5 +3,5 @@
     unique_id: 'distance_person2_person3'
     unit_of_measurement: 'km'
     state: >-
-      {{ distance('device_tracker.pixel_xl','device_tracker.pixel_6a')|round(1) }}
+      {{ distance('person.person2','person.person3')|round(1) }}
 
