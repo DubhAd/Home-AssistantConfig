@@ -6,15 +6,12 @@ trigger:
     entity_id: binary_sensor.front_door_contact
     to: 'on'
   # People nearly home
-  - platform: numeric_state
-    entity_id: proximity.person3_home
-    below: 500
-  - platform: numeric_state
-    entity_id: proximity.person1_home
-    below: 500
-  - platform: numeric_state
-    entity_id: proximity.person2_home
-    below: 500
+  - platform: state
+    entity_id:
+      - input_select.person3_status_dropdown
+      - input_select.person1_status_dropdown
+      - input_select.person2_status_dropdown
+    to: 'Pre Arrival'
   # People just got home
   - platform: state
     entity_id:
@@ -22,78 +19,40 @@ trigger:
       - input_select.person1_status_dropdown
       - input_select.person2_status_dropdown
     to: 'Just Arrived'
-  # Should also include some travel time magic here
-  # Basically, travel time < 15 for 10 minutes, travelling towards home
 condition:
-  condition: and
-  conditions: 
-    # Lighting automations are enabled
+  # Lighting automations are enabled
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  # It's getting dark
+  - condition: numeric_state
+    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    below: 15
+  # Hall lights are off
+  - condition: and
+    conditions:
     - condition: state
-      entity_id: input_boolean.lighting_automations
-      state: 'on'
-    # It's getting dark
-    - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
-      below: 15
-    # Hall lights are off
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: light.downstairs_hall
-        state: 'off'
-    # Somebody is nearly home, or just arrived
-    - condition: or
-      conditions: 
-      # Front door is open, somebody is nearly home or just arrived
-      - condition: and
-        conditions:
-        - condition: state
-          entity_id: binary_sensor.front_door_contact
-          state: 'on'
-        - condition: or
-          conditions:
-          - condition: template
-            value_template: "{{ ( (states('proximity.person3_home')|int) < 500 ) and is_state_attr('proximity.person3_home', 'dir_of_travel', 'towards') and (not is_state('input_select.person3_status_dropdown','Home') ) }}"
-          - condition: template
-            value_template: "{{ ( (states('proximity.person1_home')|int) < 500 ) and is_state_attr('proximity.person1_home', 'dir_of_travel', 'towards') and (not is_state('input_select.person1_status_dropdown','Home') ) }}"
-          - condition: template
-            value_template: "{{ ( (states('proximity.person2_home')|int) < 500 ) and is_state_attr('proximity.person2_home', 'dir_of_travel', 'towards') and (not is_state('input_select.person2_status_dropdown','Home') ) }}"
-      # person3 is nearly home, but not home yet
-      - condition: and
-        conditions:
-        - condition: template
-          value_template: "{{ ( trigger.entity_id == 'proximity.person3_home' ) and ( (trigger.from_state.state|int) > 500 ) and ( (trigger.to_state.state|int) < 500 ) and is_state_attr('proximity.person3_home', 'dir_of_travel', 'towards') }}"
-        - condition: state
-          entity_id: input_select.person3_status_dropdown
-          state: Away
-      # person1 is nearly home, but not home yet
-      - condition: and
-        conditions:
-        - condition: template
-          value_template: "{{ ( trigger.entity_id == 'proximity.person1_home' ) and ( (trigger.from_state.state|int) > 500 ) and ( (trigger.to_state.state|int) < 500 ) and is_state_attr('proximity.person1_home', 'dir_of_travel', 'towards') }}"
-        - condition: state
-          entity_id: input_select.person1_status_dropdown
-          state: Away
-      # person2 is nearly home, but not home yet
-      - condition: and
-        conditions:
-        - condition: template
-          value_template: "{{ ( trigger.entity_id == 'proximity.person2_home' ) and ( (trigger.from_state.state|int) > 500 ) and ( (trigger.to_state.state|int) < 500 ) and is_state_attr('proximity.person2_home', 'dir_of_travel', 'towards') }}"
-        - condition: state
-          entity_id: input_select.person2_status_dropdown
-          state: Away
-      # Or somebody has just arrived
-      - condition: template
-        value_template: "{{ is_state('input_select.person1_status_dropdown','Just Arrived') }}"
-      - condition: template
-        value_template: "{{ is_state('input_select.person2_status_dropdown','Just Arrived') }}"
-      - condition: template
-        value_template: "{{ is_state('input_select.person3_status_dropdown','Just Arrived') }}"
+      entity_id: light.downstairs_hall
+      state: 'off'
+  # Somebody is nearly home, or just arrived
+  # Front door is open, somebody is nearly home or just arrived
+  - condition: state
+    entity_id: binary_sensor.front_door_contact
+    state: 'on'
+  # Or somebody has just arrived
+  - condition: state
+    entity_id:
+      - input_select.person3_status_dropdown
+      - input_select.person1_status_dropdown
+      - input_select.person2_status_dropdown
+    state: 
+      - 'Pre Arrival'
+      - 'Just Arrived'
+    match: any
 action:
-  - service: input_select.select_option
+  - service: input_boolean.turn_on
     data:
-      entity_id: input_select.hall
-      option: 'Night on'
+      entity_id: input_boolean.hall_occupied
   - condition: state
     entity_id: input_select.season
     state: 'Christmas'
