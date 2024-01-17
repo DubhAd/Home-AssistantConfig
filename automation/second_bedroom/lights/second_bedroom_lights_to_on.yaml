@@ -26,6 +26,11 @@ condition:
         entity_id: input_select.house
         state: 'On'
 action:
+  - service: select.select_option
+    target:
+      entity_id: select.wled_neon_k_preset
+    data:
+      option: 'White'
   - service: light.turn_on
     data:
-      entity_id: light.person1_bedroom_bedside
+      entity_id: light.wled_neon_k

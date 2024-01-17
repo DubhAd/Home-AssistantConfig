@@ -1,6 +1,5 @@
 id: 'second_bedroom_mode_on'
 alias: 'Second bedroom mode on'
-initial_state: 'on'
 trigger:
   - platform: state
     entity_id: input_boolean.person1_phone_charging

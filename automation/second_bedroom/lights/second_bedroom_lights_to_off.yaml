@@ -28,4 +28,4 @@ condition:
 action:
   - service: light.turn_off
     data:
-      entity_id: light.person1_bedroom_bedside
+      entity_id: light.wled_neon_k

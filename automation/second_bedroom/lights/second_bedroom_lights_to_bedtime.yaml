@@ -26,9 +26,11 @@ condition:
         entity_id: input_select.house
         state: 'Bedtime'
 action:
+  - service: select.select_option
+    target:
+      entity_id: select.wled_neon_k_preset
+    data:
+      option: 'Night'
   - service: light.turn_on
     data:
-      entity_id: light.person1_bedroom_bedside
-  - delay: '00:15:00'
-  - service: switch.turn_on
-    entity_id: switch.adaptive_lighting_sleep_mode_second_bedroom
+      entity_id: light.wled_neon_k
