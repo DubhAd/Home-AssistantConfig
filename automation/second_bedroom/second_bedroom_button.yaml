@@ -7,7 +7,36 @@ trigger:
     to: 'single'
     id: single
 action:
-  - service: light.toggle
-    data:
-      entity_id: light.wled_neon_k
-
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: single
+        sequence:
+          - if:
+              - condition: state
+                entity_id: light.wled_neon_k
+                state: 'off'
+            then:
+              - service: light.turn_on
+                data:
+                  entity_id: light.wled_neon_k
+              - if:
+                  - condition: time
+                    after: '23:00'
+                    before: '06:00'
+                then:
+                  - service: select.select_option
+                    target:
+                      entity_id: select.wled_neon_k_preset
+                    data:
+                      option: Red
+                else:
+                  - service: select.select_option
+                    target:
+                      entity_id: select.wled_neon_k_preset
+                    data:
+                      option: White
+            else:
+              - service: light.turn_off
+                data:
+                  entity_id: light.wled_neon_k
