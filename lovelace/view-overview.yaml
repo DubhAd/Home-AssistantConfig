@@ -220,24 +220,25 @@ cards:
           options:
             show_last_changed: true
       exclude:
-        - name: /Plex/
+        - integration: 'accuweather'
+        - integration: 'forked_daapd'
         - integration: 'here_travel_time'
-        - entity_id: "binary_sensor.kelsie_*"
+        - integration: 'metoffice'
+        - integration: 'minecraft_server'
+        - integration: 'plex'
+        - integration: 'roku'
+        - integration: 'tasmota'
+        - integration: 'uk_transport'
+        - device_manufacturer: 'LAB02 Research'
+        - domain: 'device_tracker'
+        - domain: 'weather'
+        - device: 'person1 Pixel 3'
+        - entity_id: "/.*_old/"
+        - entity_id: "/select.*_playlist/"
+        - entity_id: "/.*_next_alarm/"
         - entity_id: "media_player.samsung_tv"
         - entity_id: "media_player.living_room_tv"
-        - entity_id: "media_player.forked_daapd_*"
-        - entity_id: "sensor.accuhome_*"
-        - entity_id: "sensor.kelsie_*"
-        - entity_id: "sensor.pixel_xl_next_alarm"
-        - entity_id: "sensor.tasmota_car_*"
-        - entity_id: "sensor.*_minecraft*"
-        - entity_id: "sensor.other_*"
-        - entity_id: "sensor.home_*"
-        - entity_id: "sensor.*_train_*"
-        - entity_id: "binary_sensor*train_*"
-        - entity_id: "binary_sensor*trains_*"
-        - entity_id: "weather.*"
-        - entity_id: "device_tracker.*"
+        - entity_id: "sensor.*weather*"
 
   - type: custom:auto-entities
     show_empty: false
