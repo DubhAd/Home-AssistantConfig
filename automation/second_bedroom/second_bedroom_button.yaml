@@ -1,0 +1,13 @@
+id: 'second_bedroom_button'
+alias: 'Second bedroom button'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.second_bedroom_button_action
+    to: 'single'
+    id: single
+action:
+  - service: light.toggle
+    data:
+      entity_id: light.wled_neon_k
+
