@@ -558,6 +558,7 @@ cards:
             - light.master_bedroom_bedhead
             - light.person1_bedroom_bedside
             - light.office_strip
+            - light.wled_master_neon
           state_action:
             - action: call-service
               service: floorplan.style_set
