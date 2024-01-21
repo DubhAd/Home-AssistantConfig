@@ -29,6 +29,16 @@ action:
   - choose:
     - conditions:
       - condition: state
+        entity_id: light.wled_master_neon
+        state: 'on'
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: light.wled_master_neon
+          transition: 5
+  - choose:
+    - conditions:
+      - condition: state
         entity_id: light.master_bedroom_bedhead
         state: 'on'
       sequence:
@@ -44,5 +54,9 @@ action:
     entity_id: 
     - switch.adaptive_lighting_master_bedroom
     - switch.adaptive_lighting_adapt_brightness_master_bedroom
+    - switch.adaptive_lighting_master_neon
+    - switch.adaptive_lighting_adapt_brightness_master_neon
   - service: switch.turn_off
-    entity_id: switch.adaptive_lighting_sleep_mode_master_bedroom
+    entity_id: 
+    - switch.adaptive_lighting_sleep_mode_master_bedroom
+    - switch.adaptive_lighting_sleep_mode_master_neon

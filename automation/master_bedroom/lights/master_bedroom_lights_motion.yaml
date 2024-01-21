@@ -28,5 +28,7 @@ condition:
 action:
   - service: light.turn_on
     data:
-      entity_id: light.master_bedroom_bedhead
+      entity_id: 
+        - light.master_bedroom_bedhead
+        - light.wled_master_neon
       transition: 0.5

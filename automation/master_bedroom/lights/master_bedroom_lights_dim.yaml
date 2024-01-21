@@ -31,7 +31,12 @@ action:
     - switch.adaptive_lighting_adapt_brightness_master_bedroom
     - switch.adaptive_lighting_sleep_mode_master_bedroom
     - switch.adaptive_lighting_master_bedroom
+    - switch.adaptive_lighting_adapt_brightness_master_neon
+    - switch.adaptive_lighting_sleep_mode_master_neon
+    - switch.adaptive_lighting_master_neon
   - service: light.turn_on
     data:
-      entity_id: light.master_bedroom_bedhead
+      entity_id: 
+        - light.master_bedroom_bedhead
+        - light.wled_master_neon
       transition: 2
