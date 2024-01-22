@@ -19,6 +19,8 @@ entity_config:
     room: HHall
   light.master_bedroom_bedhead:
     expose: true
+  light.wled_master_neon:
+    expose: true
   light.person1_bedroom_bedside:
     expose: true
   light.office_strip:
