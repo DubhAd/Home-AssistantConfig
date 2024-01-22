@@ -16,7 +16,7 @@ condition:
     state: 'off'
   - condition: numeric_state
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
-    below: 2
+    below: 14
 action:
   - service: input_select.select_option
     data:

@@ -8,7 +8,7 @@ trigger:
     for: '00:03:00'
   - platform: numeric_state
     entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
-    above: 10
+    above: 15
 condition:
   - condition: state
     entity_id: input_boolean.master_bedroom_occupied
