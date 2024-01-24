@@ -1,23 +1,23 @@
-id: 'master_bedroom_no_motion'
+id: 'second_bedroom_mode_no_motion'
 initial_state: 'on'
-alias: 'Master bedroom no motion'
+alias: 'Second bedroom mode no motion'
 trigger:
   - platform: state
-    entity_id: binary_sensor.master_bedroom_motion_occupancy
+    entity_id: binary_sensor.second_bedroom_motion_occupancy
     to: 'off'
     for: '00:03:00'
   - platform: numeric_state
-    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    entity_id: sensor.second_bedroom_motion_illuminance_lux
     above: 15
 condition:
   - condition: state
-    entity_id: input_boolean.master_bedroom_occupied
+    entity_id: input_boolean.second_bedroom_occupied
     state: 'off'
   - condition: state
-    entity_id: input_select.master_bedroom
+    entity_id: input_select.second_bedroom
     state: 'Motion'
 action:
   - service: input_select.select_option
     data:
-      entity_id: input_select.master_bedroom
+      entity_id: input_select.second_bedroom
       option: 'Off'

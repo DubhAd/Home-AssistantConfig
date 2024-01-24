@@ -1,6 +1,6 @@
-id: 'master_bedroom_motion'
+id: 'second_bedroom_mode_motion'
 initial_state: 'on'
-alias: 'Master bedroom motion'
+alias: 'Second bedroom mode motion'
 trigger:
   - platform: state
     entity_id: 
@@ -14,6 +14,9 @@ condition:
   - condition: state
     entity_id: input_boolean.second_bedroom_occupied
     state: 'off'
+  - condition: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    state: 'on'
   - condition: numeric_state
     entity_id: sensor.second_bedroom_motion_illuminance_lux
     below: 14
