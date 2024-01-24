@@ -94,7 +94,11 @@ cards:
       - entity: sensor.second_bedroom_motion_illuminance_lux
         name: Illuminance
       - entity: light.wled_neon_k
-        name: Bedhead neon
+        name: Bedhead
+        icon: mdi:led-strip-variant
+        show_last_changed: true
+      - entity: light.wled_cob_k
+        name: Underbed
         icon: mdi:led-strip-variant
         show_last_changed: true
       - entity: media_player.cast_second_bedroom_speaker

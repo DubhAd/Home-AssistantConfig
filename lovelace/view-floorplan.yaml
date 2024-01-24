@@ -559,6 +559,8 @@ cards:
             - light.person1_bedroom_bedside
             - light.office_strip
             - light.wled_master_neon
+            - light.wled_neon_k
+            - light.wled_cob_k
           state_action:
             - action: call-service
               service: floorplan.style_set

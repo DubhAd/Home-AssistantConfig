@@ -65,7 +65,7 @@ cards:
     name: Sleep mode
     state_color: true
 - type: entities
-  title: Adaptive in the Master Bedroom
+  title: Master Bedroom bedhead
   show_header_toggle: false
   entities:
   - entity: switch.adaptive_lighting_master_bedroom
@@ -79,9 +79,26 @@ cards:
     state_color: true
   - entity: switch.adaptive_lighting_sleep_mode_master_bedroom
     name: Sleep mode
-    state_color: true
+    state_color: true 
 - type: entities
-  title: Adaptive in the Second Bedroom
+  title: Master Bedroom bedhead
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_master_neon
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_master_neon
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_master_neon
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_master_neon
+    name: Sleep mode
+    state_color: true 
+
+- type: entities
+  title: Second Bedroom bedhead
   show_header_toggle: false
   entities:
   - entity: switch.adaptive_lighting_second_bedroom
@@ -94,6 +111,22 @@ cards:
     name: Control colour
     state_color: true
   - entity: switch.adaptive_lighting_sleep_mode_second_bedroom
+    name: Sleep mode
+    state_color: true
+- type: entities
+  title: Second Bedroom underbed
+  show_header_toggle: false
+  entities:
+  - entity: switch.adaptive_lighting_wled_cob_person1
+    name: Main control
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_brightness_wled_cob_person1
+    name: Control brightness
+    state_color: true
+  - entity: switch.adaptive_lighting_adapt_color_wled_cob_person1
+    name: Control colour
+    state_color: true
+  - entity: switch.adaptive_lighting_sleep_mode_wled_cob_person1
     name: Sleep mode
     state_color: true
 - type: entities
