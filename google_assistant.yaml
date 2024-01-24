@@ -17,11 +17,9 @@ entity_config:
   light.downstairs_hall:
     expose: true
     room: HHall
-  light.master_bedroom_bedhead:
+  light.master_bedroom:
     expose: true
-  light.wled_master_neon:
-    expose: true
-  light.person1_bedroom_bedside:
+  light.second_bedroom:
     expose: true
   light.office_strip:
     expose: true
