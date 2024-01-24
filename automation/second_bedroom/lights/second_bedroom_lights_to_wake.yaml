@@ -26,12 +26,23 @@ condition:
         entity_id: input_select.house
         state: 'Wake'
 action:
-  - service: light.turn_on
+  - service: switch.turn_off
+    target:
+      entity_id: 
+        - switch.adaptive_lighting_second_bedroom
+        - switch.adaptive_lighting_wled_cob_person1
+        - switch.adaptive_lighting_sleep_mode_second_bedroom
+        - switch.adaptive_lighting_sleep_mode_wled_cob_person1
+  - service: select.select_option
+    target:
+      entity_id: select.wled_cob_k_preset
     data:
-      entity_id: light.wled_neon_k
+      option: 'White'
   - service: select.select_option
     target:
       entity_id: select.wled_neon_k_preset
     data:
       option: 'White'
-
+  - service: light.turn_on
+    data:
+      entity_id: light.second_bedroom

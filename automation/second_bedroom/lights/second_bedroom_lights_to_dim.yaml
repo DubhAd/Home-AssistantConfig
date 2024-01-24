@@ -1,13 +1,13 @@
-id: 'second_bedroom_lights_to_bedtime'
+id: 'second_bedroom_lights_to_dim'
 initial_state: 'on'
-alias: 'Second bedroom lights to bedtime'
+alias: 'Second bedroom lights to dim'
 trigger:
   - platform: state
     entity_id: input_select.second_bedroom
-    to: 'Bedtime'
+    to: 'Dim'
   - platform: state
     entity_id: input_select.house
-    to: 'Bedtime'
+    to: 'Dim'
 condition:
   - condition: state
     entity_id: input_boolean.lighting_automations
@@ -16,7 +16,7 @@ condition:
     conditions:
     - condition: state
       entity_id: input_select.second_bedroom
-      state: 'Bedtime'
+      state: 'Dim'
     - condition: and
       conditions:
       - condition: state
@@ -24,15 +24,25 @@ condition:
         state: 'Auto'
       - condition: state
         entity_id: input_select.house
-        state: 'Bedtime'
+        state: 'Dim'
 action:
-  - service: switch.turn_on
+  - service: switch.turn_off
     target:
       entity_id: 
         - switch.adaptive_lighting_second_bedroom
         - switch.adaptive_lighting_wled_cob_person1
         - switch.adaptive_lighting_sleep_mode_second_bedroom
         - switch.adaptive_lighting_sleep_mode_wled_cob_person1
+  - service: select.select_option
+    target:
+      entity_id: select.wled_neon_k_preset
+    data:
+      option: 'Red'
+  - service: select.select_option
+    target:
+      entity_id: select.wled_cob_k_preset
+    data:
+      option: 'Red'
   - service: light.turn_on
     data:
       entity_id: light.second_bedroom

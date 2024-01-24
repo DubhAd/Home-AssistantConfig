@@ -96,7 +96,6 @@ cards:
   - entity: switch.adaptive_lighting_sleep_mode_master_neon
     name: Sleep mode
     state_color: true 
-
 - type: entities
   title: Second Bedroom bedhead
   show_header_toggle: false

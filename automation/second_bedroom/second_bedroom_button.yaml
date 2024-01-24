@@ -16,37 +16,32 @@ action:
           - condition: trigger
             id: hold
         sequence:
-          - service: select.select_option
-            target:
-              entity_id: select.wled_neon_k_preset
+          - service: input_select.select_option
             data:
-              option: 'Night'
-          - service: light.turn_on
-            data:
-              entity_id: light.wled_neon_k
+              entity_id: input_select.second_bedroom
+              option: 'Bedtime'
       - conditions:
           - condition: trigger
             id: single
         sequence:
           - if:
               - condition: state
-                entity_id: light.wled_neon_k
+                entity_id: light.second_bedroom
                 state: 'off'
             then:
               - service: light.turn_on
                 data:
-                  entity_id: light.wled_neon_k
+                  entity_id: light.second_bedroom
               - choose:
                   - conditions:
                       - condition: time
                         after: '00:00'
                         before: '05:00'
                     sequence:
-                      - service: select.select_option
-                        target:
-                          entity_id: select.wled_neon_k_preset
+                      - service: input_select.select_option
                         data:
-                          option: 'Night'
+                          entity_id: input_select.second_bedroom
+                          option: 'Bedtime'
                   - conditions:
                       - condition: or
                         conditions:
@@ -57,18 +52,17 @@ action:
                             after: '05:00'
                             before: '06:00'
                     sequence:
-                      - service: select.select_option
-                        target:
-                          entity_id: select.wled_neon_k_preset
+                      - service: input_select.select_option
                         data:
-                          option: 'Red'
+                          entity_id: input_select.second_bedroom
+                          option: 'Dim'
                 default:
-                  - service: select.select_option
-                    target:
-                      entity_id: select.wled_neon_k_preset
+                  - service: input_select.select_option
                     data:
-                      option: 'White'
+                      entity_id: input_select.second_bedroom
+                      option: 'On'
             else:
-              - service: light.turn_off
+              - service: input_select.select_option
                 data:
-                  entity_id: light.wled_neon_k
+                  entity_id: input_select.second_bedroom
+                  option: 'Off'
