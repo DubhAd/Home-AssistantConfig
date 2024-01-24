@@ -1,0 +1,24 @@
+id: 'master_bedroom_motion'
+initial_state: 'on'
+alias: 'Master bedroom motion'
+trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.second_bedroom_door_contact
+    - binary_sensor.second_bedroom_motion_occupancy
+    to: 'on'
+condition:
+  - condition: template
+    value_template: "{{ states('input_select.second_bedroom') not in ('Dim','Wake','On') }}"
+  # Room isn't occupied
+  - condition: state
+    entity_id: input_boolean.second_bedroom_occupied
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.second_bedroom_motion_illuminance_lux
+    below: 14
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.second_bedroom
+      option: 'Motion'
