@@ -11,6 +11,11 @@ trigger:
     entity_id: binary_sensor.second_bedroom_motion_occupancy
     to: 'on'
     id: 'motion'
+  - platform: state
+    entity_id: binary_sensor.second_bedroom_motion_occupancy
+    attribute: last_seen
+    to: ~
+    id: 'seen'
   # Ensuite door was opened/closed
   - platform: state
     entity_id: binary_sensor.second_ensuite_door_contact

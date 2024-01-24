@@ -4,7 +4,6 @@ alias: 'Second bedroom mode off'
 trigger:
   - platform: state
     entity_id: 
-    - input_boolean.person1_alarm_sounded
     - input_boolean.person1_in_bed
     - input_boolean.second_bedroom_occupied
     to: 'off'
@@ -17,8 +16,6 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.sun_solar_elevation
     above: 5
-  - platform: time
-    at: '23:00:00'
   - platform: state
     entity_id: input_select.second_bedroom
     to: 
@@ -41,29 +38,11 @@ condition:
       - 'Bedtime'
       - 'Wake'
       for: '00:30:00'
-    # Turn it off if they needs to be up early
-    - condition: and
-      conditions:
-      - condition: time
-        after: '22:59:00'
-        before: '23:01:00'
-        weekday:
-        - sun
-        - mon
-        - tue
-        - wed
-        - thu
-      # Not a holiday tomorrow
-      - condition: template
-        value_template: >-
-          {{ not (is_state_attr('calendar.person1_holiday','message','Holiday') and
-          (as_timestamp(now())+(6*60*60) - as_timestamp(state_attr('calendar.person1_holiday','start_time'))) > 0) }}
     # Turn it off when he's awake
     - condition: state
       entity_id: 
         - input_boolean.second_bedroom_occupied
         - input_boolean.person1_in_bed
-        - input_boolean.person1_alarm_sounded
       state: 'off'
       for: '00:05:00'
 action:

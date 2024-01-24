@@ -5,6 +5,9 @@ trigger:
   - platform: time
     at: sensor.sm_a546b_next_alarm
 condition:
+  - condition: state
+    entity_id: input_boolean.person1_home
+    state: 'on'
   - condition: not
     conditions:
       - condition: state

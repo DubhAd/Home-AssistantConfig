@@ -3,9 +3,7 @@ initial_state: 'on'
 alias: 'Second bedroom mode wake'
 trigger:
   - platform: state
-    entity_id: 
-    - input_boolean.person1_alarm_sounded
-    - input_boolean.person1_is_awake
+    entity_id: input_boolean.person1_alarm_sounded
     to: 'on'
 condition:
   - condition: state

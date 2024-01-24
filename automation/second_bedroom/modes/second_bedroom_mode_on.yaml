@@ -2,36 +2,22 @@ id: 'second_bedroom_mode_on'
 alias: 'Second bedroom mode on'
 trigger:
   - platform: state
-    entity_id: input_boolean.person1_phone_charging
+    entity_id: input_boolean.second_bedroom_occupied
     to: 'on'
+  - platform: numeric_state
+    entity_id: sensor.second_bedroom_motion_illuminance_lux
+    below: 14
 condition:
-  - condition: time
-    after: '22:00:00'
-    before: '04:00:00'
   - condition: state
-    entity_id: 
-      - input_boolean.person1_in_bed
-      - input_boolean.second_bedroom_occupied
-    state: 'off'
+    entity_id: input_boolean.second_bedroom_occupied
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.second_bedroom_motion_illuminance_lux
+    below: 14
   - condition: state
-    entity_id: 
-      - input_boolean.person1_phone_charging
-      - input_boolean.person1_home
+    entity_id: input_boolean.person1_home
     state: 'on'
 action:
-  - wait_for_trigger:
-      - platform: state
-        entity_id: 
-          - binary_sensor.downstairs_hall_motion_occupancy
-          - binary_sensor.upstairs_hall_motion_front_occupancy
-        to: 'on'
-      - platform: state
-        entity_id: 
-          - binary_sensor.second_bedroom_door_contact
-          - binary_sensor.second_ensuite_door_contact
-        to:
-          - 'on'
-          - 'off'
   - service: input_select.select_option
     data:
       entity_id: input_select.second_bedroom

@@ -3,6 +3,10 @@ initial_state: 'on'
 alias: 'Second bedroom mode no motion'
 trigger:
   - platform: state
+    entity_id: binary_sensor.second_bedroom_door_contact
+    to: ~
+    for: '00:03:00'
+  - platform: state
     entity_id: binary_sensor.second_bedroom_motion_occupancy
     to: 'off'
     for: '00:03:00'
@@ -16,6 +20,15 @@ condition:
   - condition: state
     entity_id: input_select.second_bedroom
     state: 'Motion'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.second_bedroom_motion_occupancy
+        state: 'off'
+        for: '00:03:00'
+      - condition: numeric_state
+        entity_id: sensor.second_bedroom_motion_illuminance_lux
+        above: 15
 action:
   - service: input_select.select_option
     data:
