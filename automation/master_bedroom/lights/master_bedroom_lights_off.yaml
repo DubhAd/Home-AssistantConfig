@@ -26,26 +26,27 @@ condition:
         entity_id: input_select.house
         state: 'Off'
 action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: light.wled_master_neon
-        state: 'on'
-      sequence:
-      - service: light.turn_off
-        data:
-          entity_id: light.wled_master_neon
-          transition: 5
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: light.master_bedroom_bedhead
-        state: 'on'
-      sequence:
-      - service: light.turn_off
-        data:
-          entity_id: light.master_bedroom_bedhead
-          transition: 5
+  - parallel::
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.wled_master_neon
+            state: 'on'
+          sequence:
+          - service: light.turn_off
+            data:
+              entity_id: light.wled_master_neon
+              transition: 5
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.master_bedroom_bedhead
+            state: 'on'
+          sequence:
+          - service: light.turn_off
+            data:
+              entity_id: light.master_bedroom_bedhead
+              transition: 5
   # If we're turning this off after a motion trigger, don't change the settings for the lights
   - condition: template
     value_template: "{{ trigger.from_state.state != 'Motion' }}"
