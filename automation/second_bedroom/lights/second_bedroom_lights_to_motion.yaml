@@ -39,3 +39,4 @@ action:
   - service: light.turn_on
     data:
       entity_id: light.second_bedroom
+      effect: Solid

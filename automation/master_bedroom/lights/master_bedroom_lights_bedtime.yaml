@@ -36,7 +36,10 @@ action:
     - switch.adaptive_lighting_master_neon
   - service: light.turn_on
     data:
-      entity_id: 
-        - light.master_bedroom_bedhead
-        - light.wled_master_neon
+      entity_id: light.master_bedroom_bedhead
       transition: 5
+  - service: light.turn_on
+    data:
+      entity_id: light.wled_master_neon
+      transition: 5
+      effect: 'Solid'

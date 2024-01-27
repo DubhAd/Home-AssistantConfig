@@ -38,5 +38,10 @@ action:
     data:
       entity_id: 
         - light.master_bedroom_bedhead
+      transition: 2
+  - service: light.turn_on
+    data:
+      entity_id: 
         - light.wled_master_neon
       transition: 2
+      effect: 'Solid'
