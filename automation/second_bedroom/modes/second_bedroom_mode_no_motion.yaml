@@ -12,7 +12,7 @@ trigger:
     for: '00:03:00'
   - platform: numeric_state
     entity_id: sensor.second_bedroom_motion_illuminance_lux
-    above: 15
+    above: 20
 condition:
   - condition: state
     entity_id: input_boolean.second_bedroom_occupied
@@ -28,7 +28,7 @@ condition:
         for: '00:03:00'
       - condition: numeric_state
         entity_id: sensor.second_bedroom_motion_illuminance_lux
-        above: 15
+        above: 20
 action:
   - service: input_select.select_option
     data:

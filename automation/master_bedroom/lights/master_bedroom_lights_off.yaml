@@ -33,15 +33,10 @@ action:
             entity_id: light.wled_master_neon
             state: 'on'
           sequence:
-          - service: select.select_option
-            data:
-              option: 'Sunset'
-            target:
-              entity_id: select.wled_master_neon_preset
-          - delay: '00:01:00'
           - service: light.turn_off
             data:
               entity_id: light.wled_master_neon
+              transition: 5
       - choose:
         - conditions:
           - condition: state
@@ -55,6 +50,7 @@ action:
   # If we're turning this off after a motion trigger, don't change the settings for the lights
   - condition: template
     value_template: "{{ trigger.from_state.state != 'Motion' }}"
+  - delay: '00:05:00'
   - service: switch.turn_on
     entity_id: 
     - switch.adaptive_lighting_master_bedroom
