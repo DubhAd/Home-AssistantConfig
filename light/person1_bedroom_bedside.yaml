@@ -3,3 +3,4 @@
   unique_id: 'person1_bedroom_bedside'
   entities:
     - light.wled_neon_k
+    - light.wled_cob_k
