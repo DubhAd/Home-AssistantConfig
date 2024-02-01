@@ -21,3 +21,6 @@ action:
     data:
       entity_id: input_select.office
       option: 'Motion'
+  - service: light.turn_on
+    data:
+      entity_id: light.awtrix_6d6f50_matrix

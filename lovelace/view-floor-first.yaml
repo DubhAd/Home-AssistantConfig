@@ -163,7 +163,7 @@ cards:
       show_last_changed: true
 - type: glance
   title: Office
-  columns: 5
+  columns: 6
   entities:
     - entity: binary_sensor.office_door_contact
       show_last_changed: true
@@ -179,6 +179,9 @@ cards:
       show_last_changed: true
     - entity: sensor.office_illuminance_illuminance_lux
       name: Illuminance
+    - entity: light.awtrix_6d6f50_matrix
+      name: Awtrix
+      show_last_changed: true
     - entity: light.office_strip
       name: Strip
       show_last_changed: true

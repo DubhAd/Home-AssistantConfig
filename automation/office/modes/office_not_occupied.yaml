@@ -32,3 +32,6 @@ action:
   - service: input_boolean.turn_off
     entity_id: 
       - input_boolean.office_occupied
+  - service: light.turn_off
+    data:
+      entity_id: light.awtrix_6d6f50_matrix
