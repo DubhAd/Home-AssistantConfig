@@ -5,9 +5,29 @@ trigger:
   - platform: state
     entity_id: media_player.spotify
   - platform: state
-    entity_id: input_boolean.office_occupied
+    entity_id:
+      - input_boolean.office_occupied
+      - input_boolean.show_spotify
 action:
   - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: template
+                value_template: >-
+                  {{ not is_state('media_player.spotify','playing') }}
+              - condition: state
+                entity_id: input_boolean.office_occupied
+                state: 'off'
+              - condition: state
+                entity_id: input_boolean.show_spotify
+                state: 'off'
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_6d6f50/custom/spotify
       - conditions:
           - condition: state
             entity_id: media_player.spotify
@@ -17,7 +37,9 @@ action:
             attribute: media_content_type
             state: music
           - condition: state
-            entity_id: input_boolean.office_occupied
+            entity_id: 
+              - input_boolean.office_occupied
+              - input_boolean.show_spotify
             state: 'on'
         sequence:
           - service: mqtt.publish
@@ -36,20 +58,5 @@ action:
                   "progress": {{ ( state_attr('media_player.spotify','media_position') / state_attr('media_player.spotify','media_duration') * 100 ) | round() }},
                   "progressC": "18B04C"
                 }
-              topic: awtrix_6d6f50/custom/spotify
-      - conditions:
-          - condition: or
-            conditions:
-              - condition: template
-                value_template: >-
-                  {{ not is_state('media_player.spotify','playing') }}
-              - condition: state
-                entity_id: input_boolean.office_occupied
-                state: 'off'
-        sequence:
-          - service: mqtt.publish
-            data:
-              qos: 0
-              retain: false
               topic: awtrix_6d6f50/custom/spotify
 mode: restart

@@ -1,0 +1,62 @@
+id: 'awtrix_outside_door_opened'
+alias: 'Awtrix outside door opened'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.front_door_contact
+      - binary_sensor.garage_door_car_contact
+      - binary_sensor.garage_door_bike_contact
+      - binary_sensor.garden_gate
+      - binary_sensor.utility_door_exterior_contact
+    to: 'on'
+    id: 'open'
+  - platform: state
+    entity_id: 
+      - binary_sensor.front_door_contact
+      - binary_sensor.garage_door_car_contact
+      - binary_sensor.garage_door_bike_contact
+      - binary_sensor.garden_gate
+      - binary_sensor.utility_door_exterior_contact
+    to: 'off'
+    id: 'closed'
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: 'opened'
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "text": "The {{ trigger.to_state.name }} was opened",
+                  "icon": "40857",
+                  "rainbow": false,
+                  "repeat": 2,
+                  "pushIcon": 2
+                }
+              topic: awtrix_6d6f50/notify
+      - conditions:
+          - condition: trigger
+            id: 'closed'
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "text": "The {{ trigger.to_state.name }} is closed",
+                  "icon": "40858",
+                  "rainbow": false,
+                  "repeat": 2,
+                  "pushIcon": 2
+                }
+              topic: awtrix_6d6f50/notify
