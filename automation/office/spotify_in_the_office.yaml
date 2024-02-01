@@ -55,8 +55,11 @@ action:
                   "pushIcon": 1,
                   "textCase": 0,
                   "textOffset": 0,
+                  "lifetime": 120,
+                  "lifetimeMode": 0,
                   "progress": {{ ( state_attr('media_player.spotify','media_position') / state_attr('media_player.spotify','media_duration') * 100 ) | round() }},
                   "progressC": "18B04C"
                 }
               topic: awtrix_6d6f50/custom/spotify
+        # lifetime means that if we don't send any update within 120 seconds then the app is removed
 mode: restart

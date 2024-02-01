@@ -20,6 +20,11 @@ trigger:
       - binary_sensor.utility_door_exterior_contact
     to: 'off'
     id: 'closed'
+variables:
+  open_icon: >-
+    {{ "44477" if "garage_door" in trigger.entity_id else ( "34928" if "gate" in trigger.entity_id else "40857" ) }}
+  closed_icon: >-
+    {{ "44478" if "garage_door" in trigger.entity_id else ( "34929" if "gate" in trigger.entity_id else "40858" ) }}
 condition:
   - condition: state
     entity_id: input_boolean.office_occupied
@@ -37,7 +42,7 @@ action:
               payload: |-
                 {
                   "text": "The {{ trigger.to_state.name }} was opened",
-                  "icon": "40857",
+                  "icon": "{{ open_icon }}",
                   "rainbow": false,
                   "repeat": 2,
                   "pushIcon": 2
@@ -54,7 +59,7 @@ action:
               payload: |-
                 {
                   "text": "The {{ trigger.to_state.name }} is closed",
-                  "icon": "40858",
+                  "icon": "{{ closed_icon }}",
                   "rainbow": false,
                   "repeat": 2,
                   "pushIcon": 2
