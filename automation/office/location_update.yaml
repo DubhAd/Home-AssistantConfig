@@ -1,0 +1,51 @@
+id: 'awtrix_location_update'
+alias: 'Awtrix location update'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: input_text.person_person3
+    id: person3
+  - platform: state
+    entity_id: input_text.person_person1
+    id: person1
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: person3
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "text": "person3 is {{ states('input_text.person_person3') }}",
+                  "icon": "14717",
+                  "rainbow": false,
+                  "repeat": 2,
+                  "pushIcon": 2
+                }
+              topic: awtrix_6d6f50/notify
+      - conditions:
+          - condition: trigger
+            id: person1
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "text": "person3 is {{ states('input_text.person_person1') }}",
+                  "icon": "14717",
+                  "rainbow": false,
+                  "repeat": 2,
+                  "pushIcon": 2
+                }
+              topic: awtrix_6d6f50/notify
+mode: queued
