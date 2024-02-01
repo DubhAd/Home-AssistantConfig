@@ -1,0 +1,54 @@
+id: 'spotify_in_the_office'
+alias: 'Spotify in the office'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: media_player.spotify
+  - platform: state
+    entity_id: input_boolean.office_occupied
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify
+            attribute: media_content_type
+            state: music
+          - condition: state
+            entity_id: input_boolean.office_occupied
+            state: 'on'
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "text": "{{ state_attr('media_player.spotify','media_artist') }} - {{ state_attr('media_player.spotify','media_title') }}",
+                  "icon": "18207",
+                  "rainbow": false,
+                  "repeat": 2,
+                  "pushIcon": 1,
+                  "textCase": 0,
+                  "textOffset": 15,
+                  "progress": {{ ( state_attr('media_player.spotify','media_position') / state_attr('media_player.spotify','media_duration') * 100 ) | round() }},
+                  "progressC": "18B04C"
+                }
+              topic: awtrix_6d6f50/custom/spotify
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: template
+                value_template: >-
+                  {{ not is_state('media_player.spotify','playing') }}
+              - condition: state
+                entity_id: input_boolean.office_occupied
+                state: 'off'
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_6d6f50/custom/spotify

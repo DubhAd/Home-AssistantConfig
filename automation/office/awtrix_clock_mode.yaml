@@ -1,0 +1,49 @@
+id: 'awtrix_clock_mode'
+alias: 'Awtrix clock mode'
+initial_state: 'on'
+description: ""
+trigger:
+  - platform: time
+    at: "23:00:00"
+    id: NM Start
+    enabled: true
+  - platform: time
+    at: "07:00:00"
+    id: NM End
+    enabled: true
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - NM Start
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_6d6f50/switch
+              payload: '{"name":"Time"}'
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_6d6f50/settings
+              payload: >-
+                { "WD": false, "TIME_COL": [255,0,0], "TMODE": 0, "BRI": 1,
+                "ABRI": false, "ATRANS": false }
+      - conditions:
+          - condition: trigger
+            id:
+              - NM End
+            enabled: true
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_6d6f50/settings
+              payload: >-
+                { "WD": true, "TIME_COL": [255,255,255], "TMODE": 2,
+                "ABRI": true, "ATRANS": true }
+mode: single
