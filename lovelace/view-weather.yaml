@@ -138,29 +138,6 @@ cards:
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
-      entity: weather.met_office_home_daily
-      name: home (MO)
-      backdrop: 
-        fade: true
-      secondary_info:
-        - wind_speed
-        - wind_bearing
-    - type: custom:weather-card
-      number_of_forecasts: 6
-      entity: weather.met_office_home_daily
-      name: home (MO)
-      current: true
-      details: true
-    - type: custom:weather-card
-      number_of_forecasts: 6
-      entity: weather.met_office_home_3_hourly
-      name: Hourly
-      hourly_forecast: true
-      current: false
-      details: false
-  - type: vertical-stack
-    cards:
-    - type: custom:simple-weather-card
       entity: weather.home_meteo
       name: Meteo
       backdrop: 
