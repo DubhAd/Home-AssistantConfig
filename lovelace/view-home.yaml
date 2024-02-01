@@ -359,3 +359,4 @@ cards:
       exclude:
         - entity_id: light.living_room
         - entity_id: light.yeelight_*
+        - entity_id: light.awtrix_*

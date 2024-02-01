@@ -17,6 +17,9 @@ action:
       - conditions:
           - condition: trigger
             id: person3
+          - condition: state
+            entity_id: input_boolean.person3_home
+            state: 'off'
         sequence:
           - service: mqtt.publish
             data:
@@ -34,6 +37,9 @@ action:
       - conditions:
           - condition: trigger
             id: person1
+          - condition: state
+            entity_id: input_boolean.person1_home
+            state: 'off'
         sequence:
           - service: mqtt.publish
             data:

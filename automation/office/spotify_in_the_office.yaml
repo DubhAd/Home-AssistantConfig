@@ -32,7 +32,7 @@ action:
                   "repeat": 2,
                   "pushIcon": 1,
                   "textCase": 0,
-                  "textOffset": 15,
+                  "textOffset": 0,
                   "progress": {{ ( state_attr('media_player.spotify','media_position') / state_attr('media_player.spotify','media_duration') * 100 ) | round() }},
                   "progressC": "18B04C"
                 }
@@ -52,3 +52,4 @@ action:
               qos: 0
               retain: false
               topic: awtrix_6d6f50/custom/spotify
+mode: restart
