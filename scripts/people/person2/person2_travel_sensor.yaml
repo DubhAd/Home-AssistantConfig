@@ -25,9 +25,9 @@ sequence:
         {% elif is_state('input_boolean.person2_travelling', 'on') %}
           Travelling
         {% elif is_state('input_boolean.person2_driving','on') %}
-          Driving ({{ states('sensor.person2s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} away)
+          Driving ({{ states('sensor.pixel_xl_geocoded_location') }} - {{ states('sensor.person2s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} away)
         {% else %}
-          {{ states('sensor.person2s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} to home
+          Near {{ states('sensor.pixel_xl_geocoded_location') }} - {{ states('sensor.person2s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person2s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} to home
         {% endif %}
   - if:
       - condition: state

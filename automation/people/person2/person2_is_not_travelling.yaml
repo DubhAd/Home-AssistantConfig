@@ -1,6 +1,6 @@
 id: 'person2_is_not_travelling'
 alias: 'person2 is not travelling'
-initial_state: 'on'
+initial_state: 'off'
 trigger:
   - platform: state
     entity_id: input_boolean.person2_travelling

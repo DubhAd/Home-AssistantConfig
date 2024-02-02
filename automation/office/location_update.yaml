@@ -21,19 +21,13 @@ action:
             entity_id: input_boolean.person3_home
             state: 'off'
         sequence:
-          - service: mqtt.publish
+          - service: notify.awtrix_6d6f50
             data:
-              qos: 0
-              retain: false
-              payload: |-
-                {
-                  "text": "person3 is {{ states('input_text.person_person3') }}",
-                  "icon": "14717",
-                  "rainbow": false,
-                  "repeat": 2,
-                  "pushIcon": 2
-                }
-              topic: awtrix_6d6f50/notify
+              message: "person3 is {{ states('input_text.person_person3') }}"
+              data:
+                icon: "14717"
+                pushIcon: 2
+                repeat: 1
       - conditions:
           - condition: trigger
             id: person1
@@ -41,17 +35,11 @@ action:
             entity_id: input_boolean.person1_home
             state: 'off'
         sequence:
-          - service: mqtt.publish
+          - service: notify.awtrix_6d6f50
             data:
-              qos: 0
-              retain: false
-              payload: |-
-                {
-                  "text": "person3 is {{ states('input_text.person_person1') }}",
-                  "icon": "14717",
-                  "rainbow": false,
-                  "repeat": 2,
-                  "pushIcon": 2
-                }
-              topic: awtrix_6d6f50/notify
+              message: "person1 is {{ states('input_text.person_person1') }}"
+              data:
+                icon: "14717"
+                pushIcon: 2
+                repeat: 1
 mode: queued

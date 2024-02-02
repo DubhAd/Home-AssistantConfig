@@ -19,7 +19,6 @@ sequence:
     data:
       entity_id: 
       - automation.person2_returning_home
-      - automation.return_train_watcher
       #stop_actions: false
   - service: input_boolean.turn_off
     entity_id: 

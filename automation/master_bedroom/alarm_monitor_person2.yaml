@@ -1,5 +1,6 @@
 id: 'alarm_monitor_person2'
 alias: 'Alarm monitor person2'
+initial_state: 'off'
 trigger:
     # Alarm scheduled for "now"
   - platform: time

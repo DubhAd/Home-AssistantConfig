@@ -59,8 +59,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.return_train_status
     secondary_info: last-triggered
-  - entity: automation.return_train_watcher
-    secondary_info: last-triggered
   - entity: automation.person2_on_the_move
     secondary_info: last-triggered
   - entity: automation.person2_in_the_car
