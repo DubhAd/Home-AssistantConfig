@@ -57,3 +57,4 @@ mqtt:
   binary_sensor: !include_dir_merge_list mqtt/binary_sensor/
   device_tracker: !include_dir_merge_list mqtt/device_tracker/
 
+awtrix:
