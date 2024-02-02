@@ -1,0 +1,161 @@
+blueprint:
+  name: "AWTRIX Calendar Notifier"
+  description:
+    "This blueprint will print notification when calendar event happens.
+
+    [Google calendar integration](https://www.home-assistant.io/integrations/google) was used for initial testing. Other calendars might work too.
+
+    Any icons can be used to describe calendar events. Upload them to AWTRIX ICONS folder and make sure your event title is mapped to them in icon map setting of your automation. I've used trash bins of various colours to remind me about need to take appropriate bin to the street :).
+
+    Sounds are also supported. Separate map should be populated to make it work. If no sounds are set, obviously no sound is triggered. Make sure configured sounds are uploaded to AWTRIX MELODIES folder. More details are [here](https://blueforcer.github.io/awtrix-light/#/sounds)
+
+    Message is shown every 5 minutes in interval from configurable amount of hours before event start time till event start.
+
+    Inspired by awesome work of Jeeftor
+    "
+
+  domain: automation
+  input:
+    awtrix:
+      name: AWTRIX Device
+      description: Select the Awtrix light
+      selector:
+        device:
+          integration: mqtt
+          manufacturer: Blueforcer
+          model: AWTRIX Light
+          multiple: true
+    app_name:
+      name: Awtrix Application name
+      description: This is the app name listed in the MQTT topic - it should be unique
+      selector:
+        text: {}
+      default: calendar_notifier
+    calendar:
+      name: Calendar with schedule
+      description: A calendar with schedule
+      selector:
+        entity:
+          multiple: false
+    message_attr_name:
+      name: Name of calendar event message attribute
+      description: This is the name of calendar event message attribute
+      selector:
+        text: {}
+      default: message
+    start_time_attr_name:
+      name: Name of calendar event start time attribute
+      description: This is the name of calendar event start time attribute
+      selector:
+        text: {}
+      default: start_time
+    hours_before:
+      name: Number of Hours before Event
+      description: Number of hours to start notify before actual event
+      selector:
+        number:
+          max: 96.0
+          min: 0.0
+          unit_of_measurement: hours
+          mode: box
+          step: 1.0
+      default: 15
+    icon_map:
+      name: An event message-to-icon name map
+      description: An event message-to-icon name map in JSON format
+      selector:
+        text:
+          multiline: true
+      default: '{"light green bin":"trash_light_green","green bin":"trash_green","blue bin":"trash_blue"}'
+    default_icon:
+      name: A default icon name
+      description: A default icon name used in case when event is not defined in icon_map. Default - empty.
+      default: ""
+    sound_map:
+      name: An event message-to-sound name map
+      description: An event message-to-sound name map in JSON format
+      selector:
+        text:
+          multiline: true
+      default: '{"light green bin":"mahna"}'
+    default_sound:
+      name: A default sould name
+      description: A default sound name used in case when event is not defined in sound_map. Default - empty.
+      default: ""
+    duration:
+      name: Duration (in seconds)
+      description: Sets how long the app or notification should be displayed.
+      default: "10"
+    lifetime:
+      name: Lifetime of the app (in seconds)
+      description: Removes the custom app when there is no update after the given time in seconds. Keep this value higher than 59 seconds to get the AWTRIX app automatically deleted when disabling the automation.
+      default: "70"
+    push_icon:
+      name: Icon Mode
+      description:
+        "Please select the pushIcon setting for the icon\n\n  - `0`  Icon
+        doesn't move\n\n  - `1`  Icon moves with text and will not appear again\n\n
+        \ - `2` Icon moves with text but appears again when the text starts to scroll
+        again\n"
+      selector:
+        select:
+          options:
+            - label: Icon doesn't move (default)
+              value: "0"
+            - label: Icon moves with text and will not appear again
+              value: "1"
+            - label:
+                Icon moves with text but appears again when the text starts to
+                scroll again
+              value: "2"
+          custom_value: false
+          multiple: false
+  source_url: https://raw.githubusercontent.com/Brunas/HomeAssistant/master/blueprints/automation/awtrix_calendar_notifier.yaml
+
+mode: single
+
+variables:
+  device_ids: !input awtrix
+  app_name: !input app_name
+  devices_topics:
+    "{%- macro get_device_topic(device_id) %} {{- states((device_entities(device_id)
+    | select('search','device_topic') | list)[0]) }} {%- endmacro %}\n{%- set ns =
+    namespace(devices=[]) %} {%- for device_id in device_ids %}\n  {%- set device=get_device_topic(device_id)|replace('
+    ','') %}\n  {% set ns.devices = ns.devices + [ device ~ '/custom/' ~ app_name]
+    %}\n{%- endfor %} {{ ns.devices | reject('match','unavailable') | list}}"
+  calendar: !input calendar
+  message_attr_name: !input message_attr_name
+  start_time_attr_name: !input start_time_attr_name
+  hours_before: !input hours_before
+  icon_map: !input icon_map
+  default_icon: !input default_icon
+  sound_map: !input sound_map
+  default_sound: !input default_sound
+  icon: "{%- set icon_map_json = icon_map|from_json %} {%if icon_map_json[state_attr(calendar,message_attr_name)] is defined %}{{icon_map_json[state_attr(calendar,message_attr_name)]}}{% else %}{{default_icon}}{% endif %}"
+  sound: "{%- set sound_map_json = sound_map|from_json %} {%if sound_map_json[state_attr(calendar,message_attr_name)] is defined %}{{sound_map_json[state_attr(calendar,message_attr_name)]}}{% else %}{{default_sound}}{% endif %}"
+  duration: !input duration
+  lifetime: !input lifetime
+  push_icon: !input push_icon
+  payload_internal:
+    "{\"icon\":\"{{icon}}\",\"sound\":\"{{sound}}\",\n    \"text\":\"{{state_attr(calendar,start_time_attr_name)}} {{state_attr(calendar,message_attr_name)}}\",\n    \"pushIcon\":\"{{push_icon}}\",\n
+    \"repeat\":1,\"textCase\":2,\"textOffset\":33,\"duration\":{{duration}},\"lifetime\":{{lifetime}}}"
+  payload:
+    '{{ iif(now() >= state_attr(calendar,start_time_attr_name)| as_datetime | default(now(), true)|as_local
+    - timedelta(hours = hours_before), payload_internal, "{}") }}'
+
+trigger:
+  - platform: time_pattern
+    minutes: /5
+
+condition: []
+
+action:
+  - repeat:
+      for_each: "{{ devices_topics }}"
+      sequence:
+        - service: mqtt.publish
+          data:
+            qos: 0
+            retain: false
+            topic: "{{ repeat.item }}"
+            payload: "{{payload}}"
