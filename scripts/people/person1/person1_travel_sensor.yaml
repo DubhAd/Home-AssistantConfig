@@ -4,6 +4,9 @@ sequence:
     data:
       entity_id: input_text.person_person1
       value: >-
+        {% set where = states('sensor.sm_a546b_geocoded_location').split(',') %}
+        {% set town = where[1]|replace(state_attr('sensor.sm_a546b_geocoded_location','postal_code'), '') %}
+
         {% if is_state('input_boolean.person1_home', 'on') %} 
           {% if is_state('input_boolean.person1_is_awake','off') %}
             Sleeping
@@ -19,11 +22,11 @@ sequence:
         {% elif states('proximity.person1_work')|int < 800 %}
           At University
         {% elif states('proximity.person1_home')|int > 4000 %}
-          Near {{ states('sensor.sm_a546b_geocoded_location') }} - {{ states('sensor.person1s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} to home by car
+          Near {{ where[0] }},{{ town }}- {{ states('sensor.person1s_time_to_home_duration_in_traffic')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_duration_in_traffic', 'unit_of_measurement') }} to home by car
         {% elif states('proximity.person1_home')|int > 1000 %}
-          Near {{ states('sensor.sm_a546b_geocoded_location') }} - {{ state_attr('sensor.person1s_time_to_home_by_bus_google', 'duration') }} to home by bus
+          Near {{ where[0] }},{{ town }}- {{ state_attr('sensor.person1s_time_to_home_by_bus_google', 'duration') }} to home by bus
         {% else %}
-          Near {{ states('sensor.sm_a546b_geocoded_location') }} - {{ states('sensor.person1s_time_to_home_by_foot_duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_by_foot_duration', 'unit_of_measurement') }} to home on foot
+          Near {{ where[0] }},{{ town }}- {{ states('sensor.person1s_time_to_home_by_foot_duration')|round(0) }} {{ state_attr('sensor.person1s_time_to_home_by_foot_duration', 'unit_of_measurement') }} to home on foot
         {% endif %}
   - if:
       - condition: state

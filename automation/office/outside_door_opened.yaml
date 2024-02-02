@@ -9,8 +9,11 @@ trigger:
       - binary_sensor.garage_door_bike_contact
       - binary_sensor.garden_gate
       - binary_sensor.utility_door_exterior_contact
+      - input_boolean.door_test
+      - input_boolean.gate_test
+      - input_boolean.garage_door_test
     to: 'on'
-    id: 'open'
+    id: 'opened'
   - platform: state
     entity_id: 
       - binary_sensor.front_door_contact
@@ -18,10 +21,13 @@ trigger:
       - binary_sensor.garage_door_bike_contact
       - binary_sensor.garden_gate
       - binary_sensor.utility_door_exterior_contact
+      - input_boolean.door_test
+      - input_boolean.gate_test
+      - input_boolean.garage_door_test
     to: 'off'
     id: 'closed'
 variables:
-  open_icon: >-
+  opened_icon: >-
     {{ "44477" if "garage_door" in trigger.entity_id else ( "34928" if "gate" in trigger.entity_id else "40857" ) }}
   closed_icon: >-
     {{ "44478" if "garage_door" in trigger.entity_id else ( "34929" if "gate" in trigger.entity_id else "40858" ) }}
@@ -35,33 +41,21 @@ action:
           - condition: trigger
             id: 'opened'
         sequence:
-          - service: mqtt.publish
+          - service: notify.awtrix_6d6f50
             data:
-              qos: 0
-              retain: false
-              payload: |-
-                {
-                  "text": "The {{ trigger.to_state.name }} was opened",
-                  "icon": "{{ open_icon }}",
-                  "rainbow": false,
-                  "repeat": 2,
-                  "pushIcon": 2
-                }
-              topic: awtrix_6d6f50/notify
+              message: "The {{ trigger.to_state.name }} was opened"
+              data:
+                icon: "{{ opened_icon }}"
+                pushIcon: 2
+                repeat: 1
       - conditions:
           - condition: trigger
             id: 'closed'
         sequence:
-          - service: mqtt.publish
+          - service: notify.awtrix_6d6f50
             data:
-              qos: 0
-              retain: false
-              payload: |-
-                {
-                  "text": "The {{ trigger.to_state.name }} is closed",
-                  "icon": "{{ closed_icon }}",
-                  "rainbow": false,
-                  "repeat": 2,
-                  "pushIcon": 2
-                }
-              topic: awtrix_6d6f50/notify
+              message: "The {{ trigger.to_state.name }} is closed"
+              data:
+                icon: "{{ closed_icon }}"
+                pushIcon: 2
+                repeat: 1
