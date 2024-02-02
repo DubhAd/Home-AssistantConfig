@@ -2,7 +2,7 @@ sequence:
   # Light goes on
   - service: light.turn_on
     data:
-      entity_id: light.person1_bedroom_bedside
+      entity_id: light.second_bedroom
       transition: 30
       color_temp: 394
       brightness_pct: 100
@@ -18,7 +18,7 @@ sequence:
   # Light goes on (just in case it didn't catch the first message)
   - service: light.turn_on
     data:
-      entity_id: light.person1_bedroom_bedside
+      entity_id: light.second_bedroom
       transition: 30
       color_temp: 394
       brightness_pct: 100
@@ -31,7 +31,7 @@ sequence:
   # Disco lights
   - service: light.turn_on
     data:
-      entity_id: light.person1_bedroom_bedside
+      entity_id: light.second_bedroom
       effect: "Disco"
   - wait_template: "{{ is_state('media_player.cast_second_bedroom_speaker','playing') }}"
   - wait_template: "{{ is_state('media_player.cast_second_bedroom_speaker','idle') }}"
@@ -48,5 +48,5 @@ sequence:
   # Lights to normal
   - service: light.turn_on
     data:
-      entity_id: light.person1_bedroom_bedside
+      entity_id: light.second_bedroom
       effect: "Stop"

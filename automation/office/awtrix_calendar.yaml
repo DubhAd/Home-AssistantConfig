@@ -5,6 +5,9 @@ trigger:
   - platform: time_pattern
     minutes: '/5'
 condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
   - condition: template
     value_template: >-
       {{ -1 < (state_attr('calendar.person2_work','start_time')|as_timestamp() -  now()|as_timestamp()) < 350  }}

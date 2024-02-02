@@ -6,8 +6,7 @@ cards:
   - type: light
     entity: light.office_strip
   - type: light
-    entity: light.master_bedroom_bedhead
-
+    entity: light.master_bedroom
   - type: glance
     columns: 4
     show_name: false
@@ -160,8 +159,6 @@ cards:
           action: toggle
       - entity: light.master_bedroom_bedhead
         name: Master bedhead
-      - entity: light.person1_bedroom_bedside
-        name: person1's Bedhead
     show_empty: false
     state_filter:
       - 'on'

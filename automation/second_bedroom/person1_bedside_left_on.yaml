@@ -6,7 +6,7 @@ trigger:
     at: '23:59:59'
 condition:
   - condition: state
-    entity_id: light.person1_bedroom_bedside
+    entity_id: light.second_bedroom
     state: 'on'
 action:
   - service: input_select.select_option

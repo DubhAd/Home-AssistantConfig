@@ -556,7 +556,6 @@ cards:
  
         - entities:
             - light.master_bedroom_bedhead
-            - light.person1_bedroom_bedside
             - light.office_strip
             - light.wled_master_neon
             - light.wled_neon_k

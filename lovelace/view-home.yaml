@@ -360,3 +360,5 @@ cards:
         - entity_id: light.living_room
         - entity_id: light.yeelight_*
         - entity_id: light.awtrix_*
+        - entity_id: light.second_bedroom
+        - entity_id: light.master_bedroom

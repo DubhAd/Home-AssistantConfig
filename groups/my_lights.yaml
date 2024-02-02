@@ -7,5 +7,5 @@ entities:
 - light.living_room_corner_lamp
 - light.office_strip
 - light.downstairs_hall
-- light.master_bedroom_bedhead
-- light.person1_bedroom_bedside
+- light.master_bedroom
+- light.second_bedroom

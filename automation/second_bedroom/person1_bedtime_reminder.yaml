@@ -36,8 +36,7 @@ action:
           entity_id: switch.adaptive_lighting_second_bedroom
         - service: light.turn_on
           data:
-            entity_id: light.person1_bedroom_bedside
-            effect: "Police2"
+            entity_id: light.second_bedroom
             brightness: 255
         - delay: '00:00:05'
         - service: switch.turn_on
@@ -45,7 +44,7 @@ action:
         - delay: '00:00:01'
         - service: light.turn_off
           data:
-            entity_id: light.person1_bedroom_bedside
+            entity_id: light.second_bedroom
             transition: 30
         - delay: '00:10:00'
       until:
