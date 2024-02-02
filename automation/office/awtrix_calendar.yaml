@@ -1,0 +1,19 @@
+id: 'awtrix_calendar'
+alias: 'Awtrix calendar'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: '/5'
+condition:
+  - condition: template
+    value_template: >-
+      {{ -1 < (state_attr('calendar.person2_work','start_time')|as_timestamp() -  now()|as_timestamp()) < 350  }}
+action:
+  - service: notify.awtrix_6d6f50
+    data:
+      message: >-
+        {{ state_attr('calendar.person2_work','message') }} starts in {{ relative_time(state_attr('calendar.person2_work','start_time')|as_timestamp()|as_datetime()) }}
+      data:
+        icon: "9916"
+        pushIcon: 0
+        repeat: 2
