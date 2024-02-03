@@ -5,14 +5,14 @@ trigger:
     entity_id: input_boolean.second_bedroom_occupied
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.second_bedroom_motion_illuminance_lux
+    entity_id: sensor.second_bedroom_light_sensor_illuminance_lux
     below: 14
 condition:
   - condition: state
     entity_id: input_boolean.second_bedroom_occupied
     state: 'on'
   - condition: numeric_state
-    entity_id: sensor.second_bedroom_motion_illuminance_lux
+    entity_id: sensor.second_bedroom_light_sensor_illuminance_lux
     below: 14
   - condition: state
     entity_id: input_boolean.person1_home
