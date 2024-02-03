@@ -18,7 +18,7 @@ condition:
     entity_id: binary_sensor.second_bedroom_door_contact
     state: 'on'
   - condition: numeric_state
-    entity_id: sensor.second_bedroom_motion_illuminance_lux
+    entity_id: sensor.second_bedroom_light_sensor_illuminance_lux
     below: 14
 action:
   - service: input_select.select_option
