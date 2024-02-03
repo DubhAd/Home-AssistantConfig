@@ -91,7 +91,7 @@ cards:
       - entity: binary_sensor.second_bedroom_motion_occupancy
         show_last_changed: true
         name: Motion
-      - entity: sensor.second_bedroom_motion_illuminance_lux
+      - entity: sensor.second_bedroom_light_sensor_illuminance_lux
         name: Illuminance
       - entity: light.wled_neon_k
         name: Bedhead

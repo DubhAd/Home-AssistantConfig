@@ -37,6 +37,7 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 | [Xiaomi Mijia light sensor](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Light levels | :heavy_check_mark: | This is a very reponsive, well behaved light sensor. If you're looking for one, I'd recommend this one. | 
 | [Xiaomi P1 presence sensor](https://www.zigbee2mqtt.io/devices/RTCGQ14LM.html) | Presence | :heavy_check_mark: | The Zigbee 3.0 version of their popular motion sensor. Others have complained about the range, but I'm getting 5+ meters out of mine. |
 | [Xiaomi T1 temperature sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ12LM.html) | Temperature and humidity | :heavy_check_mark: | A Zigbee 3.0 version of the popular temperature, humidity, and pressure sensor. So far proving to be as good a sensor as the original, while being Zigbee 3.0 |
+| [Xiaomi T1 illuminance sensor](https://www.zigbee2mqtt.io/devices/GZCGQ11LM.html) | Light levels | :heavy_check_mark: | The Aqara version of the Mijia sensor. I slightly prefer the look of the Mijia sensor, but really there's not much in it. |
 
 **Notes**
 - There's a known bug with the version of the firmware used on the Ikea devices, which impacts other devices too, that causes them to stop routing traffic. I've not experienced this myself, but others have reported it.
@@ -105,12 +106,15 @@ My goal is to migrate away from all my pre Zigbee 3.0 devices to Zigbee 3.0. Sur
 
 | What | Function | Buy again? | Thoughts |
 | --- | --- | :---: | --- |
+| [Athom Sound Reactive WLED controller](https://www.athom.tech/blank-1/wled-esp32-music-addressable-led-strip-controller) | Lights | :grey_question: | I bought four of these, and I'm aware others have reported quality control problems, but these have all been fine for me. Two have been left with the Athom firmware, two have been flashed with stock WLED firmware. |
 | Google Home | Various | :heavy_check_mark: | Smart displays, announcements, and voice control. Mostly these are used for casting a camera stream to, or for TTS. |
 | HiWatch IPC-T140 | Camera | :small_red_triangle: | Exterior security camera. A few years old now, and newer generation kit is better, but it's still pretty good |
-| [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications |
-| Sonos speakers | Music! | :heavy_check_mark: | Good enough quality for audio, more then loud enough. I'll likely buy some of the Symfonisk speakers instead of more Play One type devices though |
+| [LaMetric](https://lametric.com/) | Notifications | :heavy_check_mark: | Simple scrolling ticker, awesome for many unobtrusive notifications. A wider display than the Ulanzi (below), but at four times the price. |
+| Sonos speakers | Music! | :grey_question: | Good enough quality for audio, more then loud enough. I'll likely buy some of the Symfonisk speakers instead of more Play One type devices though |
+| Symfonisk speakers | Music! | :heavy_check_mark: | Good enough quality for audio, more then loud enough. I bought these instead of more Play Ones - cheaper and sound every bit as good. |
 | Squeezebox Radio | Alarm clock | :no_entry: | Awesome, but discontinued |
-| Yeelight strip | Behind the bedhead lighting | :grey_question: | WiFi connected smart RGB strips, not terrible, not awesome. I'm considering replacing these with something Zigbee connected, or maybe WLED. |
+| [Ulanzi TC001 Smart Pixel clock](https://www.ulanzi.com/products/ulanzi-pixel-smart-clock-2882) | Notifications | :heavy_check_mark: | For [notifications](https://blog.ceard.tech/2024/02/ulanzi-tc001) that don't interrupt. |
+| Yeelight strip | Behind the bedhead lighting | :grey_question: | WiFi connected smart RGB strips, not terrible, not awesome. I'm replacing these with WLED strips. |
 | 240V RGB LED strip | Garden lights | :grey_question: | Yes, a single strip along the garden perimeter. There's about 25 meters of light strip in use, and being 240V no need to inject power. Sadly being dumb there's no fine control. If I had to do it again, I'd use WLED. |
 
 # Future plans
