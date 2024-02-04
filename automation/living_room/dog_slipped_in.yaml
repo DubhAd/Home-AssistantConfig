@@ -1,0 +1,50 @@
+id: 'living_room_dog_slipped_in'
+alias: 'Living room - dog slipped in'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.living_room_door_contact
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.family_room_occupied
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.living_room_occupied
+    state: 'off'
+action:
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.living_room_door_contact
+        to: 'off'
+        id: 'door'
+    timeout: "00:00:05"
+    continue_on_timeout: true
+  - condition: template
+    value_template: "{{ wait.completed }}"
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ wait.trigger.id == 'motion' }}"
+        sequence:
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/tts.piper?message=The living room door just opened, maybe Luna has slipped in
+              media_content_type: music
+              extra:
+                volume: 20
+      - conditions:
+          - condition: template
+            value_template: "{{ wait.trigger.id == 'door' }}"
+        sequence:
+          - service: media_player.play_media
+            data:
+              media_content_id: >-
+                media-source://tts/tts.piper?message=The living room door just opened and closed, maybe Luna has slipped in
+              media_content_type: music
+              extra:
+                volume: 20
+            target:
+              entity_id:
+                - media_player.family_room_sonos_cloud
