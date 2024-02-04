@@ -1,0 +1,41 @@
+id: 'master_bedroom_lights_night'
+initial_state: 'on'
+alias: 'Master bedroom lights night'
+trigger:
+  - platform: state
+    entity_id: input_select.master_bedroom
+    to: 'Night'
+  - platform: state
+    entity_id: input_select.house
+    to: 'Night'
+condition:
+  - condition: state
+    entity_id: input_boolean.lighting_automations
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.master_bedroom
+      state: 'Night'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.master_bedroom
+        state: 'Auto'
+      - condition: state
+        entity_id: input_select.house
+        state: 'Night'
+action:
+  - service: switch.turn_off
+    entity_id: 
+    - switch.adaptive_lighting_adapt_brightness_master_bedroom
+    - switch.adaptive_lighting_master_bedroom
+    - switch.adaptive_lighting_sleep_mode_master_bedroom
+  - service: light.turn_on
+    data:
+      entity_id: 
+        - light.wled_master_neon
+      transition: 0
+      effect: 'Solid'
+      color: 'red'
+      brightness: 2

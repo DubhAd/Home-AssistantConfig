@@ -3,10 +3,13 @@ initial_state: 'on'
 alias: 'Master bedroom button pushed'
 trigger:
   - platform: state
-    entity_id: sensor.master_bedroom_button_action
+    entity_id: 
+      - sensor.master_bedroom_button_action
+      - sensor.master_bedroom_button_r_action
     to:
     - 'single'
     - 'double'
+    - 'hold'
 action:
   - choose:
     # Single press - turn the lights off if they're on, unless it's in motion mode where we turn it on. Turn them on otherwise.
@@ -66,8 +69,29 @@ action:
           data:
             entity_id: input_select.master_bedroom
             option: 'Bedtime'
+    # Hold, Off if currently Night, else Night
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.state == 'hold' }}"
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_select.master_bedroom
+            state:
+            - 'Night'
+          sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.master_bedroom
+              option: 'Off'
+        default:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.master_bedroom
+            option: 'Night'
     default:
     - service: input_select.select_option
       data:
         entity_id: input_select.master_bedroom
-        option: 'Auto'
+        option: 'On'

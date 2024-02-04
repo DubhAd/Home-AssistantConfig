@@ -5,6 +5,7 @@ options:
   - 'Motion'
   - 'Wake'
   - 'Bedtime'
+  - 'Night'
   - 'Dim'
   - 'On'
   - 'Off'
