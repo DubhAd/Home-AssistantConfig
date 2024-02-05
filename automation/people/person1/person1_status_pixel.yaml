@@ -5,6 +5,11 @@ trigger:
   - platform: state
     entity_id: person.person1
     to: ~
+  - platform: state
+    entity_id: proximity.person1_home
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
 variables:
   status_colour: >-
     {{ "[0,64,0]" if is_state('person.person1','home') else ( 
