@@ -1,0 +1,21 @@
+id: 'awtrix_person1_status_pixel'
+alias: 'Awtrix person1 status pixel'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: person.person1
+    to: ~
+variables:
+  status_colour: >-
+    {{ "[0,255,0]" if is_state('person.person1','home') else ( 
+      "[0,0,255]" if states('proximity.person1_work')|float < 2000 else ( "[255,165,0]" if states('proximity.person1_home')|float < 500 else "[255,0,0]" )) }}
+action:
+  - service: mqtt.publish
+    data:
+      qos: 0
+      retain: false
+      payload: |-
+        {
+          "color": {{ status_colour }}
+        }
+      topic: awtrix_6d6f50/indicator3
