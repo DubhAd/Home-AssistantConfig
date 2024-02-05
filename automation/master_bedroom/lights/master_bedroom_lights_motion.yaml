@@ -37,3 +37,7 @@ action:
         - light.wled_master_neon
       transition: 0.5
       effect: 'Solid'
+  - delay: '00:00:01'
+  - service: adaptive_lighting.apply
+    data:
+      entity_id: switch.adaptive_lighting_master_neon

@@ -26,6 +26,10 @@ condition:
         entity_id: input_select.house
         state: 'Night'
 action:
+  - service: light.turn_off
+    data:
+      entity_id: light.master_bedroom_bedhead
+      transition: 5
   - service: switch.turn_off
     entity_id: 
     - switch.adaptive_lighting_adapt_brightness_master_bedroom
