@@ -7,8 +7,8 @@ trigger:
     to: ~
 variables:
   status_colour: >-
-    {{ "[0,255,0]" if is_state('person.person1','home') else ( 
-      "[0,0,255]" if states('proximity.person1_work')|float < 2000 else ( "[255,165,0]" if states('proximity.person1_home')|float < 500 else "[255,0,0]" )) }}
+    {{ "[0,64,0]" if is_state('person.person1','home') else ( 
+      "[0,0,64]" if states('proximity.person1_work')|float < 2000 else ( "[64,41,0]" if states('proximity.person1_home')|float < 500 else "[64,0,0]" )) }}
 action:
   - service: mqtt.publish
     data:
