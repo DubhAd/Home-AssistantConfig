@@ -37,5 +37,5 @@ action:
         - light.wled_master_neon
       transition: 0
       effect: 'Solid'
-      color: 'red'
+      color_name: 'red'
       brightness: 2
