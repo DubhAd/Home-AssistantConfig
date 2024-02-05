@@ -5,9 +5,18 @@ trigger:
   - platform: state
     entity_id: person.person3
     to: ~
+  - platform: state
+    entity_id: proximity.person3_home
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
 variables:
   status_colour: >-
-    {{ "[0,255,0]" if is_state('person.person3','home') else ( "[255,165,0]" if states('proximity.person3_home')|float < 500 else "[255,0,0]") }}
+    {{ "[0,64,0]" if is_state('person.person3','home') else ( "[64,41,0]" if states('proximity.person3_home')|float < 500 else "[64,0,0]") }}
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
 action:
   - service: mqtt.publish
     data:
