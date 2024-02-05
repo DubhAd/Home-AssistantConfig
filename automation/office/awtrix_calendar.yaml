@@ -10,7 +10,7 @@ condition:
     state: 'on'
   - condition: template
     value_template: >-
-      {{ -1 < (state_attr('calendar.person2_work','start_time')|as_timestamp() -  now()|as_timestamp()) < 350  }}
+      {{ -1 < (state_attr('calendar.person2_work','start_time')|as_timestamp() -  now()|as_timestamp()) < 1000  }}
 action:
   - service: notify.awtrix_6d6f50
     data:
