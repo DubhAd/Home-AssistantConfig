@@ -3,7 +3,7 @@ alias: 'Awtrix next meeting'
 initial_state: 'on'
 trigger:
   - platform: time_pattern
-    minutes: '/2'
+    minutes: '/1'
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
@@ -101,6 +101,6 @@ action:
               retain: false
               payload: |-
                 {
-                  "CHCOL": "#FF00FF"
+                  "CHCOL": "#007700"
                 }
               topic: awtrix_6d6f50/settings
