@@ -57,7 +57,7 @@ action:
               retain: false
               payload: |-
                 {
-                  "CHCOL": "#FF4100"
+                  "CHCOL": "#FF7400"
                 }
               topic: awtrix_6d6f50/settings
       - conditions: 
