@@ -1,0 +1,56 @@
+id: 'awtrix_next_meeting'
+alias: 'Awtrix next meeting'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: '/2'
+  - platform: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
+variables:
+  next_in: "{{ state_attr('calendar.person2_work','start_time')|as_timestamp() -  now()|as_timestamp() }}"
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
+action:
+  - choose:
+      - conditions: 
+          - condition: template
+            value_template: "{{ next_in|float() > 1801 }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "CHCOL": "#0000FF"
+                }
+              topic: awtrix_6d6f50/settings
+      - conditions: 
+          - condition: template
+            value_template: "{{ 901 < next_in|float() <= 1801 }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "CHCOL": "#FF4100"
+                }
+              topic: awtrix_6d6f50/settings
+      - conditions: 
+          - condition: template
+            value_template: "{{ next_in|float() <= 901 }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "CHCOL": "#FF0000"
+                }
+              topic: awtrix_6d6f50/settings
