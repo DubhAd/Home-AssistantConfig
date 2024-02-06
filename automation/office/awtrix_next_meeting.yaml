@@ -9,6 +9,7 @@ trigger:
     to: 'on'
 variables:
   next_in: "{{ state_attr('calendar.person2_work','start_time')|as_timestamp() -  now()|as_timestamp() }}"
+  end_in: "{{ state_attr('calendar.person2_work','end_time')|as_timestamp() -  now()|as_timestamp() }}"
 condition:
   - condition: state
     entity_id: input_boolean.office_occupied
@@ -18,7 +19,16 @@ action:
       - conditions: 
           - condition: template
             value_template: "{{ next_in|float() > 1801 }}"
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: input_select.calendar_colour
+                state: 'Blue'
         sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.calendar_colour
+              option: 'Blue'
           - service: mqtt.publish
             data:
               qos: 0
@@ -31,7 +41,16 @@ action:
       - conditions: 
           - condition: template
             value_template: "{{ 901 < next_in|float() <= 1801 }}"
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: input_select.calendar_colour
+                state: 'Amber'
         sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.calendar_colour
+              option: 'Amber'
           - service: mqtt.publish
             data:
               qos: 0
@@ -43,8 +62,17 @@ action:
               topic: awtrix_6d6f50/settings
       - conditions: 
           - condition: template
-            value_template: "{{ next_in|float() <= 901 }}"
+            value_template: "{{ 0 <= next_in|float() <= 901 }}"
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: input_select.calendar_colour
+                state: 'Red'
         sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.calendar_colour
+              option: 'Red'
           - service: mqtt.publish
             data:
               qos: 0
@@ -52,5 +80,27 @@ action:
               payload: |-
                 {
                   "CHCOL": "#FF0000"
+                }
+              topic: awtrix_6d6f50/settings
+      - conditions: 
+          - condition: template
+            value_template: "{{ (next_in|float() < 0) and (end_int|float() > 0) }}"
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: input_select.calendar_colour
+                state: 'Purple'
+        sequence:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.calendar_colour
+              option: 'Purple'
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "CHCOL": "#FF00FF"
                 }
               topic: awtrix_6d6f50/settings
