@@ -94,7 +94,6 @@ You'll note I use three different device trackers, two for home (nmap, bluetooth
 ## Core integrations and APIs
 
   * [TransportAPI](https://developer.transportapi.com/) for information on the local train service with the [UK transport](https://home-assistant.io/integrations/uk_transport/) integration
-  * [DarkSky](https://darksky.net/dev/) for weather data, alongside the [Met Office](https://www.metoffice.gov.uk/datapoint), along with the [associated](https://home-assistant.io/integrations/darksky/) sensor [integration](https://home-assistant.io/integrations/metoffice/)
   * [Plex](https://www.plex.tv/sign-in/) for watching media, on TV, tablets and mobiles. I don't currently use [the component](https://home-assistant.io/components/media_player.plex/) even if it's configured
   * [Here Travel Time](https://www.home-assistant.io/integrations/here_travel_time/) integration, replacing my previous use of the [Google Travel Time integration](https://home-assistant.io/integrations/google_travel_time/) (which uses the Google [Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/)) to provide estimated time to home
 
@@ -111,27 +110,30 @@ Historically I didn't make much use of custom components/integrations, however t
 * [HACS](https://hacs.xyz) for intalling, updating, and finding new custom integrations. All other custom integrations are installed using this.
 * [Adaptive lighting](https://github.com/basnijholt/adaptive-lighting) (replacing [Circadian lighting](https://github.com/claytonjn/hass-circadian_lighting/)) since the built in [flux integration](https://www.home-assistant.io/integrations/flux) isn't as good.
 * [Alarmo](https://github.com/nielsfaber/alarmo) as an alternative to the built in manual alarm
+* [Awtrix notifier](https://github.com/10der/homeassistant-custom_components-awtrix) for making sending notifications easy
 * [Frigate](https://github.com/blakeblackshear/frigate-hass-integration) for integrating with Frigate
 * [Here Weather](https://github.com/eifinger/hass-here-weather) as yet another weather integration, it has the advantage that it includes a (brief) text summary of the forecast
+* [SkyQ](https://github.com/RogerSelwyn/Home_Assistant_SkyQ_MediaPlayer) to aid in presence detection
+* [Sleep as Android](https://github.com/IATkachenko/HA-SleepAsAndroid) to turn on the lights when it's time to wake up
 * [Sonos Cloud](https://github.com/jjlawren/sonos_cloud) to allow TTS (and media playing) without interrupting the music
 * [The Watchman](https://github.com/dummylabs/thewatchman) for making sure I've caught all the missing entities
 * [WebRTC](https://github.com/AlexxIT/WebRTC) to make viewing cameras less laggy
 
 ### Standard integrations
 
-I moved these all [out here](integrations.md) because it's a long list, and not _that_ interesting.
+I moved these all [out here](integrations.md) because it's a long list, and not _that_ interesting, also not that current.
 
 ## Other software and services
 
 * [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome/) for blocking those pesky adverts
 * [Authentik](https://goauthentik.io/) for authentication when remotely accessing services
-* [Cloudflare Pages](https://pages.cloudflare.com/) to host my blog
+* [Cloudflare Pages](https://pages.cloudflare.com/) to [host my blog](https://blog.ceard.tech/)
 * [Container Mon](https://github.com/RafhaanShah/Container-Mon) so I know when a container is unhealthy
 * [Dozzle](https://dozzle.dev/) for each access to container logs
 * [Diun](https://github.com/crazy-max/diun/) to get notifications when an update is available for a container
 * [Frigate](https://frigate.video/) for motion detection
 * [Heimdall](https://heimdall.site/) for a dashboard of all my apps
-* [Jekyll](https://jekyllrb.com/) for my blog
+* [Jekyll](https://jekyllrb.com/) for writing my [blog](https://blog.ceard.tech/)
 * [netdata](https://my-netdata.io/) so I can keep an eye on the performance
 * [Paperless NGX](https://github.com/paperless-ngx/paperless-ngx) for turning paper into searcheable digital documents
 * [Photoprism](https://photoprism.app/) both to back up photos from the mobile phones, as well as make it easier to find photos
