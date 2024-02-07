@@ -10,6 +10,9 @@ trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
+  - platform: state
+    entity_id: input_boolean.person3_home
+    to: 'on'
 variables:
   near_home: 200
   status_colour: >-

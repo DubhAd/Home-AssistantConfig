@@ -10,18 +10,51 @@ trigger:
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
+  - platform: state
+    entity_id: input_boolean.person1_home
+    to: 'on'
 variables:
+  near_home: 200
   status_colour: >-
-    {{ "[0,64,0]" if is_state('person.person1','home') else ( 
-      "[0,128,128]" if states('proximity.person1_work')|float < 2000 else ( "[64,41,0]" if states('proximity.person1_home')|float < 500 else
-      ( "[64,0,64]" if not is_state('person.person1','not_home') else "[64,0,0]" ))) }}
+    {{ "[0,64,0]" if is_state('person.person1','home') else 
+      ( "[0,128,128]" if states('proximity.person1_work')|float < 2000 else 
+        ( "[64,41,0]" if states('proximity.person1_home')|float < 500 else 
+          ( "[0,255,255]" if distance('person.person1','zone.station_train_station')|float < 0.5 else 
+            ( "[64,0,64]" if not is_state('person.person1','not_home') else "[64,0,0]" )
+          )
+        )
+      ) }}
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
 action:
-  - service: mqtt.publish
-    data:
-      qos: 0
-      retain: false
-      payload: |-
-        {
-          "color": {{ status_colour }}
-        }
-      topic: awtrix_6d6f50/indicator3
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.person1_home
+            state: 'off'
+          - condition: template
+            value_template: >-
+              {{ ( states('proximity.person1_home')|float < near_home ) or ( distance('person.person1','zone.station_train_station')|float < 0.5 ) }}
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              payload: |-
+                {
+                  "color": {{ status_colour }},
+                  fade: 2000
+                }
+              topic: awtrix_6d6f50/indicator3
+    default:
+      - service: mqtt.publish
+        data:
+          qos: 0
+          retain: false
+          payload: |-
+            {
+              "color": {{ status_colour }}
+            }
+          topic: awtrix_6d6f50/indicator3
