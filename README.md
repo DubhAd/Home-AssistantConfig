@@ -74,11 +74,10 @@ I used to use the original zwave integration on a remote system, using [Remote H
 
 ## Notifications:
 
-  * [Telegram](https://telegram.org) for my notifications
-  * Supported by Google Chat using a command line notifier (so the messages come from a bot, and not a personal account)
-  * For system status notifications I use the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/), along with the [Discord notifier](https://www.home-assistant.io/integrations/discord/) itself
-  * [Ulanzi TC001](https://blog.ceard.tech/2024/02/ulanzi-tc001), running [Awtrix Light](https://github.com/Blueforcer/awtrix-light), for [notifications](https://github.com/10der/homeassistant-custom_components-awtrix)
-  * LaMetric for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
+  * [Telegram](https://telegram.org) for some of my notifications
+  * [Apprise](https://www.home-assistant.io/integrations/apprise) for most notifications, sending them to Telegram, Discord, Signal, Google Chat, LaMetric, or many other places
+  * [Ulanzi TC001](https://blog.ceard.tech/2024/02/ulanzi-tc001), running [Awtrix Light](https://github.com/Blueforcer/awtrix-light), for non-interrupting [notifications](https://github.com/10der/homeassistant-custom_components-awtrix) 
+  * LaMetric for non-interrupting [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes, aided by [Sonos Cloud](https://github.com/jjlawren/sonos_cloud) to avoid interrupting music
 
 ## Presence detection:
