@@ -19,7 +19,7 @@ variables:
     {{ "[0,64,0]" if is_state('person.person1','home') else 
       ( "[0,128,128]" if states('proximity.person1_work')|float < 2000 else 
         ( "[64,41,0]" if states('proximity.person1_home')|float < 500 else 
-          ( "[0,255,255]" if distance('person.person1','zone.station_train_station')|float < 0.5 else 
+          ( "[255,255,0]" if is_state('person.person1','station Train Station') else
             ( "[64,0,64]" if not is_state('person.person1','not_home') else "[64,0,0]" )
           )
         )
@@ -36,7 +36,7 @@ action:
             state: 'off'
           - condition: template
             value_template: >-
-              {{ ( states('proximity.person1_home')|float < near_home ) or ( distance('person.person1','zone.station_train_station')|float < 0.5 ) }}
+              {{ ( states('proximity.person1_home')|float < near_home ) or ( is_state('person.person1','station Train Station') ) }}
         sequence:
           - service: mqtt.publish
             data:
