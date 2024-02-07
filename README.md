@@ -63,21 +63,21 @@ I used to use the original zwave integration on a remote system, using [Remote H
 
 ## Lighting
 
-  * [Yeelight](https://home-assistant.io/integrations/yeelight/) integration and led strips. These provide good enough lighting to read by at night, and also to help wake us in the morning.
   * Zigbee bulbs and strips in various rooms.
+  * [WLED](https://home-assistant.io/integrations/wled/) integration and led strips, replacing some Yeelight strips. These provide good enough lighting to read by at night, and also to help wake us in the morning.
 
 ## Media
 
-  * [Sonos](https://www.sonos.com/) speakers and [integration](https://home-assistant.io/integrations/sonos/)
+  * [Symfonisk](https://www.ikea.com/gb/en/search/products/?q=symfonisk) and [Sonos](https://www.sonos.com/) speakers and [integration](https://home-assistant.io/integrations/sonos/)
   * [Squeezebox Radio](http://support.logitech.com/en_us/product/squeezebox-radio-black) as a smart alarm clock, and [associated integration](https://home-assistant.io/integrations/squeezebox/)
   * [Cast](https://home-assistant.io/integrations/cast) devices - a bunch of [Google Home Minis](https://store.google.com/product/google_home_mini), a couple of [Google Home Hubs](https://store.google.com/product/google_home_hub), 
-  and a [Lenovo Smart Display](https://www.lenovo.com/gb/en/consumer-tablet-and-smart-device/lenovo-smart-device/smart-core-device/Smart-Display-10/p/ZA3N0006GB)
 
 ## Notifications:
 
   * [Telegram](https://telegram.org) for my notifications
   * Supported by Google Chat using a command line notifier (so the messages come from a bot, and not a personal account)
   * For system status notifications I use the [REST notifier](https://www.home-assistant.io/integrations/notify.rest/) for [Discord](https://discordapp.com/), along with the [Discord notifier](https://www.home-assistant.io/integrations/discord/) itself
+  * [Ulanzi TC001](https://blog.ceard.tech/2024/02/ulanzi-tc001), running [Awtrix Light](https://github.com/Blueforcer/awtrix-light), for [notifications](https://github.com/10der/homeassistant-custom_components-awtrix)
   * LaMetric for [notifications](https://home-assistant.io/integrations/lametric/) "in person", and it's a clock the rest of the time
   * [TTS](https://home-assistant.io/integrations/tts/) with the Google Home Mini's, Sonos, and Squeezeboxes, aided by [Sonos Cloud](https://github.com/jjlawren/sonos_cloud) to avoid interrupting music
 
