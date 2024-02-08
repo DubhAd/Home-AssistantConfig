@@ -31,13 +31,13 @@ variables:
     "lightning":"56676",
     "lightning-rainy":"56675",
     "partlycloudy":"58532",
-    "pouring":"49300",
-    "rainy":"2284",
-    "snowy":"2289",
+    "pouring":"26092",
+    "rainy":"26092",
+    "snowy":"26090",
     "snowy-rainy":"49301",
-    "sunny":"2282",
-    "windy":"55032",
-    "windy-variant":"56598",
+    "sunny":"18433",
+    "windy":"56585",
+    "windy-variant":"56585",
     "exceptional":"16754"
     }) %}
     {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_night[states('weather.tomorrow_io_home_nowcast')] }}
