@@ -6,12 +6,12 @@ trigger:
     entity_id: weather.tomorrow_io_home_nowcast
 variables:
   weather_icon: >-
-    {% set weather_cond = ({
+    {% set weather_cond_day = ({
     "clear-night":"135052",
     "cloudy":"2283",
     "fog":"676",
     "hail":"53288",
-    "lightning":"630",
+    "lightning":"56676",
     "lightning-rainy":"56675",
     "partlycloudy":"2286",
     "pouring":"49300",
@@ -23,7 +23,24 @@ variables:
     "windy-variant":"56598",
     "exceptional":"16754"
     }) %}
-    {{ weather_cond[states('weather.tomorrow_io_home_nowcast')] }}
+    {% set weather_cond_night = ({
+    "clear-night":"13502",
+    "cloudy":"55707",
+    "fog":"43741",
+    "hail":"53288",
+    "lightning":"56676",
+    "lightning-rainy":"56675",
+    "partlycloudy":"58532",
+    "pouring":"49300",
+    "rainy":"2284",
+    "snowy":"2289",
+    "snowy-rainy":"49301",
+    "sunny":"2282",
+    "windy":"55032",
+    "windy-variant":"56598",
+    "exceptional":"16754"
+    }) %}
+    {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_night[states('weather.tomorrow_io_home_nowcast')] }}
 action:
   - service: mqtt.publish
     data:
