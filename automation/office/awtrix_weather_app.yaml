@@ -1,0 +1,44 @@
+id: 'awtrix_weather_app'
+alias: 'Awtrix weather app'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: weather.tomorrow_io_home_nowcast
+variables:
+  weather_icon: >-
+    {% set weather_cond = ({
+    "clear-night":"135052",
+    "cloudy":"2283",
+    "fog":"676",
+    "hail":"53288",
+    "lightning":"630",
+    "lightning-rainy":"56675",
+    "partlycloudy":"2286",
+    "pouring":"49300",
+    "rainy":"2284",
+    "snowy":"2289",
+    "snowy-rainy":"49301",
+    "sunny":"2282",
+    "windy":"55032",
+    "windy-variant":"56598",
+    "exceptional":"16754"
+    }) %}
+    {{ weather_cond[states('weather.tomorrow_io_home_nowcast')] }}
+action:
+  - service: mqtt.publish
+    data:
+      qos: 0
+      retain: false
+      payload: |-
+        {
+          "text": "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }} - {{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}",
+          "icon": "{{ weather_icon }}",
+          "rainbow": false,
+          "repeat": 2,
+          "pushIcon": 1,
+          "textCase": 0,
+          "textOffset": 0,
+          "lifetime": 120,
+          "lifetimeMode": 0
+        }
+      topic: awtrix_6d6f50/custom/weather
