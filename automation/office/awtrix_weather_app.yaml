@@ -31,14 +31,14 @@ action:
       retain: false
       payload: |-
         {
-          "text": "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }} - {{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}",
+          "text": "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}",
           "icon": "{{ weather_icon }}",
           "rainbow": false,
           "repeat": 2,
           "pushIcon": 1,
           "textCase": 0,
           "textOffset": 0,
-          "lifetime": 120,
+          "lifetime": 1800,
           "lifetimeMode": 0
         }
       topic: awtrix_6d6f50/custom/weather
