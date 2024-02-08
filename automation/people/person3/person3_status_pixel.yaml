@@ -18,10 +18,6 @@ variables:
   status_colour: >-
     {{ "[0,64,0]" if is_state('person.person3','home') else ( "[255,165,0]" if states('proximity.person3_home')|float < near_home else
       ( "[64,0,64]" if not is_state('person.person3','not_home') else "[64,0,0]") ) }}
-condition:
-  - condition: state
-    entity_id: input_boolean.office_occupied
-    state: 'on'
 action:
   - choose:
       - conditions:

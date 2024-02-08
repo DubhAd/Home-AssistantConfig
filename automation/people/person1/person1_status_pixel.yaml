@@ -24,10 +24,6 @@ variables:
           )
         )
       ) }}
-condition:
-  - condition: state
-    entity_id: input_boolean.office_occupied
-    state: 'on'
 action:
   - choose:
       - conditions:
