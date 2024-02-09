@@ -8,7 +8,7 @@ variables:
   weather_icon: >-
     {% set weather_cond_day = ({
     "clear-night":"135052",
-    "cloudy":"2283",
+    "cloudy":"52159",
     "fog":"676",
     "hail":"53288",
     "lightning":"56676",
