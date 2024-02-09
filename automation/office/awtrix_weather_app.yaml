@@ -40,7 +40,7 @@ variables:
     "windy-variant":"56585",
     "exceptional":"16754"
     }) %}
-    {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_night[states('weather.tomorrow_io_home_nowcast')] }}
+    {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('weather.tomorrow_io_home_nowcast')] }}
 action:
   - service: mqtt.publish
     data:
