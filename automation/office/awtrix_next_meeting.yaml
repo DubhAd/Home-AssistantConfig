@@ -1,5 +1,6 @@
 id: 'awtrix_next_meeting'
 alias: 'Awtrix next meeting'
+description: 'Ths changes the colour of the date box on the default time app. Green for no meeting in the next half hour. Amber for a meeting 15 to 30 minutes away. Red for a meeting in the next 15 minutes. Finally Blue for currently in a meeting.'
 initial_state: 'on'
 trigger:
   - platform: time_pattern
@@ -23,19 +24,19 @@ action:
             conditions:
               - condition: state
                 entity_id: input_select.calendar_colour
-                state: 'Blue'
+                state: 'Purple'
         sequence:
           - service: input_select.select_option
             data:
               entity_id: input_select.calendar_colour
-              option: 'Blue'
+              option: 'Purple'
           - service: mqtt.publish
             data:
               qos: 0
               retain: false
               payload: |-
                 {
-                  "CHCOL": "#0000FF"
+                  "CHCOL": "#007700"
                 }
               topic: awtrix_6d6f50/settings
       - conditions: 
@@ -89,18 +90,18 @@ action:
             conditions:
               - condition: state
                 entity_id: input_select.calendar_colour
-                state: 'Purple'
+                state: 'Blue'
         sequence:
           - service: input_select.select_option
             data:
               entity_id: input_select.calendar_colour
-              option: 'Purple'
+              option: 'Blue'
           - service: mqtt.publish
             data:
               qos: 0
               retain: false
               payload: |-
                 {
-                  "CHCOL": "#007700"
+                  "CHCOL": "#0000FF"
                 }
               topic: awtrix_6d6f50/settings
