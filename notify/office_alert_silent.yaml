@@ -1,0 +1,7 @@
+- name: office alert silent
+  platform: group
+  services:
+    - service: awtrix_6d6f50
+      data:
+        data:
+          icon: "10675"

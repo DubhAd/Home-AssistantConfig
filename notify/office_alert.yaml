@@ -1,0 +1,8 @@
+- name: office alert
+  platform: group
+  services:
+    - service: awtrix_6d6f50
+      data:
+        data:
+          icon: "10675"
+          sound: "beep_high"

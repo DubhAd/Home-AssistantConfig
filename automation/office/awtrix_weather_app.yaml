@@ -7,7 +7,7 @@ trigger:
 variables:
   weather_icon: >-
     {% set weather_cond_day = ({
-    "clear-night":"135052",
+    "clear-night":"13505",
     "cloudy":"52159",
     "fog":"676",
     "hail":"53288",
@@ -18,13 +18,13 @@ variables:
     "rainy":"2284",
     "snowy":"2289",
     "snowy-rainy":"49301",
-    "sunny":"2282",
+    "sunny":"11201",
     "windy":"55032",
     "windy-variant":"56598",
     "exceptional":"16754"
     }) %}
     {% set weather_cond_night = ({
-    "clear-night":"13502",
+    "clear-night":"13505",
     "cloudy":"55707",
     "fog":"43741",
     "hail":"53288",
