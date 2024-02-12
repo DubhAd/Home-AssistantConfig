@@ -24,6 +24,10 @@ condition:
     entity_id: sensor.office_illuminance_illuminance_lux
     below: 15
 action:
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.master_bedroom_door_contact
+        to: 'on'
   - service: input_select.select_option
     data:
       entity_id: input_select.office

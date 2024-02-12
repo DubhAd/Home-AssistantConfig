@@ -35,11 +35,8 @@ action:
     - switch.adaptive_lighting_adapt_brightness_master_bedroom
     - switch.adaptive_lighting_master_bedroom
     - switch.adaptive_lighting_sleep_mode_master_bedroom
-  - service: light.turn_on
+  - service: select.select_option
+    target:
+      entity_id: select.wled_master_neon_preset
     data:
-      entity_id: 
-        - light.wled_master_neon
-      transition: 0
-      effect: 'Solid'
-      color_name: 'red'
-      brightness: 2
+      option: Night
