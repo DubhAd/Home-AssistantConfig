@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Master bedroom lights turned on'
 trigger:
   - platform: state
-    entity_id: light.master_bedroom_bedhead
+    entity_id: light.master_bedroom
     to: 'on'
 condition:
   - condition: state

@@ -26,6 +26,7 @@ action:
             - 'Bedtime'
             - 'Motion'
             - 'Wake'
+            - 'Auto'
           sequence:
           - service: input_select.select_option
             data:
@@ -37,7 +38,6 @@ action:
             state:
             - 'Off'
             - 'Motion'
-            - 'Auto'
           sequence:
           - service: input_select.select_option
             data:
