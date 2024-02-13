@@ -7,7 +7,7 @@ trigger:
 variables:
   weather_icon: >-
     {% set weather_cond_day = ({
-    "clear-night":"13505",
+    "clear-night":"13345",
     "cloudy":"52159",
     "fog":"676",
     "hail":"53288",
@@ -24,7 +24,7 @@ variables:
     "exceptional":"16754"
     }) %}
     {% set weather_cond_night = ({
-    "clear-night":"13505",
+    "clear-night":"13345",
     "cloudy":"55707",
     "fog":"43741",
     "hail":"53288",
@@ -42,20 +42,17 @@ variables:
     }) %}
     {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('weather.tomorrow_io_home_nowcast')] }}
 action:
-  - service: mqtt.publish
+  - service: awtrix.push_app_data
     data:
-      qos: 0
-      retain: false
-      payload: |-
-        {
-          "text": "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}",
-          "icon": "{{ weather_icon }}",
-          "rainbow": false,
-          "repeat": 2,
-          "pushIcon": 1,
-          "textCase": 0,
-          "textOffset": 0,
-          "lifetime": 1800,
-          "lifetimeMode": 0
-        }
-      topic: awtrix_6d6f50/custom/weather
+      device: awtrix_6d6f50
+      name: "weather"
+      data:
+        text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
+        icon: "{{ weather_icon }}"
+        rainbow: false
+        repeat: 2
+        pushIcon: 1
+        textCase: 0
+        textOffset: 0
+        lifetime: 1800
+        lifetimeMode: 0
