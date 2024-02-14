@@ -1,0 +1,35 @@
+id: 'office_white_noise'
+alias: 'Office white noise'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: 5
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'off'
+    for: '00:30:00'
+action:
+  - service: media_player.volume_set
+    target:
+      entity_id: media_player.office
+    data:
+      volume_level: 0.01
+  - delay: '00:00:10'
+  - service: media_player.play_media
+    data:
+      media_content_id: >-
+        x-sonos-http:sonos%3asleep%3ac7d23b1f899776d5dd850c21de30ca91%3aloopSD.mp4?sid=303&flags=0&sn=10
+      media_content_type: music
+    target:
+      entity_id: media_player.office
+  - delay: '00:05:00'
+  - service: media_player.media_pause
+    target:
+      entity_id: media_player.office
+  - delay: '00:00:10'
+  - service: media_player.volume_set
+    target:
+      entity_id: media_player.office
+    data:
+      volume_level: 0.08
