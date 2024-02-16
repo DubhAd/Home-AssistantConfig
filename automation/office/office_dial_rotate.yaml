@@ -18,6 +18,11 @@ trigger:
     entity_id: sensor.office_dial_moes_action
     to: color_temperature_step_down
     id: prev_track
+variables:
+  current_vol: "{{ state_attr('media_player.office','volume_level')|float(0) }}"
+  vol_step: "{{ (trigger.to_state.attributes.action_step_size|float(12)/1000)|round(2) }}"
+  new_vol: >-
+    {{ min(1,current_vol|float(0)+vol_step|float(0)) if trigger.id == 'volume_up' else min(0,current_vol|float(0)-vol_step|float(0)) }}
 action:
   - choose:
     - conditions:
@@ -30,11 +35,13 @@ action:
           volume_level: "{{ min(1,state_attr('media_player.office','volume_level')|float(0)+(trigger.to_state.attributes.action_step_size|float(12)/1000)|round(2)) }}"
       - service: notify.awtrix_6d6f50
         data:
-          message: "{{ state_attr('media_player.office','volume_level') * 100 }}"
+          message: "{{ (state_attr('media_player.office','volume_level') * 100 ) | round() }}"
           data:
             icon: 56192
             progress: "{{ ( state_attr('media_player.office','volume_level') * 100 ) | round() }}"
             progressC: "18B04C"
+            repeat: 1
+            duration: 1
     - conditions:
       - condition: trigger
         id: 'volume_down'
@@ -45,11 +52,13 @@ action:
           volume_level: "{{ max(0,state_attr('media_player.office','volume_level')|float(0)-(trigger.to_state.attributes.action_step_size|float(12)/1000)|round(2)) }}"
       - service: notify.awtrix_6d6f50
         data:
-          message: "{{ state_attr('media_player.office','volume_level') * 100 }}"
+          message: "{{ (state_attr('media_player.office','volume_level') * 100 ) | round() }}"
           data:
             icon: 56192
             progress: "{{ ( state_attr('media_player.office','volume_level') * 100 ) | round() }}"
             progressC: "18B04C"
+            repeat: 1
+            duration: 1
     - conditions:
       - condition: trigger
         id: 'next_track'
