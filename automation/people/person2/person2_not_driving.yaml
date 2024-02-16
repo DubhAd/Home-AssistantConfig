@@ -3,22 +3,10 @@ initial_state: 'on'
 alias: 'person2 not driving'
 trigger:
   - platform: state
-    entity_id: sensor.pixel_xl_bluetooth_connection
-    attribute: connected_paired_devices
-    id: 'bt'
-  - platform: state
     entity_id: binary_sensor.pixel_xl_android_auto
     to: 'on'
     id: 'auto'
 condition: 
-  # Leaving, the car
-  - condition: or
-    conditions:
-    - condition: trigger
-      id: 'auto'
-    - condition: template
-      value_template: >-
-        {{ trigger.id == 'bt' and '00:0E:9F:7D:6A:96 (Seat 4993)' not in state_attr('sensor.pixel_xl_bluetooth_connection','connected_paired_devices') }}
   # Driving
   - condition: state
     entity_id: input_boolean.person2_driving
