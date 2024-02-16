@@ -8,10 +8,10 @@ trigger:
 action:
       - service: notify.awtrix_6d6f50
         data:
-          message: "{{ (state_attr('media_player.office','volume_level')|float(0))*100 }}"
+          message: "{{ ((state_attr('media_player.office','volume_level')|float(0))*100)|round(0) }}"
           data:
             icon: 56192
-            progress: "{{ (state_attr('media_player.office','volume_level')|float(0))*100 }}"
+            progress: "{{ ((state_attr('media_player.office','volume_level')|float(0))*100)|round(0) }}"
             progressC: "18B04C"
             repeat: 1
             duration: 1
