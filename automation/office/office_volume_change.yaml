@@ -1,0 +1,17 @@
+id: 'office_volume_change'
+initial_state: 'on'
+alias: 'Office volume change'
+trigger:
+  - platform: state
+    entity_id: media_player.office
+    attribute: volume_level
+action:
+      - service: notify.awtrix_6d6f50
+        data:
+          message: "{{ (state_attr('media_player.office','volume_level')|float(0))*100 }}"
+          data:
+            icon: 56192
+            progress: "{{ (state_attr('media_player.office','volume_level')|float(0))*100 }}"
+            progressC: "18B04C"
+            repeat: 1
+            duration: 1

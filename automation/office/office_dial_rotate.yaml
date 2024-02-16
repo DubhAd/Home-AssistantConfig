@@ -22,7 +22,7 @@ variables:
   current_vol: "{{ state_attr('media_player.office','volume_level')|float(0) }}"
   vol_step: "{{ (trigger.to_state.attributes.action_step_size|float(12)/1000)|round(2) }}"
   new_vol: >-
-    {{ min(1,current_vol|float(0)+vol_step|float(0)) if trigger.id == 'volume_up' else min(0,current_vol|float(0)-vol_step|float(0)) }}
+    {{ (min(1,current_vol|float(0)+vol_step|float(0)))|round(2) if trigger.id == 'volume_up' else (max(0,current_vol|float(0)-vol_step|float(0)))|round(2) }}
 action:
   - choose:
     - conditions:
@@ -33,15 +33,6 @@ action:
         data:
           entity_id: media_player.office
           volume_level: "{{ min(1,state_attr('media_player.office','volume_level')|float(0)+(trigger.to_state.attributes.action_step_size|float(12)/1000)|round(2)) }}"
-      - service: notify.awtrix_6d6f50
-        data:
-          message: "{{ (state_attr('media_player.office','volume_level') * 100 ) | round() }}"
-          data:
-            icon: 56192
-            progress: "{{ ( state_attr('media_player.office','volume_level') * 100 ) | round() }}"
-            progressC: "18B04C"
-            repeat: 1
-            duration: 1
     - conditions:
       - condition: trigger
         id: 'volume_down'
@@ -50,15 +41,6 @@ action:
         data:
           entity_id: media_player.office
           volume_level: "{{ max(0,state_attr('media_player.office','volume_level')|float(0)-(trigger.to_state.attributes.action_step_size|float(12)/1000)|round(2)) }}"
-      - service: notify.awtrix_6d6f50
-        data:
-          message: "{{ (state_attr('media_player.office','volume_level') * 100 ) | round() }}"
-          data:
-            icon: 56192
-            progress: "{{ ( state_attr('media_player.office','volume_level') * 100 ) | round() }}"
-            progressC: "18B04C"
-            repeat: 1
-            duration: 1
     - conditions:
       - condition: trigger
         id: 'next_track'
