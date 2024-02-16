@@ -78,9 +78,9 @@ cards:
       charging_state: 
         entity_id: binary_sensor.pixel_xl_is_charging
         state: 'on'
-    - entity: sensor.person1_pixel_3_battery_level
+    - entity: sensor.sm_a546b_battery_level
       charging_state: 
-        entity_id: binary_sensor.person1_pixel_3_is_charging
+        entity_id: binary_sensor.sm_a546b_is_charging
         state: 'on'
     - entity: sensor.pixel_6a_battery_level
       charging_state: 
@@ -103,12 +103,16 @@ cards:
   filter:
     include:
       - name: entity_id
-        value: "*_battery"
+        value: "/.*_battery$/"
       - name: entity_id
-        value: "*_battery_level"
+        value: "/.*_battery_level$/"
       - name: entity_id
         value: "*_battery_charge_remaining_percentage"
     exclude:
+      - name: entity_id
+        value: "*awtrix*"
+      - name: entity_id
+        value: "*_miband7_battery"
       - name: entity_id
         value: "*mobile*"
       - name: entity_id
