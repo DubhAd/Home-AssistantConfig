@@ -1,0 +1,21 @@
+id: 'office_sonos_unavailable'
+alias: 'office sonos unavailable'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: media_player.office
+    to: 'unavailable'
+    for: '00:10:00'
+condition:
+  - condition: state
+    entity_id: switch.office_sonos
+    state: 'on'
+action:
+  - service: switch.turn_off
+    entity_id: switch.office_sonos
+  - delay: '00:00:30'
+  - service: switch.turn_on
+    entity_id: switch.office_sonos
+  - service: notify.discord_webhook
+    data:
+      message: ":speaker: The office Sonos was unavailable so we power cycled it"

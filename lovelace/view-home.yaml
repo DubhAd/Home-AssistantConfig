@@ -201,6 +201,7 @@ cards:
           - entity_id: "/.*_next_alarm/"
           - entity_id: "media_player.samsung_tv"
           - entity_id: "media_player.living_room_tv"
+          - entity_id: "media_player.tv_living_room"
           - entity_id: "sensor.*weather*"
 
     - type: custom:auto-entities
