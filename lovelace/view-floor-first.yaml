@@ -192,6 +192,9 @@ cards:
     - entity: media_player.office
       name: Sonos
       show_last_changed: true
+    - entity: binary_sensor.office_sonos_family
+      name: Sonos
+      show_last_changed: true
     - entity: media_player.office_smart_display
       name: "Home Hub"
       show_last_changed: true

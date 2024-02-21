@@ -9,7 +9,7 @@ trigger:
   - platform: state
     entity_id: binary_sensor.office_sonos_family
     to: 'off'
-    for: '00:01:00'
+    for: '00:03:00'
 condition:
   - condition: state
     entity_id: switch.office_sonos
