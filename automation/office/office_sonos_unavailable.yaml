@@ -6,14 +6,19 @@ trigger:
     entity_id: media_player.office
     to: 'unavailable'
     for: '00:10:00'
+  - platform: state
+    entity_id: binary_sensor.office_sonos_family
+    to: 'off'
+    for: '00:01:00'
 condition:
   - condition: state
     entity_id: switch.office_sonos
     state: 'on'
+    for: '00:01:00'
 action:
   - service: switch.turn_off
     entity_id: switch.office_sonos
-  - delay: '00:00:30'
+  - delay: '00:00:15'
   - service: switch.turn_on
     entity_id: switch.office_sonos
   - service: notify.discord_webhook
