@@ -62,7 +62,7 @@ cards:
         - entity: sensor.person3s_time_to_home_by_foot_duration
           name: Walk home
           icon: mdi:map-marker-distance
-        - entity: proximity.person3_home
+        - entity: sensor.home_person3_distance
           name: To home
         - entity: input_boolean.person3_is_awake
           show_last_changed: true
@@ -132,7 +132,7 @@ cards:
       - entity: sensor.person4s_time_to_home_duration_in_traffic
         name: To home
         icon: mdi:map-marker-distance
-      - entity: proximity.person4_home
+      - entity: sensor.home_2_dsb_0230_distance
         name: To home
     - type: map
       default_zoom: 17
@@ -198,7 +198,7 @@ cards:
         - entity: sensor.person2s_time_to_home_duration_in_traffic
           name: Car home
           icon: mdi:map-marker-distance
-        - entity: proximity.person2_home
+        - entity: sensor.home_person2_distance
           name: To home
         - entity: input_boolean.person2_driving
           show_last_changed: true
@@ -305,7 +305,7 @@ cards:
           name: Laptop 
           icon: mdi:laptop
           show_last_changed: true
-        - entity: proximity.person2_work
+        - entity: sensor.work_person2_distance
           name: To work
         - entity: calendar.person2_wfh
           name: WFH
@@ -385,7 +385,7 @@ cards:
         - entity: sensor.person1s_time_to_home_by_foot_duration
           name: Walking home
           icon: mdi:map-marker-distance
-        - entity: proximity.person1_home
+        - entity: sensor.home_person1_distance
           name: To home
       - type: entities
         entities:

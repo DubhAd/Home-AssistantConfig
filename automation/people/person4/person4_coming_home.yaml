@@ -3,7 +3,7 @@ alias: 'Elizabeth coming home'
 initial_state: 'on'
 trigger:
   - platform: numeric_state
-    entity_id: proximity.person4_home
+    entity_id: sensor.home_2_dsb_0230_distance
     below: 10
 condition:
   condition: and
@@ -12,7 +12,7 @@ condition:
       entity_id: input_boolean.person4_home
       state: 'off'
     - condition: template
-      value_template: "{{ is_state_attr('proximity.person4_home', 'dir_of_travel', 'towards') }}"
+      value_template: "{{ state_attr('sensor.person4_o_dsb_0230_direction_of_travel', 'towards') }}"
 action:
   - service: notify.person3
     data:

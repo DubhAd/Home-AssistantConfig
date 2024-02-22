@@ -38,7 +38,7 @@ condition:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 300 }}"
       - condition: numeric_state
-        entity_id: proximity.person1_home
+        entity_id: sensor.home_person1_distance
         below: 2000
     # It's been at least 15 minutes, and close
     - condition: and
@@ -46,7 +46,7 @@ condition:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 900 }}"
       - condition: numeric_state
-        entity_id: proximity.person1_home
+        entity_id: sensor.home_person1_distance
         above: 1999
         below: 10000
       - condition: not
@@ -60,7 +60,7 @@ condition:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 1800 }}"
       - condition: numeric_state
-        entity_id: proximity.person1_home
+        entity_id: sensor.home_person1_distance
         above: 9999
         below: 20000
     # It's been at least an hour, and far away
@@ -69,7 +69,7 @@ condition:
       - condition: template
         value_template: "{{ state_attr('script.person1_traveltime','last_triggered') is none or (now() - state_attr('script.person1_traveltime','last_triggered')).seconds > 3600 }}"
       - condition: numeric_state
-        entity_id: proximity.person1_home
+        entity_id: sensor.home_person1_distance
         above: 19999
 action:
   - service: script.turn_on

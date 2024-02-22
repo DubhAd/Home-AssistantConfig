@@ -3,8 +3,8 @@ alias: 'Elizabeth away'
 initial_state: 'on'
 trigger:
   - platform: numeric_state
-    entity_id: proximity.person4_home
-    above: 2
+    entity_id: sensor.home_2_dsb_0230_distance
+    above: 2000
   - platform: state
     entity_id:
       - device_tracker.00_1d_29_f0_4d_da
@@ -37,7 +37,7 @@ condition:
         entity_id: group.person_person4
         state: 'not_home'
       - condition: numeric_state
-        entity_id: proximity.person4_home
+        entity_id: sensor.home_2_dsb_0230_distance
         above: 2
 action:
   - service: script.turn_on

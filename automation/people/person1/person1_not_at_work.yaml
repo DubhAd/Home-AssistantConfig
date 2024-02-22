@@ -3,7 +3,7 @@ alias: 'person1 not at work'
 initial_state: 'on'
 trigger:
   - platform: numeric_state
-    entity_id: proximity.person1_work
+    entity_id: sensor.university_person1_distance
     above: 10000
 condition:
   - condition: state

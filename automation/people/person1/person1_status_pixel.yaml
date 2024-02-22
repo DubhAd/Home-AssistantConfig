@@ -6,7 +6,7 @@ trigger:
     entity_id: person.person1
     to: ~
   - platform: state
-    entity_id: proximity.person1_home
+    entity_id: sensor.home_person1_distance
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'on'
@@ -17,8 +17,8 @@ variables:
   near_home: 200
   status_colour: >-
     {{ "[0,64,0]" if is_state('person.person1','home') else 
-      ( "[0,128,128]" if states('proximity.person1_work')|float < 1500 else 
-        ( "[64,41,0]" if states('proximity.person1_home')|float < 500 else 
+      ( "[0,128,128]" if states('sensor.university_person1_distance')|float < 1500 else 
+        ( "[64,41,0]" if states('sensor.home_person1_distance')|float < 500 else 
           ( "[255,255,0]" if ( is_state('person.person1','station Train Station') or is_state('person.person1','work station') ) else
             ( "[64,0,64]" if not is_state('person.person1','not_home') else "[64,0,0]" )
           )
@@ -32,7 +32,7 @@ action:
             state: 'off'
           - condition: template
             value_template: >-
-              {{ ( states('proximity.person1_home')|float < near_home ) or ( is_state('person.person1','station Train Station') or is_state('person.person1','work station') ) }}
+              {{ ( states('sensor.home_person1_distance')|float < near_home ) or ( is_state('person.person1','station Train Station') or is_state('person.person1','work station') ) }}
         sequence:
           - service: mqtt.publish
             data:

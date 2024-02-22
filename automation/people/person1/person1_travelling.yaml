@@ -3,7 +3,7 @@ alias: 'person1 Travelling'
 initial_state: 'on'
 trigger:
   - platform: numeric_state
-    entity_id: proximity.person1_home
+    entity_id: sensor.home_person1_distance
     above: 50000
     for:
       hours: 3
@@ -16,7 +16,7 @@ condition:
     entity_id: input_boolean.person1_home
     state: 'off'
   - condition: numeric_state
-    entity_id: proximity.person1_home
+    entity_id: sensor.home_person1_distance
     above: 20000
 action:
   - service: input_boolean.turn_on

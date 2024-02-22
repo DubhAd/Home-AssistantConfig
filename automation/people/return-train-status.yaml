@@ -9,7 +9,7 @@ condition:
     entity_id: binary_sensor.workday_sensor
     state: 'on'
   - condition: numeric_state
-    entity_id: proximity.person2_work
+    entity_id: sensor.work_person2_distance
     below: 5
 action:
   - service: notify.person2

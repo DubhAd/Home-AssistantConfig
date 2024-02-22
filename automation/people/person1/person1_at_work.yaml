@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'person1 at work'
 trigger:
 - platform: numeric_state
-  entity_id: proximity.person1_work
+  entity_id: sensor.university_person1_distance
   below: '800'
 - platform: state
   entity_id: sensor.sm_a546b_wifi_connection

@@ -18,13 +18,13 @@ sequence:
         {% endif %}
       prox: >-
         {% if context.user_id == '2e93f54c62e549c8aeperson2748de6bed9d' %}
-          proximity.person2_home
+          sensor.home_person1_distance
         {% elif context.user_id == 'cc64811238de43b5a2e3d15637a0bde7' %}
-          proximity.person3_home
+          sensor.home_person3_distance
         {% elif context.user_id == '7d1cc6e431924db79f4f64ddf7b12f6e' %}
-          proximity.person1_home
+          sensor.home_person1_distance.person1_home
         {% elif context.user_id == 'edd225f434af44e8907253829513070d' %}
-          proximity.elizabeth_home
+          sensor.home_2_dsb_0230_distance
         {% else %}
           unknown
         {% endif %}

@@ -12,7 +12,7 @@ condition:
         entity_id: input_boolean.person2_home
         state: 'on'
       - condition: numeric_state
-        entity_id: proximity.person2_home
+        entity_id: sensor.home_person2_distance
         below: 2000
   - condition: state
     entity_id: input_boolean.person1_at_hw

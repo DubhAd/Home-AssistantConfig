@@ -3,7 +3,7 @@ alias: 'person3 coming home'
 initial_state: 'on'
 trigger:
   - platform: numeric_state
-    entity_id: proximity.person3_home
+    entity_id: sensor.home_person3_distance
     below: 550
   - platform: numeric_state
     entity_id: sensor.person3s_time_to_home_by_foot_duration
@@ -14,7 +14,7 @@ condition:
     state: 'off'
     for: '00:02:00'
   - condition: state
-    entity_id: proximity.person3_home
+    entity_id: sensor.home_person3_distance
     attribute: 'dir_of_travel'
     state: 'towards'
   - condition: state
@@ -22,7 +22,7 @@ condition:
     state: 'on'
     for: '00:05:00'
   - condition: numeric_state
-    entity_id: proximity.person3_home
+    entity_id: sensor.home_person3_distance
     below: 550
 action:
   - if:

@@ -11,7 +11,7 @@ trigger:
     entity_id: proximity.person2_home
     below: 1000
   - platform: numeric_state
-    entity_id: proximity.person3_home
+    entity_id: sensor.home_person3_distance
     below: 1000
   - platform: numeric_state
     entity_id: proximity.person1_home
