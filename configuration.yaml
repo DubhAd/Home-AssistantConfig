@@ -26,7 +26,6 @@ automation mine: !include_dir_list automation/
 scene: !include scenes.yaml
 scene mine: !include_dir_list scenes/
 
-proximity: !include_dir_merge_named proximity/
 sensor: !include_dir_merge_list sensors/
 binary_sensor: !include_dir_merge_list binary_sensors/
 template: !include_dir_merge_list template/
