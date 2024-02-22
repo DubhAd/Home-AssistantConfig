@@ -22,8 +22,9 @@
 # Home Assistant configuration
 
 This is my live(-ish) [Home Assistant](https://home-assistant.io/) Core configuration, This instance is running 2024.2.2 
-on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. I use a Python 3.11.4 virtual environment 
-built [with pyenv](https://github.com/pyenv/pyenv), [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/).
+on a mini-PC (AMD Ryzen 5 5560U), with more RAM than I'm ever going to use. 
+
+I used to use a Python 3.11.4 virtual environment built [with pyenv](https://github.com/pyenv/pyenv), [following this guide](https://home-assistant.io/docs/installation/raspberry-pi/). These days I run entirely in Docker, as does everything else I run. The switch followed [this process](https://blog.ceard.tech/2020/10/ha-venv-to-docker) and went largely seamlessly - the only exception being the Google Cast devices which lost their `cast_` prefix.
 
 Each directory has a short readme explaining what's in there, and the purpose of each file or group of files.
 

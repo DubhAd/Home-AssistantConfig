@@ -1,7 +1,7 @@
 homeassistant: !include homeassistant.yaml
 
 logger:
-  default: info
+  default: warning
   logs:
     homeassistant.helpers.template: error
 
