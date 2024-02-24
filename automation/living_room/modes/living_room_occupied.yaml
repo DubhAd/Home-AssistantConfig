@@ -43,20 +43,12 @@ trigger:
     for:
       minutes: 5
   - platform: state
-    entity_id: device_tracker.living_room_chromecast
-    to: 'home'
-    for:
-      minutes: 5
-  - platform: state
     entity_id: media_player.samsung_tv
     to: 'on'
   - platform: state
     entity_id: media_player.living_room_tv
     to: 'off'
     from: 'unavailable'
-  - platform: state
-    entity_id: device_tracker.living_room_chromecast
-    to: 'home'
   - platform: state
     entity_id: 
     - binary_sensor.living_room_presence_occupancy
@@ -102,9 +94,6 @@ condition:
       - 'buffering'
       - 'off'
       match: any
-    - condition: state
-      entity_id: device_tracker.living_room_chromecast
-      state: 'home'
 action:
   - service: switch.turn_off
     entity_id:
