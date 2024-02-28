@@ -16,7 +16,7 @@ trigger:
 variables:
   near_home: 200
   status_colour: >-
-    {{ "[0,64,0]" if is_state('person.person3','home') else ( "[255,165,0]" if states('sensor.home_person3_distance')|float < near_home else
+    {{ "[0,64,0]" if is_state('input_boolean.person3_home','on') else ( "[255,165,0]" if states('sensor.home_person3_distance')|float < near_home else
       ( "[64,0,64]" if not is_state('person.person3','not_home') else "[64,0,0]") ) }}
 action:
   - choose:
