@@ -1,6 +1,0 @@
-- name: hangouts_webhook
-  platform: rest
-  method: POST
-  message_param_name: text
-  resource: !secret discord_webhook
-

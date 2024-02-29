@@ -6,3 +6,4 @@
     - service: logfile
     - service: tts_family_room
     - service: tts_living_room
+    - service: office_alert_silent
