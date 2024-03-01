@@ -10,10 +10,10 @@ trigger:
     to: 'other Airport'
   - platform: state
     entity_id: device_tracker.pixel_xl
-    to: 'work station'
+    to: 'station2'
   - platform: state
     entity_id: device_tracker.pixel_xl
-    to: 'other station'
+    to: 'other station3'
 condition:
   condition: and
   conditions:

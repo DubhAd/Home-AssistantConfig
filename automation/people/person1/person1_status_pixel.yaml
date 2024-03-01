@@ -19,7 +19,7 @@ variables:
     {{ "[0,64,0]" if is_state('input_boolean.person1_home','on') else 
       ( "[0,128,128]" if states('sensor.university_person1_distance')|float < 1500 else 
         ( "[64,41,0]" if states('sensor.home_person1_distance')|float < 500 else 
-          ( "[255,255,0]" if ( is_state('person.person1','station Train Station') or is_state('person.person1','work station') ) else
+          ( "[255,255,0]" if ( is_state('person.person1','station Train Station') or is_state('person.person1','station2') ) else
             ( "[64,0,64]" if not is_state('person.person1','not_home') else "[64,0,0]" )
           )
         )
@@ -32,7 +32,7 @@ action:
             state: 'off'
           - condition: template
             value_template: >-
-              {{ ( states('sensor.home_person1_distance')|float < near_home ) or ( is_state('person.person1','station Train Station') or is_state('person.person1','work station') ) }}
+              {{ ( states('sensor.home_person1_distance')|float < near_home ) or ( is_state('person.person1','station Train Station') or is_state('person.person1','station2') ) }}
         sequence:
           - service: mqtt.publish
             data:
