@@ -1,0 +1,46 @@
+id: 'office_air'
+alias: 'Office air'
+initial_state: 'on'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.office_air_co2
+    above: 1000
+    for: '00:05:00'
+    id: co2
+  - platform: numeric_state
+    entity_id: sensor.office_air_voc
+    above: 250
+    for: '01:00:00'
+    id: voc_low
+  - platform: numeric_state
+    entity_id: sensor.office_air_voc
+    above: 2000
+    id: voc_high
+  - platform: numeric_state
+    entity_id: sensor.office_air_pm25
+    above: 50
+    for: '00:05:00'
+    id: pm_low
+  - platform: numeric_state
+    entity_id: sensor.office_air_pm25
+    above: 100
+    for: '00:05:00'
+    id: pm_high
+action:
+  - service: notify.awtrix_6d6f50
+    data:
+      message: >-
+        The air quality is low
+          {%- if is_state('binary_sensor.office_door_contact','off') and is_state('binary_sensor.office_window_contact','on') -%}
+            , open the door
+          {%- elif is_state('binary_sensor.office_door_contact','off') and is_state('binary_sensor.office_window_contact','off') -%}
+            , open the door and window
+          {%- elif is_state('binary_sensor.office_door_contact','on') and is_state('binary_sensor.office_window_contact','off') -%}
+            , open the window
+          {%- else -%}
+            , turn on the fan
+          {%- endif -%}
+        . CO2 levels are {{ "high" if states('sensor.office_air_co2')|float > 1000 else "ok" }}, VOC levels are{%- if states('sensor.office_air_voc')|float > 2000 %} high{%- elif states('sensor.office_air_voc')|float > 250 %} elevated{%- else %} ok{% endif -%}, and PM 2.5 levels are{%- if states('sensor.office_air_pm25')|float > 100 %} high{%- elif states('sensor.office_air_pm25')|float > 50 %} elevated{%- else %} ok{%- endif -%}
+      data:
+        icon: "2644"
+        duration: 20
