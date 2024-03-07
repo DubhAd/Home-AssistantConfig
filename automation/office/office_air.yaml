@@ -43,4 +43,5 @@ action:
         . CO2 levels are {{ "high" if states('sensor.office_air_co2')|float > 1000 else "ok" }}, VOC levels are{%- if states('sensor.office_air_voc')|float > 2000 %} high{%- elif states('sensor.office_air_voc')|float > 250 %} elevated{%- else %} ok{% endif -%}, and PM 2.5 levels are{%- if states('sensor.office_air_pm25')|float > 100 %} high{%- elif states('sensor.office_air_pm25')|float > 50 %} elevated{%- else %} ok{%- endif -%}
       data:
         icon: "2644"
-        duration: 20
+        duration: 25
+        repeat: 1
