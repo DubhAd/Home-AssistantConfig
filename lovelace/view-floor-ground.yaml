@@ -85,7 +85,7 @@ cards:
   cards:
   - type: glance
     title: Front of house
-    columns: 4
+    columns: 5
     entities:
       - entity: binary_sensor.front_door_contact
         show_last_changed: true
@@ -99,15 +99,22 @@ cards:
       - entity: binary_sensor.garden_gate
         show_last_changed: true
         name: Gate
+      - entity: switch.number_sign
+        icon: mdi:home-floor-3
+        tap_action: 
+          action: toggle
+        show_last_changed: true
+  - type: glance
+    title: Garage
+    columns: 3
+    entities:
       - entity: binary_sensor.boiler_water_leak
         show_last_changed: true
       - entity: binary_sensor.chest_bike_lid_contact
         name: bike lid
         show_last_changed: true
-      - entity: switch.number_sign
-        icon: mdi:home-floor-3
-        tap_action: 
-          action: toggle
+      - entity: binary_sensor.garage_carbon_monoxide
+        name: Carbon Monoxide
         show_last_changed: true
   - type: glance
     title: Vestibule
