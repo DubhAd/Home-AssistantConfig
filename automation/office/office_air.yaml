@@ -26,6 +26,10 @@ trigger:
     above: 100
     for: '00:05:00'
     id: pm_high
+condition:
+  - condition: state
+    entity_id: input_boolean.office_occupied
+    state: 'on'
 action:
   - service: notify.awtrix_6d6f50
     data:
