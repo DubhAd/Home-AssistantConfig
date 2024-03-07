@@ -199,7 +199,7 @@ cards:
       name: "Home Hub"
       show_last_changed: true
     - entity: sensor.office_air_co2
-      name: "CO²"
+      name: "CO₂"
     - entity: sensor.office_air_temperature
       name: "Temperature"
     - entity: sensor.office_air_humidity
