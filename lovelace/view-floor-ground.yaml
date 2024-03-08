@@ -106,7 +106,7 @@ cards:
         show_last_changed: true
   - type: glance
     title: Garage
-    columns: 3
+    columns: 4
     entities:
       - entity: binary_sensor.boiler_water_leak
         show_last_changed: true
@@ -115,6 +115,9 @@ cards:
         show_last_changed: true
       - entity: binary_sensor.garage_carbon_monoxide
         name: Carbon Monoxide
+        show_last_changed: true
+      - entity: binary_sensor.garage_smoke_smoke
+        name: Smoke
         show_last_changed: true
   - type: glance
     title: Vestibule
