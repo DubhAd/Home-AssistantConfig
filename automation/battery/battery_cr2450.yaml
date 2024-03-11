@@ -1,5 +1,4 @@
 id: 'battery_cr2450'
-initial_state: 'on'
 alias: 'Battery CR2450'
 mode: 'parallel'
 trigger:

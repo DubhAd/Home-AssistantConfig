@@ -1,5 +1,4 @@
 id: 'battery_aa'
-initial_state: 'on'
 alias: 'Battery AA'
 mode: 'parallel'
 trigger:

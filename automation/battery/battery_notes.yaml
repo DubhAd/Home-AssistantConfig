@@ -1,0 +1,19 @@
+id: 'battery_notes_low'
+initial_state: 'on'
+alias: Battery Low Notification
+mode: queued
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_threshold
+    event_data:
+      battery_low: true
+    id: low
+    alias: Battery went low
+action:
+  - service: notify.apprise
+    data:
+      target: discord
+      title: ""
+      message: >
+        :low_battery: {{ trigger.event.data.device_name }} has a battery level of {{ trigger.event.data.battery_level }}% {{ '\n' -}} 
+        You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}
