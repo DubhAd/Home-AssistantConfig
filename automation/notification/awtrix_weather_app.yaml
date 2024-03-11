@@ -46,7 +46,7 @@ action:
     data:
       name: "weather"
       data:
-        text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
+        text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature')|round(1,'half') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
         icon: "{{ weather_icon }}"
         rainbow: false
         repeat: 2
@@ -59,7 +59,7 @@ action:
     data:
       name: "weather"
       data:
-        text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
+        text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature')|round(1,'half') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
         icon: "{{ weather_icon }}"
         rainbow: false
         repeat: 2

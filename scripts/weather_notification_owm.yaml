@@ -1,4 +1,41 @@
 alias: Weather notification OWM
+variables:
+  weather_icon: >-
+    {% set weather_cond_day = ({
+    "clear-night":"13345",
+    "cloudy":"52159",
+    "fog":"676",
+    "hail":"53288",
+    "lightning":"56676",
+    "lightning-rainy":"56675",
+    "partlycloudy":"2286",
+    "pouring":"49300",
+    "rainy":"2284",
+    "snowy":"2289",
+    "snowy-rainy":"49301",
+    "sunny":"11201",
+    "windy":"55032",
+    "windy-variant":"56598",
+    "exceptional":"16754"
+    }) %}
+    {% set weather_cond_night = ({
+    "clear-night":"13345",
+    "cloudy":"55707",
+    "fog":"43741",
+    "hail":"53288",
+    "lightning":"56676",
+    "lightning-rainy":"56675",
+    "partlycloudy":"58532",
+    "pouring":"26092",
+    "rainy":"26092",
+    "snowy":"26090",
+    "snowy-rainy":"49301",
+    "sunny":"18433",
+    "windy":"56585",
+    "windy-variant":"56585",
+    "exceptional":"16754"
+    }) %}
+    {{ weather_cond_night[states('sensor.openweathermap_condition')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('sensor.openweathermap_condition')] }}
 sequence:
   - service: input_text.set_value
     data:
@@ -12,6 +49,24 @@ sequence:
         {% else %}
           I have no idea what the weather is like, try looking out the window.
         {% endif %}
-  - service: notify.logfile
-    data:
-      message: "SENDLIVING {{ states('input_text.weather_message') }}"
+  - if:
+      - condition: state
+        entity_id: input_boolean.use_lametric
+        state: 'on'
+    then:
+      - service: notify.logfile
+        data:
+          message: "SENDLIVING WEATHER {{ states('input_text.weather_message') }}"
+  - if:
+      - condition: state
+        entity_id: input_boolean.use_awtrix_living_room
+        state: 'on'
+    then:
+      - service: notify.awtrix_living_room
+        data:
+          message: "{{ states('input_text.weather_message') }}"
+          data:
+            icon: "{{ weather_icon }}"
+            duration: 30
+            repeat: 2
+            pushIcon: 1
