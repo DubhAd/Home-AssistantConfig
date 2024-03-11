@@ -42,9 +42,21 @@ variables:
     }) %}
     {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('weather.tomorrow_io_home_nowcast')] }}
 action:
-  - service: awtrix.push_app_data
+  - service: awtrix.awtrix_6d6f50_push_app_data
     data:
-      device: awtrix_6d6f50
+      name: "weather"
+      data:
+        text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
+        icon: "{{ weather_icon }}"
+        rainbow: false
+        repeat: 2
+        pushIcon: 1
+        textCase: 0
+        textOffset: 0
+        lifetime: 1800
+        lifetimeMode: 0
+  - service: awtrix.awtrix_living_room_push_app_data
+    data:
       name: "weather"
       data:
         text: "{{ state_attr('weather.tomorrow_io_home_nowcast','temperature') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}"
