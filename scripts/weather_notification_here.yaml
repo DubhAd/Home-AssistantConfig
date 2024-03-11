@@ -46,24 +46,11 @@ sequence:
         It is {{ state_attr('weather.tomorrow_io_home_nowcast','temperature')|round(1,'half') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}, and {{ states('weather.tomorrow_io_home_nowcast')|lower }}.
         Today will be {{ states('sensor.here_weather_forecast_hourly_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_hourly_temperature_description_0')|lower }},
         and it will be {{ states('sensor.here_weather_forecast_7days_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_7days_temperature_description_0')|lower }} for the week, with highs of {{ temp_high }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }} and lows of {{ temp_low }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}.
-  - if:
-      - condition: state
-        entity_id: input_boolean.use_lametric
-        state: 'on'
-    then:
-      - service: notify.logfile
-        data:
-          message: "SENDLIVING WEATHER {{ states('input_text.weather_message') }}"
-  - if:
-      - condition: state
-        entity_id: input_boolean.use_awtrix_living_room
-        state: 'on'
-    then:
-      - service: notify.awtrix_living_room
-        data:
-          message: "{{ states('input_text.weather_message') }}"
-          data:
-            icon: "{{ weather_icon }}"
-            duration: 30
-            repeat: 1
-            pushIcon: 1
+  - service: notify.awtrix_living_room
+    data:
+      message: "{{ states('input_text.weather_message') }}"
+      data:
+        icon: "{{ weather_icon }}"
+        duration: 30
+        repeat: 1
+        pushIcon: 1

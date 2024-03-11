@@ -49,24 +49,11 @@ sequence:
         {% else %}
           I have no idea what the weather is like, try looking out the window.
         {% endif %}
-  - if:
-      - condition: state
-        entity_id: input_boolean.use_lametric
-        state: 'on'
-    then:
-      - service: notify.logfile
-        data:
-          message: "SENDLIVING WEATHER {{ states('input_text.weather_message') }}"
-  - if:
-      - condition: state
-        entity_id: input_boolean.use_awtrix_living_room
-        state: 'on'
-    then:
-      - service: notify.awtrix_living_room
-        data:
-          message: "{{ states('input_text.weather_message') }}"
-          data:
-            icon: "{{ weather_icon }}"
-            duration: 30
-            repeat: 2
-            pushIcon: 1
+  - service: notify.awtrix_living_room
+    data:
+      message: "{{ states('input_text.weather_message') }}"
+      data:
+        icon: "{{ weather_icon }}"
+        duration: 30
+        repeat: 2
+        pushIcon: 1

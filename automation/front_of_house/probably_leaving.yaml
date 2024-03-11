@@ -50,10 +50,10 @@ condition:
     state: 'off'
 action:
   # Notify us
-  - service: notify.logfile
+  - service: notify.person2
     data: 
       message: >-
-        SENDME The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_other_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
+        The following are open: {{ dict((states|selectattr('entity_id', 'in', state_attr('group.my_downstairs_windows', 'entity_id') + state_attr('group.my_upstairs_windows', 'entity_id') + state_attr('group.my_other_exterior_doors', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}
   - service: notify.person3
     data: 
       message: >-

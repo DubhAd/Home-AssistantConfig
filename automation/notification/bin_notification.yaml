@@ -34,25 +34,11 @@ variables:
     {% endif %}
 action:
   - delay: '00:01:00'
-  - if:
-      - condition: state
-        entity_id: input_boolean.use_lametric
-        state: 'on'
-    then:
-      - service: notify.logfile
-        data:
-          message: >-
-            SENDLIVING {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
-  - if:
-      - condition: state
-        entity_id: input_boolean.use_awtrix_living_room
-        state: 'on'
-    then:
-      - service: notify.awtrix_living_room
-        data:
-          message: >-
-            {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
-          data:
-            icon: "{{ icon }}"
-            duration: 30
-            repeat: 2
+  - service: notify.awtrix_living_room
+    data:
+      message: >-
+        {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
+      data:
+        icon: "{{ icon }}"
+        duration: 30
+        repeat: 2
