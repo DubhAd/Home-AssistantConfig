@@ -64,3 +64,4 @@ sequence:
             icon: "{{ weather_icon }}"
             duration: 30
             repeat: 2
+            pushIcon: 1
