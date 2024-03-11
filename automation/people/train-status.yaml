@@ -16,6 +16,11 @@ action:
   - service: notify.person2
     data: 
       message: "{{ states('input_text.train_message') }}"
-  - service: notify.logfile
-    data: 
-      message: "SENDLIVING {{ states('input_text.train_message') }}"
+  - if:
+      - condition: state
+        entity_id: input_boolean.use_lametric
+        state: 'on'
+    then:
+      - service: notify.logfile
+        data:
+          message: "SENDLIVING {{ states('input_text.train_message') }}"

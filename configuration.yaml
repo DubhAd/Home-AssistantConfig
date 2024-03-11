@@ -60,3 +60,4 @@ mqtt:
   device_tracker: !include_dir_merge_list mqtt/device_tracker/
 
 awtrix:
+battery_notes:
