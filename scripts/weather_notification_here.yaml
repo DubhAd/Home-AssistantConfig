@@ -36,6 +36,8 @@ variables:
     "exceptional":"16754"
     }) %}
     {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('weather.tomorrow_io_home_nowcast')] }}
+  temp_low: "{{ state_attr('weather.here_weather_forecast_7days','forecast')|selectattr('templow')|map(attribute='templow')|min()|default(0)|round(0) }}"
+  temp_high: "{{ state_attr('weather.here_weather_forecast_7days','forecast')|selectattr('temperature')|map(attribute='temperature')|max()|default(0)|round(0) }}"
 sequence:
   - service: input_text.set_value
     data:
@@ -43,7 +45,7 @@ sequence:
       value: >-
         It is {{ state_attr('weather.tomorrow_io_home_nowcast','temperature')|round(1,'half') }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}, and {{ states('weather.tomorrow_io_home_nowcast')|lower }}.
         Today will be {{ states('sensor.here_weather_forecast_hourly_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_hourly_temperature_description_0')|lower }},
-        and it will be {{ states('sensor.here_weather_forecast_7days_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_7days_temperature_description_0')|lower }} for the week.
+        and it will be {{ states('sensor.here_weather_forecast_7days_sky_description_0')|lower }} and {{ states('sensor.here_weather_forecast_7days_temperature_description_0')|lower }} for the week, with highs of {{ temp_high }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }} and lows of {{ temp_low }}{{ state_attr('weather.tomorrow_io_home_nowcast','temperature_unit') }}.
   - if:
       - condition: state
         entity_id: input_boolean.use_lametric
@@ -63,5 +65,5 @@ sequence:
           data:
             icon: "{{ weather_icon }}"
             duration: 30
-            repeat: 2
+            repeat: 1
             pushIcon: 1
