@@ -9,11 +9,34 @@ trigger:
       battery_low: true
     id: low
     alias: Battery went low
+  - platform: event
+    event_type: battery_notes_battery_threshold
+    event_data:
+      battery_low: false
+    id: high
+    alias: Battery went high
 action:
-  - service: notify.apprise
-    data:
-      target: discord
-      title: ""
-      message: >
-        :low_battery: {{ trigger.event.data.device_name }} has a battery level of {{ trigger.event.data.battery_level }}% {{ '\n' -}} 
-        You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - low
+        sequence:
+          - service: notify.apprise
+            data:
+              target: discord
+              title: ""
+              message: >
+                :low_battery: {{ trigger.event.data.device_name }} has a battery level of {{ trigger.event.data.battery_level }}% {{ '\n' -}} 
+                You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}
+      - conditions:
+          - condition: trigger
+            id:
+              - high
+        sequence:
+          - service: notify.apprise
+            data:
+              target: discord
+              title: ""
+              message: >
+                :battery: {{ trigger.event.data.device_name }} has increased battery level to {{ trigger.event.data.battery_level }}%
