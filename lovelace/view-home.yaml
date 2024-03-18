@@ -193,6 +193,7 @@ cards:
           - integration: 'tasmota'
           - integration: 'uk_transport'
           - device_manufacturer: 'LAB02 Research'
+          - device_manufacturer: 'HASS.Agent Team'
           - domain: 'device_tracker'
           - domain: 'weather'
           - device: 'person1 Pixel 3'

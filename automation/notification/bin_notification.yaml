@@ -34,11 +34,16 @@ variables:
     {% endif %}
 action:
   - delay: '00:01:00'
-  - service: notify.awtrix_living_room
-    data:
-      message: >-
-        {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
-      data:
-        icon: "{{ icon }}"
-        duration: 30
-        repeat: 2
+  - repeat:
+      for_each:
+        - 'living_room'
+        - 'family_room'
+      sequence:
+        - service: 'notify.awtrix_{{ repeat.item }}'
+          data:
+            message: >-
+              {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
+            data:
+              icon: "{{ icon }}"
+              duration: 30
+              repeat: 2
