@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id: media_player.office
     to: 'unavailable'
-    for: '00:10:00'
+    for: '00:20:00'
   - platform: state
     entity_id: binary_sensor.office_sonos_family
     to: 'off'
