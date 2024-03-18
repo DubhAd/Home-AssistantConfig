@@ -6,9 +6,14 @@ trigger:
     minutes: '/5'
     seconds: '30'
 condition:
-  - condition: state
-    entity_id: input_boolean.living_room_occupied
-    state: 'on'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_room_occupied
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.family_room_occupied
+        state: 'on'
   - condition: or
     conditions:
       - condition: and
