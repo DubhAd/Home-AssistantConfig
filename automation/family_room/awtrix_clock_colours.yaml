@@ -1,0 +1,44 @@
+id: 'awtrix_family_room_clock_colour'
+alias: 'awtrix family room clock colour'
+initial_state: 'on'
+trigger:
+  - platform: time_pattern
+    minutes: '/5'
+variables:
+  when: >-
+    {{ -1 if is_state('sensor.sm_a546b_next_alarm','unavailable') else ((as_datetime(states('sensor.sm_a546b_next_alarm')|default('1970-01-01T00:00:00+00:00')) - now()).seconds/60)|round(0) }}
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ when < 0 or when > (9 * 60) }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_family_room/settings
+              payload: >-
+                { "TIME_COL": [255,255,255], "CBCOL": [255, 255, 255] }
+      - conditions:
+          - condition: template
+            value_template: "{{ when < (8.5 * 60) and when > (8 * 60) }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_family_room/settings
+              payload: >-
+                { "TIME_COL": [255,255,255], "CBCOL": [255, 255, 255] }
+      - conditions:
+          - condition: template
+            value_template: "{{ when < (8 * 60) }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              retain: false
+              topic: awtrix_family_room/settings
+              payload: >-
+                { "TIME_COL": [255,0,0], "CBCOL": [255, 255, 255] }
