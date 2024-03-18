@@ -11,9 +11,14 @@ condition:
     state: 'on'
   - condition: or
     conditions:
-      - condition: state
-        entity_id: sensor.next_bin_collection
-        state: 'tomorrow'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: sensor.next_bin_collection
+            state: 'tomorrow'
+          - condition: template
+            value_template: >-
+              {{ states.binary_sensor.garden_gate_contact.last_changed < today_at("18:00") }}
       - condition: and
         conditions:
           - condition: time
@@ -21,7 +26,13 @@ condition:
           - condition: state
             entity_id: sensor.next_bin_collection
             state: 'today'
+          - condition: template
+            value_template: >-
+              {{ states.binary_sensor.garden_gate_contact.last_changed < today_at("18:00") - timedelta(days=1) }}
 variables:
+  not_out: >-
+    {{ (is_state('sensor.next_bin_collection','today') and (states.binary_sensor.garden_gate_contact.last_changed < today_at("18:00") - timedelta(days=1))) 
+      or (is_state('sensor.next_bin_collection','tomorrow') and (states.binary_sensor.garden_gate_contact.last_changed < today_at("18:00"))) }}
   icon: >-
     {% if is_state_attr('sensor.next_bin_collection','bin_type','grey') %}
       12155
@@ -32,6 +43,9 @@ variables:
     {% elif is_state_attr('sensor.next_bin_collection','bin_type','brown') %}
       12442
     {% endif %}
+  message: >-
+    {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
+    {% if not_out %} and it has not been put out yet {% endif %}
 action:
   - delay: '00:01:00'
   - repeat:
@@ -42,7 +56,7 @@ action:
         - service: 'notify.awtrix_{{ repeat.item }}'
           data:
             message: >-
-              {{ states('sensor.next_bin_collection')|title }} the {{ state_attr('sensor.next_bin_collection','bin_type') }} bin is being collected
+              {{ message }}
             data:
               icon: "{{ icon }}"
               duration: 30
