@@ -198,6 +198,8 @@ cards:
           - domain: 'weather'
           - device: 'person1 Pixel 3'
           - entity_id: "/.*_old/"
+          - entity_id: "/_sim_/"
+          - entity_id: "/_miband/"
           - entity_id: "/select.*_playlist/"
           - entity_id: "/.*_next_alarm/"
           - entity_id: "media_player.samsung_tv"
