@@ -1,5 +1,4 @@
 id: 'alarm_disarm_in_the_morning'
-initial_state: 'on'
 alias: 'Alarm disarm in the morning'
 trigger:
   - platform: state

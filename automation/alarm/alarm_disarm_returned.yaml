@@ -1,5 +1,4 @@
 id: 'alarm_disarm_upon_return'
-initial_state: 'on'
 alias: 'Alarm disarm upon return'
 trigger:
   - platform: state

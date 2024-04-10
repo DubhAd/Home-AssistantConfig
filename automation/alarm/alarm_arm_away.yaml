@@ -1,5 +1,4 @@
 id: 'alarm_arm_away'
-initial_state: 'on'
 alias: 'Alarm arm away'
 trigger:
   - platform: state

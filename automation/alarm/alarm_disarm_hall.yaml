@@ -1,5 +1,4 @@
 id: 'alarm_disarm_hall'
-initial_state: 'on'
 alias: 'Alarm disarm hall'
 trigger:
   - platform: state
