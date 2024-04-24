@@ -35,7 +35,7 @@ cards:
           hold_action:
             action: none
         - type: entity
-          entity: input_text.person_person4
+          entity: input_text.car_location
           use_entity_picture: true
           double_tap_action:
             action: none
@@ -44,7 +44,7 @@ cards:
           hold_action:
             action: none
         - type: entity
-          entity: input_text.car_location
+          entity: input_text.person_person4
           use_entity_picture: true
           double_tap_action:
             action: none
@@ -104,7 +104,7 @@ cards:
     - type: horizontal-stack
       cards:
         - type: custom:mushroom-entity-card
-          entity: sensor.outside_climate_temperature
+          entity: sensor.tomorrow_io_home_feels_like
           icon_type: entity-picture
           icon: mdi:thermometer-auto
           name: Outside
