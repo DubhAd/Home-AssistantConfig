@@ -6,7 +6,7 @@ trigger:
     entity_id:
       - sensor.skoda_superb_places
       - sensor.home_skoda_superb_position_distance
-      - device_tracker.skoda_superb_position
+      - device_tracker.car_gps
 variables:
   where: >-
     {% if states('sensor.skoda_superb_places') != 'unknown' %} 
@@ -21,8 +21,8 @@ action:
       value: >-
         {% if is_state('input_boolean.car_home', 'on') %}
           Home
-        {% elif not is_state('device_tracker.skoda_superb_position', 'not_home') %}
-          At {{ states('device_tracker.skoda_superb_position') }}
+        {% elif not is_state('device_tracker.car_gps', 'not_home') %}
+          At {{ states('device_tracker.car_gps') }}
         {% else %}
           Near {{ where }}
         {% endif %}
