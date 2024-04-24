@@ -1,0 +1,8 @@
+id: 'car_moved'
+alias: 'car moved'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: device_tracker.skoda_superb_position
+action:
+  - service: script.update_car_location

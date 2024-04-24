@@ -3,8 +3,8 @@ sequence:
   - service: device_tracker.see
     data:
       dev_id: "car_gps"
-      location_name: "{{ states('device_tracker.pixel_xl') }}"
-      gps_accuracy: "{{ state_attr('device_tracker.pixel_xl','gps_accuracy')|int }}"
+      location_name: "{{ states('device_tracker.skoda_superb_position') }}"
+      gps_accuracy: "10"
       gps:
-        - "{{ state_attr('device_tracker.pixel_xl','latitude')|float }}"
-        - "{{ state_attr('device_tracker.pixel_xl','longitude')|float }}"
+        - "{{ state_attr('device_tracker.skoda_superb_position','latitude')|float }}"
+        - "{{ state_attr('device_tracker.skoda_superb_position','longitude')|float }}"
