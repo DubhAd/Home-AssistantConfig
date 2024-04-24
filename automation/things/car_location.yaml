@@ -1,0 +1,29 @@
+id: 'car_location_update'
+alias: 'Car location update'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.skoda_superb_places
+      - sensor.home_skoda_superb_position_distance
+      - device_tracker.skoda_superb_position
+variables:
+  where: >-
+    {% if states('sensor.skoda_superb_places') != 'unknown' %} 
+      {% if state_attr('sensor.skoda_superb_places','place_name')|is_defined and (state_attr('sensor.skoda_superb_places','place_name') != state_attr('sensor.skoda_superb_places','street')) %}{{ state_attr('sensor.skoda_superb_places','place_name') + ", " }}{% endif %}{% if state_attr('sensor.skoda_superb_places','street_number')|is_defined %}{{ state_attr('sensor.skoda_superb_places','street_number') + " " }}{% endif %}{{ state_attr('sensor.skoda_superb_places','street')  }}, {{ state_attr('sensor.skoda_superb_places','city')  }}
+    {% else %}
+      unknown
+    {% endif %}
+action:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.car_location
+      value: >-
+        {% if is_state('input_boolean.car_home', 'on') %}
+          Home
+        {% elif not is_state('device_tracker.skoda_superb_position', 'not_home') %}
+          At {{ states('device_tracker.skoda_superb_position') }}
+        {% else %}
+          Near {{ where }}
+        {% endif %}
+
