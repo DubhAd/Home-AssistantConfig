@@ -4,7 +4,7 @@ alias: 'Car home'
 trigger:
   - platform: state
     entity_id:
-    - group.car
+    - device_tracker.skoda_superb_position
     to: 'home'
   - platform: homeassistant
     event: start
@@ -13,7 +13,7 @@ condition:
     entity_id: input_boolean.car_home
     state: 'off'
   - condition: state
-    entity_id: group.car
+    entity_id: device_tracker.skoda_superb_position
     state: 'home'
 action:
   - service: input_boolean.turn_on

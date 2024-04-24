@@ -4,7 +4,7 @@ initial_state: 'on'
 trigger:
   - platform: state
     entity_id:
-    - group.car
+    - device_tracker.skoda_superb_position
     to: 'not_home'
   - platform: homeassistant
     event: start
@@ -14,11 +14,8 @@ condition:
     state: 'on'
   # All trackers show away
   - condition: state
-    entity_id: group.car
+    entity_id: device_tracker.skoda_superb_position
     state: 'not_home'
-  # The garage door recently opened or closed
-  - condition: template
-    value_template: "{{ ((now() - states.binary_sensor.garage_door_car_contact.last_changed).seconds < 600) }}"
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.car_home

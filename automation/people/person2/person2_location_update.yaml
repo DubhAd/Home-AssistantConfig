@@ -21,11 +21,3 @@ trigger:
       - sensor.person2s_time_to_home_waze
 action:
   - service: script.person2_travel_sensor
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: input_boolean.person2_driving
-        state: 'on'
-      sequence:
-      - service: script.turn_on
-        entity_id: script.update_car_location

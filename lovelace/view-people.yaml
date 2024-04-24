@@ -430,14 +430,11 @@ cards:
       cards: 
       - type: glance
         title: Car
-        columns: 3
         entities:
-        - entity: device_tracker.car_gps
+        - entity: device_tracker.skoda_superb_position
           name: GPS
           icon: mdi:crosshairs-gps
-        - entity: device_tracker.car_front
-          name: Front
-          icon: mdi:bluetooth
-        - entity: device_tracker.car_rear
-          name: Rear
-          icon: mdi:bluetooth
+        - entity: binary_sensor.skoda_superb_doors_locked
+          name: Doors
+        - entity: binary_sensor.skoda_superb_windows_closed
+          name: Windows
