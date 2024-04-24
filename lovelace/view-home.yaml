@@ -43,6 +43,15 @@ cards:
             action: none
           hold_action:
             action: none
+        - type: entity
+          entity: input_text.car_location
+          use_entity_picture: true
+          double_tap_action:
+            action: none
+          tap_action:
+            action: none
+          hold_action:
+            action: none
         - type: weather
           entity: weather.tomorrow_io_home_nowcast
           show_conditions: true

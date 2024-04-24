@@ -419,8 +419,8 @@ cards:
       service_data:
         entity_id: input_boolean.lovelace_car_more
     state_image:
-      "Home": /local/images/car.jpg
-      "Away": /local/images/CarAway.png
+      "Home": /local/images/superb_home.jpg
+      "Away": /local/images/superb_away.jpg
   - type: conditional
     conditions:
       - entity: input_boolean.lovelace_car_more

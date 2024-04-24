@@ -20,6 +20,8 @@ input_text.person_person1:
   entity_picture: /local/people/person1Thumb.jpg
 input_text.person_person2:
   entity_picture: /local/people/person2/person2.png
+input_text.car_location:
+  entity_picture: /local/images/skoda.png
 binary_sensor.first_floor_front:
   device_class: connectivity
 binary_sensor.first_floor_rear:
