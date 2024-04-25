@@ -36,8 +36,8 @@ variables:
     "exceptional":"16754"
     }) %}
     {{ weather_cond_night[states('weather.tomorrow_io_home_nowcast')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('weather.tomorrow_io_home_nowcast')] }}
-  temp_low: "{{ state_attr('weather.here_weather_forecast_7days','forecast')|selectattr('templow')|map(attribute='templow')|min()|default(0)|round(0) }}"
-  temp_high: "{{ state_attr('weather.here_weather_forecast_7days','forecast')|selectattr('temperature')|map(attribute='temperature')|max()|default(0)|round(0) }}"
+  temp_low: "{{ state_attr('weather.tomorrow_io_home_daily','forecast')|selectattr('templow')|map(attribute='templow')|min()|default(0)|round(0) }}"
+  temp_high: "{{ state_attr('weather.tomorrow_io_home_daily','forecast')|selectattr('temperature')|map(attribute='temperature')|max()|default(0)|round(0) }}"
 sequence:
   - service: input_text.set_value
     data:
