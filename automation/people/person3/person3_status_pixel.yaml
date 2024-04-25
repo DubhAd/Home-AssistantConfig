@@ -1,6 +1,7 @@
 id: 'awtrix_person3_status_pixel'
 alias: 'Awtrix person3 status pixel'
 initial_state: 'on'
+mode: queued
 trigger:
   - platform: state
     entity_id: person.person3
