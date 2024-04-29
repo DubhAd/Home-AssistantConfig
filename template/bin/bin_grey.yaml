@@ -1,4 +1,7 @@
-- sensor:
+- trigger:
+  - platform: time_pattern
+    minutes: '/10'
+  sensor:
   - name: 'Grey bin'
     unique_id: 'grey_bin_collection'
     state: >-
@@ -11,5 +14,3 @@
       {% else %}
         future
       {% endif %}
-      {{ "" if states('sensor.time') != "test" }}
-

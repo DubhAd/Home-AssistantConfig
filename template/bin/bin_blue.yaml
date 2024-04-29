@@ -1,4 +1,7 @@
-- sensor:
+- trigger:
+  - platform: time_pattern
+    minutes: '/10'
+  sensor:
   - name: 'Blue bin'
     unique_id: 'blue_bin_collection'
     state: >-
@@ -12,4 +15,3 @@
         future
       {% endif %}
       {{ "" if states('sensor.time') != "test" }}
-

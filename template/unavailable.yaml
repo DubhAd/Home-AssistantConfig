@@ -1,3 +1,6 @@
+- trigger:
+  - platform: time_pattern
+    seconds: 0
 - sensor:
   - name: 'Unavailable entities'
     unique_id: 'unavailable_entities'
