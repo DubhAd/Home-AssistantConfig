@@ -5,11 +5,27 @@ trigger:
   - platform: time_pattern
     minutes: '/5'
     seconds: '50'
-condition:
-  - condition: state
-    entity_id: input_boolean.living_room_occupied
-    state: 'on'
-  - condition: template
-    value_template: "{{ states('sensor.here_weather_forecast_hourly_description_0') != 'unknown' }}"
+  - platform: state
+    entity_id: input_select.weather_source
 action:
-  - service: script.weather_notification_here
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_select.weather_source
+            state: 'here'
+        sequence:
+          - service: script.weather_notification_here
+      - conditions:
+          - condition: state
+            entity_id: input_select.weather_source
+            state: 'owm'
+        sequence:
+          - service: script.weather_notification_here
+      - conditions:
+          - condition: state
+            entity_id: input_select.weather_source
+            state: 'accuweather'
+        sequence:
+          - service: script.weather_notification_accuweather
+    default:
+      - service: script.weather_notification_accuweather
