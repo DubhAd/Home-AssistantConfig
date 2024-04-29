@@ -84,7 +84,9 @@ sequence:
             pushIcon: 1
   - if:
       - condition: state
-        entity_id: input_boolean.office_occupied
+        entity_id: 
+          - input_boolean.office_occupied
+          - input_boolean.notify_office_weather
         state: 'on'
     then:
       - service: notify.awtrix_6d6f50
