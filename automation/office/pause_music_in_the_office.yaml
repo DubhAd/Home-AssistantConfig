@@ -5,18 +5,23 @@ trigger:
   - platform: calendar
     entity_id: calendar.person2_work
     event: start
+    id: calendar
   - platform: state
     entity_id: binary_sensor.kelsie_webcamactive
     to: 'on'
+    id: webcam
   - platform: state
     entity_id: input_boolean.office_occupied
     to: 'off'
+    id: unoccupied
   - platform: state
     entity_id: input_boolean.office_paused
     to: 'on'
+    id: paused
   - platform: state
     entity_id: input_select.office
     to: 'Pause'
+    id: paused
 condition:
   # Music is playing
   - condition: state
@@ -46,6 +51,10 @@ condition:
         - condition: state
           entity_id: calendar.person2_work
           state: 'on'
+        - condition: trigger
+          id: calendar
+        - condition: trigger
+          id: webcam
 action:
   - service: media_player.media_pause
     data:
