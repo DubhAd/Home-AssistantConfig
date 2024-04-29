@@ -66,7 +66,7 @@ sequence:
             pushIcon: 1
   - if:
       - condition: state
-        entity_id: input_boolean.family_occupied
+        entity_id: input_boolean.family_room_occupied
         state: 'on'
     then:
       - service: notify.awtrix_family_room
