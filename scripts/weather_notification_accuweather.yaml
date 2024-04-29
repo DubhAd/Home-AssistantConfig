@@ -1,0 +1,59 @@
+alias: Weather notification OWM
+variables:
+  weather_icon: >-
+    {% set weather_cond_day = ({
+    "clear-night":"13345",
+    "cloudy":"52159",
+    "fog":"676",
+    "hail":"53288",
+    "lightning":"56676",
+    "lightning-rainy":"56675",
+    "partlycloudy":"2286",
+    "pouring":"49300",
+    "rainy":"2284",
+    "snowy":"2289",
+    "snowy-rainy":"49301",
+    "sunny":"11201",
+    "windy":"55032",
+    "windy-variant":"56598",
+    "exceptional":"16754"
+    }) %}
+    {% set weather_cond_night = ({
+    "clear-night":"13345",
+    "cloudy":"55707",
+    "fog":"43741",
+    "hail":"53288",
+    "lightning":"56676",
+    "lightning-rainy":"56675",
+    "partlycloudy":"58532",
+    "pouring":"26092",
+    "rainy":"26092",
+    "snowy":"26090",
+    "snowy-rainy":"49301",
+    "sunny":"18433",
+    "windy":"56585",
+    "windy-variant":"56585",
+    "exceptional":"16754"
+    }) %}
+    {{ weather_cond_night[states('sensor.openweathermap_condition')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('sensor.openweathermap_condition')] }}
+sequence:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.weather_message
+      value: >-
+        {% if states('sensor.openweathermap_temperature') != 'unknown' %}
+          It is {{ states('sensor.openweathermap_temperature')|round(0) }}{{ state_attr('sensor.openweathermap_temperature','unit_of_measurement') }} with {{ states('sensor.openweathermap_weather') }} outside and {{ states('sensor.openweathermap_condition')|lower }}, the forecast is {{ states('sensor.openweathermap_forecast_condition') }}{% if not is_state('sensor.openweathermap_forecast_temperature','unknown') %} with highs of {{ states('sensor.openweathermap_forecast_temperature')|round(0) }}{{ state_attr('sensor.openweathermap_forecast_temperature','unit_of_measurement') }}{% endif %}{% if not is_state('sensor.openweathermap_forecast_temperature_low','unknown') %} and lows of {{ states('sensor.openweathermap_forecast_temperature_low')|round(0) }}{{ state_attr('sensor.openweathermap_forecast_temperature_low','unit_of_measurement') }}{% endif -%}
+        {%- if states('sensor.openweathermap_rain')|int(0) > 0 and states('sensor.openweathermap_snow')|int(0) > 0 %}. Expect rain and snow.{%- elif states('sensor.openweathermap_rain')|int(0) > 0 %}. Expect rain.{%- elif states('sensor.openweathermap_snow')|int(0) > 0 %}. Expect snow.{% endif -%}
+        {% elif states('weather.openweathermap') != 'unknown' %}
+          {{ state_attr('weather.openweathermap','temperature') }}C outside and {{ states('weather.openweathermap') }}
+        {% else %}
+          I have no idea what the weather is like, try looking out the window.
+        {% endif %}
+  - service: notify.awtrix_living_room
+    data:
+      message: "{{ states('input_text.weather_message') }}"
+      data:
+        icon: "{{ weather_icon }}"
+        duration: 30
+        repeat: 2
+        pushIcon: 1
