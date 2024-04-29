@@ -37,6 +37,51 @@ variables:
     }) %}
     {{ weather_cond_night[states('weather.accuhome')] if is_state('sun.sun','below_horizon') else weather_cond_day[states('weather.accuhome')] }}
 sequence:
+  - service: weather.get_forecasts
+    data:
+      type: daily
+    target:
+      entity_id: weather.accuhome
+    response_variable: daily
+  - variables:
+      temp_low: "{{ daily['weather.accuhome'].forecast|selectattr('templow')|map(attribute='templow')|min()|default(0)|round(0) }} {{ state_attr('weather.accuhome','temperature_unit') }}"
+      temp_high: "{{ daily['weather.accuhome'].forecast|selectattr('temperature')|map(attribute='temperature')|max()|default(0)|round(0) }} {{ state_attr('weather.accuhome','temperature_unit') }}"
+  - if:
+      - condition: state
+        entity_id: input_boolean.living_room_occupied
+        state: 'on'
+    then:
+      - service: notify.awtrix_living_room
+        data:
+          message: >-
+            {% if states('sensor.accuhome_realfeel_temperature') != 'unknown' %}
+              It is currently {{ states('sensor.accuhome_apparent_temperature',with_unit=True) }}, feeling like {{ states('sensor.accuhome_realfeel_temperature',rounded=True,with_unit=True) }}, and {{ states('weather.accuhome') }}. T{{ "oday will be " + states('sensor.accuhome_condition_today')|lower + ", and t" if is_state('sun.sun','above_horizon') }}onight will be {{ states('sensor.accuhome_condition_tonight')|lower }}. Highs will feel like {{ states('sensor.accuhome_realfeel_temperature_max_today',with_unit=True) }} and lows like {{ states('sensor.accuhome_realfeel_temperature_min_today',with_unit=True) }}. Tomorrow will be {{ states('sensor.accuhome_condition_day_1')|lower }}, and tomorrow night will be {{ states('sensor.accuhome_condition_night_1')|lower }}, highs feeling like {{ states('sensor.accuhome_realfeel_temperature_max_day_1',with_unit=True) }} and lows like {{ states('sensor.accuhome_realfeel_temperature_min_day_1',with_unit=True) }}. Highs this week of {{ temp_high }} and lows of {{ temp_low }}.
+            {% else %}
+              I have no idea what the weather is like, try looking out the window.
+            {% endif %}
+          data:
+            icon: "{{ weather_icon }}"
+            duration: 40
+            repeat: 2
+            pushIcon: 1
+  - if:
+      - condition: state
+        entity_id: input_boolean.family_occupied
+        state: 'on'
+    then:
+      - service: notify.awtrix_family_room
+        data:
+          message: >-
+            {% if states('sensor.accuhome_realfeel_temperature') != 'unknown' %}
+              It is currently {{ states('sensor.accuhome_apparent_temperature',with_unit=True) }}, feeling like {{ states('sensor.accuhome_realfeel_temperature',rounded=True,with_unit=True) }}, and {{ states('weather.accuhome') }}. T{{ "oday will be " + states('sensor.accuhome_condition_today')|lower + ", and t" if is_state('sun.sun','above_horizon') }}onight will be {{ states('sensor.accuhome_condition_tonight')|lower }}. Highs will feel like {{ states('sensor.accuhome_realfeel_temperature_max_today',with_unit=True) }} and lows like {{ states('sensor.accuhome_realfeel_temperature_min_today',with_unit=True) }}. Tomorrow will be {{ states('sensor.accuhome_condition_day_1')|lower }}, and tomorrow night will be {{ states('sensor.accuhome_condition_night_1')|lower }}, highs feeling like {{ states('sensor.accuhome_realfeel_temperature_max_day_1',with_unit=True) }} and lows like {{ states('sensor.accuhome_realfeel_temperature_min_day_1',with_unit=True) }}. Highs this week of {{ temp_high }} and lows of {{ temp_low }}.
+            {% else %}
+              I have no idea what the weather is like, try looking out the window.
+            {% endif %}
+          data:
+            icon: "{{ weather_icon }}"
+            duration: 40
+            repeat: 2
+            pushIcon: 1
   - if:
       - condition: state
         entity_id: input_boolean.office_occupied
@@ -46,7 +91,7 @@ sequence:
         data:
           message: >-
             {% if states('sensor.accuhome_realfeel_temperature') != 'unknown' %}
-              It is currently {{ states('sensor.accuhome_apparent_temperature',with_unit=True) }}, feeling like {{ states('sensor.accuhome_realfeel_temperature',rounded=True,with_unit=True) }}, and {{ states('weather.accuhome') }}. T{{ "oday will be " + states('sensor.accuhome_condition_today')|lower + ", and t" if is_state('sun.sun','above_horizon') }}onight will be {{ states('sensor.accuhome_condition_tonight')|lower }}. Highs of {{ states('sensor.accuhome_realfeel_temperature_max_today',with_unit=True) }} and lows of {{ states('sensor.accuhome_realfeel_temperature_min_today',with_unit=True) }}. Tomorrow will be {{ states('sensor.accuhome_condition_day_1')|lower }} and tomorrow night will be {{ states('sensor.accuhome_condition_night_1')|lower }}, highs of {{ states('sensor.accuhome_realfeel_temperature_max_day_1',with_unit=True) }} and lows of {{ states('sensor.accuhome_realfeel_temperature_min_day_1',with_unit=True) }}.
+              It is currently {{ states('sensor.accuhome_apparent_temperature',with_unit=True) }}, feeling like {{ states('sensor.accuhome_realfeel_temperature',rounded=True,with_unit=True) }}, and {{ states('weather.accuhome') }}. T{{ "oday will be " + states('sensor.accuhome_condition_today')|lower + ", and t" if is_state('sun.sun','above_horizon') }}onight will be {{ states('sensor.accuhome_condition_tonight')|lower }}. Highs will feel like {{ states('sensor.accuhome_realfeel_temperature_max_today',with_unit=True) }} and lows like {{ states('sensor.accuhome_realfeel_temperature_min_today',with_unit=True) }}. Tomorrow will be {{ states('sensor.accuhome_condition_day_1')|lower }}, and tomorrow night will be {{ states('sensor.accuhome_condition_night_1')|lower }}, highs feeling like {{ states('sensor.accuhome_realfeel_temperature_max_day_1',with_unit=True) }} and lows like {{ states('sensor.accuhome_realfeel_temperature_min_day_1',with_unit=True) }}. Highs this week of {{ temp_high }} and lows of {{ temp_low }}.
             {% else %}
               I have no idea what the weather is like, try looking out the window.
             {% endif %}
