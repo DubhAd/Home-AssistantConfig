@@ -58,13 +58,6 @@ cards:
       current: true
       details: true
     - type: custom:weather-card
-      entity: weather.home_hourly
-      name: Hourly
-      hourly_forecast: true
-      number_of_forecasts: 8
-      current: false
-      details: false
-    - type: custom:weather-card
       entity: weather.met_no_next_6_hours_forecast_home
       name: Next 6
       hourly_forecast: true
