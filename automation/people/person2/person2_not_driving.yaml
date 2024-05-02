@@ -4,7 +4,7 @@ alias: 'person2 not driving'
 trigger:
   - platform: state
     entity_id: binary_sensor.pixel_xl_android_auto
-    to: 'on'
+    to: 'off'
     id: 'auto'
 condition: 
   # Driving
@@ -14,8 +14,3 @@ condition:
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.person2_driving
-  - wait_for_trigger:
-    - platform: state
-      entity_id: device_tracker.pixel_xl
-  - service: script.turn_on
-    entity_id: script.update_car_location
