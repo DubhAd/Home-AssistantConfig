@@ -55,6 +55,3 @@ action:
       - input_boolean.office_occupied
       - input_boolean.lighting_office
       - input_boolean.stream_front_camera_motion
-  - service: light.turn_on
-    data:
-      entity_id: light.awtrix_6d6f50_matrix
