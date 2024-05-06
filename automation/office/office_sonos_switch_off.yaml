@@ -1,0 +1,11 @@
+id: 'office_sonos_switch_off'
+alias: 'Office Sonos switch off'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: switch.office_sonos
+    to: 'off'
+    for: '00:00:30'
+action:
+  - service: switch.turn_on
+    entity_id: switch.office_sonos
