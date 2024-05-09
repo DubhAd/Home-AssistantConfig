@@ -270,6 +270,9 @@ cards:
     - entity: sensor.office_illuminance_illuminance_lux
       name: Office
       color: "#F28544"
+    - entity: sensor.outside_light_sensor_illuminance_lux
+      name: Outside
+      color: "#F55224"
 - type: custom:mini-graph-card
   name: Humidity
   hours_to_show: 12

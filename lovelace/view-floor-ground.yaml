@@ -299,6 +299,9 @@ cards:
     - entity: sensor.utility_motion_illuminance_lux
       name: Utility
       color: '#5337d0'
+    - entity: sensor.outside_light_sensor_illuminance_lux
+      name: Outside
+      color: "#F55224"
 - type: custom:mini-graph-card
   name: Temperature
   points_per_hour: 12
