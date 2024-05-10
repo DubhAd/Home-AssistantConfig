@@ -273,6 +273,8 @@ cards:
         - state 4: 'unavailable'
         - state 5: 'standby'
         - name: 'Spotify'
+        - integration: 'mass'
+        - entity_id: "media_player.*_music_assistant"
 
   - type: custom:auto-entities
     show_empty: false
