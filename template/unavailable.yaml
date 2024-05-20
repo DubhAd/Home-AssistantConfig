@@ -7,7 +7,7 @@
     state: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
                 |rejectattr('entity_id','in',['media_player.tv_living_room','media_player.living_room_tv','sensor.unavailable_entities','binary_sensor.return_train_status','switch.family_room_tv'])
-                |rejectattr('entity_id','match','^device_tracker\.|^binary_sensor\.trains_|^.*_old|^sensor\.tasmota_car_|^media_player\.forked_daapd|^media_player\.owntone_|^.*([\._]home|^sensor\.here_weather_|\.openweathermap_|[\._]other|_hws_|_next_alarm|minecraft|accuhome|espresense_|plex_|roku_x00200y5s7lx|^weather\.|.kelsie_|_train_|_time_to_home|\.sky_q_|_pixel_3_|_sim_|_miband|select\..*_playlist)')
+                |rejectattr('entity_id','match','^device_tracker\.|^binary_sensor\.trains_|^.*_old|^sensor\.tasmota_car_|^media_player\..*_music_assistant|^media_player\.forked_daapd|^media_player\.owntone_|^.*([\._]home|^sensor\.here_weather_|\.openweathermap_|[\._]other|_hws_|_next_alarm|minecraft|accuhome|espresense_|plex_|roku_x00200y5s7lx|^weather\.|.kelsie_|_train_|_time_to_home|\.sky_q_|_pixel_3_|_sim_|_miband|select\..*_playlist)')
                 |list|length}}
         {# states('sensor.time_utc') #}
     unit_of_measurement: 'entities'
@@ -15,5 +15,5 @@
       entities: >-
         {{ states|selectattr('state', 'in', ['unavailable'])
                 |rejectattr('entity_id','in',['media_player.tv_living_room','media_player.living_room_tv','sensor.unavailable_entities','binary_sensor.return_train_status','switch.family_room_tv'])
-                |rejectattr('entity_id','match','^device_tracker\.|^binary_sensor\.trains_|^.*_old|^sensor\.tasmota_car_|^media_player\.forked_daapd|^media_player\.owntone_|^.*([\._]home|^sensor\.here_weather_|\.openweathermap_|[\._]other|_hws_|_next_alarm|minecraft|accuhome|espresense_|plex_|roku_x00200y5s7lx|^weather\.|.kelsie_|_train_|_time_to_home|\.sky_q_|_pixel_3_|_sim_|_miband|select\..*_playlist)')
+                |rejectattr('entity_id','match','^device_tracker\.|^binary_sensor\.trains_|^.*_old|^sensor\.tasmota_car_|^media_player\..*_music_assistant|^media_player\.forked_daapd|^media_player\.owntone_|^.*([\._]home|^sensor\.here_weather_|\.openweathermap_|[\._]other|_hws_|_next_alarm|minecraft|accuhome|espresense_|plex_|roku_x00200y5s7lx|^weather\.|.kelsie_|_train_|_time_to_home|\.sky_q_|_pixel_3_|_sim_|_miband|select\..*_playlist)')
                 |map(attribute='entity_id')|list|join(', ')}}
