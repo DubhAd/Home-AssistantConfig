@@ -21,6 +21,11 @@ trigger:
   - platform: state
     entity_id: input_boolean.hall_occupied
     to: 'on'
+  - platform: state
+    entity_id: 
+      - binary_sensor.downstairs_hall_motion_occupancy
+      - binary_sensor.upstairs_hall_motion_front_occupancy
+    to: 'on'
 condition:
   # Not already on or bedtime
   - condition: not
