@@ -161,7 +161,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.office_smart_display
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
