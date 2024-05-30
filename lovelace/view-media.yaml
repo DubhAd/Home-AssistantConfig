@@ -17,7 +17,13 @@ cards:
         artwork: cover
         show_source: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.living_room_sonos_cloud
+            message_field: message
+            entity_id: tts.piper
         power_color: true
         idle_view:
           when_idle: true
@@ -30,7 +36,13 @@ cards:
         artwork: cover
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.living_room_display
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -78,8 +90,6 @@ cards:
         artwork: cover
         show_source: true
         power_color: true
-        tts:
-          platform: google_cloud
         idle_view:
           when_idle: true
           when_paused: true
@@ -104,7 +114,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.family_room_sonos_cloud
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -117,7 +133,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.cast_kitchen_speaker
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -130,7 +152,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.family_room_display
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -148,7 +176,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.office_sonos_cloud
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -185,7 +219,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.person2
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -198,7 +238,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.cast_master_bedroom_speaker
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -211,7 +257,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.master_bedroom_display
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -229,7 +281,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.person1
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -242,7 +300,13 @@ cards:
         show_source: true
         power_color: true
         tts:
-          platform: google_cloud
+          platform: service
+          data:
+            service: tts.speak
+            service_data:
+              media_player_entity_id: media_player.cast_second_bedroom_speaker
+            message_field: message
+            entity_id: tts.piper
         idle_view:
           when_idle: true
           when_paused: true
@@ -256,7 +320,13 @@ cards:
     show_progress: true
     show_source: true
     tts:
-      platform: google_cloud
+      platform: service
+      data:
+        service: tts.speak
+        service_data:
+          media_player_entity_id: media_player.cast_master_bedroom_display
+        message_field: message
+        entity_id: tts.piper
     idle_view:
       when_idle: true
       when_paused: true
