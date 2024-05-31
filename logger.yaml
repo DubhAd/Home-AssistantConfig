@@ -1,0 +1,6 @@
+default: warning
+logs:
+  homeassistant.helpers.template: error
+filters:
+  homeassistant.components.rest:
+    - "^JSON result was not a dictionary or list with 0th element a dictionary"
