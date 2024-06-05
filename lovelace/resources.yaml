@@ -50,3 +50,5 @@
   type: module
 - url: /hacsfiles/simple-thermostat/simple-thermostat.js
   type: module
+- url: /hacsfiles/Bubble-Card/bubble-card.js
+  type: module 
