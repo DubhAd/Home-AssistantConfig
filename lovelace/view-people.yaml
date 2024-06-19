@@ -438,6 +438,26 @@ cards:
           name: Doors
         - entity: binary_sensor.skoda_superb_windows_closed
           name: Windows
+      - type: horizontal-stack
+        cards:
+        - type: gauge
+          name: AdBlue
+          entity: sensor.skoda_superb_adblue_level
+          max: 18000
+          min: 0
+          severity:
+            green: 9000
+            yellow: 2000
+            red: 0
+        - type: gauge
+          name: Fuel
+          entity: sensor.skoda_superb_fuel_level
+          max: 100
+          min: 0
+          severity:
+            green: 75
+            yellow: 25
+            red: 0
       - type: map
         default_zoom: 17
         hours_to_show: 12
