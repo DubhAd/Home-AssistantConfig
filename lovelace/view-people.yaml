@@ -458,8 +458,11 @@ cards:
             green: 75
             yellow: 25
             red: 0
+      - type: entity
+        entity: input_text.car_location
+        name: Location
       - type: map
         default_zoom: 17
-        hours_to_show: 12
+        hours_to_show: 24
         entities:
           - device_tracker.skoda_superb_position
