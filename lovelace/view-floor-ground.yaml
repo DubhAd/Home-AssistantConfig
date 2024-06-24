@@ -198,7 +198,7 @@ cards:
         name: Strength
   - type: glance
     title: Kitchen
-    columns: 4
+    columns: 5
     entities:
       - entity: binary_sensor.kitchen_window_left_contact
         show_last_changed: true
@@ -208,7 +208,10 @@ cards:
         name: Right
       - entity: binary_sensor.kitchen_water_leak_water_leak
         show_last_changed: true
-        name: Leak
+        name: Sink
+      - entity: binary_sensor.kitchen_water_leak_old_water_leak
+        show_last_changed: true
+        name: Dishwasher
       - entity: media_player.cast_kitchen_speaker
         show_last_changed: true
         name: Mini
