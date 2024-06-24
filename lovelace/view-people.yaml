@@ -72,7 +72,7 @@ cards:
           name: In bed
       - type: entities
         entities:
-        - entity: input_datetime.person3_next_alarm
+        - entity: sensor.pixel_6a_next_alarm
           name: Next alarm
       - type: "custom:atomic-calendar-revive"
         name: "Calendar"
@@ -389,7 +389,8 @@ cards:
           name: To home
       - type: entities
         entities:
-        - entity: input_datetime.person1_next_alarm
+        #- entity: input_datetime.person1_next_alarm
+        - entity: sensor.sm_a546b_next_alarm
           name: Next alarm
       - type: "custom:atomic-calendar-revive"
         name: "Calendar"
