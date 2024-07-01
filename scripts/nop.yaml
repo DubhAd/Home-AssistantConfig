@@ -1,5 +1,7 @@
 alias: NOP
 sequence:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Doing nothing"

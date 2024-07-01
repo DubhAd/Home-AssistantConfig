@@ -63,7 +63,9 @@ action:
           message: >-
             :grey_question: Hey, there are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}
 
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: >-
         There are {{ trigger.to_state.state }} entities unavailable {%- if trigger.to_state.state != '0' -%}, these are {{ trigger.to_state.attributes.entities }} {%- else -%}, these were {{ trigger.from_state.attributes.entities }} {%- endif -%}

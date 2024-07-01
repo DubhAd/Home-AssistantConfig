@@ -1,7 +1,9 @@
 mode: 'restart'
 description: 'Manages the right kind of BT scan. Departure scan if everybody is home, or there was motion in the vestibule. Arrival scan if nobody is home or there was no motion in the vestibule or hall. Arrival then departure if we are unsure'
 sequence:
-- service: notify.debug_log
+- service: notify.send_message
+  target: 
+    entity_id: notify.debug_log
   data:
     message: >-
       Scan started. Garage: car {{ states('binary_sensor.garage_door_car_contact') }}, bike {{ states('binary_sensor.garage_door_bike_contact') }}.  Vestibule {{ states('binary_sensor.vestibule_multi_occupancy') }} for {{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} seconds.  Front door {{ states('binary_sensor.front_door_contact') }} for {{ (now()-states.binary_sensor.front_door_contact.last_changed).seconds }} seconds. 
@@ -20,7 +22,9 @@ sequence:
       entity_id: sensor.home_count
       below: 0.1
     sequence:
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Arrival scan because nobody is home"
     - service: script.turn_on
@@ -51,7 +55,9 @@ sequence:
           for: '00:02:00'
     sequence:
     # Check for departure, then check for arrival (just in case)
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Do nothing because of motion in the vestibule, and the bike door is open"
   #################### ####################
@@ -75,7 +81,9 @@ sequence:
           state: 'on'
           for: '00:00:01'
     sequence:
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Arrival scan because somebody is in the path or there was no motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
     - service: script.turn_on
@@ -96,7 +104,9 @@ sequence:
         entity_id: input_select.person2_status_dropdown
         state: 'Just Arrived'
     sequence:
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Arrival scan because somebody just arrived home"
     - service: script.turn_on
@@ -128,7 +138,9 @@ sequence:
     - condition: state
       entity_id: binary_sensor.garage_door_bike_contact
       state: 'off'
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Departure scan because of motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago) and the bike door is closed"
     - service: script.turn_on
@@ -151,7 +163,9 @@ sequence:
           for: '00:02:00'
     sequence:
     # Check for departure, then check for arrival (just in case)
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Departure (no arrival) scan because of motion in the vestibule ({{ (now()-states.binary_sensor.vestibule_multi_occupancy.last_changed).seconds }} ago)"
     - service: script.turn_on
@@ -177,7 +191,9 @@ sequence:
           state: 'off'
           for: '00:00:30'
     sequence:
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Arrival scan because the garage door is open ({{ (now()-states.binary_sensor.garage_door_car_contact.last_changed).seconds }} ago)"
     - service: script.turn_on
@@ -191,7 +207,9 @@ sequence:
       entity_id: sensor.home_count
       above: 0.9
     sequence:
-    - service: notify.debug_log
+    - service: notify.send_message
+      target: 
+        entity_id: notify.debug_log
       data:
         message: "Departure scan because everybody is home"
     - service: script.turn_on
@@ -199,7 +217,9 @@ sequence:
   #################### ####################
   # Mixed bag situation unclear, do it all
   default:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Departure then arrival scan because we have no idea"
   - service: script.turn_on

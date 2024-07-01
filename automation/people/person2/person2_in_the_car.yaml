@@ -17,7 +17,9 @@ condition:
     state: 'off'
 action:
   # Update 
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: >
          Location last updated within last 60 seconds? {{ ( as_timestamp(now()) - as_timestamp(states.device_tracker.pixel_xl.last_updated)|float)|float < 60 }}

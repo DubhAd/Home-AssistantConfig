@@ -16,7 +16,9 @@ condition:
     value_template: >-
       {{ trigger.to_state.context.user_id == 'cc64811238de43b5a2e3d15637a0bde7' }}
 action:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "The hall light was manually turned off by person3"
   - delay: '00:02:00'

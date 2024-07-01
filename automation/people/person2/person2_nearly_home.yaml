@@ -10,6 +10,8 @@ condition:
     entity_id: input_boolean.person2_home
     state: 'off'
 action:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "person2 is nearly home"

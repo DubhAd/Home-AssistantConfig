@@ -5,7 +5,9 @@ trigger:
   - platform: event
     event_type: telegram_text
 action:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: >
         Received text: {{ trigger.event.data.text }}

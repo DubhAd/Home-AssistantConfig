@@ -18,16 +18,22 @@ trigger:
     to: 'off'
     for: '00:02:00'
 action:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Bedtime: {{ states('input_boolean.home_occupied') }}/{{ states('group.downstairs_occupied') }}/{{ states('binary_sensor.vestibule_multi_occupancy') }}/{{ states('binary_sensor.downstairs_hall_motion_occupancy') }}"
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Bedtime: {{ states('input_boolean.person3_in_bed') }}/{{ states('input_boolean.person3_travelling') }}/{{ states('input_boolean.person1_in_bed') }}/{{ states('input_boolean.person1_travelling') }}/{{ states('input_boolean.person2_in_bed') }}/{{ states('input_boolean.person2_travelling') }}"
   - condition: state
     entity_id: input_boolean.home_occupied
     state: 'on'
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Bedtime: house is occupied"
     # Downstairs is no longer in use
@@ -35,7 +41,9 @@ action:
     entity_id: group.downstairs_occupied
     state: 'off'
     for: '00:02:00'
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Bedtime: Downstairs isn't occupied"
   - condition: and
@@ -59,7 +67,9 @@ action:
       - condition: state
         entity_id: binary_sensor.downstairs_hall_motion_occupancy
         state: 'unavailable'
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Bedtime: No motion recently"
   # People are in bed, or away
@@ -92,7 +102,9 @@ action:
       - condition: state
         entity_id: input_boolean.person1_travelling
         state: 'on'
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Bedtime: Everybody is in bed"
   - service: input_boolean.turn_on

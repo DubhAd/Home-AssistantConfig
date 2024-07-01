@@ -20,10 +20,14 @@ action:
       entered_zones: "{{ trigger.payload_json['after']['entered_zones']|join(', ')|replace('_',' ') }}"
       type: "{{ trigger.payload_json['type'] }}"
       external_url: !secret remote_base
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "{{ id }} is a {{ type }} event {{ id }} for {{ label }} for camera {{ camera }} entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "{{ id }} interesting zone: {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0 }}/ {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0 }}"
   - condition: template

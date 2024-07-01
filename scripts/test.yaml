@@ -34,6 +34,8 @@ sequence:
         {% else %}
           999999
         {% endif %}
-  - service: notify.debug_log
+  - service: notify.send_message
+    target:
+      entity_id: notify.debug_log
     data:
       message: "This was a test by {{ who }} who is {{ distance }} away"

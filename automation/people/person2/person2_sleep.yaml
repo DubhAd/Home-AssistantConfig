@@ -8,7 +8,9 @@ trigger:
       - POST
     local_only: false
 action:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: >-
         Sleep as Android: {{ trigger.json.event }} / {{ trigger.json }}

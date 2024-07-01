@@ -16,7 +16,9 @@ condition:
     value_template: >-
       {{ (states('sensor.fritz_box_3490_external_ip') is not none) and (states('sensor.fritz_box_3490_external_ip')|length != 0) }}
 action:
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "The WAN IP has changed to #{{ states('sensor.fritz_box_3490_external_ip') }}#"
   - service: notify.apprise

@@ -21,10 +21,14 @@ action:
       # Dynamic Variables per event
       #initial_home: "{{ presence_entity != '' and is_state(presence_entity, 'home') }}"
       #initial_entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "This is a {{ type }} event {{ id }} for {{ label }} for camera {{ camera }} entered zones {{ trigger.payload_json['after']['entered_zones'] }} and current zones {{ trigger.payload_json['after']['current_zones'] }}"
-  - service: notify.debug_log
+  - service: notify.send_message
+    target: 
+      entity_id: notify.debug_log
     data:
       message: "Interesting zone: {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['current_zones'])|list|length > 0 }}/ {{ ['road', 'front_path', 'drive']|select('in',trigger.payload_json['after']['entered_zones'])|list|length > 0 }}"
   - condition: template
