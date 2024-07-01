@@ -1,4 +1,0 @@
-- name: debug_log
-  platform: file
-  filename: /data/homeassistant/debug.log
-  timestamp: true
