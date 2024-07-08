@@ -1,5 +1,4 @@
 id: 'person2_next_alarm'
-initial_state: 'on'
 alias: 'person2 next alarm'
 trigger:
   - platform: event
