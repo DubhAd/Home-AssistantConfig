@@ -172,8 +172,6 @@ cards:
   title: Utility room & back
   cards:
   - type: glance
-    #title: Utility room & back
-    #columns: 4
     entities:
       - entity: binary_sensor.utility_door_exterior_contact
         show_last_changed: true
@@ -186,16 +184,14 @@ cards:
       - entity: binary_sensor.utility_room_water_leak_water_leak
         show_last_changed: true
         name: Leak
+  - type: glance
+    entities:
+      - entity: sensor.outside_light_sensor_illuminance_lux
+        name: Lux
       - entity: switch.garden_lights
         tap_action: 
           action: toggle
         show_last_changed: true
-  - type: glance
-    entities:
-      - entity: binary_sensor.washing_machine_vibration_vibration
-        name: Washing machine
-      - entity: sensor.washing_machine_vibration_strength
-        name: Strength
   - type: glance
     title: Kitchen
     columns: 5
