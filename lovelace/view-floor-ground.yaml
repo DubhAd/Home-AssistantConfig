@@ -186,12 +186,14 @@ cards:
         name: Leak
   - type: glance
     entities:
-      - entity: sensor.outside_light_sensor_illuminance_lux
-        name: Lux
       - entity: switch.garden_lights
         tap_action: 
           action: toggle
         show_last_changed: true
+      - entity: sensor.sun_solar_elevation
+        name: Sun elevation
+      - entity: sensor.outside_light_sensor_illuminance_lux
+        name: Lux
   - type: glance
     title: Kitchen
     columns: 5
