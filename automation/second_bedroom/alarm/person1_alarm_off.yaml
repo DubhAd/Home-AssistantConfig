@@ -1,6 +1,5 @@
 id: 'person1_alarm_off'
 alias: 'person1 alarm off'
-initial_state: 'off'
 trigger:
   - platform: state
     entity_id: 

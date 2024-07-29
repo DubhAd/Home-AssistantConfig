@@ -1,10 +1,6 @@
 id: 'not_workday_for_person2'
 alias: 'Not workday for person2'
-initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: calendar.person2_holiday
-    to: 'on'
   - platform: state
     entity_id: binary_sensor.workday_sensor
     to: 'off'
@@ -13,9 +9,6 @@ trigger:
 condition:
   condition: or
   conditions:
-    - condition: state
-      entity_id: calendar.person2_holiday
-      state: 'on'
     - condition: state
       entity_id: binary_sensor.workday_sensor
       state: 'off'

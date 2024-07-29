@@ -1,10 +1,6 @@
 id: 'person2_working_away'
 alias: 'person2 working away'
-initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: calendar.person2_away
-    to: 'on'
   - platform: numeric_state
     entity_id: sensor.home_person2_distance
     above: '100000'
@@ -14,9 +10,6 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  - condition: state
-    entity_id: calendar.person2_away
-    state: 'on'
   - condition: or
     conditions:
       - condition: numeric_state

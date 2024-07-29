@@ -1,6 +1,5 @@
 id: 'person1_off_holiday'
 alias: 'person1 off holiday'
-initial_state: 'off'
 trigger:
   - platform: state
     entity_id: calendar.person1_holiday

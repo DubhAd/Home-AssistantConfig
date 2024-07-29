@@ -1,19 +1,12 @@
 id: 'workday_for_person2'
 alias: 'Workday for person2'
-initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: calendar.person2_holiday
-    to: 'off'
   - platform: state
     entity_id: binary_sensor.workday_sensor
     to: 'on'
   - platform: homeassistant
     event: start
 condition:
-  - condition: state
-    entity_id: calendar.person2_holiday
-    state: 'off'
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
