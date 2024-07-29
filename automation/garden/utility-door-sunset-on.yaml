@@ -13,12 +13,17 @@ condition:
   - condition: state
     entity_id: input_boolean.lighting_automations
     state: 'on'
-  - condition: numeric_state
-    entity_id: sensor.sun_solar_elevation
-    below: -4
   - condition: state
     entity_id: switch.garden_lights
     state: 'off'
+  - condition: or
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.sun_solar_elevation
+        below: -4
+      - condition: numeric_state
+        entity_id: sensor.outside_light_sensor_illuminance_lux
+        below: 16
 action:
   - service: script.turn_on
     entity_id: script.garden_door_after_sunset
