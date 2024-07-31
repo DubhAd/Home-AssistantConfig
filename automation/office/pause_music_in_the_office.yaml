@@ -2,6 +2,10 @@ id: 'pause_music_in_the_office'
 initial_state: 'on'
 alias: 'Pause music in the office'
 trigger:
+  - platform: state
+    entity_id: calendar.person2_work
+    to: 'on'
+    id: calendar
   - platform: calendar
     entity_id: calendar.person2_work
     event: start
