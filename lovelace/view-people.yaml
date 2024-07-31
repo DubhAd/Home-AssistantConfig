@@ -293,7 +293,6 @@ cards:
       cards: 
       - type: glance
         title: Work
-        columns: 6
         entities:
         - entity: group.work_laptop
           name: Laptop 
