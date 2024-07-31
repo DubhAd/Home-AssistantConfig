@@ -267,12 +267,6 @@ cards:
             maxDaysToShow: 1
           - entity: calendar.person2_work
             maxDaysToShow: 1
-          - entity: calendar.person2_holiday
-            maxDaysToShow: 1
-          - entity: calendar.person2_wfh
-            maxDaysToShow: 1
-          - entity: calendar.person2_away
-            maxDaysToShow: 1
       - type: map
         default_zoom: 17
         hours_to_show: 12
@@ -307,12 +301,6 @@ cards:
           show_last_changed: true
         - entity: sensor.work_person2_distance
           name: To work
-        - entity: calendar.person2_wfh
-          name: WFH
-        - entity: calendar.person2_holiday
-          name: Holiday
-        - entity: calendar.person2_away
-          name: Away
         - binary_sensor.workday_sensor
 - type: vertical-stack
   cards:
@@ -374,8 +362,6 @@ cards:
         - entity: input_boolean.person1_in_bed
           show_last_changed: true
           name: In bed
-        - entity: calendar.person1_holiday
-          name: Holiday
         - entity: sensor.person1s_time_to_home_duration_in_traffic
           name: Car home
           icon: mdi:map-marker-distance
