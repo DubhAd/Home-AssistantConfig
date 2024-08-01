@@ -19,7 +19,9 @@ action:
       entered_zones: "{{ trigger.payload_json['after']['entered_zones'] }}"
       before_zones: "{{ trigger.payload_json['before']['entered_zones'] }}"
       #type: "{{ trigger.payload_json['type'] }}"
-  - service: notify.logfile
+  - service: notify.send_message
+    target: 
+      entity_id: notify.logfile        
     data:
       message: >-
         FRIGATE_EVENT: id:"{{ trigger.payload_json['after']['id'] }}", camera:"{{ trigger.payload_json['after']['camera'] }}"

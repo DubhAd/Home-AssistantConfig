@@ -11,7 +11,9 @@ trigger:
     to: 'on'
     for: '00:05:00'
 action:
-  - service: notify.logfile
+  - service: notify.send_message
+    target: 
+      entity_id: notify.logfile        
     data:
       message: "The internet went down and is now back up"
   - service: notify.person2
