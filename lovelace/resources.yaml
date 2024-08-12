@@ -52,3 +52,5 @@
   type: module
 - url: /hacsfiles/Bubble-Card/bubble-card.js
   type: module 
+- url: /hacsfiles/Ultra-Vehicle-Card/ultra-vehicle-card.js
+  type: module 
