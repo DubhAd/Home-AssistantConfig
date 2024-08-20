@@ -1,0 +1,46 @@
+reload: {}
+
+get_location:
+  fields:
+    location:
+      required: true
+      example: Home
+      default: Home
+      selector:
+        text:
+
+update_location:
+  fields:
+    location:
+      required: true
+      example: Home
+      default: Home
+      selector:
+        text:
+    latitude:
+      required: false
+      example: 51.51
+      selector:
+        number:
+          min: -90
+          max: 90
+          step: any
+          mode: box
+    longitude:
+      required: false
+      example: -0.13
+      selector:
+        number:
+          min: -180
+          max: 180
+          step: any
+          mode: box
+    time_zone:
+      required: false
+      example: Europe/London
+      selector:
+        text:
+    observer_elevation:
+      required: false
+      selector:
+        object:
