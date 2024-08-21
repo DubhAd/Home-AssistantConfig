@@ -7,9 +7,14 @@ trigger:
   - platform: homeassistant
     event: start
 condition: 
-  - condition: state
-    entity_id: sun.sun
-    state: 'below_horizon'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: numeric_state
+        entity_id: sensor.outside_light_sensor_illuminance_lux
+        below: 50
   - condition: state
     entity_id: switch.number_sign
     state: 'off'
