@@ -1,0 +1,1219 @@
+boo:
+  name: Boo! 👻
+  description: >-
+    Calling this action spooks Home Assistant.
+    Performing this action will always fail.
+
+random_fail:
+  name: Random fail 👻
+  description: Performing this action will randomly fail.
+
+blueprint_import:
+  name: Import blueprint 👻
+  description: >-
+    Import a blueprint.
+  fields:
+    url:
+      name: URL
+      description: The URL to import the blueprint from.
+      required: true
+      selector:
+        text:
+
+homeassistant_create_area:
+  name: Create an area 👻
+  description: >-
+    Creates a new area on the fly.
+  fields:
+    name:
+      name: Name
+      description: The name of the area to create.
+      required: true
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Icon to use for the area.
+      required: false
+      selector:
+        icon:
+          placeholder: mdi:texture-box
+    aliases:
+      name: Aliases
+      description: >-
+        A list of aliases for the area. This is useful if you want to use the
+        area in a different language or different nickname.
+      selector:
+        object:
+
+homeassistant_add_alias_to_area:
+  name: Add an alias to an area 👻
+  description: >-
+    Adds an alias to an area.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to add the alias to.
+      required: true
+      selector:
+        area:
+    alias:
+      name: Alias
+      description: The alias (or list of aliasses) to add to the area.
+      required: true
+      selector:
+        object:
+
+homeassistant_remove_alias_from_area:
+  name: Remove an alias from an area 👻
+  description: >-
+    Removes an alias from an area.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to remove the alias from.
+      required: true
+      selector:
+        area:
+    alias:
+      name: Alias
+      description: The alias (or list of aliasses) to remove from the area.
+      required: true
+      selector:
+        object:
+
+homeassistant_set_area_aliases:
+  name: Sets aliases for an area 👻
+  description: >-
+    Sets aliases for an area. Overwrite and removed any existing aliases,
+    fully replacing them with the new ones.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to set the aliases for.
+      required: true
+      selector:
+        area:
+    aliases:
+      name: Aliases
+      description: The aliases to set for the area.
+      required: true
+      selector:
+        object:
+
+homeassistant_add_device_to_area:
+  name: Add a device to an area 👻
+  description: >-
+    Adds an device to an area. Please note, if the device is already in an area,
+    it will be removed from the previous area.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to add the device to.
+      required: true
+      selector:
+        area:
+    device_id:
+      name: Device ID
+      description: The ID of the device(s) to add to the area.
+      required: true
+      selector:
+        device:
+          multiple: true
+
+homeassistant_remove_device_from_area:
+  name: Remove a device from an area 👻
+  description: >-
+    Removes a device from an area. As a device can only be in one area, this
+    call doesn't need to specify the area.
+  fields:
+    device_id:
+      name: Device ID
+      description: The ID of the device to remove the area from.
+      required: true
+      selector:
+        device:
+          multiple: true
+
+homeassistant_add_entity_to_area:
+  name: Add an entity to an area 👻
+  description: >-
+    Adds an entity to an area. Please note, if the enity is already in an area,
+    it will be removed from the previous area. This will override the area
+    the device, that provides this entity, is in.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to add the entity to.
+      required: true
+      selector:
+        area:
+    entity_id:
+      name: Entity ID
+      description: The ID of the entity (or entities) to add to the area.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_remove_entity_from_area:
+  name: Remove an entity from an area 👻
+  description: >-
+    Removes an entity from an area. As an entity can only be in one area, this
+    call doesn't need to specify the area. Please note, the entity will
+    still be in the area of the device that provides it after this call.
+  fields:
+    entity_id:
+      name: Entity ID
+      description: The ID of the entity (or entities) to remove the area from.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_delete_area:
+  name: Delete an area 👻
+  description: >-
+    Deletes a new area on the fly.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to delete.
+      required: true
+      selector:
+        area:
+
+homeassistant_disable_config_entry:
+  name: Disable an integration 👻
+  description: >-
+    Disables an integration configuration entry.
+  fields:
+    config_entry_id:
+      name: Config entry
+      description: The integration configuration entry to disable.
+      required: true
+      selector:
+        config_entry:
+
+homeassistant_enable_config_entry:
+  name: Enable an integration 👻
+  description: >-
+    Enables an integration configuration entry.
+  fields:
+    config_entry_id:
+      name: Config entry
+      description: The integration configuration entry to enable.
+      required: true
+      selector:
+        config_entry:
+
+homeassistant_disable_device:
+  name: Disable a device 👻
+  description: >-
+    Disables a device on the fly.
+  fields:
+    device_id:
+      name: Device
+      description: The device to disable.
+      required: true
+      selector:
+        device:
+          multiple: true
+
+homeassistant_enable_device:
+  name: Enable a device 👻
+  description: >-
+    Enables a device on the fly.
+  fields:
+    device_id:
+      name: Device
+      description: The device to disable.
+      required: true
+      selector:
+        device:
+          multiple: true
+
+homeassistant_update_entity_id:
+  name: Update an entity's ID 👻
+  description: >-
+    Updates an entity's ID on the fly.
+  fields:
+    entity_id:
+      name: Entity
+      description: The entity/entities to update.
+      required: true
+      selector:
+        entity:
+    new_entity_id:
+      name: New Entity ID
+      description: The new ID for the entity
+      required: true
+      selector:
+        text:
+
+homeassistant_disable_entity:
+  name: Disable an entity 👻
+  description: >-
+    Disables an entity (or entities) on the fly.
+  fields:
+    entity_id:
+      name: Entity
+      description: The entity/entities to disable.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_enable_entity:
+  name: Enable an entity 👻
+  description: >-
+    Enables an entity (or entities) on the fly.
+  fields:
+    entity_id:
+      name: Entity
+      description: The entity/entities to enable.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_hide_entity:
+  name: Hide an entity 👻
+  description: >-
+    Hides an entity (or entities) on the fly.
+  fields:
+    entity_id:
+      name: Entity
+      description: The entity/entities to hide.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_unhide_entity:
+  name: Unhide an entity 👻
+  description: >-
+    Unhides an entity (or entities) on the fly.
+  fields:
+    entity_id:
+      name: Entity
+      description: The entity/entities to unhide.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_create_floor:
+  name: Create a floor 👻
+  description: >-
+    Creates a new floor on the fly.
+  fields:
+    name:
+      name: Name
+      description: The name of the floor to create.
+      required: true
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Icon to use for the floor.
+      required: false
+      selector:
+        icon:
+          placeholder: mdi:texture-box
+    level:
+      name: Level
+      description: The level the floor is on in your home.
+      required: false
+      selector:
+        number:
+    aliases:
+      name: Aliases
+      description: >-
+        A list of aliases for the floor. This is useful if you want to use the
+        floor in a different language or different nickname.
+      selector:
+        object:
+
+homeassistant_add_alias_to_floor:
+  name: Add an alias to a floor 👻
+  description: >-
+    Adds an alias to a floor.
+  fields:
+    floor_id:
+      name: Floor ID
+      description: The ID of the floor to add the alias to.
+      required: true
+      selector:
+        floor:
+    alias:
+      name: Alias
+      description: The alias (or list of aliasses) to add to the floor.
+      required: true
+      selector:
+        object:
+
+homeassistant_remove_alias_from_floor:
+  name: Remove an alias from a floor 👻
+  description: >-
+    Removes an alias from a floor.
+  fields:
+    floor_id:
+      name: Floor ID
+      description: The ID of the floor to remove the alias from.
+      required: true
+      selector:
+        floor:
+    alias:
+      name: Alias
+      description: The alias (or list of aliasses) to remove from the floor.
+      required: true
+      selector:
+        object:
+
+homeassistant_set_floor_aliases:
+  name: Sets aliases for a floor 👻
+  description: >-
+    Sets aliases for a floor. Overwrite and removed any existing aliases,
+    fully replacing them with the new ones.
+  fields:
+    floor_id:
+      name: Floor ID
+      description: The ID of the floor to set the aliases for.
+      required: true
+      selector:
+        floor:
+    aliases:
+      name: Aliases
+      description: The aliases to set for the floor.
+      required: true
+      selector:
+        object:
+
+homeassistant_add_area_to_floor:
+  name: Add an area to a floor 👻
+  description: >-
+    Adds an area to a floor. Please note, if the area is already on a floor,
+    it will be removed from the previous floor.
+  fields:
+    floor_id:
+      name: Floor ID
+      description: The ID of the floor to add the area on.
+      required: true
+      selector:
+        floor:
+    area_id:
+      name: Area ID
+      description: The ID of the area(s) to add to the floor.
+      required: true
+      selector:
+        area:
+          multiple: true
+
+homeassistant_remove_area_from_floor:
+  name: Remove an area from a floor 👻
+  description: >-
+    Removes an area from a floor. As an area can only be on one floor, this
+    call doesn't need to specify the floor.
+  fields:
+    area_id:
+      name: Area ID
+      description: The ID of the area to remove the floor from.
+      required: true
+      selector:
+        area:
+          multiple: true
+
+homeassistant_delete_floor:
+  name: Delete a floor 👻
+  description: >-
+    Deletes a floor on the fly.
+  fields:
+    floor_id:
+      name: Floor ID
+      description: The ID of the floor to delete.
+      required: true
+      selector:
+        floor:
+
+homeassistant_create_label:
+  name: Create a label 👻
+  description: >-
+    Creates a new label on the fly.
+  fields:
+    name:
+      name: Name
+      description: The name of the label to create.
+      required: true
+      selector:
+        text:
+    description:
+      name: Description
+      description: Description for the label.
+      required: true
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Icon to use for the label.
+      required: false
+      selector:
+        icon:
+          placeholder: mdi:tag
+    color:
+      name: Color
+      description: >-
+        Color to use for the label. Can be a color name from the list, or a
+        hex color code (like #FF0000).
+      selector:
+        select:
+          options:
+            - label: Primary theme color
+              value: primary
+            - label: Accent theme color
+              value: accent
+            - label: Disabled theme color
+              value: disabled
+            - label: Red
+              value: red
+            - label: Pink
+              value: pink
+            - label: Purple
+              value: purple
+            - label: Deep purple
+              value: deep_purple
+            - label: Indigo
+              value: indigo
+            - label: Blue
+              value: blue
+            - label: Light blue
+              value: light_blue
+            - label: Cyan
+              value: cyan
+            - label: Teal
+              value: teal
+            - label: Green
+              value: green
+            - label: Light green
+              value: light_green
+            - label: Lime
+              value: lime
+            - label: Yellow
+              value: yellow
+            - label: Orange
+              value: orange
+            - label: Deep orange
+              value: deep_orange
+            - label: Brown
+              value: brown
+            - label: Grey
+              value: grey
+            - label: Blue grey
+              value: blue_grey
+            - label: Black
+              value: black
+            - label: White
+              value: white
+
+homeassistant_add_label_to_area:
+  name: Add a label to an area 👻
+  description: >-
+    Adds a label to an area. If multiple labels or multiple areas are
+    provided, all combinations will be added.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID(s) of the label(s) to add the area(s).
+      required: true
+      selector:
+        label:
+          multiple: true
+    area_id:
+      name: Area ID
+      description: The ID(s) of the area(s) to add the label(s) to.
+      required: true
+      selector:
+        area:
+          multiple: true
+
+homeassistant_add_label_to_device:
+  name: Add a label to a device 👻
+  description: >-
+    Adds a label to a device. If multiple labels or multiple devices are
+    provided, all combinations will be added.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID(s) of the label(s) to add the device(s).
+      required: true
+      selector:
+        label:
+          multiple: true
+    device_id:
+      name: Device ID
+      description: The ID(s) of the device(s) to add the label(s) to.
+      required: true
+      selector:
+        device:
+          multiple: true
+
+homeassistant_add_label_to_entity:
+  name: Add a label to an entity 👻
+  description: >-
+    Adds a label to an entity. If multiple labels or multiple entities are
+    provided, all combinations will be added.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID(s) of the label(s) to add the entity/entities.
+      required: true
+      selector:
+        label:
+          multiple: true
+    entity_id:
+      name: Entity ID
+      description: The ID(s) of the entity/entities to add the label(s) to.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_remove_label_from_area:
+  name: Remove a label from an area 👻
+  description: >-
+    Removes a label to an area. If multiple labels or multiple areas are
+    provided, all combinations will be removed.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID(s) of the label(s) to remove from the area(s).
+      required: true
+      selector:
+        label:
+          multiple: true
+    area_id:
+      name: Area ID
+      description: The ID(s) of the area(s) to remove the label(s) from.
+      required: true
+      selector:
+        area:
+          multiple: true
+
+homeassistant_remove_label_from_device:
+  name: Remove a label from a device 👻
+  description: >-
+    Removes a label from a device. If multiple labels or multiple devices are
+    provided, all combinations will be removed.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID(s) of the label(s) to remove from the device(s).
+      required: true
+      selector:
+        label:
+          multiple: true
+    device_id:
+      name: Device ID
+      description: The ID(s) of the device(s) to remove the label(s) from.
+      required: true
+      selector:
+        device:
+          multiple: true
+
+homeassistant_remove_label_from_entity:
+  name: Remove a label from an entity 👻
+  description: >-
+    Removes a label from an entity. If multiple labels or multiple entities are
+    provided, all combinations will be removed.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID(s) of the label(s) to remove from the entity/entities.
+      required: true
+      selector:
+        label:
+          multiple: true
+    entity_id:
+      name: Entity ID
+      description: The ID(s) of the entity/entities to remove the label(s) from.
+      required: true
+      selector:
+        entity:
+          multiple: true
+
+homeassistant_delete_label:
+  name: Delete a label 👻
+  description: >-
+    Deletes a label on the fly.
+  fields:
+    label_id:
+      name: Label ID
+      description: The ID of the label to delete.
+      required: true
+      selector:
+        label:
+
+homeassistant_ignore_all_discovered:
+  name: Ignore all currently discovered devices 👻
+  description: >-
+    Ignore all currently discovered devices that are shown on the integrations
+    dashboard. This will not ignore devices that are discovered after this.
+  fields:
+    domain:
+      name: Integration domain
+      description: >-
+        The integration domain to ignore all discovered devices for.
+        If not provided, all domains will be considered to be ignored.
+      required: false
+      selector:
+        text:
+
+homeassistant_disable_polling:
+  name: Disable polling for updates 👻
+  description: >-
+    Disables polling for updates for an integration configuration entry.
+  fields:
+    config_entry_id:
+      name: Config entry
+      description: The integration configuration entry to disable polling for.
+      required: true
+      selector:
+        config_entry:
+
+homeassistant_enable_polling:
+  name: Enable polling for updates 👻
+  description: >-
+    Enables polling for updates for an integration configuration entry.
+  fields:
+    config_entry_id:
+      name: Config entry
+      description: The integration configuration entry to enable polling for.
+      required: true
+      selector:
+        config_entry:
+
+homeassistant_delete_all_orphaned_entities:
+  name: Delete all orphaned entities 👻
+  description: >-
+    Deletes all orphaned entities that no longer have an integration that
+    claim/provide them. Please note, if the integration was just removed,
+    it might need a restart for Home Assistant to realize they are orphaned.
+
+    **WARNING** Entities might have been marked orphaned because an
+    integration is offline or not working since Home Assistant started. Calling
+    this action will delete those entities as well.
+
+homeassistant_list_orphaned_database_entities:
+  name: List all orphaned database entities 👻
+  description: >-
+    Lists all orphaned database entities unclaimed by any integration.
+
+homeassistant_restart:
+  name: Restart 👻
+  description: Restart the Home Assistant action.
+  fields:
+    safe_mode:
+      name: Safe mode
+      description: >-
+        If the restart should be done in safe mode. This will disable all
+        custom integrations and frontend modules.
+      required: false
+      selector:
+        boolean:
+    force:
+      name: Force restart
+      description: >-
+        Force the restart. WARNING! This will not gracefully shutdown Home
+        Assistant, it will skip configuration checks and ignore running database
+        migrations. Only use this if you know what you are doing.
+      required: false
+      selector:
+        boolean:
+
+recorder_import_statistics:
+  name: Import statistics 👻
+  description: >-
+    Import long-term statistics.
+  fields:
+    statistic_id:
+      name: Statistics ID
+      description: The statistics ID (entity ID) to import for.
+      required: true
+      selector:
+        entity:
+    name:
+      name: Name
+      description: The name of the statistics.
+      required: false
+      selector:
+        text:
+    source:
+      name: Source
+      description: The source of the statistics data.
+      required: true
+      selector:
+        text:
+    unit_of_measurement:
+      name: Unit of measurement
+      description: The unit of measurement of the statistics.
+      required: false
+      selector:
+        text:
+    has_mean:
+      name: Has a mean
+      description: If the statistics has a mean value.
+      required: true
+      selector:
+        boolean:
+    has_sum:
+      name: Has a sum
+      description: If the statistics has a sum value.
+      required: true
+      selector:
+        boolean:
+    stats:
+      name: Statistics
+      description: >-
+        A list of mappings/dictionaries with statistics to import.
+        The dictionaries must contain a "start" key with a datetime string
+        other valid options are "mean", "sum", "min", "max", "last_reset", and
+        "state". All of those are optional and either an integer or a float,
+        except for "last_reset" which is a datetime string.
+      required: true
+      selector:
+        object:
+
+select_random:
+  name: Select random option 👻
+  description: >-
+    Select an random option for a select entity.
+  target:
+    entity:
+      domain: select
+  fields:
+    options:
+      name: Options
+      description: >-
+        Limits the options to select from. If not provided, all options will be
+        considered.
+      required: false
+      selector:
+        object:
+
+input_select_random:
+  name: Select random option 👻
+  description: >-
+    Select an random option for an input_select entity.
+  target:
+    entity:
+      domain: input_select
+  fields:
+    options:
+      name: Options
+      description: >-
+        Limits the options to select from. If not provided, all options will be
+        considered.
+      required: false
+      selector:
+        object:
+
+input_select_shuffle:
+  name: Shuffle options 👻
+  description: >-
+    Shuffles the list of selectable options for an `input_select` entity.
+    This is not persistent and will be undone once reloaded or Home Assistant
+    restarts.
+  target:
+    entity:
+      domain: input_select
+
+input_select_sort:
+  name: Sort options 👻
+  description: >-
+    Sorts the list of selectable options for an `input_select` entity.
+    This is not persistent and will be undone once reloaded or Home Assistant
+    restarts.
+  target:
+    entity:
+      domain: input_select
+
+number_decrement:
+  name: Decrease value 👻
+  description: >-
+    Decrease a number entity value by a certain amount.
+  target:
+    entity:
+      domain: number
+  fields:
+    amount:
+      name: Amount
+      description: >-
+        The amount to decrease the number with. If not provided, the step of the
+        number entity will be used.
+      required: false
+      selector:
+        number:
+
+number_increment:
+  name: Increase value 👻
+  description: >-
+    Increase a number entity value by a certain amount.
+  target:
+    entity:
+      domain: number
+  fields:
+    amount:
+      name: Amount
+      description: >-
+        The amount to increase the number with. If not provided, the step of the
+        number entity will be used.
+      required: false
+      selector:
+        number:
+
+number_max:
+  name: Set maximum value 👻
+  description: >-
+    Set a number entity to its maximum value.
+  target:
+    entity:
+      domain: number
+
+number_min:
+  name: Set minimum value 👻
+  description: >-
+    Set a number entity to its minimum value.
+  target:
+    entity:
+      domain: number
+
+input_number_decrement:
+  name: Decrease value 👻
+  description: >-
+    Decrease an input number entity value by a certain amount.
+  target:
+    entity:
+      domain: input_number
+  fields:
+    amount:
+      name: Amount
+      description: >-
+        The amount to decrease the input number with. If not provided, the step
+        of the number entity will be used.
+      required: false
+      selector:
+        number:
+
+input_number_increment:
+  name: Increase value 👻
+  description: >-
+    Increase an input number entity value by a certain amount.
+  target:
+    entity:
+      domain: input_number
+  fields:
+    amount:
+      name: Amount
+      description: >-
+        The amount to increase the input number with. If not provided, the step
+        of the number entity will be used.
+      required: false
+      selector:
+        number:
+
+input_number_max:
+  name: Set maximum value 👻
+  description: >-
+    Set an input number entity to its maximum value.
+  target:
+    entity:
+      domain: input_number
+
+input_number_min:
+  name: Set minimum value 👻
+  description: >-
+    Set an input number entity to its minimum value.
+  target:
+    entity:
+      domain: input_number
+
+person_add_device_tracker:
+  name: Add a device tracker 👻
+  description: >-
+    Add a device tracker to a person.
+  fields:
+    entity_id:
+      name: Person
+      description: >-
+        The person entity ID to add the device tracker to.
+      required: true
+      selector:
+        entity:
+          filter:
+            - domain: person
+    device_tracker:
+      name: Device tracker
+      description: >-
+        The device tracker entity ID to add to the person.
+      required: true
+      selector:
+        entity:
+          multiple: true
+          filter:
+            - domain: device_tracker
+
+person_remove_device_tracker:
+  name: Remove a device tracker 👻
+  description: >-
+    Remove a device tracker from a person.
+  fields:
+    entity_id:
+      name: Person
+      description: >-
+        The person entity ID to remove the device tracker from.
+      required: true
+      selector:
+        entity:
+          filter:
+            - domain: person
+    device_tracker:
+      name: Device tracker
+      description: >-
+        The device tracker entity ID to remove from the person.
+      required: true
+      selector:
+        entity:
+          multiple: true
+          filter:
+            - domain: device_tracker
+
+repairs_create:
+  name: Create issue 👻
+  description: >-
+    Manually create and raise a issue in Home Assistant repairs.
+  fields:
+    title:
+      name: Title
+      description: The title of the issue.
+      required: true
+      selector:
+        text:
+    description:
+      name: Description
+      description: The description of the issue. Supports Markdown.
+      required: true
+      selector:
+        text:
+          multiline: true
+    issue_id:
+      name: Issue ID
+      description: >-
+        The issue can have an identifier, which allows you to cancel it
+        later with that ID if needed. It also prevent duplicate issues
+        to be created. If not provided, a random ID will be generated.
+      required: false
+      selector:
+        text:
+    domain:
+      name: Domain
+      description: >-
+        This field can be used to set the domain of the issue. For example,
+        by default (if not set), it will use "spook". This causes Spook to
+        be shown in the logo/image of the issue. If you set it to
+        "homeassistant", the Home Assistant logo will be used, or use "hue",
+        "zwave_js", "mqtt", etc. to use the logo of that integration.
+      required: false
+      selector:
+        text:
+    severity:
+      name: Severity
+      description: >-
+        The severity of the issue. This will be used to determine the
+        priority of the issue. If not set, "warning" will be used
+      required: false
+      selector:
+        select:
+          options:
+            - label: Warning
+              value: warning
+            - label: Error
+              value: error
+            - label: Critical
+              value: critical
+    persistent:
+      name: Persistent
+      description: >-
+        If the issue should be persistent, which means it will survive
+        restarts of Home Assistant. By default, issues are not persistent.
+      required: false
+      selector:
+        boolean:
+
+repairs_ignore_all:
+  name: Ignore all issues 👻
+  description: >-
+    Ignore all issues currently raised in Home Assistant Repairs.
+
+repairs_remove:
+  name: Remove issue 👻
+  description: >-
+    Removes a manually created Home Assistant repairs issue. This action
+    can only remove issues created with the `repairs_create` action.
+  fields:
+    issue_id:
+      name: Issue ID
+      description: >-
+        The issue ID to remove.
+      required: true
+      selector:
+        text:
+
+repairs_unignore_all:
+  name: Unignore all issues 👻
+  description: >-
+    Unignore all issues currently raised in Home Assistant Repairs.
+
+timer_set_duration:
+  name: Set duration 👻
+  description: >-
+    Set duration for an existing timer.
+  target:
+    entity:
+      domain: timer
+  fields:
+    duration:
+      name: Duration
+      description: New duration for the timer, as a timedelta string.
+      required: true
+      example: "00:01:00, 60"
+      selector:
+        text:
+
+zone_create:
+  name: Create a zone 👻
+  description: >-
+    Create a new zone in Home Assistant on the fly.
+  fields:
+    name:
+      name: Name
+      description: Name of the zone
+      required: true
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Icon to use for the zone
+      required: false
+      selector:
+        icon:
+          placeholder: mdi:map-marker
+    latitude:
+      name: Latitude
+      description: Latitude of the zone
+      required: true
+      selector:
+        number:
+          min: -90
+          max: 90
+          step: any
+          mode: box
+          unit_of_measurement: °
+    longitude:
+      name: Longitude
+      description: Longitude of the zone
+      required: true
+      selector:
+        number:
+          min: -180
+          max: 180
+          step: any
+          mode: box
+          unit_of_measurement: °
+    radius:
+      name: Radius
+      description: Radius of the zone
+      required: false
+      default: 100
+      selector:
+        number:
+          min: 0
+          max: 999999999999
+          unit_of_measurement: m
+          mode: box
+
+zone_update:
+  name: Update a zone 👻
+  description: >-
+    Update properties of a zone on the fly.
+  fields:
+    entity_id:
+      name: Entity ID
+      description: The ID of the entity (or entities) to update.
+      required: true
+      selector:
+        entity:
+          filter:
+            - domain: zone
+    name:
+      name: Name
+      description: Name of the zone
+      required: false
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Icon to use for the zone
+      required: false
+      selector:
+        icon:
+          placeholder: mdi:map-marker
+    latitude:
+      name: Latitude
+      description: Latitude of the zone
+      required: false
+      selector:
+        number:
+          min: -90
+          max: 90
+          step: any
+          mode: box
+          unit_of_measurement: °
+    longitude:
+      name: Longitude
+      description: Longitude of the zone
+      required: false
+      selector:
+        number:
+          min: -180
+          max: 180
+          step: any
+          mode: box
+          unit_of_measurement: °
+    radius:
+      name: Radius
+      description: Radius of the zone
+      required: false
+      default: 100
+      selector:
+        number:
+          min: 0
+          max: 999999999999
+          step: any
+          unit_of_measurement: m
+          mode: box
+
+zone_delete:
+  name: Delete a zone 👻
+  description: >-
+    Delete a zone. This works only with zones created and managed via the UI.
+    Zones created and managed in YAML cannot be managed by Spook.
+  fields:
+    entity_id:
+      name: Entity ID
+      description: The ID of the entity (or entities) to remove.
+      required: true
+      selector:
+        entity:
+          multiple: true
+          filter:
+            - domain: zone
