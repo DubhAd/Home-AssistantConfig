@@ -114,23 +114,6 @@ cards:
   - type: vertical-stack
     cards:
     - type: custom:simple-weather-card
-      entity: weather.openweathermap
-      name: OpenWM
-      backdrop: 
-        fade: true
-      secondary_info:
-        - wind_speed
-        - wind_bearing
-    - type: custom:weather-card
-      number_of_forecasts: 6
-      entity: weather.openweathermap
-      name: OpenWM
-      hourly_forecast: true
-      current: true
-      details: true
-  - type: vertical-stack
-    cards:
-    - type: custom:simple-weather-card
       entity: weather.home_meteo
       name: Meteo
       backdrop: 
