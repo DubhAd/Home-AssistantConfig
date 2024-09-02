@@ -27,10 +27,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person1_awake
     secondary_info: last-triggered
-  - entity: automation.person1_bedtime_reminder
-    secondary_info: last-triggered
-  - entity: automation.person1_up_reminder
-    secondary_info: last-triggered
   - entity: automation.person1_up_reminder_off
     secondary_info: last-triggered
   - entity: automation.person1_tablet_away
@@ -60,12 +56,4 @@ cards:
   - entity: automation.person1_location_update
     secondary_info: last-triggered
   - entity: automation.person1_changing_zones
-    secondary_info: last-triggered
-- type: entities
-  title: Automations changing inputs
-  show_header_toggle: false
-  entities:
-  - entity: automation.work_day_for_person1
-    secondary_info: last-triggered
-  - entity: automation.not_work_day_for_person1
     secondary_info: last-triggered
