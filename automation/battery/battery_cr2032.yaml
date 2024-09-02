@@ -14,7 +14,6 @@ trigger:
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_environment_battery
-    - sensor.chest_bike_battery
     - sensor.living_room_climate_battery
     - sensor.master_bedroom_button_battery
     - sensor.master_ensuite_environment_battery
@@ -26,7 +25,6 @@ trigger:
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_environment_battery
-    - sensor.chest_bike_battery
     - sensor.living_room_climate_battery
     - sensor.master_bedroom_button_battery
     - sensor.master_ensuite_environment_battery
@@ -38,7 +36,6 @@ trigger:
   - platform: numeric_state
     entity_id: 
     - sensor.bathroom_environment_battery
-    - sensor.chest_bike_battery
     - sensor.living_room_climate_battery
     - sensor.master_bedroom_button_battery
     - sensor.master_ensuite_environment_battery
