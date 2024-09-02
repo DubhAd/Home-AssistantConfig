@@ -12,20 +12,20 @@ trigger:
   - platform: template
     value_template: >
       {{ 
-        states('sensor.openweathermap_temperature')|int > 23
+        states('sensor.tomorrow_io_temperature')|int > 23
           and
-        ( states('sensor.openweathermap_temperature')|int > states('sensor.living_room_climate_temperature')|int )
+        ( states('sensor.tomorrow_io_temperature')|int > states('sensor.living_room_climate_temperature')|int )
       }}
 condition:
   - condition: state
     entity_id: input_boolean.living_room_occupied
     state: 'on'
   - condition: numeric_state
-    entity_id: sensor.openweathermap_temperature
+    entity_id: sensor.tomorrow_io_temperature
     above: 23
   - condition: template
     value_template: >
-      {{ states('sensor.openweathermap_temperature')|int > states('sensor.living_room_climate_temperature')|int }}
+      {{ states('sensor.tomorrow_io_temperature')|int > states('sensor.living_room_climate_temperature')|int }}
   - condition: or
     conditions:
     - condition: state

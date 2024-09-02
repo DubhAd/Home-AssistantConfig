@@ -55,10 +55,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person1_travelling
     secondary_info: last-triggered
-  - entity: automation.person1_is_travelling
-    secondary_info: last-triggered
-  - entity: automation.person1_is_not_travelling
-    secondary_info: last-triggered
   - entity: automation.person1_on_the_move
     secondary_info: last-triggered
   - entity: automation.person1_location_update
@@ -72,12 +68,4 @@ cards:
   - entity: automation.work_day_for_person1
     secondary_info: last-triggered
   - entity: automation.not_work_day_for_person1
-    secondary_info: last-triggered
-- type: entities
-  title: Automations for alarms - person1
-  show_header_toggle: false
-  entities:
-  - entity: automation.person1_on_holiday
-    secondary_info: last-triggered
-  - entity: automation.person1_off_holiday
     secondary_info: last-triggered

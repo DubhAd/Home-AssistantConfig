@@ -5,7 +5,7 @@ trigger:
   - platform: state
     entity_id:
       - sensor.skoda_superb_places
-      - sensor.home_skoda_superb_position_distance
+      - sensor.skoda_to_home_skoda_superb_position_distance
       - device_tracker.car_gps
 variables:
   where: >-

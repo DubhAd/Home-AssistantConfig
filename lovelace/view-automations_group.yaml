@@ -9,8 +9,6 @@ cards:
   title: person4
   show_header_toggle: false
   entities:
-  - entity: automation.person4_coming_home
-    secondary_info: last-triggered
   - entity: automation.person4_away
     secondary_info: last-triggered
   - entity: automation.person4_home
@@ -99,16 +97,4 @@ cards:
     secondary_info: last-triggered
   - type: divider
   - entity: automation.startup_location_update
-    secondary_info: last-triggered
-- type: entities
-  title: Automations for work
-  show_header_toggle: false
-  entities:
-  - entity: automation.person2_at_work
-    secondary_info: last-triggered
-  - entity: automation.person2_left_work
-    secondary_info: last-triggered
-  - entity: automation.trains_to_work
-    secondary_info: last-triggered
-  - entity: automation.trains_from_work
     secondary_info: last-triggered

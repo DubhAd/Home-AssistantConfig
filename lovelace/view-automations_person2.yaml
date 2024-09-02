@@ -25,13 +25,7 @@ cards:
     secondary_info: last-triggered
   - entity: automation.workday_for_person2
     secondary_info: last-triggered
-  - entity: automation.person2_travelling
-    secondary_info: last-triggered
   - entity: automation.person2_returning
-    secondary_info: last-triggered
-  - entity: automation.person2_is_travelling
-    secondary_info: last-triggered
-  - entity: automation.person2_is_not_travelling
     secondary_info: last-triggered
   - entity: automation.person2_phone_unplugged
     secondary_info: last-triggered
@@ -78,28 +72,4 @@ cards:
   - entity: automation.person2_home_enable_garage_open
     secondary_info: last-triggered
   - entity: automation.person2_home_disable_garage_open
-    secondary_info: last-triggered
-- type: entities
-  title: Automations for alarms - person2
-  show_header_toggle: false
-  entities:
-  - entity: automation.person2_on_holiday
-    secondary_info: last-triggered
-  - entity: automation.person2_off_holiday
-    secondary_info: last-triggered
-- type: entities
-  title: Automations changing inputs - person2
-  show_header_toggle: false
-  entities:
-  - entity: automation.not_workday_for_person2
-    secondary_info: last-triggered
-  - entity: automation.person2_working_from_home
-    secondary_info: last-triggered
-  - entity: automation.person2_not_working_from_home
-    secondary_info: last-triggered
-  - entity: automation.person2_working_trains
-    secondary_info: last-triggered
-  - entity: automation.person2_working_away
-    secondary_info: last-triggered
-  - entity: automation.person2_not_working_away
     secondary_info: last-triggered

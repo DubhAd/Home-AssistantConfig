@@ -11,8 +11,6 @@ cards:
   entities:
   - entity: automation.bedhead_light_dim_late
     secondary_info: last-triggered
-  - entity: automation.alarm_monitor_person2
-    secondary_info: last-triggered
   - type: divider
   - entity: automation.master_bedroom_occupied
     secondary_info: last-triggered
@@ -65,36 +63,10 @@ cards:
   entities:
   - entity: automation.person1_bedside_left_on
     secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_on
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_off
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_on_min
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_on_max
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_on_cool
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_on_warm
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_white
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_white_max
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_on_red
-    secondary_info: last-triggered
-  - entity: automation.person1_bedside_turn_red
-    secondary_info: last-triggered
 - type: entities
   title: Second bedroom alarm
   show_header_toggle: false
   entities:
-  - entity: automation.person1_alarm_on
-    secondary_info: last-triggered
-  - entity: automation.person1_alarm_off
-    secondary_info: last-triggered
-  - entity: automation.alarm_monitor_person1
-    secondary_info: last-triggered
   - entity: automation.person1_alarm_playing
     secondary_info: last-triggered
   - entity: automation.person1_alarm_left_playing
