@@ -395,7 +395,9 @@ cards:
 - type: vertical-stack
   cards:
   - title: Skoda Superb
-    image_url: /local/images/superb_home.jpg
+    #image_url: /local/images/superb_home.jpg
+    image_url: /local/images/skoda_superb_kombi.png
+    #image_url: https://ip-modcwp.azureedge.net/modcwp3v5v23200001/5X5XdCAPb-04-cnp2tzh7g-qipu7e4wyLVNZX-Frs7AlhaJwHN2Y48yd.oMSDv-fToqmBtc.z7i_DIx51kRv2aYH-NTHDMERJQ-1080570dayvext_front1080.png
     charging_image_url: ''
     image_url_type: image
     charging_image_url_type: image
@@ -488,16 +490,6 @@ cards:
     card:
       type: vertical-stack
       cards: 
-      - type: glance
-        title: Car
-        entities:
-        - entity: device_tracker.skoda_superb_position
-          name: GPS
-          icon: mdi:crosshairs-gps
-        - entity: binary_sensor.skoda_superb_doors_locked
-          name: Doors
-        - entity: binary_sensor.skoda_superb_windows_closed
-          name: Windows
       - type: horizontal-stack
         cards:
         - type: gauge
