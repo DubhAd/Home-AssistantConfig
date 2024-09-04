@@ -394,18 +394,93 @@ cards:
           - zone.station_train_station
 - type: vertical-stack
   cards:
-  - type: picture-entity
-    name: Car
-    entity: input_text.car
-    image: /local/images/car.jpg
-    tap_action:
-      action: call-service
-      service: input_boolean.toggle
-      service_data:
-        entity_id: input_boolean.lovelace_car_more
-    state_image:
-      "Home": /local/images/superb_home.jpg
-      "Away": /local/images/superb_away.jpg
+  - title: Skoda Superb
+    image_url: /local/images/superb_home.jpg
+    charging_image_url: ''
+    image_url_type: image
+    charging_image_url_type: image
+    vehicle_type: Fuel
+    unit_type: mi
+    level_entity: ''
+    range_entity: ''
+    charging_status_entity: ''
+    location_entity: device_tracker.skoda_superb_position
+    mileage_entity: sensor.skoda_superb_odometer_miles
+    show_level: true
+    show_range: true
+    show_location: true
+    show_mileage: true
+    show_car_state: true
+    show_charge_limit: true
+    icon_grid_entities:
+      - binary_sensor.skoda_superb_hood_closed
+      - binary_sensor.skoda_superb_doors_locked
+      - lock.skoda_superb_trunk_locked
+      - binary_sensor.skoda_superb_windows_closed
+      - input_boolean.lovelace_car_more
+    custom_icons:
+      binary_sensor.skoda_superb_windows_closed:
+        active: mdi:window-open
+        inactive: mdi:window-closed
+      binary_sensor.skoda_superb_hood_closed:
+        active: phu:tesla-hood
+        inactive: phu:tesla-hood
+      lock.skoda_superb_trunk_locked:
+        active: phu:tesla-trunk
+        inactive: phu:tesla-trunk
+      binary_sensor.skoda_superb_doors_locked:
+        active: mdi:car-door-lock-open
+      input_boolean.lovelace_car_more:
+        active: mdi:arrow-collapse-up
+        inactive: mdi:arrow-expand-down
+    icon_interactions:
+      input_boolean.lovelace_car_more:
+        type: toggle
+    icon_styles: {}
+    icon_labels: {}
+    hybrid_display_order: fuel_first
+    car_state_entity: lock.skoda_superb_door_locked
+    charge_limit_entity: ''
+    icon_size: 24
+    icon_gap: 12
+    showEntityInformation: true
+    carStateTextColor: ''
+    rangeTextColor: ''
+    percentageTextColor: ''
+    icon_sizes: {}
+    engine_on_entity: ''
+    row_separator_color: '#808080'
+    row_separator_height: 1
+    row_separators:
+      '0':
+        color: var(--uvc-info-text-color)
+        height: 1
+        icon_gap: 20
+        horizontalAlignment: center
+        verticalAlignment: middle
+    iconActiveColor: ''
+    iconInactiveColor: ''
+    useFormattedEntities: true
+    mainImageHeight: 180px
+    chargingImageHeight: 180px
+    showTitle: true
+    type: custom:ultra-vehicle-card
+    battery_level_entity: ''
+    battery_range_entity: ''
+    fuel_level_entity: sensor.skoda_superb_fuel_level
+    fuel_range_entity: sensor.skoda_superb_range_miles
+    show_battery: true
+    show_battery_range: true
+    show_fuel: true
+    show_fuel_range: true
+    cardBackgroundColor: ''
+    barBackgroundColor: ''
+    barFillColor: ''
+    limitIndicatorColor: ''
+    image: >-
+      https://github.com/user-attachments/assets/4ef72288-5ee9-4fa6-b2f3-c34c4160cf42
+    charging_image: >-
+      https://github.com/user-attachments/assets/4ef72288-5ee9-4fa6-b2f3-c34c4160cf42
   - type: conditional
     conditions:
       - entity: input_boolean.lovelace_car_more
