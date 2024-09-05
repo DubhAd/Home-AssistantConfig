@@ -417,7 +417,7 @@ cards:
     icon_grid_entities:
       - binary_sensor.skoda_superb_hood_closed
       - binary_sensor.skoda_superb_doors_locked
-      - lock.skoda_superb_trunk_locked
+      - binary_sensor.skoda_superb_trunk_locked
       - binary_sensor.skoda_superb_windows_closed
       - input_boolean.lovelace_car_more
     custom_icons:
@@ -427,7 +427,7 @@ cards:
       binary_sensor.skoda_superb_hood_closed:
         active: phu:tesla-hood
         inactive: phu:tesla-hood
-      lock.skoda_superb_trunk_locked:
+      binary_sensor.skoda_superb_trunk_locked:
         active: phu:tesla-trunk
         inactive: phu:tesla-trunk
       binary_sensor.skoda_superb_doors_locked:
@@ -438,6 +438,14 @@ cards:
     icon_interactions:
       input_boolean.lovelace_car_more:
         type: toggle
+      binary_sensor.skoda_superb_hood_closed:
+        type: more-info
+      binary_sensor.skoda_superb_doors_locked:
+        type: more-info
+      binary_sensor.skoda_superb_trunk_locked:
+        type: more-info
+      binary_sensor.skoda_superb_windows_closed:
+        type: more-info
     icon_styles: {}
     icon_labels: {}
     hybrid_display_order: fuel_first
