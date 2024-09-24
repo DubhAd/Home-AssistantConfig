@@ -11,7 +11,7 @@ action:
   - choose:
       - conditions:
           - condition: template
-            value_template: "{{ is_state('input_boolean.person1_in_bed','on') or is_state('input_boolean.second_bedroom_occupied','on') or when < 0 or when > (9 * 60) }}"
+            value_template: "{{ is_state('input_boolean.person1_in_bed','on') or is_state('input_boolean.second_bedroom_occupied','on') or when < 0 or when >= (8.5 * 60) }}"
         sequence:
           - alias: "White"
             service: mqtt.publish
@@ -23,7 +23,7 @@ action:
                 { "TIME_COL": [255,255,255], "CBCOL": [255, 255, 255] }
       - conditions:
           - condition: template
-            value_template: "{{ when < (8.5 * 60) and when > (8 * 60) }}"
+            value_template: "{{ when < (8.5 * 60) and when > (7.5 * 60) }}"
         sequence:
           - alias: "Amber"
             service: mqtt.publish
@@ -35,7 +35,7 @@ action:
                 { "TIME_COL": [255,165,0] }
       - conditions:
           - condition: template
-            value_template: "{{ when < (8 * 60) }}"
+            value_template: "{{ when <= (7.5 * 60) }}"
         sequence:
           - alias: "Red"
             service: mqtt.publish
@@ -45,3 +45,12 @@ action:
               topic: awtrix_family_room/settings
               payload: >-
                 { "TIME_COL": [255,0,0] }
+    default:
+      - alias: "Default white"
+        service: mqtt.publish
+        data:
+          qos: 0
+          retain: false
+          topic: awtrix_family_room/settings
+          payload: >-
+            { "TIME_COL": [255,255,255], "CBCOL": [255, 255, 255] }
