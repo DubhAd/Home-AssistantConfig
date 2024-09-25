@@ -23,8 +23,6 @@ cards:
     secondary_info: last-triggered
   - entity: automation.person2_awake
     secondary_info: last-triggered
-  - entity: automation.workday_for_person2
-    secondary_info: last-triggered
   - entity: automation.person2_returning
     secondary_info: last-triggered
   - entity: automation.person2_phone_unplugged

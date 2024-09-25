@@ -78,4 +78,4 @@ action:
 - service: mqtt.publish
   data:
     topic: '{{z2m_instance_name}}/{{aqara_trv_device_name}}/set/{{z2m_topic_name}}'
-    payload_template: '{{ (states(external_temp_sensor)|float(0)|round(1)) }}'
+    payload: '{{ (states(external_temp_sensor)|float(0)|round(1)) }}'
