@@ -60,6 +60,8 @@ cards:
   entities:
   - entity: switch.cloudfree_usb_switch_tempus
     name: Tempus
+  - entity: switch.cloudfree_usb_loki
+    name: Loki
 - type: custom:battery-state-card
   title: Battery devices
   sort: 
