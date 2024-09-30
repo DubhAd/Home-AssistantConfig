@@ -376,6 +376,8 @@ cards:
         entities:
         - entity: sensor.sm_a546b_next_alarm
           name: Next alarm
+        - entity: input_datetime.person1_next_alarm
+          name: Next alarm
       - type: "custom:atomic-calendar-revive"
         name: "Calendar"
         entities:
