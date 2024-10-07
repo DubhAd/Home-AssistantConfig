@@ -11,9 +11,9 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_is_awake
     state: 'on'
-  # Working from home
+  # Working today
   - condition: state
-    entity_id: input_boolean.person2_work_home
+    entity_id: binary_sensor.workday_sensor
     state: 'on'
   # Haven't started working yet
   - condition: state
@@ -24,10 +24,8 @@ condition:
     entity_id: sensor.office_illuminance_illuminance_lux
     below: 15
 action:
-  - wait_for_trigger:
-      - platform: state
-        entity_id: binary_sensor.master_bedroom_door_contact
-        to: 'on'
+  - wait_template: >-
+      {{ is_state('binary_sensor.master_bedroom_door_contact', 'on') }}
   - service: input_select.select_option
     data:
       entity_id: input_select.office
