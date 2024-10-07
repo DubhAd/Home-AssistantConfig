@@ -162,6 +162,13 @@ svg * {
   fill-opacity: 1 !important;
 }
 
+.interior-door-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .exterior-door-off {
   fill: #81c9a0 !important;
   fill-opacity: 1 !important;
@@ -184,6 +191,13 @@ svg * {
   */
 }
 
+.exterior-door-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .downstairs-window-off {
   fill: #81c9a0 !important;
   fill-opacity: 1 !important;
@@ -201,6 +215,13 @@ svg * {
   stroke-opacity: 0.8 !important;
 }
 
+.downstairs-window-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .upstairs-window-off {
   fill: #81c9a0 !important;
   fill-opacity: 1 !important;
@@ -213,6 +234,13 @@ svg * {
   stroke-dasharray: 10,4 !important; 
   stroke-width: 2px !important; 
   stroke-opacity: 0.8 !important;
+}
+
+.upstairs-window-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
 }
 
 .alarm-disarmed {
@@ -259,6 +287,13 @@ svg * {
   stroke-opacity: 0.8 !important;
 }
 
+.exterior-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .appliance-off {
   /* fill: #5f739b !important; */
   fill: #44607f !important;
@@ -272,6 +307,13 @@ svg * {
   stroke-dasharray: 10,4 !important; 
   stroke-width: 2px !important; 
   stroke-opacity: 0.8 !important;
+}
+
+.appliance-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
 }
 
 .interior-closed-background, .interior-closed-text-background {
@@ -319,6 +361,13 @@ svg * {
   stroke-opacity: 0.5 !important;
 }
 
+.motion-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .info-background {
    fill: #81c9a7 !important; 
   stroke-width: 1px !important; */
@@ -346,6 +395,13 @@ svg * {
   fill: #827272 !important;
 }
 
+.console-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .device-on {
   fill: #00FF00 !important;
   stroke: #00FF00 !important;
@@ -354,6 +410,13 @@ svg * {
 .device-off {
   fill: #770000 !important;
   stroke: #770000 !important;
+}
+
+.device-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
 }
 
 .connection-on, alert-off {
@@ -367,6 +430,13 @@ svg * {
   stroke: #FFFF00 !important;
   stroke-width: 1px !important; 
   stroke-opacity: 0.8 !important;
+}
+
+.connection-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
 }
 
 /* Bootstrap danger */
@@ -456,6 +526,13 @@ svg * {
   fill: #FFE500 !important;
 }
 
+.switch-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .socket-on {
   /*fill: #6F7500 !important;*/
   fill: #006297 !important;
@@ -465,6 +542,13 @@ svg * {
   /* fill: #92C0AD !important; */
   /* fill: #5d3d3e !important; */
   fill: #4d4d3e !important;
+}
+
+.socket-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
 }
 
 /* Temperature sensor */
@@ -510,6 +594,13 @@ svg * {
   fill: #40a2cf !important;
 }
 
+.homehub-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
+}
+
 .squeezebox-buffering {
   /* fill: #8270A2 !important; */
   fill: #827272 !important;
@@ -542,6 +633,13 @@ svg * {
 
 .squeezebox-unknown {
   fill: #A99999 !important;
+}
+
+.squeezebox-unavailable {
+  fill: #887777 !important;
+  stroke: #FFFF00 !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.5 !important;
 }
 
 /* People */
