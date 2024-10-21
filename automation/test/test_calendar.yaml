@@ -2,8 +2,8 @@ id: 'test_calendar_automation'
 alias: 'test calendar automation'
 initial_state: 'on'
 trigger:
-  - platform: homeassistant
-    event: start
+  - platform: time
+    at: '00:00:01'
 action:
   - action: calendar.get_events
     target:
@@ -13,7 +13,9 @@ action:
       duration: 
         hours: 24
     response_variable: agenda
-  - action: notify.person2
-    data:
-      message: >-
-        {{ agenda['calendar.person2_work'].events | selectattr('summary', 'contains', 'holiday') | list | join(';') }} }}
+  - variables:
+      holiday: >-
+        {{ (agenda['calendar.person2_work'].events | selectattr('summary', 'contains', 'holiday') | list | length) > 0 }}
+  - action: input_boolean.turn_{{ 'on' if holiday else 'off' }}
+    target:
+      entity_id: input_boolean.person2_on_holiday
