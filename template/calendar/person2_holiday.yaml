@@ -1,17 +1,22 @@
 - trigger:
-  - platform: time_pattern
-    minutes: '/10'
-  sensor:
-  - name: 'Blue bin'
-    unique_id: 'blue_bin_collection'
+  - platform: time
+    at: '00:00:00'
+  action:
+  - action: calendar.get_events
+    target:
+      entity_id: calendar.person2_work
+    data:
+      start_date_time: "{{ today_at('00:00:00') }}"
+      duration: 
+        hours: 24
+    response_variable: agenda
+  binary_sensor:
+  - name: 'person2 on holiday'
+    unique_id: 'person2_on_holiday'
     state: >-
-      {% if (as_timestamp(now()) + ( 60 * 60 * 24 )) | timestamp_custom("%Y-%m-%d 00:00:00") == states('sensor.blue_collection_date') %}
-        tomorrow
-      {% elif as_timestamp(now()) > as_timestamp(states('sensor.blue_collection_date'))+(60*60*12) %}
-        past
-      {% elif (as_timestamp(now()) | timestamp_custom("%Y-%m-%d 00:00:00")) == states('sensor.blue_collection_date') %}
-        today
-      {% else %}
-        future
-      {% endif %}
-      {{ "" if states('sensor.time') != "test" }}
+      {{ (agenda['calendar.person2_work'].events | selectattr('summary', 'contains', 'holiday') | list | length) > 0 }}
+  sensor:
+  - name: 'person2 on holiday'
+    unique_id: 'person2_on_holiday'
+    state: >-
+      {{ agenda['calendar.person2_work'].events }}
