@@ -8,5 +8,5 @@ action:
   - service: notify.apprise
     data:
       target: discord_ha
-      title: ""
+      title: " "
       message: "<@Tinkerer0042> :robot: Automations on Custodes have been reloaded at {{ as_timestamp(now())|timestamp_custom('%Y-%m-%d %H:%M:%S',now()) }} local"

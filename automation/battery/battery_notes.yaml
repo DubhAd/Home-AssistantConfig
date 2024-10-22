@@ -25,7 +25,7 @@ action:
           - service: notify.apprise
             data:
               target: discord
-              title: ""
+              title: " "
               message: >
                 :low_battery: {{ trigger.event.data.device_name }} has a battery level of {{ trigger.event.data.battery_level }}% {{ '\n' -}} 
                 You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}
@@ -37,6 +37,6 @@ action:
           - service: notify.apprise
             data:
               target: discord
-              title: ""
+              title: " "
               message: >
                 :battery: {{ trigger.event.data.device_name }} has increased battery level to {{ trigger.event.data.battery_level }}%

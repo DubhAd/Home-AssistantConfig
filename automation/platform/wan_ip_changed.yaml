@@ -24,7 +24,7 @@ action:
   - service: notify.apprise
     data:
       target: discord_ha
-      title: ""
+      title: " "
       message: >-
         :computer: The Internet was reconnected at {{ as_timestamp(states('sensor.fritz_box_3490_connection_uptime'),now())|timestamp_custom('%Y-%m-%d %H:%M:%S') }}
         (WAN {{ states('sensor.fritz_box_3490_external_ip') }} / {{ states('sensor.fritz_box_3490_external_ipv6') }})

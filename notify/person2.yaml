@@ -4,4 +4,4 @@
     - service: apprise
       data:
         target: person2
-        title: ""
+        title: " "
