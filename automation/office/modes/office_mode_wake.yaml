@@ -15,6 +15,9 @@ condition:
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
+  - condition: state
+    entity_id: binary_sensor.person2_on_holiday
+    state: 'off'
   # Haven't started working yet
   - condition: state
     entity_id: input_boolean.office_occupied
