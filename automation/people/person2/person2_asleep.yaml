@@ -11,8 +11,10 @@ trigger:
     from: 
       - 'sleep_tracking_stopped'
       - 'unavailable'
+      - 'sleep_tracking_paused'
     not_to:
       - 'sleep_tracking_stopped'
+      - 'sleep_tracking_paused'
       - 'unavailable'
     for: '00:01:00'
 condition:
