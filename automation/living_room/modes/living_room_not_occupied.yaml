@@ -11,11 +11,11 @@ trigger:
     to: 'off'
     for: '00:01:00'
   - platform: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.lounge_tcl_roku_tv
     to: 'off'
     for: '00:01:00'
   - platform: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.lounge_tcl_roku_tv
     to: 
     - 'off'
     - 'unavailable'
@@ -47,13 +47,11 @@ condition:
     state: 'on'
   # Requires all the media devices to be off, paused, unavailable, etc
   - condition: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.lounge_tcl_roku_tv
     state: 
     - 'off'
     - 'unavailable'
-  - condition: state
-    entity_id: media_player.living_room_tv
-    state: 'unavailable'
+    - 'standby'
   - condition: state
     entity_id: media_player.living_room
     state: 

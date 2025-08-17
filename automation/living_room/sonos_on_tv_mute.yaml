@@ -12,10 +12,10 @@ trigger:
     to: 'playing'
 condition:
   - condition: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.lounge_tcl_roku_tv
     state: 'on'
 action:
   - service: media_player.volume_mute
     data:
-      entity_id: media_player.samsung_tv
+      entity_id: media_player.lounge_tcl_roku_tv
       is_volume_muted: true
