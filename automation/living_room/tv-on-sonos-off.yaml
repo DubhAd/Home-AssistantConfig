@@ -3,18 +3,12 @@ initial_state: 'on'
 alias: 'TV on Sonos off'
 trigger:
   - platform: state
-    entity_id: device_tracker.living_room_chromecast
-    from: 'not_home'
-    to: 'home'
+    entity_id: media_player.lounge_tcl_roku_tv
+    to: 'on'
 condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: media_player.lounge_tcl_roku_tv
-      state: 'on'
-    - condition: state
-      entity_id: media_player.living_room
-      state: 'playing'
+  - condition: state
+    entity_id: media_player.living_room
+    state: 'playing'
 action:
   - service: media_player.media_stop
     entity_id: media_player.living_room

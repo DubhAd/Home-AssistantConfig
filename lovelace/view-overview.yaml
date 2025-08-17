@@ -237,6 +237,7 @@ cards:
         - entity_id: "/.*_old/"
         - entity_id: "/select.*_playlist/"
         - entity_id: "/.*_next_alarm/"
+        - entity_id: "media_player.lounge_tcl_roku_tv"
         - entity_id: "media_player.samsung_tv"
         - entity_id: "media_player.living_room_tv"
         - entity_id: "sensor.*weather*"

@@ -50,7 +50,7 @@ cards:
     entities:
     - entity: media_player.roku_x00200y5s7lx
       name: Family room
-    - entity: media_player.samsung_tv
+    - entity: media_player.lounge_tcl_roku_tv
       name: Living room TV
     - entity: media_player.living_room_tv
       name: Living room chromecast

@@ -4,7 +4,7 @@ initial_state: 'on'
 trigger:
   - alias: 'TV turned off'
     platform: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.lounge_tcl_roku_tv
     to: 'off'
     for: '00:05:00'
 condition:

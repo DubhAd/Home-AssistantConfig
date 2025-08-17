@@ -58,8 +58,8 @@ cards:
           when_idle: true
           when_paused: true
           when_standby: true
-      - entity: media_player.samsung_tv
-        name: Samsung TV
+      - entity: media_player.lounge_tcl_roku_tv
+        name: Roku TV
         type: custom:mini-media-player
         group: true
         icon: mdi:television

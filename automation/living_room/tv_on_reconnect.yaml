@@ -7,7 +7,7 @@ trigger:
     to: 'home'
     for: '00:00:30'
   - platform: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.lounge_tcl_roku_tv
     to: 'on'
     for: '00:00:30'
 condition:
