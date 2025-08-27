@@ -5,8 +5,10 @@ trigger:
   - alias: 'TV turned off'
     platform: state
     entity_id: media_player.lounge_tcl_roku_tv
-    to: 'off'
-    for: '00:05:00'
+    to:
+      - 'off'
+      - 'standby'
+    for: '00:03:00'
 condition:
   - condition: state
     entity_id: media_player.sky_q_living_room
