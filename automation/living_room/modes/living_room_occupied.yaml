@@ -35,18 +35,8 @@ trigger:
     for:
       minutes: 5
   - platform: state
-    entity_id: media_player.living_room_tv
-    to: 'off'
-    from: 'unavailable'
-    for:
-      minutes: 5
-  - platform: state
     entity_id: media_player.lounge_tcl_roku_tv
     to: 'on'
-  - platform: state
-    entity_id: media_player.living_room_tv
-    to: 'off'
-    from: 'unavailable'
   - platform: state
     entity_id: 
     - binary_sensor.living_room_presence_occupancy
