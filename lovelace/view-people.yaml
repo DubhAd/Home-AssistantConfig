@@ -55,10 +55,10 @@ cards:
           charging_state:
             entity_id: sensor.pixel_6a_battery_state
             state: "charging"
-        - entity: sensor.person3s_time_to_home_duration_in_traffic
+        - entity: sensor.person3s_time_to_home_duration
           name: Car home
           icon: mdi:map-marker-distance
-        - entity: sensor.person3s_time_to_home_by_bus_duration_in_traffic
+        - entity: sensor.person3s_time_to_home_by_bus_duration
           name: Bus home
           icon: mdi:map-marker-distance
         - entity: sensor.person3s_time_to_home_by_foot_duration
@@ -132,7 +132,7 @@ cards:
         charging_state:
           entity_id: sensor.dsb_0230_battery_state
           state: "charging"
-      - entity: sensor.person4s_time_to_home_duration_in_traffic
+      - entity: sensor.person4s_time_to_home_duration
         name: To home
         icon: mdi:map-marker-distance
       - entity: sensor.home_2_dsb_0230_distance
@@ -199,7 +199,7 @@ cards:
           charging_state:
             entity_id: sensor.pixel_xl_battery_state
             state: "charging"
-        - entity: sensor.person2s_time_to_home_duration_in_traffic
+        - entity: sensor.person2s_time_to_home_duration
           name: Car home
           icon: mdi:map-marker-distance
         - entity: sensor.home_person2_distance
@@ -366,10 +366,10 @@ cards:
         - entity: input_boolean.person1_in_bed
           show_last_changed: true
           name: In bed
-        - entity: sensor.person1s_time_to_home_duration_in_traffic
+        - entity: sensor.person1s_time_to_home_duration
           name: Car home
           icon: mdi:map-marker-distance
-        - entity: sensor.person1_s_time_to_home_by_bus_duration_in_traffic
+        - entity: sensor.person1_s_time_to_home_by_bus_duration
           name: Bus home
           icon: mdi:map-marker-distance
         - entity: sensor.person1s_time_to_home_by_foot_duration
