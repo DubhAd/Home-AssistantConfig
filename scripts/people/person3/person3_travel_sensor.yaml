@@ -19,12 +19,10 @@ sequence:
           Near home ({{ states("input_select.person3_status_dropdown") }})
         {% elif not is_state("device_tracker.pixel_6a", "not_home") %}
           At {{ states("device_tracker.pixel_6a") }}
-        {% elif states('sensor.home_person3_distance')|int > 1500 and is_state('input_boolean.person2_home','off') %}
-          {{ where }}- {{ states('sensor.person3s_time_to_home_duration')|round(0,"round-to-even","unknown") }} {{ state_attr('sensor.person3s_time_to_home_duration', 'unit_of_measurement') }} to home by car
         {% elif states('sensor.home_person3_distance')|int > 1500 %}
-          Near {{ where }} - {{ states('sensor.person3s_time_to_home_by_bus_duration')|round(0,"round-to-even","unknown") }} {{ state_attr('sensor.person3s_time_to_home_by_bus_duration', 'unit_of_measurement') }} home by bus
+          Near {{ where }} 
         {% else %}
-          Near {{ where }} - {{ states('sensor.person3s_time_to_home_by_foot_duration')|round(0,"round-to-even","unknown") }} {{ state_attr('sensor.person3s_time_to_home_by_foot_duration', 'unit_of_measurement') }} to home on foot ({{states('sensor.home_person3_distance')}}{{state_attr('sensor.home_person3_distance','unit_of_measurement')}})
+          Near {{ where }} ({{states('sensor.home_person3_distance')}}{{state_attr('sensor.home_person3_distance','unit_of_measurement')}} away)
         {% endif %}
   - if:
       - condition: state
