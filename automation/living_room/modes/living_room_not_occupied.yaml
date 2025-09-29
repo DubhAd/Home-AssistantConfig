@@ -21,13 +21,6 @@ trigger:
     - 'unavailable'
     for: '00:05:00'
   - platform: state
-    entity_id: media_player.living_room_tv
-    to: 'unavailable'
-  - platform: state
-    entity_id: media_player.living_room_tv
-    to: 'unavailable'
-    for: '00:05:00'
-  - platform: state
     entity_id: media_player.living_room
     to: 'paused'
     for: '00:03:00'
