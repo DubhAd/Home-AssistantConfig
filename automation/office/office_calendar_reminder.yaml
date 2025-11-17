@@ -16,10 +16,10 @@ actions:
   - action: media_player.play_media
     data:
       media_content_id: >-
-              media-source://tts/tts.piper?message=Remember to {{ trigger.calendar_event.summary|replace("Reminder: ","") }}
+        media-source://tts/tts.piper?message={{ trigger.calendar_event.summary|replace("Reminder: ","") }}
       media_content_type: music
+      announce: true
       extra:
         volume: 20
-      announce: true
     target:
       entity_id: media_player.office_sonos_cloud
