@@ -3,15 +3,12 @@ alias: 'Office calendar reminder'
 initial_state: 'on'
 triggers:
   - trigger: calendar
-    entity_id: calendar.person2_work
+    entity_id: calendar.reminders
     event: start
 conditions:
   - condition: state
     entity_id: input_boolean.office_occupied
     state: 'on'
-  - condition: template
-    value_template: >-
-      {{ "Reminder:" in trigger.calendar_event.summary }}
 actions:
   - action: media_player.play_media
     data:
