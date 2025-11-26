@@ -45,7 +45,7 @@ cards:
         show_last_changed: true
         name: Motion
   - type: glance
-    columns: 6
+    columns: 5
     entities:
       - entity: light.master_bedroom_bedhead
         name: Bedhead
@@ -59,9 +59,6 @@ cards:
         tap_action: 
           action: toggle
         name: Socket
-        show_last_changed: true
-      - entity: media_player.person2
-        name: Squeezebox
         show_last_changed: true
       - entity: media_player.cast_master_bedroom_speaker
         name: Home Mini
