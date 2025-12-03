@@ -1,34 +1,34 @@
 rules:
   # Bronze
-  action-setup: todo
-  appropriate-polling: todo
-  brands: todo
-  common-modules: todo
+  action-setup: done
+  appropriate-polling: done
+  brands: done
+  common-modules: done
   config-flow-test-coverage: todo
   config-flow: todo
-  dependency-transparency: todo
-  docs-actions: todo
-  docs-high-level-description: todo
-  docs-installation-instructions: todo
+  dependency-transparency: done
+  docs-actions: done
+  docs-high-level-description: done
+  docs-installation-instructions: done
   docs-removal-instructions: todo
   entity-event-setup: todo
-  entity-unique-id: todo
-  has-entity-name: todo
+  entity-unique-id: done
+  has-entity-name: done
   runtime-data: todo
-  test-before-configure: todo
-  test-before-setup: todo
+  test-before-configure: done
+  test-before-setup: done
   unique-config-entry: todo
 
   # Silver
   action-exceptions: todo
-  config-entry-unloading: todo
+  config-entry-unloading: done
   docs-configuration-parameters: todo
   docs-installation-parameters: todo
-  entity-unavailable: todo
+  entity-unavailable: done
   integration-owner: todo
   log-when-unavailable: todo
   parallel-updates: todo
-  reauthentication-flow: todo
+  reauthentication-flow: done
   test-coverage: 
     status: todo
     comment: Platform missing tests
