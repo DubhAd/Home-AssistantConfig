@@ -55,6 +55,6 @@ actions:
       - input_boolean.office_occupied
       - input_boolean.lighting_office
       - input_boolean.stream_front_camera_motion
-  - action: humidifier.turn_off
+  - action: humidifier.turn_on
     target:
       entity_id: humidifier.dual_200s
