@@ -1,0 +1,58 @@
+id: 'office_humidifier_control'
+alias: 'Office humidifier control'
+initial_state: 'on'
+triggers:
+  - trigger: state
+    entity_id: input_boolean.office_occupied
+    to: 'on'
+    id: 'occupied'
+  - trigger: state
+    entity_id: input_boolean.office_occupied
+    to: 'off'
+    id: 'unoccupied'
+  - trigger: state
+    entity_id: input_boolean.office_paused
+    to: 'on'
+    id: 'paused'
+  - trigger: state
+    entity_id: input_boolean.office_paused
+    to: 'off'
+    id: 'unpaused'
+actions:
+  - choose:
+        # Room occupied, turn it on
+      - conditions:
+          - condition: trigger
+            id: 'occupied'
+        sequence:
+          - action: humidifier.turn_on
+            target:
+              entity_id: humidifier.dual_200s
+        # Room empty, turn it off
+      - conditions:
+          - condition: trigger
+            id: 'unoccupied'
+        sequence:
+          - action: humidifier.turn_off
+            target:
+              entity_id: humidifier.dual_200s
+        # Set it to low
+      - conditions:
+          - condition: trigger
+            id: 'paused'
+        sequence:
+          - action: number.set_value
+            target:
+              entity_id: number.dual_200s_mist_level
+            data:
+              value: 1
+        # Set it back to auto
+      - conditions:
+          - condition: trigger
+            id: 'unpaused'
+        sequence:
+          - action: humidifier.set_mode
+            data:
+              mode: auto
+            target:
+              entity_id: humidifier.dual_200s
