@@ -28,7 +28,15 @@ image_analyzer:
     remember:
       name: Remember
       required: false
-      description: 'Remember this event so you can ask about it later'
+      description: 'Store this event in the timeline'
+      example: true
+      default: false
+      selector:
+        boolean:
+    use_memory:
+      name: Use Memory
+      required: false
+      description: 'Use information stored in memory to provide additional context. Memory must be set up.'
       example: true
       default: false
       selector:
@@ -71,24 +79,11 @@ image_analyzer:
     max_tokens:
       name: Maximum Tokens
       description: 'Maximum number of tokens to generate'
-      required: true
-      example: 100
-      default: 100
+      required: false
+      example: 3000
+      default: 3000
       selector:
         number:
-          min: 1
-          max: 300
-    temperature:
-      name: Temperature
-      required: true
-      description: 'Randomness. Lower is more accurate, higher is more creative'
-      example: 0.2
-      default: 0.2
-      selector:
-        number:
-          min: 0.1
-          max: 1.0
-          step: 0.1
     generate_title:
       name: Generate Title
       required: false
@@ -98,16 +93,7 @@ image_analyzer:
         boolean:
     expose_images:
       name: Expose Images
-      description: (Experimental) Expose analyzed frames after processing. This will save analyzed frames in /www/llmvision so they can be used for notifications. (Only works for entity input, include camera name should be enabled). Existing files will be overwritten.
-      required: false
-      example: false
-      default: false
-      selector:
-        boolean:
-    expose_images_persist:
-      name: Persist Exposed Images
-      description: (Experimental) Normally exposed images are re-written with each new event. Setting this to true will include the Frigate eventID, if available, as part of the filename. If there is no 
-          Frigate eventID, a uid will be used instead.
+      description: Save the key frame. This will save analyzed frames in /media/llmvision/snapshots so they can be used for notifications. The file path will be included in the response.
       required: false
       example: false
       default: false
@@ -144,7 +130,15 @@ video_analyzer:
     remember:
       name: Remember
       required: false
-      description: 'Remember this event so you can ask about it later'
+      description: 'Store this event in the timeline'
+      example: true
+      default: false
+      selector:
+        boolean:
+    use_memory:
+      name: Use Memory
+      required: false
+      description: 'Use information stored in memory to provide additional context. Memory must be set up.'
       example: true
       default: false
       selector:
@@ -152,7 +146,7 @@ video_analyzer:
     video_file:
       name: Video File
       required: false
-      description: 'Local path to video'
+      description: 'One or multiple local paths or URLs to video. Use a new line to separate multiple entries.'
       example: "/config/www/recordings/front_door.mp4"
       selector:
         text:
@@ -165,30 +159,6 @@ video_analyzer:
       selector:
         text:
           multiline: true
-    frigate_retry_attempts:
-      name: Frigate Retry Attempts
-      description: How many times to retry fetching the video clip from Frigate. Clips are not always available from Frigate as soon as the event has ended.  
-          Slower machines or longer clips may need additional attempts. Increase this if you see errors fetching the clips from Frigate in your automation traces.
-      required: false
-      example: 2
-      default: 2
-      selector:
-        number:
-          min: 1
-          max: 10
-          step: 1
-    frigate_retry_seconds:
-      name: Frigate Retry Seconds
-      description: How long to wait between retries to fetch the video clip from Frigate. Clips are not always available from Frigate as soon as the event has ended.  
-          Slower machines or longer clips may need additional attempts. Increase this if you see errors fetching the clips from Frigate in your automation traces.
-      required: false
-      example: 1
-      default: 1
-      selector:
-        number:
-          min: 1
-          max: 10
-          step: 1
     max_frames:
       name: Max Frames
       description: How many frames to analyze. Picks frames with the most movement.
@@ -221,24 +191,11 @@ video_analyzer:
     max_tokens:
       name: Maximum Tokens
       description: 'Maximum number of tokens to generate'
-      required: true
-      example: 100
-      default: 100
+      required: false
+      example: 3000
+      default: 3000
       selector:
         number:
-          min: 1
-          max: 300
-    temperature:
-      name: Temperature
-      required: true
-      description: 'Randomness. Lower is more accurate, higher is more creative'
-      example: 0.2
-      default: 0.2
-      selector:
-        number:
-          min: 0.0
-          max: 1.0
-          step: 0.1
     generate_title:
       name: Generate Title
       required: false
@@ -248,16 +205,7 @@ video_analyzer:
         boolean:
     expose_images:
       name: Expose Images
-      description: (Experimental) Expose analyzed frames after processing. This will save analyzed frames in /www/llmvision so they can be used for notifications. (Only works for entity input, include camera name should be enabled). Existing files will be overwritten.
-      required: false
-      example: false
-      default: false
-      selector:
-        boolean:
-    expose_images_persist:
-      name: Persist Exposed Images
-      description: (Experimental) Normally exposed images are re-written with each new event. Setting this to true will include the Frigate eventID, if available, as part of the filename. If there is no 
-          Frigate eventID, a uid will be used instead.
+      description: Save the key frame. This will save analyzed frames in /media/llmvision/snapshots so they can be used for notifications. The file path will be included in the response.
       required: false
       example: false
       default: false
@@ -294,7 +242,15 @@ stream_analyzer:
     remember:
       name: Remember
       required: false
-      description: 'Remember this event so you can ask about it later'
+      description: 'Store this event in the timeline'
+      example: true
+      default: false
+      selector:
+        boolean:
+    use_memory:
+      name: Use Memory
+      required: false
+      description: 'Use information stored in memory to provide additional context. Memory must be set up.'
       example: true
       default: false
       selector:
@@ -350,24 +306,11 @@ stream_analyzer:
     max_tokens:
       name: Maximum Tokens
       description: 'Maximum number of tokens to generate'
-      required: true
-      example: 100
-      default: 100
+      required: false
+      example: 3000
+      default: 3000
       selector:
         number:
-          min: 1
-          max: 300
-    temperature:
-      name: Temperature
-      required: true
-      description: 'Randomness. Lower is more accurate, higher is more creative'
-      example: 0.2
-      default: 0.2
-      selector:
-        number:
-          min: 0.1
-          max: 1.0
-          step: 0.1
     generate_title:
       name: Generate Title
       required: false
@@ -377,7 +320,7 @@ stream_analyzer:
         boolean:
     expose_images:
       name: Expose Images
-      description: (Experimental) Expose analyzed frames after processing. This will save analyzed frames in /www/llmvision so they can be used for notifications. (Only works for entity input, include camera name should be enabled). Existing files will be overwritten.
+      description: Save the key frame. This will save analyzed frames in /media/llmvision/snapshots so they can be used for notifications. The file path will be included in the response.
       required: false
       example: false
       default: false
@@ -412,6 +355,22 @@ data_analyzer:
       selector:
         text:
           multiline: true
+    remember:
+      name: Remember
+      required: false
+      description: 'Store this event in the timeline'
+      example: true
+      default: false
+      selector:
+        boolean:
+    use_memory:
+      name: Use Memory
+      required: false
+      description: 'Use information stored in memory to provide additional context. Memory must be set up.'
+      example: true
+      default: false
+      selector:
+        boolean:
     sensor_entity:
       name: Sensor Entity
       description: The sensor to update
@@ -458,22 +417,76 @@ data_analyzer:
           max: 1920
     max_tokens:
       name: Maximum Tokens
-      description: 'Maximum number of tokens to generate. A low value is recommended since this will likely result in a number.'
-      required: true
-      example: 5
-      default: 5
+      description: 'Maximum number of tokens to generate'
+      required: false
+      example: 3000
+      default: 3000
       selector:
         number:
-          min: 1
-          max: 50
-    temperature:
-      name: Temperature
-      required: true
-      description: 'Randomness. Lower is more accurate, higher is more creative. 0.1 is recommended for best accuracy.'
-      example: 0.1
-      default: 0.1
+    generate_title:
+      name: Generate Title
+      required: false
+      description: Generate a title. (Used for notifications and remembered events)
+      default: false
       selector:
-        number:
-          min: 0.1
-          max: 1.0
-          step: 0.1
+        boolean:
+    expose_images:
+      name: Expose Images
+      description: Save the key frame. This will save analyzed frames in /media/llmvision/snapshots so they can be used for notifications. The file path will be included in the response.
+      required: false
+      example: false
+      default: false
+      selector:
+        boolean:
+
+remember:
+  name: Remember
+  description: Remember an event in the LLM Vision Timeline
+  fields:
+    title:
+      name: Title
+      required: true
+      description: 'Event Title'
+      example: "Car seen"
+      selector:
+        text:
+          multiline: false
+    summary:
+      name: Summary
+      required: true
+      description: 'Event Description'
+      example: "A car was seen pulling into a driveway"
+      selector:
+        text:
+          multiline: true
+    image_path:
+      name: Image Path
+      required: false
+      description: Image of the event. Must be stored in "/media/llmvision/snapshots/"
+      example: '/config/media/llmvision/snapshots/example.jpg'
+      selector:
+        text:
+          multiline: false
+    camera_entity:
+      name: Camera Entity
+      required: false
+      description: Camera that recorded the event.
+      example: 'camera.front_door'
+      selector:
+        entity:
+          domain: camera
+          multiple: false
+    start_time:
+      name: Start Time and Date
+      required: false
+      description: 'Time and date the event started. Set to now if left blank. Format: (YYYY-MM-DD HH:MM:SS)'
+      example: '2022-02-22 13:30:00'
+      selector:
+        datetime:
+    end_time:
+      name: End Time and Date
+      required: false
+      description: 'Time and date the event ended. Set to one minute after start if left blank. Format: (YYYY-MM-DD HH:MM:SS)'
+      example: '2022-02-22 13:30:00'
+      selector:
+        datetime:

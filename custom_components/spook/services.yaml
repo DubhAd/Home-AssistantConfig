@@ -214,7 +214,7 @@ homeassistant_disable_device:
   fields:
     device_id:
       name: Device
-      description: The device to disable.
+      description: The device(s) to disable.
       required: true
       selector:
         device:
@@ -227,7 +227,7 @@ homeassistant_enable_device:
   fields:
     device_id:
       name: Device
-      description: The device to disable.
+      description: The device(s) to enable.
       required: true
       selector:
         device:
@@ -289,6 +289,25 @@ homeassistant_hide_entity:
       selector:
         entity:
           multiple: true
+
+homeassistant_rename_entity:
+  name: Rename an entity 👻
+  description: >-
+    Renames an entity (or entities) on the fly.
+  fields:
+    entity_id:
+      name: Entity
+      description: The entity/entities to rename.
+      required: true
+      selector:
+        entity:
+          multiple: true
+    name:
+      name: Name
+      description: The new name for the entity/entities.
+      required: true
+      selector:
+        text:
 
 homeassistant_unhide_entity:
   name: Unhide an entity 👻
