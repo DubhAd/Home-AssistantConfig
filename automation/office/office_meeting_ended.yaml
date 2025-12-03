@@ -48,6 +48,12 @@ conditions:
       - condition: trigger
         id: presence
 actions:
-  - service: switch.turn_off
-    data:
-      entity_id: switch.home_assistant_voice_0907a0_mute
+  - parallel:
+      - action: switch.turn_off
+        data:
+          entity_id: switch.home_assistant_voice_0907a0_mute
+      - action: humidifier.set_mode
+        data:
+          mode: auto
+        target:
+          entity_id: humidifier.dual_200s
