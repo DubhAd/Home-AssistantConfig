@@ -236,7 +236,7 @@ cards:
       tap_action: 
         action: more-info
   - type: glance
-    columns: 5
+    columns: 4
     entities:
       - entity: binary_sensor.office_door_contact
         show_last_changed: true
@@ -253,6 +253,14 @@ cards:
       - entity: light.office_strip
         name: Strip
         show_last_changed: true
+      - entity: humidifier.dual_200s
+        name: Humidifier
+      - entity: media_player.office_smart_display
+        name: "Home Hub"
+        show_last_changed: true
+      - entity: switch.home_assistant_voice_0907a0_mute
+        name: Assist Mute
+        icon: mdi:account-voice-off
       - entity: media_player.office
         name: Sonos
         show_last_changed: true
@@ -262,12 +270,6 @@ cards:
       - entity: binary_sensor.office_sonos_family
         name: Sonos
         show_last_changed: true
-      - entity: media_player.office_smart_display
-        name: "Home Hub"
-        show_last_changed: true
-      - entity: switch.home_assistant_voice_0907a0_mute
-        name: Assist Mute
-        icon: mdi:account-voice-off
 - type: vertical-stack
   cards:
   - type: heading
