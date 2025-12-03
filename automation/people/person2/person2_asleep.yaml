@@ -7,30 +7,16 @@ trigger:
     to: 'on'
     for: '00:05:00'
   - platform: state
-    entity_id: sensor.sleepasandroid_person2
-    from: 
-      - 'sleep_tracking_stopped'
-      - 'unavailable'
-      - 'sleep_tracking_paused'
-    not_to:
-      - 'sleep_tracking_stopped'
-      - 'sleep_tracking_paused'
-      - 'unavailable'
+    entity_id: event.sleep_as_android_sleep_phase
+    to:
+      - 'not_awake'
     for: '00:01:00'
 condition:
   - condition: state
     entity_id: 
       - input_boolean.person2_is_awake
       - input_boolean.person2_home
-      - input_boolean.person2_phone_charging
     state: 'on'
-  - condition: not
-    conditions:
-      - condition: state
-        entity_id: sensor.sleepasandroid_person2
-        state: 
-          - 'sleep_tracking_stopped'
-          - 'unavailable'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_in_bed
