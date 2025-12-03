@@ -12,13 +12,13 @@ trigger:
     for: '00:05:00'
 condition:
   - condition: numeric_state
-    entity_id: sensor.accuhome_apparent_temperature
+    entity_id: sensor.tomorrow_io_home_feels_like
     below: 5
 action:
   - service: media_player.play_media
     data:
       media_content_id: >-
-        media-source://tts/tts.piper?message=The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.accuhome_apparent_temperature') }} {{ state_attr('sensor.accuhome_apparent_temperature','unit_of_measurement') }} outside
+        media-source://tts/tts.piper?message=The {{ trigger.to_state.name }} has been left open and it is {{ states('sensor.tomorrow_io_home_feels_like') }} {{ state_attr('sensor.tomorrow_io_home_feels_like','unit_of_measurement') }} outside
       media_content_type: music
       announce: true
       extra:

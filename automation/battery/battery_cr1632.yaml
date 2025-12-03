@@ -10,7 +10,6 @@ trigger:
     - binary_sensor.utility_door_exterior_battery_low
     - binary_sensor.vestibule_door_battery_low
     - binary_sensor.garage_door_car_battery_low
-    - binary_sensor.garage_door_bike_battery_low
     - binary_sensor.chest_bike_lid_battery_low
     to: 'on'
   - platform: numeric_state
