@@ -9,9 +9,6 @@ condition:
   - condition: state
     entity_id: input_boolean.office_occupied
     state: 'on'
-  - condition: state
-    entity_id: media_player.office
-    state: 'playing'
 action:
   - service: input_select.select_option
     data:

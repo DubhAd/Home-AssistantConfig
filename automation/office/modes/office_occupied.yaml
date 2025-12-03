@@ -1,22 +1,22 @@
 id: 'office_occupied'
 initial_state: 'on'
 alias: 'Office occupied'
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: group.work_laptop
     to: 'home'
-  - platform: state
+  - trigger: state
     entity_id: input_boolean.person2_in_bed
     to: 'off'
-  - platform: state
+  - trigger: state
     entity_id: input_boolean.person2_home
     to: 'on'
-  - platform: state
+  - trigger: state
     entity_id: 
       - binary_sensor.office_presence_occupancy
       - binary_sensor.office_mmwave_region_1
     to: 'on'
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.office_mmwave_presence
     to: 'on'
     for: '00:05:00'
@@ -49,9 +49,12 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_home
     state: 'on'
-action:
-  - service: input_boolean.turn_on
+actions:
+  - action: input_boolean.turn_on
     entity_id: 
       - input_boolean.office_occupied
       - input_boolean.lighting_office
       - input_boolean.stream_front_camera_motion
+  - action: humidifier.turn_off
+    target:
+      entity_id: humidifier.dual_200s
