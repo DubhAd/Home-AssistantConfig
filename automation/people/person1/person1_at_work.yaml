@@ -1,29 +1,13 @@
-id: 'person1_at_station2'
-alias: 'person1 at station2'
+id: 'person1_at_work'
 initial_state: 'on'
+alias: 'person1 at work'
 trigger:
-  - platform: state
-    entity_id: device_tracker.sm_a546b
-    to: 'station2'
-condition:
-  - condition: or
-    conditions:
-      - condition: state
-        entity_id: input_boolean.person2_home
-        state: 'on'
-      - condition: numeric_state
-        entity_id: sensor.home_person2_distance
-        below: 2000
-  - condition: state
-    entity_id: input_boolean.person1_at_hw
-    state: 'on'
+- platform: numeric_state
+  entity_id: sensor.university_person1_distance
+  below: '800'
+- platform: state
+  entity_id: sensor.sm_a546b_wifi_connection
+  to: "HWU_Guest"
 action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.person1_at_hw
-  - service: homeassistant.update_entity
-    target:
-      entity_id: sensor.next_train_to_abc
-  - service: notify.person2_telegram
-    data:
-      message: >-
-        person1 is at station2, and the next train is in {{ states('sensor.next_train_to_abc')|int }} minutes, leaving at {{ state_attr('sensor.next_train_to_abc','next_trains')[0].estimated }}.  The following train leaves at {{ state_attr('sensor.next_train_to_abc','next_trains')[1].estimated }}.
+- service: input_boolean.turn_on
+  entity_id: input_boolean.person1_at_hw

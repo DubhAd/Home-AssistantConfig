@@ -21,11 +21,5 @@ action:
             state: 'owm'
         sequence:
           - service: script.weather_notification_here
-      - conditions:
-          - condition: state
-            entity_id: input_select.weather_source
-            state: 'accuweather'
-        sequence:
-          - service: script.weather_notification_accuweather
     default:
-      - service: script.weather_notification_accuweather
+      - service: script.weather_notification_here
