@@ -12,16 +12,28 @@ sequence:
           - condition: state
             entity_id: input_boolean.google_travel_time
             state: 'on'
+          - condition: numeric_state
+            entity_id: counter.google_travel_requests
+            below: input_number.travel_request_limit
         then:
           - service: homeassistant.update_entity
             entity_id: sensor.person2s_time_home_by_transit
+          - service: counter.increment
+            data:
+              entity_id: counter.google_travel_requests
       - if:
           - condition: state
             entity_id: input_boolean.here_travel_time
             state: 'on'
+          - condition: numeric_state
+            entity_id: counter.here_travel_requests
+            below: input_number.travel_request_limit
         then: 
           - service: homeassistant.update_entity
             entity_id: sensor.person2s_time_to_home_duration
+          - service: counter.increment
+            data:
+              entity_id: counter.here_travel_requests
       - if:
           - condition: state
             entity_id: input_boolean.waze_travel_time

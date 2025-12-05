@@ -1,7 +1,7 @@
-- trigger:
-  - platform: time_pattern
+- triggers:
+  - trigger: time_pattern
     seconds: 0
-- sensor:
+  sensor:
   - name: 'Unavailable entities'
     unique_id: 'unavailable_entities'
     state: >-

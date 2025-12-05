@@ -1,0 +1,13 @@
+id: 'travel_counter_reset'
+alias: 'Travel counter reset'
+initial_state: 'on'
+triggers:
+  - trigger: time
+    at: '00:00:00'
+actions:
+  - action: counter.reset
+    target:
+      entity_id: counter.here_travel_requests
+  - action: counter.reset
+    target:
+      entity_id: counter.google_travel_requests
