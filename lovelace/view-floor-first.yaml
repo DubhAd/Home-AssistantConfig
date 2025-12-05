@@ -210,6 +210,8 @@ cards:
     heading: Office
     badges:
     - entity: binary_sensor.office_mmwave_region_1
+      tap_action: 
+        action: more-info
       name: Presence
       color: state
       show_state: false
@@ -255,6 +257,7 @@ cards:
         show_last_changed: true
       - entity: humidifier.dual_200s
         name: Humidifier
+        show_last_changed: true
       - entity: media_player.office_smart_display
         name: "Home Hub"
         show_last_changed: true
