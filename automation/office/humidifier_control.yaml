@@ -24,6 +24,9 @@ actions:
       - conditions:
           - condition: trigger
             id: 'occupied'
+          - condition: state
+            entity_id: humidifier.dual_200s
+            state: 'off'
         sequence:
           - action: humidifier.turn_on
             target:
@@ -32,6 +35,9 @@ actions:
       - conditions:
           - condition: trigger
             id: 'unoccupied'
+          - condition: state
+            entity_id: group.work_laptop
+            state: 'not_home'
         sequence:
           - action: humidifier.turn_off
             target:
@@ -40,6 +46,9 @@ actions:
       - conditions:
           - condition: trigger
             id: 'paused'
+          - condition: state
+            entity_id: humidifier.dual_200s
+            state: 'on'
         sequence:
           - action: number.set_value
             target:
@@ -50,6 +59,9 @@ actions:
       - conditions:
           - condition: trigger
             id: 'unpaused'
+          - condition: state
+            entity_id: humidifier.dual_200s
+            state: 'on'
         sequence:
           - action: humidifier.set_mode
             data:
