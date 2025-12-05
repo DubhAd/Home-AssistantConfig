@@ -12,24 +12,25 @@ trigger:
   # Fully awake
   - platform: state
     entity_id: event.sleep_as_android_sleep_phase
+    attribute: 'event_type'
     to: 'awake'
+    id: 'stopped'
+  # Fully awake
+  - platform: state
+    entity_id: event.sleep_as_android_sleep_tracking
+    attribute: 'event_type'
+    to: 'stopped'
     id: 'stopped'
   # Alarm dismissed
   - platform: state
     entity_id: event.sleep_as_android_alarm_clock
+    attribute: 'event_type'
     to: 'alert_dismiss'
     id: 'alarm'
 condition:
   - condition: state
     entity_id: input_boolean.person2_is_awake
     state: 'off'
-  - condition: or
-    conditions:
-      # Either the alarm is playing or I unplugged the phone/tablet
-      - condition: trigger
-        id: 'alarm'
-      - condition: trigger
-        id: 'unplugged'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_is_awake
