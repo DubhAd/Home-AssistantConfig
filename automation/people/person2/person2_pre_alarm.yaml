@@ -2,14 +2,10 @@ id: 'person2_pre_alarm'
 alias: 'person2 pre alarm'
 initial_state: 'on'
 trigger:
-  - platform: event
-    event_type: 'SleepAsAndroid_person2'
-    event_data:
-      event: 'smart_period'
-  - platform: event
-    event_type: 'SleepAsAndroid_person2'
-    event_data:
-      event: 'before_smart_period'
+  - platform: state
+    entity_id: event.sleep_as_android_smart_wake_up
+    attribute: 'event_type'
+    to: 'smart_period'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_pre_alarm
