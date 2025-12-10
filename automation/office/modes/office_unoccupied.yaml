@@ -10,9 +10,6 @@ actions:
       - action: input_boolean.turn_off
         target:
           entity_id: input_boolean.stream_front_camera_motion
-      - action: humidifier.turn_off
-        target:
-          entity_id: humidifier.dual_200s
       - action: input_boolean.turn_on
         target:
           entity_id: 
