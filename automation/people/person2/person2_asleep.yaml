@@ -5,19 +5,17 @@ trigger:
   - platform: state
     entity_id: input_boolean.person2_in_bed
     to: 'on'
-    for: '00:05:00'
+    for: '00:10:00'
   - platform: state
     entity_id: event.sleep_as_android_sleep_phase
     attribute: 'event_type'
     to:
       - 'not_awake'
-    for: '00:01:00'
   - platform: state
     entity_id: event.sleep_as_android_sleep_tracking
     attribute: 'event_type'
     to:
-      - 'started'
-    for: '00:10:00'
+      - 'resumed'
 condition:
   - condition: state
     entity_id: 
