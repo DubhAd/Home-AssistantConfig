@@ -54,7 +54,7 @@ action:
               retain: false
               topic: awtrix_master/settings
               payload: >-
-                { "TIME_COL": [255,0,0] }
+                { "TIME_COL": [128,0,0] }
     default:
       - alias: "Default white"
         service: mqtt.publish
