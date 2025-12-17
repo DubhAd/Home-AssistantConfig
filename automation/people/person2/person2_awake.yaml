@@ -31,6 +31,23 @@ condition:
   - condition: state
     entity_id: input_boolean.person2_is_awake
     state: 'off'
+  - condition: or
+    conditions:
+      # Either the alarm is playing or I unplugged the phone/tablet
+      - condition: trigger
+        id: 'alarm'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: event.sleep_as_android_sleep_tracking
+            attribute: 'event_type'
+            state: 'stopped'
+          - condition: state
+            entity_id: 
+              - input_boolean.person2_phone_charging
+              - input_boolean.person2_tablet_charging
+            state: 'off'
+            match: 'any'
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.person2_is_awake

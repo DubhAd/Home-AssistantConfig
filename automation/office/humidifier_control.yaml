@@ -27,10 +27,19 @@ actions:
           - condition: state
             entity_id: humidifier.dual_200s
             state: 'off'
+          - condition: state
+            entity_id: binary_sensor.dual_200s_low_water
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.dual_200s_water_tank_lifted
+            state: 'off'
         sequence:
           - action: humidifier.turn_on
             target:
               entity_id: humidifier.dual_200s
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.office_humidifier
         # Room empty, turn it off
       - conditions:
           - condition: trigger
@@ -42,6 +51,9 @@ actions:
           - action: humidifier.turn_off
             target:
               entity_id: humidifier.dual_200s
+          - action: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.office_humidifier
         # Set it to low
       - conditions:
           - condition: trigger
