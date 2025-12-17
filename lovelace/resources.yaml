@@ -56,3 +56,5 @@
   type: module 
 - url: /hacsfiles/custom-brand-icons/custom-brand-icons.js
   type: module
+- url: /hacsfiles/Ultra-Card/ultra-card.js
+  type: module

@@ -1,48 +1,58 @@
-id: 'awtrix_family_room_clock_colour'
-alias: 'awtrix family room clock colour'
+id: 'awtrix_master_bedroom_clock_colour'
+alias: 'awtrix master bedroom clock colour'
 initial_state: 'on'
 trigger:
-  - platform: time_pattern
-    minutes: '/5'
-variables:
-  when: >-
-    {{ -1 if is_state('sensor.sm_a546b_next_alarm','unavailable') else ((as_datetime(states('sensor.sm_a546b_next_alarm')) - now()).seconds/60)|round(0) }}
+  - platform: state
+    entity_id: input_boolean.person2_is_awake
+    to: 'on'
+    from: 'off'
+    id: 'awake'
+  - platform: state
+    entity_id: input_boolean.person2_is_awake
+    to: 'off'
+    from: 'on'
+    id: 'asleep'
+  - platform: state
+    entity_id: input_boolean.person2_in_bed
+    to: 'on'
+    from: 'off'
+    id: 'bed'
 action:
   - choose:
       - conditions:
-          - condition: template
-            value_template: "{{ is_state('input_boolean.person1_in_bed','on') or is_state('input_boolean.second_bedroom_occupied','on') or when < 0 or when >= (8.5 * 60) }}"
+          - condition: trigger
+            id: 'awake'
         sequence:
           - alias: "White"
             service: mqtt.publish
             data:
               qos: 0
               retain: false
-              topic: awtrix_family_room/settings
+              topic: awtrix_master/settings
               payload: >-
                 { "TIME_COL": [255,255,255], "CBCOL": [255, 255, 255] }
       - conditions:
-          - condition: template
-            value_template: "{{ when < (8.5 * 60) and when > (7.5 * 60) }}"
+          - condition: trigger
+            id: 'bed'
         sequence:
           - alias: "Amber"
             service: mqtt.publish
             data:
               qos: 0
               retain: false
-              topic: awtrix_family_room/settings
+              topic: awtrix_master/settings
               payload: >-
                 { "TIME_COL": [255,165,0] }
       - conditions:
-          - condition: template
-            value_template: "{{ when <= (7.5 * 60) }}"
+          - condition: trigger
+            id: 'asleep'
         sequence:
           - alias: "Red"
             service: mqtt.publish
             data:
               qos: 0
               retain: false
-              topic: awtrix_family_room/settings
+              topic: awtrix_master/settings
               payload: >-
                 { "TIME_COL": [255,0,0] }
     default:
@@ -51,6 +61,6 @@ action:
         data:
           qos: 0
           retain: false
-          topic: awtrix_family_room/settings
+          topic: awtrix_master/settings
           payload: >-
             { "TIME_COL": [255,255,255], "CBCOL": [255, 255, 255] }
