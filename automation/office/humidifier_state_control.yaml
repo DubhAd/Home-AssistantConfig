@@ -1,0 +1,18 @@
+id: 'office_humidifier_state_control'
+alias: 'Office humidifier state control'
+initial_state: 'on'
+triggers:
+  - trigger: state
+    entity_id: humidifier.dual_200s
+    to: 'on'
+conditions:
+  - condition: state
+    entity_id: input_boolean.office_humidifier
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.office_mmwave_region_1
+    state: 'off'
+actions:
+  - action: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.office_humidifier
