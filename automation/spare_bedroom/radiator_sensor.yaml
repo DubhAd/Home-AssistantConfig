@@ -1,0 +1,21 @@
+id: 'spare_bedroom_radiator_sensor'
+alias: 'Spare bedroom radiator sensor'
+triggers:
+  - trigger: homeassistant
+    event: start
+  - trigger: event
+    event_type: automation_reloaded
+  - trigger: state
+    entity_id: sensor.spare_bedroom_environment_temperature
+    to: ~
+actions:
+  - action: mqtt.publish
+    data:
+      topic: 'zigbee2mqtt/spare_bedroom_radiator/set/sensor_temp'
+      payload: "{{ (states('sensor.spare_bedroom_environment_temperature')|float(0)|round(1)) }}"
+  - action: mqtt.publish
+    data:
+      topic: 'zigbee2mqtt/spare_bedroom_radiator/set'
+      payload: >-
+        { "external_temperature_input": {{ (states('sensor.spare_bedroom_environment_temperature')|float(0)|round(1)) }} }
+
