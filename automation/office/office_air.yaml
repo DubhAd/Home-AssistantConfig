@@ -18,11 +18,6 @@ trigger:
     id: voc_high
   - platform: numeric_state
     entity_id: sensor.office_air_pm25
-    above: 50
-    for: '00:05:00'
-    id: pm_low
-  - platform: numeric_state
-    entity_id: sensor.office_air_pm25
     above: 100
     for: '00:05:00'
     id: pm_high

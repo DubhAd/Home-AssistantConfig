@@ -1,14 +1,17 @@
 id: 'office_humidifier_control'
 alias: 'Office humidifier control'
 initial_state: 'on'
+mode: queued
 triggers:
   - trigger: state
     entity_id: input_boolean.office_occupied
     to: 'on'
     id: 'occupied'
+    for: '00:01:00'
   - trigger: state
     entity_id: input_boolean.office_occupied
     to: 'off'
+    for: '00:01:00'
     id: 'unoccupied'
   - trigger: state
     entity_id: input_boolean.office_paused
