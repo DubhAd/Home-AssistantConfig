@@ -14,6 +14,10 @@ triggers:
     for: '00:01:00'
     id: 'unoccupied'
   - trigger: state
+    entity_id: group.work_laptop
+    to: 'not_home'
+    id: 'away'
+  - trigger: state
     entity_id: input_boolean.office_paused
     to: 'on'
     id: 'paused'
@@ -45,8 +49,9 @@ actions:
               entity_id: input_boolean.office_humidifier
         # Room empty, turn it off
       - conditions:
-          - condition: trigger
-            id: 'unoccupied'
+          - condition: state
+            entity_id: input_boolean.office_occupied
+            state: 'off'
           - condition: state
             entity_id: group.work_laptop
             state: 'not_home'
