@@ -1,16 +1,17 @@
 id: 'alarm_disarm_upon_return'
+initial_state: 'on'
 alias: 'Alarm disarm upon return'
-trigger:
-  - platform: state
-    entity_id: binary_sensor.home_occupied
-    to: 'on'
-condition:
+triggers:
+  - trigger: numeric_state
+    entity_id: zone.home
+    above: 0
+conditions:
   - condition: not
     conditions:
       - condition: state
         entity_id: alarm_control_panel.master
         state: 'disarmed'
-action:
-  - service: alarmo.disarm
+actions:
+  - action: alarmo.disarm
     data:
       entity_id: alarm_control_panel.master

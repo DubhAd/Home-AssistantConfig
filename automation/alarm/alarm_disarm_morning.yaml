@@ -1,19 +1,20 @@
 id: 'alarm_disarm_in_the_morning'
+initial_state: 'on'
 alias: 'Alarm disarm in the morning'
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: input_boolean.bedtime
     to: 'off'
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.utility_motion_occupancy
     to: 'on'
-condition:
+conditions:
   - condition: not
     conditions:
       - condition: state
         entity_id: alarm_control_panel.master
         state: 'disarmed'
-action:
-  - service: alarmo.disarm
+actions:
+  - action: alarmo.disarm
     data:
       entity_id: alarm_control_panel.master

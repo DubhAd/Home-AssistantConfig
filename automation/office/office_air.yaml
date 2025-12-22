@@ -18,7 +18,7 @@ trigger:
     id: voc_high
   - platform: numeric_state
     entity_id: sensor.office_air_pm25
-    above: 100
+    above: 500
     for: '00:05:00'
     id: pm_high
 condition:

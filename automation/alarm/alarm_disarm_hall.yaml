@@ -1,10 +1,11 @@
 id: 'alarm_disarm_hall'
+initial_state: 'on'
 alias: 'Alarm disarm hall'
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: binary_sensor.vestibule_multi_occupancy
     to: 'on'
-condition:
+conditions:
   - condition: state
     entity_id: binary_sensor.front_door_contact
     state: 'off'
@@ -13,7 +14,7 @@ condition:
       - condition: state
         entity_id: alarm_control_panel.master
         state: 'disarmed'
-action:
-  - service: alarmo.disarm
+actions:
+  - action: alarmo.disarm
     data:
       entity_id: alarm_control_panel.master

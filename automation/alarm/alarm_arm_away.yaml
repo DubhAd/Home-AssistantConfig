@@ -1,19 +1,12 @@
 id: 'alarm_arm_away'
+initial_state: 'on'
 alias: 'Alarm arm away'
-trigger:
-  - platform: state
-    entity_id: 
-      - binary_sensor.home_occupied
-      - group.downstairs_occupied
-    to: 'off'
-condition:
-  - condition: state
-    entity_id: 
-      - binary_sensor.home_occupied
-      - group.downstairs_occupied
-    state: 'off'
-action:
-  - service: alarmo.arm
+triggers:
+  - trigger: numeric_state
+    entity_id: zone.home
+    below: 1
+actions:
+  - action: alarmo.arm
     data:
       entity_id: alarm_control_panel.master
       mode: away
