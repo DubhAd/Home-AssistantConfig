@@ -1,0 +1,57 @@
+id: 'master_bedroom_humidifier_control'
+alias: 'Master bedroom humidifier control'
+initial_state: 'on'
+triggers:
+  - trigger: time
+    at: '21:30:00'
+    id: 'on_time'
+  - trigger: state
+    entity_id: input_boolean.person2_in_bed
+    to: 'on'
+    id: 'in_bed'
+  - trigger: state
+    entity_id: input_boolean.person2_in_bed
+    to: 'off'
+    id: 'up'
+conditions:
+  - condition: state
+    entity_id: input_boolean.person2_home
+    state: 'on'
+  - condition: state
+    entity_id:
+      - binary_sensor.master_bedroom_humidifier_low_water
+      - binary_sensor.master_bedroom_humidifier_water_tank_lifted
+    state: 'off'
+actions:
+  - choose:
+      # Turn on at night
+      - conditions:
+          - condition: trigger
+            id: 'on_time'
+        sequence:
+          - action: humidifier.turn_on
+            entity_id: humidifier.master_bedroom_humidifier
+          # High output
+          - action: number.set_value
+            data:
+              entity_id: number.master_bedroom_humidifier_mist_level
+              value: '2'
+      # Turn low at bedtime
+      - conditions:
+          - condition: trigger
+            id: 'in_bed'
+        sequence:
+          - action: humidifier.turn_on
+            entity_id: humidifier.master_bedroom_humidifier
+          # High output
+          - action: number.set_value
+            data:
+              entity_id: number.master_bedroom_humidifier_mist_level
+              value: '1'
+      # Turn off in the morning
+      - conditions:
+          - condition: trigger
+            id: 'up'
+        sequence:
+          - action: humidifier.turn_off
+            entity_id: humidifier.master_bedroom_humidifier
