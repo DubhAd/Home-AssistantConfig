@@ -163,12 +163,11 @@ cards:
 
   - type: vertical-stack
     cards:
-    - type: custom:frigate-card
+    - type: custom:advanced-camera-card
       cameras:
         - camera_entity: camera.front
-          camera_name: front
           frigate_url: http://custodes.family:5000/
-          live_provider: go2rtc
+          live_provider: ha
           title: Front
       live:
         zoomable: true
