@@ -4,11 +4,11 @@ initial_state: 'on'
 triggers:
   - trigger: state
     entity_id: input_boolean.living_room_occupied
-    to: on
+    to: 'on'
     id: 'on'
   - trigger: state
     entity_id: input_boolean.living_room_occupied
-    to: off
+    to: 'off'
     id: 'off'
 actions:
   - action: switch.turn_{{ trigger.id }}
