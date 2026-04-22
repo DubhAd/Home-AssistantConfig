@@ -1,0 +1,16 @@
+id: 'living_room_air_freshener'
+alias: 'living room air freshener'
+initial_state: 'on'
+triggers:
+  - trigger: state
+    entity_id: input_boolean.living_room_occupied
+    to: on
+    id: 'on'
+  - trigger: state
+    entity_id: input_boolean.living_room_occupied
+    to: off
+    id: 'off'
+actions:
+  - action: switch.turn_{{ trigger.id }}
+    data:
+      entity_id: switch.cloudfree_airfreshener
