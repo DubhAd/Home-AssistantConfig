@@ -13,8 +13,8 @@ Each directory has a short readme explaining what's in there, and the purpose of
 ## The key software
 
 * [Home Assistant](https://home-assistant.io/) (2026.2.3)
-* [traefik](https://traefik.io/) () with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
-* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (unavailable) for Zigbee
+* [traefik](https://traefik.io/) (3.6.9) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
+* [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (1.42.0) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
 
 ## Floorplan
@@ -40,7 +40,7 @@ You can find a list of my [current and previous hardware here](hardware.md).
 
 ## Zigbee
 
-For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version unavailable) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
+For Zigbee I use [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (version 1.42.0) running on another system. I use this instead of ZHA because my experience with Z-Wave taught me the value of separation.
 
 I used to use the original zwave integration on a remote system, using [Remote Home-Assistant](https://github.com/custom-components/remote_homeassistant). I've since stopped using Z-Wave, as [explained here](ZWAVE.md).
 
