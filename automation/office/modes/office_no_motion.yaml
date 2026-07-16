@@ -8,6 +8,7 @@ trigger:
     - binary_sensor.office_presence_occupancy
     - binary_sensor.office_mmwave_region_1
     to: 'off'
+    for: '00:01:00'
   # Becomes brighter
   - platform: numeric_state
     entity_id: sensor.office_illuminance_illuminance_lux
