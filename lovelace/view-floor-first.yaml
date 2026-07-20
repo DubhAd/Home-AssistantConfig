@@ -209,7 +209,8 @@ cards:
   - type: heading
     heading: Office
     badges:
-    - entity: binary_sensor.office_mmwave_region_1
+    - entity: binary_sensor.office_mmwave_presence
+      #binary_sensor.office_mmwave_region_1
       tap_action: 
         action: more-info
       name: Presence

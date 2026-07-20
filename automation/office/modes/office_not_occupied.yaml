@@ -6,11 +6,12 @@ trigger:
     entity_id: group.work_laptop
     to: 'not_home'
   - platform: state
-    entity_id: binary_sensor.office_mmwave_region_1
+    #entity_id: binary_sensor.office_mmwave_region_1
+    entity_id: binary_sensor.office_mmwave_presence
     to: 'off'
-    for: '00:01:00'
   - platform: state
-    entity_id: binary_sensor.office_mmwave_region_1
+    #entity_id: binary_sensor.office_mmwave_region_1
+    entity_id: binary_sensor.office_mmwave_presence
     to: 'off'
     for: '00:10:00'
 condition:
@@ -23,11 +24,13 @@ condition:
         entity_id: group.work_laptop
         state: 'not_home'
       - condition: state
-        entity_id: binary_sensor.office_mmwave_region_1
+        #entity_id: binary_sensor.office_mmwave_region_1
+        entity_id: binary_sensor.office_mmwave_presence
         state: 'off'
         for: '00:10:00'
   - condition: state
-    entity_id: binary_sensor.office_mmwave_region_1
+    #entity_id: binary_sensor.office_mmwave_region_1
+    entity_id: binary_sensor.office_mmwave_presence
     state: 'off'
 action:
   - service: input_boolean.turn_off
