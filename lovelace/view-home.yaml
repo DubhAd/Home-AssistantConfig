@@ -271,6 +271,12 @@ cards:
             device_class: 'occupancy'
           options:
             show_last_changed: true
+        - domain: binary_sensor
+          state: 'on'
+          attributes: 
+            device_class: 'presence'
+          options:
+            show_last_changed: true
       exclude:
         - device_manufacturer: 'Frigate'
         - entity_id: binary_sensor.home_occupied
