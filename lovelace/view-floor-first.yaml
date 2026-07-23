@@ -9,8 +9,14 @@ cards:
   - type: heading
     heading: Master bedroom
     badges:
-      - entity: sensor.master_bedroom_light_sensor_illuminance_lux
-        name: Illuminance
+      - entity: binary_sensor.master_bedroom_mmwave_presence
+        tap_action: 
+          action: more-info
+        name: Presence
+        color: state
+        show_state: false
+        - entity: sensor.master_bedroom_light_sensor_illuminance_lux
+          name: Illuminance
         tap_action: 
           action: more-info
       - entity: sensor.master_bedroom_environment_temperature
@@ -210,7 +216,6 @@ cards:
     heading: Office
     badges:
     - entity: binary_sensor.office_mmwave_presence
-      #binary_sensor.office_mmwave_region_1
       tap_action: 
         action: more-info
       name: Presence

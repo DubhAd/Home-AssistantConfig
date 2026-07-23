@@ -9,6 +9,8 @@ trigger:
     to: ~
     id: 'event'
 action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.master_bedroom_occupied
   - choose:
     # Single press - turn the lights off if they're on, unless it's in motion mode where we turn it on. Turn them on otherwise.
     - conditions:

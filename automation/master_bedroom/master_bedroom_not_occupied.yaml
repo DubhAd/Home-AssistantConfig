@@ -16,7 +16,9 @@ trigger:
     for: '00:02:00'
   # No more motion
   - platform: state
-    entity_id: binary_sensor.master_bedroom_motion_occupancy
+    entity_id: 
+      - binary_sensor.master_bedroom_motion_occupancy
+      - binary_sensor.master_bedroom_mmwave_presence
     id: 'motion'
     to: 'off'
     for: '00:00:30'
@@ -31,7 +33,9 @@ condition:
       - condition: and
         conditions:
         - condition: state
-          entity_id: binary_sensor.master_bedroom_motion_occupancy
+          entity_id: 
+            - binary_sensor.master_bedroom_motion_occupancy
+            - binary_sensor.master_bedroom_mmwave_presence
           state: 'off'
           for: '00:00:30'
         # Ensuite door hasn't changed state in the last 2 minutes
