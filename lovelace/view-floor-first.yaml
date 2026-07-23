@@ -15,8 +15,8 @@ cards:
         name: Presence
         color: state
         show_state: false
-        - entity: sensor.master_bedroom_light_sensor_illuminance_lux
-          name: Illuminance
+      - entity: sensor.master_bedroom_light_sensor_illuminance_lux
+        name: Illuminance
         tap_action: 
           action: more-info
       - entity: sensor.master_bedroom_environment_temperature
