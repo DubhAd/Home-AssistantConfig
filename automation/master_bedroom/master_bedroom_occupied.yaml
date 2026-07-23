@@ -19,6 +19,7 @@ trigger:
     entity_id: 
       - binary_sensor.master_bedroom_motion_occupancy
       - binary_sensor.master_bedroom_mmwave_presence
+      - binary_sensor.master_bedroom_presence
     to: 'on'
     id: 'motion'
   # Ensuite door was opened/closed
@@ -47,6 +48,9 @@ condition:
       state: 'on'
     - condition: state
       entity_id: binary_sensor.master_bedroom_mmwave_presence
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.master_bedroom_presence
       state: 'on'
 action:
   - service: input_boolean.turn_on
