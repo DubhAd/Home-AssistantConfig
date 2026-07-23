@@ -280,6 +280,7 @@ cards:
       exclude:
         - device_manufacturer: 'Frigate'
         - entity_id: binary_sensor.home_occupied
+        - entity_id: binary_sensor.master_bedroom_mmwave_presence
 
   - type: custom:auto-entities
     show_empty: false

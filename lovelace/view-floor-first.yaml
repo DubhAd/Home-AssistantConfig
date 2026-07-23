@@ -9,7 +9,7 @@ cards:
   - type: heading
     heading: Master bedroom
     badges:
-      - entity: binary_sensor.master_bedroom_mmwave_presence
+      - entity: binary_sensor.master_bedroom_presence
         tap_action: 
           action: more-info
         name: Presence
