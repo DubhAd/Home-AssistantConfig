@@ -7,42 +7,42 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 65
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 60
     for: '00:01:00'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 55
     for: '00:01:30'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 50
     for: '00:02:00'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 45
     for: '00:02:30'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 40
     for: '00:03:00'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 35
     for: '00:03:30'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 30
     for: '00:04:00'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 25
     for: '00:04:30'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 22
     for: '00:05:00'
   - platform: state
@@ -64,7 +64,7 @@ condition:
     conditions:
     # Room is very bright
     - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
+      entity_id: sensor.living_room_light_sensor_illuminance
       above: 50
     # Or room not occupied and not bedtime
     - condition: and
@@ -82,7 +82,7 @@ condition:
         entity_id: binary_sensor.trend_sun_elevation
         state: 'on'
       - condition: numeric_state
-        entity_id: sensor.living_room_light_sensor_illuminance_lux
+        entity_id: sensor.living_room_light_sensor_illuminance
         above: 20
 action:
   - service: input_boolean.turn_off

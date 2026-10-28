@@ -26,7 +26,7 @@ condition:
     state: 'on'
   # It's getting dark
   - condition: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     below: 15
   # Hall lights are off
   - condition: and

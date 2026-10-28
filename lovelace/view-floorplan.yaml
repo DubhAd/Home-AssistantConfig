@@ -467,13 +467,13 @@ cards:
                   };
 
         - entities:
-            - sensor.downstairs_hall_light_sensor_illuminance_lux
-            - sensor.living_room_light_sensor_illuminance_lux
-            - sensor.master_bedroom_light_sensor_illuminance_lux
-            - sensor.family_room_multi_illuminance_lux
-            - sensor.office_illuminance_illuminance_lux
-            - sensor.second_bedroom_motion_illuminance_lux
-            - sensor.guest_bedroom_motion_illuminance_lux
+            - sensor.downstairs_hall_light_sensor_illuminance
+            - sensor.living_room_light_sensor_illuminance
+            - sensor.master_bedroom_light_sensor_illuminance
+            - sensor.family_room_multi_illuminance
+            - sensor.office_illuminance_illuminance
+            - sensor.second_bedroom_motion_illuminance
+            - sensor.guest_bedroom_motion_illuminance
           state_action:
             - action: call-service
               service: floorplan.text_set

@@ -5,7 +5,7 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: numeric_state
-    entity_id: sensor.toilet_light_sensor_illuminance_lux
+    entity_id: sensor.toilet_light_sensor_illuminance
     below: 2
   - platform: state
     entity_id: binary_sensor.toilet_door_contact
@@ -14,7 +14,7 @@ trigger:
       - 'off'
 condition:
   - condition: numeric_state
-    entity_id: sensor.toilet_light_sensor_illuminance_lux
+    entity_id: sensor.toilet_light_sensor_illuminance
     below: 2
 action:
   - service: input_boolean.turn_off

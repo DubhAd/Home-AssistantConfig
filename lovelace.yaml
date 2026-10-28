@@ -1,11 +1,11 @@
 resources: !include lovelace/resources.yaml
 resource_mode: yaml
 dashboards:
-  lovelace-home:
+  lovelace:
     mode: yaml
     filename: ui-lovelace.yaml
-    title: People
-    icon: mdi:home
+    title: Overview
+    icon: mdi:view-dashboard
     show_in_sidebar: true
     require_admin: false
   lovelace-people:

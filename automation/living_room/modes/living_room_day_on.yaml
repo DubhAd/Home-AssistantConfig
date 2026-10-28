@@ -16,14 +16,14 @@ trigger:
     - input_boolean.lighting_living_room
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     below: 13
     for: '00:05:00'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     below: 11
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 7
     for: '00:10:00'
 condition:
@@ -36,12 +36,12 @@ condition:
       value_template: "{{ not is_state('input_select.living_room','Day on') and not is_state('input_select.living_room','Night on')}}"
     # Room is dark, but not too dark
     - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
+      entity_id: sensor.living_room_light_sensor_illuminance
       below: 13
       above: 7
     # Didn't just turn the lights off and we're triggered by the light sensor
     - condition: template
-      value_template: "{{ trigger.entity_id == 'input_boolean.living_room_occupied' or trigger.entity_id == 'input_boolean.lighting_living_room' or ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance_lux') }}"
+      value_template: "{{ trigger.entity_id == 'input_boolean.living_room_occupied' or trigger.entity_id == 'input_boolean.lighting_living_room' or ((now() - states.light.living_room_corner_lamp.last_changed).seconds > 30) and (trigger.entity_id == 'sensor.living_room_light_sensor_illuminance') }}"
     # Lighting in the room is under automatic control
     - condition: state
       entity_id: input_boolean.lighting_living_room

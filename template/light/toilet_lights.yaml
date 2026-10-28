@@ -10,6 +10,6 @@
       action: script.nop
     default_entity_id: light.toilet_lights
     name: Toilet Lights
-    level: '{{ min((states(''sensor.toilet_light_sensor_illuminance_lux'')|int)*10,255)
+    level: '{{ min((states(''sensor.toilet_light_sensor_illuminance'')|int)*10,255)
       }}'
-    state: '{{ states(''sensor.toilet_light_sensor_illuminance_lux'')|int > 10 }}'
+    state: '{{ states(''sensor.toilet_light_sensor_illuminance'')|int > 10 }}'

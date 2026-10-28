@@ -15,7 +15,7 @@ cards:
         name: Presence
         color: state
         show_state: false
-      - entity: sensor.master_bedroom_light_sensor_illuminance_lux
+      - entity: sensor.master_bedroom_light_sensor_illuminance
         name: Illuminance
         tap_action: 
           action: more-info
@@ -100,7 +100,7 @@ cards:
   - type: heading
     heading: Second bedroom
     badges:
-      - entity: sensor.second_bedroom_light_sensor_illuminance_lux
+      - entity: sensor.second_bedroom_light_sensor_illuminance
         name: Illuminance
         tap_action: 
           action: more-info
@@ -159,7 +159,7 @@ cards:
   - type: heading
     heading: Guest bedroom
     badges:
-      - entity: sensor.guest_bedroom_motion_illuminance_lux
+      - entity: sensor.guest_bedroom_motion_illuminance
         name: Illuminance
         tap_action: 
           action: more-info
@@ -223,7 +223,7 @@ cards:
       show_state: false
       #state_content: last_changed
       #show_last_changed: true
-    - entity: sensor.office_illuminance_illuminance_lux
+    - entity: sensor.office_illuminance_illuminance
       name: Illuminance
       tap_action: 
         action: more-info
@@ -339,19 +339,19 @@ cards:
     fill: false
     labels: true
   entities:
-    - entity: sensor.master_bedroom_light_sensor_illuminance_lux
+    - entity: sensor.master_bedroom_light_sensor_illuminance
       name: Master Bedroom
       color: "#8EA95F"
-    - entity: sensor.second_bedroom_motion_illuminance_lux
+    - entity: sensor.second_bedroom_motion_illuminance
       name: Second Bedroom
       color: "#33B679"
-    - entity: sensor.guest_bedroom_motion_illuminance_lux
+    - entity: sensor.guest_bedroom_motion_illuminance
       name: Guest Bedroom
       color: "#43C699"
-    - entity: sensor.office_illuminance_illuminance_lux
+    - entity: sensor.office_illuminance_illuminance
       name: Office
       color: "#F28544"
-    - entity: sensor.outside_light_sensor_illuminance_lux
+    - entity: sensor.outside_light_sensor_illuminance
       name: Outside
       color: "#F55224"
 - type: custom:mini-graph-card

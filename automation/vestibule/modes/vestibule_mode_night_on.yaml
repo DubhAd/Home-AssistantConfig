@@ -8,12 +8,12 @@ trigger:
     entity_id: sensor.sun_solar_elevation
     below: 2.5
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     below: 15
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: sensor.vestibule_multi_illuminance_lux
+    entity_id: sensor.vestibule_multi_illuminance
     below: 10
   - platform: state
     entity_id: input_boolean.bedtime
@@ -44,7 +44,7 @@ condition:
       state: 'off'
     # Dark in the living room
     - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
+      entity_id: sensor.living_room_light_sensor_illuminance
       below: 25
     # Sun is relatively low
     - condition: numeric_state
@@ -54,7 +54,7 @@ condition:
       conditions:
       # Dark in the vestibule
       - condition: numeric_state
-        entity_id: sensor.vestibule_multi_illuminance_lux
+        entity_id: sensor.vestibule_multi_illuminance
         below: 5
       # Or sun below 5 degrees
       - condition: numeric_state

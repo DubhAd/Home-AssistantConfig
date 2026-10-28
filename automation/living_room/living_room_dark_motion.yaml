@@ -15,7 +15,7 @@ condition:
       entity_id: input_boolean.lighting_automations
       state: 'on'
     - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
+      entity_id: sensor.living_room_light_sensor_illuminance
       below: 5
     - condition: state
       entity_id: input_boolean.living_room_occupied

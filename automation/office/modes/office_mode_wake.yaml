@@ -24,7 +24,7 @@ condition:
     state: 'off'
   # Not very bright in the office
   - condition: numeric_state
-    entity_id: sensor.office_illuminance_illuminance_lux
+    entity_id: sensor.office_illuminance_illuminance
     below: 15
 action:
   - wait_template: >-

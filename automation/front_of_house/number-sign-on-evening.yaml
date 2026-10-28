@@ -8,7 +8,7 @@ trigger:
     entity_id: sensor.sun_solar_elevation
     below: 0
   - platform: numeric_state
-    entity_id: sensor.outside_light_sensor_illuminance_lux
+    entity_id: sensor.outside_light_sensor_illuminance
     below: 50
   - platform: homeassistant
     event: start
@@ -23,7 +23,7 @@ condition:
       entity_id: sensor.sun_solar_elevation
       below: 0
     - condition: numeric_state
-      entity_id: sensor.outside_light_sensor_illuminance_lux
+      entity_id: sensor.outside_light_sensor_illuminance
       below: 50
 action:
   - service: switch.turn_on

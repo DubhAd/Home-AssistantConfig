@@ -9,7 +9,7 @@ cards:
   - type: heading
     heading: Living room
     badges:
-    - entity: sensor.living_room_light_sensor_illuminance_lux
+    - entity: sensor.living_room_light_sensor_illuminance
       name: "Illuminance"
       tap_action: 
         action: more-info
@@ -92,7 +92,7 @@ cards:
   - type: heading
     heading: Outside
     badges:
-      - entity: sensor.outside_light_sensor_illuminance_lux
+      - entity: sensor.outside_light_sensor_illuminance
         name: Lux
         tap_action: 
           action: more-info
@@ -172,7 +172,7 @@ cards:
     - type: heading
       heading: Hall
       badges:
-      - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
+      - entity: sensor.downstairs_hall_light_sensor_illuminance
         name: "Illuminance"
         tap_action: 
           action: more-info
@@ -190,7 +190,7 @@ cards:
     - type: heading
       heading: Toilet
       badges:
-        - entity: sensor.toilet_light_sensor_illuminance_lux
+        - entity: sensor.toilet_light_sensor_illuminance
           name: Illuminance
           tap_action: 
             action: more-info
@@ -210,7 +210,7 @@ cards:
   - type: heading
     heading: Utility
     badges:
-      - entity: sensor.utility_motion_illuminance_lux
+      - entity: sensor.utility_motion_illuminance
         name: Illuminance
         tap_action: 
           action: more-info
@@ -252,7 +252,7 @@ cards:
     - type: heading
       heading: Family room
       badges:
-        - entity: sensor.family_room_multi_illuminance_lux
+        - entity: sensor.family_room_multi_illuminance
           name: Illuminance
           tap_action: 
             action: more-info
@@ -326,20 +326,20 @@ cards:
     fill: false
     labels: true
   entities:
-    - entity: sensor.living_room_light_sensor_illuminance_lux
+    - entity: sensor.living_room_light_sensor_illuminance
       name: Living room
       #color: goldenrod
       color: '#5793e0'
-    - entity: sensor.family_room_multi_illuminance_lux
+    - entity: sensor.family_room_multi_illuminance
       name: Family room
       color: '#9753e0'
-    - entity: sensor.downstairs_hall_light_sensor_illuminance_lux
+    - entity: sensor.downstairs_hall_light_sensor_illuminance
       name: Downstairs hall
       color: '#3357d0'
-    - entity: sensor.utility_motion_illuminance_lux
+    - entity: sensor.utility_motion_illuminance
       name: Utility
       color: '#5337d0'
-    - entity: sensor.outside_light_sensor_illuminance_lux
+    - entity: sensor.outside_light_sensor_illuminance
       name: Outside
       color: "#F55224"
 - type: custom:mini-graph-card

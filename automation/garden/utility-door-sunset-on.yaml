@@ -22,7 +22,7 @@ condition:
         entity_id: sensor.sun_solar_elevation
         below: -4
       - condition: numeric_state
-        entity_id: sensor.outside_light_sensor_illuminance_lux
+        entity_id: sensor.outside_light_sensor_illuminance
         below: 16
 action:
   - service: script.turn_on

@@ -12,7 +12,7 @@ trigger:
     to: 'off'
     for: '00:02:00'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 4
   - platform: state
     entity_id: input_select.living_room
@@ -33,7 +33,7 @@ condition:
       state: 'off'
       for: '00:02:00'
     - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
+      entity_id: sensor.living_room_light_sensor_illuminance
       above: 4
 action:
   - service: input_boolean.turn_off

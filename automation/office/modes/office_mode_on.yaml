@@ -8,10 +8,10 @@ trigger:
       - input_boolean.lighting_office
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.office_illuminance_illuminance_lux
+    entity_id: sensor.office_illuminance_illuminance
     below: 50
   - platform: numeric_state
-    entity_id: sensor.office_illuminance_illuminance_lux
+    entity_id: sensor.office_illuminance_illuminance
     below: 60
     for: '00:01:00'
   - platform: state
@@ -29,7 +29,7 @@ condition:
   - condition: template
     value_template: "{{ states('input_select.office') not in ('Pause','On') }}"
   - condition: numeric_state
-    entity_id: sensor.office_illuminance_illuminance_lux
+    entity_id: sensor.office_illuminance_illuminance
     below: 60
   - condition: time
     before: '22:00:00'

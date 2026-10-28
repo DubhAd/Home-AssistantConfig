@@ -10,10 +10,10 @@ trigger:
     entity_id: sensor.sun_solar_elevation
     below: 5
   - platform: numeric_state
-    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance
     below: 2
   - platform: numeric_state
-    entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+    entity_id: sensor.downstairs_hall_light_sensor_illuminance
     below: 1
   - platform: state
     entity_id: input_boolean.bedtime
@@ -42,7 +42,7 @@ condition:
   - condition: or
     conditions:
     - condition: numeric_state
-      entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+      entity_id: sensor.downstairs_hall_light_sensor_illuminance
       below: 1
     - condition: and
       conditions:
@@ -50,7 +50,7 @@ condition:
           entity_id: sensor.sun_solar_elevation
           below: 5
         - condition: numeric_state
-          entity_id: sensor.downstairs_hall_light_sensor_illuminance_lux
+          entity_id: sensor.downstairs_hall_light_sensor_illuminance
           below: 2
   # A room is in use
   - condition: state

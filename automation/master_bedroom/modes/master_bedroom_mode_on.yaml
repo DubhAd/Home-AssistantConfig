@@ -7,7 +7,7 @@ trigger:
     - input_boolean.master_bedroom_occupied
     to: 'on'
   - platform: numeric_state
-    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    entity_id: sensor.master_bedroom_light_sensor_illuminance
     below: 14
 condition:
   - condition: not
@@ -17,7 +17,7 @@ condition:
         state: 'On'
   # Relatively dull
   - condition: numeric_state
-    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    entity_id: sensor.master_bedroom_light_sensor_illuminance
     below: 14
   # Room now occupied
   - condition: state

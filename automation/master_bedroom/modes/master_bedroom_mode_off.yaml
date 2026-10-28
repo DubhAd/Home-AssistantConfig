@@ -3,7 +3,7 @@ initial_state: 'on'
 alias: 'Master bedroom mode off'
 trigger:
   - platform: numeric_state
-    entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+    entity_id: sensor.master_bedroom_light_sensor_illuminance
     above: 15
   - platform: state
     entity_id: input_select.master_bedroom
@@ -21,7 +21,7 @@ condition:
       entity_id: input_boolean.master_bedroom_occupied
       state: 'off'
     - condition: numeric_state
-      entity_id: sensor.master_bedroom_light_sensor_illuminance_lux
+      entity_id: sensor.master_bedroom_light_sensor_illuminance
       above: 15
 action:
   - service: input_select.select_option

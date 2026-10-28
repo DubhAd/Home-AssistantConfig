@@ -18,7 +18,7 @@ trigger:
     entity_id: input_boolean.person2_home
     to: 'off'
   - platform: numeric_state
-    entity_id: sensor.living_room_light_sensor_illuminance_lux
+    entity_id: sensor.living_room_light_sensor_illuminance
     above: 4
 condition:
   # Lighting automations are enabled
@@ -49,7 +49,7 @@ condition:
         for: '00:10:00'
     # Or getting brighter
     - condition: numeric_state
-      entity_id: sensor.living_room_light_sensor_illuminance_lux
+      entity_id: sensor.living_room_light_sensor_illuminance
       above: 4
     # Or the office has become occupied
     - condition: state

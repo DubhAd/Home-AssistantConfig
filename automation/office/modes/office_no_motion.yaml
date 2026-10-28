@@ -11,7 +11,7 @@ trigger:
     to: 'off'
   # Becomes brighter
   - platform: numeric_state
-    entity_id: sensor.office_illuminance_illuminance_lux
+    entity_id: sensor.office_illuminance_illuminance
     above: 20
 condition:
   - condition: state
@@ -26,7 +26,7 @@ condition:
         - binary_sensor.office_mmwave_presence
       state: 'off'
     - condition: numeric_state
-      entity_id: sensor.office_illuminance_illuminance_lux
+      entity_id: sensor.office_illuminance_illuminance
       above: 20
 action:
   - service: input_select.select_option

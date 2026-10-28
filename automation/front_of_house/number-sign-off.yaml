@@ -9,7 +9,7 @@ trigger:
     entity_id: sun.sun
     to: 'above_horizon'
   - platform: numeric_state
-    entity_id: sensor.outside_light_sensor_illuminance_lux
+    entity_id: sensor.outside_light_sensor_illuminance
     above: 50
   - platform: homeassistant
     event: start
@@ -24,7 +24,7 @@ condition:
             entity_id: sun.sun
             state: 'above_horizon'
           - condition: numeric_state
-            entity_id: sensor.outside_light_sensor_illuminance_lux
+            entity_id: sensor.outside_light_sensor_illuminance
             above: 50
 action:
   - service: switch.turn_off

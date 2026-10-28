@@ -23,11 +23,11 @@ trigger:
     - 'Wake'
     for: '00:30:00'
   - platform: numeric_state
-    entity_id: sensor.second_bedroom_light_sensor_illuminance_lux
+    entity_id: sensor.second_bedroom_light_sensor_illuminance
     above: 32
     id: lux
   - platform: numeric_state
-    entity_id: sensor.second_bedroom_light_sensor_illuminance_lux
+    entity_id: sensor.second_bedroom_light_sensor_illuminance
     above: 42
 condition:
   - condition: template
