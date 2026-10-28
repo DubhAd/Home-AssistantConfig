@@ -1,7 +1,7 @@
 title: Overview
 type: masonry
-id: overview
-path: overview
+id: overview2
+path: overview2
 icon: mdi:home-analytics
 cards:
   - type: custom:mushroom-chips-card
