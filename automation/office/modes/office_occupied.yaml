@@ -29,9 +29,6 @@ condition:
       - condition: state
         entity_id: binary_sensor.office_mmwave_presence
         state: 'on'
-      - condition: state
-        entity_id: sensor.office_mmwave_presence_event
-        state: 'approach'
   - condition: state
     entity_id: 
       - input_boolean.office_occupied
