@@ -20,8 +20,5 @@ condition:
   - condition: state
     entity_id: media_player.person1
     state: 'playing'
-  - condition: state
-    entity_id: media_player.person2
-    state: 'playing'
 action:
   service: media_player.media_pause

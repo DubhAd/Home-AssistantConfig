@@ -1,0 +1,15 @@
+- light:
+  - unique_id: toilet_lights
+    turn_on:
+    - action: script.nop
+    turn_off:
+    - action: script.nop
+    set_level:
+    - data:
+        brightness: '{{ brightness }}'
+      action: script.nop
+    default_entity_id: light.toilet_lights
+    name: Toilet Lights
+    level: '{{ min((states(''sensor.toilet_light_sensor_illuminance_lux'')|int)*10,255)
+      }}'
+    state: '{{ states(''sensor.toilet_light_sensor_illuminance_lux'')|int > 10 }}'

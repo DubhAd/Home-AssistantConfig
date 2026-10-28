@@ -4,7 +4,6 @@ alias: 'Master bedroom mode wake'
 trigger:
   - platform: state
     entity_id: 
-    - media_player.person2
     - media_player.master_bedroom
     to: 'playing'
     id: 'playing'

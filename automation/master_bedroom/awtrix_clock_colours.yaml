@@ -1,6 +1,5 @@
 id: 'awtrix_master_bedroom_clock_colour'
 alias: 'awtrix master bedroom clock colour'
-initial_state: 'on'
 mode: queued
 trigger:
   - platform: state

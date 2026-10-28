@@ -1,5 +1,5 @@
-mode: yaml
 resources: !include lovelace/resources.yaml
+resource_mode: yaml
 dashboards:
   lovelace-people:
     mode: yaml

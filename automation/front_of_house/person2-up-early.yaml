@@ -3,9 +3,6 @@ initial_state: 'on'
 alias: 'person2 up early'
 trigger:
   - platform: state
-    entity_id: media_player.person2
-    to: 'playing'
-  - platform: state
     entity_id: media_player.master_bedroom
     to: 'playing'
 condition:
