@@ -9,8 +9,6 @@ google_assistant: !include google_assistant.yaml
 frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml
 
-http: !include http.yaml
-
 recorder: !include recorder.yaml
 
 tts: !include tts.yaml
