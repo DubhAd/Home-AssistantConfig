@@ -30,8 +30,6 @@
   type: module 
 - url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
   type: module
-- url: /hacsfiles/lovelace-darksky-card/lovelace-darksky-card.js
-  type: module
 - url: /webrtc/webrtc-camera.js
   type: module
 - url: /hacsfiles/lovelace-hourly-weather/hourly-weather.js
@@ -47,8 +45,6 @@
 - url: /hacsfiles/platinum-weather-card/platinum-weather-card.js
   type: module
 - url: /hacsfiles/room-card/room-card.js
-  type: module
-- url: /hacsfiles/simple-thermostat/simple-thermostat.js
   type: module
 - url: /hacsfiles/Bubble-Card/bubble-card.js
   type: module 
