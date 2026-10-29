@@ -1,7 +1,7 @@
 alias: person1 travel sensor
 variables:
   where: >-
-    {% if state_attr('sensor.person1_places','place_name')|is_defined and (state_attr('sensor.person1_places','place_name') != state_attr('sensor.person1_places','street')) %}{{ state_attr('sensor.person1_places','place_name') + ", " }}{% endif %}{% if state_attr('sensor.person1_places','street_number')|is_defined %}{{ state_attr('sensor.person1_places','street_number')|string + " " }}{% endif %}{{ state_attr('sensor.person1_places','street')  }}, {{ state_attr('sensor.person1_places','city')  }}
+    {% if not is_state('sensor.places_person1_place_name','unknown') and (states('sensor.places_person1_place_name') != states('sensor.places_person1_street')) %}{{ states('sensor.places_person1_place_name') + ", " }}{% endif %}{% if not is_state('sensor.places_person1_street_number','unknown') %}{{ states('sensor.places_person1_street_number')|string + " " }}{% endif %}{{ states('sensor.places_person1_street')  }}, {{ states('sensor.places_person1_city')  }}
 sequence:
   - service: input_text.set_value
     data:
