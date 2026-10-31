@@ -13,7 +13,7 @@ Each directory has a short readme explaining what's in there, and the purpose of
 ## The key software
 
 * [Home Assistant](https://home-assistant.io/) (2026.10.4)
-* [traefik](https://traefik.io/) (3.7.16) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
+* [traefik](https://traefik.io/) (3.7.17) with [ZeroSSL](https://zerossl.com/) for remote access (replaced NGINX)
 * [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (2.14.2) for Zigbee
 * [Mosquitto](https://mosquitto.org/) for the MQTT broker
 
