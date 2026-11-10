@@ -1,0 +1,125 @@
+reload:
+report:
+  name: Report Event
+  description: Report that an event alert fired
+  fields:
+    domain:
+      name: Domain
+      description: domain field of Alert2 entity to report
+      required: true
+      selector:
+        text:
+    name:
+      name: Name
+      description: name field of Alert2 entity to report
+      required: true
+      selector:
+        text:
+    message:
+      name: Message
+      description: Extra text to include in the alert message
+      selector:
+        text:
+    data:
+      name: Data
+      description: Dictionary of data to be passed to notifiers. Overrides fields of any dict specified when alert was declared.
+      selector:
+        object:
+
+notification_control:
+  name: Notification Control
+  description: Enable/Disable/Snooze notifications. Affects current and future alert firings.
+  target:
+    entity:
+      domain: alert2
+  fields:
+    enable:
+      name: Notifications
+      description: Enable, disable or snooze notifications
+      example: true
+      required: true
+      selector:
+        select:
+          options:
+            - label: "Enable"
+              value: "on"
+            - label: "Disable"
+              value: "off"
+    snooze_until:
+      name: Snooze until
+      description: Notifications will only be sent for alerts that fire after this time.  Should only be set if Notifications is set to "Enable". Format can be "2000-01-20 04:23:00". Time is local time.
+      required: false
+      selector:
+        text:
+    ack_at_snooze_start:
+      name: Ack at snooze start
+      description: If true, initiating a snooze will also do a one-time ack.  Defaults to true.
+      required: false
+      default: true
+      selector:
+        boolean:
+
+ack:
+  name: Ack
+  description: Ack an Alert2 alert
+  target:
+    entity:
+      domain: alert2
+
+unack:
+  name: Unack
+  description: Unack an Alert2 alert
+  target:
+    entity:
+      domain: alert2
+
+toggle_ack:
+  name: Toggle ack
+  description: Toggle the ack status. If alert is acked then unack the alert, otherwise ack the alert.
+  target:
+    entity:
+      domain: alert2
+
+manual_on:
+  name: Manual on
+  description: Turns on a condition alert that was configured with manual_on enabled
+  target:
+    entity:
+      domain: alert2
+manual_off:
+  name: Manual off
+  description: Turns off a condition alert that was configured with manual_off enabled
+  target:
+    entity:
+      domain: alert2
+
+ack_all:
+  name: Ack All
+  description: Acks all Alert2 entities
+
+get_display_msg:
+  name: Get Alert display_msg
+  description: Renders the display_msg template on demand and returns result.
+  target:
+    entity:
+      domain: alert2
+
+action_control:
+  name: Action Control
+  description: Manually trigger or cancel the actions_on actions.
+  target:
+    entity:
+      domain: alert2
+  fields:
+    operation:
+      name: Operation
+      description: Trigger or canel any running actions_on
+      example: true
+      required: true
+      selector:
+        select:
+          options:
+            - label: "Run"
+              value: "run"
+            - label: "Cancel"
+              value: "cancel"
