@@ -6,6 +6,7 @@ trigger:
     entity_id: 
     - binary_sensor.living_room_presence_occupancy
     - binary_sensor.living_room_door_contact
+    - binary_sensor.living_room_mmwave_presence
     to: 'on'
 condition:
   - condition: state
