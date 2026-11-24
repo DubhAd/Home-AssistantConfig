@@ -14,8 +14,7 @@ condition:
     state: 'off'
     for: '00:02:00'
   - condition: state
-    entity_id: sensor.home_person3_distance
-    attribute: 'dir_of_travel'
+    entity_id: sensor.home_person3_direction_of_travel
     state: 'towards'
   - condition: state
     entity_id: input_boolean.person2_home
