@@ -6,7 +6,7 @@ trigger:
   - platform: state
     entity_id: 
       - binary_sensor.fritz_box_3490_connection
-    from: unavilable
+    from: unavailable
     to: 'on'
 condition:
   - condition: template

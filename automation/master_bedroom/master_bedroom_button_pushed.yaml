@@ -15,7 +15,8 @@ action:
     # Single press - turn the lights off if they're on, unless it's in motion mode where we turn it on. Turn them on otherwise.
     - conditions:
       - condition: template
-        value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'single') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'single') }}"
+        #value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'single') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'single') }}"
+        value_template: "{{ (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'single') }}"
       sequence:
       - choose:
         - conditions:
@@ -51,7 +52,8 @@ action:
     # Double press, On if currently bedtime, else Bedtime
     - conditions:
       - condition: template
-        value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'double') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'double') }}"
+        #value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'double') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'double') }}"
+        value_template: "{{ (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'double') }}"
       sequence:
       - choose:
         - conditions:
@@ -72,7 +74,8 @@ action:
     # Hold, Off if currently Sleeping, else Night
     - conditions:
       - condition: template
-        value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'hold') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'hold') }}"
+        #value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'hold') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'hold') }}"
+        value_template: "{{ (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'hold') }}"
       sequence:
       - choose:
         - conditions:
@@ -93,7 +96,8 @@ action:
     # Do nothing on release
     - conditions:
       - condition: template
-        value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'release') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'release') }}"
+        #value_template: "{{ (trigger.id == 'sensor' and trigger.to_state.state == 'release') or (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'release') }}"
+        value_template: "{{ (trigger.id == 'event' and trigger.to_state.attributes.event_type == 'release') }}"
       sequence:
       - service: script.turn_on
         data:

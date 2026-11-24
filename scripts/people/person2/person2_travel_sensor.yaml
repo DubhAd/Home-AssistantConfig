@@ -18,8 +18,6 @@ sequence:
           Near home ({{ states('input_select.person2_status_dropdown') }})
         {% elif not is_state('device_tracker.pixel_xl', 'not_home') %}
           At {{ states('device_tracker.pixel_xl') }}
-        {% elif is_state('calendar.person2_holiday', 'on') and is_state('input_boolean.person2_travelling','on') %}
-          On holiday
         {% elif is_state('input_boolean.person2_overseas', 'on') %}
           Overseas
         {% elif is_state('input_boolean.person2_travelling', 'on') %}
