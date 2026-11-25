@@ -1,4 +1,5 @@
 alias: person3 traveltime
+mode: parallel
 sequence:
   - parallel:
       - if:

@@ -1,7 +1,7 @@
 id: 'person3_location_update'
 initial_state: 'on'
 alias: 'person3 location update'
-mode: single
+mode: parallel
 trigger:
   # I've moved
   - platform: state
