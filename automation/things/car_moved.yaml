@@ -1,6 +1,7 @@
 id: 'car_moved'
 alias: 'car moved'
 initial_state: 'on'
+mode: parallel
 trigger:
   - platform: state
     entity_id: device_tracker.skoda_superb_combi_position

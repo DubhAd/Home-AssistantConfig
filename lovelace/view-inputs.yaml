@@ -1,14 +1,11 @@
 title: Inputs
-type: panel
+type: masonry
 id: inputs
 path: inputs
 icon: mdi:toggle-switch
 visible:
   - user: 2e93f54c62e549c8aeperson2748de6bed9d
 cards:
-- type: custom:layout-card
-  max_columns: 4
-  cards:
   - type: entities
     title: Toggles for automations
     show_header_toggle: false
