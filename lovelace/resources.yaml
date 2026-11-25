@@ -1,54 +1,56 @@
   # https://maykar.github.io/compact-custom-header/
-  #- url: /hacsfiles/custom-header/custom-header.js
+  #- url: /local/community/custom-header/custom-header.js
   #  type: module
-- url: /hacsfiles/weather-card/weather-card.js
+- url: /local/community/weather-card/weather-card.js
   type: module 
   # https://github.com/kalkih/mini-media-player
-- url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+- url: /local/community/mini-media-player/mini-media-player-bundle.js
   type: module 
 - type: module
-  url: /hacsfiles/ha-floorplan/floorplan.js
+  url: /local/community/ha-floorplan/floorplan.js
   # https://github.com/ExperienceLovelace/ha-floorplan
   #type: module
-- url: /hacsfiles/lovelace-card-tools/card-tools.js
+- url: /local/community/lovelace-card-tools/card-tools.js
   type: module
-- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+- url: /local/community/lovelace-auto-entities/auto-entities.js
   type: module
-- url: /hacsfiles/lovelace-layout-card/layout-card.js
+- url: /local/community/lovelace-layout-card/layout-card.js
   type: module
 - url: /local/dist/google-calendar-card.js?v=1
   type: module
-- url: /hacsfiles/Home-Assistant-Lovelace-HTML-Jinja2-Template-card/html-template-card.js
+- url: /local/community/Home-Assistant-Lovelace-HTML-Jinja2-Template-card/html-template-card.js
   type: module
-- url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+- url: /local/community/mini-graph-card/mini-graph-card-bundle.js
   type: module 
-- url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
+- url: /local/community/simple-weather-card/simple-weather-card-bundle.js
   type: module 
-- url: /hacsfiles/battery-state-card/battery-state-card.js
+- url: /local/community/battery-state-card/battery-state-card.js
   type: module 
-- url: /hacsfiles/button-card/button-card.js
+- url: /local/community/button-card/button-card.js
   type: module 
-- url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+- url: /local/community/atomic-calendar-revive/atomic-calendar-revive.js
   type: module
 - url: /webrtc/webrtc-camera.js
   type: module
-- url: /hacsfiles/lovelace-hourly-weather/hourly-weather.js
+- url: /local/community/lovelace-hourly-weather/hourly-weather.js
   type: module
-- url: /hacsfiles/frigate-hass-card/frigate-hass-card.js
+- url: /local/community/frigate-hass-card/frigate-hass-card.js
   type: module
-- url: /hacsfiles/lovelace-mushroom/mushroom.js
+- url: /local/community/lovelace-mushroom/mushroom.js
   type: module
-- url: /hacsfiles/clock-weather-card/clock-weather-card.js
+- url: /local/community/clock-weather-card/clock-weather-card.js
   type: module
-- url: /hacsfiles/bom-weather-card/bom-weather-card.js
+- url: /local/community/bom-weather-card/bom-weather-card.js
   type: module
-- url: /hacsfiles/room-card/room-card.js
+- url: /local/community/room-card/room-card.js
   type: module
-- url: /hacsfiles/Bubble-Card/bubble-card.js
+- url: /local/community/Bubble-Card/bubble-card.js
   type: module 
-- url: /hacsfiles/Ultra-Vehicle-Card/ultra-vehicle-card.js
+- url: /local/community/Ultra-Vehicle-Card/ultra-vehicle-card.js
   type: module 
-- url: /hacsfiles/custom-brand-icons/custom-brand-icons.js
+- url: /local/community/custom-brand-icons/custom-brand-icons.js
   type: module
-- url: /hacsfiles/Ultra-Card/ultra-card.js
+- url: /local/community/Ultra-Card/ultra-card.js
+  type: module
+- url: /local/community/alert2/frontend/alert2.js
   type: module

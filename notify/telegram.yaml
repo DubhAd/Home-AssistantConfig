@@ -1,3 +1,0 @@
-- name: person2_telegram
-  platform: telegram
-  chat_id: !secret telegram_one
