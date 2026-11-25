@@ -1,4 +1,4 @@
-id: 'person3_location_update'
+id: 'person3_location_update2'
 initial_state: 'on'
 alias: 'person3 location update'
 mode: parallel

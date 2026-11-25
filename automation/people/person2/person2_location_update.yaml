@@ -1,4 +1,4 @@
-id: 'person2_location_update'
+id: 'person2_location_update2'
 initial_state: 'on'
 alias: 'person2 location update'
 mode: parallel
@@ -21,7 +21,4 @@ trigger:
       - sensor.person2s_time_to_home_waze
       - sensor.person2_places
 action:
-  - service: notify.person2
-    data:
-      message: "You moved!"
   - service: script.person2_travel_sensor

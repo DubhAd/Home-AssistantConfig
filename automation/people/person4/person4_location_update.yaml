@@ -1,4 +1,4 @@
-id: 'person4_location_update'
+id: 'person4_location_update2'
 initial_state: 'on'
 alias: 'Elizabeth location update'
 trigger:
